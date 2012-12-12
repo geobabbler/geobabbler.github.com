@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SpatiaLite | geoMusings]]></title>
   <link href="http://geobabbler.github.com/blog/categories/spatialite/atom.xml" rel="self"/>
   <link href="http://geobabbler.github.com/"/>
-  <updated>2012-12-12T09:30:49-05:00</updated>
+  <updated>2012-12-12T09:33:24-05:00</updated>
   <id>http://geobabbler.github.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -65,7 +65,7 @@ enjoy, Sandro
     <id>http://geobabbler.github.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API</id>
     <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
 
-<p><img alt="" class="aligncenter size-medium wp-image-2840" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png?w=287" title="FGDB API" width="287" /></p>
+<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
 
 <p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. <!--more--></p>
 
@@ -82,25 +82,15 @@ enjoy, Sandro
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>            <span class="kt">var</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;/App_Data/mvc_samples.gdb&quot;</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">Geodatabase</span> <span class="n">gdb</span> <span class="p">=</span> <span class="n">Geodatabase</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">Table</span> <span class="n">statesTable</span> <span class="p">=</span> <span class="n">gdb</span><span class="p">.</span><span class="n">OpenTable</span><span class="p">(</span><span class="s">&quot;\\us_states&quot;</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">RowCollection</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">statesTable</span><span class="p">.</span><span class="n">Search</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="s">&quot;STATE_NAME LIKE &#39;M%&#39;&quot;</span><span class="p">,</span> <span class="n">RowInstance</span><span class="p">.</span><span class="n">Recycle</span><span class="p">);</span>
-</span><span class='line'>            <span class="kt">var</span> <span class="n">rval</span> <span class="p">=</span> <span class="n">rows</span><span class="p">.</span><span class="n">ToGeoJson</span><span class="p">();</span>
-</span><span class='line'>            <span class="n">gdb</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
-</span><span class='line'>            <span class="n">Response</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">&quot;application/json&quot;</span><span class="p">;</span>
-</span><span class='line'>            <span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Content</span><span class="p">(</span><span class="n">rval</span><span class="p">);</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">result</span> <span class="k">as</span> <span class="n">ActionResult</span><span class="p">;</span> <span class="p">;</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">var</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;/App_Data/mvc_samples.gdb&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">Geodatabase</span> <span class="n">gdb</span> <span class="p">=</span> <span class="n">Geodatabase</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+</span><span class='line'><span class="n">Table</span> <span class="n">statesTable</span> <span class="p">=</span> <span class="n">gdb</span><span class="p">.</span><span class="n">OpenTable</span><span class="p">(</span><span class="s">&quot;\us_states&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">RowCollection</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">statesTable</span><span class="p">.</span><span class="n">Search</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="s">&quot;STATE_NAME LIKE &#39;M%&#39;&quot;</span><span class="p">,</span> <span class="n">RowInstance</span><span class="p">.</span><span class="n">Recycle</span><span class="p">);</span>
+</span><span class='line'><span class="kt">var</span> <span class="n">rval</span> <span class="p">=</span> <span class="n">rows</span><span class="p">.</span><span class="n">ToGeoJson</span><span class="p">();</span>
+</span><span class='line'><span class="n">gdb</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+</span><span class='line'><span class="n">Response</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">&quot;application/json&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Content</span><span class="p">(</span><span class="n">rval</span><span class="p">);</span>
+</span><span class='line'><span class="k">return</span> <span class="n">result</span> <span class="k">as</span> <span class="n">ActionResult</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
