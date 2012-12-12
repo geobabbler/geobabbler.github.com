@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://geobabbler.github.com/atom.xml" rel="self"/>
   <link href="http://geobabbler.github.com/"/>
-  <updated>2012-12-12T10:11:42-05:00</updated>
+  <updated>2012-12-12T10:18:18-05:00</updated>
   <id>http://geobabbler.github.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -79,7 +79,8 @@ enjoy, Sandro
     <id>http://geobabbler.github.com/2012/11/26/SpatiaLite-4.0-Released</id>
     <content type="html"><![CDATA[<p>It looks like it was a busy weekend for Sandro Furieri and the rest of the <a href="https://www.gaia-gis.it/fossil/libspatialite/index" target="_blank">SpatiaLite</a> team as version 4.0 was announced on Sunday. There are a number of changes, so it&#8217;s best to <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=switching-to-4.0" target="_blank">catch up on them</a> before switching over.</p>
 
-<p>[caption id=&#8221;&#8221; align=&#8221;aligncenter&#8221; width=&#8221;490&#8221;]<a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a>Not this SpatiaLite[/caption]</p>
+<div style="text-align: center;"><a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a><div style="text-align: center;font-size: 14px;">Not this SpatiaLite</div></div>
+
 
 <p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I&#8217;ll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
 ]]></content>
@@ -184,6 +185,114 @@ enjoy, Sandro
 <p>In its conclusions, the paper also makes compelling observations about the power of focused policy goals to drive the use of technology standing in stark contrast to generic overarching technical policies, such as the National Spatial Data Infrastructure (NSDI) which are disconnected from specific policy goals and achieve little traction.</p>
 
 <p>If you are interested not only in geospatial technologies, but also the link between policy and technology implementation, and the cultural change that can be brought about by open-source technologies, you should consider attending the event at the Wilson Center on the 15th. While not a universal blueprint, the National Broadband Map makes a compelling case study.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Cutting Tiles for ArcGIS Server Using TileMill]]></title>
+    <link href="http://geobabbler.github.com/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill/"/>
+    <updated>2012-10-03T00:00:00-04:00</updated>
+    <id>http://geobabbler.github.com/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill</id>
+    <content type="html"><![CDATA[<p>There&#8217;s been a lot of talk about <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a> lately, with good cause. TileMill makes it very easy generate beautiful map tiles using the <a href="http://mapnik.org/" target="_blank">Mapnik</a> engine and CartoCSS provides a familiar method to author the cartographic representation of spatial data. <a href="http://mapbrief.com/2012/09/27/gis-cartography-the-latest-best-opportunity-to-bridge-the-chasm/" target="_blank">As Brian Timoney points out</a>, CartoCSS has the added bonus of making best practices shareable via copy-and-paste.</p>
+
+
+
+
+<p>Naturally, the best way to take advantage of TileMill is to export your tiles to <a href="https://github.com/mapbox/mbtiles-spec" target="_blank">MBTiles</a> and use <a href="http://mapbox.com/" target="_blank">MapBox</a> hosting. If that&#8217;s not an option, you can pretty easily self-host with <a href="https://github.com/mapbox/tilestream" target="_blank">TileStream</a>. That said, there are some organizations that, due to larger GIS workflows, IT policies, and a host of other legitimate reasons, need or choose to use <a href="http://www.esri.com" target="_blank">ArcGIS Server</a> to do map hosting. For those organizations, TileMill is still an option to create attractive basemaps, within certain constraints.</p>
+
+
+<p><img alt="" class="aligncenter size-full wp-image-2911" height="295" src="http://geobabble.files.wordpress.com/2012/10/tilemill_screen.png" title="tilemill_screen" width="640" /></p>
+
+<p>So I set out to see if I could bridge the gap between the two. Two blog posts pointed the way. A while back, <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">Dan Dye blogged about how he had forked mb-util</a> and added support for exporting WeoGeo tilepacks from MBTiles. Also, a co-worker of mine, Eric Mahaffey, had blogged some time ago about <a href="http://www.zekiah.com/index.php?q=blog/2011/08/03/using-arc2earth-tile-caching-across-air-gapped-networks" target="_blank">how to use Arc2Earth to manage tile caches across air-gapped networks</a>. Using these posts for guidance, I was pretty sure I had all the pieces I needed. <!--more--></p>
+
+<p>First, I decided to fork Dan&#8217;s code (I love GitHub) and add support for exporting ArcGIS tiles. Essentially, I followed Dan&#8217;s pattern and added a choice for an ArcGIS schema as a command-line option. My forked version <a href="https://github.com/geobabbler/mbutil" target="_blank">can be found on GitHub</a>.</p>
+
+<p>I then fired up TileMill (0.10.0 for Windows) and created some tiles at zoom levels 4 through 8 using the &#8220;Control Room&#8221; sample that comes with TileMill. I chose this for two reasons: First, I am not very good at cartography and this sample looks attractive and distinct from the generic ArcGIS sample I used. Second, it&#8217;s very well-known to TileMill users so it worked well for this demo. I won&#8217;t go into how I created the tiles as this post is not intended to be a TileMill tutorial.</p>
+
+<p>Once I had exported the tiles to an MBTiles file, I ran the updated mb-util Python utility to export the tiles in an ArcGIS structure. The command-line usage is shown below. One note: I did not generate the &#8220;level&#8221; folders in accordance with ArcGIS convention. If you are familiar with ArcGIS, you know that the level numbers are relative so that, if your service only contains levels 3, 4 , and 5, the will be levels L00, L01, L02 respectively. Instead, the utility names them according to their original TMS levels (L03, L04, L05 in this case). So, you may need to rename your level folders when you rehost to ArcGIS Server but this should entail a maximum of 19 manual edits, which seemed like a reasonable compromise.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2012/10/mbutil_cmd.png"><img alt="" class="aligncenter size-full wp-image-2897" height="311" src="http://geobabble.files.wordpress.com/2012/10/mbutil_cmd.png" title="mb-util usage" width="640" /></a></p>
+
+<p>So mb-util created the &#8220;_alllayers&#8221; folder and its child file system for us. Because I&#8217;m not creating a conf.xml yet, I can create it by hand or use ArcGIS to create some dummy tiles with a configuration. Once that&#8217;s done, we are simply engaged in a file copy  operation (picking up at step 4 of Eric&#8217;s post). For this demo, I created an actual map using one of the ArcGIS samples so that it would be apparent that the operation worked. In practice, I wouldn&#8217;t go to that much trouble up front. The image below shows the map service using the original tiles.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/10/arc_tilemill1.png"><img alt="" class="size-full wp-image-2901" height="370" src="http://geobabble.files.wordpress.com/2012/10/arc_tilemill1.png" title="ArcGIS map service before TileMill tiles" width="640" /></a> <div style="text-align: center;font-size: 14px;">ArcGIS map service as created from the original MXD.</div></div>
+
+
+<p>After I copied the tiles from TileMill into the correct location, I was able to refresh the window and see the boundary between the original tiles and the those from TileMill. Again, this was just for demo purposes. In practice, the whole cache would be from TileMill. The image below shows the updated cache, displayed using the ArcGIS Javascript API.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/10/arc_tilemill2.png"><img alt="" class="size-full wp-image-2902" height="370" src="http://geobabble.files.wordpress.com/2012/10/arc_tilemill2.png" title="ArcGIS map service after TileMill tiles" width="640" /></a> <div style="text-align: center;font-size: 14px;">ArcGIS map service showing tiles from TileMill.</div></div>
+
+
+<p>I apologize for screenshots but my EDN license precludes making my ArcGIS Server public for a live demo.</p>
+
+<p>So, it&#8217;s perfectly possible to create nice basemaps using TileMill for use in ArcGIS server, provided you adhere to two constraints: 1) You use Web Mercator for your spatial reference and 2) You make sure your ArcGIS cache is the &#8220;exploded&#8221; variety.</p>
+
+<p>Why would you do this? It is certainly possible to build great cartographic representations in ArcGIS but those representations are locked away in ArcGIS map documents, styles, layer packages and such; all of which are some proprietary binary format such as persisted COM objects. While this may not be the worst thing in the world, CartoCSS, being a text format, more easily lends itself to configuration control. Organizations that want to maintain configuration control over map templates and such can take advantage of standard tools such as git or SVN to do so. I have found that organizations with strict IT policies are also exactly the same kinds of organizations that to maintain control over content and styling so this is actually a surprisingly important factor.</p>
+
+<p>I&#8217;ll probably play with this more as time and customer demand allow, but it&#8217;s good to know this option is available for providing flexibility with ArcGIS Server.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Still Jonesing for zigGIS? Try this OGR Plug-In for ArcGIS.]]></title>
+    <link href="http://geobabbler.github.com/2012/09/18/Still-Jonesing-for-zigGIS-Try-this-OGR-Plug-In-for-ArcGIS./"/>
+    <updated>2012-09-18T00:00:00-04:00</updated>
+    <id>http://geobabbler.github.com/2012/09/18/Still-Jonesing-for-zigGIS-Try-this-OGR-Plug-In-for-ArcGIS.</id>
+    <content type="html"><![CDATA[<p>So I&#8217;ve actually noticed a surprising uptick in traffic related to <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> lately? We also had someone asking about <a href="http://www.st-links.com/Pages/default.aspx" target="_blank">ST-Links</a> on the zigGIS mailing list last week. Clearly, there&#8217;s still a level of interest out there for the problem that zigGIS was designed for.</p>
+
+<p><a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank"><img alt="ArcGIS and SpatiaLite" height="65%" src="https://a248.e.akamai.net/camo.github.com/c1c86347c63522cb0f5f449b7b9df4209923c3ed/687474703a2f2f692e696d6775722e636f6d2f53767a6a702e706e67" width="65%" /></a></p>
+
+<div style="font-size: 70%;"><strong>ArcGIS reading SpatiaLite natively, thanks to OGR and Ragi Burhum</strong></div>
+
+
+<br />
+
+
+<p>Along those lines, <a href="http://twitter.com/rburhum" target="_blank">Ragi Burhum</a> posted an <a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank">OGR Workspace plug-in for ArcGIS</a> up on GitHub. Using OGR is really the magic ticket and the project is available under a BSD license (which Ragi explains very well). The only word to the wise is that pre-built binaries and installers aren&#8217;t available yet so you Windows/<a href="http://www.esri.com" target="_blank">ArcGIS</a> users will need to get your hands dirty.</p>
+
+<p>I haven&#8217;t used it yet but I plan to within the next week or so. Stay tuned for a follow up post.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Carving Up GIS StackExchange]]></title>
+    <link href="http://geobabbler.github.com/2012/09/13/Carving-Up-GIS-StackExchange/"/>
+    <updated>2012-09-13T00:00:00-04:00</updated>
+    <id>http://geobabbler.github.com/2012/09/13/Carving-Up-GIS-StackExchange</id>
+    <content type="html"><![CDATA[<p>So the data server that I was working with was having issues and, while waiting for the IT staff to resolve things, I decided to browse the <a href="http://gis.stackexchange.com/" target="_blank">GIS StackExchange</a> site. It&#8217;s been online for quite sometime now, though I am only an occasional user. One thing led to another and I found myself playing with the <a href="http://blog.stackoverflow.com/2012/09/stack-exchange-api-v2-1/" target="_blank">StackExchange API</a>, which returns various information for a particular site in a JSON format.</p>
+
+<p><img alt="" class="aligncenter size-large wp-image-2871" height="328" src="http://geobabble.files.wordpress.com/2012/09/gis_se_crop.png?w=1024" title="gis_se_crop" width="1024" /></p>
+
+<p>One of the things that got people excited about the site was that it was neutral territory, not directly controlled by a particular vendor or organization and it remains one of the few places where you can see hyperbole-free discussion of Esri tools right next to that of open-source tools and general GIS concepts. Since it&#8217;s been online for a while now, it has a lot of posts covering many different topics. I had some time on my hands, so I decided to pull the information for the 100 most &#8220;popular&#8221; tags, using the StackExchange API. With JSON in hand, I parsed into a CSV with Python and loaded the data into Excel to take a look.  <!--more--></p>
+
+<p>Since tags are user-generated, they run the gamut. To provide a little bit of standardization, I applied some categories to group the tags. I completely made up the categories but tried to apply them consistently. Not all fell neatly into groups so I made a few judgement calls. For example, I threw tags about the Esri Flex API into &#8220;Esri Tools&#8221; whereas &#8220;Flex&#8221; went into &#8220;Development/Programming.&#8221; Some may quibble but that&#8217;s how I did it. Also, the raw numbers indicate the frequency of each tag. Since posts can have multiple tags, there can be a lot of overlap. For example, an individual post could be about ArcSDE (&#8220;Esri Tools&#8221;) for PostgreSQL (&#8220;General Database&#8221;) using the PostGIS (&#8220;Open-Source Geospatial Tools&#8221;) geometry type. So a single post could span a number of categories. The chart below shows how the top 100 tags fell into those categories.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2863" height="353" src="http://geobabble.files.wordpress.com/2012/09/stackexchange_chart.png" title="stackexchange_chart" width="600" /></p>
+
+<p>I&#8217;m not sure that it provides any particular insights into the geospatial community at this point. A true <del datetime="2012-09-13T22:49:27+00:00">analyst</del> <del datetime="2012-09-13T22:49:27+00:00">statistician</del> data scientist can probably poke numerous holes in it. It would probably be good to revisit this in a year to see how things have changed, if at all. What it does say to me is that the GIS StackExchange site has succeeded in being a fairly neutral forum for discussion of GIS tools and concepts and that its user community has a diverse set of interests. Such a forum was sorely lacking before it came online, so that&#8217;s a win.</p>
+
+<p>For those with a mind for such things, the top tag was &#8220;arcgis&#8221; with 1659 occurrences and the 100th tag was &#8220;export&#8221; with 58. The StackExchange API lets you get a max of 100 tags at a time so I stopped at 100 for two reasons: 1) There was a significant dropoff from 1 to 100 and I didn&#8217;t think the next 100 would add much and 2) I had to assign categories by hand and 100 was as much as I had patience for. The data was downloaded on 13 September 2012 and will quickly become stale. The data that I used <a href="http://dl.dropbox.com/u/6749645/posts/gis_stackexchange.zip">can be downloaded here</a>.</p>
+
+<p>It looks like my server is online again, so back to work&#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mapping GISPs Again With Leaflet.markercluster]]></title>
+    <link href="http://geobabbler.github.com/2012/08/31/Mapping-GISPs-Again-With-Leaflet.markercluster/"/>
+    <updated>2012-08-31T00:00:00-04:00</updated>
+    <id>http://geobabbler.github.com/2012/08/31/Mapping-GISPs-Again-With-Leaflet.markercluster</id>
+    <content type="html"><![CDATA[<p>So I&#8217;ve been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It&#8217;s become my lightweight mapping library of choice. There&#8217;s a lot it doesn&#8217;t do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
+
+<p>[caption id=&#8221;attachment_2848&#8221; align=&#8221;aligncenter&#8221; width=&#8221;640&#8221;]<a href="http://demo.zekiah.com/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a> Click the image to go to the live demo[/caption]</p>
+
+<p>A while back, I stumbled onto the <a href="https://github.com/danzel/Leaflet.markercluster" target="_blank">Leaflet.markercluster</a> project on GitHub, which adds a clustering layer type. I wanted to try it so I revisited my old <a href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/" target="_blank">GISP heat map demo</a> (Silverlight) and decided to rework it. I was happy to finally get a chance to strip out the plug-in, anyway.  <!--more--></p>
+
+<p>This time around, I chose not to bother with the PMP data because it was kind of a pain to process the last time. I downloaded the GISP data from the <a href="http://www.gisci.org/secure/members/directory/results.asp" target="_blank">GISCI site</a> and once again ran it through <a href="http://www.geocommons.com" target="_blank">GeoCommons</a> to geocode it. This time, there were noticeable anomalies, such as positional accuracy problems (Richmond, VA was 25 miles east of where it should have been) and surprising omissions such as a failure to match major cities like Jacksonville, Florida and Phoenix, Arizona. I corrected some of the more egregious problems by hand and dumped the rest. Luckily none of this got in the way of the real goal of testing the clustering library but, if you visit the <a href="http://demo.zekiah.com/clustermap" target="_blank">live demo</a>, any anomalies you may notice are most likely related to the data and not the library.</p>
+
+<p>Once geocoding was complete, I downloaded the CSV and processed it into the JSON structure expected by the marker cluster library. The library is still fairly new, and I am fairly new to using it so I had some problems if I deviated from the sample format. As a result, I stuck to that format and resolved to investigate it more. After that, it was very easy to wire up into a light application, with the clusters thrown on top of some tiles from <a href="http://www.mapbox.com" target="_blank">MapBox</a>. (Thanks to <a href="http://www.geosprocket.com/" target="_blank">Bill Morris</a> for showing me that base map.)</p>
+
+<p>I think I prefer this representation to a heat map as it conveys more information at a glance. I&#8217;m happy to have this library in my toolbox now and am looking forward to seeing it evolve. I recommend checking it out.</p>
 ]]></content>
   </entry>
   

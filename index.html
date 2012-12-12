@@ -205,7 +205,8 @@ enjoy, Sandro
 
   <div class="entry-content"><p>It looks like it was a busy weekend for Sandro Furieri and the rest of the <a href="https://www.gaia-gis.it/fossil/libspatialite/index" target="_blank">SpatiaLite</a> team as version 4.0 was announced on Sunday. There are a number of changes, so it&#8217;s best to <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=switching-to-4.0" target="_blank">catch up on them</a> before switching over.</p>
 
-<p>[caption id=&#8221;&#8221; align=&#8221;aligncenter&#8221; width=&#8221;490&#8221;]<a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a>Not this SpatiaLite[/caption]</p>
+<div style="text-align: center;"><a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a><div style="text-align: center;font-size: 14px;">Not this SpatiaLite</div></div>
+
 
 <p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I&#8217;ll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
 </div>
@@ -458,7 +459,7 @@ enjoy, Sandro
       
   <header>
     
-      <h1 class="entry-title"><a href="http://geobabbler.github.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/">ToGeoJson and ToWKT for the Esri FGDB API</a></h1>
+      <h1 class="entry-title"><a href="http://geobabbler.github.com/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill/">Cutting Tiles for ArcGIS Server Using TileMill</a></h1>
     
     
       <p class="meta">
@@ -474,31 +475,89 @@ enjoy, Sandro
   
 
 
-<time datetime="2012-08-24T00:00:00-04:00" pubdate data-updated="true">Aug 24<span>th</span>, 2012</time>
+<time datetime="2012-10-03T00:00:00-04:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2012</time>
         
-         | <a href="http://geobabbler.github.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/#disqus_thread">Comments</a>
+         | <a href="http://geobabbler.github.com/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we&#8217;ve been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
+  <div class="entry-content"><p>There&#8217;s been a lot of talk about <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a> lately, with good cause. TileMill makes it very easy generate beautiful map tiles using the <a href="http://mapnik.org/" target="_blank">Mapnik</a> engine and CartoCSS provides a familiar method to author the cartographic representation of spatial data. <a href="http://mapbrief.com/2012/09/27/gis-cartography-the-latest-best-opportunity-to-bridge-the-chasm/" target="_blank">As Brian Timoney points out</a>, CartoCSS has the added bonus of making best practices shareable via copy-and-paste.</p>
 
-<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
 
-<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. </div>
+
+
+<p>Naturally, the best way to take advantage of TileMill is to export your tiles to <a href="https://github.com/mapbox/mbtiles-spec" target="_blank">MBTiles</a> and use <a href="http://mapbox.com/" target="_blank">MapBox</a> hosting. If that&#8217;s not an option, you can pretty easily self-host with <a href="https://github.com/mapbox/tilestream" target="_blank">TileStream</a>. That said, there are some organizations that, due to larger GIS workflows, IT policies, and a host of other legitimate reasons, need or choose to use <a href="http://www.esri.com" target="_blank">ArcGIS Server</a> to do map hosting. For those organizations, TileMill is still an option to create attractive basemaps, within certain constraints.</p>
+
+
+<p><img alt="" class="aligncenter size-full wp-image-2911" height="295" src="http://geobabble.files.wordpress.com/2012/10/tilemill_screen.png" title="tilemill_screen" width="640" /></p>
+
+<p>So I set out to see if I could bridge the gap between the two. Two blog posts pointed the way. A while back, <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">Dan Dye blogged about how he had forked mb-util</a> and added support for exporting WeoGeo tilepacks from MBTiles. Also, a co-worker of mine, Eric Mahaffey, had blogged some time ago about <a href="http://www.zekiah.com/index.php?q=blog/2011/08/03/using-arc2earth-tile-caching-across-air-gapped-networks" target="_blank">how to use Arc2Earth to manage tile caches across air-gapped networks</a>. Using these posts for guidance, I was pretty sure I had all the pieces I needed. </div>
   
   
     <footer>
-      <a rel="full-article" href="http://geobabbler.github.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/">Read on &rarr;</a>
+      <a rel="full-article" href="http://geobabbler.github.com/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill/">Read on &rarr;</a>
     </footer>
   
 
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="http://geobabbler.github.com/2012/09/18/Still-Jonesing-for-zigGIS-Try-this-OGR-Plug-In-for-ArcGIS./">Still Jonesing for zigGIS? Try This OGR Plug-In for ArcGIS.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-18T00:00:00-04:00" pubdate data-updated="true">Sep 18<span>th</span>, 2012</time>
+        
+         | <a href="http://geobabbler.github.com/2012/09/18/Still-Jonesing-for-zigGIS-Try-this-OGR-Plug-In-for-ArcGIS./#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So I&#8217;ve actually noticed a surprising uptick in traffic related to <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> lately? We also had someone asking about <a href="http://www.st-links.com/Pages/default.aspx" target="_blank">ST-Links</a> on the zigGIS mailing list last week. Clearly, there&#8217;s still a level of interest out there for the problem that zigGIS was designed for.</p>
+
+<p><a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank"><img alt="ArcGIS and SpatiaLite" height="65%" src="https://a248.e.akamai.net/camo.github.com/c1c86347c63522cb0f5f449b7b9df4209923c3ed/687474703a2f2f692e696d6775722e636f6d2f53767a6a702e706e67" width="65%" /></a></p>
+
+<div style="font-size: 70%;"><strong>ArcGIS reading SpatiaLite natively, thanks to OGR and Ragi Burhum</strong></div>
+
+
+<br />
+
+
+<p>Along those lines, <a href="http://twitter.com/rburhum" target="_blank">Ragi Burhum</a> posted an <a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank">OGR Workspace plug-in for ArcGIS</a> up on GitHub. Using OGR is really the magic ticket and the project is available under a BSD license (which Ragi explains very well). The only word to the wise is that pre-built binaries and installers aren&#8217;t available yet so you Windows/<a href="http://www.esri.com" target="_blank">ArcGIS</a> users will need to get your hands dirty.</p>
+
+<p>I haven&#8217;t used it yet but I plan to within the next week or so. Stay tuned for a follow up post.</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
+    
+      <a class="prev" href="http://geobabbler.github.com/blog/page/2/">&larr; Older</a>
     
     <a href="http://geobabbler.github.com/blog/archives">Blog Archives</a>
     
