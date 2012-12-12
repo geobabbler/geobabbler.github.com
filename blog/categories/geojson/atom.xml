@@ -4,7 +4,7 @@
   <title><![CDATA[Category: geojson | geoMusings]]></title>
   <link href="http://geobabbler.github.com/blog/categories/geojson/atom.xml" rel="self"/>
   <link href="http://geobabbler.github.com/"/>
-  <updated>2012-12-12T08:48:01-05:00</updated>
+  <updated>2012-12-12T09:26:57-05:00</updated>
   <id>http://geobabbler.github.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -36,6 +36,42 @@
 <p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
 
 <p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
+    <link href="http://geobabbler.github.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/"/>
+    <updated>2012-08-24T00:00:00-04:00</updated>
+    <id>http://geobabbler.github.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API</id>
+    <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
+
+<p><img alt="" class="aligncenter size-medium wp-image-2840" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png?w=287" title="FGDB API" width="287" /></p>
+
+<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. <!--more--></p>
+
+<p>Since the PIM is really a configuration management system for spatial data models, the tools need to support a wide variety of scenarios, including data migration between platforms, versions, approved user-defined implementations, etc. in a manner that's compliant with the data model being managed. As a result, some ETL-like tools are built into the workflows, although ETL is not a primary focus of the PIM.</p>
+
+<p>Since the PIM tools are written in .NET, I built a couple of extension methods to assist with some of the workflows in the existing tools. They enable outbound support for GeoJSON and WKT. The GeoJSON methods work on RowCollection, Row, and ShapeBuffer objects to create FeatureCollection, Feature, and Geometry types respectively. In practice, they'd be used something like this example from a very simple ASP.NET MVC sample application:</p>
+
+<p>[sourcecode language="csharp"]</p>
+
+<pre><code>            var path = Server.MapPath("/App_Data/mvc_samples.gdb");
+            Geodatabase gdb = Geodatabase.Open(path);
+            Table statesTable = gdb.OpenTable("\\us_states");
+            RowCollection rows = statesTable.Search("*", "STATE_NAME LIKE 'M%'", RowInstance.Recycle);
+            var rval = rows.ToGeoJson();
+            gdb.Close();
+            Response.ContentType = "application/json";
+            object result = this.Content(rval);
+            return result as ActionResult; ;
+</code></pre>
+
+<p>[/sourcecode]</p>
+
+<p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
+
+<p>As I said, I developed these to support workflows in existing applications. If you're looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
 ]]></content>
   </entry>
   
