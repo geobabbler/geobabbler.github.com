@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-12T20:05:39-05:00</updated>
+  <updated>2012-12-12T20:09:30-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -365,7 +365,138 @@ enjoy, Sandro
 
 <p>The latst release Paolo posted makes zigGIS scriptable from within VBA. Therefore, those of you who will try it that way may find this code useful. It&#8217;s an old VB6 class that I used to use but will work just fine in VBA:</p>
 
-<p>Liquid error: ClassNotFound: no lexer for alias &#8216;basic&#8217; found</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+</pre></td><td class='code'><pre><code class='vbnet'><span class='line'><span class="k">Option</span> <span class="n">Explicit</span>
+</span><span class='line'><span class="k">Private</span> <span class="k">Declare</span> <span class="k">Function</span> <span class="nf">WritePrivateProfileString</span> <span class="n">_</span>
+</span><span class='line'>    <span class="k">Lib</span> <span class="s">&quot;kernel32&quot;</span> <span class="k">Alias</span> <span class="s">&quot;WritePrivateProfileStringA&quot;</span> <span class="n">_</span>
+</span><span class='line'>        <span class="p">(</span><span class="k">ByVal</span> <span class="n">lpApplicationname</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">lpKeyName</span> <span class="ow">As</span> <span class="n">Any</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>            <span class="k">ByVal</span> <span class="n">lsString</span> <span class="ow">As</span> <span class="n">Any</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">lplFilename</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Long</span>
+</span><span class='line'><span class="k">Private</span> <span class="k">Declare</span> <span class="k">Function</span> <span class="nf">GetPrivateProfileInt</span> <span class="k">Lib</span> <span class="n">_</span>
+</span><span class='line'>    <span class="s">&quot;kernel32&quot;</span> <span class="k">Alias</span> <span class="s">&quot;GetPriviteProfileIntA&quot;</span> <span class="p">(</span><span class="k">ByVal</span> <span class="n">lpApplicationname</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>        <span class="k">ByVal</span> <span class="n">lpKeyName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">nDefault</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>            <span class="k">ByVal</span> <span class="n">lpFileName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Long</span>
+</span><span class='line'><span class="k">Private</span> <span class="k">Declare</span> <span class="k">Function</span> <span class="nf">GetPrivateProfileString</span> <span class="k">Lib</span> <span class="s">&quot;kernel32&quot;</span> <span class="k">Alias</span> <span class="n">_</span>
+</span><span class='line'>    <span class="s">&quot;GetPrivateProfileStringA&quot;</span> <span class="p">(</span><span class="k">ByVal</span> <span class="n">lpApplicationname</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>        <span class="k">ByVal</span> <span class="n">lpKeyName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">lpDefault</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>            <span class="k">ByVal</span> <span class="n">lpReturnedString</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">nSize</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>                <span class="k">ByVal</span> <span class="n">lpFileName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Long</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Private</span> <span class="n">m_strFile</span> <span class="ow">As</span> <span class="kt">String</span> <span class="c">&#39; for file name</span>
+</span><span class='line'><span class="k">Private</span> <span class="n">m_AppName</span> <span class="ow">As</span> <span class="kt">String</span> <span class="c">&#39;</span>
+</span><span class='line'><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Get</span> <span class="n">FileName</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">String</span>
+</span><span class='line'>    <span class="n">FileName</span> <span class="o">=</span> <span class="n">m_strFile</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Property</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Let</span> <span class="n">FileName</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">strFile</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">m_strFile</span> <span class="o">=</span> <span class="n">Trim</span><span class="p">(</span><span class="n">strFile</span><span class="p">)</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Property</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Class_Initialize</span><span class="p">()</span>
+</span><span class='line'>    <span class="n">m_strFile</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'>    <span class="n">m_AppName</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Sub</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Get</span> <span class="n">ApplicationKey</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">String</span>
+</span><span class='line'>    <span class="n">ApplicationKey</span> <span class="o">=</span> <span class="n">m_AppName</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Property</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Let</span> <span class="n">ApplicationKey</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">strAppKey</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">m_AppName</span> <span class="o">=</span> <span class="n">Trim</span><span class="p">(</span><span class="n">strAppKey</span><span class="p">)</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Property</span>
+</span><span class='line'><span class="k">Private</span> <span class="k">Function</span> <span class="nf">fConvert</span><span class="p">(</span><span class="n">str</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">String</span>
+</span><span class='line'><span class="k">Dim</span> <span class="n">i</span> <span class="ow">As</span> <span class="kt">Integer</span>
+</span><span class='line'><span class="k">Dim</span> <span class="n">strOP</span> <span class="ow">As</span> <span class="kt">String</span>
+</span><span class='line'><span class="k">Dim</span> <span class="n">intAsc</span> <span class="ow">As</span> <span class="kt">Integer</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">str</span> <span class="o">=</span> <span class="n">Trim</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">strOP</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">Len</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">intAsc</span> <span class="o">=</span> <span class="n">Asc</span><span class="p">(</span><span class="n">Mid</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span><span class='line'>        <span class="k">If</span> <span class="n">intAsc</span> <span class="o">&amp;</span><span class="n">gt</span><span class="err">;</span> <span class="mi">31</span> <span class="ow">And</span> <span class="n">intAsc</span>  <span class="mi">0</span> <span class="k">Then</span>
+</span><span class='line'>        <span class="n">GetValue</span> <span class="o">=</span> <span class="n">fConvert</span><span class="p">(</span><span class="n">strVal</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">Else</span>
+</span><span class='line'>        <span class="n">GetValue</span> <span class="o">=</span> <span class="s">&quot;Error&quot;</span>
+</span><span class='line'>    <span class="k">End</span> <span class="k">If</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Function</span>
+</span><span class='line'><span class="k">Public</span> <span class="k">Function</span> <span class="nf">SetValue</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">keyName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">strValue</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+</span><span class='line'><span class="k">Dim</span> <span class="n">ret</span> <span class="ow">As</span> <span class="kt">Long</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">ret</span> <span class="o">=</span> <span class="n">WritePrivateProfileString</span><span class="p">(</span><span class="n">m_AppName</span><span class="p">,</span> <span class="n">keyName</span><span class="p">,</span> <span class="n">strValue</span><span class="p">,</span> <span class="n">m_strFile</span><span class="p">)</span>
+</span><span class='line'><span class="k">If</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">Then</span>
+</span><span class='line'>    <span class="n">SetValue</span> <span class="o">=</span> <span class="k">False</span>
+</span><span class='line'>    <span class="k">Exit</span> <span class="k">Function</span>
+</span><span class='line'><span class="nf">End</span> <span class="k">If</span>
+</span><span class='line'><span class="n">SetValue</span> <span class="o">=</span> <span class="k">True</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">End</span> <span class="k">Function</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Hopefully, this will help or at least get you going in the right direction.</p>
 ]]></content>
