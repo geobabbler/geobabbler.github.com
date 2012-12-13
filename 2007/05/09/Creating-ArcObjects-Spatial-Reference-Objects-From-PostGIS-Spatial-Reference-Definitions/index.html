@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>geoMusings</title>
+  <title>Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions - geoMusings</title>
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="So the data server that I was working with was having issues and, while waiting for the IT staff to resolve things, I decided to browse the GIS &hellip;">
+  <meta name="description" content="As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.geomusings.com/blog/page/2/">
+  <link rel="canonical" href="http://blog.geomusings.com/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,150 +62,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/2012/09/13/Carving-Up-GIS-StackExchange/">Carving Up GIS StackExchange</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-13T00:00:00-04:00" pubdate data-updated="true">Sep 13<span>th</span>, 2012</time>
-        
-         | <a href="/2012/09/13/Carving-Up-GIS-StackExchange/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So the data server that I was working with was having issues and, while waiting for the IT staff to resolve things, I decided to browse the <a href="http://gis.stackexchange.com/" target="_blank">GIS StackExchange</a> site. It&#8217;s been online for quite sometime now, though I am only an occasional user. One thing led to another and I found myself playing with the <a href="http://blog.stackoverflow.com/2012/09/stack-exchange-api-v2-1/" target="_blank">StackExchange API</a>, which returns various information for a particular site in a JSON format.</p>
-
-<p><img alt="" class="aligncenter size-large wp-image-2871" height="328" src="http://geobabble.files.wordpress.com/2012/09/gis_se_crop.png?w=1024" title="gis_se_crop" width="1024" /></p>
-
-<p>One of the things that got people excited about the site was that it was neutral territory, not directly controlled by a particular vendor or organization and it remains one of the few places where you can see hyperbole-free discussion of Esri tools right next to that of open-source tools and general GIS concepts. Since it&#8217;s been online for a while now, it has a lot of posts covering many different topics. I had some time on my hands, so I decided to pull the information for the 100 most &#8220;popular&#8221; tags, using the StackExchange API. With JSON in hand, I parsed into a CSV with Python and loaded the data into Excel to take a look.  </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/09/13/Carving-Up-GIS-StackExchange/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/08/31/Mapping-GISPs-Again-With-Leaflet.markercluster/">Mapping GISPs Again With Leaflet.markercluster</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-31T00:00:00-04:00" pubdate data-updated="true">Aug 31<span>st</span>, 2012</time>
-        
-         | <a href="/2012/08/31/Mapping-GISPs-Again-With-Leaflet.markercluster/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So I&#8217;ve been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It&#8217;s become my lightweight mapping library of choice. There&#8217;s a lot it doesn&#8217;t do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
-
-<p>[caption id=&#8221;attachment_2848&#8221; align=&#8221;aligncenter&#8221; width=&#8221;640&#8221;]<a href="http://demo.zekiah.com/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a> Click the image to go to the live demo[/caption]</p>
-
-<p>A while back, I stumbled onto the <a href="https://github.com/danzel/Leaflet.markercluster" target="_blank">Leaflet.markercluster</a> project on GitHub, which adds a clustering layer type. I wanted to try it so I revisited my old <a href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/" target="_blank">GISP heat map demo</a> (Silverlight) and decided to rework it. I was happy to finally get a chance to strip out the plug-in, anyway.  </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/08/31/Mapping-GISPs-Again-With-Leaflet.markercluster/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/">ToGeoJson and ToWKT for the Esri FGDB API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-24T00:00:00-04:00" pubdate data-updated="true">Aug 24<span>th</span>, 2012</time>
-        
-         | <a href="/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we&#8217;ve been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
-
-<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
-
-<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/">Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions</a></h1>
+      <h1 class="entry-title">Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions</h1>
     
     
       <p class="meta">
@@ -223,14 +85,14 @@
 
 <time datetime="2007-05-09T00:00:00-04:00" pubdate data-updated="true">May 9<span>th</span>, 2007</time>
         
-         | <a href="/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support for user-defined spatial references. It pretty much boils down to querying the the appropriate SR from the PostGIS spatial_ref_sys table and applying the value of the srtext column to create a spatial reference in ArcObjects.</p>
+<div class="entry-content"><p>As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support for user-defined spatial references. It pretty much boils down to querying the the appropriate SR from the PostGIS spatial_ref_sys table and applying the value of the srtext column to create a spatial reference in ArcObjects.</p>
 
 <p>This approach has a few advantages and disadvantages. First, the advantages. Although both PostGIS and ESRI implement the EPSG spatial reference codes, there is not a one-to-one match between the two. Therefore, you could get an SRID in PostGIS that&#8217;s not supported in ArcGIS. The approach described above should alleviate that, adding stability. Secondly, if you&#8217;ve created a user-defined spatial reference in PostGIS, you should be able to use it in ArcGIS.</p>
 
@@ -305,22 +167,16 @@
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/02/21/Working-with-.zig-files/">Working With .zig Files</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
 
 
 
@@ -332,34 +188,44 @@
   
 
 
-<time datetime="2007-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2007</time>
-        
-      </p>
+<time datetime="2007-05-09T00:00:00-04:00" pubdate data-updated="true">May 9<span>th</span>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/arcobjects/'>arcobjects</a>, <a class='category' href='/blog/categories/esri/'>esri</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/open-source/'>open source</a>, <a class='category' href='/blog/categories/postgis/'>postgis</a>, <a class='category' href='/blog/categories/postgresql/'>postgresql</a>, <a class='category' href='/blog/categories/ziggis/'>ziggis</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>The last couple of days have shown some traffic being driven to my blog from search terms such as &#8220;opening zig file&#8221; so I thought I&#8217;d offer up a discussion of the format.</p>
-
-<p>Abe Gillespie, the original developer of <a href="http://code.google.com/p/ziggis">zigGIS</a>, developed the zig file as a means of persisting PostGIS connection information used to access a layer and display it in ArcMap. He threw us a blast from the past by choosing the old Windows INI format as the zig file syntax. I admire the choice because, truth be told, I still use that format from time to time. For simple configuration information, it&#8217;s more efficient than XML.</div>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/" >Tweet</a>
   
   
-    <footer>
-      <a rel="full-article" href="/2007/02/21/Working-with-.zig-files/">Read on &rarr;</a>
-    </footer>
+  <div class="g-plusone" data-size="medium"></div>
   
-
-
-    </article>
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/">Newer &rarr;</a>
-    
-  </div>
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2007/02/21/Working-with-.zig-files/" title="Previous Post: Working with .zig files">&laquo; Working with .zig files</a>
+      
+      
+        <a class="basic-alignment right" href="/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/" title="Next Post: ToGeoJson and ToWKT for the Esri FGDB API">ToGeoJson and ToWKT for the Esri FGDB API &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -379,7 +245,7 @@
       </li>
     
       <li class="post">
-        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed&#8230;</a>
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
       </li>
     
       <li class="post">
@@ -392,7 +258,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
@@ -422,7 +288,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -450,6 +316,7 @@
 
   
 </aside>
+
 
     </div>
   </div>
