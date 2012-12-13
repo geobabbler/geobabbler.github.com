@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-12T19:33:42-05:00</updated>
+  <updated>2012-12-12T19:58:16-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -335,6 +335,39 @@ enjoy, Sandro
 <p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I&#8217;ll be doing some cleanup on the GeoJSON in the near future and I&#8217;ll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
 
 <p>As I said, I developed these to support workflows in existing applications. If you&#8217;re looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Working with .zig files]]></title>
+    <link href="http://blog.geomusings.com/2007/02/21/Working-with-.zig-files/"/>
+    <updated>2007-02-21T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2007/02/21/Working-with-.zig-files</id>
+    <content type="html"><![CDATA[<p>The last couple of days have shown some traffic being driven to my blog from search terms such as &#8220;opening zig file&#8221; so I thought I&#8217;d offer up a discussion of the format.</p>
+
+<p>Abe Gillespie, the original developer of <a href="http://code.google.com/p/ziggis">zigGIS</a>, developed the zig file as a means of persisting PostGIS connection information used to access a layer and display it in ArcMap. He threw us a blast from the past by choosing the old Windows INI format as the zig file syntax. I admire the choice because, truth be told, I still use that format from time to time. For simple configuration information, it&#8217;s more efficient than XML.<!--more--></p>
+
+<p>The INI is well documented but, as Win16 fades farther into history, it has become an anachronism. There is a reasonably good discussion of the format <a href="http://en.wikipedia.org/wiki/INI_file">here</a>.</p>
+
+<p>I did a lot of work with INI files in VB6. There are about a half million VB6 implementations that wrap the Windows API to manage INI files. <a href="http://www.andreavb.com/tip080005.html">Here&#8217;s one</a>. We use <a href="http://nini.sourceforge.net/">Nini</a> to manage the .zig files from within our .Net code.</p>
+
+<p>Paolo&#8217;s <a href="http://www.paolocorti.net/public/wordpress/index.php/2007/02/14/installing-ziggis-11-for-connecting-arcmap-to-postgis-layers/">latest post</a> about installing zigGIS 1.1 contains a description of the actual content of the .zig file.</p>
+
+<p>If you wanted to programmatically access or change the .zig file, what would you do? First, you could download our source code and see how we use Nini to do it. Secondly, you could use the Windows API. The simplest class I have makes use of just two API calls:</p>
+
+<ul>
+    <li>WritePrivateProfileStringA</li>
+    <li>GetPrivateProfileString</li>
+</ul>
+
+
+<p>Here&#8217;s a good <a href="http://www.developer.com/net/vb/article.php/3287991">link</a> with some VB.NET source code.</p>
+
+<p>The latst release Paolo posted makes zigGIS scriptable from within VBA. Therefore, those of you who will try it that way may find this code useful. It&#8217;s an old VB6 class that I used to use but will work just fine in VBA:</p>
+
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;vb&#8217; found</p>
+
+<p>Hopefully, this will help or at least get you going in the right direction.</p>
 ]]></content>
   </entry>
   
