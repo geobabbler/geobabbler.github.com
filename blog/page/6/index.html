@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I was IMing with Paolo?today and we were discussing his employer&#8217;s decision to migrate to open-source. The conversation took a few turns and we &hellip;">
+  <meta name="description" content="I&#8217;m a little behind the curve on this but I&#8217;ve had one customer holding out until recently. Now I can finally take the plunge. Who needs &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/16/Free-and-Closed.-Why/">Free and Closed. Why?</a></h1>
+      <h1 class="entry-title"><a href="/2007/03/08/Finally-Upgrading-to-9.2/">Finally Upgrading to 9.2&#8230;</a></h1>
     
     
       <p class="meta">
@@ -88,28 +88,234 @@
   
 
 
-<time datetime="2007-01-16T00:00:00-05:00" pubdate data-updated="true">Jan 16<span>th</span>, 2007</time>
+<time datetime="2007-03-08T00:00:00-05:00" pubdate data-updated="true">Mar 8<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/16/Free-and-Closed.-Why/#disqus_thread">Comments</a>
+         | <a href="/2007/03/08/Finally-Upgrading-to-9.2/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I was IMing with <a href="http://www.paolocorti.net">Paolo</a>?today and we were discussing his employer&#8217;s decision to migrate to open-source. The conversation took a few turns and we touched upon the concept of free closed-source software vice free open-source software. His employer had rejected a free CMS that was not open-source.</p>
+  <div class="entry-content"><p>I&#8217;m a little behind the curve on this but I&#8217;ve had one customer holding out until recently. Now I can finally take the plunge. Who needs sleep? See you on the other side&#8230;  ;-)</p>
+</div>
+  
+  
 
-<p>This got me into a philosophical frame of mind. I began wondering if, in this day and age, there is any reason to consciously choose to release a software product as a free, but closed-source product? I raised this question a while back with regard to <a href="http://geobabble.wordpress.com/2006/12/28/why-isnt-arcgis-explorer-open-source/">ArcGIS Explorer</a>?but now I&#8217;m expanding the question. I would love to hear comments on this but I&#8217;d like to establish a few parameters:</p>
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/02/24/How-Do-You-Disable-This-Dialog-in-ArcMap/">How Do You Disable This Dialog in ArcMap?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-24T00:00:00-05:00" pubdate data-updated="true">Feb 24<span>th</span>, 2007</time>
+        
+         | <a href="/2007/02/24/How-Do-You-Disable-This-Dialog-in-ArcMap/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong><strong>UPDATE</strong></strong><em>Check the comments for the resolution to this. 9.2 offers a registry setting and, since I&#8217;m upgrading, I&#8217;ll make use of that. I got pretty far on my API hack though.</em></p>
+
+<p>My question is twofold: First: Can you stop this dialog from appearing in ArcMap 9.1? Second: If not, does 9.2 give you the option to turn this thing off?</p>
+
+<p><img alt="ArcMap Drawing Errors?Dialog" src="http://geobabble.files.wordpress.com/2007/02/arcmap_draw_error.JPG" /></p>
+
+<p>I have posted a similar query on the ESRI forums but I thought the blogosphere may be able to weigh in on this. This dialog was introduced at 9.1 as a &#8220;feature&#8221; but it&#8217;s not the most developer-friendly thing in the world. A little background:</p>
+
+<p>I have an application running as a Windows service that is receiving data and stuffing it into ArcSDE. I have another app that&#8217;s an ArcMap extension. It refreshed the map on a specified interval and shows the new data as it comes in. There is no syncronization between the two. As you would expect, there are occaionally collisions. The ArcSDE layer may be in load-only mode or something similar. I have a lot of exception-handling in place to trap all of those kinds of things.</p>
+
+<p>This dialog defies all of that. Despite my exception handling, it still pops up and it completely freaks out my users. I would like to turn it off. (I would really like to kill it.) I can&#8217;t find a registry setting or any other such option that allows me to do that so I&#8217;m stumped. Any help would be appreciated and I promise to sing your praises on this blog if you have the solution.</p>
+
+<p>For background: we are using 9.1 (for a number of reasons). We are starting the upgrade planning to go to 9.2. If 9.2 fixes this, then I&#8217;ll stop worrying about it. Any useful info would be very helpful. My next step is some slimy Windows API hack to suppress the damned thing.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/02/21/Working-with-.zig-files/">Working With .zig Files</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The last couple of days have shown some traffic being driven to my blog from search terms such as &#8220;opening zig file&#8221; so I thought I&#8217;d offer up a discussion of the format.</p>
+
+<p>Abe Gillespie, the original developer of <a href="http://code.google.com/p/ziggis">zigGIS</a>, developed the zig file as a means of persisting PostGIS connection information used to access a layer and display it in ArcMap. He threw us a blast from the past by choosing the old Windows INI format as the zig file syntax. I admire the choice because, truth be told, I still use that format from time to time. For simple configuration information, it&#8217;s more efficient than XML.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/02/21/Working-with-.zig-files/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/02/16/DDJ-Article-on-MyMap-Javascript-API/">DDJ Article on MyMap Javascript API</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-16T00:00:00-05:00" pubdate data-updated="true">Feb 16<span>th</span>, 2007</time>
+        
+         | <a href="/2007/02/16/DDJ-Article-on-MyMap-Javascript-API/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>An <a href="http://www.ddj.com/dept/webservices/197003355">article</a> in the latest Dr. Dobb&#8217;s caught my eye. It&#8217;s about MyMap; a javascript api that standardizes the calls between Google Maps, Yahoo Maps and Virtual Earth. I&#8217;m always drawn when mapping tools get press outside of the GIS world. MyMap is predicated on the idea that each mapping engine provides similar capabilities. There is a different .js file for each but the function calls are the same. Therefore, it makes it relatively easy to provide similar capabilities for your web app regardless of the back-end engine.</p>
+
+<p>I installed the <a href="ftp://66.77.27.238/sourcecode/ddj/2007/0703.zip">sample</a> from the DDJ resource center and it&#8217;s pretty straightforward. You may need to comment out the call to Google Maps because the API key won&#8217;t work for you. If you have your own, you can use that. Either way, the Yahoo and VE calls work fine and give good idea of how MyMap works. I&#8217;d recommend checking it out.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/02/14/zigGIS-1.1.0.20768-Now-Available/">zigGIS 1.1.0.20768 Now Available!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-14T00:00:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2007</time>
+        
+         | <a href="/2007/02/14/zigGIS-1.1.0.20768-Now-Available/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.paolocorti.net">Paolo</a> moves fast! The new installer is available for download at the <a href="http://code.google.com/p/ziggis">zigGIS project home</a>. Bear in mind that zigGIS depends on the ArcObjects .NET libraries. A good post on making sure you&#8217;ve got them is available <a href="http://mrrichie.spaces.live.com/blog/cns!DD16C3F34F4D913E!582.entry">here</a>.</p>
+
+<p>The last version had over 200 downloads. Please feel free to post feedback at the project site. All feedback helps us make it better.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/02/13/zigGIS-Update-Coming-Soon/">zigGIS Update Coming Soon</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2007</time>
+        
+         | <a href="/2007/02/13/zigGIS-Update-Coming-Soon/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Things have been a little slow on the <a href="http://code.google.com/p/ziggis/">zigGIS</a> front for the last few weeks. Both Paolo and I have been incredibly busy at work. We have both made some updates but it&#8217;s been hard to pull them together into a coherent release. That&#8217;s getting very close now. Enhancements this time around will include:</p>
 
 <ol>
-    <li>I&#8217;m not interested in delving into the open-source vs. commercial software debate.</li>
-    <li>I&#8217;m not trying to criticize anyone who chooses to keep their source code closed. I&#8217;m genuinely curious about the decision process.</li>
-    <li>I&#8217;m not referring to things like &#8220;nagware&#8221;, demo software with restricted functionality or free products that are really teasers for commercial products (which is what?I consider <a href="http://www.ogleearth.com/2006/06/google_earth_at.html">Google Earth</a> to be).</li>
-    <li>Please keep it civil. We&#8217;re all grown-ups and/or professionals.</li>
+    <li>On-the-fly reprojection - We have been able to get layers with different SRIDs to overlay correctly. Also, you can change the SRIF of the map and the layers display correctly. Obviously, we haven&#8217;t tested every spatial reference out there but we&#8217;re encouraged.</li>
+    <li>Dataset Enumeration - We can now list the PostGIS layers in the database to which we connect. Paolo has implemented a new dialog that allows you to pick the layer you want rather than having to type it.</li>
+    <li>Use of a PropertySet for workspace properties - It&#8217;s now not as tightly coupled to the .zig file and more consistent with how other data sources are implemented in ArcGIS</li>
 </ol>
 
 
-<p>I look forward to hearing your thoughts.</p>
+<p>Paolo is working hard to pull all of our changes together and get a release out soon. There are probably other updates that I&#8217;m missing but there will be a full accounting once the release is out. We&#8217;re still working toward some bigger issues, such as editing. Also, we&#8217;ve begun the development of some catalog objects. Those will be addressed in subsequent releases.</p>
 </div>
   
   
@@ -122,7 +328,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/14/Derived-Geometry-Redux/">Derived Geometry Redux</a></h1>
+      <h1 class="entry-title"><a href="/2007/02/07/ArcGIS-Next/">ArcGIS.Next (+)</a></h1>
     
     
       <p class="meta">
@@ -138,61 +344,24 @@
   
 
 
-<time datetime="2007-01-14T00:00:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2007</time>
+<time datetime="2007-02-07T00:00:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/14/Derived-Geometry-Redux/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A long time ago, on a blog-hosting site far far away, there was a blog called ArcDeveloper (not to be confused with <a href="http://www.arcdeveloper.net/">ArcDeveloper.Net</a>, which came later and did more). That was my first blog. It went in a few different directions. I wasn&#8217;t happy with it, so I killed it. There&#8217;s nothing to link to now.</p>
-
-<p>Anyway, one of the posts I did on that blog had to do with creating derived geometry classes in .Net. The basic premise is simple: create a class that inherits from one of the ArcObjects geometry classes and then extend it to fit your needs. My application at the time had to do with writing an ArcGIS client for <a href="http://www.incident.com/cookbook/index.php/Welcome_to_the_CAP_Cookbook">Common Alerting Protocol (CAP)</a> feeds.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/01/14/Derived-Geometry-Redux/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/12/Standalone-IE6/">Standalone IE6</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-12T00:00:00-05:00" pubdate data-updated="true">Jan 12<span>th</span>, 2007</time>
-        
-         | <a href="/2007/01/12/Standalone-IE6/#disqus_thread">Comments</a>
+         | <a href="/2007/02/07/ArcGIS-Next/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Okay, this really has nothing to do with GIS but I wanted to get this info out there. I have a particular piece of software that I use regularly that involves connecting a device to my PC to exchange information. This software does not work with IE7 yet. Since automatic updates doesn&#8217;t really give you any choice in the matter (I love coming down in the morning and finding a new browser), this created a problem for me.</p>
+  <div class="entry-content"><p>Steve has <a href="http://thesteve0.wordpress.com/2007/02/06/notes-from-the-esri-cahinvguam-regional-users-group/">blogged</a> about Clint Brown&#8217;s talk at the CA/HI/NV/Guam RUG meeting. There&#8217;s nothing particularly suprprising but we&#8217;re starting to get dates and features tied to version numbers.</p>
 
-<p>I found the following software that lets you install previous version of IE in standalone mode: <a href="http://tredosoft.com/Multiple_IE">http://tredosoft.com/Multiple_IE</a>. I imagine it may have applicability for testing and such but it also solved my problem.</p>
+<p>I am encouraged that 9.3 will be in beta soon. ESRI&#8217;s odd-numbered releases are always more stable. The support for <a href="http://www.postgresql.org/">PostgreSQL</a> with ArcSDE is not a surprise. It will be interesting to see whether that ends up being a port of ArcSDE to PostgreSQL or whether they will take advantage of <a href="http://postgis.refractions.net/">PostGIS</a>. I suspect the former. However, the ability to choose an open-source RDBMS greatly reduces the overall cost of implementing ArcSDE. That can only be a good thing. Also, I&#8217;m glad they chose PostgreSQL rather than <a href="http://www.mysql.com/">MySQL</a>. At the risk of slings and arrows, I much prefer PG to MySQL.</p>
+
+<p>I am particularly encouraged by some of the features planned for 10.0. I also don&#8217;t see most of those features happening without ArcGIS finally moving away from COM. That will be an extremely welcome change. Hopefully, they will go straight to <a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF</a> for the UI.</p>
+
+<p>So what about <a href="http://code.google.com/p/ziggis/">zigGIS</a>? I see no reason to stop. If ESRI just implements PostGIS, maybe zigGIS becomes redundant but I suspect the GPL will prevent them from doing that. Therefore, I see it being more of a port of the existing ArcSDE. Anyway, I think the need for a completely free connector to PostGIS will continue, so we will keep moving forward.</p>
+
+<p>All in all, I&#8217;m encouraged by what&#8217;s on the way with regard to the technology. I&#8217;d still like to get more of an idea who ESRI&#8217;s &#8220;Steve Ballmer&#8221; is, though.</p>
 </div>
   
   
@@ -205,7 +374,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/10/zigGIS-Update/">zigGIS Update</a></h1>
+      <h1 class="entry-title"><a href="/2007/02/05/Two-Roads-Diverged-in-a-Yellow-Wood/">Two Roads Diverged in a Yellow Wood&#8230;</a></h1>
     
     
       <p class="meta">
@@ -221,61 +390,28 @@
   
 
 
-<time datetime="2007-01-10T00:00:00-05:00" pubdate data-updated="true">Jan 10<span>th</span>, 2007</time>
+<time datetime="2007-02-05T00:00:00-05:00" pubdate data-updated="true">Feb 5<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/10/zigGIS-Update/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Paolo has posted an update to <a href="http://ziggis.googlecode.com/files/ZigGis11.zip">zigGIS</a>. This update deals more effectively with data layers that have an SRID associated (SRID != -1). They now seem to overlay well. On-the-fly reprojection is still not working but he is working on it. <a href="http://www.archaeogeek.com/blog/">Archaeogeek</a>?recently <a href="http://www.archaeogeek.com/blog/2007/01/05/arcgis-connectors-for-postgis/">posted</a> about some issues getting zigGIS to work.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/01/10/zigGIS-Update/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/10/In-For-a-Dime/">In for a Dime&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-10T00:00:00-05:00" pubdate data-updated="true">Jan 10<span>th</span>, 2007</time>
-        
-         | <a href="/2007/01/10/In-For-a-Dime/#disqus_thread">Comments</a>
+         | <a href="/2007/02/05/Two-Roads-Diverged-in-a-Yellow-Wood/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>&#8230;in for a dollar.</p>
+  <div class="entry-content"><p>With apologies to the great Robert Frost.</p>
 
-<p>I&#8217;ve been blogging about <a href="http://code.google.com/p/ziggis/">zigGIS</a> a lot (more than I had planned to, really). So, today, I joined the project. If you go to the site, you&#8217;ll see &#8220;bill&#8221; listed as one of the project owners. That&#8217;s me.</p>
+<p>I&#8217;ll admit that over the last few months I&#8217;ve become something of an open-source convert. I&#8217;ve been in the consulting business for about 15 years now and I&#8217;ve made through the &#8220;holy wars&#8221; relatively unscathed (Microsoft/Linux, IE/Netscape/Firefox, Oracle/Everyone else, ad nauseum). I&#8217;ve said it before that it&#8217;s not religion, it&#8217;s technology. I&#8217;ve gotten to this particular point in my career with two basic philosophies intact: 1) Nothing big works and 2) I can do whatever you need to do on whatever platform you want with whatever tools you give me; it&#8217;s just a matter of &#8220;how.&#8221;</p>
 
-<p>I had a long IM session with Paolo today and there&#8217;s a lot to do. It&#8217;s an amazing project that has a lot of potential. Not just for PostGIS but other data sources as well. This is my first time joining an open-source project so that&#8217;ll be a learning experience for me as well. You can&#8217;t be a lurker forever&#8230;</p>
+<p>Most of my GIS consulting work over the years has been with ESRI technologies and it&#8217;s served me and my customers well. In general, it works and, more importantly, I know how it works. But over the last couple of years, there has been a disturbing trend with the technology: it&#8217;s gotten more complex (nothing big works) and more expensive. When my Federal customers start to balk, I know there&#8217;s a problem. In addition, there&#8217;s ESRI itself. It is still a privately held company with an owner that&#8217;s not getting any younger. Lacking any evidence of a transition plan that maps out how the next 10 to 15 years will go, I&#8217;ve begun doing the only responsible thing for my company and my customers: hedging my bets.</p>
+
+<p>Given that most of ESRI&#8217;s serious commercial competition imploded years ago (don&#8217;t try to debate that with your single-digit-market-share tool of choice), I began paying more attention to open-source products. The approach I&#8217;ve taken is to try to piece together an open-source architecture that I would feel as comfortable recommending to a customer as the ESRI architecture. My focus has begun to gel around a core few: <a href="http://docs.codehaus.org/display/GEOS/Home">GeoServer</a>, <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=SharpMap">SharpMap</a>, <a href="http://www.postgresql.org/">PostgreSQL</a>/<a href="http://postgis.refractions.net/">PostGIS </a>and <a href="http://qgis.org/">QGIS</a>. Also key for me is that any client technology must be able to take advantage of Oracle Spatial. It&#8217;s not open-source, but it&#8217;s everywhere.</p>
+
+<p>Being a programmer from the ArcObjects/ArcSDE mold, the ones I&#8217;ve been having the most fun with are SharpMap and PostGIS. As I&#8217;ve posted before, I even joined the <a href="http://code.google.com/p/ziggis/">zigGIS</a> project to enable connectivity between PostGIS and ArcGIS. That&#8217;s been the most fun I&#8217;ve had in a long time. Probably the weakest link so far is the lack of a really good desktop tool that I could put in front of one of my analysts and say &#8220;make a map that looks as good as the ones you make in ArcMap.&#8221; QGIS is on the right track but still pretty far from the station. My analysts, thus far, won&#8217;t give it a second look.</p>
+
+<p>So how has all of this made me a convert? It&#8217;s come down to the simple convenience of open-source. I&#8217;m still doing a lot of experimenting. Some of my existing customers are really interested in implementing open-source but can&#8217;t quite make the switch yet. So I was playing around with a very simple tool I was trying to build using SharpMap and I just couldn&#8217;t get it to work. I figured I had to be doing something wrong so I opened up SharpMap&#8217;s source code and examined the class I was using, realized my mistake, and moved on. The power and simplicity of that act, compared to the years of hacking against ArcObjects bugs and documentation, was breathtaking. It&#8217;s raised the bar significantly in terms of my expectations of software.</p>
+
+<p>Now to step back from the edge a little: It&#8217;s not religion. Most of my customers use, and are committed to, ESRI technology. I&#8217;ve had a good working relationship with the company and the people in it. Also, quite frankly, many open-source tools are very immature and unstable. But, as ESRI shifts their focus more to the enterprise market, there will be an increasing number of small of mid-sized users getting into the geospatial game for the first time who will feel priced out. For my part, it would be irresponsible not to be prepared to address their needs with an alternate set of technologies. It will be interesting to see which becomes the road less traveled.</p>
 </div>
   
   
@@ -288,7 +424,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/04/zigGIS-Installer/">zigGIS Installer</a></h1>
+      <h1 class="entry-title"><a href="/2007/01/25/Desktop-We-Dont-Need-No-Stinkin-Desktop/">Desktop? We Don&#8217;t Need No Stinkin&#8217; Desktop!</a></h1>
     
     
       <p class="meta">
@@ -304,16 +440,20 @@
   
 
 
-<time datetime="2007-01-04T00:00:00-05:00" pubdate data-updated="true">Jan 4<span>th</span>, 2007</time>
+<time datetime="2007-01-25T00:00:00-05:00" pubdate data-updated="true">Jan 25<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/04/zigGIS-Installer/#disqus_thread">Comments</a>
+         | <a href="/2007/01/25/Desktop-We-Dont-Need-No-Stinkin-Desktop/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Paolo has created an <a href="http://ziggis.googlecode.com/svn/trunk/download/ZigGis11.zip">installer</a>?for zigGIS and has also posted an <a href="http://groups.google.com/group/ziggis/browse_frm/thread/8e6ffb8c38db1713">installation guide</a>. He has packaged together all of the correct versions of the supporting components so it solves the problems I described in an <a href="http://geobabble.wordpress.com/2006/12/17/postgis-and-arcgis-91/">earlier post</a>. I would highly recommend using the installer to get started.</p>
+  <div class="entry-content"><p>I figured I&#8217;d pile on here because it seems that a little ganging up may be in order. <a href="http://www.spatiallyadjusted.com/2007/01/24/esri-arcgis-desktop-and-the-developer-summit">James</a> and <a href="http://ambergis.wordpress.com/2007/01/24/and-what-is-desktop-chopped-liver/trackback/ http://www.spatiallyadjusted.com/2007/01/24/esri-arcgis-desktop-and-the-developer-summit">Kirk</a> have posted about the dearth of Desktop sessions at the upcoming <a href="http://www.esri.com/events/devsummit/sessions/technical.html">Developer Summit</a>.</p>
+
+<p>Kirk also provides a good, specific example of a server-only feature that would be useful, and perfectly possible, in Desktop. One of the big advantages to having a product like ArcGIS Server which, like Engine and Desktop, is built from ArcObjects, is that you can have the same core set of objects to use to build applications in all three environments. Yes, there will be some peculiarities to each platform (especially Server) that dictate some special cases but, really, something like the FeatureGraphicsLayer that Kirk points out should be available in all cases.</p>
+
+<p>ArcObjects is a behemoth and ESRI&#8217;s challenge will be not to fork the code base unnecessarily along platform lines. I realize Server is the cool kid on the block right now but Desktop is going to be the workhorse for a long time. ESRI needs to make sure it doesn&#8217;t get left behind at the API level.</p>
 </div>
   
   
@@ -326,7 +466,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/01/The-FedUC-Approaches/">The FedUC Approaches</a></h1>
+      <h1 class="entry-title"><a href="/2007/01/18/pfisk-on-AutoLISP/">Pfisk on AutoLISP</a></h1>
     
     
       <p class="meta">
@@ -342,198 +482,16 @@
   
 
 
-<time datetime="2007-01-01T00:00:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2007</time>
+<time datetime="2007-01-18T00:00:00-05:00" pubdate data-updated="true">Jan 18<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/01/The-FedUC-Approaches/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The <a href="http://www.esri.com/events/feduc/index.html">ESRI Federal User Conference</a> is almost here. I&#8217;ll be going this year because my <a href="http://www.zekiah.com">company</a> is doing a booth. I like to refer to this event as the &#8220;UC-Lite&#8221; in that it&#8217;s smaller and more focused.</p>
-
-<p>I highly encourage anyone in the DC/MD/VA region to go. First of all, admission is free to all federal employees and it&#8217;s only $100 for state and local employees. If you can take the time and have the travel budget, I&#8217;d say go. Although, it&#8217;s the &#8220;Federal&#8221; UC, there&#8217;s enough general exposure to ESRI technology that this event is a nice alternative for those who can&#8217;t make San Diego. Basically, you see a lot of government applications of the technology but the concepts will cross over well to other markets and applications.</p>
-
-<p>Of course, this event occurs in my back yard so I&#8217;d like to see it thrive. See ya in DC&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/01/Happy-New-Year-and-a-Continued-Merry-Christmas/">Happy New Year and a Continued Merry Christmas</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-01T00:00:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2007</time>
-        
-         | <a href="/2007/01/01/Happy-New-Year-and-a-Continued-Merry-Christmas/#disqus_thread">Comments</a>
+         | <a href="/2007/01/18/pfisk-on-AutoLISP/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Greetings to all and wishes for a peaceful and prosperous 2007. And, for those of you keeping track at home, today would be &#8220;seven swans a-swimming&#8221;.</p>
-
-<p>I&#8217;m heading out for a business trip tomorrow that keeps me gone for the rest of the week so it&#8217;s time to pack away the decorations. Typically, we wait until after <a href="http://www.calendar-updates.com/info/holidays/us/threekings.aspx">Three King&#8217;s Day</a> but my travel schedule won&#8217;t allow for that this year.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2006/12/29/zigGIS-and-Spatial-References-Part-2/">zigGIS and Spatial References, Part 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-12-29T00:00:00-05:00" pubdate data-updated="true">Dec 29<span>th</span>, 2006</time>
-        
-         | <a href="/2006/12/29/zigGIS-and-Spatial-References-Part-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Update to <a href="http://geobabble.wordpress.com/2006/12/21/ziggis-and-spatial-references/">this post</a>:</p>
-
-<p>Another post about zigGIS. I didn&#8217;t really intend this blog to be so dominated by zigGIS but that&#8217;s certainly the way it&#8217;s been thus far. Basically, it&#8217;s just really cool and it satisfies my geek nature on a couple of fronts.</p>
-
-<p>After posting about the spatial reference issue before, I couldn&#8217;t resist digging into it. I found a placeholder in the implementation of IFeatureClass.  Abe G. had even left a comment there that he needed to go back and implement it. So I dove in&#8230;</p>
-
-<p>In the IFeatureClass implementation of CPostGisFeatureClass the SpatialReference property was stubbed out to always return and UnknownCoordinateSystem object. The feature class wraps a CLayer object (among others). This is the object I needed to use to get the spatial reference. The loadLayer method of CLayer (in the postgis_connector project) contained the following code:</p>
-
-<pre>
-<span class="kwrd">string</span> sql = CDbHelper.createSelectSql
-(CPostGisConstants.geometryColumnsTable + <span class="str">" as g"</span>,
-<span class="str">"g.*,g.oid,s."</span> + CPostGisConstants.spatialReferenceSrField,
-<span class="str">"left join "</span> + CPostGisConstants.spatialReferenceTable + 
-<span class="str">" as s on g."</span> +
-CPostGisConstants.spatialReferenceIdField + <span class="str">"=s."</span> +
-CPostGisConstants.spatialReferenceIdField,
-<span class="kwrd">where</span>);
-</pre>
-
-
-<p>This code queries the geometry_columns table for all of the metadata I need. So I added the following code to the CLayer class:</p>
-
-<pre>
-<span class="kwrd">private</span> <span class="kwrd">int</span> m_srid = -1;
-<span class="kwrd">public</span> <span class="kwrd">int</span> srid { get { <span class="kwrd">return</span> m_srid; } }
-</pre>
-
-
-<p>I then added this code to the loadLayer method&#8230;</p>
-
-<pre>
-m_srid = (<span class="kwrd">int</span>)((Int32)dr[<span class="str">"srid"</span>]);
-</pre>
-
-
-<p>&#8230;in order to expose the srid for the layer. The variable dr refers to an instance of the CAutoDataReader class defined in the postgis_connector project.</p>
-
-<p>Finally, i added the following code to the init method of the CPostGisFeatureClass class in the postgis_geodatabase project:</p>
-
-<pre>
-<span class="kwrd">if</span> (m_layer.srid != -1)
-{
-    ISpatialReferenceFactory2 srfact = <span class="kwrd">new</span> SpatialReferenceEnvironmentClass();
-    m_spaRef = srfact.CreateSpatialReference(m_layer.srid);
-}
-</pre>
-
-
-<p>With that, the layer properties dialog in ArcMap correctly reports my spatial reference and the geometry that once failed to draw now works fine. I&#8217;ve got some more clean-up to do to the code to add some error-handling and the like. I&#8217;m sure it wouldn&#8217;t take much to crash it right now.</p>
-
-<p>I think the thing I like about zigGIS is that it&#8217;s got something for everyone. ArcObjects geeks will appreciate the implementation of feature classes, cursors and the like. .NET geeks will appreciate nuggets like the CAutoDataReader class which is an implementation of the IDataReader interface. All in all, it&#8217;s a nice piece of work that I find more to like about as I dig deeper.</p>
-
-<p>As I mentioned before, the project has a new home in Google Code and the discussion forum is getting a little more active so maybe zigGIS will gain a little more momentum. That&#8217;s all for now&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2006/12/28/Why-Isnt-ArcGIS-Explorer-Open-Source/">Why Isn&#8217;t ArcGIS Explorer Open Source?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-12-28T00:00:00-05:00" pubdate data-updated="true">Dec 28<span>th</span>, 2006</time>
-        
-         | <a href="/2006/12/28/Why-Isnt-ArcGIS-Explorer-Open-Source/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was tinkering with AGX today, mainly trying to get comfortable with the API. As I was playing with it, this thought crept into my head: Why isn&#8217;t this thing open source? Okay, aside from the fact that it was released by ESRI&#8230;</p>
-
-<p>There are two main reasons that I ponder this: First, it&#8217;s already free. ESRI isn&#8217;t charging for it so it&#8217;s essentially a cost sink for them. ESRI still incurs all of the costs associated with lifecycle maintenance with no direct recovery of those costs. Yes, I know that they are diffused across the revenue streams of the rest of the product line but bear with me. One could make a strong case that by making AGX open-source, ESRI&#8217;s overall costs would go down. Right now, they shoulder 100% of the cost. By opening up the product to a community of developers, that cost would go down. Basically, I don&#8217;t think that a free, closed-source AGX is going give ESRI much traction anywhere so you could call this the &#8220;what-have-they-got-to-lose&#8221; argument.</p>
-
-<p>Secondly, there&#8217;s Google Earth. I will say right now that GE is a superior product to AGX. I won&#8217;t even try to debate otherwise. That said, AGX is pretty good. I know that ESRI has said that AGX is not intended to compete with GE. It&#8217;s targeted at the enterprise environment where it would be the &#8220;spinny globe&#8221; client to their server software. This is precisely the environment where GE starts to cost a good bit of money. By taking AGX open-source, ESRI could accelerate the advancement of the product while reducing costs and have it remain competitive. I think AGX will go over just fine in shops that are already using ESRI&#8217;s software but I don&#8217;t think it&#8217;s compelling enough to expand their market on its own. But, with its ability to consume KML, WMS, ArcIMS and ArcGIS Server as well as with its API; AGX has got a little game. Taking it open-source could potentially open up a whole new community of advocates who would have a little pride of ownership.</p>
-
-<p>There are other smaller reasons to do it as well. ESRI has started dabbling in the open-source world with the <a href="http://gismatters.blogspot.com/2006/10/open-source-gis-52north-and-esri.html">52 North</a> initiative. Opening the source to AGX would certainly demonstrate commitment there. Also, this particular market segment is crowded: GE, AGX, World Wind, Virtual Earth 3D. AGX, as it stands now, adds little to the picture. An open-source AGX would at least add something to the community.</p>
-
-<p>The main downside would be the difficulty in synchronizing the activity of an open-source project with the release schedule of ArcGIS. In addition, ESRI could risk losing control of the product altogether but there are enough models of open-source projects with corporate backing, such as <a href="http://www.eclipse.org">Eclipse</a>, to work from.</p>
-
-<p>So, maybe it makes sense and maybe not. I could probably argue it either way for quite a while. AGX plugs a gap in the ESRI product line that&#8217;s existed for a long time and maybe that&#8217;s good enough for them. It&#8217;s most likely a complete non-starter. But again, it&#8217;s a free product. So, if it&#8217;s free, maybe it should be set free.</p>
+  <div class="entry-content"><p>This <a href="http://vistasmalltalk.wordpress.com/2007/01/17/autolisps-legacy/">post</a> from pfisk brought back a flood of memories. I haven&#8217;t done AutoLISP since I last used <a href="http://support.esri.com/index.cfm?fa=software.filteredGateway&amp;PID=39">ArcCAD</a>. I thought the point made about leveraging concepts from AutoLISP for 3D drawings was an interesting one.</p>
 </div>
   
   
