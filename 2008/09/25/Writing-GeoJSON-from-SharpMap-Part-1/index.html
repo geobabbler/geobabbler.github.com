@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Writing GeoJSON from SharpMap, Part 1 - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="In between proposals, white papers and the like, I?ve been able to do a little coding to keep myself sane. Recently, I have been playing with &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Writing GeoJSON From SharpMap, Part 1</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-25T00:00:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In between proposals, white papers and the like, I?ve been able to do a little coding to keep myself sane. Recently, I have been playing with <a href="http://www.codeplex.com/sharpmap">SharpMap</a>, <a href="http://wiki.geojson.org/Main_Page">GeoJSON</a> and <a href="http://openlayers.org">OpenLayers</a>. But not necessarily in that order. Originally, I was looking over the GeoJSON spec to get more of a feel for it and decided that it would be fun (I know) to write an exporter for SharpMap. There is already a converter to write SharpMap geometries as WKT so I went ahead and built another one to convert to GeoJSON. In order to test it, I decided to use OpenLayers.<!--more--></p>
+
+<p>Developing the exporter was pretty straightforward. I used the SharpMap.Converters.WellKnownText.GeometryToWKT class as a template. I created a GeoJson namespace and put a GeometryToGeoJson class in it. I then set about replacing the logic in the WKT with logic that generates GeoJSON. This should result in a class that behaves in the same way as its WKT counterpart but emits GeoJSON instead.</p>
+
+<p>At this point, I am only dealing with geometry and geometry collections. I plan to move on to exporting feature collections in the near future. Also, I still need to persist the CRS information into the GeoJSON output.</p>
+
+<p><strong>Step 1: Building the GeoJSON Writer</strong></p>
+
+<p>As I mentioned, building the converter was pretty straightforward. I really just had to modify the logic of the existing WKT writer. I based the output on GeoJSON 1.0 RC1. The writer currently outputs points, linestrings, polygons, the various ?multi? flavors of those and geometry collections. As mentioned above, I haven?t gotten to features or CRS information yet.</p>
+
+<p><strong>Step 2: Testing the Output</strong></p>
+
+<p>I used the <a href="http://openlayers.org/dev/examples/vector-formats.html">OpenLayers ?Vector Formats? example</a> as a testbed. I built a simple WinForms GUI in which I could paste a WKT string, convert that to a SharpMap geometry and then write out GeoJSON from that. I then pasted the output into the OpenLayers demo and tried to render it. That process validated the outputs for each of the geometry types pretty quickly.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2008/09/sharpmap_geojson_bootstarp.png"><img alt="A lovely test GUI..." class="size-medium wp-image-324" height="144" src="http://geobabble.files.wordpress.com/2008/09/sharpmap_geojson_bootstarp.png" title="sharpmap_geojson_bootstarp" width="230" /></a><div style="text-align: center;font-size: 14px;">A lovely test GUI&#8230;</div></div>
+
+
+<p><strong>Step 3: Generate Output From a Data Set</strong></p>
+
+<p>Next, I modified the <a href="http://openlayers.org/dev/examples/geojson.html">existing OpenLayers GeoJSON demo </a> to make a call back to a server to retrieve GeoJSON from a SharpMap application. The existing demo has a GeoJSON string hard-coded into the JavaScript. I merely replaced this with an AJAX call that retrieves it from the server.</p>
+
+<p>Next, I built an ASP.NET handler (thanks <a href="http://twitter.com/TheSteve0">@TheSteve0</a>) to receive the call from the client, access the data (PostGIS in this case, served from that data I?ve been using for my ArcSDE work), write the geometries into a GeoJSON geometry collection and return it back to the client. Currently, the client passes a query string to tell the server what data is being requested. I plan to implement that in a RESTful manner in a future iteration but this works for now.</p>
+
+<p><strong>Step 4: Running the Code and Displaying the Data</strong></p>
+
+<p>I changed the OpenLayers demo page only minimally to make a call to retrieve the GeoJSON. I implemented an asynchronous call so the basemap would display without waiting for the GeoJSON data to come back. The data set I used contained 408 military installation polygons stored in PostGIS. SharpMap seems to persist the data fairly quickly but it bogged down on the client side on my first run. In both IE and FireFox, the browser would hang and eventually display a message that a script was causing the browser to run slowly. In each case, I had to terminate the script.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2008/09/sharpmap_geojson_output.png"><img alt="The orange blobs with the outlines are mine." class="size-medium wp-image-324" height="255" src="http://geobabble.files.wordpress.com/2008/09/sharpmap_geojson_output.png?w=300" title="sharpmap_geojson_output" width="300" /></a><div style="text-align: center;font-size: 14px;">The orange blobs with the outlines are mine.</div></div>
+
+
+<p>On my second pass, I throttled the server-side code back to return only the first ten records. In this case, it returned and displayed almost instantaneously. There were my installation polygons!</p>
+
+<p>On each successive pass, I increased the number of polygons and the client side slowed down down accordingly. Somewhere around 300 polygons, it ground to a halt. I put an alert box in before this call in the client-side javascript:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">vector_layer</span><span class="p">.</span><span class="nx">addFeatures</span><span class="p">(</span><span class="nx">geojson_format</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">gj</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That alert always displays very quickly so there seems to be something inefficient about the geojson_format.read call. <del datetime="00">I?d dig into that more but I upgraded to FireFox 3, which has my FireBug broken (grrrrr).</del> I?ll look into that more later (I have the additional problem of being javascript-challenged). Anyway, OpenLayers was more of a visualization tool for the SharpMap effort so I?m less concerned with that issue at the moment.</p>
+
+<p>As the title of the post implies, I?ll circle back around and update things as I progress. I need to clean up the code for the writer (all of the comments are still the ones from the WKT writer). Additionally, I need to now look at extending to write features, not just geometry. I also want to make the server-side app RESTful. Eventually, I?ll also deploy the app to a demo location where anyone can hit it. As you can see, I have my work cut out for me.</p>
+
+<p>BTW, here are the versions involved on this pass:
+OpenLayers: 2.6
+SharpMap: 0.9 build 34320
+Visual Studio: 2008
+PostGIS: 1.3.3</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-25T00:00:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/openlayers/'>OpenLayers</a>, <a class='category' href='/blog/categories/c-/'>c#</a>, <a class='category' href='/blog/categories/geojson/'>geojson</a>, <a class='category' href='/blog/categories/postgis/'>postgis</a>, <a class='category' href='/blog/categories/sharpmap/'>sharpmap</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2008/08/21/Using-ArcSDE-9.3-with-PostgreSQL-Part-3.5/" title="Previous Post: Using ArcSDE 9.3 with PostgreSQL, Part 3.5">&laquo; Using ArcSDE 9.3 with PostgreSQL, Part 3.5</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/01/09/Writing-GeoJSON-from-SharpMap-Part-1.5/" title="Next Post: Writing GeoJSON from SharpMap, Part 1.5">Writing GeoJSON from SharpMap, Part 1.5 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-4.0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.geomusings.com/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/';
+        var disqus_url = 'http://blog.geomusings.com/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

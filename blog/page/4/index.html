@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/blog/page/4/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2/">Using PostgreSQL Views in zigGIS 2.0.2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-27T00:00:00-05:00" pubdate data-updated="true">Jan 27<span>th</span>, 2009</time>
+        
+         | <a href="/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database platforms. The way zigGIS was originally constructed, it used the PostGIS geometry_columns table to discover available spatial tables. This has worked well but we came to realize that there are numerous workflows that can be employed to create spatial tables in PostGIS and many of these don&#8217;t necessarily register in the geometry_columns table. For example, you can use a standard CREATE TABLE to create a table that includes a geometry column. In this case, the table will not be registered but will still be a valid spatial table. The same can be said for views.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/09/Writing-GeoJSON-from-SharpMap-Part-1.5/">Writing GeoJSON From SharpMap, Part 1.5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-09T00:00:00-05:00" pubdate data-updated="true">Jan 9<span>th</span>, 2009</time>
+        
+         | <a href="/2009/01/09/Writing-GeoJSON-from-SharpMap-Part-1.5/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Following up on my <a href="http://geobabble.wordpress.com/2008/09/25/writing-geojson-from-sharpmap-part-1/">post a few months back</a> about <a href="http://geojson.org/">GeoJSON</a> and <a href="http://www.codeplex.com/sharpmap">SharpMap</a>; here is the code to the converter as it stands so far. I have mentioned recently that things have been pretty busy at work so I have progressed on this more slowly than I had wished. I have yet to insert code to handle CRS but I thought it would be better to post something than nothing.</p>
+
+<p>Basically, I just had to do some modifications to <a href="http://www.sharpgis.net">Morten&#8217;s</a> original code for handling WKT. It was pretty straightforward owing mainly to the quality of Morten&#8217;s code. So here it is. Enjoy&#8230;</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2009/01/09/Writing-GeoJSON-from-SharpMap-Part-1.5/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/">Writing GeoJSON From SharpMap, Part 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-25T00:00:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2008</time>
+        
+         | <a href="/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In between proposals, white papers and the like, I?ve been able to do a little coding to keep myself sane. Recently, I have been playing with <a href="http://www.codeplex.com/sharpmap">SharpMap</a>, <a href="http://wiki.geojson.org/Main_Page">GeoJSON</a> and <a href="http://openlayers.org">OpenLayers</a>. But not necessarily in that order. Originally, I was looking over the GeoJSON spec to get more of a feel for it and decided that it would be fun (I know) to write an exporter for SharpMap. There is already a converter to write SharpMap geometries as WKT so I went ahead and built another one to convert to GeoJSON. In order to test it, I decided to use OpenLayers.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/21/Using-ArcSDE-9.3-with-PostgreSQL-Part-3.5/">Using ArcSDE 9.3 With PostgreSQL, Part 3.5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-21T00:00:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2008</time>
+        
+         | <a href="/2008/08/21/Using-ArcSDE-9.3-with-PostgreSQL-Part-3.5/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I thought I was done with the series a while back but I&#8217;ve been getting a steady stream of questions through other channels so I thought I&#8217;d wrap up a lot of the common stuff in another post. Most of the inquiries come from people trying to integrate <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> for <a href="http://www.postgresql.org">PostgreSQL</a> with open-source tools in one way or another. Here are a few notes:</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/08/21/Using-ArcSDE-9.3-with-PostgreSQL-Part-3.5/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/06/16/DMS-to-Decimal-Degrees-Function-for-PostgreSQL/">DMS to Decimal Degrees Function for PostgreSQL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-16T00:00:00-04:00" pubdate data-updated="true">Jun 16<span>th</span>, 2008</time>
+        
+         | <a href="/2008/06/16/DMS-to-Decimal-Degrees-Function-for-PostgreSQL/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><!--zekiah -->
+
+
+<p>For another project, I had to work with a PostgreSQL table that was storing locations in Degrees/Minutes/Seconds. We had to create an event layer in ArcGIS so they had to be converted to decimal degrees. The server was not using PostGIS and I really had no control over the configuration (although the admins would let us create views or functions to facilitate what we needed). So I wrote a function to accomplish the conversion and allow us to create a view. It was pretty simple (and others may have more elegant approaches) but I figured I&#8217;d post it to save someone else some work in the future. Here&#8217;s the code:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">dms2dd</span><span class="p">(</span>
+</span><span class='line'>       <span class="n">D</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">M</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">S</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">HEMI</span> <span class="nb">character</span> <span class="k">varying</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+</span><span class='line'>   <span class="p">)</span> <span class="k">RETURNS</span> <span class="nb">double precision</span> <span class="k">AS</span> <span class="s">$$</span>
+</span><span class='line'>   <span class="k">DECLARE</span>
+</span><span class='line'>      <span class="n">ret</span> <span class="nb">double precision</span><span class="p">;</span>
+</span><span class='line'>      <span class="n">dir</span> <span class="nb">integer</span><span class="p">;</span>
+</span><span class='line'>   <span class="k">BEGIN</span>
+</span><span class='line'>      <span class="n">dir</span> <span class="o">:=</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">--init to 1 for default positive return</span>
+</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">--init to zero.</span>
+</span><span class='line'>      <span class="c1">--ONLY S or W will trip this. Any other letter or NULL will result in positive return value</span>
+</span><span class='line'>      <span class="k">IF</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span> <span class="k">OR</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;W&#39;</span> <span class="k">THEN</span>
+</span><span class='line'>  <span class="n">dir</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">1</span><span class="p">;</span> <span class="c1">--then southern or western hemisphere</span>
+</span><span class='line'>      <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
+</span><span class='line'>      <span class="c1">--SOME data has negative values in minutes and seconds as well as degrees. Use ABS to standardize all three.</span>
+</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="p">(</span><span class="n">ABS</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">D</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">M</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">S</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span><span class="o">/</span><span class="mf">60</span><span class="p">)))</span><span class="o">/</span><span class="mf">60</span><span class="p">)));</span>
+</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="n">ret</span> <span class="o">*</span> <span class="n">dir</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">RETURN</span> <span class="n">ret</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">END</span><span class="p">;</span>
+</span><span class='line'>  <span class="s">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The function doesn&#8217;t care whether it&#8217;s latitude or longitude. You&#8217;ll also notice that it&#8217;s not doing any bounds checking. That&#8217;s because our table had a constraint limiting the degree values of latitude and longitude to between -90/90 and -180/180 respectively. There&#8217;s still a little room for error on the aggregated value, though. Our table had D, M, S and the hemisphere indicator stored in separate columns. The numeric values were stored as integers.</p>
+
+<p>The usage for my table was:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">SELECT</span> <span class="n">dms2dd</span><span class="p">(</span><span class="n">lat_d</span><span class="p">,</span><span class="n">lat_m</span><span class="p">,</span><span class="n">lat_s</span><span class="p">,</span><span class="n">lat_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">latitude</span><span class="p">,</span>
+</span><span class='line'> <span class="n">lat_d</span><span class="p">,</span> <span class="n">lat_m</span><span class="p">,</span> <span class="n">lat_s</span><span class="p">,</span> <span class="n">lat_hemi</span><span class="p">,</span>
+</span><span class='line'>  <span class="n">dms2dd</span><span class="p">(</span><span class="n">lon_d</span><span class="p">,</span><span class="n">lon_m</span><span class="p">,</span><span class="n">lon_s</span><span class="p">,</span><span class="n">lon_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">longitude</span><span class="p">,</span>
+</span><span class='line'>   <span class="n">lon_d</span><span class="p">,</span> <span class="n">lon_m</span><span class="p">,</span> <span class="n">lon_s</span> <span class="k">as</span> <span class="n">latitude</span> <span class="k">from</span> <span class="n">dms_coords</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Enjoy.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/SQL-Server-2008-WKT-XY-Switching-Illustrated/">SQL Server 2008 WKT X/Y Switching Illustrated</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/18/SQL-Server-2008-WKT-XY-Switching-Illustrated/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>UPDATE:</strong> Microsoft has <a href="http://blogs.msdn.com/isaac/archive/2007/12/27/latitude-longitude-ordering.aspx">announced</a> that they will address this issue in an upcoming CTP. They plan to implement longitude-latitude ordering in WKB and WKT for both the geography and geometry types.</p>
+
+<p>In a response to my <a href="http://geobabble.wordpress.com/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/">previous post</a>, <a href="http://www.spatialdatalogic.com/cs/blogs/brian_flood/default.aspx">Brian Flood</a> mentioned the ongoing discussion about <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> and the &#8220;switching&#8221; of X and Y values in <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> strings depending upon which spatial data type, geometry or geography, is being used. The SQL snippet below boils the issue down to a simple example:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="k">g</span> <span class="n">geometry</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="k">g</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="k">g</span><span class="p">.</span><span class="n">STX</span> <span class="k">as</span> <span class="n">geomX</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="n">h</span> <span class="n">geography</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="n">h</span> <span class="o">=</span> <span class="n">geography</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="n">h</span><span class="p">.</span><span class="n">Lat</span> <span class="k">as</span> <span class="n">geogLat</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In both cases, the value returned is 3. As can be seen, the same WKT string is being used in both cases. The main difference is that one example queries the X value of a GEOMETRY object and the other queries the Lat (Latitude, or Y) value of a GEOGRAPHY object. So, depending on the data type, the same ordinal can be X or Y. You can check out the debate on this topic <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2431933&amp;SiteID=1">here</a>. It is a great discussion that covers a lot of ground and I highly recommend checking it out.</p>
+
+<p>For me, the issue is consistency. Regardless of the mindsets of professionals vs. non-professionals or the imprecision of the OGC spec, the bottom line is that the same call behaves differently for two related data types. Admittedly GEOGRAPHY and GEOMETRY do different things. GEOGRAPHY is for geodetic (spherical) data and GEOMETRY is for planar data. This fact, however, has no bearing on how WKT is parsed. The current situation is analagous to having a rounding function that by default rounds up for doubles and rounds down for singles.</p>
+
+<p>At this point, I would normally say pick a method and run with it for both data types but I do have a preference here. I think that WKT should be parsed as X,Y consistently in order to provide better interoperability with a wider variety of client software. The simple fact is that most products out there do X,Y. For instance, I am working with SharpMap and it generates WKT in X,Y order and assumes X,Y order when parsing. Other database platforms such as Oracle, PostGIS and MySQL do the same but it&#8217;s the client software that matters most in this case. I&#8217;m sure that others can chime in with more examples.</p>
+
+<p>I am intrigued by the use of a separate data type to handle geodetic data but the X,Y order of WKT has no bearing here. To my way of thinking, the best approach would be to commit to X,Y order for both GEOMETRY and GEOGRAPHY.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/">Inserting SQL 2008 Geometry With a SqlCommand</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Update (7/1/2011):</strong> I wrote this post early in the SQL 2008 CTP. I no longer use the method described here. If you found this post via StackOverflow or some other Q&amp;A site, I highly recommend this post by Vish as a more efficient way of doing things: <a href="http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/">http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/</a></p>
+
+<p>I&#8217;m in the process of using <a href="http://codeplex.com/SharpMap">SharpMap</a> to write a utility to load spatial data into my <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> instance. A couple of the SharpMap data providers have a static method to load data from a shapefile (really any other SharpMap data provider, but I digress). The method creates a table and uses an ADO.Net command object (<a href="http://msdn2.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx">SqlCommand</a> in this case) load individual records into the table. I started using the existing <a href="http://www.codeplex.com/SharpMap/SourceControl/FileView.aspx?itemId=30508&amp;changeSetId=28971">MsSql provider</a> as a template, which load the geometry&#8217;s WKB into an image column.</p>
+
+<p>The problem with SQL 2008 comes in when you add a parameter to the command. You must specify the data type of the parameter by passing it a <a href="http://msdn2.microsoft.com/en-us/library/system.data.sqldbtype.aspx">SqlDbType</a> enumeration. Currently, there is no enumeration that corresponds to geometry (or geography for that matter). My first attempt was to leave the parameter defined as the type SqlDbType.VarBinary and set the value as such:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">VarBinary</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsBinary</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case, feature.Geometry is of type SharpMap.Geometries.Geometry and AsBinary returns the <a href="http://dev.mysql.com/doc/refman/5.0/en/gis-wkb-format.html">WKB</a> representation of the shape. This code failed when attempting to execute the command, throwing an exception indicating that the table column (type geometry) was not a valid binary data type.</p>
+
+<p>So I next tried defining the data type of the parameter as SqlDbType.Udt (user-defined type) and setting the UdtTypeName property to &#8220;geometry&#8221;. This failed also.</p>
+
+<p>On a whim (I wish I could say it was something more scientific than a desire to leave no stone unturned), I then tried working with text and set it up this way:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">NVarChar</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsText</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case, AsText returns the <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> representation of the shape. This worked! I have not dug into the details of why it worked but it seems the underlying spatial objects in SQL 2008 have some built-in default behaviours that coerce WKT. I am now loading data via a WinForms app with the aid of SharpMap. So, if you&#8217;re trying to update geometry from within your code, the above example is what worked for me.</p>
+
+<p>I&#8217;ll probably post the code to the data loader a little bit later after I incorporate SRID and geometry type constraints and the like.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">SQL Server 2008 SharpMap Data Provider Code</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-28T00:00:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As promised, I have uploaded the data provider code I <a href="http://geobabble.wordpress.com/2007/11/20/sharpmap-and-sql-server-2008-spatial/">mentioned earlier</a> to the <a href="http://www.codeplex.com/SharpMap">SharpMap</a> site. It&#8217;s written in C#. I took the existing Oracle provider, stripped out the Oracle SQL and put in T-SQL. There are a couple of things I&#8217;m still trying to chase down but it&#8217;s basically done at this point. I know they&#8217;re busy trying to finish up SharpMap 2.0 so I don&#8217;t know how long it&#8217;ll take to become available. Just in case, here&#8217;s the code:</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/">Spatial References in SQL Server 2008, Part 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>With some guidance from <a href="http://geotips.blogspot.com/">Paul Ramsey</a>, I implemented a check constraint on my sample table to allow only a single SRID in a table. As Paul indicated in <a href="http://geobabble.wordpress.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/#comment-3803">his comment on my previous post</a>, <a href="http://postgis.refractions.net">PostGIS</a> does this for you. SQL 2008 doesn&#8217;t yet but I hope it does. The syntax for my table was:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">--only allow WGS84</span>
+</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">SpatialTable</span>
+</span><span class='line'>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">enforce_srid_geometry</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4326</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After doing that, the following SQL will properly fail:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">UPDATE</span> <span class="n">SpatialTable</span>
+</span><span class='line'>  <span class="k">SET</span> <span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4127</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thanks to Paul for chiming in!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/">Consuming GeoRSS in ArcMap With InMemoryWorkspaceFactory</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-10T00:00:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2007</time>
+        
+         | <a href="/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This will be my last post for a couple of weeks. I&#8217;m heading out to Florida tomorrow to spend time with my family and the Mouse. But before I head out, I thought I&#8217;d share a little something I&#8217;ve been working on.</p>
+
+<p>I&#8217;ve been playing the last few days with the <a href="http://edndoc.esri.com/arcobjects/9.2/ComponentHelp/esriDataSourcesGDB/InMemoryWorkspaceFactory.htm">InMemoryWorkspaceFactory</a> class in ArcObjects. I am looking at using it for a project I will be working on when I get back so I thought I&#8217;d do a little prototyping beforehand.</p>
+
+<p>The fact that it works in memory is very attractive, especially for using volatile data. <a href="http://georss.org/">GeoRSS</a> seemed like a natural source to use for prototyping.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/5/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/3/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-4.0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed&#8230;</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

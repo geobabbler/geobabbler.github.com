@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcobjects | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcobjects/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-12T20:11:25-05:00</updated>
+  <updated>2012-12-12T21:12:58-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,822 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Importing Data From GeoCommons Into ArcMap]]></title>
+    <link href="http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/"/>
+    <updated>2010-06-02T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap</id>
+    <content type="html"><![CDATA[<p><strong>UPDATE:</strong> <em>The code for this post is available at the bottom of the page.</em></p>
+
+<p>I have been doing a lot of development with the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">ESRI Silverlight API</a> recently. One of the requirements of my project is to be able to dynamically add KML data at runtime. The incorporation of <a href="http://code.google.com/apis/kml/documentation/">KML</a> was handled for us through <a href="http://resources.esri.com/arcgisserver/apis/silverlight/index.cfm?fa=codeGalleryDetails&amp;scriptID=16487">one of the ESRI samples</a> on the resource center so we pretty much just had to integrate that code and test against our use cases. For testing, I typically reached out to <a href="http://www.geocommons.com">GeoCommons</a> since any data set available there can be streamed as KML.</p>
+
+<p>Obviously, this is not my first exposure to GeoCommons but, when discussing it, I found that many of the analysts I spoke with were not aware of it and did not use it much. So I decided to tackle developing a simple ArcMap extension to allow a user to search GeoCommons and then download/add data to ArcMap without the need to manually download, unzip and add the data themselves.<!--more--></p>
+
+<p>GeoCommons, and the GeoIQ platform on which it is based, are produced by <a href="http://www.fortiusone.com/">FortiusOne</a> and are comprised, broadly speaking, of two main components: Finder and Maker. Finder allows you to search/browse data on GeoCommons while Maker allows you to visualize/map the data online and produce map products with nothing but a browser required. That's a gross oversimplification of what GeoCommons can do so I recommend that you kick the tires yourself if you haven't already done so.</p>
+
+<p>Finder supports <a href="http://www.opensearch.org/Home">OpenSearch</a> (see more about this <a href="http://blog.fortiusone.com/2010/01/05/better-know-a-geocommons-feature-opensearch/">here</a>) so the basic search syntax is simple and RESTful. Results can be returned in a number of formats such as JSON, KML and Atom. For example, a query using the search term "oil" and returning results as Atom would simply be:</p>
+
+<p><a href="http://finder.geocommons.com/search.atom?query=oil">http://finder.geocommons.com/search.atom?query=oil</a></p>
+
+<p>We can further refine my query by added parameters such as "limit" to restrict the number of results returned (this can be a very good thing as there's quite a bit of data on GeoCommons) and "bbox", which can used to restrict your search to a specific geographic area. Once you have the search results, you can easily get at the actual data in a number of formats, KML and shapefile (zipped) for example. You specify the format in a RESTful manner by simply changing the URI. The following links point to Maryland zip code boundaries in KML and shapefile formats, respectively:</p>
+
+<p><a href="http://finder.geocommons.com/overlays/22026.kml">http://finder.geocommons.com/overlays/22026.kml</a>
+<a href="http://finder.geocommons.com/overlays/22026.zip">http://finder.geocommons.com/overlays/22026.zip</a></p>
+
+<p>So what all of this boils down to is that Finder has a simple search syntax, returns results in a well-known format, and delivers data sets in standard formats. Integrating this into ArcMap should be fairly easy. I started by designing a simple search dialog:</p>
+
+<p><img alt="" class="alignnone size-full wp-image-932" height="374" src="http://geobabble.files.wordpress.com/2010/06/geocommons_form.png" title="A simple GeoCommons query dialog" width="419" /></p>
+
+<p>This post is not intended to be a lesson on how to extend ArcMap so I'll describe the basic components at a high level. I used C# to develop the project and the dialog is built using regular Windows Forms rather than WPF. It uses version 3.5 of the .Net framework. There is a simple toolbar button that creates an instance of the form and passes in a reference to the ArcMap application so that the form can get access to information such as the current extent as needed.</p>
+
+<p>The workflow is fairly simple. Enter a "search term" in the text box (exactly as you would in the Finder web interface), select a "limit" (default is 20) and then click "execute" to run your search. The following is the code behind the "execute" button:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">IEnvelope</span> <span class="n">bounds</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">_mxd</span><span class="p">.</span><span class="n">ActiveView</span><span class="p">.</span><span class="n">Extent</span><span class="p">;</span> <span class="c1">//current map extent</span>
+</span><span class='line'>        <span class="n">bounds</span><span class="p">.</span><span class="n">Project</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">getWGS84</span><span class="p">());</span> <span class="c1">//convert to WGS84 for use in query</span>
+</span><span class='line'>        <span class="n">ExecuteSearch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">txtKeyword</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">comboBox1</span><span class="p">.</span><span class="n">SelectedItem</span><span class="p">.</span><span class="n">ToString</span><span class="p">()),</span> <span class="n">bounds</span><span class="p">.</span><span class="n">YMax</span><span class="p">,</span> <span class="n">bounds</span><span class="p">.</span><span class="n">YMin</span><span class="p">,</span> <span class="n">bounds</span><span class="p">.</span><span class="n">XMax</span><span class="p">,</span> <span class="n">bounds</span><span class="p">.</span><span class="n">XMin</span><span class="p">);</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>And the ExecuteSearch method that does the work:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">WebClient</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebClient</span><span class="p">();</span>
+</span><span class='line'>        <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;http://finder.geocommons.com/search.atom?query={0}&amp;amp;amp;limit={1}&amp;amp;amp;bbox={2},{3},{4},{5}&quot;</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">limit</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">west</span><span class="p">,</span> <span class="n">south</span><span class="p">,</span> <span class="n">east</span><span class="p">,</span> <span class="n">north</span><span class="p">);</span> <span class="c1">//format the URI</span>
+</span><span class='line'>        <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringCompleted</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">DownloadStringCompletedEventHandler</span><span class="p">(</span><span class="n">request_DownloadStringCompleted</span><span class="p">);</span> <span class="c1">//attach handler for async call</span>
+</span><span class='line'>        <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringAsync</span><span class="p">(</span><span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">url</span><span class="p">));</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>These two pieces of code format the URI and make the call to the GeoCommons API. As you can see, it automatically uses the current map extent to bound the query. GeoCommons expects the bounding box to be in WGS84 so I convert the extent before building the URI. The "getWGS84" method is an ArcObjects helper function that I wrote years ago and reuse extensively.</p>
+
+<p>The next part of the workflow is to parse the search results and display them in the "results" list box. To support that, I created the following (very simple) class:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">class</span> <span class="nc">OverlayInfo</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">shapelink</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">kmllink</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">infolink</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Basically, I'll create an instance of OverlayInfo for each search result and add it to the results list, using the "title" property as the display member. I could have set up a data contract to bind these directly to the atom entries (and I may still do that) but, for the limited information I am handling at the moment, it was simpler to parse the atom using LINQ to XML. That work is done in the DownloadStringCompleted event handler here:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Error</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+</span><span class='line'>            <span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Result</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">XElement</span> <span class="n">root</span> <span class="p">=</span> <span class="n">XElement</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span><span class='line'>            <span class="kt">string</span> <span class="n">n</span> <span class="p">=</span> <span class="n">root</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">LocalName</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">XNamespace</span> <span class="n">atom</span> <span class="p">=</span> <span class="s">&quot;http://www.w3.org/2005/Atom&quot;</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">IEnumerable</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">XElement</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="n">entries</span> <span class="p">=</span> <span class="n">root</span><span class="p">.</span><span class="n">Elements</span><span class="p">(</span><span class="n">atom</span> <span class="p">+</span> <span class="s">&quot;entry&quot;</span><span class="p">);</span> <span class="c1">//get the entry elements</span>
+</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="n">XElement</span> <span class="n">entry</span> <span class="k">in</span> <span class="n">entries</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="n">XElement</span> <span class="n">title</span> <span class="p">=</span> <span class="n">entry</span><span class="p">.</span><span class="n">Elements</span><span class="p">(</span><span class="n">atom</span> <span class="p">+</span> <span class="s">&quot;title&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">();</span> <span class="c1">//query the entry title</span>
+</span><span class='line'>                <span class="n">IEnumerable</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">XElement</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="n">links</span> <span class="p">=</span>
+</span><span class='line'>                <span class="p">(</span><span class="k">from</span> <span class="n">el</span> <span class="k">in</span> <span class="n">entry</span><span class="p">.</span><span class="n">Elements</span><span class="p">(</span><span class="n">atom</span> <span class="p">+</span> <span class="s">&quot;link&quot;</span><span class="p">)</span>
+</span><span class='line'>                 <span class="k">where</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="n">el</span><span class="p">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">)</span> <span class="p">==</span> <span class="s">&quot;application/vnd.google-earth.kml+xml&quot;</span>
+</span><span class='line'>                 <span class="k">select</span> <span class="n">el</span><span class="p">).</span><span class="n">Take</span><span class="p">(</span><span class="m">1</span><span class="p">);</span> <span class="c1">//query the link to the KML resource</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="n">XElement</span> <span class="n">link</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">links</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
+</span><span class='line'>                <span class="p">{</span>
+</span><span class='line'>                    <span class="n">link</span> <span class="p">=</span> <span class="n">links</span><span class="p">.</span><span class="n">First</span><span class="p">();</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">link</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>                <span class="p">{</span>
+</span><span class='line'>                    <span class="kt">string</span> <span class="n">kml</span> <span class="p">=</span> <span class="n">links</span><span class="p">.</span><span class="n">Attributes</span><span class="p">(</span><span class="s">&quot;href&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">().</span><span class="n">Value</span><span class="p">;</span>
+</span><span class='line'>                    <span class="kt">string</span> <span class="n">shp</span> <span class="p">=</span> <span class="n">kml</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;kml&quot;</span><span class="p">,</span> <span class="s">&quot;zip&quot;</span><span class="p">);</span> <span class="c1">//coerce to zip (shapefile) link</span>
+</span><span class='line'>                    <span class="kt">string</span> <span class="n">info</span> <span class="p">=</span> <span class="n">kml</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;.kml&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span> <span class="c1">//coerce to general information link</span>
+</span><span class='line'>                    <span class="n">OverlayInfo</span> <span class="n">overlay</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OverlayInfo</span> <span class="p">{</span> <span class="n">title</span> <span class="p">=</span> <span class="n">title</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">shapelink</span> <span class="p">=</span> <span class="n">shp</span><span class="p">,</span> <span class="n">kmllink</span> <span class="p">=</span> <span class="n">kml</span><span class="p">,</span> <span class="n">infolink</span> <span class="p">=</span> <span class="n">info</span> <span class="p">};</span> <span class="c1">//create instance of OverlayInfo</span>
+</span><span class='line'>                    <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">overlay</span><span class="p">);</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I use LINQ to query the entries out of the feed, iterate them, create an instance of OverlayInfo for each entry and add it to the list box. LINQ is nice for data structures that are known at runtime and I like it better than XPath for querying XML documents (although it's touchier about namespaces).</p>
+
+<p>With that, the user now sees a list of search results. It's time to do something with them. For this pass, they can preview the KML for a selected result or they can download the shapefile data for it. The KML preview simply provides a means to look at the data before getting it.</p>
+
+<p>You will recall that we attached the links to the KML and shapefile data to the OverlayInfo object for each result when we added it to the list so working with it is as simple as this:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">OverlayInfo</span> <span class="n">overlay</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">SelectedItem</span> <span class="k">as</span> <span class="n">OverlayInfo</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">overlay</span><span class="p">.</span><span class="n">kmllink</span><span class="p">);</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>For this pass, the code simply does a shell execute using the KML link so what this actually does is cause the link to be opened in the default browser which should then prompt you to open the data in Google Earth (or whatever your default KML handler is). In the near future, I will update this to go to GE directly but this worked for now.</p>
+
+<p>The "download" button actually downloads the data and adds it to ArcMap automatically. Handling this is a little more complicated because GeoCommons delivers the shapefile data in a zip file so it needs to be uncompressed first. For handling zip files, I used the open-source <a href="http://dotnetzip.codeplex.com/">DotNetZip</a> to handle the zip files. Here's the bulk of the heavy lifting for handling the shapefiles:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="k">void</span> <span class="n">download_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//TODO: move all of this out of the event handler</span>
+</span><span class='line'>        <span class="kt">string</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetTempPath</span><span class="p">();</span> <span class="c1">//find user&#39;s temp folder</span>
+</span><span class='line'>        <span class="n">OverlayInfo</span> <span class="n">overlay</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">SelectedItem</span> <span class="k">as</span> <span class="n">OverlayInfo</span><span class="p">;</span>
+</span><span class='line'>        <span class="kt">string</span> <span class="n">file</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetFileName</span><span class="p">(</span><span class="n">overlay</span><span class="p">.</span><span class="n">shapelink</span><span class="p">);</span>
+</span><span class='line'>        <span class="c1">//build all of the necessary file info</span>
+</span><span class='line'>        <span class="kt">string</span> <span class="n">filebase</span> <span class="p">=</span> <span class="n">file</span><span class="p">.</span><span class="n">ToLower</span><span class="p">().</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;.zip&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="kt">string</span> <span class="n">outfolder</span> <span class="p">=</span> <span class="n">tmp</span> <span class="p">+</span> <span class="n">filebase</span><span class="p">;</span> <span class="c1">//output location</span>
+</span><span class='line'>        <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Directory</span><span class="p">.</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="n">outfolder</span><span class="p">);</span>
+</span><span class='line'>        <span class="kt">string</span> <span class="n">outpath</span> <span class="p">=</span> <span class="n">tmp</span> <span class="p">+</span> <span class="n">filebase</span> <span class="p">+</span> <span class="s">&quot;\\&quot;</span> <span class="p">+</span> <span class="n">file</span><span class="p">;</span>
+</span><span class='line'>        <span class="c1">//download the data</span>
+</span><span class='line'>        <span class="n">WebRequest</span> <span class="n">req</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">overlay</span><span class="p">.</span><span class="n">shapelink</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">WebResponse</span> <span class="n">resp</span> <span class="p">=</span> <span class="n">req</span><span class="p">.</span><span class="n">GetResponse</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">Stream</span> <span class="n">strm</span> <span class="p">=</span> <span class="n">resp</span><span class="p">.</span><span class="n">GetResponseStream</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">SaveStreamToFile</span><span class="p">(</span><span class="n">outpath</span><span class="p">,</span> <span class="n">strm</span><span class="p">);</span>
+</span><span class='line'>        <span class="c1">//unzip the data, getting the name of the .shp file</span>
+</span><span class='line'>        <span class="kt">string</span> <span class="n">shapefile</span> <span class="p">=</span> <span class="n">Utils</span><span class="p">.</span><span class="n">ExtractFiles</span><span class="p">(</span><span class="n">outpath</span><span class="p">,</span> <span class="n">outfolder</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">resp</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+</span><span class='line'>        <span class="c1">//there may have been an error or no actual shapefile</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">shapefile</span> <span class="p">!=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="kt">string</span> <span class="n">workspace</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetDirectoryName</span><span class="p">(</span><span class="n">shapefile</span><span class="p">);</span>
+</span><span class='line'>            <span class="kt">string</span> <span class="n">dataset</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetFileName</span><span class="p">(</span><span class="n">shapefile</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">dataset</span> <span class="p">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">ToLower</span><span class="p">().</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;.shp&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">AddShapefile</span><span class="p">(</span><span class="n">workspace</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">overlay</span><span class="p">.</span><span class="n">title</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="k">void</span> <span class="nf">SaveStreamToFile</span><span class="p">(</span><span class="kt">string</span> <span class="n">fileFullPath</span><span class="p">,</span> <span class="n">Stream</span> <span class="n">stream</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">try</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">using</span><span class="p">(</span><span class="n">Stream</span> <span class="n">fs</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">fileFullPath</span><span class="p">,</span> <span class="n">FileMode</span><span class="p">.</span><span class="n">Create</span><span class="p">)</span> <span class="p">)</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="kt">byte</span> <span class="p">[]</span><span class="n">buf</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">1000</span><span class="p">];</span>
+</span><span class='line'>                <span class="kt">int</span> <span class="n">iRead</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>                <span class="k">do</span>
+</span><span class='line'>                <span class="p">{</span>
+</span><span class='line'>                    <span class="n">iRead</span> <span class="p">=</span> <span class="n">stream</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">buf</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</span><span class='line'>                    <span class="k">if</span> <span class="p">(</span><span class="n">iRead</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
+</span><span class='line'>                        <span class="n">fs</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">iRead</span><span class="p">);</span>
+</span><span class='line'>                <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">iRead</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="c1">//TODO: examine and throw</span>
+</span><span class='line'>            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="k">void</span> <span class="nf">AddShapefile</span><span class="p">(</span><span class="kt">string</span> <span class="n">folder</span><span class="p">,</span> <span class="kt">string</span> <span class="n">dataset</span><span class="p">,</span> <span class="kt">string</span> <span class="n">description</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">try</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">IWorkspaceFactory</span> <span class="n">wkspcfact</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ShapefileWorkspaceFactoryClass</span><span class="p">()</span> <span class="k">as</span> <span class="n">IWorkspaceFactory</span><span class="p">;</span>
+</span><span class='line'>            <span class="c1">//System.IO.Path.</span>
+</span><span class='line'>            <span class="n">IFeatureWorkspace</span> <span class="n">wkspc</span> <span class="p">=</span> <span class="n">wkspcfact</span><span class="p">.</span><span class="n">OpenFromFile</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">IFeatureWorkspace</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">IFeatureLayer</span> <span class="n">lyr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FeatureLayerClass</span><span class="p">()</span> <span class="k">as</span> <span class="n">IFeatureLayer</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">IFeatureClass</span> <span class="n">fc</span> <span class="p">=</span> <span class="n">wkspc</span><span class="p">.</span><span class="n">OpenFeatureClass</span><span class="p">(</span><span class="n">dataset</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">IGeoDataset</span> <span class="n">gds</span> <span class="p">=</span> <span class="n">fc</span> <span class="k">as</span> <span class="n">IGeoDataset</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">IGeoDatasetSchemaEdit</span> <span class="n">edit</span> <span class="p">=</span> <span class="n">gds</span> <span class="k">as</span> <span class="n">IGeoDatasetSchemaEdit</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">edit</span><span class="p">.</span><span class="n">CanAlterSpatialReference</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="c1">//GeoCommons does not deliver a .prj file with</span>
+</span><span class='line'>                <span class="c1">//shapefiles. This sets the spatial reference</span>
+</span><span class='line'>                <span class="n">edit</span><span class="p">.</span><span class="n">AlterSpatialReference</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">getWGS84</span><span class="p">());</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="n">lyr</span><span class="p">.</span><span class="n">FeatureClass</span> <span class="p">=</span> <span class="n">fc</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">lyr</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">description</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">lyr</span><span class="p">.</span><span class="n">SpatialReference</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">getWGS84</span><span class="p">();</span>
+</span><span class='line'>            <span class="n">_mxd</span><span class="p">.</span><span class="n">FocusMap</span><span class="p">.</span><span class="n">AddLayer</span><span class="p">(</span><span class="n">lyr</span><span class="p">);</span> <span class="c1">//_mxd is the current document open in ArcMap</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="c1">//TODO: put in better user notification</span>
+</span><span class='line'>            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Below is a screen capture of all of this in action (click to enlarge). I zoomed into the Gulf of Mexico region and searched on the term "oil." As can be seen I selected the "Projected Oil Trajectory - Forecast 052610" data set and added it to ArcMap. I manually applied the color ramp after the download.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/06/geocommons_example.png"><img alt="" class="alignnone size-medium wp-image-934" height="178" src="http://geobabble.files.wordpress.com/2010/06/geocommons_example.png?w=300" title="GeoCommons/ArcMap example" width="300" /></a></p>
+
+<p>I was able to turn this around pretty quickly (less than a day) due to two main facts: 1) GeoCommons is well-designed and makes strong use of web standards and open interfaces to expose data in very well-known formats and 2) ArcGIS is, as it has always been, a very extensible platform. If it doesn't support a data source that you want to use, you can probably make it do so (although not always as easily as this example). <del datetime="2010-06-02T22:05:16+00:00">I plan on tidying up the code a bit more and making it available here so keep checking back.</del></p>
+
+<p><strong>UPDATE:</strong> The code for this post is available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>. It includes the source code and the Visual Studio 2008 solution as well as the binary for those of you who are not programmers. It has only been run/tested against ArcGIS Desktop 9.3.1 SP1.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Consuming GeoRSS in ArcMap With InMemoryWorkspaceFactory]]></title>
+    <link href="http://blog.geomusings.com/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/"/>
+    <updated>2007-07-10T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory</id>
+    <content type="html"><![CDATA[<p>This will be my last post for a couple of weeks. I'm heading out to Florida tomorrow to spend time with my family and the Mouse. But before I head out, I thought I'd share a little something I've been working on.</p>
+
+<p>I've been playing the last few days with the <a href="http://edndoc.esri.com/arcobjects/9.2/ComponentHelp/esriDataSourcesGDB/InMemoryWorkspaceFactory.htm">InMemoryWorkspaceFactory</a> class in ArcObjects. I am looking at using it for a project I will be working on when I get back so I thought I'd do a little prototyping beforehand.</p>
+
+<p>The fact that it works in memory is very attractive, especially for using volatile data. <a href="http://georss.org/">GeoRSS</a> seemed like a natural source to use for prototyping.</p>
+
+<!--more-->
+
+
+<p>I wrote this in C# as a set of tools for ArcMap 9.2. The first thing I did was create a static reference to a single InMemoryWorkspaceFactory. It's a singleton anyway but this approach forces me to use a single entry point.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">initInMemoryWorkspaceFactory</span><span class="p">()</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="c1">// Create an InMemory workspace factory.</span>
+</span><span class='line'><span class="n">InMemoryWorkspaceFactory</span> <span class="n">workspaceFactory</span> <span class="p">=</span> <span class="k">new</span> <span class="n">InMemoryWorkspaceFactoryClass</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Create an InMemory geodatabase.</span>
+</span><span class='line'><span class="n">IWorkspaceName</span> <span class="n">workspaceName</span> <span class="p">=</span> <span class="n">workspaceFactory</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;GeoRssWorkspace&quot;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Cast for IName.</span>
+</span><span class='line'><span class="n">IName</span> <span class="n">name</span> <span class="p">=</span> <span class="p">(</span><span class="n">IName</span><span class="p">)</span><span class="n">workspaceName</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Open a reference to the in-memory workspace through the name object.</span>
+</span><span class='line'><span class="n">IWorkspace</span> <span class="n">inmemWor</span> <span class="p">=</span> <span class="p">(</span><span class="n">IWorkspace</span><span class="p">)</span><span class="n">name</span><span class="p">.</span><span class="n">Open</span><span class="p">();</span>
+</span><span class='line'><span class="n">m_memFeatWorkspace</span> <span class="p">=</span> <span class="p">(</span><span class="n">IFeatureWorkspace</span><span class="p">)</span><span class="n">inmemWor</span><span class="p">;</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Next, I created a custom FeatureLayer class called GeoRssFeatureLayer. It inherits from the ArcObjects FeatureLayer class and implements a custom interface called IGeoRssFeatureLayer. Using inheritance makes it easy to pass an instance around within ArcObjects and have it behave properly. Here's a snippet with the interface and class declaration:
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">interface</span> <span class="n">IGeoRssFeatureLayer</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="kt">string</span> <span class="n">Uri</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span>
+</span><span class='line'><span class="k">void</span> <span class="nf">Refresh</span><span class="p">();</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;[</span><span class="n">Guid</span><span class="p">(</span><span class="s">&quot;a675765b-30d0-4294-ad98-28579c9f8994&quot;</span><span class="p">)]</span>
+</span><span class='line'><span class="na">[ClassInterface(ClassInterfaceType.None)]</span>
+</span><span class='line'><span class="na">[ProgId(&quot;ztGeoRss.GeoRssFeatureLayer&quot;)]</span>
+</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">GeoRssFeatureLayer</span> <span class="p">:</span> <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Carto</span><span class="p">.</span><span class="n">FeatureLayerClass</span><span class="p">,</span> <span class="n">IGeoRssFeatureLayer</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">private</span> <span class="kt">string</span> <span class="n">m_uri</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+</span><span class='line'><span class="k">private</span> <span class="n">IFeatureClass</span> <span class="n">m_fc</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span><span class='line'><span class="k">public</span> <span class="nf">GeoRssFeatureLayer</span><span class="p">(</span><span class="kt">string</span> <span class="n">uri</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">m_uri</span> <span class="p">=</span> <span class="n">uri</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="n">Refresh</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+I also added a constructor so I could pass in the URI directly. The IGeoRssFeatureLayer.Refresh method does most of the heavy lifting with some help from the loadFeatures method and a few statics in the Ambient class (it's a pretty name that gets the point across without conflicting with reserved words like "Environment"):
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">void</span> <span class="nf">Refresh</span><span class="p">()</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">if</span> <span class="p">(</span><span class="n">m_fc</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">Marshal</span><span class="p">.</span><span class="n">ReleaseComObject</span><span class="p">(</span><span class="n">m_fc</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="n">m_fc</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span><span class='line'><span class="n">ISpatialReferenceFactory</span> <span class="n">srf</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SpatialReferenceEnvironmentClass</span><span class="p">();</span>
+</span><span class='line'><span class="n">ISpatialReference</span> <span class="n">sr</span> <span class="p">=</span> <span class="n">srf</span><span class="p">.</span><span class="n">CreateGeographicCoordinateSystem</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">esriSRGeoCSType</span><span class="p">.</span><span class="n">esriSRGeoCS_WGS1984</span><span class="p">);</span>
+</span><span class='line'><span class="n">sr</span><span class="p">.</span><span class="n">SetDomain</span><span class="p">(-</span><span class="m">180</span><span class="p">,</span> <span class="m">180</span><span class="p">,</span> <span class="p">-</span><span class="m">90</span><span class="p">,</span> <span class="m">90</span><span class="p">);</span>
+</span><span class='line'><span class="n">IGeometryDefEdit</span> <span class="n">gde</span> <span class="p">=</span> <span class="p">(</span><span class="n">IGeometryDefEdit</span><span class="p">)</span><span class="k">new</span> <span class="n">GeometryDefClass</span><span class="p">();</span>
+</span><span class='line'><span class="n">gde</span><span class="p">.</span><span class="n">SpatialReference_2</span> <span class="p">=</span> <span class="n">sr</span><span class="p">;</span>
+</span><span class='line'><span class="n">gde</span><span class="p">.</span><span class="n">GeometryType_2</span> <span class="p">=</span> <span class="n">esriGeometryType</span><span class="p">.</span><span class="n">esriGeometryPoint</span><span class="p">;</span>
+</span><span class='line'><span class="n">gde</span><span class="p">.</span><span class="n">GridCount_2</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+</span><span class='line'><span class="n">gde</span><span class="p">.</span><span class="n">set_GridSize</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1000</span><span class="p">);</span>
+</span><span class='line'><span class="n">IFieldsEdit</span> <span class="n">fe</span> <span class="p">=</span> <span class="p">(</span><span class="n">IFieldsEdit</span><span class="p">)</span><span class="k">new</span> <span class="n">FieldsClass</span><span class="p">();</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;OBJECTID&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeOID</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;SHAPE&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeGeometry</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="p">(</span><span class="n">IGeometryDef</span><span class="p">)</span><span class="n">gde</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Title&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Description&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">300</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Link&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Author&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Comments&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">300</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;PubDate&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Guid&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">IFeatureWorkspace</span> <span class="n">fws</span> <span class="p">=</span> <span class="n">Ambient</span><span class="p">.</span><span class="n">GeoRssWorkspace</span><span class="p">;</span>
+</span><span class='line'><span class="n">m_fc</span> <span class="p">=</span> <span class="n">fws</span><span class="p">.</span><span class="n">CreateFeatureClass</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Guid</span><span class="p">.</span><span class="n">NewGuid</span><span class="p">().</span><span class="n">ToString</span><span class="p">(),</span> <span class="p">(</span><span class="n">IFields</span><span class="p">)</span><span class="n">fe</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="n">esriFeatureType</span><span class="p">.</span><span class="n">esriFTSimple</span><span class="p">,</span> <span class="s">&quot;Shape&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">loadFeatures</span><span class="p">();</span>
+</span><span class='line'><span class="k">base</span><span class="p">.</span><span class="n">FeatureClass</span> <span class="p">=</span> <span class="n">m_fc</span><span class="p">;</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">private</span> <span class="k">void</span> <span class="n">loadFeatures</span><span class="p">()</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="n">RssFeed</span> <span class="n">f</span> <span class="p">=</span> <span class="n">RssReader</span><span class="p">.</span><span class="n">GetFeed</span><span class="p">(</span><span class="n">m_uri</span><span class="p">);</span>
+</span><span class='line'><span class="k">base</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">f</span><span class="p">.</span><span class="n">Title</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Count</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">//Cast for an IWorkspaceEdit        </span>
+</span><span class='line'>    <span class="n">IWorkspaceEdit</span> <span class="n">workspaceEdit</span> <span class="p">=</span> <span class="p">(</span><span class="n">IWorkspaceEdit</span><span class="p">)</span><span class="n">Ambient</span><span class="p">.</span><span class="n">GeoRssWorkspace</span><span class="p">;</span>
+</span><span class='line'>    <span class="c1">//Start an edit session and operation        </span>
+</span><span class='line'>    <span class="n">workspaceEdit</span><span class="p">.</span><span class="n">StartEditing</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">workspaceEdit</span><span class="p">.</span><span class="n">StartEditOperation</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">//Create the Feature Buffer        </span>
+</span><span class='line'>    <span class="n">IFeatureBuffer</span> <span class="n">featureBuffer</span> <span class="p">=</span> <span class="n">m_fc</span><span class="p">.</span><span class="n">CreateFeatureBuffer</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">//Create insert Feature Cursor using buffering = true.        </span>
+</span><span class='line'>    <span class="n">IFeatureCursor</span> <span class="n">featureCursor</span> <span class="p">=</span> <span class="n">m_fc</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">IPoint</span> <span class="n">pt</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PointClass</span><span class="p">();</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="p">(</span><span class="n">i</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;=</span> <span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Count</span> <span class="p">-</span> <span class="m">1</span><span class="p">));</span> <span class="n">i</span><span class="p">++)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">RssItem</span> <span class="n">itm</span> <span class="p">=</span> <span class="n">f</span><span class="p">.</span><span class="n">Items</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>        <span class="n">pt</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToDouble</span><span class="p">(</span><span class="n">itm</span><span class="p">.</span><span class="n">Longitude</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">pt</span><span class="p">.</span><span class="n">Y</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToDouble</span><span class="p">(</span><span class="n">itm</span><span class="p">.</span><span class="n">Latitude</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">Shape</span> <span class="p">=</span> <span class="n">pt</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Description</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Link</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Author</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">6</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Comments</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">7</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Pubdate</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Guid</span><span class="p">);</span>
+</span><span class='line'>        <span class="kt">object</span> <span class="n">oid</span> <span class="p">=</span> <span class="n">featureCursor</span><span class="p">.</span><span class="n">InsertFeature</span><span class="p">(</span><span class="n">featureBuffer</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="c1">//Flush the feature cursor to the database        </span>
+</span><span class='line'>    <span class="c1">//Calling flush allows you to handle any errors at a known time rather then on the cursor destruction.        </span>
+</span><span class='line'>    <span class="n">featureCursor</span><span class="p">.</span><span class="n">Flush</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">//Stop editing        </span>
+</span><span class='line'>    <span class="n">workspaceEdit</span><span class="p">.</span><span class="n">StopEditOperation</span><span class="p">();</span>
+</span><span class='line'>    <span class="n">workspaceEdit</span><span class="p">.</span><span class="n">StopEditing</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">//Release the Cursor        </span>
+</span><span class='line'>    <span class="n">System</span><span class="p">.</span><span class="n">Runtime</span><span class="p">.</span><span class="n">InteropServices</span><span class="p">.</span><span class="n">Marshal</span><span class="p">.</span><span class="n">ReleaseComObject</span><span class="p">(</span><span class="n">featureCursor</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>That pretty much does most of the real work. I have an ArcObjects command that actually instantiates the layer and adds it to ArcMap and there are a few helper functions as well. I snagged a good bit of other people's code to be able to turn around a prototype quickly so credit where credit is due:</p>
+
+<ul>
+    <li><a href="http://www.codeproject.com/KB/cs/rssreader.aspx">RssReader</a> on CodeProject - This handles the interaction with the feeds. I extended it to support geo tags</li>
+    <li><a href="http://www.codeproject.com/cs/miscctrl/InputBox.asp">InputBox</a> on CodeProject - I used this to provide a simple means to allow the user to enter a URI.</li>
+    <li>I also C#-ified some of <a href="http://ambergis.wordpress.com/">Kirk's</a> code I found on the ESRI forums</li>
+    <li>I also grabbed a few lines from the ESRI help files</li>
+</ul>
+
+
+<p>I'll probably post an update when I get back but here's a screen capture. It depicts <a href="http://earthquake.usgs.gov/eqcenter/catalogs/eqs7day-M2.5.xml">USGS M2.5+ Earthquakes feed</a> and the path of <a href="http://krkinnan.members.winisp.net/georss/2004hurricaneivan.xml">Hurricane Ivan in 2004</a>. As of this writing, it only handles points in the "simple" formats.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/07/georss_arcmap.png" title="GeoRSS in ArcMap"><img alt="GeoRSS in ArcMap" src="http://geobabble.files.wordpress.com/2007/07/georss_arcmap.thumbnail.png" /></a></p>
+
+<p>Basically, I like the in-memory implementation because it allows for a pretty fast refresh plus it allows selections (note the selection of the last few positions of Ivan), identify (with automatic hyperlinking from the identify window) and other operations, make it a big plus over an XY event layer. It remains to be seen if there are any memory leaks but that'll come with further testing.</p>
+
+<p><strong>UPDATE:</strong> Basically, the biggest problem with this approach right now is that a feature class can't contain multiple geometry types, regardless of the type of workspace. This is a big pain and makes management of a full GeoRSS feed (with points, lines and polygons) difficult. I'll post more when I get farther.</p>
+
+<p><a href="http://www.statcounter.com/" target="_blank"><img alt="hit counter" border="0" src="http://c31.statcounter.com/2901378/0/be706774/0/" /></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rotating a Point Around a Base Point]]></title>
+    <link href="http://blog.geomusings.com/2007/06/25/Rotating-a-Point-Around-a-Base-Point/"/>
+    <updated>2007-06-25T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2007/06/25/Rotating-a-Point-Around-a-Base-Point</id>
+    <content type="html"><![CDATA[<p>A while back, I was working on a project that required us to rotate a polygon around a base point and do a spatial query to analyze some underlying demographic data. I was working in ArcObjects and could find no intrinsic way to do what I needed to do so I wrote the following routine. As you can imagine, I had to break the polygon up into individual points and rotate each one. Despite the fact that I was using ArcObjects point objects and all of the attendant COM interop calls, it worked pretty well (a polygon consisting of ~5000 point was rotated in less than a second on a less-than-robust workstation).</p>
+
+<p>The math is pretty simple: Assuming that the base point and target point form the two ends of the hypotenuse of a right triangle with one leg of the triangle being a segment of the X axis, you simply:</p>
+
+<ol>
+    <li>Calculate the length of the hypotenuse</li>
+    <li>Calculate the current angle of the hypotenuse</li>
+    <li>Add the rotation angle to the current angle</li>
+    <li>Calculate the coordinates of the new end point of the hypotenuse</li>
+</ol>
+
+
+<p>The code below shows how to do it but there are a couple of notes about it:</p>
+
+<ul>
+    <li>The coordinates must be in decimal degrees so you'll need to unproject any projected coordinates and then re-project the result. This <em>may</em> introduce some distortion. I didn't notice any in my application but I'd suggest some more rigorous testing if you've got tight precision requirements.</li>
+    <li>Rotation follows engineering standards (zero East, counter-clockwise)</li>
+    <li>This code is only mildly based on ArcObjects. It uses the AO IPoint interface and Point but that's it. It is trival to implement it with another point object (such as SharpMap) or just use numeric values.</li>
+    <li>The base point is shifted to 0,0 and the same offset is applied to all other points in order to keep the math straightforward.</li>
+    <li>It's in C#</li>
+</ul>
+
+
+<p>So there it is. It's fairly simple but it's been useful for me on a couple of occasions since I wrote it.
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'> <span class="k">private</span> <span class="n">IPoint</span> <span class="nf">rotatePoint</span><span class="p">(</span><span class="n">IPoint</span> <span class="n">basePoint</span><span class="p">,</span> <span class="n">IPoint</span> <span class="n">sourcePoint</span><span class="p">,</span> <span class="kt">double</span> <span class="n">rotationAngle</span><span class="p">)</span>
+</span><span class='line'> <span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span> <span class="kt">double</span> <span class="n">r</span><span class="p">;</span>
+</span><span class='line'> <span class="kt">double</span> <span class="n">theta</span><span class="p">;</span>
+</span><span class='line'> <span class="kt">double</span> <span class="n">offsetX</span><span class="p">;</span>
+</span><span class='line'> <span class="kt">double</span> <span class="n">offsetY</span><span class="p">;</span>
+</span><span class='line'> <span class="kt">double</span> <span class="n">offsetTheta</span><span class="p">;</span>
+</span><span class='line'> <span class="kt">double</span> <span class="n">rotateX</span><span class="p">;</span>
+</span><span class='line'> <span class="kt">double</span> <span class="n">rotateY</span><span class="p">;</span>
+</span><span class='line'> <span class="kt">double</span> <span class="n">rotationRadians</span><span class="p">;</span>
+</span><span class='line'> <span class="n">IPoint</span> <span class="n">retPoint</span><span class="p">;</span>
+</span><span class='line'> <span class="k">try</span>
+</span><span class='line'> <span class="p">{</span>
+</span><span class='line'>     <span class="c1">//shift x and y relative to 0,0 origin </span>
+</span><span class='line'>     <span class="n">offsetX</span> <span class="p">=</span> <span class="p">(</span><span class="n">sourcePoint</span><span class="p">.</span><span class="n">X</span> <span class="p">+</span> <span class="p">(</span><span class="n">basePoint</span><span class="p">.</span><span class="n">X</span> <span class="p">*</span> <span class="p">-</span><span class="m">1</span><span class="p">));</span>
+</span><span class='line'>     <span class="n">offsetY</span> <span class="p">=</span> <span class="p">(</span><span class="n">sourcePoint</span><span class="p">.</span><span class="n">Y</span> <span class="p">+</span> <span class="p">(</span><span class="n">basePoint</span><span class="p">.</span><span class="n">Y</span> <span class="p">*</span> <span class="p">-</span><span class="m">1</span><span class="p">));</span>
+</span><span class='line'>     <span class="c1">//convert to radians. take absolute value (necessary for x coord only). </span>
+</span><span class='line'>     <span class="n">offsetX</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">offsetX</span> <span class="p">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">/</span> <span class="m">180</span><span class="p">));</span>
+</span><span class='line'>     <span class="n">offsetY</span> <span class="p">=</span> <span class="n">offsetY</span> <span class="p">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">/</span> <span class="m">180</span><span class="p">);</span>
+</span><span class='line'>     <span class="n">rotationRadians</span> <span class="p">=</span> <span class="n">rotationAngle</span> <span class="p">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">/</span> <span class="m">180</span><span class="p">);</span>
+</span><span class='line'>     <span class="c1">//get distance from origin to source point </span>
+</span><span class='line'>     <span class="n">r</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">offsetX</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">offsetY</span><span class="p">,</span> <span class="m">2</span><span class="p">));</span>
+</span><span class='line'>     <span class="c1">//get current angle of orientation </span>
+</span><span class='line'>     <span class="n">theta</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Atan</span><span class="p">(</span><span class="n">offsetY</span> <span class="p">/</span> <span class="n">offsetX</span><span class="p">);</span>
+</span><span class='line'>     <span class="c1">// add rotation value to theta to get new angle of orientation </span>
+</span><span class='line'>     <span class="n">offsetTheta</span> <span class="p">=</span> <span class="n">theta</span> <span class="p">+</span> <span class="n">rotationRadians</span><span class="p">;</span>
+</span><span class='line'>     <span class="c1">//calculate new x coord </span>
+</span><span class='line'>     <span class="n">rotateX</span> <span class="p">=</span> <span class="n">r</span> <span class="p">*</span> <span class="n">Math</span><span class="p">.</span><span class="n">Cos</span><span class="p">(</span><span class="n">offsetTheta</span><span class="p">);</span>
+</span><span class='line'>     <span class="c1">//calculate new y coord </span>
+</span><span class='line'>     <span class="n">rotateY</span> <span class="p">=</span> <span class="n">r</span> <span class="p">*</span> <span class="n">Math</span><span class="p">.</span><span class="n">Sin</span><span class="p">(</span><span class="n">offsetTheta</span><span class="p">);</span>
+</span><span class='line'>     <span class="c1">//convert new x and y back to decimal degrees </span>
+</span><span class='line'>     <span class="n">rotateX</span> <span class="p">=</span> <span class="n">rotateX</span> <span class="p">*</span> <span class="p">(</span><span class="m">180</span> <span class="p">/</span> <span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">);</span>
+</span><span class='line'>     <span class="n">rotateY</span> <span class="p">=</span> <span class="n">rotateY</span> <span class="p">*</span> <span class="p">(</span><span class="m">180</span> <span class="p">/</span> <span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">);</span>
+</span><span class='line'>     <span class="c1">//shift new x and y relative to base point </span>
+</span><span class='line'>     <span class="n">rotateX</span> <span class="p">=</span> <span class="p">(</span><span class="n">rotateX</span> <span class="p">+</span> <span class="n">basePoint</span><span class="p">.</span><span class="n">X</span><span class="p">);</span>
+</span><span class='line'>     <span class="n">rotateY</span> <span class="p">=</span> <span class="p">(</span><span class="n">rotateY</span> <span class="p">+</span> <span class="n">basePoint</span><span class="p">.</span><span class="n">Y</span><span class="p">);</span>
+</span><span class='line'>     <span class="c1">//return new point </span>
+</span><span class='line'>     <span class="n">retPoint</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PointClass</span><span class="p">();</span>
+</span><span class='line'>     <span class="n">retPoint</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="n">rotateX</span><span class="p">;</span>
+</span><span class='line'>     <span class="n">retPoint</span><span class="p">.</span><span class="n">Y</span> <span class="p">=</span> <span class="n">rotateY</span><span class="p">;</span>
+</span><span class='line'>     <span class="k">return</span> <span class="n">retPoint</span><span class="p">;</span>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'> <span class="k">catch</span>
+</span><span class='line'> <span class="p">{</span>
+</span><span class='line'>     <span class="k">return</span> <span class="n">sourcePoint</span><span class="p">;</span>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions]]></title>

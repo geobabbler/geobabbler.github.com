@@ -4,7 +4,7 @@
   <title><![CDATA[Category: postgresql | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/postgresql/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-12T20:11:25-05:00</updated>
+  <updated>2012-12-12T21:12:58-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,17 +14,95 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions]]></title>
-    <link href="http://blog.geomusings.com/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/"/>
-    <updated>2007-05-09T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions</id>
-    <content type="html"><![CDATA[<p>As discussed in my previous post, I'm trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support for user-defined spatial references. It pretty much boils down to querying the the appropriate SR from the PostGIS spatial_ref_sys table and applying the value of the srtext column to create a spatial reference in ArcObjects.</p>
+    <title type="html"><![CDATA[Speaking of the 84%...]]></title>
+    <link href="http://blog.geomusings.com/2012/02/08/Speaking-of-the-84/"/>
+    <updated>2012-02-08T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/02/08/Speaking-of-the-84</id>
+    <content type="html"><![CDATA[<p>HT to <a href="http://sproke.blogspot.com/2012/02/game-changer-open-source-mapping-in.html">Sophia Parafina for the 84%</a>.</p>
 
-<p>This approach has a few advantages and disadvantages. First, the advantages. Although both PostGIS and ESRI implement the EPSG spatial reference codes, there is not a one-to-one match between the two. Therefore, you could get an SRID in PostGIS that's not supported in ArcGIS. The approach described above should alleviate that, adding stability. Secondly, if you've created a user-defined spatial reference in PostGIS, you should be able to use it in ArcGIS.</p>
+<p><strong>UPDATE</strong>: The NSIS script at utility batch file discussed here is now on github at <a href="https://github.com/geobabbler/pgstandalone" target="_blank">https://github.com/geobabbler/pgstandalone</a>. I'll post a readme in the next day or so.</p>
 
-<p>The disadvantages are relatively minor. First, all of the spatial references, even those created from standard EPSG SRs will appear to ArcGIS as custom spatial references, mainly because of the differing syntax of the SR string. Also, some unit definitions from PostGIS are not specifically recognized by ArcGIS. For instance "US survey feet" is shown as "unknown" in ArcGIS. This last one may be more than minor, depending on if it has any effect on distance calculations and the like but I haven't gotten around to testing it yet.</p>
+<p>A few months ago, I asked the following question on Twitter and got this reply from Paul Ramsey:</p>
 
-<p>So, how about some code? Here's a C# routine that I'm developing for zigGIS (don't look, it's not there yet). It's based on a previous routine that Paolo and I developed. I should note that the Connection and AutoDataReader objects are zigGIS classes that inherit from ADO.NET classes. You should be able to replace them with standard OleDbConnection and DataReader objects and be fine.</p>
+<p><div class='embed tweet'><blockquote class="twitter-tweet" data-in-reply-to="136481537792294912"><p>@<a href="https://twitter.com/billdollins">billdollins</a> Possible yes, but might have to roll your own? You can get raw binaries in a zip file from download site...?</p>&mdash; Paul Ramsey (@pwramsey) <a href="https://twitter.com/pwramsey/status/136565522836897796" data-datetime="2011-11-15T22:05:32+00:00">November 15, 2011</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>We are working with a Federal Government customer that had the interesting policy that users can install software as long as it makes no changes to the Windows registry. These users are currently running a mix of Windows 7 and XP. We are working with them to help manage one of their data models. In this case, it's more about performing configuration management on the model/standard itself rather than physical databases with real data in them. It's a topic we touched on over at the Zekiah blog <a href="http://www.zekiah.com/index.php?q=blog/2012/01/13/expanding-usefulness-geospatial-data-standards" target="_blank">here</a> and an approach we have used successfully for years to manage the <a href="http://www.sdsfie.org/" target="_blank">SDSFIE</a> data standard. <!--more--></p>
+
+<p>So we've applied the technique to another data standard for another Federal organization. In this case, we need to distribute tools to help data modelers work with the platform-independent logical model (PIM) on their own desktops. Typically, this has been centrally managed and accessible via an implementation in SQL Server. (Don't get wrapped around the term "platform-independent." We use it in a different context within this work.) Since we have to distribute to desktops, and SQL Server makes a slew of registry entries, and <a href="http://www.postgresql.org" target="_blank">PostgreSQL</a> has no licensing issues, we decided to go the PostgreSQL route.</p>
+
+<p>It turns out, this was pretty easy. After doing the work for our approach, I have subsequently found posts showing a similar approach (as always, it depends on the day and the search term), which was nice because they sort of validated what I had already done.</p>
+
+<p>Paul was on the right track with using the Windows binaries from the PostgreSQL site. Natively, PostgreSQL doesn't need any registry entries, which makes sense given that it also runs on Linux and Unix. Registry entries are typically introduced by the one-click installers that do helpful things like setting PostgreSQL up as a service and a few other things that require registry entries on Windows. These are very useful things that I avail myself of when I use PostgreSQL on Windows. In this particular use case, those features were not helpful.</p>
+
+<p>One thing that you'll notice when you use the one-click installer is that you'll end up with a batch file called "pg_env.bat" in the install folder for your version. It looks something like this:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="nv">@ECHO</span> <span class="n">OFF</span>
+</span><span class='line'><span class="n">REM</span> <span class="n">The</span> <span class="n">script</span> <span class="n">sets</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">helpful</span> <span class="k">for</span> <span class="n">PostgreSQL</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="nv">@SET</span> <span class="n">PATH</span><span class="p">=</span><span class="s2">&quot;C:\Program Files (x86)\PostgreSQL\8.4\bin&quot;</span><span class="err">;</span><span class="k">%</span><span class="n">PATH</span><span class="p">%</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATA</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PostgreSQL</span><span class="p">\</span><span class="n">8</span><span class="p">.</span><span class="n">4</span><span class="p">\</span><span class="n">data</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATABASE</span><span class="p">=</span><span class="n">postgres</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGUSER</span><span class="p">=</span><span class="n">postgres</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGPORT</span><span class="p">=</span><span class="n">5432</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGLOCALEDIR</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PostgreSQL</span><span class="p">\</span><span class="n">8</span><span class="p">.</span><span class="n">4</span><span class="p">\</span><span class="n">share</span><span class="p">\</span><span class="n">locale</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>As you can see, I'm working with version 8.4 of PostgreSQL. That version is what has been blessed but I am also rolling up an implementation of this approach for 9.1 as we expect to get that approval soon.</p>
+
+<p>With this batch file and the unzipped binaries, we have everything we need to run PostgreSQL without running an installer that makes registry entries. Now all we need to do is tell each user to unzip the binaries, edit the batch file to point to the correct paths, open a command window and run the batch file...</p>
+
+<p>...Clearly, there was a little more work to do to make this operate smoothly.</p>
+
+<p>First, we wanted <a href="http://www.postgis.org/" target="_blank">PostGIS</a> in our build. As I mentioned before, the PIM represents a logical model that doesn't store actual data, but we wanted it to know about PostGIS data types. Additionally, we wanted to distribute the PIM with PostgreSQL. In this case, we did a little bit of prep work using a standard install of PostgreSQL to add PostGIS (and its template database) and build/populate our PIM database.</p>
+
+<p>Once we had this done, we moved the data directory over to our "unzipped" instance of PostgreSQL. We tested by running our batch file from the command prompt and starting PosgreSQL the same way. In our case, we changed the listening port to 54325. We then attempted to connect via pgAdmin3 and had success:</p>
+
+<div style="text-align: center;"><img alt="" class="size-full wp-image-2471" height="274" src="http://geobabble.files.wordpress.com/2012/02/pgpost1.png" title="pgpost1" width="235" /><div style="text-align: center; font-size: 14px">Connection successful!<br /></div></div>
+
+
+<p>This is all well and good, but probably still a bit much to ask a user to do. So we built an installer. In this case, we used the <a href="http://nsis.sourceforge.net/Main_Page" target="_blank">Nullsoft Scriptable Install System</a> (NSIS) to build our own installer and ensure that no registry entries were made. So once we had our instance/data prepped the way we wanted it, we zipped it all back up for inclusion in the installer. The NSIS script for the installer is at the end of this post.</p>
+
+<p>For the installer to work, we also made use of the <a href="http://nsis.sourceforge.net/ZipDLL_plug-in">ZipDLL plug-in</a> for NSIS. The installer essentially prompts the user to specify the install location then unzips the PostgreSQL binaries/data, builds the driver batch file and places shortcuts on the user's desktop. It's really that simple. We have a utility (also a batch file) that builds the driver batch file as the installer runs. When it's done, the installer cleans up the zip file and the utility. The resulting driver batch file looks like this (where the user specified "C:\Program Files (x86)\PGStandalone11" as the install location):</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">REM</span> <span class="n">This</span> <span class="n">file</span> <span class="n">was</span> <span class="n">automatically</span> <span class="n">generated</span>
+</span><span class='line'><span class="n">REM</span> <span class="n">This</span> <span class="n">script</span> <span class="n">sets</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">helpful</span> <span class="k">for</span> <span class="n">PostgreSQL</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PATH</span><span class="p">=</span><span class="s2">&quot;C:\Program Files (x86)\PGStandalone11\bin&quot;</span><span class="err">;</span><span class="k">%</span><span class="n">PATH</span><span class="p">%</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATA</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PGStandalone11</span><span class="p">\</span><span class="n">data</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATABASE</span><span class="p">=</span><span class="n">postgres</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGUSER</span><span class="p">=</span><span class="n">postgres</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGPORT</span><span class="p">=</span><span class="n">54325</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGLOCALEDIR</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PGStandalone11</span><span class="p">\</span><span class="n">share</span><span class="p">\</span><span class="n">locale</span>
+</span><span class='line'><span class="n">CALL</span> <span class="s2">&quot;C:\Program Files (x86)\PGStandalone11\bin\postgres.exe&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>We also drop two shortcuts on the desktop:</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2475" height="161" src="http://geobabble.files.wordpress.com/2012/02/pgpost2.png" title="pgpost2" width="316" /></p>
+
+<p>The shortcut labeled "Start PostGIS PIM" executes the batch file above. The shortcut labeled "Manage PostGIS PIM" starts pgAdmin3. I am currently trying to get pgAdmin3 to read the connection information from its settings.ini file instead of looking to the registry. If the user adds the connection on their own, it will write information to the HKCU hive of the registry. This may end up being acceptable but I probably still won't let it go until I solve this problem.</p>
+
+<p>Once we get this completely finalized, I'll make the script and the utilities available. Another reason that I love PostgreSQL is that things like this seem to end up being easier than you would think. That's a sign of a well-built piece of software, in my opinion.</p>
+
+<p>And here's the installer's NSIS script:</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -63,44 +141,604 @@
 <span class='line-number'>35</span>
 <span class='line-number'>36</span>
 <span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>!define CO_DIR &quot;Zekiah Technologies&quot;
+</span><span class='line'>!define NAME &quot;Standalone PostgreSQL/PostGIS Install for Windows&quot;
+</span><span class='line'>!define SHORTNAME &quot;PGStandalone&quot;
+</span><span class='line'>!define UNINSTALLER &quot;uninstall.exe&quot;&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">static</span> <span class="k">public</span> <span class="n">ISpatialReference</span> <span class="n">setEsriSpatiaReferenceFromSrText</span><span class="p">(</span><span class="kt">int</span> <span class="n">srid</span><span class="p">,</span> <span class="n">Connection</span> <span class="n">conn</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">ISpatialReference</span> <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">srText</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//Bill: query srtext associated with srid</span>
-</span><span class='line'>            <span class="n">AutoDataReader</span> <span class="n">dr</span> <span class="p">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">doQuery</span><span class="p">(</span><span class="s">&quot;select * from spatial_ref_sys where srid = &quot;</span> <span class="p">+</span> <span class="n">srid</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">dr</span><span class="p">.</span><span class="n">Read</span><span class="p">())</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="n">srText</span> <span class="p">=</span> <span class="n">dr</span><span class="p">[</span><span class="s">&quot;srtext&quot;</span><span class="p">]</span> <span class="p">+</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>                <span class="n">ISpatialReferenceFactory2</span> <span class="n">srf</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SpatialReferenceEnvironmentClass</span><span class="p">();</span>
-</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">srText</span> <span class="p">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>                <span class="k">else</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="c1">//use srText to construct SR.</span>
-</span><span class='line'>                    <span class="n">srf</span><span class="p">.</span><span class="n">CreateESRISpatialReference</span><span class="p">(</span><span class="n">srText</span><span class="p">,</span> <span class="k">out</span> <span class="n">sr</span><span class="p">,</span> <span class="k">out</span> <span class="n">i</span><span class="p">);</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//PostGis srid is not implemented as an Esri Factory Code</span>
-</span><span class='line'>            <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>&lt;p&gt;OutFile &quot;setup_${SHORTNAME}.exe&quot;
+</span><span class='line'>Name &quot;${NAME}&quot;
+</span><span class='line'>Caption &quot;${NAME} Setup&quot;
+</span><span class='line'>InstallDir &quot;$PROGRAMFILES\${SHORTNAME}&quot;
+</span><span class='line'>CompletedText &quot;Success.&quot;
+</span><span class='line'>XPStyle &quot;On&quot;
+</span><span class='line'>InstallColors /windows&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>&lt;p&gt;Page directory
+</span><span class='line'>Page instfiles
+</span><span class='line'>ShowInstDetails show&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;Section &quot;Install&quot;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;SetOutPath $INSTDIR
+</span><span class='line'>
+</span><span class='line'>; Create uninstaller first, so user can clean up if we barf.
+</span><span class='line'>WriteUninstaller &quot;$INSTDIR\${UNINSTALLER}&quot; ;this actually does nothing right now
+</span><span class='line'>
+</span><span class='line'>; Extract all the files.
+</span><span class='line'>DetailPrint &quot;Extracting files...&quot;
+</span><span class='line'>File pg.zip
+</span><span class='line'>ZipDLL::extractall &quot;$INSTDIR\pg.zip&quot; &quot;$INSTDIR&quot;
+</span><span class='line'>
+</span><span class='line'>;Write batch file using INSTDIR to set correct paths
+</span><span class='line'>Call WriteBatchFile
+</span><span class='line'>DetailPrint &quot;OK: Batch file written&quot;
+</span><span class='line'>
+</span><span class='line'>Call OutputToTemp
+</span><span class='line'>GetFullPathName /short $0 $INSTDIR
+</span><span class='line'>Delete &quot;$INSTDIR\pg.zip&quot;
+</span><span class='line'>
+</span><span class='line'>; Add start menu shortcuts.
+</span><span class='line'>DetailPrint &quot;Adding shortcuts...&quot;
+</span><span class='line'>SetShellVarContext all
+</span><span class='line'>CreateDirectory &quot;$SMPROGRAMS\${NAME}&quot;
+</span><span class='line'>SetOutPath &quot;$SMPROGRAMS\${NAME}&quot;
+</span><span class='line'>CreateShortCut &quot;Uninstall.lnk&quot; &quot;$INSTDIR\${UNINSTALLER}&quot;
+</span><span class='line'>CreateShortCut &quot;$DESKTOP\Start PostGIS PIM.lnk&quot; &quot;$INSTDIR\pg_standalone.bat&quot; &quot;&quot;
+</span><span class='line'>CreateShortCut &quot;$DESKTOP\Manage PostGIS PIM.lnk&quot; &quot;$INSTDIR\bin\pgAdmin3.exe&quot; &quot;&quot;
+</span><span class='line'>
+</span><span class='line'>; Success.
+</span><span class='line'>DetailPrint &quot;All Done!&quot;
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;SectionEnd&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;Function OutputToTemp&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;ExpandEnvStrings $5 &quot;%TEMP%&quot;
+</span><span class='line'>SetOutPath $5
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;FunctionEnd&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;Function un.OutputToTemp&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;ExpandEnvStrings $5 &quot;%TEMP%&quot;
+</span><span class='line'>SetOutPath $5
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;FunctionEnd&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;Function WriteBatchFile&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;; execute utility to create batch file to execute PostgreSQL
+</span><span class='line'>
+</span><span class='line'>Call OutputToTemp
+</span><span class='line'>File &quot;utils\make_pg_env.bat&quot;
+</span><span class='line'>ExecWait &#39;&quot;$5\make_pg_env.bat&quot; &quot;$INSTDIR&quot;&#39;
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;FunctionEnd&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;UninstPage uninstConfirm
+</span><span class='line'>UninstPage instfiles
+</span><span class='line'>ShowUninstDetails hide&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;Section &quot;Uninstall&quot;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;; Remove all start menu shortcuts.
+</span><span class='line'>DetailPrint &quot;Removing shortcuts...&quot;
+</span><span class='line'>SetShellVarContext all
+</span><span class='line'>Delete &quot;$SMPROGRAMS\${NAME}\*&quot;
+</span><span class='line'>RmDir &quot;$SMPROGRAMS\${NAME}&quot;
+</span><span class='line'>
+</span><span class='line'>DetailPrint &quot;Removing files...&quot;
+</span><span class='line'>
+</span><span class='line'>Delete &quot;$INSTDIR\${UNINSTALLER}&quot;
+</span><span class='line'>RmDir &quot;$INSTDIR&quot;
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;SectionEnd
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Triggered Notifications Using PostGIS]]></title>
+    <link href="http://blog.geomusings.com/2011/08/01/Triggered-Notifications-Using-PostGIS/"/>
+    <updated>2011-08-01T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/01/Triggered-Notifications-Using-PostGIS</id>
+    <content type="html"><![CDATA[<p>My project work the last few months has kept me away from a lot of my favorite open-source tools and I was starting to get hives. Specifically, it had been a while since I had worked with <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://postgis.refractions.net">PostGIS</a> and I was missing the experience, so I dreamed up something to do.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-1898" height="307" src="http://geobabble.files.wordpress.com/2011/08/elephant.png" title="Elephant" width="461" /></p>
+
+<p>I do a lot of work implementing situational awareness systems for my customers and one common requirement is automated notification of events. I decided that I wanted to roll a completely FOSS approach to sending an SMS notification based upon the results of a spatial query. This post will discuss the basic wiring to make it all work. I'll probably add more advanced features in subsequent posts but I'll be sticking to the basics for now.</p>
+
+<!--more-->
+
+
+<p>I decided to keep my first pass relatively simple in order to work out the core logic and workflow. To get started, I really only needed a few things:</p>
+
+<ol>
+    <li>PostgreSQL with PostGIS installed. I simply used the <a href="http://www.opengeo.org">OpenGeo</a> Community Edition.</li>
+    <li><a href="http://developer.postgresql.org/pgdocs/postgres/plpython.html">plpython</a> - support for writing PostgreSQL functions in <a href="http://www.python.org">Python</a></li>
+    <li>Python - I used version 2.7 for this</li>
+    <li>Some spatial data - I loaded a data set of the US counties to test with</li>
+</ol>
+
+
+<p>Using these tools, I set out to create a core workflow that would use a trigger function attached to a point data set to test, whenever a record was inserted or updated, whether the point geometry fell within a specific US county (St. Mary's County, Maryland in this case). If so, the system would send an SMS message to me. In order to do this, I had to create the following:</p>
+
+<ol>
+    <li>An empty table with a PostGIS geometry column to store the incoming points</li>
+    <li>A trigger function to perform the spatial query on insert or update</li>
+    <li>A trigger to fire the trigger function</li>
+    <li>A function to send the SMS message</li>
+    <li>Some test SQL to insert records into the point table</li>
+</ol>
+
+
+<p>The first step was loading my county data, which I had in shapefile format. For that, I simply used <a href="http://www.qgis.org/">QGIS</a> and its SPIT plug-in. After that, I created the table that would hold my point data. Right now, it's just a point and an ID. The SQL is very simple:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">locations</span> <span class="p">(</span><span class="n">gid</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">);</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="n">AddGeometryColumn</span> <span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">,</span><span class="s1">&#39;locations&#39;</span><span class="p">,</span><span class="s1">&#39;shape&#39;</span><span class="p">,</span><span class="mf">4326</span><span class="p">,</span><span class="s1">&#39;POINT&#39;</span><span class="p">,</span><span class="mf">2</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>This table is the one that does all the work. The initial trigger will be attached to it. The counties data set really just sits there waiting to be queried. I'll actually take the next three functions in the reverse of the order in which they will execute.</p>
+
+<p>The first function I wrote was the one that sends off the actual SMS message. That is its sole job in this process. After looking at different ways to accomplish the SMS, my old <a href="http://www.obtusesoft.com/">zigGIS</a> partner, <a href="http://twitter.com/xanadont">Abe</a> <a href="http://www.linkedin.com/in/agillesp">Gillespie</a>, clued me in to using each provider's e-mail gateway. So, by sending a properly formatted e-mail, the end user will receive an SMS message. You can learn more about it <a href="http://www.emailtextmessages.com/">here</a>. (Thanks, Abe!) So, my task really just became sending an e-mail message, which is nice because I want support that as well so now I can reuse code. After looking at various means to send e-mail from within PostgreSQL, I decided that Python was the most direct way to accomplish it.</p>
+
+<p>PostgreSQL supports using Python for functions in a manner similar to the way SQL Server supports embedded procedures written against the <a href="http://en.wikipedia.org/wiki/Common_Language_Runtime">Common Language Runtime</a>. You simply need to make sure plpython support is installed with your instance of PostgreSQL. Here is the code for the simplified messaging function:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">emailme</span><span class="p">(</span><span class="n">txt</span> <span class="nb">text</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">RETURNS</span> <span class="nb">integer</span> <span class="k">AS</span>
+</span><span class='line'><span class="s">$BODY$</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">starts</span> <span class="n">here</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Import</span> <span class="n">smtplib</span> <span class="k">for</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">sending</span> <span class="n">function</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">smtplib</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">email</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">re</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Import</span> <span class="n">the</span> <span class="n">email</span> <span class="n">modules</span> <span class="n">we</span><span class="s">&#39;ll need&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">mailfunction</span><span class="p">(</span><span class="n">recip</span><span class="p">,</span><span class="n">msgtxt</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="n">msgtxt</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># me == the sender&#39;s email address</span>
+</span><span class='line'><span class="c"># you == the recipient&#39;s email address</span>
+</span><span class='line'><span class="n">msg</span><span class="p">[</span><span class="s">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Message from PostgreSQL&#39;</span>
+</span><span class='line'><span class="n">msg</span><span class="p">[</span><span class="s">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;contact@zekiah.com&#39;</span>
+</span><span class='line'><span class="c">#msg[&#39;To&#39;] = &#39;not used here&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Send the message via our own SMTP server, but don&#39;t include the</span>
+</span><span class='line'><span class="c"># envelope header.</span>
+</span><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s">&#39;localhost&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="s">&#39;contact@zekiah.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">recip</span><span class="p">],</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">mailfunction</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;1234567890@vtext.com&#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">))</span>
+</span><span class='line'><span class="n">t</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</span><span class='line'><span class="k">return</span> <span class="mi">0</span>
+</span><span class='line'><span class="s">$BODY$</span>
+</span><span class='line'>  <span class="k">LANGUAGE</span> <span class="n">plpythonu</span> <span class="k">VOLATILE</span>
+</span><span class='line'>  <span class="k">COST</span> <span class="mf">100</span><span class="p">;</span>
+</span><span class='line'><span class="k">ALTER</span> <span class="k">FUNCTION</span> <span class="n">emailme</span><span class="p">(</span><span class="nb">text</span><span class="p">)</span> <span class="k">OWNER</span> <span class="k">TO</span> <span class="n">postgres</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>As can be seen, the Python code is embedded in the body of the function. Early on, I was experiencing significant slowness when sending the messages. After some code refactoring, I realized it was the SMTP handshake that was causing the problem. The original version used an external server that required authentication. I installed a local open-source SMTP server and configured it to allow unauthenticated relay from the local server and the bottleneck went away.</p>
+
+<p>This version of the code receives the message body as a parameter and sends to a hard-coded address. I plan to change this to accept the recipient address as well. Then the calling function can pass in an array of recipients who have subscribed to these messages. For now, the system just talks to me.</p>
+
+<p>Next, I built the trigger function. This is a little different from other platforms I've worked on. In SQL Server, a trigger is basically a stored procedure that gets called when a table event happens. When authoring, you simply build the one procedure. In PostgreSQL, you have two distinct objects: a trigger and a trigger function. The trigger function does the heavy lifting and the trigger is what calls it. In my case, the trigger function is what performs the actual spatial query to determine if the new point geometry falls within my county. The code for that function is here:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">Function</span> <span class="n">checkcounty</span><span class="p">()</span> <span class="k">RETURNS</span> <span class="k">TRIGGER</span> <span class="k">AS</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="s">$BODY$</span>
+</span><span class='line'><span class="k">DECLARE</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">shp</span> <span class="n">geometry</span><span class="p">;</span>
+</span><span class='line'><span class="n">a_row</span> <span class="n">counties</span><span class="nb">%ROWTYPE</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">BEGIN</span>
+</span><span class='line'><span class="n">shp</span> <span class="o">=</span> <span class="n">new</span><span class="mf">.</span><span class="n">shape</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">counties</span> <span class="k">WHERE</span> <span class="n">ST_Contains</span><span class="p">(</span><span class="n">counties</span><span class="mf">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">shp</span><span class="p">)</span> <span class="k">INTO</span> <span class="n">a_row</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">IF</span> <span class="n">a_row</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">THEN</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">IF</span> <span class="n">a_row</span><span class="mf">.</span><span class="s-Name">&quot;COUNTY&quot;</span> <span class="o">=</span> <span class="s1">&#39;Saint Marys County&#39;</span> <span class="k">THEN</span>
+</span><span class='line'>    <span class="k">PERFORM</span> <span class="n">emailme</span><span class="p">(</span><span class="s1">&#39;New feature in St. Mary`s County&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
+</span><span class='line'><span class="k">RETURN</span> <span class="n">new</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">END</span><span class="p">;</span>
+</span><span class='line'><span class="s">$BODY$</span>
+</span><span class='line'><span class="k">LANGUAGE</span> <span class="s1">&#39;plpgsql&#39;</span> <span class="k">VOLATILE</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Again, I'm just checking for one, hard-coded value. In my next iteration, I plan to make that configurable so that the trigger function will test for various user-specified conditions. Of course, the type of spatial relationship can also be configured.</p>
+
+<p>Lastly, the trigger itself. As can be seen, it's primary job is to call the trigger function when appropriate.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">locations_change</span>
+</span><span class='line'>  <span class="k">AFTER</span> <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">UPDATE</span>
+</span><span class='line'>  <span class="k">ON</span> <span class="n">locations</span>
+</span><span class='line'>  <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
+</span><span class='line'>  <span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">checkcounty</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Once these were all in place, I used the following to test:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="c1">--TRUE</span>
+</span><span class='line'><span class="k">insert</span> <span class="k">into</span> <span class="n">locations</span>
+</span><span class='line'><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</span><span class='line'><span class="k">VALUES</span>
+</span><span class='line'><span class="p">(</span><span class="n">ST_PointFromText</span><span class="p">(</span><span class="s1">&#39;POINT(-76.662 38.348)&#39;</span><span class="p">,</span> <span class="mf">4326</span><span class="p">));</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;--</span><span class="k">FALSE</span>
+</span><span class='line'><span class="c1">--insert into locations</span>
+</span><span class='line'><span class="c1">--(shape)</span>
+</span><span class='line'><span class="c1">--VALUES</span>
+</span><span class='line'><span class="c1">--(ST_PointFromText(&#39;POINT(-76.622 37.895)&#39;, 4326));&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;--</span><span class="k">NULL</span>
+</span><span class='line'><span class="c1">--insert into locations</span>
+</span><span class='line'><span class="c1">--(shape)</span>
+</span><span class='line'><span class="c1">--VALUES</span>
+</span><span class='line'><span class="c1">--(ST_PointFromText(&#39;POINT(-74.482 37.734)&#39;, 4326));</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>These objects represent the basic skeleton of the notification capability I am building. In the future, I also want to support various types of messaging in addition to SMS and e-mail. I'm thinking of Twitter, publishing to RSS or Atom and other such options.</p>
+
+<p>Even at this early stage, I've got to consider performance. The spatial query in the trigger is performing amazingly fast but my data is still small. I've got spatial indices built on the data sets but I'll need to keep an eye on that as this grows. Thankfully, <a href="http://www.manning.com/obe/">'PostGIS In Action'</a> offers lots of tips in that regard. Another design consideration I've made is that all of my spatial data sets will be stored in the same spatial reference. PostGIS has nice coordinate transformation capabilities but I don't want to introduce that into my trigger functions in case data starts to grow. I plan to pre-process buffers and such for the same reasons.</p>
+
+<p>I'm pretty happy with this so far primarily because all of the logic is executing at the database level. There's really no need to extract any of this logic out into a middle-tier library of any kind and it's running without any dependence on any middleware. It's also a nice use of spatial processing that doesn't involve a map. I love maps but they aren't necessary in every application of spatial technology. I'm also excited to have a meaty requirement to dig into to help with my Python explorations. I've missed working with these tools. It's good to be back.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using PostgreSQL Views in zigGIS 2.0.2]]></title>
+    <link href="http://blog.geomusings.com/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2/"/>
+    <updated>2009-01-27T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2</id>
+    <content type="html"><![CDATA[<p>When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database platforms. The way zigGIS was originally constructed, it used the PostGIS geometry_columns table to discover available spatial tables. This has worked well but we came to realize that there are numerous workflows that can be employed to create spatial tables in PostGIS and many of these don't necessarily register in the geometry_columns table. For example, you can use a standard CREATE TABLE to create a table that includes a geometry column. In this case, the table will not be registered but will still be a valid spatial table. The same can be said for views.<!--more--></p>
+
+<p>SQL Server 2008 doesn't have any equivalent to the geometry_columns table and most likely won't. When considering extending zigGIS to support SQL Server, we were basically left with two paths:</p>
+
+<ol>
+<li>Create tables analagous to the PostGIS geometry_columns and spatial_ref_sys tables (and possibly other supporting structures) inside a zigGIS schema or:</li>
+<li>Eliminate the need to have your data listed in geometry_columns and have zigGIS "discover" your spatial data by examining the schema information.</li>
+</ol>
+
+
+<p>Since our preference is always to keep zigGIS as light as possible, we went with the latter. This approach was implemented in version 2.0.2. While we haven't extended to SQL Server yet, zigGIS does provide more flexibility for user to implement their own data workflow. For me, one of the biggest benefits is the ability to create a view in PostgreSQL and add it into ArcMap as a layer.</p>
+
+<p>For example, I have a spatial table called "states" which was imported from a shapefile of the US states. Additionally, I have a table called "us_states_pop" that contains population estimates from the US Census Bureau. Using the following SQL, I created a view that joined the two tables based upon the state abbreviation and displayed the 2007 and 2008 poplation estimates.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="n">s</span><span class="p">.</span><span class="n">gid</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">state_name</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">state_abbr</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">e20080701</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">e20070701</span>
+</span><span class='line'>   <span class="k">FROM</span> <span class="n">states</span> <span class="n">s</span>
+</span><span class='line'>   <span class="k">JOIN</span> <span class="n">us_states_pop</span> <span class="n">p</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">state_abbr</span><span class="p">::</span><span class="nb">text</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">abbr</span><span class="p">::</span><span class="nb">text</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I saved this view with the name "vwStatePop". Your view must return a geometry column and an integer ID column (shape and gid in this case). Next, I started up ArcMap and selected my view like so:</p>
+
+<p>[caption id="attachment_459" align="alignnone" width="300" caption="zigGIS 2.0.2 layer selector (click to enlarge)"]<a href="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png"><img alt="zigGIS 2.0.2 layer selector (click to enlarge)" class="size-medium wp-image-459" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png?w=300" title="zig_pick_view" width="300" /></a>[/caption]</p>
+
+<p>I simply selected the view in the dialog, then used the dropdowns to set the correct values for the ID column, geometry column and geometry type and then clicked "OK". The view data then displayed in ArcMap as any other layer like so:</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2009/01/zig_view_map.png"><img alt="PostgreSQL/PostGIS spatial view displayed in ArcMap. (click to enlarge)" class="size-medium wp-image-465" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_view_map.png" title="zig_view_map" width="300" /></a><div style="text-align: center; font-size:14px">PostgreSQL/PostGIS spatial view displayed in ArcMap. (click to enlarge)<br/></div></div>
+
+
+<p>This was a fairly simple example but you can get pretty sophisticated with your views. I like the fact that I just need to create a standard PostgreSQL view in the same way that I always do and I can use it in ArcMap right away. The ability to use views in zigGIS is the enhancement I am most excited about in version 2.0.2.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using ArcSDE 9.3 with PostgreSQL, Part 3.5]]></title>
+    <link href="http://blog.geomusings.com/2008/08/21/Using-ArcSDE-9.3-with-PostgreSQL-Part-3.5/"/>
+    <updated>2008-08-21T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/08/21/Using-ArcSDE-9.3-with-PostgreSQL-Part-3.5</id>
+    <content type="html"><![CDATA[<p>I thought I was done with the series a while back but I've been getting a steady stream of questions through other channels so I thought I'd wrap up a lot of the common stuff in another post. Most of the inquiries come from people trying to integrate <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> for <a href="http://www.postgresql.org">PostgreSQL</a> with open-source tools in one way or another. Here are a few notes:<!--more--></p>
+
+<ol type="1">
+    <li>If you plan to load data into PostgreSQL with ArcCatalog but plan to edit it with tools such as <a href="http://udig.refractions.net/">uDig</a>, <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a> or <a href="http://pub.obtusesoft.com/">zigGIS</a>, then you want to do the following:
+             <ol type="a">
+                  <li>Always load your data with the PG_GEOMETRY configuration keyword. This will cause your spatial objects to be stored in the <a href="http://postgis.refractions.net/">PostGIS</a> format. None of the open-source tools I've used can understand ST_GEOMETRY.</li>
+                  <li>Don't version your data. uDig, gvSIG and zigGIS (what I've used) only "see" the DEFAULT version anyway. They can't take advantage of versioning.</li>
+                  <li>Although ArcCatalog does put an entry in the PostGIS geometry_columns table, it lists the geometry type as GEOMETRY. gvSIG edits this fine but it seems to monkey with uDig a little. It's not a bad idea to update this with the actual geometry type. These will be string values such as "POLYGON", "MULTIPOLYGON", etc. You'll need to do this if you plan to edit your data with zigGIS from an ArcView desktop.</li>
+                  <li>Related to the previous item. If you were to load data using shp2pgsql or any other method that calls the PostGIS <a href="http://postgis.refractions.net/documentation/manual-1.3/ch06.html#id3059786">AddGeometryColumn</a> function, you would end up with constraints on your table limiting the geometry column to a homogenous geometry type (e.g only polygons) and a homogenous SRID. Loading via ArcCatalog doesn't do this (and I've run into other tools that don't as well). Quite frankly ArcSDE manages all of that for itself so it doesn't need such constraints. Without them, however, you can use other tools and mix your geometry types and SRIDs in the table. It's a good idea to add these constraints and I have noticed no ill effects on ArcGIS if you do.</li>
+                   <li>As we discovered with zigGIS, there is a difference between the spatial references that are defined by default on the PostGIS spatial_ref_sys table and the ArcSDE sde_spatial_references table. This makes it possible to load data via ArcCatalog that doesn't have a corresponding SRID in the PostGIS table. This would effect your ability to add the previously discussed constraint. It will also throw off open-source tools that look at the spatial_ref_sys table. It's a good idea to update spatial_ref_sys to include those from ArcGIS that are not already supported.</li>
+                    <li>ArcCatalog doesn't define a primary key on your spatial table. uDig really doesn't like this so it's best to add a primary key on the objectid column (this has no effect on ArcGIS that I can tell) using the following syntax:
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">myTable</span>
+</span><span class='line'><span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">mytable_pkey</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">objectid</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+gvSIG additionally expects the column with the PK to "auto-number" so you may want to experiment with adding a sequence to the column. The syntax I used to do this is:
+
+ <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">SEQUENCE</span> <span class="n">mytable_gid_seq</span>
+</span><span class='line'><span class="k">INCREMENT</span> <span class="mf">1</span>
+</span><span class='line'><span class="k">MINVALUE</span> <span class="mf">1</span>
+</span><span class='line'><span class="k">MAXVALUE</span> <span class="mf">9223372036854775807</span>
+</span><span class='line'><span class="k">START</span> <span class="mf">408</span>
+</span><span class='line'><span class="k">CACHE</span> <span class="mf">1</span><span class="p">;</span>
+</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">mytable_gid_seq</span> <span class="k">OWNER</span> <span class="k">TO</span> <span class="n">postgres</span><span class="p">;</span>
+</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">myTable</span> <span class="k">ALTER</span> <span class="k">COLUMN</span> <span class="n">objectid</span> <span class="k">SET</span> <span class="k">DEFAULT</span> <span class="n">nextval</span><span class="p">(</span><span class="o">?</span><span class="n">mytable_gid_seq</span><span class="o">?::</span><span class="n">regclass</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>                 
+If you're experienced with ArcSDE, you get nervous mucking with the objectid column. I have made both the of the above changes to several data sets and made edits in uDig, gvSIG and ArcMap with no ill effect.</li>
+</ol>
+<li>If you plan to edit/manage your data using ArcGIS but serve it out using an open-source application like GeoServer or MapServer then there are a few considerations:
+            <ol type="a">
+            <li>If you plan to use versioning, then be diligent about posting and reconciling with DEFAULT so that any changes want to have show up will. Of course, this assumes you would just be connecting to the PostGIS data. If you connect through ArcSDE, this <em>may</em> be unnecessary.</li>
+            <li>Again, use the PG_GEOMETRY keyword.</li>
+            <li>The SRID issue discussed in item 1e above <em>may</em> be relevant here as well.</li>
+            </ol>
+</li>
+<li>The implementation of ArcSDE on the PostgreSQL platform is pretty solid. I have been able to do everything I could do on other platforms. So, if you plan to stay in the ESRI environment, go forth an conquer. I think you'll be pleased with PostgreSQL. You may want to bone up on PostgreSQL database administration, though.</li>
+
+Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerous technology mixes. It's somewhat uncharted territory and it's not a bad idea, as with any system integration task, to do a little testing and experimentation before moving on with an implementation.
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DMS to Decimal Degrees Function for PostgreSQL]]></title>
+    <link href="http://blog.geomusings.com/2008/06/16/DMS-to-Decimal-Degrees-Function-for-PostgreSQL/"/>
+    <updated>2008-06-16T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/06/16/DMS-to-Decimal-Degrees-Function-for-PostgreSQL</id>
+    <content type="html"><![CDATA[<!--zekiah -->
+
+
+<p>For another project, I had to work with a PostgreSQL table that was storing locations in Degrees/Minutes/Seconds. We had to create an event layer in ArcGIS so they had to be converted to decimal degrees. The server was not using PostGIS and I really had no control over the configuration (although the admins would let us create views or functions to facilitate what we needed). So I wrote a function to accomplish the conversion and allow us to create a view. It was pretty simple (and others may have more elegant approaches) but I figured I'd post it to save someone else some work in the future. Here's the code:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">dms2dd</span><span class="p">(</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>   <span class="n">D</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">M</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">S</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">HEMI</span> <span class="nb">character</span> <span class="k">varying</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="p">)</span> <span class="k">RETURNS</span> <span class="nb">double precision</span> <span class="k">AS</span> <span class="s">$$</span>
+</span><span class='line'>   <span class="k">DECLARE</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>  <span class="n">ret</span> <span class="nb">double precision</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">dir</span> <span class="nb">integer</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="k">BEGIN</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>  <span class="n">dir</span> <span class="o">:=</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">--init to 1 for default positive return</span>
+</span><span class='line'>  <span class="n">ret</span> <span class="o">:=</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">--init to zero.</span>
+</span><span class='line'>  <span class="c1">--ONLY S or W will trip this. Any other letter or NULL will result in positive return value</span>
+</span><span class='line'>  <span class="k">IF</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span> <span class="k">OR</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;W&#39;</span> <span class="k">THEN</span>
+</span><span class='line'><span class="n">dir</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">1</span><span class="p">;</span> <span class="c1">--then southern or western hemisphere</span>
+</span><span class='line'>  <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
+</span><span class='line'>  <span class="c1">--SOME data has negative values in minutes and seconds as well as degrees. Use ABS to standardize all three.</span>
+</span><span class='line'>  <span class="n">ret</span> <span class="o">:=</span> <span class="p">(</span><span class="n">ABS</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">D</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">M</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">S</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span><span class="o">/</span><span class="mf">60</span><span class="p">)))</span><span class="o">/</span><span class="mf">60</span><span class="p">)));</span>
+</span><span class='line'>  <span class="n">ret</span> <span class="o">:=</span> <span class="n">ret</span> <span class="o">*</span> <span class="n">dir</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">RETURN</span> <span class="n">ret</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>  <span class="k">END</span><span class="p">;</span>
+</span><span class='line'>  <span class="s">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The function doesn't care whether it's latitude or longitude. You'll also notice that it's not doing any bounds checking. That's because our table had a constraint limiting the degree values of latitude and longitude to between -90/90 and -180/180 respectively. There's still a little room for error on the aggregated value, though. Our table had D, M, S and the hemisphere indicator stored in separate columns. The numeric values were stored as integers.</p>
+
+<p>The usage for my table was:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">SELECT</span> <span class="n">dms2dd</span><span class="p">(</span><span class="n">lat_d</span><span class="p">,</span><span class="n">lat_m</span><span class="p">,</span><span class="n">lat_s</span><span class="p">,</span><span class="n">lat_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">latitude</span><span class="p">,</span>
+</span><span class='line'> <span class="n">lat_d</span><span class="p">,</span> <span class="n">lat_m</span><span class="p">,</span> <span class="n">lat_s</span><span class="p">,</span> <span class="n">lat_hemi</span><span class="p">,</span>
+</span><span class='line'>  <span class="n">dms2dd</span><span class="p">(</span><span class="n">lon_d</span><span class="p">,</span><span class="n">lon_m</span><span class="p">,</span><span class="n">lon_s</span><span class="p">,</span><span class="n">lon_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">longitude</span><span class="p">,</span>
+</span><span class='line'>   <span class="n">lon_d</span><span class="p">,</span> <span class="n">lon_m</span><span class="p">,</span> <span class="n">lon_s</span> <span class="k">as</span> <span class="n">latitude</span> <span class="k">from</span> <span class="n">dms_coords</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+Enjoy.</p>
 ]]></content>
   </entry>
   

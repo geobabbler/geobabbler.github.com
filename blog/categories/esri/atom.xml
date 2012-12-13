@@ -4,7 +4,7 @@
   <title><![CDATA[Category: esri | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/esri/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-12T20:11:25-05:00</updated>
+  <updated>2012-12-12T21:12:58-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -148,17 +148,86 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions]]></title>
-    <link href="http://blog.geomusings.com/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/"/>
-    <updated>2007-05-09T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions</id>
-    <content type="html"><![CDATA[<p>As discussed in my previous post, I'm trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support for user-defined spatial references. It pretty much boils down to querying the the appropriate SR from the PostGIS spatial_ref_sys table and applying the value of the srtext column to create a spatial reference in ArcObjects.</p>
+    <title type="html"><![CDATA[Using GeoIQ Analytics in .Net Applications]]></title>
+    <link href="http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-.Net-Applications/"/>
+    <updated>2012-07-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-.Net-Applications</id>
+    <content type="html"><![CDATA[<p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it's my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That's good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
 
-<p>This approach has a few advantages and disadvantages. First, the advantages. Although both PostGIS and ESRI implement the EPSG spatial reference codes, there is not a one-to-one match between the two. Therefore, you could get an SRID in PostGIS that's not supported in ArcGIS. The approach described above should alleviate that, adding stability. Secondly, if you've created a user-defined spatial reference in PostGIS, you should be able to use it in ArcGIS.</p>
+<p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
 
-<p>The disadvantages are relatively minor. First, all of the spatial references, even those created from standard EPSG SRs will appear to ArcGIS as custom spatial references, mainly because of the differing syntax of the SR string. Also, some unit definitions from PostGIS are not specifically recognized by ArcGIS. For instance "US survey feet" is shown as "unknown" in ArcGIS. This last one may be more than minor, depending on if it has any effect on distance calculations and the like but I haven't gotten around to testing it yet.</p>
+<p>The GeoIQ platform offers <a href="http://developer.geoiq.com/api/analysis/" target="_blank">several functions</a> to analyze data sets hosted on a GeoIQ instance or GeoCommons. I have not yet wrapped all of the functions but am working my way through them as I can.</p>
 
-<p>So, how about some code? Here's a C# routine that I'm developing for zigGIS (don't look, it's not there yet). It's based on a previous routine that Paolo and I developed. I should note that the Connection and AutoDataReader objects are zigGIS classes that inherit from ADO.NET classes. You should be able to replace them with standard OleDbConnection and DataReader objects and be fine.</p>
+<p>For this post, I will intersect the locations of <a href="http://geocommons.com/overlays/87503" target="_blank">US GISPs as of 1/26/2011</a> with the <a href="http://geocommons.com/overlays/149925" target="_blank">Maryland Zip Code Boundaries</a> to produce a data set containing the locations of GISPs in Maryland, depicted in the map below.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/07/intersect_results.png"><img alt="" class="size-full wp-image-2793" height="340" src="http://geobabble.files.wordpress.com/2012/07/intersect_results.png" title="intersect_results" width="640" /></a><div style="text-align: center; font-size: 14px">Don't worry, none of these are me.<br /></div></div>
+
+
+
+
+<!--more-->
+
+
+<p>It is important to understand how analytics on the GeoIQ platform work. The output of any successful operation will be a new data set representing the analysis results. Additionally, due to the fact that some analyses may take a long time, they are run asynchronously so you'll need to check back periodically to see if the analysis is complete. That leads to the following very basic workflow:</p>
+
+<ol>
+<li>Initialize analysis</li>
+<li>Periodically check status</li>
+<li>When complete, do something with it</li>
+</ol>
+
+
+<p>So let's get started. Since my original commit, I have added a class that contains wrappers for the GeoIQ analysis methods (<a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Analytics.cs" target="_blank">see here</a>). Due to the consistency of the GeoIQ design, they are all very similar and I'll probably get around to doing some clean-up refactoring after I get all of the methods wrapped. All of the methods I've wrapped so far return the same JSON response so it was easy to create a simple <a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Data/AnalyticsData.cs" target="_blank">AnalyticsResponse</a> class to deserialize that.</p>
+
+<p>In the calling application, I'll set up a couple of module-level objects to help keep track of things:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span> <span class="n">_layerTimer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="m">500</span><span class="p">);</span> <span class="c1">//to check status of analysis</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">AnalyticsResponse</span> <span class="n">_response</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span> <span class="c1">//response object created by analysis</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">Analytics</span> <span class="n">_analytics</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Analytics</span><span class="p">(</span><span class="s">&quot;http://geocommons.com&quot;</span><span class="p">,</span> <span class="s">&quot;username&quot;</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">);</span> <span class="c1">//instance of wrapper class for GeoIQ analytic methods</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>With these building blocks in place, it's fairly easy to execute the basic workflow:</p>
+
+<ol>
+<li>Initialize analysis:</li>
+</ol>
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//call intersect method</span>
+</span><span class='line'><span class="c1">//layer 87503 = GISPs, layer 149925 = zip codes</span>
+</span><span class='line'><span class="c1">//prefer_1 tells GeoIQ to return records from layer 1 (GISPs in this case)</span>
+</span><span class='line'> <span class="p">&lt;</span><span class="n">em</span><span class="p">&gt;</span><span class="n">response</span> <span class="p">=</span> <span class="p">&lt;/</span><span class="n">em</span><span class="p">&gt;</span><span class="n">analytics</span><span class="p">.</span><span class="n">Intersect</span><span class="p">(</span><span class="m">87503</span><span class="p">,</span> <span class="m">149925</span><span class="p">,</span> <span class="n">MergeOptions</span><span class="p">.</span><span class="n">prefer_1</span><span class="p">);</span> <span class="c1">//capture response object</span>
+</span><span class='line'> <span class="c1">//start timer to check status</span>
+</span><span class='line'> <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>This calls the intersect method of the Analytics object, captures the resulting response object, and starts the timer to check the status of the analysis.</p>
+
+<ol>
+<li>Periodically check status:</li>
+</ol>
+
+
+<p>In this case, I used a simple timer that checks every half second, although you may want to space that out more if you're sure your analyses will take a while to run. This shows the timer event handler code:</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -180,61 +249,58 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">void</span> <span class="nf">_layerTimer_Elapsed</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">ElapsedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">static</span> <span class="k">public</span> <span class="n">ISpatialReference</span> <span class="n">setEsriSpatiaReferenceFromSrText</span><span class="p">(</span><span class="kt">int</span> <span class="n">srid</span><span class="p">,</span> <span class="n">Connection</span> <span class="n">conn</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">ISpatialReference</span> <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">srText</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//Bill: query srtext associated with srid</span>
-</span><span class='line'>            <span class="n">AutoDataReader</span> <span class="n">dr</span> <span class="p">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">doQuery</span><span class="p">(</span><span class="s">&quot;select * from spatial_ref_sys where srid = &quot;</span> <span class="p">+</span> <span class="n">srid</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">dr</span><span class="p">.</span><span class="n">Read</span><span class="p">())</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="n">srText</span> <span class="p">=</span> <span class="n">dr</span><span class="p">[</span><span class="s">&quot;srtext&quot;</span><span class="p">]</span> <span class="p">+</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>                <span class="n">ISpatialReferenceFactory2</span> <span class="n">srf</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SpatialReferenceEnvironmentClass</span><span class="p">();</span>
-</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">srText</span> <span class="p">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>                <span class="k">else</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="c1">//use srText to construct SR.</span>
-</span><span class='line'>                    <span class="n">srf</span><span class="p">.</span><span class="n">CreateESRISpatialReference</span><span class="p">(</span><span class="n">srText</span><span class="p">,</span> <span class="k">out</span> <span class="n">sr</span><span class="p">,</span> <span class="k">out</span> <span class="n">i</span><span class="p">);</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//PostGis srid is not implemented as an Esri Factory Code</span>
-</span><span class='line'>            <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span> <span class="kt">string</span> <span class="n">status</span> <span class="p">=</span> <span class="n">_analytics</span><span class="p">.</span><span class="n">GetState</span><span class="p">(</span><span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">);</span> <span class="c1">//ID is that of new layer created by analysis</span>
+</span><span class='line'> <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">==</span> <span class="s">&quot;\&quot;complete\&quot;&quot;</span><span class="p">)</span> <span class="c1">//this means analysis is complete</span>
+</span><span class='line'> <span class="p">{</span>
+</span><span class='line'>     <span class="c1">//use Invoke to access UI elements from timer thread</span>
+</span><span class='line'>     <span class="k">this</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">new</span> <span class="n">MethodInvoker</span><span class="p">(</span><span class="k">delegate</span>
+</span><span class='line'>     <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//set up link label to enable download of new data as KML</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">&quot;Analysis Complete: Download KML&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">19</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="s">&quot;http://geocommons.com/overlays/&quot;</span> <span class="p">+</span> <span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="s">&quot;.kml&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Visible</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'>     <span class="p">}));</span>
+</span><span class='line'> <span class="p">}</span>
 </span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>In a nutshell, it checks the status using a wrapper method. If the status is "complete", then a download link is shown. This code makes the KML version available but you could choose a shapefile or any other format supported by GeoIQ.</p>
+
+<ol>
+<li>When complete, do something with it:</li>
+</ol>
+
+
+<p>In this case, I just make it available for download. Once the data set exists, however, it's really just a matter of imagination.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">void</span> <span class="nf">lnkDownloadShape_LinkClicked</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">LinkLabelLinkClickedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="c1">//this actually downloads the data and may even fire off Google Earth</span>
+</span><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Link</span><span class="p">.</span><span class="n">LinkData</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>In a more robust application (meaning not a sample for a blog post), you could put the results into a map or feed them into locally-installed analysis tools for further processing or do just about anything you want that supports your workflow. I've been a fan of the analytical capability of GeoIQ for some time and I hope, whatever the future holds, that these kinds of tools make it into the next generation of products.</p>
+
+<p>The full Windows Forms code for this sample is <a href="https://gist.github.com/3137738" target="_blank">available here</a>.</p>
 ]]></content>
   </entry>
   

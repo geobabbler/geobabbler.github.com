@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: behaviors | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/behaviors/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2012-12-12T21:12:58-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[DynamicLayer Auto-Refresh for ESRI Silverlight API]]></title>
+    <link href="http://blog.geomusings.com/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API/"/>
+    <updated>2010-11-01T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API</id>
+    <content type="html"><![CDATA[<p>Despite <a href="http://techcrunch.com/2010/10/30/rip-silverlight-on-the-web/">recent news regarding Silverlight</a>, I expect some of my projects to continue using it for the near term. Others may be taking the same tack, so I thought I'd go ahead and offer this up.</p>
+
+<p>Several of the projects I support have the requirement to periodically refresh specific layers in order to track change or movement. These layers can range from weather to vehicle locations and such. I have typically accomplished this with a timer that refreshes the layer(s) on a specified interval. This can get rather cumbersome if you have different layers that require different refresh intervals.</p>
+
+<p>Working within <a href="http://www.silverlight.net/">Silverlight</a>, I have the option of using an existing layer class as a base class and extending it to include an automatic refresh capability. However, some classes, such as the <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.ArcGISDynamicMapServiceLayer.html">ArcGISDynamicMapServiceLayer</a>, are sealed and cannot be extended. Luckily, the <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=d197f51a-de07-4edf-9cba-1f1b4a22110d&amp;displaylang=en">Expression Blend SDK</a> enables me to get around this by attaching a custom behavior. <!--more--></p>
+
+<p>The ArcGISDynamicMapServiceLayer descends from the <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.DynamicLayer.html">DynamicLayer</a> inheritance hierarchy, which provides access to a <em>Refresh</em> method. So I developed the following behavior to attach to a DynamicLayer (or anything that derives from it). It makes use of a <a href="http://msdn.microsoft.com/en-us/library/system.windows.threading.dispatchertimer.aspx">DispatcherTimer</a> to refresh the layer to which it is attached. In this particular implementation, each layer gets its own timer. That met my requirement of having different refresh rates for different layers. It may be preferable in some instances to pass in a reference to a single timer to control all layers. In either case, you can simply attach the behavior only to those layers that you need to refresh. This can get you around iterating the map's <em>Layers</em> collection at each timer tick (or other such approaches).</p>
+
+<p>This is the code for the behavior itself. Scroll down for a snippet showing how to implement it.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="cm">/*Copyright (c) 2010, Zekiah Technologies, Inc.</span>
+</span><span class='line'><span class="cm">All rights reserved.&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">&lt;p&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</span>
+</span><span class='line'><span class="cm">Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</span>
+</span><span class='line'><span class="cm">Neither the name of the Zekiah Technologies, Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</span>
+</span><span class='line'><span class="cm">THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+</span><span class='line'><span class="k">using</span> <span class="nn">System.Windows.Input</span><span class="p">;</span>
+</span><span class='line'><span class="k">using</span> <span class="nn">System.Windows.Interactivity</span><span class="p">;</span>
+</span><span class='line'><span class="k">using</span> <span class="nn">System.Windows.Threading</span><span class="p">;</span>
+</span><span class='line'><span class="k">using</span> <span class="nn">ESRI.ArcGIS.Client</span><span class="p">;</span>
+</span><span class='line'><span class="k">using</span> <span class="nn">ESRI.ArcGIS.Client.Geometry</span><span class="p">;</span>
+</span><span class='line'><span class="k">using</span> <span class="nn">System.Windows</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">namespace</span> <span class="nn">Zekiah.ArcGIS.Behaviors</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="c1">/// &amp;amp;lt;summary&amp;amp;gt;</span>
+</span><span class='line'><span class="c1">/// Adds automatic refresh to a DynamicLayer object (or any</span>
+</span><span class='line'><span class="c1">/// class that inherits from DynamicLayer. </span>
+</span><span class='line'><span class="c1">/// &amp;amp;lt;/summary&amp;amp;gt;</span>
+</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">AutoRefresh</span> <span class="p">:</span> <span class="n">Behavior</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">DynamicLayer</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>     <span class="k">private</span> <span class="n">DispatcherTimer</span> <span class="n">_tmr</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">/// &amp;amp;lt;summary&amp;amp;gt;</span>
+</span><span class='line'>    <span class="c1">/// Called after the behavior is attached to an AssociatedObject.</span>
+</span><span class='line'>    <span class="c1">/// &amp;amp;lt;/summary&amp;amp;gt;</span>
+</span><span class='line'>    <span class="c1">/// &amp;amp;lt;remarks&amp;amp;gt;Override this to hook up functionality to the AssociatedObject.&amp;amp;lt;/remarks&amp;amp;gt;</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnAttached</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">base</span><span class="p">.</span><span class="n">OnAttached</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">initTimer</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="n">TimeSpan</span> <span class="n">Interval</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">get</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">_tmr</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="n">initTimer</span><span class="p">();</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="k">return</span> <span class="n">_tmr</span><span class="p">.</span><span class="n">Interval</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">set</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">_tmr</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="n">initTimer</span><span class="p">();</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="n">_tmr</span><span class="p">.</span><span class="n">Interval</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">_tmr</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">initTimer</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(!</span><span class="n">_tmr</span><span class="p">.</span><span class="n">IsEnabled</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">_tmr</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Stop</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">((</span><span class="n">_tmr</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">amp</span><span class="p">;&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="n">_tmr</span><span class="p">.</span><span class="n">IsEnabled</span><span class="p">))</span>
+</span><span class='line'>            <span class="n">_tmr</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">/// &amp;amp;lt;summary&amp;amp;gt;</span>
+</span><span class='line'>    <span class="c1">/// Called when the behavior is being detached from its AssociatedObject, </span>
+</span><span class='line'>    <span class="c1">/// but before it has actually occurred.</span>
+</span><span class='line'>    <span class="c1">/// &amp;amp;lt;/summary&amp;amp;gt;</span>
+</span><span class='line'>    <span class="c1">/// &amp;amp;lt;remarks&amp;amp;gt;Override this to unhook functionality from the AssociatedObject.&amp;amp;lt;/remarks&amp;amp;gt;</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnDetaching</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">base</span><span class="p">.</span><span class="n">OnDetaching</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">_tmr</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="k">void</span> <span class="nf">initTimer</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">_tmr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DispatcherTimer</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">_tmr</span><span class="p">.</span><span class="n">Interval</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TimeSpan</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">30</span><span class="p">);</span> <span class="c1">//default thirty second interval</span>
+</span><span class='line'>        <span class="n">_tmr</span><span class="p">.</span><span class="n">Tick</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">_tmr_Tick</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">void</span> <span class="nf">_tmr_Tick</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">AssociatedObject</span><span class="p">.</span><span class="n">Refresh</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The following code shows how to attach the behavior. In this case, I just kept the default 30 second interval (more than enough for this weather layer). For layers of type ArcGISDynamicMapServiceLayer, it is necessary to set <em>DisableClientCaching</em> to true or you'll never see a refresh.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="kt">var</span> <span class="n">lyr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="n">ArcGISDynamicMapServiceLayer</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">lyr</span><span class="p">.</span><span class="n">DisableClientCaching</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">lyr</span><span class="p">.</span><span class="n">Url</span> <span class="p">=</span> <span class="s">&quot;http://services.nationalmap.gov/ArcGIS/rest/services/NEXRAD_Weather/MapServer&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kt">var</span> <span class="n">autoRefresh</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Zekiah</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Behaviors</span><span class="p">.</span><span class="n">AutoRefresh</span><span class="p">();</span>
+</span><span class='line'>        <span class="kt">var</span> <span class="n">behaviors</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">Windows</span><span class="p">.</span><span class="n">Interactivity</span><span class="p">.</span><span class="n">Interaction</span><span class="p">.</span><span class="n">GetBehaviors</span><span class="p">(</span><span class="n">lyr</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">behaviors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">autoRefresh</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">autoRefresh</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">Map</span><span class="p">.</span><span class="n">Layers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">lyr</span><span class="p">);</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I've used this for both ArcGIS Server dynamic layers as well as WMS layers so far. I also have a version that attached to GraphicsLayer objects so that I can refresh GeoRSS layers. So far this technique has worked pretty well for me.</p>
+]]></content>
+  </entry>
+  
+</feed>
