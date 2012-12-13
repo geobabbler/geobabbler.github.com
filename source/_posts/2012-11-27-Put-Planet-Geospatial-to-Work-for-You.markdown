@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 title: Put Planet Geospatial to Work for You
 post_author: bdollins
 categories:
@@ -25,7 +25,7 @@ Evernote is becoming a key tool for me to store and access notes and other kinds
 
 When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.
 
-http://twitter.com/cageyjames/statuses/272025049526050816
+{% tweet http://twitter.com/cageyjames/statuses/272025049526050816 %}
 
 I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.
 

@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 title: SpatiaLite for Android Available
 post_author: bdollins
 categories:
