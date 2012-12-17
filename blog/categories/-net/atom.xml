@@ -4,7 +4,7 @@
   <title><![CDATA[Category: .net | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/-net/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T09:14:14-05:00</updated>
+  <updated>2012-12-17T11:04:10-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -1093,135 +1093,15 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Rotating a Point Around a Base Point]]></title>
-    <link href="http://blog.geomusings.com/2007/06/25/Rotating-a-Point-Around-a-Base-Point/"/>
-    <updated>2007-06-25T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2007/06/25/Rotating-a-Point-Around-a-Base-Point</id>
-    <content type="html"><![CDATA[<p>A while back, I was working on a project that required us to rotate a polygon around a base point and do a spatial query to analyze some underlying demographic data. I was working in ArcObjects and could find no intrinsic way to do what I needed to do so I wrote the following routine. As you can imagine, I had to break the polygon up into individual points and rotate each one. Despite the fact that I was using ArcObjects point objects and all of the attendant COM interop calls, it worked pretty well (a polygon consisting of ~5000 point was rotated in less than a second on a less-than-robust workstation).</p>
+    <title type="html"><![CDATA[MSDN Article on Mapping with WPF]]></title>
+    <link href="http://blog.geomusings.com/2007/12/18/MSDN-Article-on-Mapping-with-WPF/"/>
+    <updated>2007-12-18T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2007/12/18/MSDN-Article-on-Mapping-with-WPF</id>
+    <content type="html"><![CDATA[<p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It's a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn't be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
 
-<p>The math is pretty simple: Assuming that the base point and target point form the two ends of the hypotenuse of a right triangle with one leg of the triangle being a segment of the X axis, you simply:</p>
+<p>I've been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven't had a chance to extract what I've done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it's shaping up in SharpMap 2.0.</p>
 
-<ol>
-    <li>Calculate the length of the hypotenuse</li>
-    <li>Calculate the current angle of the hypotenuse</li>
-    <li>Add the rotation angle to the current angle</li>
-    <li>Calculate the coordinates of the new end point of the hypotenuse</li>
-</ol>
-
-
-<p>The code below shows how to do it but there are a couple of notes about it:</p>
-
-<ul>
-    <li>The coordinates must be in decimal degrees so you'll need to unproject any projected coordinates and then re-project the result. This <em>may</em> introduce some distortion. I didn't notice any in my application but I'd suggest some more rigorous testing if you've got tight precision requirements.</li>
-    <li>Rotation follows engineering standards (zero East, counter-clockwise)</li>
-    <li>This code is only mildly based on ArcObjects. It uses the AO IPoint interface and Point but that's it. It is trival to implement it with another point object (such as SharpMap) or just use numeric values.</li>
-    <li>The base point is shifted to 0,0 and the same offset is applied to all other points in order to keep the math straightforward.</li>
-    <li>It's in C#</li>
-</ul>
-
-
-<p>So there it is. It's fairly simple but it's been useful for me on a couple of occasions since I wrote it.
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'> <span class="k">private</span> <span class="n">IPoint</span> <span class="nf">rotatePoint</span><span class="p">(</span><span class="n">IPoint</span> <span class="n">basePoint</span><span class="p">,</span> <span class="n">IPoint</span> <span class="n">sourcePoint</span><span class="p">,</span> <span class="kt">double</span> <span class="n">rotationAngle</span><span class="p">)</span>
-</span><span class='line'> <span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span> <span class="kt">double</span> <span class="n">r</span><span class="p">;</span>
-</span><span class='line'> <span class="kt">double</span> <span class="n">theta</span><span class="p">;</span>
-</span><span class='line'> <span class="kt">double</span> <span class="n">offsetX</span><span class="p">;</span>
-</span><span class='line'> <span class="kt">double</span> <span class="n">offsetY</span><span class="p">;</span>
-</span><span class='line'> <span class="kt">double</span> <span class="n">offsetTheta</span><span class="p">;</span>
-</span><span class='line'> <span class="kt">double</span> <span class="n">rotateX</span><span class="p">;</span>
-</span><span class='line'> <span class="kt">double</span> <span class="n">rotateY</span><span class="p">;</span>
-</span><span class='line'> <span class="kt">double</span> <span class="n">rotationRadians</span><span class="p">;</span>
-</span><span class='line'> <span class="n">IPoint</span> <span class="n">retPoint</span><span class="p">;</span>
-</span><span class='line'> <span class="k">try</span>
-</span><span class='line'> <span class="p">{</span>
-</span><span class='line'>     <span class="c1">//shift x and y relative to 0,0 origin </span>
-</span><span class='line'>     <span class="n">offsetX</span> <span class="p">=</span> <span class="p">(</span><span class="n">sourcePoint</span><span class="p">.</span><span class="n">X</span> <span class="p">+</span> <span class="p">(</span><span class="n">basePoint</span><span class="p">.</span><span class="n">X</span> <span class="p">*</span> <span class="p">-</span><span class="m">1</span><span class="p">));</span>
-</span><span class='line'>     <span class="n">offsetY</span> <span class="p">=</span> <span class="p">(</span><span class="n">sourcePoint</span><span class="p">.</span><span class="n">Y</span> <span class="p">+</span> <span class="p">(</span><span class="n">basePoint</span><span class="p">.</span><span class="n">Y</span> <span class="p">*</span> <span class="p">-</span><span class="m">1</span><span class="p">));</span>
-</span><span class='line'>     <span class="c1">//convert to radians. take absolute value (necessary for x coord only). </span>
-</span><span class='line'>     <span class="n">offsetX</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">offsetX</span> <span class="p">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">/</span> <span class="m">180</span><span class="p">));</span>
-</span><span class='line'>     <span class="n">offsetY</span> <span class="p">=</span> <span class="n">offsetY</span> <span class="p">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">/</span> <span class="m">180</span><span class="p">);</span>
-</span><span class='line'>     <span class="n">rotationRadians</span> <span class="p">=</span> <span class="n">rotationAngle</span> <span class="p">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">/</span> <span class="m">180</span><span class="p">);</span>
-</span><span class='line'>     <span class="c1">//get distance from origin to source point </span>
-</span><span class='line'>     <span class="n">r</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">offsetX</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">offsetY</span><span class="p">,</span> <span class="m">2</span><span class="p">));</span>
-</span><span class='line'>     <span class="c1">//get current angle of orientation </span>
-</span><span class='line'>     <span class="n">theta</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Atan</span><span class="p">(</span><span class="n">offsetY</span> <span class="p">/</span> <span class="n">offsetX</span><span class="p">);</span>
-</span><span class='line'>     <span class="c1">// add rotation value to theta to get new angle of orientation </span>
-</span><span class='line'>     <span class="n">offsetTheta</span> <span class="p">=</span> <span class="n">theta</span> <span class="p">+</span> <span class="n">rotationRadians</span><span class="p">;</span>
-</span><span class='line'>     <span class="c1">//calculate new x coord </span>
-</span><span class='line'>     <span class="n">rotateX</span> <span class="p">=</span> <span class="n">r</span> <span class="p">*</span> <span class="n">Math</span><span class="p">.</span><span class="n">Cos</span><span class="p">(</span><span class="n">offsetTheta</span><span class="p">);</span>
-</span><span class='line'>     <span class="c1">//calculate new y coord </span>
-</span><span class='line'>     <span class="n">rotateY</span> <span class="p">=</span> <span class="n">r</span> <span class="p">*</span> <span class="n">Math</span><span class="p">.</span><span class="n">Sin</span><span class="p">(</span><span class="n">offsetTheta</span><span class="p">);</span>
-</span><span class='line'>     <span class="c1">//convert new x and y back to decimal degrees </span>
-</span><span class='line'>     <span class="n">rotateX</span> <span class="p">=</span> <span class="n">rotateX</span> <span class="p">*</span> <span class="p">(</span><span class="m">180</span> <span class="p">/</span> <span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">);</span>
-</span><span class='line'>     <span class="n">rotateY</span> <span class="p">=</span> <span class="n">rotateY</span> <span class="p">*</span> <span class="p">(</span><span class="m">180</span> <span class="p">/</span> <span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">);</span>
-</span><span class='line'>     <span class="c1">//shift new x and y relative to base point </span>
-</span><span class='line'>     <span class="n">rotateX</span> <span class="p">=</span> <span class="p">(</span><span class="n">rotateX</span> <span class="p">+</span> <span class="n">basePoint</span><span class="p">.</span><span class="n">X</span><span class="p">);</span>
-</span><span class='line'>     <span class="n">rotateY</span> <span class="p">=</span> <span class="p">(</span><span class="n">rotateY</span> <span class="p">+</span> <span class="n">basePoint</span><span class="p">.</span><span class="n">Y</span><span class="p">);</span>
-</span><span class='line'>     <span class="c1">//return new point </span>
-</span><span class='line'>     <span class="n">retPoint</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PointClass</span><span class="p">();</span>
-</span><span class='line'>     <span class="n">retPoint</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="n">rotateX</span><span class="p">;</span>
-</span><span class='line'>     <span class="n">retPoint</span><span class="p">.</span><span class="n">Y</span> <span class="p">=</span> <span class="n">rotateY</span><span class="p">;</span>
-</span><span class='line'>     <span class="k">return</span> <span class="n">retPoint</span><span class="p">;</span>
-</span><span class='line'> <span class="p">}</span>
-</span><span class='line'> <span class="k">catch</span>
-</span><span class='line'> <span class="p">{</span>
-</span><span class='line'>     <span class="k">return</span> <span class="n">sourcePoint</span><span class="p">;</span>
-</span><span class='line'> <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>So, if you're looking for an example of how to render spatial data in WPF, this is a good one.</p>
 ]]></content>
   </entry>
   

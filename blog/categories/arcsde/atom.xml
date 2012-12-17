@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcsde | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcsde/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T09:14:14-05:00</updated>
+  <updated>2012-12-17T11:04:10-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -70,6 +70,75 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[ArcSDE - Time For a Change]]></title>
+    <link href="http://blog.geomusings.com/2007/11/05/ArcSDE-Time-For-a-Change/"/>
+    <updated>2007-11-05T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2007/11/05/ArcSDE-Time-For-a-Change</id>
+    <content type="html"><![CDATA[<p>I view <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> (and its predecessor, SDE) as something of a seminal technology. In my quest for true enterprise integration of GIS, ArcSDE <del datetime="2009-05-04T21:24:40+00:00">fills</del> filled a crucial gap by providing the ability to store, manage and analyze spatial data in the same <a href="http://en.wikipedia.org/wiki/Relational_database_management_system">RDBMS</a> used for everything else. Long gone are the days when I had to manage relates between INFO tables or shapefiles and that's a good thing. I have since accomplished similar tasks with <a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle Spatial</a> but SDE was the first product I ever used that offered the capability to bring my GIS in from the cold.</p>
+
+<p>At version 9.3, ArcSDE will support <a href="http://www.postgresql.org/">PostgreSQL</a> as a back-end, meaning you don't <em>also</em> need to license an expensive RDBMS in addition to ArcGIS to take advantage of everything ArcGIS Server has to offer. This gives us another option and options are good.</p>
+
+<p>I have blogged before about my involvment with <a href="http://code.google.com/p/ziggis/">zigGIS</a>, which has given me a lot of exposure to PostGIS. I've also done a good bit of work with Oracle Spatial. Both experiences have given me experience with, and a love of, spatial SQL (as each has implemented it). Having all of the data types and methods necessary to store, manage and analyze spatial data completely encapsulated in the RDBMS is a huge advantage. Building an n-tier or services-oriented system is so much easier because all I really need to interact with my spatial data is an OLEDB provider (we're a .NET shop). This encapsulation serves to further expose the disadvantages of the current middleware approach of ArcSDE.<!--more--></p>
+
+<p>Basically, there's a good bit going on with the data (especially if you've versioned your geodatabase) that the RDBMS doesn't know about. This can pose problems for replication, backup, security, failover and a host of other issues. Most of these can be addressed by adhering to ESRI's system design white paper as well as the implementation of some (good) third-party tools.</p>
+
+<p>Before I get too far down this road, let me re-iterate that ArcSDE will support PostgreSQL at 9.3 and that's good. I imagine it'll look a lot like current ArcSDE but with PG on the back end. That's fine and understandable so let me offer up one man's opinion on what ESRI should do with ArcSDE at 10.x.</p>
+
+<p>I think the middleware (giomgr, etc.) needs to go. All of what ArcSDE currently does can and should be pushed completely into the RDBMS. All of the platforms currently supported by ArcSDE, as well as PostgreSQL, can support this. The way I see it, this can be accomplished in two basic ways.</p>
+
+<ol>
+<li><p>Slay the beast - This is the more drastic and, IMO, the least preferable but I'll deal with it first. This approach would boil down to recognition that each of the database platforms supported by ArcSDE (including <a href="http://www.directionsmag.com/editorials.php?article_id=2477">SQL Server 2008</a>, which will be out by the time ArcGIS 10 is) has some form of embedded spatial support and ArcGIS will simply support each of those capabilities, essentially getting out of the spatial data management business. This would lead to issues of consistency across platforms (spatial indexing, query languages, support for partitioning, etc.) and also probably mean a reduction in capability when you consider versioning, feature data sets, raster support and many other features of an ArcSDE geodatabase. Ultimately, I think this approach would be the least desirable for the ESRI user community.</p></li>
+<li><p>Push it down - This approach is, in my opinion, the logical endpoint of what ESRI has already started with the implementation of st_geometry. It is the creation of spatial data types and associated behaviors at the database level. Again, all of the platforms currently supported by ArcSDE can handle this as evidenced by the existence of spatial extensions (and the <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=MsSqlSpatial">MsSqlSpatial</a> open-source project for SQL 2005). This wasn't necessarily true when SDE was first introduced so the middleware approach made sense. So I think ESRI should aggressively push all of the capability of ArcSDE down to the database level where it ultimately belongs. This would address a couple of traditionally nagging issues:</p></li>
+</ol>
+
+
+<ul>
+    <li>Security - Security would be completely handled at the RDBMS level using the native security model of the RDBMS. In addition, there would be no need for a separate ArcSDE service that needs to connect via an 'sde' user. This has always caused problems for us, especially in shops where passwords must be changed periodically. In addition, it would eliminate the need to use port 5151. For MS SQL Server, it should be straightforward to implement Windows integrated authentication. It possible now but not terribly easy and we are constantly having tweak it whenever a new sysadmin comes along.</li>
+
+    <li>Administration - By and large, your DBAs could handle most of the day-to-day admin. Native replication, backup and recovery tools should work also. In addition, it should be easier to set up failover and native clustering should work as well. By pushing everything down, the need for third-party tools to handle a lot these functions should go away (but they'll stay around in general because the RDBMS tools aren't always great).</li>
+</ul>
+
+
+<p>So why not just support the native spatial extensions rather than create new ones? I see consistency being one primary reason. Essentially, ESRI could implement their own spatial objects and methods in a manner so that behaviors are consistent across platform. In addition, capability would also be consistent, especially in the area of raster handling but also in terms of versioning, topology, etc. It probably would only have partial benefit with regard to SQL since each platform's flavor of SQL is different (but that's getting better). Where it would benefit at the SQL level would be having all of the spatial functions with consistent calls and signatures.</p>
+
+<p>This approach would also isolate the spatial data management into the data tier, making easier to support n-tier systems and SOA. From an application perspective, there's no reason why ESRI can't wrap ArcObjects around it to make transparent to an application developer. I could go on and on...</p>
+
+<p>There are a lot of questions one could raise: Would it be an OGC compliant implementation? Would it be an "embrace and extend" approach where it's an OGC compliant implementation extended to support all of the additional features of a geodatabase? Would it be completely proprietary? The answers to all of those would have to be left up to ESRI. For me, it ulimately comes down to the fact that ArcSDE needs to change. The middleware needs to go away and the capability needs to be pushed to the RDBMS level. I don't think it's a particularly revolutionary thought, but thought I'd add it to the pile just in case pile has any bearing. Maybe that's what they've got planned for 10.x and st_geometry et. al. is just the first hint. If so, count me as a yes vote. If not, I'd encourage them to plot a new course.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Bringing It All Together...]]></title>
+    <link href="http://blog.geomusings.com/2007/06/26/Bringing-It-All-Together/"/>
+    <updated>2007-06-26T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2007/06/26/Bringing-It-All-Together</id>
+    <content type="html"><![CDATA[<p>These are pretty fun times to be working in GIS. There's an explosion of new technologies across the whole spectrum and integration possibilities are seemingly boundless. Back when I got started, <a href="http://www.esri.com">ESRI</a> and <a href="http://www.intergraph.com">Intergaph</a> were duking it out and others, like <a href="http://www.mapinfo.com">MapInfo</a>, were out there on the periphery also. <a href="http://grass.itc.it/">GRASS</a> was flying the OS banner and there were a few good free tools, such as the various ones put out by <a href="http://en.wikipedia.org/wiki/Sol_Katz">Sol Katz</a> at the <a href="http://www.blm.gov/wo/st/en.html">BLM</a>.</p>
+
+<p>Everything quieted down for a few years but there's been a flowering of new technologies (well-documented elsewhere) over the last couple of years in both the commercial and open-source communities. I am particularly impressed with the pace at which the open-source community has ramped up with tools of strong quality and capability. In addition, the back-and-forth between <a href="http://earth.google.com/">Google</a> and <a href="http://www.microsoft.com/virtualearth/default.mspx">Microsoft</a> has put better tools in the hands of the average consumer. That doesn't come without drawbacks, but I see it as a net positive.</p>
+
+<p>What I find interesting about all of this activity is that it demonstrates that the closed/commerical/competitive approach can bear fruit and so can the open-source/free/collaborative approach. Where you fall in the spectrum between the two is totally up to you but no one can offer up any concrete evidence that one is vastly superior to the other at this point. In addition, it's becoming increasingly clear that they don't have to be mutually exclusive.</p>
+
+<p>When you throw in <a href="http://www.opengeospatial.org">OGC</a> standards and well as <em>de facto</em> standards such as <a href="http://code.google.com/apis/kml/documentation/">KML</a>, it becomes quite possible to stitch together technologies of various parentage effectively. I offer up the following as a concrete example:</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/06/os_free_commercial.png" title="Click to enlarge..."><img src="http://geobabble.files.wordpress.com/2007/06/os_free_commercial.thumbnail.png" /></a></p>
+
+<p>This screenshot depicts a map (no, it's not pretty but blame that on me) that was assembled using several technologies. The application is obviously <a href="http://www.esri.com/software/arcgis/about/desktop_gis.html">ArcMap</a>. Working from the bottom up, the layers are:</p>
+
+<ul>
+    <li>Counties - US Counties residing in <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> and <a href="http://www.microsoft.com/sql/default.mspx">SQL Server</a></li>
+    <li>State Boundaries - US States loaded directly from a local install of <a href="http://postgis.refractions.net/">PostGIS</a> using the <a href="http://code.google.com/p/ziggis/">zigGIS</a> connector</li>
+    <li>Major Water - A shapefile on the local hard drive</li>
+    <li>Hospitals - A <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> layer being served from my <a href="http://geoserver.org/">GeoServer</a> <a href="http://geobabble.wordpress.com/2007/06/19/my-little-open-source-stack/">instance</a> and loaded into ArcMap with the help of the free <a href="http://www.thecarbonproject.com/carbonarc.php">CarbonArc Lite</a> extension from the <a href="http://www.thecarbonproject.com">Carbon Project</a>. Behind Geoserver, the data sits in PostGIS.</li>
+</ul>
+
+
+<p>So we have commercially licensed software (ArcMap, ArcSDE, SQL Server), freeware (CarbonArc Lite) and open-source software (zigGIS, PostGIS, GeoServer, <a href="http://www.postgresql.org/">PostgreSQL</a>) working together to make this product. All are good tools that, working together, bolster each others' shortcomings. This kind of thing demostrates the "best-of-breed" (hate that term) concept very well.</p>
+
+<p>A few months back, <a href="http://www.paolocorti.net/public/wordpress/index.php/2007/01/19/full-oss-solution-vs-osscommercial-solution-mix/">Paolo posted</a> about mixing commercial and open-source tools. I think this will eventually be the prevalent means of doing business.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Moving Forward On A Couple of Fronts]]></title>
     <link href="http://blog.geomusings.com/2007/04/24/Moving-Forward-On-A-Couple-of-Fronts/"/>
     <updated>2007-04-24T00:00:00-04:00</updated>
@@ -94,36 +163,6 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
     <content type="html"><![CDATA[<p>Okay, I have no one to blame but myself. I have Desktop and the full EDN kit (except for ArcIMS) installed. Therefore, I've uninistalled everything 9.1 and reinstalled everything 9.2 and now I get to do the service packs. One day, I'll get back to coding, I'm sure.</p>
 
 <p>Meanwhile, the front of my forehead keeps getting flatter from banging it on the desk...</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Finally Upgrading to 9.2...]]></title>
-    <link href="http://blog.geomusings.com/2007/03/08/Finally-Upgrading-to-9.2/"/>
-    <updated>2007-03-08T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/03/08/Finally-Upgrading-to-9.2</id>
-    <content type="html"><![CDATA[<p>I'm a little behind the curve on this but I've had one customer holding out until recently. Now I can finally take the plunge. Who needs sleep? See you on the other side...  ;-)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How Do You Disable This Dialog in ArcMap?]]></title>
-    <link href="http://blog.geomusings.com/2007/02/24/How-Do-You-Disable-This-Dialog-in-ArcMap/"/>
-    <updated>2007-02-24T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/02/24/How-Do-You-Disable-This-Dialog-in-ArcMap</id>
-    <content type="html"><![CDATA[<p><strong><strong>UPDATE</strong></strong><em>Check the comments for the resolution to this. 9.2 offers a registry setting and, since I'm upgrading, I'll make use of that. I got pretty far on my API hack though.</em></p>
-
-<p>My question is twofold: First: Can you stop this dialog from appearing in ArcMap 9.1? Second: If not, does 9.2 give you the option to turn this thing off?</p>
-
-<p><img alt="ArcMap Drawing Errors?Dialog" src="http://geobabble.files.wordpress.com/2007/02/arcmap_draw_error.JPG" /></p>
-
-<p>I have posted a similar query on the ESRI forums but I thought the blogosphere may be able to weigh in on this. This dialog was introduced at 9.1 as a "feature" but it's not the most developer-friendly thing in the world. A little background:</p>
-
-<p>I have an application running as a Windows service that is receiving data and stuffing it into ArcSDE. I have another app that's an ArcMap extension. It refreshed the map on a specified interval and shows the new data as it comes in. There is no syncronization between the two. As you would expect, there are occaionally collisions. The ArcSDE layer may be in load-only mode or something similar. I have a lot of exception-handling in place to trap all of those kinds of things.</p>
-
-<p>This dialog defies all of that. Despite my exception handling, it still pops up and it completely freaks out my users. I would like to turn it off. (I would really like to kill it.) I can't find a registry setting or any other such option that allows me to do that so I'm stumped. Any help would be appreciated and I promise to sing your praises on this blog if you have the solution.</p>
-
-<p>For background: we are using 9.1 (for a number of reasons). We are starting the upgrade planning to go to 9.2. If 9.2 fixes this, then I'll stop worrying about it. Any useful info would be very helpful. My next step is some slimy Windows API hack to suppress the damned thing.</p>
 ]]></content>
   </entry>
   

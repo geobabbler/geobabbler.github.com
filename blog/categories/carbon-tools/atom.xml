@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: carbon tools | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/carbon-tools/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2012-12-17T11:04:10-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Bringing It All Together...]]></title>
+    <link href="http://blog.geomusings.com/2007/06/26/Bringing-It-All-Together/"/>
+    <updated>2007-06-26T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2007/06/26/Bringing-It-All-Together</id>
+    <content type="html"><![CDATA[<p>These are pretty fun times to be working in GIS. There's an explosion of new technologies across the whole spectrum and integration possibilities are seemingly boundless. Back when I got started, <a href="http://www.esri.com">ESRI</a> and <a href="http://www.intergraph.com">Intergaph</a> were duking it out and others, like <a href="http://www.mapinfo.com">MapInfo</a>, were out there on the periphery also. <a href="http://grass.itc.it/">GRASS</a> was flying the OS banner and there were a few good free tools, such as the various ones put out by <a href="http://en.wikipedia.org/wiki/Sol_Katz">Sol Katz</a> at the <a href="http://www.blm.gov/wo/st/en.html">BLM</a>.</p>
+
+<p>Everything quieted down for a few years but there's been a flowering of new technologies (well-documented elsewhere) over the last couple of years in both the commercial and open-source communities. I am particularly impressed with the pace at which the open-source community has ramped up with tools of strong quality and capability. In addition, the back-and-forth between <a href="http://earth.google.com/">Google</a> and <a href="http://www.microsoft.com/virtualearth/default.mspx">Microsoft</a> has put better tools in the hands of the average consumer. That doesn't come without drawbacks, but I see it as a net positive.</p>
+
+<p>What I find interesting about all of this activity is that it demonstrates that the closed/commerical/competitive approach can bear fruit and so can the open-source/free/collaborative approach. Where you fall in the spectrum between the two is totally up to you but no one can offer up any concrete evidence that one is vastly superior to the other at this point. In addition, it's becoming increasingly clear that they don't have to be mutually exclusive.</p>
+
+<p>When you throw in <a href="http://www.opengeospatial.org">OGC</a> standards and well as <em>de facto</em> standards such as <a href="http://code.google.com/apis/kml/documentation/">KML</a>, it becomes quite possible to stitch together technologies of various parentage effectively. I offer up the following as a concrete example:</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/06/os_free_commercial.png" title="Click to enlarge..."><img src="http://geobabble.files.wordpress.com/2007/06/os_free_commercial.thumbnail.png" /></a></p>
+
+<p>This screenshot depicts a map (no, it's not pretty but blame that on me) that was assembled using several technologies. The application is obviously <a href="http://www.esri.com/software/arcgis/about/desktop_gis.html">ArcMap</a>. Working from the bottom up, the layers are:</p>
+
+<ul>
+    <li>Counties - US Counties residing in <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> and <a href="http://www.microsoft.com/sql/default.mspx">SQL Server</a></li>
+    <li>State Boundaries - US States loaded directly from a local install of <a href="http://postgis.refractions.net/">PostGIS</a> using the <a href="http://code.google.com/p/ziggis/">zigGIS</a> connector</li>
+    <li>Major Water - A shapefile on the local hard drive</li>
+    <li>Hospitals - A <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> layer being served from my <a href="http://geoserver.org/">GeoServer</a> <a href="http://geobabble.wordpress.com/2007/06/19/my-little-open-source-stack/">instance</a> and loaded into ArcMap with the help of the free <a href="http://www.thecarbonproject.com/carbonarc.php">CarbonArc Lite</a> extension from the <a href="http://www.thecarbonproject.com">Carbon Project</a>. Behind Geoserver, the data sits in PostGIS.</li>
+</ul>
+
+
+<p>So we have commercially licensed software (ArcMap, ArcSDE, SQL Server), freeware (CarbonArc Lite) and open-source software (zigGIS, PostGIS, GeoServer, <a href="http://www.postgresql.org/">PostgreSQL</a>) working together to make this product. All are good tools that, working together, bolster each others' shortcomings. This kind of thing demostrates the "best-of-breed" (hate that term) concept very well.</p>
+
+<p>A few months back, <a href="http://www.paolocorti.net/public/wordpress/index.php/2007/01/19/full-oss-solution-vs-osscommercial-solution-mix/">Paolo posted</a> about mixing commercial and open-source tools. I think this will eventually be the prevalent means of doing business.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: soapbox | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/soapbox/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T09:14:14-05:00</updated>
+  <updated>2012-12-17T11:04:10-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -127,6 +127,48 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[So Neo-Geo Is Not GIS, Huh?]]></title>
+    <link href="http://blog.geomusings.com/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh/"/>
+    <updated>2007-12-05T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh</id>
+    <content type="html"><![CDATA[<p><a href="http://apb.directionsmag.com/archives/3703-Neogeography-is-not-GIS;-not-LI.html">All Points</a> got the ball rolling this time around. <a href="http://geothought.blogspot.com/2007/12/no-data-creation-in-neogeography-errr.html">Peter Batty</a> responded with his usual thoughtfulness and <a href="http://geotips.blogspot.com/2007/12/real-men-use-real-gis-software.html">Paul Ramsey</a> gets the award for the best reponse so far.</p>
+
+<p>I watch this and can't help but wonder: haven't we been here before?</p>
+
+<p>If we replace the phrase "<a href="http://gislounge.com/internet-mapping/google-maps/neogeography/">neogeography</a>" with the phrase "desktop mapping" then I feel like we had this conversation 10 (or more) years ago. The ironic part is that MapInfo was in the position then that neo-geo is in now.</p>
+
+<p>Many GIS hard-liners argued that non-topological mapping packages could not be called GIS. "Real GIS" understood topology and could do analysis based upon topology. That argument was mostly forwarded by the <a href="http://en.wikipedia.org/wiki/ArcInfo">Arc/Info</a> crowd (although I don't think <a href="http://www.esri.com">ESRI</a> was directly involved, it arose more from Arc/Info adherents). Software such as <a href="http://www.mapinfo.com/location/integration">MapInfo</a>, <a href="http://www.caliper.com/">Maptitude</a>, etc. was not "real GIS" and, therefore, their outputs could not be trusted.</p>
+
+<p>Well, we see what happened: that market proliferated. <a href="http://en.wikipedia.org/wiki/ArcView_3.x">ArcView 3.x</a> became the most widely used GIS package around at the time. Other desktop systems (MapInfo, <a href="http://www.manifold.net">Manifold</a>, etc.) beefed up their capabilities and ESRI eventually produced ArcMap. Anyone care to have that conversation again? I didn't think so.</p>
+
+<p>So, is neogeography GIS? I don't know. What's the measure? Those put forth by Mike Hickey are different than those put forth as arguments against desktop mapping years ago. So, really, the hurdle has just been moved. Maybe neo-geo isn't GIS...yet. But does anyone really think the technology won't advance? Take a look at <a href="http://featureserver.org/">FeatureServer</a>. Take a look at the various spatial SQL implementations in <a href="http://postgis.refractions.net">PostGIS</a>, <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a>, <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle</a> and many others. People are trying to solve that problem. If ESRI ever puts out their <a href="http://virtualearth4gov.spaces.live.com/Blog/cns!369B39F890CE30C1!408.entry">REST API</a>, the neo-geo community will have the full power (maybe) of ArcGIS Server at their disposal. I have an idea: if MapInfo feels that neo-geo isn't really GIS, why don't they create a product line targeted at giving the neo-geo community "real GIS" tools. Whatever those are. Looks like a market opportunity to me.</p>
+
+<p>Making decisions about the viability/validity of neo-geo based on the current state of the technology is a little short-sighted to say the least.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Up On the Soapbox]]></title>
+    <link href="http://blog.geomusings.com/2007/10/08/Up-On-the-Soapbox/"/>
+    <updated>2007-10-08T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2007/10/08/Up-On-the-Soapbox</id>
+    <content type="html"><![CDATA[<p><a href="http://apb.directionsmag.com/archives/3441-NPR-on-Withholding-Critical-Infrastructure-Data.html">This one</a> caught my eye when it came across Planet GS so I listened to the referenced piece.</p>
+
+<p>Suffice it so say that I've been kind of close to this issue (more so in the past than I am now) and this kind of thing just really burns my arse.</p>
+
+<p>I am less inclined to follow the line of logic that local officials are holding this data close as a means of accumulating power, although it certainly could lead to that. My experience is that most people are genuinely concerned about what they can do the keep their citizens safe while also providing good service.</p>
+
+<p>Sean Gorman makes the dead-on point that geospatial data is proliferating rapidly and that it will overwhelm efforts to hold it back. It's great that the town GIS staff doesn't want to release manhole data but it's really kind of moot when I can take a photo of them with my GPS-enabled phone.</p>
+
+<p>The most salient point of the whole piece is made at the end when it is pointed out that there are no national guidelines in place governing the release of such information. Some areas make it available online. Others (like Greenwich, CT apparently) release nothing. This is exactly the kind of thing that DHS should be tackling but isn't and hasn't (and probably won't). Apparently, six years isn't enough.</p>
+
+<p>As has been said about other issues, the people who want to do harm will find a way to get this information. Stances like that taken by Greenwich will only hamper law-abiding citizens with legitimate uses for the data. A structured process with appropriate checks in place will provide access to it in a way that minimizes (but never eliminates, because you can't) risk.</p>
+
+<p>Lacking any real guidance (and state, local and private infrastructure managers have been seeking guidance for years), the city of Greenwich can't really be faulted. These are tough issues that don't have easy solutions. Meanwhile, technology marches on. Maybe it's time to get off the starting block.</p>
 ]]></content>
   </entry>
   

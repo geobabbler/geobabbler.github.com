@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ArcSDE - Time For a Change - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="I view ArcSDE (and its predecessor, SDE) as something of a seminal technology. In my quest for true enterprise integration of GIS, ArcSDE fills &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2007/11/05/ArcSDE-Time-For-a-Change/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ArcSDE - Time for a Change</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-05T00:00:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2007</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I view <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> (and its predecessor, SDE) as something of a seminal technology. In my quest for true enterprise integration of GIS, ArcSDE <del datetime="2009-05-04T21:24:40+00:00">fills</del> filled a crucial gap by providing the ability to store, manage and analyze spatial data in the same <a href="http://en.wikipedia.org/wiki/Relational_database_management_system">RDBMS</a> used for everything else. Long gone are the days when I had to manage relates between INFO tables or shapefiles and that&#8217;s a good thing. I have since accomplished similar tasks with <a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle Spatial</a> but SDE was the first product I ever used that offered the capability to bring my GIS in from the cold.</p>
+
+<p>At version 9.3, ArcSDE will support <a href="http://www.postgresql.org/">PostgreSQL</a> as a back-end, meaning you don&#8217;t <em>also</em> need to license an expensive RDBMS in addition to ArcGIS to take advantage of everything ArcGIS Server has to offer. This gives us another option and options are good.</p>
+
+<p>I have blogged before about my involvment with <a href="http://code.google.com/p/ziggis/">zigGIS</a>, which has given me a lot of exposure to PostGIS. I&#8217;ve also done a good bit of work with Oracle Spatial. Both experiences have given me experience with, and a love of, spatial SQL (as each has implemented it). Having all of the data types and methods necessary to store, manage and analyze spatial data completely encapsulated in the RDBMS is a huge advantage. Building an n-tier or services-oriented system is so much easier because all I really need to interact with my spatial data is an OLEDB provider (we&#8217;re a .NET shop). This encapsulation serves to further expose the disadvantages of the current middleware approach of ArcSDE.<!--more--></p>
+
+<p>Basically, there&#8217;s a good bit going on with the data (especially if you&#8217;ve versioned your geodatabase) that the RDBMS doesn&#8217;t know about. This can pose problems for replication, backup, security, failover and a host of other issues. Most of these can be addressed by adhering to ESRI&#8217;s system design white paper as well as the implementation of some (good) third-party tools.</p>
+
+<p>Before I get too far down this road, let me re-iterate that ArcSDE will support PostgreSQL at 9.3 and that&#8217;s good. I imagine it&#8217;ll look a lot like current ArcSDE but with PG on the back end. That&#8217;s fine and understandable so let me offer up one man&#8217;s opinion on what ESRI should do with ArcSDE at 10.x.</p>
+
+<p>I think the middleware (giomgr, etc.) needs to go. All of what ArcSDE currently does can and should be pushed completely into the RDBMS. All of the platforms currently supported by ArcSDE, as well as PostgreSQL, can support this. The way I see it, this can be accomplished in two basic ways.</p>
+
+<ol>
+<li><p>Slay the beast - This is the more drastic and, IMO, the least preferable but I&#8217;ll deal with it first. This approach would boil down to recognition that each of the database platforms supported by ArcSDE (including <a href="http://www.directionsmag.com/editorials.php?article_id=2477">SQL Server 2008</a>, which will be out by the time ArcGIS 10 is) has some form of embedded spatial support and ArcGIS will simply support each of those capabilities, essentially getting out of the spatial data management business. This would lead to issues of consistency across platforms (spatial indexing, query languages, support for partitioning, etc.) and also probably mean a reduction in capability when you consider versioning, feature data sets, raster support and many other features of an ArcSDE geodatabase. Ultimately, I think this approach would be the least desirable for the ESRI user community.</p></li>
+<li><p>Push it down - This approach is, in my opinion, the logical endpoint of what ESRI has already started with the implementation of st_geometry. It is the creation of spatial data types and associated behaviors at the database level. Again, all of the platforms currently supported by ArcSDE can handle this as evidenced by the existence of spatial extensions (and the <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=MsSqlSpatial">MsSqlSpatial</a> open-source project for SQL 2005). This wasn&#8217;t necessarily true when SDE was first introduced so the middleware approach made sense. So I think ESRI should aggressively push all of the capability of ArcSDE down to the database level where it ultimately belongs. This would address a couple of traditionally nagging issues:</p></li>
+</ol>
+
+
+<ul>
+    <li>Security - Security would be completely handled at the RDBMS level using the native security model of the RDBMS. In addition, there would be no need for a separate ArcSDE service that needs to connect via an &#8216;sde&#8217; user. This has always caused problems for us, especially in shops where passwords must be changed periodically. In addition, it would eliminate the need to use port 5151. For MS SQL Server, it should be straightforward to implement Windows integrated authentication. It possible now but not terribly easy and we are constantly having tweak it whenever a new sysadmin comes along.</li>
+
+    <li>Administration - By and large, your DBAs could handle most of the day-to-day admin. Native replication, backup and recovery tools should work also. In addition, it should be easier to set up failover and native clustering should work as well. By pushing everything down, the need for third-party tools to handle a lot these functions should go away (but they&#8217;ll stay around in general because the RDBMS tools aren&#8217;t always great).</li>
+</ul>
+
+
+<p>So why not just support the native spatial extensions rather than create new ones? I see consistency being one primary reason. Essentially, ESRI could implement their own spatial objects and methods in a manner so that behaviors are consistent across platform. In addition, capability would also be consistent, especially in the area of raster handling but also in terms of versioning, topology, etc. It probably would only have partial benefit with regard to SQL since each platform&#8217;s flavor of SQL is different (but that&#8217;s getting better). Where it would benefit at the SQL level would be having all of the spatial functions with consistent calls and signatures.</p>
+
+<p>This approach would also isolate the spatial data management into the data tier, making easier to support n-tier systems and SOA. From an application perspective, there&#8217;s no reason why ESRI can&#8217;t wrap ArcObjects around it to make transparent to an application developer. I could go on and on&#8230;</p>
+
+<p>There are a lot of questions one could raise: Would it be an OGC compliant implementation? Would it be an &#8220;embrace and extend&#8221; approach where it&#8217;s an OGC compliant implementation extended to support all of the additional features of a geodatabase? Would it be completely proprietary? The answers to all of those would have to be left up to ESRI. For me, it ulimately comes down to the fact that ArcSDE needs to change. The middleware needs to go away and the capability needs to be pushed to the RDBMS level. I don&#8217;t think it&#8217;s a particularly revolutionary thought, but thought I&#8217;d add it to the pile just in case pile has any bearing. Maybe that&#8217;s what they&#8217;ve got planned for 10.x and st_geometry et. al. is just the first hint. If so, count me as a yes vote. If not, I&#8217;d encourage them to plot a new course.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-05T00:00:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/arcgis-server/'>arcgis server</a>, <a class='category' href='/blog/categories/arcobjects/'>arcobjects</a>, <a class='category' href='/blog/categories/arcsde/'>arcsde</a>, <a class='category' href='/blog/categories/database/'>database</a>, <a class='category' href='/blog/categories/esri/'>esri</a>, <a class='category' href='/blog/categories/gis/'>gis</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2007/11/05/ArcSDE-Time-For-a-Change/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2007/11/05/ArcSDE-Time-For-a-Change/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2007/10/08/Up-On-the-Soapbox/" title="Previous Post: Up On the Soapbox">&laquo; Up On the Soapbox</a>
+      
+      
+        <a class="basic-alignment right" href="/2007/11/05/Whither-zigGIS/" title="Next Post: Whither zigGIS?">Whither zigGIS? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-4.0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>
