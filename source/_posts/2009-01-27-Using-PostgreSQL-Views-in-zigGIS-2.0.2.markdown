@@ -30,7 +30,7 @@ SELECT s.gid, s.shape, s.state_name, s.state_abbr, p.e20080701, p.e20070701
 
 I saved this view with the name "vwStatePop". Your view must return a geometry column and an integer ID column (shape and gid in this case). Next, I started up ArcMap and selected my view like so:
 
-[caption id="attachment_459" align="alignnone" width="300" caption="zigGIS 2.0.2 layer selector (click to enlarge)"]<a href="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png"><img alt="zigGIS 2.0.2 layer selector (click to enlarge)" class="size-medium wp-image-459" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png?w=300" title="zig_pick_view" width="300" /></a>[/caption]
+<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png"><img alt="zigGIS 2.0.2 layer selector (click to enlarge)" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png" title="zig_pick_view" width="300" /></a><div style="text-align:center;font-size: 14px;">zigGIS 2.0.2 layer selector (click to enlarge)<br/><br/></div></div>
 
 I simply selected the view in the dialog, then used the dropdowns to set the correct values for the ID column, geometry column and geometry type and then clicked "OK". The view data then displayed in ArcMap as any other layer like so:
 
