@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A One-Touch (Almost) Data Loader With FWTools and PostGIS - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="So my PostGIS/SharpMap/WPF project is ready to go out the door. Literally. The servers are being loaded onto pallets and shipped to their respective &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2008/02/13/A-One-Touch-Almost-Data-Loader-With-FWTools-and-PostGIS/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A One-Touch (Almost) Data Loader With FWTools and PostGIS</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>So my <a href="http://postgis.refractions.net/">PostGIS</a>/<a href="http://www.codeplex.com/SharpMap">SharpMap</a>/<a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF </a>project is ready to go out the door. Literally. The servers are being loaded onto pallets and shipped to their respective destinations. Great! Time for a cold one! Well&#8230;&#8230;maybe not. There&#8217;s one little problem: there&#8217;s no data on the servers yet.</p>
+
+<p>We had to coordinate with a large national government agency to get the data we needed. That part of the process experienced a little &#8220;slippage&#8221;. As a result, the last part of the task changed from loading data onto the servers to developing a data loading tool that could be run from a DVD with minimal involvement from humans. (Those pesky humans.) Just another Monday.<!--more--></p>
+
+<p>So my as-yet-to-be-developed tool had to load vector spatial data into PostGIS. That data had yet to arrive but could be in any of a number of formats. And it had to run from a DVD. Sounded like a job for <a href="http://fwtools.maptools.org/">FWTools</a>. Luckily, I remembered a <a href="http://www.spatiallyadjusted.com/2007/08/01/fwtools-on-usb-memory-stick/">post</a> or <a href="http://www.spatiallyadjusted.com/2007/12/28/using-ogr-to-visualize-data/">two</a> from James as well as the fine work done by <a href="http://www.archaeogeek.com/blog/portable-gis/">Jo Cook</a>. I figured if it could run from a USB stick, then why not a DVD?</p>
+
+<p>After a little investigation, I realized I was going to need <a href="http://www.postgresql.org/">PostgreSQL</a>/PostGIS on the DVD as well as FWTools. The servers I was loading onto had a very specific configuration: a system drive, an apps drive, and a data drive. I had to ensure my data was loaded onto the data drive so I had to create a tablespace on the data drive and create my database there. A little research told me that the driver used by OGR does not support database (or tablespace) creation. Expecting the users to do that via the command line or using PgAdmin was not an option so I had to include this in my process.</p>
+
+<p>So I loaded FWTools onto my disk (I did my initial testing on a USB drive) and used <a href="http://trac.osgeo.org/gdal/wiki/FWToolsOnUSB">setfw_portable.cmd</a> to set it up to run from the disk. Next, I copied the binaries of PostgreSQL/PostGIS onto the disk. I ran a couple of simple command line tests to verify that everything was working properly.</p>
+
+<p>First, I developed a simple SQL script to perform the creation of the tablespace and database. Next, I wrote a Windows command line script to drive the process. The process was rather straightforward:</p>
+
+<ol>
+<li>Delete existing directory tree on the data drive (just in case)</li>
+<li>Create the directory tree on the data drive to hold the PostgreSQL tablespace</li>
+<li>Set the necessary file system permissions</li>
+<li>Use psql to execute the SQL script to
+ a. Drop any existing tablespace and database
+ b. Create a new tablespace on the data drive
+ c. Create a new database using the PostGIS template database</li>
+<li>Call the setfw_portable.cmd script to set up the FWTools environment</li>
+<li>Make successive ogr2ogr calls to load data into PostGIS</li>
+</ol>
+
+
+<p>So, thanks to these open-source tools, I&#8217;ve been able to develop a data loader that runs from a DVD without needing to install anything on the target server. Also, there are no licensing issues. It&#8217;s a little heavy in that the FWTools and PostgreSQL binaries use about 200MB so, if I were using a CD, I&#8217;d be giving up a lot of space. I have not had time to see how much I could really pare down the binaries to just the essentials. In addition, my script is not terribly generic. I pretty much know what data I&#8217;m loading and where it&#8217;s located. In the future, I hope to tweak the script so it just loads whatever is there but time constraints dictated otherwise this time around. Oh yeah, and it&#8217;s command-line :D so it gave me a little of that ARC/INFO nostalgia.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/fwtools/'>fwtools</a>, <a class='category' href='/blog/categories/gdal-ogr/'>gdal/ogr</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/open-source/'>open source</a>, <a class='category' href='/blog/categories/postgis/'>postgis</a>, <a class='category' href='/blog/categories/postgresql/'>postgresql</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2008/02/13/A-One-Touch-Almost-Data-Loader-With-FWTools-and-PostGIS/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2008/02/13/A-One-Touch-Almost-Data-Loader-With-FWTools-and-PostGIS/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2008/02/01/SQL-Server-2008-and-2005-Side-By-Side/" title="Previous Post: SQL Server 2008 and 2005 Side-By-Side">&laquo; SQL Server 2008 and 2005 Side-By-Side</a>
+      
+      
+        <a class="basic-alignment right" href="/2008/02/18/ESRI-2008-Fed-UC-Vibe/" title="Next Post: ESRI 2008 Fed UC Vibe">ESRI 2008 Fed UC Vibe &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-4.0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

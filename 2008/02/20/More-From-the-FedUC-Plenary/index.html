@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>More From the FedUC Plenary - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="I want to focus a little more on some of the demos and also how ESRI is positioning the ArcGIS platform to support the &#8220;GeoWeb&#8221; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2008/02/20/More-From-the-FedUC-Plenary/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">More From the FedUC Plenary</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img alt="feduc2008.png" src="http://geobabble.files.wordpress.com/2008/02/feduc2008.png" /></p>
+
+<p>I want to focus a little more on some of the demos and also how ESRI is positioning the ArcGIS platform to support the &#8220;GeoWeb&#8221; implementation pattern. Jack identified four &#8220;implementation patterns&#8221; that defin typical GIS architectures. The first three are pretty standard: single user desktop, multi-user server, and &#8220;federated&#8221; (an ESB-type implementation). The last one is what he called the &#8220;GeoWeb&#8221;. That was depicted as a set of services (data, analysis and otherwise) that can be used by various types of clients included, desktop, web, globes, mobile and pretty much anything else. This is perhaps most effectively visualized as a &#8220;mashup&#8221; type of situation. This seems to intersect nicely with the realm of &#8220;neogeography&#8221; in concept.<!--more--></p>
+
+<p>Jack painted a picture of the ArcGIS platform supporting this by providing the ability, via ArcGIS Server, to serve out models and analysis as well as just data. So you could have a service that runs a service-area analysis based upon inputs from a client. Essentially, apps/services like Virtual Earth, Google Earth, Google Maps, OpenLayers, etc. provide an effective basemap for visualization so the role that AGS can play in that is to serve specific data/models/results from &#8220;authoritative sources&#8221;, thereby exposing more advanced processes in a way that they can executed and their results visualized through clients such a those just mentioned.</p>
+
+<p>This makes sense to me because ESRI&#8217;s products do have a lot of analytical capability embedded in them. I think ESRI would waste a lot of resource trying to compete in the visualization area since that&#8217;s been effectively sewn up by others. What they can bring to the game is a robust set of spatial methods that can be exposed as services. It&#8217;s a &#8220;play to your strengths&#8221; strategy.</p>
+
+<p>This idea was illustrated effectively with a few demos. Of course, demos are demos so we&#8217;ll have to wait to see how well it really works but I&#8217;ll describe the demos. First was demo of ArcGIS Explorer build 450 loading data from various sources (ArcIMS, AGS, WMS, KML, file geodatabase). The performance with ArcIMS layers seems greatly improved and you now have the ability to pull in sublayers from an ArcIMS service and symbolize them however you want, which is nice. So AGX reads a lot of different data, big deal. Next they demonstrated a custom task that called a model on AGS and ran a drive-time analysis using a placemarker in AGX. It returned the expected polygons and symbolized them nicely. So, we learned that AGX can talk to AGS. Again, big deal.</p>
+
+<p>Next came the Google Earth demo where a similar placemarker was created in GE and used to call the same AGS model. It returned the result in nicely symbolized KML. That was good to see. From there the demos jump into the new javascript API. In Google Maps, the javascript API was used to display apartment locations from Craig&#8217;s List and then call an AGS-hosted proximity model that identified the best place park to optimize your apartment search. So locations from one (non-ESRI) server were fed to AGS for analysis. Lastly, a Virtual Earth app (using the javascript API) was created before our eyes that embedded a call to and AGS-hosted Spatial Analyst tool to identify areas of higher solar radiation for optimal solar panel placement. This result was rendered in 3D using VE. That was all very impressive, especially the re-use of services that were supporting multiple clients (ESRI and otherwise).</p>
+
+<p>So the take away was &#8220;we&#8217;ve got the server to crunch your data and give you good analysis results, display it any way you want.&#8221; There was no OpenLayers demo but it was mentioned several times and something that should be able to leverage new APIs. There were no demos of the REST API, BTW.</p>
+
+<p>So, I can see and understand how they are positioning ArcGIS to play in a &#8220;neogeography&#8221; world. It will be interesting to see how it really works as 9.3 gets closer to release. I will venture a very safe guess that it won&#8217;t be all the way there yet but the battleship seems to be coming about more and possibly gaining momentum.</p>
+
+<p>So I saw a lot of demos that worked really well. That&#8217;s not a huge surprise but it did make me want to get stuff in my hands and try to break it. ;)  Overall, I think I like this direction and things look promising so far.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/feduc/'>FedUC</a>, <a class='category' href='/blog/categories/esri/'>esri</a>, <a class='category' href='/blog/categories/gis/'>gis</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2008/02/20/More-From-the-FedUC-Plenary/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2008/02/20/More-From-the-FedUC-Plenary/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2008/02/20/ArcGIS-9.4-Mentioned-at-FedUC/" title="Previous Post: ArcGIS 9.4 Mentioned at FedUC">&laquo; ArcGIS 9.4 Mentioned at FedUC</a>
+      
+      
+        <a class="basic-alignment right" href="/2008/02/21/FedUC-From-the-Exhibit-Hall/" title="Next Post: FedUC - From the Exhibit Hall">FedUC - From the Exhibit Hall &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-4.0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

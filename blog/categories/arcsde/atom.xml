@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcsde | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcsde/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T11:04:10-05:00</updated>
+  <updated>2012-12-17T11:42:00-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -66,6 +66,29 @@ If you're experienced with ArcSDE, you get nervous mucking with the objectid col
 
 Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerous technology mixes. It's somewhat uncharted territory and it's not a bad idea, as with any system integration task, to do a little testing and experimentation before moving on with an implementation.
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PostgreSQL Support in ArcGIS]]></title>
+    <link href="http://blog.geomusings.com/2008/03/18/PostgreSQL-Support-in-ArcGIS/"/>
+    <updated>2008-03-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/03/18/PostgreSQL-Support-in-ArcGIS</id>
+    <content type="html"><![CDATA[<p>I just sat through a session titled "Working With the Geodatabase Effectively Using SQL." It was heavily focused on ST_GEOMETRY. That's pretty much what they want us to use. Interestingly, though, there won't be ST_GEOMETRY in SQL Server 2008. They've added it to PostgreSQL (more on that later) but not SQL Server. Seems a little strange to me.</p>
+
+<p>There was a brief discussion of what PostgreSQL support will look like. There are no big surprises, just a little more detail. As I said, ESRI is implementing ST_GEOMETRY and also fully supporting the PostGIS spatial type. ST_GEOMETRY will be the default spatial type for ArcGIS but you will be able to use the PostGIS type via configuration keyword. The differences are:</p>
+
+<ol>
+<li><p>ST_GEOMETRY types and functions will reside in the "sde" schema (I guess that's more efficient than call it the "arcgis_server_enterprise_basic" schema). PostGIS types and functions will reside in the public schema by default as is currently the case.</p></li>
+<li><p>The ST_GEOMETRY implementation will be consistent with those on Oracle, DB2 and Informix so, if you're developing an app that is cross-platform (RDBMS-wise), you <em>may</em> want to use ST_GEOMETRY. It was said that the PostGIS spatial type only resides on PostgreSQL (we'll dodge the obvious OGC-compliance piece which makes that statement somewhat shaky).</p></li>
+<li><p>The ST_GEOMETRY data type supports parametric geometry such as arcs and circles and the like whereas the PostGIS type does not. (Can you believe I've never looked into that? If that's not correct, please feel free to correct me.) Of course, the REST API doesn't support those and converts them to simple geometry...</p></li>
+<li><p>The ST_GEOMETRY spatial data is stored in ESRI's compressed shape format which is sent directly to clients without translation. PostGIS stores in WKB format, which ArcGIS must first convert to compressed shape before sending so there will be something of a performance hit. Interpret that however you want, I'm just reporting.</p></li>
+</ol>
+
+
+<p>ST_GEOMETRY will use the PostGIS GIST spatial indexing framework but will implement an RTREE strategy through its own set of geometry operators. Additionally, ST_GEOMETRY columns can be defined within a CREATE TABLE statement compared to the use of the AddGeometryColumn function in PostGIS. Regardless of the spatial type used, tables created through SQL will still need to be registered with the geodatabase through the "sdelayer -o register" process in order to be used in ArcGIS. I've done this before with Oracle Spatial as a means to let Oracle do all of the heavy lifting. I would imagine the same strategy could be used on PostgreSQL if you want PostGIS to do all of the management of the data.</p>
+
+<p>As I said, there's nothing earth-shattering there. It's pretty much what I expected but now there are more details.</p>
 ]]></content>
   </entry>
   
@@ -152,17 +175,6 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
 <p>Secondly, I'm picking back up with building ArcCatalog objects for <a href="http://code.google.com/p/ziggis">ZigGIS</a>. I'm trying to follow the model <a href="http://www.esri.com">ESRI</a> established with how to manage connections to ArcSDE in ArcCatalog. I've gotten far enough that I have a connection dialog that will write out a .zig file. The next step is to iterate the .zig files and list them as nodes in the ArcCatalog tree. More on that as I move along, also.</p>
 
 <p>So the purpose of this post is really more to stick my head out and say "I'm still here." There, I've said it. More again soon...</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Almost There with 9.2]]></title>
-    <link href="http://blog.geomusings.com/2007/03/09/Almost-There-with-9.2/"/>
-    <updated>2007-03-09T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/03/09/Almost-There-with-9.2</id>
-    <content type="html"><![CDATA[<p>Okay, I have no one to blame but myself. I have Desktop and the full EDN kit (except for ArcIMS) installed. Therefore, I've uninistalled everything 9.1 and reinstalled everything 9.2 and now I get to do the service packs. One day, I'll get back to coding, I'm sure.</p>
-
-<p>Meanwhile, the front of my forehead keeps getting flatter from banging it on the desk...</p>
 ]]></content>
   </entry>
   

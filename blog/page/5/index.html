@@ -9,7 +9,12 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="A little clarification is in order: SQL Server 2008 Books Online makes the following statement about SRIDs: &#8220;A SQL Server-supported SRID for &hellip;">
+  <meta name="description" content="&#8220;Buy the sky and
+Sell the sky and
+Lift your arms up to the sky
+And ask the sky
+And ask the sky
+Don&#8217;t fall on me&#8221; Did REM predict &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +77,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/">Spatial References in SQL Server 2008, Part 3</a></h1>
+      <h1 class="entry-title"><a href="/2008/04/09/Lyrical-Revisionism/">Lyrical Revisionism</a></h1>
     
     
       <p class="meta">
@@ -88,29 +93,23 @@
   
 
 
-<time datetime="2007-12-08T00:00:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2007</time>
+<time datetime="2008-04-09T00:00:00-04:00" pubdate data-updated="true">Apr 9<span>th</span>, 2008</time>
         
-         | <a href="/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/#disqus_thread">Comments</a>
+         | <a href="/2008/04/09/Lyrical-Revisionism/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>A little clarification is in order:</p>
+  <div class="entry-content"><p>&#8220;Buy the sky and
+Sell the sky and
+Lift your arms up to the sky
+And ask the sky
+And ask the sky
+Don&#8217;t fall on me&#8221;</p>
 
-<p>SQL Server 2008 Books Online makes the following statement about SRIDs:</p>
-
-<blockquote>
-&#8220;A SQL Server-supported SRID for geography instances must be used when performing calculations or using methods with geography spatial data. The SRID must match one of the SRIDs displayed in the sys.spatial_reference_systems catalog view.&#8221;
-</blockquote>
-
-
-<p>As previously noted, SQL 2008 supports two spatial data types: geometry and geography. As can be seen, the above statement only applies to the geography data type. If you are using geometry, the SRID can be set to anything (I have done so). It would probably be a best practice to stick to <a href="http://www.epsg.org/">EPSG</a>-defined SRIDs but this does open up the possibility of user-defined spatial references similar to <a href="http://postgis.refractions.net">PostGIS</a>. <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2505683&amp;SiteID=1">In a discussion with Isaac on the MSDN forum</a>, he clarified that they plan to leave such things to the discretion of the database designers/users for implementation. As can be seen in the discussion, it seems they may also write up some best practices but it seems many things such as constraints to limit SRIDs and geometry types will be left to users/developers/DBAs to implement.</p>
-
-<p>So, as a result of the discussion, I think I have a better understanding of <a href="http://www.microsoft.com">MSFT</a>&#8217;s intent and how to proceed with SQL 2008. It will be interesting to adjust my way of thinking from what I have come to expect from other products.</p>
-
-<p>Also, other discussions on the forum seem to indicate that this release will not have any coordinate transformation functions so those of us planning to use and develop with SQL 2008 should probably get comfortable with something like <a href="http://www.codeplex.com/ProjNET">Proj.Net</a>.</p>
+<p>Did REM predict carbon trading in 1986?</p>
 </div>
   
   
@@ -123,7 +122,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh/">So Neo-Geo Is Not GIS, Huh?</a></h1>
+      <h1 class="entry-title"><a href="/2008/04/08/Dave-Bouwmans-Developer-Survey/">Dave Bouwman&#8217;s Developer Survey</a></h1>
     
     
       <p class="meta">
@@ -139,28 +138,16 @@
   
 
 
-<time datetime="2007-12-05T00:00:00-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2007</time>
+<time datetime="2008-04-08T00:00:00-04:00" pubdate data-updated="true">Apr 8<span>th</span>, 2008</time>
         
-         | <a href="/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh/#disqus_thread">Comments</a>
+         | <a href="/2008/04/08/Dave-Bouwmans-Developer-Survey/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://apb.directionsmag.com/archives/3703-Neogeography-is-not-GIS;-not-LI.html">All Points</a> got the ball rolling this time around. <a href="http://geothought.blogspot.com/2007/12/no-data-creation-in-neogeography-errr.html">Peter Batty</a> responded with his usual thoughtfulness and <a href="http://geotips.blogspot.com/2007/12/real-men-use-real-gis-software.html">Paul Ramsey</a> gets the award for the best reponse so far.</p>
-
-<p>I watch this and can&#8217;t help but wonder: haven&#8217;t we been here before?</p>
-
-<p>If we replace the phrase &#8221;<a href="http://gislounge.com/internet-mapping/google-maps/neogeography/">neogeography</a>&#8221; with the phrase &#8220;desktop mapping&#8221; then I feel like we had this conversation 10 (or more) years ago. The ironic part is that MapInfo was in the position then that neo-geo is in now.</p>
-
-<p>Many GIS hard-liners argued that non-topological mapping packages could not be called GIS. &#8220;Real GIS&#8221; understood topology and could do analysis based upon topology. That argument was mostly forwarded by the <a href="http://en.wikipedia.org/wiki/ArcInfo">Arc/Info</a> crowd (although I don&#8217;t think <a href="http://www.esri.com">ESRI</a> was directly involved, it arose more from Arc/Info adherents). Software such as <a href="http://www.mapinfo.com/location/integration">MapInfo</a>, <a href="http://www.caliper.com/">Maptitude</a>, etc. was not &#8220;real GIS&#8221; and, therefore, their outputs could not be trusted.</p>
-
-<p>Well, we see what happened: that market proliferated. <a href="http://en.wikipedia.org/wiki/ArcView_3.x">ArcView 3.x</a> became the most widely used GIS package around at the time. Other desktop systems (MapInfo, <a href="http://www.manifold.net">Manifold</a>, etc.) beefed up their capabilities and ESRI eventually produced ArcMap. Anyone care to have that conversation again? I didn&#8217;t think so.</p>
-
-<p>So, is neogeography GIS? I don&#8217;t know. What&#8217;s the measure? Those put forth by Mike Hickey are different than those put forth as arguments against desktop mapping years ago. So, really, the hurdle has just been moved. Maybe neo-geo isn&#8217;t GIS&#8230;yet. But does anyone really think the technology won&#8217;t advance? Take a look at <a href="http://featureserver.org/">FeatureServer</a>. Take a look at the various spatial SQL implementations in <a href="http://postgis.refractions.net">PostGIS</a>, <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a>, <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle</a> and many others. People are trying to solve that problem. If ESRI ever puts out their <a href="http://virtualearth4gov.spaces.live.com/Blog/cns!369B39F890CE30C1!408.entry">REST API</a>, the neo-geo community will have the full power (maybe) of ArcGIS Server at their disposal. I have an idea: if MapInfo feels that neo-geo isn&#8217;t really GIS, why don&#8217;t they create a product line targeted at giving the neo-geo community &#8220;real GIS&#8221; tools. Whatever those are. Looks like a market opportunity to me.</p>
-
-<p>Making decisions about the viability/validity of neo-geo based on the current state of the technology is a little short-sighted to say the least.</p>
+  <div class="entry-content"><p>Dave is conducting his <a href="http://blog.davebouwman.net/2008/04/08/WhatDoYouDoGeospatialDeveloperSurvey.aspx">2008 Geospatial Developer Survey</a>. If you&#8217;re a GIS developer, I highly encourage you to complete it!</p>
 </div>
   
   
@@ -173,7 +160,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/03/A-Year-of-GeoMusings/">A Year of GeoMusings</a></h1>
+      <h1 class="entry-title"><a href="/2008/04/04/Microsoft-Certifying-Open-Source/">Microsoft Certifying Open-Source</a></h1>
     
     
       <p class="meta">
@@ -189,22 +176,64 @@
   
 
 
-<time datetime="2007-12-03T00:00:00-05:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2007</time>
+<time datetime="2008-04-04T00:00:00-04:00" pubdate data-updated="true">Apr 4<span>th</span>, 2008</time>
         
-         | <a href="/2007/12/03/A-Year-of-GeoMusings/#disqus_thread">Comments</a>
+         | <a href="/2008/04/04/Microsoft-Certifying-Open-Source/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>It&#8217;s been a year since I stood up GeoMusings. This is my second attempt at blogging. My first, ArcDeveloper, fizzled mainly because of a lack of focus on my part. So I started again on 1 December of 2006. I was originally on Blogger but quickly moved to WordPress. Early on, I started playing with <a href="http://code.google.com/p/ziggis/">zigGIS</a>, the open-source <a href="http://postgis.refractions.net/">PostGIS</a> connector for <a href="http://en.wikipedia.org/wiki/ArcMap">ArcMap</a>. I was impressed with the code and eventually joined the project. So the first couple of months were heavily focused on zigGIS and the blog may have been interpreted as a &#8220;zigGIS blog.&#8221; That was never the intent but have been the first impression.</p>
+  <div class="entry-content"><p>I got a link to <a href="http://seekingalpha.com/article/71145-microsoft-s-savvy-open-source-move">this article</a> on SlashDot. It discusses Microsoft&#8217;s effort to begin actively certifying open-source applications for Windows Server 2008.</p>
 
-<p>Generally, the blog has been a way for me to vent about things I&#8217;m working with as well as an outlet for my own experimentation. It has been a great way for me to get exposed to the open-source GIS community. There&#8217;s a lot of impressive work going on in that area and it&#8217;s been interesting to see the pace with which open-source technology is advancing. I have also been able to meet some great people, such as <a href="http://www.paolocorti.net/public/wordpress/">Paolo</a> and <a href="http://abegillespie.blogspot.com">Abe</a> as well as many others. Anyway, here are some of the observations/opinions I&#8217;ve formed as a result of a year of blogging:</div>
+<p>I see this as a positive move. I use a lot of open-source apps on Windows myself. Many of my customers are still downright suspicious of open-source (I know) and achieving Windows certification will make it a lot easier to introduce them into some of the environments I support.</p>
+
+<p>Of course, those same environments are just now upgrading to Windows Server 2003 so maybe 2008 certification isn&#8217;t such a big deal.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/03/31/First-ArcGIS-94-Screenshot/">First ArcGIS 9.4 Screenshot</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-31T00:00:00-04:00" pubdate data-updated="true">Mar 31<span>st</span>, 2008</time>
+        
+         | <a href="/2008/03/31/First-ArcGIS-94-Screenshot/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You saw it here first&#8230;</p>
+
+</div>
   
   
     <footer>
-      <a rel="full-article" href="/2007/12/03/A-Year-of-GeoMusings/">Read on &rarr;</a>
+      <a rel="full-article" href="/2008/03/31/First-ArcGIS-94-Screenshot/">Read on &rarr;</a>
     </footer>
   
 
@@ -216,7 +245,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/02/Stealing-GPS/">Stealing GPS&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/2008/03/28/zigGIS-Updates/">zigGIS Updates</a></h1>
     
     
       <p class="meta">
@@ -232,28 +261,20 @@
   
 
 
-<time datetime="2007-12-02T00:00:00-05:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2007</time>
+<time datetime="2008-03-28T00:00:00-04:00" pubdate data-updated="true">Mar 28<span>th</span>, 2008</time>
         
-         | <a href="/2007/12/02/Stealing-GPS/#disqus_thread">Comments</a>
+         | <a href="/2008/03/28/zigGIS-Updates/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The following was reported on the local news in Washington, DC:</p>
+  <div class="entry-content"><p>For those that are interested, Abe has been posting screencasts of the the improvements to zigGIS at the <a href="http://www.obtusesoft.com">Obtuse</a> site. The zigGIS 2.0 beta will be out soon. The performance of the direct connect to PostGIS has been greatly improved and full editing has been implemented using native ArcGIS tools.</p>
 
-<blockquote>
-<em>WRC-TV
-updated 7:37 p.m. ET, Mon., Nov. 26, 2007
-BETHESDA, Md. - On two nights earlier this month, several cars were broken into in Bethesda, police said. The break-ins occurred overnight Nov. 7 to Nov. 8 and overnight Nov. 11 to Nov. 12, police said. Between the two nights, a total of 49 cars were broken into. 
+<p>There is also a <a href="http://groups.google.com/group/ziggis?lnk=srg">Google group</a> you can join if you want to stay imformed.</p>
 
-The culprits stole global positioning systems.</em>
-</blockquote>
-
-
-<p>You have to wonder about the logic of stealing something that locates itself&#8230;
-Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://www.msnbc.msn.com/id/21979301/</a></p>
+<p><img alt="zigGIS Logo" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" /></p>
 </div>
   
   
@@ -266,7 +287,7 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">SQL Server 2008 SharpMap Data Provider Code</a></h1>
+      <h1 class="entry-title"><a href="/2008/03/28/Quote-of-the-Day/">Quote of the Day&#8230;</a></h1>
     
     
       <p class="meta">
@@ -282,77 +303,20 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
   
 
 
-<time datetime="2007-11-28T00:00:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2007</time>
+<time datetime="2008-03-28T00:00:00-04:00" pubdate data-updated="true">Mar 28<span>th</span>, 2008</time>
         
-         | <a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As promised, I have uploaded the data provider code I <a href="http://geobabble.wordpress.com/2007/11/20/sharpmap-and-sql-server-2008-spatial/">mentioned earlier</a> to the <a href="http://www.codeplex.com/SharpMap">SharpMap</a> site. It&#8217;s written in C#. I took the existing Oracle provider, stripped out the Oracle SQL and put in T-SQL. There are a couple of things I&#8217;m still trying to chase down but it&#8217;s basically done at this point. I know they&#8217;re busy trying to finish up SharpMap 2.0 so I don&#8217;t know how long it&#8217;ll take to become available. Just in case, here&#8217;s the code:</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/">Spatial References in SQL Server 2008, Part 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/#disqus_thread">Comments</a>
+         | <a href="/2008/03/28/Quote-of-the-Day/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>With some guidance from <a href="http://geotips.blogspot.com/">Paul Ramsey</a>, I implemented a check constraint on my sample table to allow only a single SRID in a table. As Paul indicated in <a href="http://geobabble.wordpress.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/#comment-3803">his comment on my previous post</a>, <a href="http://postgis.refractions.net">PostGIS</a> does this for you. SQL 2008 doesn&#8217;t yet but I hope it does. The syntax for my table was:</p>
+  <div class="entry-content"><p>Abe Gillespie had the quote of the day in his latest <a href="http://abegillespie.blogspot.com/2008/03/ziggis-update.html">post</a> about <a href="http://code.google.com/p/ziggis">zigGIS</a>.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">--only allow WGS84</span>
-</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">SpatialTable</span>
-</span><span class='line'>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">enforce_srid_geometry</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4326</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>In describing the development approach (disclaimer: I have been known to dabble in the zigGIS code from time to time although it&#8217;s been the Abe show recently), Abe described it as &#8220;software 2.0&#8221; which, in his words, &#8220;doesn&#8217;t mean much, but mostly we&#8217;re not responsible to deadlines.&#8221;</p>
 
-
-<p>After doing that, the following SQL will properly fail:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">UPDATE</span> <span class="n">SpatialTable</span>
-</span><span class='line'>  <span class="k">SET</span> <span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4127</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Thanks to Paul for chiming in!</p>
+<p>That alone was worth firing up the aggregator today. :)</p>
 </div>
   
   
@@ -365,7 +329,7 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-November-CTP/">Spatial References in SQL Server 2008 November CTP</a></h1>
+      <h1 class="entry-title"><a href="/2008/03/25/FedUC-Plenary-4753/">FedUC Plenary - 47.53</a></h1>
     
     
       <p class="meta">
@@ -381,65 +345,16 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
   
 
 
-<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
+<time datetime="2008-03-25T00:00:00-04:00" pubdate data-updated="true">Mar 25<span>th</span>, 2008</time>
         
-         | <a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-November-CTP/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;ve been playing with the <a href="http://www.microsoft.com/sql/2008/default.mspx">SQL 2008 November CTP</a> since it was released last week and have been generally impressed but as I have delved into its handling fo spatial references, I have noted some areas of concern. Keeping in mind that it&#8217;s a CTP, I&#8217;m hoping that some aspects may be addressed before release.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/11/26/Spatial-References-in-SQL-Server-2008-November-CTP/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/20/SharpMap-and-SQL-Server-2008-Spatial/">SharpMap and SQL Server 2008 Spatial</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-20T00:00:00-05:00" pubdate data-updated="true">Nov 20<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/20/SharpMap-and-SQL-Server-2008-Spatial/#disqus_thread">Comments</a>
+         | <a href="/2008/03/25/FedUC-Plenary-4753/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I downloaded the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">November CTP</a> yesterday and couldn&#8217;t resist. Today I wrote a <a href="http://www.codeplex.com/SharpMap">SharpMap</a> data provider for it. The black rectangle below represents a sample data set I created. It&#8217;s not as pretty as the Mexico data I used with <a href="http://www.sqlite.org/">SQLite</a> but it&#8217;s beautiful to me. It&#8217;s being displayed in the DemoWinForm app that comes with SharpMap 0.9. I am still working in 0.9 because a project I am on is using it. I&#8217;ll migrate to 2.0 a little later.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.png" title="sharpmap_sql2008.png"><img alt="sharpmap_sql2008.png" src="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.thumbnail.png" /></a></p>
-
-<p>Anyway, <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">I previously sung the praises of SharpMap and its ease of extensibility</a>. The turn-around time needed to write a provider speaks well of SQL 2008 to this point. All of the native SharpMap functions for handling WKB are working fine with the output from SQL 2008. This tells me that Microsoft is doing a good job of implementing OGC specifications.</p>
-
-<p>I am compiling my first impressions about SQL 2008 Spatial and will post them later. Most of them are favorable. It&#8217;s the first public beta of sorts and there are still some things missing (coordinate tranformations for instance) that I hope will come later but it makes a good first impression. Outside of the spatial capability, the platform in general seems stable. It&#8217;s almost production-ready as is.</p>
-
-<p>I will post the code to the provider later. There&#8217;s one piece unrelated to data handling that I need to clean up and then I&#8217;ll most likely post it over on the SharpMap site and see if they&#8217;ll take it. After that, I guess I&#8217;ll build a data loader&#8230;</p>
+  <div class="entry-content"><p>For those of you keeping track at home, the reference to <a href="http://www.openlayers.org/">OpenLayers</a> in <a href="http://www.esri.com/news/podcasts/audio/speaker/feduc08_dangermond.mp3">Jack Dangermond&#8217;s FedUC plenary talk</a> comes at approximately 47:53.</p>
 </div>
   
   
@@ -452,7 +367,7 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/11/19/SQL-Server-2008-November-CTP-Released/">SQL Server 2008 November CTP Released</a></h1>
+      <h1 class="entry-title"><a href="/2008/03/21/Dev-Summit-Ahhhh-the-APIs-and-Security/">Dev Summit - Ahhhh, the APIs (and Security)</a></h1>
     
     
       <p class="meta">
@@ -468,18 +383,34 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
   
 
 
-<time datetime="2007-11-19T00:00:00-05:00" pubdate data-updated="true">Nov 19<span>th</span>, 2007</time>
+<time datetime="2008-03-21T00:00:00-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2008</time>
         
-         | <a href="/2007/11/19/SQL-Server-2008-November-CTP-Released/#disqus_thread">Comments</a>
+         | <a href="/2008/03/21/Dev-Summit-Ahhhh-the-APIs-and-Security/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>It&#8217;s downloading as I write. Here&#8217;s the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">link</a>. Now the rest of us can try the spatial support!</p>
+  <div class="entry-content"><p>ArcGIS 9.3 looks really good all the way around. ESRI seems to have really put a lot of work into making this a quality release. Basically, it&#8217;s all about consolidating the vision of 9.2 while also improving the execution of that vision. To be sure, there are some new capabilities (PostgreSQL support, Javascript API, REST API, etc.) but there has been a huge effort on shoring up the quality of the product. The ESRI developers themselves seem really excited as well. It seems as if they can&#8217;t wait for the beta to get in our collective hands. But, this being the Dev Summit, the real star of the show was the APIs.</p>
 
-<p>This is something that&#8217;s been long overdue from Microsoft. It&#8217;s time to lock myself in the basement. :)</p>
+<p>I didn&#8217;t attend anything on the Java ADF or the Flex API. Neither of those are things I&#8217;ll be using anytime soon so I didn&#8217;t check them out but <a href="http://fantomplanet.wordpress.com/">Fantom Planet</a> did attend the Flex API session and seemed duly impressed. So, if you want details on that, you should probably nag him.  ;)</p>
+
+<p>I sat in on a session about the .Net Web ADF. I&#8217;ve already read <a href="http://blog.davebouwman.net/2008/03/20/ArcGISServerNETADFSession.aspx">Dave&#8217;s post</a> on the same session and his notes read almost exactly like the ones I have in my notebook so, rather than retype my notes (which would essentially duplicate Dave&#8217;s post), I&#8217;ll refer you there. BTW, congrats Dave!</p>
+
+<p>The .Net Web ADF definitely seems to have a lot of improvements. The things I&#8217;m most excited about are a) all of the web controls being scriptable, b) the client-side JavaScript now being exposed, documented and supported, c) the re-engineering to use ASP.NET AJAX and d) resource-level tiling. ESRI put a lot of focus on reducing the number of server round-trips and reducing the need to execute the full page life-cycle. This will speed things up a lot. All of the items I just listed will have direct, immediate benefits on our Server projects. Oh yeah, using JSON to serialize their objects is cool as well. Additionally, the ADF is designed to use .Net 3.5 but you can toggle back to 2.0 if you need to. I see SilverLight in my future.</p>
+
+<p>I&#8217;ve already talked a little about the REST API. I think that one is going to be huge. It really expands the scope of potential clients for ArcGIS Server services to just about anything. As I said, they even hit services from Ruby and Python during the session. &#8220;Everything is a URL&#8221; was the big take-away from that session. So, pretty much anything that can call a URL and understand the response can be a client. A lot of my clients have standardized on SOAP web services (didn&#8217;t get to anything about the SOAP API but I&#8217;ll catch up on that during the beta) but I plan on leveraging the REST API as much as I can outside of those areas.</p>
+
+<p>The JavaScript API looks pretty good too. Using this, developers will be able to integrate ArcGIS Server services into Virtual Earth and Google Maps and other mashups. <a href="http://mandown.co.nz/events/day-1-building-mashups-using-the-arcgis-javascript-api-s-at-the-esri-developer-summit-2008/">Mandown</a> has an good summary of the session. Most of my customers will not be able to take advantage of ESRI hosting the API but that shouldn&#8217;t be a huge issue. However, it (along with the SOAP and REST APIs) fit in well with the mobile code policies we have to adhere to.</p>
+
+<p>When I went to the FedUC, Jack articulated a vision of ArcGIS providing advanced GIS analysis to whatever client you wanted to use. The Dev Summit really brought that home in a way that you could see it. The various APIs give lots of options that should fit into any environment.</p>
+
+<p>Lastly, I attended the session on securing .Net web applications. The security model is essentially an extension of what we did at 9.2 but a whole lot easier to administer. They generally follow the ASP.NET model (OS security, Forms, custom provider). That&#8217;ll make it easier to to get systems accredited. However, with regard to AGS web services, they&#8217;ve made one significant change for the better (IMHO). Security for web services is now managed by the SOM rather than being defined in the web.config. This has one huge advantage in that security is now applied consistently to web services regardless of which API you are using to access the services. This means that whether you use the Java ADF, .NET ADF, REST API, JavaScript API, SOAP API or whatever, web service security will be the same. I&#8217;ll need to educate some of the security types I deal with on the SOM (and they&#8217;ll want to red-team it, I&#8217;m sure) but I think it&#8217;ll end up being an easy sell.</p>
+
+<p>So, this&#8217;ll be an exciting release for developers. I think it could be as significant as when we were all introduced to ArcObjects at 8.0. Now, I&#8217;ve just got to get into the office and set up the beta&#8230;.</p>
+
+<p>UPDATE: <a href="http://www.spatiallyadjusted.com/2008/03/21/reflection-on-the-2008-esri-developer-summit/">James raises a good point</a> about the demos. They do make it look like you can do really cool stuff with just a little bit of code. It&#8217;s important to remember that calling the service from the API is just one part. You&#8217;ll still need to implement your complex logic in the service. Also, more sophisticated behaviors on the client will require more code there. It&#8217;s important not to get caught up in the sales hype. 9.3 will offer some powerful options but it&#8217;s important to keep the total level of effort in mind. The new APIs give you more options for developing your applications, but they don&#8217;t obviate the need to actually write the code.</p>
 </div>
   
   
@@ -492,7 +423,7 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/11/15/Navteq-MapReporter/">Navteq MapReporter</a></h1>
+      <h1 class="entry-title"><a href="/2008/03/18/PostgreSQL-Support-in-ArcGIS/">PostgreSQL Support in ArcGIS</a></h1>
     
     
       <p class="meta">
@@ -508,24 +439,82 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
   
 
 
-<time datetime="2007-11-15T00:00:00-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2007</time>
+<time datetime="2008-03-18T00:00:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2008</time>
         
-         | <a href="/2007/11/15/Navteq-MapReporter/#disqus_thread">Comments</a>
+         | <a href="/2008/03/18/PostgreSQL-Support-in-ArcGIS/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I was attending a working group meeting yesterday and learned of Navteq&#8217;s <a href="http://mapreporter.com">MapReporter</a> site. It is a system they have implemented to allow users to report data errors to Navteq. The interface seems very intuitive. It even does a good job of picking locations from partial addresses. The image below shows that map interface:</p>
+  <div class="entry-content"><p>I just sat through a session titled &#8220;Working With the Geodatabase Effectively Using SQL.&#8221; It was heavily focused on ST_GEOMETRY. That&#8217;s pretty much what they want us to use. Interestingly, though, there won&#8217;t be ST_GEOMETRY in SQL Server 2008. They&#8217;ve added it to PostgreSQL (more on that later) but not SQL Server. Seems a little strange to me.</p>
 
-<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.png" title="Navteq MapReporter map interface"><img alt="Navteq MapReporter map interface" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.thumbnail.png" /></a></p>
+<p>There was a brief discussion of what PostgreSQL support will look like. There are no big surprises, just a little more detail. As I said, ESRI is implementing ST_GEOMETRY and also fully supporting the PostGIS spatial type. ST_GEOMETRY will be the default spatial type for ArcGIS but you will be able to use the PostGIS type via configuration keyword. The differences are:</p>
 
-<p>Once in, there is a standard form so that you can report the nature of the data error. Here is a screen shot (the address in the map above is not the same one I used in the form, which is why it&#8217;s blurred here):</p>
+<ol>
+<li><p>ST_GEOMETRY types and functions will reside in the &#8220;sde&#8221; schema (I guess that&#8217;s more efficient than call it the &#8220;arcgis_server_enterprise_basic&#8221; schema). PostGIS types and functions will reside in the public schema by default as is currently the case.</p></li>
+<li><p>The ST_GEOMETRY implementation will be consistent with those on Oracle, DB2 and Informix so, if you&#8217;re developing an app that is cross-platform (RDBMS-wise), you <em>may</em> want to use ST_GEOMETRY. It was said that the PostGIS spatial type only resides on PostgreSQL (we&#8217;ll dodge the obvious OGC-compliance piece which makes that statement somewhat shaky).</p></li>
+<li><p>The ST_GEOMETRY data type supports parametric geometry such as arcs and circles and the like whereas the PostGIS type does not. (Can you believe I&#8217;ve never looked into that? If that&#8217;s not correct, please feel free to correct me.) Of course, the REST API doesn&#8217;t support those and converts them to simple geometry&#8230;</p></li>
+<li><p>The ST_GEOMETRY spatial data is stored in ESRI&#8217;s compressed shape format which is sent directly to clients without translation. PostGIS stores in WKB format, which ArcGIS must first convert to compressed shape before sending so there will be something of a performance hit. Interpret that however you want, I&#8217;m just reporting.</p></li>
+</ol>
 
-<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.png" title="Navteq MapReporter entry from"><img alt="Navteq MapReporter entry from" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.thumbnail.png" /></a></p>
 
-<p>I was able to pretty quickly report an error. One nice feature is that the system gives you a tracking number so you can check the status of your issue. You can submit a report as a guest or you can create an account. I have not created an account yet to see what that does for you because the page that allows you to create an account (supplying your personal info) does not use SSL (although the login page for those who have accounts does). They may want to fix that. Otherwise, it seems like a nice tool and a good way to keep the database up to date.</p>
+<p>ST_GEOMETRY will use the PostGIS GIST spatial indexing framework but will implement an RTREE strategy through its own set of geometry operators. Additionally, ST_GEOMETRY columns can be defined within a CREATE TABLE statement compared to the use of the AddGeometryColumn function in PostGIS. Regardless of the spatial type used, tables created through SQL will still need to be registered with the geodatabase through the &#8220;sdelayer -o register&#8221; process in order to be used in ArcGIS. I&#8217;ve done this before with Oracle Spatial as a means to let Oracle do all of the heavy lifting. I would imagine the same strategy could be used on PostgreSQL if you want PostGIS to do all of the management of the data.</p>
+
+<p>As I said, there&#8217;s nothing earth-shattering there. It&#8217;s pretty much what I expected but now there are more details.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/03/18/Dev-Summit-REST-API-Session/">Dev Summit REST API Session</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-18T00:00:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2008</time>
+        
+         | <a href="/2008/03/18/Dev-Summit-REST-API-Session/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just sat through the first REST API session at the Dev Summit. They had it in a pretty big room and it was packed. There is a lot of interest in it here. Generally, you can walk up to just about any random person and they&#8217;ll say they want to learn more about the REST API. The other web APIs (JavaScript, SOAP, etc.) are also generating a lot of interest.</p>
+
+<p>To sum up the REST API in one word: impressive. ESRI is definitely on the right track here. I think this API could end up overshadowing the others over time. After sitting through the session, I have my doubts about whether the API holds up to the strictest definition of REST but I came away unconcerned by that. The simplicity and the power of this API cannot be understated.</p>
+
+<p>All resources (requests, layers, services, etc.) are represented as URLs. This provides the ability to very simply call powerful geoprocessing and analysis services running in ArcGIS Server. The API also supports a myraid of output formats. They demonstrated using Google Earth, Google Maps and Virtual Earth as clients. Also shown was the use of Python and Ruby scripts to call AGS services through the REST API as well as Yahoo Pipes. The output formats specifically discussed were HTML (default), (geo)JSON, KML/KMZ, image, layer (for use by ArcMap clients), NMF (for AGX), Google Maps and Virtual Earth. There&#8217;s enough there to pretty much do what you need.</p>
+
+<p>Before anyone asks, no they did not specifically mention OpenLayers nor was it shown but there were numerous examples of GeoJSON output. Based on what I saw, I think it would trivial to integrate with OpenLayers.</p>
+
+<p>The REST API makes diligent use of caching in order to optimize performance. One aspect I was interested in was security. During the plenary, it was mentioned that AGS security can be managed using industry standards such as LDAP and others. While this is not specific to the REST API, it is worth noting that, once security settings are defined, they automatically apply across all of AGS&#8217;s supported web interfaces. This will be a huge thing for many of my customers. In addition, security is role-based and can be applied to folders or individual services.</p>
+
+<p>From a developer standpoint, 9.3 could end up being the most important release of ArcGIS in a long time. The JavaScript, SOAP and REST APIs will open up development to a lot of new developers. I think that these APIs will be critical to achieving the goal for ArcGIS articulated at the FedUC for AGS to be the geospatial analysis engine that can feed the visualization client of your choice.</p>
+
+<p>A couple of other minor notes: AGS 9.3 introduces a geometry service that&#8217;s not bound to any specific data but exposes geometric opertations to clients. Currently, the REST API only supports simple geometries so parametric types such as arcs and circles are converted to densified lines or polygons.</p>
+
+<p>This was an impressive session. It looks like ESRI is putting a lot of effort into getting the REST API as right as they can this first time out. This session made me eager to get home and get the 9.3 beta running.</p>
 </div>
   
   

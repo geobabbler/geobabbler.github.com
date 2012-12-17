@@ -4,7 +4,7 @@
   <title><![CDATA[Category: .net | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/-net/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T11:04:10-05:00</updated>
+  <updated>2012-12-17T11:42:00-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -1093,15 +1093,21 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[MSDN Article on Mapping with WPF]]></title>
-    <link href="http://blog.geomusings.com/2007/12/18/MSDN-Article-on-Mapping-with-WPF/"/>
-    <updated>2007-12-18T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/12/18/MSDN-Article-on-Mapping-with-WPF</id>
-    <content type="html"><![CDATA[<p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It's a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn't be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
+    <title type="html"><![CDATA[SharpMap on Apache]]></title>
+    <link href="http://blog.geomusings.com/2008/01/07/SharpMap-on-Apache/"/>
+    <updated>2008-01-07T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2008/01/07/SharpMap-on-Apache</id>
+    <content type="html"><![CDATA[<p>In the words of Pete Townshend (as sung by Roger Daltrey):</p>
 
-<p>I've been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven't had a chance to extract what I've done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it's shaping up in SharpMap 2.0.</p>
+<p>"Why should I care? Why should I care?"</p>
 
-<p>So, if you're looking for an example of how to render spatial data in WPF, this is a good one.</p>
+<p>I can't answer that one for you. I ran into <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">this post</a> while searching out something else. It shows how to get <a href="http://asp.net/">ASP.NET</a> running under <a href="http://httpd.apache.org/">Apache</a> on Windows. Curiosity got the better of me and I had to try it. One important note is that mod_aspdotnet is no longer maintained by the Apache Software Foundation. It's now available as a <a href="http://sourceforge.net/projects/mod-aspdotnet">separate project on SourceForge</a>. If you download the latest version, it works with Apache 2.2.6.</p>
+
+<p>Although both Apache and mod_aspdotnet have had subsequent releases since this has been posted, the instructions still work. It was about 10 minutes to get the sample project running and not much longer to get <a href="http://www.codeplex.com/SharpMap">SharpMap's </a>"DemoWebSite" project working. Here's a screen capture (there nothing that makes it obvious it's running on Apache so You'll just have to trust me).</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.png" title="Can you see the real me? Can ya?"><img alt="Can you see the real me? Can ya?" src="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.thumbnail.png" /></a></p>
+
+<p>This could be somewhat useful if you're using a non-Server version of Windows and want to avoid the connection limitations of IIS. Beyond that, it's probably just interesting.</p>
 ]]></content>
   </entry>
   
