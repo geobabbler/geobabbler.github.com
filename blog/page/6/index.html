@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I went to the meetup last night. I had already spent part of the day with James and fantomplanet. In addition, I got to meet Dave Bouwman, Chris &hellip;">
+  <meta name="description" content="It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/03/18/Dev-Summit-Meetup/">Dev Summit Meetup</a></h1>
+      <h1 class="entry-title"><a href="/2008/12/30/Odds-and-Ends-SpatiaLite-and-Stuff/">Odds and Ends (SpatiaLite and Stuff)</a></h1>
     
     
       <p class="meta">
@@ -88,24 +88,26 @@
   
 
 
-<time datetime="2008-03-18T00:00:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2008</time>
+<time datetime="2008-12-30T00:00:00-05:00" pubdate data-updated="true">Dec 30<span>th</span>, 2008</time>
         
-         | <a href="/2008/03/18/Dev-Summit-Meetup/#disqus_thread">Comments</a>
+         | <a href="/2008/12/30/Odds-and-Ends-SpatiaLite-and-Stuff/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I went to the meetup last night. I had already spent part of the day with James and fantomplanet. In addition, I got to meet Dave Bouwman, Chris Spagnuolo, Brian Noyle, Morten Nielsen, Ed Katibah and others. It was pretty exciting and a good time. It was also fun to meet a lot of folks who read our blogs.</p>
+  <div class="entry-content"><p>It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as well. We established a new presence in Colorado Springs (I&#8217;ll be traveling there at the end of January). Additionally, I&#8217;ve been busy with project work and have recently begun spend part time on a customer site. So, the blog has been squeezed a little.</p>
 
-<p>Some of us got to hear a great story from Don Cooke of TeleAtlas about the first ESRI UC. Fantomplanet has mentioned this story on his blog. I won&#8217;t go into any details here (it&#8217;s not my story to tell) but it was one for the ages.</p>
+<p>I am doing more work with <a href="http://www.esri.com/software/arcgis/arcgisserver/">ArcGIS Server 9.3</a> and the Javascript API but probably won&#8217;t have enough to blog about for a few more weeks. Also, at the urging of <a href="http://geopdf.blogspot.com/">Adam Estrada</a>, I have begun dabbling more with <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>. You may remember my post some time ago about integrating <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">SQLite with SharpMap</a>. SpatiaLite is a spatial extension to SQLite and it seems to be very powerful. I am currently re-working my previous code so that I&#8217;ll have a SpatiaLite provider for <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. With the use of the <a href="http://sqlite.phxsoftware.com/">SQLite OLEDB provider</a>, this has gone fairly smoothly.</p>
 
-<p>Afterward, a group of us set out to grab a bite to eat and learned exactly how early restaurants close in Palm Springs. Chris and Dave bailed after the fourth place we tried was closed. About an hour later, I was thinking that they may have been the smartest ones among us.</p>
+<p>The thing I really like about it is the portability. You can basically drop a couple of DLLs and go. Additionally, SpatiaLite has strong support for many spatial operations so it can be a fairly robust analysis back-end. These two attributes raise a lot of possibilities for mobile applications. I have done some mobile development work with <a href="http://postgis.refractions.net/">PostGIS</a> (okay, the platforms were fairly heavy but they were in vehicles that rolled around) and it worked well but SpatiaLite might ease some of those &#8220;in the field&#8221; workflows, especially the delivery of relevant basemap information.</p>
 
-<p>Anyway, the meetup was a great time. It was good to meet those whose blogs I also read but it was also nice to get feedback from folks who have us in their aggregators. It&#8217;s still sometimes a little surprising to learn that others may find some value in the things I type here.</p>
+<p>With regard to SharpMap, it looks like SpatiaLite provider is under way for 2.0. I am doing my own for 0.9 because it helps me get more comfortable with SpatiaLite. Once I am finished, I&#8217;ll be happy to share my code but you may want to take a look at what&#8217;s being implemented with 2.0. It&#8217;s fairly elegant.</p>
 
-<p>Thanks to James and Dave for taking the lead on setting this up. There were rumblings of one in San Diego as well. If so, I&#8217;ll be there since we&#8217;re doing a booth this year.</p>
+<p>Also of interest, the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Users Google Group</a>.</p>
+
+<p>Update: the code for SharpMap 2.0 is currently located <a href="http://code.google.com/p/sharpmapv2/">here</a>.</p>
 </div>
   
   
@@ -118,7 +120,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/03/11/Getting-Ready-for-BPDev/">Getting Ready for BP/Dev</a></h1>
+      <h1 class="entry-title"><a href="/2008/11/25/Patch-to-ArcGIS-9.3-Service-Pack-1/">Patch to ArcGIS 9.3 Service Pack 1</a></h1>
     
     
       <p class="meta">
@@ -134,18 +136,20 @@
   
 
 
-<time datetime="2008-03-11T00:00:00-04:00" pubdate data-updated="true">Mar 11<span>th</span>, 2008</time>
+<time datetime="2008-11-25T00:00:00-05:00" pubdate data-updated="true">Nov 25<span>th</span>, 2008</time>
         
-         | <a href="/2008/03/11/Getting-Ready-for-BPDev/#disqus_thread">Comments</a>
+         | <a href="/2008/11/25/Patch-to-ArcGIS-9.3-Service-Pack-1/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I&#8217;m trying to wrap things up so that I can be ready to head out to Palm Springs. That&#8217;s been somewhat challenging since I&#8217;m going on my fifth day with the flu. I&#8217;ve been watching some the <a href="http://www.spatiallyadjusted.com/2008/03/10/arcgis-server-rest-api-for-92/">developments about the ArcGIS REST API</a> with interest but, since I&#8217;ve had the energy level of a snail, watching is about all I&#8217;ve been up to. Things are looking up now, though.</p>
+  <div class="entry-content"><p>If you&#8217;ve recently installed ArcGIS 9.3 Service Pack 1, be aware that there is a patch out that fixes an issue with topology validation. You can read more about it here:</p>
 
-<p>Anyway, I hope to see a lot of you at the <a href="http://www.spatiallyadjusted.com/2008/03/10/esri-developer-summit-meetup/">meetup</a>.</p>
+<p><a href="http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=35833">http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=35833</a></p>
+
+<p>This patch seems to apply to Desktop, Engine and Server so you may want to check it out.</p>
 </div>
   
   
@@ -158,7 +162,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP/">Upgrading to SQL Server 2008 February CTP</a></h1>
+      <h1 class="entry-title"><a href="/2008/11/17/Nearest-Book/">Nearest Book</a></h1>
     
     
       <p class="meta">
@@ -174,16 +178,25 @@
   
 
 
-<time datetime="2008-02-25T00:00:00-05:00" pubdate data-updated="true">Feb 25<span>th</span>, 2008</time>
+<time datetime="2008-11-17T00:00:00-05:00" pubdate data-updated="true">Nov 17<span>th</span>, 2008</time>
         
-         | <a href="/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP/#disqus_thread">Comments</a>
+         | <a href="/2008/11/17/Nearest-Book/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>There is no direct upgrade yet so you need to remove the November CTP. Apparently, the uninstall doesn&#8217;t always work well (hey, it&#8217;s beta). Luckily, <a href="http://dotnettim.spaces.live.com/blog/cns!4B800EB59FAEDC2A!152.entry">Tim&#8217;s post</a> straightened me out. This worked for me. More accurately, the guidance in Michael&#8217;s comment worked for me.</p>
+  <div class="entry-content"><p>This meme is percolating across the internets and it&#8217;s kinda fun.</p>
+
+<blockquote>By definition then, the terrorists and their followers become excluded from civil society of the mainstream, while the sympathetic public remains included.</blockquote>
+
+
+<p><em>The Geographical Dimensions of Terrorism</em>, edited by Susan L. Cutter, Douglas B. Richardson and Thomas J. Wilbanks.</p>
+
+<p><strong>The instructions</strong>: Grab the nearest book. Open it to page 56. Find the fifth sentence. Post the text of the sentence in your journal along with these instructions. Don?t dig for your favorite book, the cool book, or the intellectual one: pick the CLOSEST.</p>
+
+<p>If I hadn&#8217;t cleaned my desk on Friday, it would&#8217;ve most likely been something about Test-Driven Development but I did so this one was closest today which is interesting since it&#8217;s been ages since I read it. This particular excerpt comes from a passage describing the two primary audiences of terrorists and the social/physical separation of those audiences. It is taken from the section titled &#8220;Geographies of Inclusion/Exclusion&#8221; by Colin Flint.</p>
 </div>
   
   
@@ -196,7 +209,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/02/22/Thoughts-on-the-FedUC/">Thoughts on the FedUC</a></h1>
+      <h1 class="entry-title"><a href="/2008/11/05/Time-to-Kill-the-Red-Blue-Maps/">Time to Kill the Red-Blue Maps</a></h1>
     
     
       <p class="meta">
@@ -212,117 +225,20 @@
   
 
 
-<time datetime="2008-02-22T00:00:00-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2008</time>
+<time datetime="2008-11-05T00:00:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2008</time>
         
-         | <a href="/2008/02/22/Thoughts-on-the-FedUC/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I didn&#8217;t go to the FedUC today. I haven&#8217;t been staying in the city but have rather been commuting in each day. The weather is rather nasty so I decided to forego the rousing sendoff. I can handle snow and I can handle rain but I want nothing to do with ice.</p>
-
-<p><img alt="Yuck! I?m not going anywhere near that!" src="http://geobabble.files.wordpress.com/2008/02/dc_ice.png" />
-<em>Boat drinks! Boys in the band ordered boat drinks!</em></p>
-
-<p>So I thought I&#8217;d do a little summation of yesterday. I did a brief mention of the exhibit hall yesterday and I don&#8217;t have much to add to that other than the fact that it was interesting to see both Google and Microsoft with booths for GE and VE respectively. That definitely reinforced the direction outlined in Jack&#8217;s talk on Wendesday. I spent most of the day in either paper sessions or meetings. From a business standpoint, it was very fast-paced and was a valuable day. I didn&#8217;t get to any technical workshops (sorry, Kurt, I dropped the ball on your IEditor question) but <a href="http://surveying-mapping-gis.blogspot.com/2008/02/esri-feduc-day-2-sort-of.html">Dave did</a> so maybe he&#8217;ll delve into that more.</p>
-
-<p>The FedUC is much more compact that the UC and differently focused than the dev summit so the technical workshop offerings were not as deep as they are at those venues. Also, the actual development teams were not really present in the way that they are at those other events. The FedUC is much more focused on solutions and applications of ESRI software to government so it was great from that standpoint but hardcore nuts and bolts issues are probably better addressed at the dev summit.</p>
-
-<p>One of the more unsettling aspects of the FedUC was seeing all the ESRI staff in suits. It was the first ESRI event I&#8217;ve ever been to where I felt underdressed on the first day. But it was DC, not Southern California.</p>
-
-<p>The general approach to the paper sessions was solutions-based. It was usually either a government user or business partner or both describing solutions implemented with ESRI software. One thing that was nice is that everyone seemed pretty comfortable sharing the &#8220;warts&#8221; so there were a lot of good lessons learned in each paper session. It was a good way to get some real-world data. For me, it was also valuable to implementations that solved different problems. I know I can get pretty focused on what I&#8217;m doing so it&#8217;s nice to come up for air.</p>
-
-<p>According one ESRI staffer I was talking to, they had about 2600 attendees registered and maybe as many 400 walk-ins. That&#8217;s significantly larger than previous FedUC&#8217;s. Most of the paper sessions I was in were well-attended. This year may have been the tipping point for the FedUC. ESRI may have finally found the right tone for the event.</p>
-
-<p>The social at the National Geographic building was nice. The open bar was nice touch, too. ;)  I saw lots of people I haven&#8217;t seen in a long time and got you meet a quite a few that I have been wanting to meet. By then, the ESRI staff were letting their hair down so the atmosphere was more relaxed. Thursday was a very intense day for most everyone I talked to, with a lot being crammed into the day. That may have been exacerbated by the fact that the Friday weather was supposed to be bad and a lot of people were planning on not going on Friday. Either way, the social was very relaxed and was a good time.</p>
-
-<p>I said at the outset that I wear a few hats at work. If I had to leave one at home for the FedUC, it would be my developer hat but I found the conference to be very valuable from a business standpoint. I was planning on going to the dev summit but it looks like that may be falling through so next up (in the ESRI world, anyway) will be San Diego for me.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/21/FedUC-From-the-Exhibit-Hall/">FedUC - From the Exhibit Hall</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2008</time>
-        
-         | <a href="/2008/02/21/FedUC-From-the-Exhibit-Hall/#disqus_thread">Comments</a>
+         | <a href="/2008/11/05/Time-to-Kill-the-Red-Blue-Maps/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Most of the usual suspects were there today but there was very little that was new or exciting. The system integrator community was well represented as well as several relevant government agencies such as USGS, NGA, BLM, etc. There was a good cross-section of government support, including land managment, environment and others. In other words, it wasn&#8217;t as dominated by homeland security types as it has been in recent years. One thing that did impress me was the <a href="http://www.pbsj.com/what/Core/HDSurvey/index.asp">high-definition surveying</a> from <a href="http://www.pbsj.com">PBS&amp;J</a>. They had a sensor running and surveyed the exhibit hall pretty fast and they seem to be able to turn around good GIS and CAD data pretty fast. Beyond that, I had seen most of what was being exhibited before.</p>
-
-<p>I continue to be impressed by the depth of the content of the paper sessions. I can honestly say that this is the first FedUC where I felt like I couldn&#8217;t get to everything I wanted to.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/20/More-From-the-FedUC-Plenary/">More From the FedUC Plenary</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2008</time>
-        
-         | <a href="/2008/02/20/More-From-the-FedUC-Plenary/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img alt="feduc2008.png" src="http://geobabble.files.wordpress.com/2008/02/feduc2008.png" /></p>
-
-<p>I want to focus a little more on some of the demos and also how ESRI is positioning the ArcGIS platform to support the &#8220;GeoWeb&#8221; implementation pattern. Jack identified four &#8220;implementation patterns&#8221; that defin typical GIS architectures. The first three are pretty standard: single user desktop, multi-user server, and &#8220;federated&#8221; (an ESB-type implementation). The last one is what he called the &#8220;GeoWeb&#8221;. That was depicted as a set of services (data, analysis and otherwise) that can be used by various types of clients included, desktop, web, globes, mobile and pretty much anything else. This is perhaps most effectively visualized as a &#8220;mashup&#8221; type of situation. This seems to intersect nicely with the realm of &#8220;neogeography&#8221; in concept.</div>
+  <div class="entry-content"><p>Now that the election is behind us, I have a little time to ponder one of my hopes for the future in our little corner of the world. I would really like to see the concept of the binary red-blue election map put out to pasture.</div>
   
   
     <footer>
-      <a rel="full-article" href="/2008/02/20/More-From-the-FedUC-Plenary/">Read on &rarr;</a>
+      <a rel="full-article" href="/2008/11/05/Time-to-Kill-the-Red-Blue-Maps/">Read on &rarr;</a>
     </footer>
   
 
@@ -334,7 +250,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/02/20/ArcGIS-9.4-Mentioned-at-FedUC/">ArcGIS 9.4 Mentioned at FedUC</a></h1>
+      <h1 class="entry-title"><a href="/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/">Writing GeoJSON From SharpMap, Part 1</a></h1>
     
     
       <p class="meta">
@@ -350,110 +266,20 @@
   
 
 
-<time datetime="2008-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2008</time>
+<time datetime="2008-09-25T00:00:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2008</time>
         
-         | <a href="/2008/02/20/ArcGIS-9.4-Mentioned-at-FedUC/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is my first time posting from my Moto Q so forgive any typos.</p>
-
-<p>I just sat through the FedUC opening talk by Jack. There was a lot of talk about 9.3, as would be expected. There was also a lot of talk about positioning AGS support the GeoWeb, including a compelling demo of an AGS-based drive-time analysis in AGX, GE, VE and GMaps. More on that later.</p>
-
-<p>Jack also mentioned some of the work being done to extend the geodatabase at 9.4. Not a whole lot was said about 9.4 (intentionally) except a little about beefed up 3D support in the geodatabase but he did mention the end of the year as a release target.</p>
-
-<p>That&#8217;s the first concrete thing I had heard about a 9.x release beyond 9.3.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/18/ESRI-2008-Fed-UC-Vibe/">ESRI 2008 Fed UC Vibe</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-18T00:00:00-05:00" pubdate data-updated="true">Feb 18<span>th</span>, 2008</time>
-        
-         | <a href="/2008/02/18/ESRI-2008-Fed-UC-Vibe/#disqus_thread">Comments</a>
+         | <a href="/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>At the risk of sounding like an ESRI shill&#8230;</p>
-
-<p>The <a href="http://www.esri.com/events/feduc/index.html">FedUC</a> starts on Wednesday and this year it seems to have a different feel to it. It feels like it&#8217;s definitely picked up some momentum over previous years. The sessions seem to be a little meatier and the atmosphere feels more purposeful and businesslike now.</p>
-
-<p>I have been a proponent of the FedUC since it has started. First of all, I do a lot of work with ESRI products for the Federal government and the idea of having a major event (i.e. not a user group meeting) on the East Coast has been rather compelling. I&#8217;ve blogged a lot about the development I do but my company is small and I wear a lot of hats, including project manager, marketing, etc. ESRI&#8217;s federal team in Vienna, VA has put a lot of effort over the past few years into beefing up the FedUC, and it feels like that work is paying off this year.</p>
-
-<p>I&#8217;ve had numerous meeting requests this year. In addition, there are a number of sessions I want to see as well as exhibits by some companies that I have been wanting to see. From a business standpoint, there&#8217;s a lot of return on it this year (for me anyway). For those west of the Mississippi, you can probably get a lot of the same benefits in San Diego but those in the East (particularly those doing federal work) may want to give the FedUC a closer look. This will be the first year that I will probably spend each day there from beginning to end.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/13/A-One-Touch-Almost-Data-Loader-With-FWTools-and-PostGIS/">A One-Touch (Almost) Data Loader With FWTools and PostGIS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2008</time>
-        
-         | <a href="/2008/02/13/A-One-Touch-Almost-Data-Loader-With-FWTools-and-PostGIS/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So my <a href="http://postgis.refractions.net/">PostGIS</a>/<a href="http://www.codeplex.com/SharpMap">SharpMap</a>/<a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF </a>project is ready to go out the door. Literally. The servers are being loaded onto pallets and shipped to their respective destinations. Great! Time for a cold one! Well&#8230;&#8230;maybe not. There&#8217;s one little problem: there&#8217;s no data on the servers yet.</p>
-
-<p>We had to coordinate with a large national government agency to get the data we needed. That part of the process experienced a little &#8220;slippage&#8221;. As a result, the last part of the task changed from loading data onto the servers to developing a data loading tool that could be run from a DVD with minimal involvement from humans. (Those pesky humans.) Just another Monday.</div>
+  <div class="entry-content"><p>In between proposals, white papers and the like, I?ve been able to do a little coding to keep myself sane. Recently, I have been playing with <a href="http://www.codeplex.com/sharpmap">SharpMap</a>, <a href="http://wiki.geojson.org/Main_Page">GeoJSON</a> and <a href="http://openlayers.org">OpenLayers</a>. But not necessarily in that order. Originally, I was looking over the GeoJSON spec to get more of a feel for it and decided that it would be fun (I know) to write an exporter for SharpMap. There is already a converter to write SharpMap geometries as WKT so I went ahead and built another one to convert to GeoJSON. In order to test it, I decided to use OpenLayers.</div>
   
   
     <footer>
-      <a rel="full-article" href="/2008/02/13/A-One-Touch-Almost-Data-Loader-With-FWTools-and-PostGIS/">Read on &rarr;</a>
+      <a rel="full-article" href="/2008/09/25/Writing-GeoJSON-from-SharpMap-Part-1/">Read on &rarr;</a>
     </footer>
   
 
@@ -465,7 +291,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/02/01/SQL-Server-2008-and-2005-Side-By-Side/">SQL Server 2008 and 2005 Side-By-Side</a></h1>
+      <h1 class="entry-title"><a href="/2008/09/15/Chrome-IE-Killer-Or-not/">Chrome - IE-Killer? Or Not&#8230;</a></h1>
     
     
       <p class="meta">
@@ -481,26 +307,192 @@
   
 
 
-<time datetime="2008-02-01T00:00:00-05:00" pubdate data-updated="true">Feb 1<span>st</span>, 2008</time>
+<time datetime="2008-09-15T00:00:00-04:00" pubdate data-updated="true">Sep 15<span>th</span>, 2008</time>
         
-         | <a href="/2008/02/01/SQL-Server-2008-and-2005-Side-By-Side/#disqus_thread">Comments</a>
+         | <a href="/2008/09/15/Chrome-IE-Killer-Or-not/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Installing the the SQL Server 2008 November CTP side-by-side with SQL Server 2005 is very straightforward. On the previous build of my machine, I had them both running just fine. After my system crash, I began setting things up again. Because I had been working with 2008 before the crash, I installed that first and then got around to 2005 later.</p>
+  <div class="entry-content"><p>I use <a href="http://www.statcounter.com/">StatCounter</a> to track statistics on a couple of web sites, including this blog. StatCounter, like many other similar services, tracks by browser among other ways of analyzing your statisitics. Anyway, they have been <a href="http://blog.statcounter.com/2008/09/chrome-latest-stats-globalusuk/">posting some statistics about <a href="http://www.google.com/chrome">Google Chrome</a> on their blog</a>. I found them interesting so I thought I&#8217;d pass on a link.</p>
 
-<p>It should have been obvious to me before I did that but installing them in that order seems to break a lot of stuff in 2008. Kinda makes sense. I was a little flustered at having to rebuild in the first place and perhaps rushing things a bit but here it is for the record: If you are installing both of them on a new box, put on 2005 first.</p>
+<p>What is most interesting to me is that, while Chrome usage has increased, it has not come at the expense of Internet Explorer. Primarily, Firefox and Safari have taken the biggest hit. In the US and UK, IE usage has actually grown since the Chrome introduction while the others have shrunk. Globally, IE usage also shrank but by less than Firefox and Safari. &#8220;Other&#8221; (I presume this to mean Opera and other cats and dogs) grew globally.</p>
 
-<p>Generally the database engine worked well. Most of the issues I had came up in the management studio. After installing 2005, many of the dialogs and property pages in the Katmai management studio would no longer display. Attempting to invoke them usually resulted in a &#8220;class not registered&#8221; exception.</p>
-
-<p>In order to fix that, I had to remove and then re-install 2008. Before doing that, I detached my databases and then re-attached them after I was done. Everything works fine now.</p>
-
-<p>This probably says more about me than it does SQL Server ;) but I thought I&#8217;d share.</p>
+<p>I&#8217;ve played with Chrome. It&#8217;s nice as a curiosity. I think the world needs another browser about as much as it needs another lawyer but no one is asking me&#8230;.</p>
 </div>
   
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/03/MapWindow-Looking-for-Testers-and-Programmers/">MapWindow Looking for Testers and Programmers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-03T00:00:00-04:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2008</time>
+        
+         | <a href="/2008/09/03/MapWindow-Looking-for-Testers-and-Programmers/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.mapwindow.org/">MapWindow</a> is has posted a message over on <a href="http://www.linkedin.com">LinkedIn</a> looking for testers and programmers. The text of the message, posted by Paul Meems, is:</p>
+
+<blockquote>Any GIS experts available with some free time?
+Here at MapWindow GIS (<a href="http://www.mapwindow.org">www.mapwindow.org</a>) we&#8217;re looking for people who are willing the use MapWindow (it&#8217;s Open Source, so it&#8217;s free to use) and share their experiences. We also have our own LinkedIn group: <a href="http://www.linkedin.com/e/gis/122945/37A6504A848A">http://www.linkedin.com/e/gis/122945/37A6504A848A</a></blockquote>
+
+
+<p>A follow-up answer to one of my LinkedIn contacts clarified that they are looking for testers and programmers. So, if you&#8217;re interested in helping out an open-source project, here&#8217;s your chance. Also, you may want to give LinkedIn a spin.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/21/Using-ArcSDE-9.3-with-PostgreSQL-Part-3.5/">Using ArcSDE 9.3 With PostgreSQL, Part 3.5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-21T00:00:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2008</time>
+        
+         | <a href="/2008/08/21/Using-ArcSDE-9.3-with-PostgreSQL-Part-3.5/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I thought I was done with the series a while back but I&#8217;ve been getting a steady stream of questions through other channels so I thought I&#8217;d wrap up a lot of the common stuff in another post. Most of the inquiries come from people trying to integrate <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> for <a href="http://www.postgresql.org">PostgreSQL</a> with open-source tools in one way or another. Here are a few notes:</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/08/21/Using-ArcSDE-9.3-with-PostgreSQL-Part-3.5/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/14/SilverLight-and-ArcGIS-Server-9.3/">SilverLight and ArcGIS Server 9.3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-14T00:00:00-04:00" pubdate data-updated="true">Aug 14<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/14/SilverLight-and-ArcGIS-Server-9.3/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://alpascual.com/blog/al/archive/2008/08/14/esri-silverlight-control-up-on-the-code-gallery.aspx">Al Pascual has posted</a> about a sample app <del datetime="00">he</del> Richie developed using <a href="http://silverlight.net/">SilverLight 2.0</a>. For those who have been wondering about this (like me), I highly encourage checking this out. The SilverLight <a href="http://labs.live.com/Silverlight+2+Deep+Zoom.aspx">Deep Zoom</a> technology is pretty impressive and it works well in IE, FireFox and Safari (on Windows anyway). See below.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/08/silverlight_ie_win.png"><img alt="" class="alignnone size-thumbnail wp-image-277" height="77" src="http://geobabble.files.wordpress.com/2008/08/silverlight_ie_win.png?w=128" width="128" /></a> <a href="http://geobabble.files.wordpress.com/2008/08/silverlight_firefox_win.png"><img alt="" class="alignnone size-thumbnail wp-image-277" height="77" src="http://geobabble.files.wordpress.com/2008/08/silverlight_firefox_win.png?w=128" width="128" /></a> <a href="http://geobabble.files.wordpress.com/2008/08/silverlight_safari_win.png"><img alt="" class="alignnone size-thumbnail wp-image-279" height="77" src="http://geobabble.files.wordpress.com/2008/08/silverlight_safari_win.png?w=128" width="128" /></a></p>
+
+<p>Links to the demos are on Al&#8217;s blog. Source code is available from the code gallery. Good work <del datetime="00">Al</del> Richie!</p>
+
+<p>Update! The first version of this post was incorrect. This application was written by <a href="http://mrrichie.spaces.live.com/blog/cns!DD16C3F34F4D913E!1841.entry">Richie Carmichael</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/12/ESRI-UC-Summary/">ESRI UC Summary</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-12T00:00:00-04:00" pubdate data-updated="true">Aug 12<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/12/ESRI-UC-Summary/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I spent last week in San Diego at the ESRI International User Conference. It was a bit different for me since I was working <a href="http://www.zekiah.com">Zekiah&#8217;s</a> booth most of the time. I did, however, make it out to a SIG and a couple of technical workshops. Additionally, some of our technical staff were there and had feedback on the sessions. What follows is a very high-level summary of my week.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/08/12/ESRI-UC-Summary/">Read on &rarr;</a>
+    </footer>
   
 
 

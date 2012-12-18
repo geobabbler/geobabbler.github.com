@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SpatiaLite | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/spatialite/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T11:50:48-05:00</updated>
+  <updated>2012-12-18T12:13:04-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -97,6 +97,38 @@ enjoy, Sandro
 <p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
 
 <p>As I said, I developed these to support workflows in existing applications. If you're looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite Support in QGIS]]></title>
+    <link href="http://blog.geomusings.com/2009/03/26/SpatiaLite-Support-in-QGIS/"/>
+    <updated>2009-03-26T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2009/03/26/SpatiaLite-Support-in-QGIS</id>
+    <content type="html"><![CDATA[<p>Alessandro announced on <a href="http://groups.google.com/group/spatialite-users">SpatiaLite group</a> today that <a href="http://www.qgis.org/">QGIS</a> 1.1 will include a data provider for <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>, the spatial extender for SQLite.</p>
+
+<p>It's out there now in the SVN trunk if you're so inclined. I am curious how long it will take to cascade through to the <a href="http://wiki.osgeo.org/wiki/OSGeo_Win32_Installer">OSGEO4W</a> build.</p>
+
+<p>If you haven't check out SpatiaLite, I highly encourage you to do so. It is powerful and <em>very</em> lightweight.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Odds and Ends (SpatiaLite and Stuff)]]></title>
+    <link href="http://blog.geomusings.com/2008/12/30/Odds-and-Ends-SpatiaLite-and-Stuff/"/>
+    <updated>2008-12-30T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2008/12/30/Odds-and-Ends-SpatiaLite-and-Stuff</id>
+    <content type="html"><![CDATA[<p>It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as well. We established a new presence in Colorado Springs (I'll be traveling there at the end of January). Additionally, I've been busy with project work and have recently begun spend part time on a customer site. So, the blog has been squeezed a little.</p>
+
+<p>I am doing more work with <a href="http://www.esri.com/software/arcgis/arcgisserver/">ArcGIS Server 9.3</a> and the Javascript API but probably won't have enough to blog about for a few more weeks. Also, at the urging of <a href="http://geopdf.blogspot.com/">Adam Estrada</a>, I have begun dabbling more with <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>. You may remember my post some time ago about integrating <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">SQLite with SharpMap</a>. SpatiaLite is a spatial extension to SQLite and it seems to be very powerful. I am currently re-working my previous code so that I'll have a SpatiaLite provider for <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. With the use of the <a href="http://sqlite.phxsoftware.com/">SQLite OLEDB provider</a>, this has gone fairly smoothly.</p>
+
+<p>The thing I really like about it is the portability. You can basically drop a couple of DLLs and go. Additionally, SpatiaLite has strong support for many spatial operations so it can be a fairly robust analysis back-end. These two attributes raise a lot of possibilities for mobile applications. I have done some mobile development work with <a href="http://postgis.refractions.net/">PostGIS</a> (okay, the platforms were fairly heavy but they were in vehicles that rolled around) and it worked well but SpatiaLite might ease some of those "in the field" workflows, especially the delivery of relevant basemap information.</p>
+
+<p>With regard to SharpMap, it looks like SpatiaLite provider is under way for 2.0. I am doing my own for 0.9 because it helps me get more comfortable with SpatiaLite. Once I am finished, I'll be happy to share my code but you may want to take a look at what's being implemented with 2.0. It's fairly elegant.</p>
+
+<p>Also of interest, the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Users Google Group</a>.</p>
+
+<p>Update: the code for SharpMap 2.0 is currently located <a href="http://code.google.com/p/sharpmapv2/">here</a>.</p>
 ]]></content>
   </entry>
   

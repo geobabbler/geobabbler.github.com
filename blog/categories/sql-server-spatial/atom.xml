@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sql server spatial | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/sql-server-spatial/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T11:50:48-05:00</updated>
+  <updated>2012-12-18T12:13:04-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SQL Server SIG at the UC]]></title>
+    <link href="http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC/"/>
+    <updated>2008-08-06T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC</id>
+    <content type="html"><![CDATA[<p>My blogging has been slower this time around because I've been doing a lot of booth duty. This is my thrid conference this year and some of our other staff are getting to go to the sessions. I did, however, go to the SQL Server SIG a little while ago.</p>
+
+<p>Ed Katibah had a few tricks up his sleeve. First off, he dropped the news that, as of 11:00am, SQL Server 2008 is now in RTM. Very soon, the final version will be in our hands. That's great news to everyone who has been working with the CTPs and RCs.</p>
+
+<p>Ed had few other nuggets. He described the stress-testing that SQL 2008 has undergone. In short, there has been about 375,000 hours of stress testing run against SQL 2008 so we should be able to expect it to be solid. Additionally, Microsoft has already been running on SQL 2008 for "a few months." To me, this is all great news that makes me feel even more confident about the product (which already had my confidence). When I first installed the November CTP, I felt that much of the platform was already production-ready but more testing and use can't have hurt.</p>
+
+<p>Ed went on to describe the two spatial types and reationale for doing that. That discussion is well documented and I fall in the "it's a good thing category" mainly because of previous work with applications that had over-the-horizon requirements.</p>
+
+<p>Ed gave props to Paul Ramsey during his talk when explaining the XY switching debate. It was great to see that kind of respect on display.</p>
+
+<p>Some nuts and bolts: SQL 2008 limits spatial objects to about 250 million vertices. This greatly exceeds Ed's largest test case, which is a high-res vector data set of the world's oceans. Polygons are limited to about 65,000 holes. I think those limits leave a lot of wiggle room. He also discussed the significance of coordinate ordering for the geography data type. Basically, it's counter-clockwise for outer rings and clockwise for inner rings. This is consistent with implementations in Informix, DB2 and Oracle (those are what he mentioned). He did mention that this was an industry consensus but there was no official specification on this matter. Ed also mentioned it may be a topic of future discussion for OGC.</p>
+
+<p>Ed also demonstrated the spatial results window in the SQL management Studio. This is a really nice tool that lets you visualize the results of your spatial SQL inside the management studio. As a developer, that will be a huge help because I won't have to do a test run to see if I got the query right. Ed just saved me a bunch of time!</p>
+
+<p>Ed went on to announce a companion CodePlex site for SQL Server 2008 spatial tools: <a href="http://www.codeplex.com/sqlspatialtools">www.codeplex.com/SqlSpatialTools</a>. There are already some tools that Isaac has posted but Ed said that other tools will include shapefile and KML converters. The site will also be open to contribs from the community. All of the tools currently there were developed using the <a href="http://blogs.msdn.com/isaac/archive/2008/05/30/our-upcoming-builder-api.aspx">Builder API</a> and full source code is available so they serve has great examples of working with the Builder API.</p>
+
+<p>All in all, it was a great talk. Ed's one of the nicest guys ever and he is having a lot of fun with ArcSDE on SQL Server 2008.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Upgrading to SQL Server 2008 February CTP]]></title>
@@ -97,19 +122,6 @@
 <p>At this point, I would normally say pick a method and run with it for both data types but I do have a preference here. I think that WKT should be parsed as X,Y consistently in order to provide better interoperability with a wider variety of client software. The simple fact is that most products out there do X,Y. For instance, I am working with SharpMap and it generates WKT in X,Y order and assumes X,Y order when parsing. Other database platforms such as Oracle, PostGIS and MySQL do the same but it's the client software that matters most in this case. I'm sure that others can chime in with more examples.</p>
 
 <p>I am intrigued by the use of a separate data type to handle geodetic data but the X,Y order of WKT has no bearing here. To my way of thinking, the best approach would be to commit to X,Y order for both GEOMETRY and GEOGRAPHY.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MSDN Article on Mapping with WPF]]></title>
-    <link href="http://blog.geomusings.com/2007/12/18/MSDN-Article-on-Mapping-with-WPF/"/>
-    <updated>2007-12-18T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/12/18/MSDN-Article-on-Mapping-with-WPF</id>
-    <content type="html"><![CDATA[<p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It's a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn't be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
-
-<p>I've been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven't had a chance to extract what I've done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it's shaping up in SharpMap 2.0.</p>
-
-<p>So, if you're looking for an example of how to render spatial data in WPF, this is a good one.</p>
 ]]></content>
   </entry>
   

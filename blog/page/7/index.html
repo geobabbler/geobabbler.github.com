@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Well, our abstract was accepted for the ESRI Federal User Conference. I say &#8220;our&#8221; because I am co-authoring with my friend/customer/ &hellip;">
+  <meta name="description" content="My blogging has been slower this time around because I&#8217;ve been doing a lot of booth duty. This is my thrid conference this year and some of our &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/01/18/And-Were-In/">And We&#8217;re In</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/06/SQL-Server-SIG-at-the-UC/">SQL Server SIG at the UC</a></h1>
     
     
       <p class="meta">
@@ -88,20 +88,32 @@
   
 
 
-<time datetime="2008-01-18T00:00:00-05:00" pubdate data-updated="true">Jan 18<span>th</span>, 2008</time>
+<time datetime="2008-08-06T00:00:00-04:00" pubdate data-updated="true">Aug 6<span>th</span>, 2008</time>
         
-         | <a href="/2008/01/18/And-Were-In/#disqus_thread">Comments</a>
+         | <a href="/2008/08/06/SQL-Server-SIG-at-the-UC/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Well, our abstract was accepted for the ESRI <a href="http://www.esri.com/events/feduc/index.html">Federal User Conference</a>. I say &#8220;our&#8221; because I am co-authoring with my friend/customer/former co-worker Dan Getman at <a href="http://www.ornl.gov/sci/gist/">Oak Ridge National Laboratory</a>. We&#8217;ll be presenting some work we&#8217;ve (Dan, me and a couple of other really good developers) done together on the <a href="http://www.sensornet.gov/">SensorNet</a> effort.</p>
+  <div class="entry-content"><p>My blogging has been slower this time around because I&#8217;ve been doing a lot of booth duty. This is my thrid conference this year and some of our other staff are getting to go to the sessions. I did, however, go to the SQL Server SIG a little while ago.</p>
 
-<p>I don&#8217;t want to spill the beans here but we&#8217;ll be presenting as part of the &#8220;Why Standards Matter&#8221; track. It&#8217;s been a fun project and we&#8217;ve gotten to do some cool integration. So, if you&#8217;re going to be at the FedUC, come on by and throw some vegetables at me (but try not to hit Dan, he&#8217;s a nice guy). ;)</p>
+<p>Ed Katibah had a few tricks up his sleeve. First off, he dropped the news that, as of 11:00am, SQL Server 2008 is now in RTM. Very soon, the final version will be in our hands. That&#8217;s great news to everyone who has been working with the CTPs and RCs.</p>
 
-<p><img alt="Don't throw Bob. He's cool." src="http://content.answers.com/main/content/wp/en/6/6c/Bob.gif" /></p>
+<p>Ed had few other nuggets. He described the stress-testing that SQL 2008 has undergone. In short, there has been about 375,000 hours of stress testing run against SQL 2008 so we should be able to expect it to be solid. Additionally, Microsoft has already been running on SQL 2008 for &#8220;a few months.&#8221; To me, this is all great news that makes me feel even more confident about the product (which already had my confidence). When I first installed the November CTP, I felt that much of the platform was already production-ready but more testing and use can&#8217;t have hurt.</p>
+
+<p>Ed went on to describe the two spatial types and reationale for doing that. That discussion is well documented and I fall in the &#8220;it&#8217;s a good thing category&#8221; mainly because of previous work with applications that had over-the-horizon requirements.</p>
+
+<p>Ed gave props to Paul Ramsey during his talk when explaining the XY switching debate. It was great to see that kind of respect on display.</p>
+
+<p>Some nuts and bolts: SQL 2008 limits spatial objects to about 250 million vertices. This greatly exceeds Ed&#8217;s largest test case, which is a high-res vector data set of the world&#8217;s oceans. Polygons are limited to about 65,000 holes. I think those limits leave a lot of wiggle room. He also discussed the significance of coordinate ordering for the geography data type. Basically, it&#8217;s counter-clockwise for outer rings and clockwise for inner rings. This is consistent with implementations in Informix, DB2 and Oracle (those are what he mentioned). He did mention that this was an industry consensus but there was no official specification on this matter. Ed also mentioned it may be a topic of future discussion for OGC.</p>
+
+<p>Ed also demonstrated the spatial results window in the SQL management Studio. This is a really nice tool that lets you visualize the results of your spatial SQL inside the management studio. As a developer, that will be a huge help because I won&#8217;t have to do a test run to see if I got the query right. Ed just saved me a bunch of time!</p>
+
+<p>Ed went on to announce a companion CodePlex site for SQL Server 2008 spatial tools: <a href="http://www.codeplex.com/sqlspatialtools">www.codeplex.com/SqlSpatialTools</a>. There are already some tools that Isaac has posted but Ed said that other tools will include shapefile and KML converters. The site will also be open to contribs from the community. All of the tools currently there were developed using the <a href="http://blogs.msdn.com/isaac/archive/2008/05/30/our-upcoming-builder-api.aspx">Builder API</a> and full source code is available so they serve has great examples of working with the Builder API.</p>
+
+<p>All in all, it was a great talk. Ed&#8217;s one of the nicest guys ever and he is having a lot of fun with ArcSDE on SQL Server 2008.</p>
 </div>
   
   
@@ -114,7 +126,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/01/15/A-Silk-Purse/">A Silk Purse&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/06/A-Good-PostGIS-Overview/">A Good PostGIS Overview&#8230;</a></h1>
     
     
       <p class="meta">
@@ -130,59 +142,18 @@
   
 
 
-<time datetime="2008-01-15T00:00:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2008</time>
+<time datetime="2008-08-06T00:00:00-04:00" pubdate data-updated="true">Aug 6<span>th</span>, 2008</time>
         
-         | <a href="/2008/01/15/A-Silk-Purse/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Well, salvaging the brightest outlook I can from the aforementioned hard drive crash, it does present me with an opportunity to &#8220;trim the fat&#8221; as it were. So, at first glance here&#8217;s the stuff (in no particular order) that will get put back on immediately:</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/01/15/A-Silk-Purse/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/01/14/Grrrrrrrrrrrrrrrrrrrrr/">Grrrrrrrrrrrrrrrrrrrrr</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-01-14T00:00:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2008</time>
-        
-         | <a href="/2008/01/14/Grrrrrrrrrrrrrrrrrrrrr/#disqus_thread">Comments</a>
+         | <a href="/2008/08/06/A-Good-PostGIS-Overview/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>That, coincidentally, is the sound a laptop hard drive makes right before it craps out and is also the sound you find yourself making afterward&#8230;</p>
+  <div class="entry-content"><p>Steven Citron-Pousty gave a talk on PostGIS and has helpfully posted his slides <a href="http://www.slideshare.net/scitronpousty/using-post-gis-to-add-some-spatial-flavor-to-your-application">here</a>. It&#8217;s a good introductory overview and provides some good examples of basic spatial SQL in PostGIS.</p>
 
-<p>This&#8217;ll be good for the schedule. :|</p>
+<p>With ArcGIS Server now supporting PostgreSQL as a back end RDBMS and also supporting the use of PostGIS geometries, a lot of new users may be migrating to the PostgreSQL platform. This presentation is a good overview for anyone picking it up for the first time. Thanks, @TheSteve0!</p>
 </div>
   
   
@@ -195,7 +166,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/01/13/Weekend-Frivolity-from-TLC/">Weekend Frivolity From TLC</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/05/zigGIS-Source-Code-and-Schwag-Available/">zigGIS Source Code and Schwag Available</a></h1>
     
     
       <p class="meta">
@@ -211,21 +182,22 @@
   
 
 
-<time datetime="2008-01-13T00:00:00-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2008</time>
+<time datetime="2008-08-05T00:00:00-04:00" pubdate data-updated="true">Aug 5<span>th</span>, 2008</time>
         
-         | <a href="/2008/01/13/Weekend-Frivolity-from-TLC/#disqus_thread">Comments</a>
+         | <a href="/2008/08/05/zigGIS-Source-Code-and-Schwag-Available/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>We were watching &#8220;The Real Estate Pros&#8221; on TLC last night. This quote caught my attention. A very nice lady was explaining how they were going to cut out the rafters of a house to create a vaulted ceiling because they wanted:</p>
+  <div class="entry-content"><p><a href="http://abegillespie.blogspot.com">Abe</a> has announced that the source code for zigGIS is now available (governed by the zigGIS EULA). It can be found at <a href="http://www.obtusesoft.com/source.aspx">http://www.obtusesoft.com/source.aspx</a>.</p>
 
-<blockquote>more cubic square footage in the house</blockquote>
+<p>Additionally, there is now zigGIS apparel available at <a href="http://www.cafepress.com/obtusesoft">http://www.cafepress.com/obtusesoft</a> (just because it&#8217;s fun&#8230;and a little geeky).</p>
 
+<p>No, there is not an option to have the source code printed on a shirt.</p>
 
-<p>Somewhere, her high school geometry teacher cringed.</p>
+<p>Enjoy both&#8230;.</p>
 </div>
   
   
@@ -238,7 +210,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/01/07/SharpMap-on-Apache/">SharpMap on Apache</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/01/Bravo-Zulu/">Bravo Zulu&#8230;</a></h1>
     
     
       <p class="meta">
@@ -254,26 +226,16 @@
   
 
 
-<time datetime="2008-01-07T00:00:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2008</time>
+<time datetime="2008-08-01T00:00:00-04:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
         
-         | <a href="/2008/01/07/SharpMap-on-Apache/#disqus_thread">Comments</a>
+         | <a href="/2008/08/01/Bravo-Zulu/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In the words of Pete Townshend (as sung by Roger Daltrey):</p>
-
-<p>&#8220;Why should I care? Why should I care?&#8221;</p>
-
-<p>I can&#8217;t answer that one for you. I ran into <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">this post</a> while searching out something else. It shows how to get <a href="http://asp.net/">ASP.NET</a> running under <a href="http://httpd.apache.org/">Apache</a> on Windows. Curiosity got the better of me and I had to try it. One important note is that mod_aspdotnet is no longer maintained by the Apache Software Foundation. It&#8217;s now available as a <a href="http://sourceforge.net/projects/mod-aspdotnet">separate project on SourceForge</a>. If you download the latest version, it works with Apache 2.2.6.</p>
-
-<p>Although both Apache and mod_aspdotnet have had subsequent releases since this has been posted, the instructions still work. It was about 10 minutes to get the sample project running and not much longer to get <a href="http://www.codeplex.com/SharpMap">SharpMap&#8217;s </a>&#8220;DemoWebSite&#8221; project working. Here&#8217;s a screen capture (there nothing that makes it obvious it&#8217;s running on Apache so You&#8217;ll just have to trust me).</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.png" title="Can you see the real me? Can ya?"><img alt="Can you see the real me? Can ya?" src="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.thumbnail.png" /></a></p>
-
-<p>This could be somewhat useful if you&#8217;re using a non-Server version of Windows and want to avoid the connection limitations of IIS. Beyond that, it&#8217;s probably just interesting.</p>
+  <div class="entry-content"><p>Before I step on the plane to San Diego, I want to make sure I extend a hearty BZ to <a href="http://fantomplanet.wordpress.com/">Fantomplanet</a> for putting in all the work to arrange the UC Geoblogger Meetup out there. He&#8217;s had a lot going on and this was one more thing he probably didn&#8217;t need so: Thanks! I&#8217;ll see you there.</p>
 </div>
   
   
@@ -286,7 +248,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/">SQL Server 2008 Spatial - One Month Later</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9.3/">ArcSDE Geocoding Services Deprecated at 9.3</a></h1>
     
     
       <p class="meta">
@@ -302,59 +264,20 @@
   
 
 
-<time datetime="2007-12-28T00:00:00-05:00" pubdate data-updated="true">Dec 28<span>th</span>, 2007</time>
+<time datetime="2008-08-01T00:00:00-04:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
         
-         | <a href="/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So it&#8217;s been about a month since the release of the SQL Server 2008 November CTP. I&#8217;ve been dabbling with it and have made several posts about it. I still have a lot more digging to do with it but here are my impressions after a month:</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/12/21/2008-ESRI-Federal-Users-Conference/">2008 ESRI Federal Users Conference</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-12-21T00:00:00-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
-        
-         | <a href="/2007/12/21/2008-ESRI-Federal-Users-Conference/#disqus_thread">Comments</a>
+         | <a href="/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9.3/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>James <a href="http://www.spatiallyadjusted.com/2007/12/03/2008-esri-developer-summit/">posted</a> a couple of weeks ago about he Dev Summit. That got me curious, is anyone planning on going to the <a href="http://www.esri.com/events/feduc/index.html">Federal User Conference</a> in DC? It&#8217;s kind of mini East Coast UC. My company does a lot of federal and defense work so I&#8217;ll be there. It seems to be attracting more people each year in general but especially those from local governments around the region that don&#8217;t have travel budgets for San Diego. Rather ironic since it was originally targeted at federal users.</p>
+  <div class="entry-content"><p>This isn&#8217;t a huge surprise but <a href="http://support.esri.com/index.cfm?fa=knowledgebase.documentation.viewDoc&amp;PID=66&amp;MetaID=1430">this announcement</a> made it official a couple of days ago.</p>
 
-<p>It&#8217;s actually something of an unusual year in that it looks like I&#8217;ll be at all of the big ESRI conferences this year (FedUC, BP/Dev, International UC).</p>
+<p>Basically, you&#8217;ll need to use ArcGIS Server&#8217;s server-side geocoding because the next release of ArcSDE won&#8217;t include it. The PDF attached to the announcement gives more detail. I know we had moved away from ArcSDE geocoding some time ago because it didn&#8217;t hold up to the load we were putting on it. We used Oracle Spatial instead.</p>
+
+<p>But, if you&#8217;ve got any apps that are still using ArcSDE for geocoding, now&#8217;s the time the transition.</p>
 </div>
   
   
@@ -367,7 +290,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/18/SQL-Server-2008-WKT-XY-Switching-Illustrated/">SQL Server 2008 WKT X/Y Switching Illustrated</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/01/ArcGIS-9.4-Holistic-Testing-Schedule-Posted/">ArcGIS 9.4 Holistic Testing Schedule Posted</a></h1>
     
     
       <p class="meta">
@@ -383,43 +306,20 @@
   
 
 
-<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+<time datetime="2008-08-01T00:00:00-04:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
         
-         | <a href="/2007/12/18/SQL-Server-2008-WKT-XY-Switching-Illustrated/#disqus_thread">Comments</a>
+         | <a href="/2008/08/01/ArcGIS-9.4-Holistic-Testing-Schedule-Posted/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><strong>UPDATE:</strong> Microsoft has <a href="http://blogs.msdn.com/isaac/archive/2007/12/27/latitude-longitude-ordering.aspx">announced</a> that they will address this issue in an upcoming CTP. They plan to implement longitude-latitude ordering in WKB and WKT for both the geography and geometry types.</p>
+  <div class="entry-content"><p>In case you missed it, ESRI as posted the <a href="http://blogs.esri.com/Dev/blogs/holistictesting/">ArcGIS 9.4 holistic testing schedule</a>. The schedule currently runs through the end of April 2009 but doesn&#8217;t give any hints of a release date.</p>
 
-<p>In a response to my <a href="http://geobabble.wordpress.com/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/">previous post</a>, <a href="http://www.spatialdatalogic.com/cs/blogs/brian_flood/default.aspx">Brian Flood</a> mentioned the ongoing discussion about <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> and the &#8220;switching&#8221; of X and Y values in <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> strings depending upon which spatial data type, geometry or geography, is being used. The SQL snippet below boils the issue down to a simple example:</p>
+<p>So, just in time for the UC next week, you can begin to think about 9.4. If you want to get involved with it, now&#8217;s your chance.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="k">g</span> <span class="n">geometry</span><span class="p">;</span>
-</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="k">g</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
-</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="k">g</span><span class="p">.</span><span class="n">STX</span> <span class="k">as</span> <span class="n">geomX</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="n">h</span> <span class="n">geography</span><span class="p">;</span>
-</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="n">h</span> <span class="o">=</span> <span class="n">geography</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
-</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="n">h</span><span class="p">.</span><span class="n">Lat</span> <span class="k">as</span> <span class="n">geogLat</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>In both cases, the value returned is 3. As can be seen, the same WKT string is being used in both cases. The main difference is that one example queries the X value of a GEOMETRY object and the other queries the Lat (Latitude, or Y) value of a GEOGRAPHY object. So, depending on the data type, the same ordinal can be X or Y. You can check out the debate on this topic <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2431933&amp;SiteID=1">here</a>. It is a great discussion that covers a lot of ground and I highly recommend checking it out.</p>
-
-<p>For me, the issue is consistency. Regardless of the mindsets of professionals vs. non-professionals or the imprecision of the OGC spec, the bottom line is that the same call behaves differently for two related data types. Admittedly GEOGRAPHY and GEOMETRY do different things. GEOGRAPHY is for geodetic (spherical) data and GEOMETRY is for planar data. This fact, however, has no bearing on how WKT is parsed. The current situation is analagous to having a rounding function that by default rounds up for doubles and rounds down for singles.</p>
-
-<p>At this point, I would normally say pick a method and run with it for both data types but I do have a preference here. I think that WKT should be parsed as X,Y consistently in order to provide better interoperability with a wider variety of client software. The simple fact is that most products out there do X,Y. For instance, I am working with SharpMap and it generates WKT in X,Y order and assumes X,Y order when parsing. Other database platforms such as Oracle, PostGIS and MySQL do the same but it&#8217;s the client software that matters most in this case. I&#8217;m sure that others can chime in with more examples.</p>
-
-<p>I am intrigued by the use of a separate data type to handle geodetic data but the X,Y order of WKT has no bearing here. To my way of thinking, the best approach would be to commit to X,Y order for both GEOMETRY and GEOGRAPHY.</p>
+<p>Hopefully, I&#8217;ll see a lot of you next week.</p>
 </div>
   
   
@@ -432,7 +332,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/18/MSDN-Article-on-Mapping-with-WPF/">MSDN Article on Mapping With WPF</a></h1>
+      <h1 class="entry-title"><a href="/2008/07/25/Looking-for-a-Few-Good-Developers/">Looking for a Few Good Developers</a></h1>
     
     
       <p class="meta">
@@ -448,20 +348,26 @@
   
 
 
-<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+<time datetime="2008-07-25T00:00:00-04:00" pubdate data-updated="true">Jul 25<span>th</span>, 2008</time>
         
-         | <a href="/2007/12/18/MSDN-Article-on-Mapping-with-WPF/#disqus_thread">Comments</a>
+         | <a href="/2008/07/25/Looking-for-a-Few-Good-Developers/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It&#8217;s a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn&#8217;t be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
+  <div class="entry-content"><p>Typically, I try not to directly mix work and blogging but here goes:</p>
 
-<p>I&#8217;ve been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven&#8217;t had a chance to extract what I&#8217;ve done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it&#8217;s shaping up in SharpMap 2.0.</p>
+<p>If you&#8217;ve poked around my blog enough, you know that I&#8217;m a partner at <a href="http://www.zekiah.com">Zekiah Technologies</a> in <a href="http://http://maps.google.com/maps?sourceid=navclient&amp;ie=UTF-8&amp;rlz=1T4GGIH_enUS258US258&amp;q=la+plata,MD&amp;um=1&amp;sa=X&amp;oi=geocode_result&amp;resnum=1&amp;ct=title">La Plata, MD</a>. We are currently looking for up to four .Net developers to support various projects. ESRI development experience is a plus. Depending on the project, you could find yourself working with ArcGIS Server, ArcIMS, ArcSDE, Oracle, SQL Server, PostgreSQL. Some of the projects are supporting systems that have been in place for a while and require migration from older technologies. All will involve the development of new capability.</p>
 
-<p>So, if you&#8217;re looking for an example of how to render spatial data in WPF, this is a good one.</p>
+<p>Once again, work location may vary depending upon the project but it will either be in <a href="http://maps.google.com/maps?sourceid=navclient&amp;ie=UTF-8&amp;rlz=1T4GGIH_enUS258US258&amp;q=Dahlgren+va&amp;um=1&amp;sa=X&amp;oi=geocode_result&amp;resnum=1&amp;ct=title">Dahlgren</a>, <a href="http://maps.google.com/maps?sourceid=navclient&amp;ie=UTF-8&amp;rlz=1T4GGIH_enUS258US258&amp;q=norfolk+va&amp;um=1&amp;sa=X&amp;oi=geocode_result&amp;resnum=1&amp;ct=title">Norfolk </a>or <a href="http://maps.google.com/maps?sourceid=navclient&amp;ie=UTF-8&amp;rlz=1T4GGIH_enUS258US258&amp;q=reston+va&amp;um=1&amp;sa=X&amp;oi=geocode_result&amp;resnum=1&amp;ct=title">Reston</a> in Virginia (especially Dahlgren). We are a consulting company that does development and implementation for our customers. For these positions, customer requirements specify US citizenship. Foreign travel may be required.</p>
+
+<p>I chose to blog about this because I and all of my partners will be at the ESRI User Conference in San Diego and it seemed like it might be a convenient place to talk since so many people will be there. We will be staffing booth 612 so feel free to stop by if you&#8217;re interested.</p>
+
+<p>For those who read this and may be thinking this way: we are not at liberty to sub-contract any of these positions.</p>
+
+<p>Feel free to contact me via e-mail if you have any questions: bill@zekiah.com</p>
 </div>
   
   
@@ -474,7 +380,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/">Inserting SQL 2008 Geometry With a SqlCommand</a></h1>
+      <h1 class="entry-title"><a href="/2008/07/22/zigGIS-and-ArcGIS-9.3/">zigGIS and ArcGIS 9.3</a></h1>
     
     
       <p class="meta">
@@ -490,64 +396,130 @@
   
 
 
-<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+<time datetime="2008-07-22T00:00:00-04:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2008</time>
         
-         | <a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/#disqus_thread">Comments</a>
+         | <a href="/2008/07/22/zigGIS-and-ArcGIS-9.3/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><strong>Update (7/1/2011):</strong> I wrote this post early in the SQL 2008 CTP. I no longer use the method described here. If you found this post via StackOverflow or some other Q&amp;A site, I highly recommend this post by Vish as a more efficient way of doing things: <a href="http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/">http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/</a></p>
+  <div class="entry-content"><p>Now that <a href="http://www.esri.com">ArcGIS 9.3</a> has been finalized, I have finally gotten around to testing <a href="http://www.obtusesoft.com">zigGIS</a> 2.0.1 with it. While the source code is available, I wanted to test the unmodified binary distro. I am happy to report that zigGIS appears to work fine with ArcGIS Desktop 9.3.</p>
 
-<p>I&#8217;m in the process of using <a href="http://codeplex.com/SharpMap">SharpMap</a> to write a utility to load spatial data into my <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> instance. A couple of the SharpMap data providers have a static method to load data from a shapefile (really any other SharpMap data provider, but I digress). The method creates a table and uses an ADO.Net command object (<a href="http://msdn2.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx">SqlCommand</a> in this case) load individual records into the table. I started using the existing <a href="http://www.codeplex.com/SharpMap/SourceControl/FileView.aspx?itemId=30508&amp;changeSetId=28971">MsSql provider</a> as a template, which load the geometry&#8217;s WKB into an image column.</p>
+<p><a href="http://geobabble.files.wordpress.com/2008/07/ziggis_arcgis_93.png"><img alt="" class="alignnone size-medium wp-image-207" height="186" src="http://geobabble.files.wordpress.com/2008/07/ziggis_arcgis_93.png?w=300" width="300" /></a></p>
 
-<p>The problem with SQL 2008 comes in when you add a parameter to the command. You must specify the data type of the parameter by passing it a <a href="http://msdn2.microsoft.com/en-us/library/system.data.sqldbtype.aspx">SqlDbType</a> enumeration. Currently, there is no enumeration that corresponds to geometry (or geography for that matter). My first attempt was to leave the parameter defined as the type SqlDbType.VarBinary and set the value as such:</p>
+<p>I guess the statement in the zigGIS About box regarding 9.2 is no longer accurate.  :D</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
-</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">VarBinary</span><span class="p">);</span>
-</span><span class='line'><span class="c1">//</span>
-</span><span class='line'><span class="c1">//code in between omitted</span>
-</span><span class='line'><span class="c1">//</span>
-</span><span class='line'><span class="c1">//set value of parameter</span>
-</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsBinary</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>I ran some preliminary tests on the editing capability and they seem to work fine. I was able to create a feature in ArcGIS, connect to my <a href="http://postgis.refractions.net">PostGIS</a> database using <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a> and see the feature. Just for grins, I then deleted the feature in gvSIG and refreshed my ArcMap display to see it disappear.</p>
+
+<p>As you can see from the screen capture, I am using ArcEditor but that is because of other ArcGIS-related work that I do. zigGIS doesn&#8217;t care about the license tier you use and will work just fine with ArcView.</p>
+
+<p>ArcGIS Desktop 9.3 does have some improved mapping tools so those of you who have been using zigGIS as a lightweight means of access your PostGIS data from ArcMap can now look at what 9.3 has to offer.</p>
+
+<p><a href="http://twitter.com/zigGIS">Follow zigGIS on Twitter</a></p>
+</div>
+  
+  
 
 
-<p>In this case, feature.Geometry is of type SharpMap.Geometries.Geometry and AsBinary returns the <a href="http://dev.mysql.com/doc/refman/5.0/en/gis-wkb-format.html">WKB</a> representation of the shape. This code failed when attempting to execute the command, throwing an exception indicating that the table column (type geometry) was not a valid binary data type.</p>
-
-<p>So I next tried defining the data type of the parameter as SqlDbType.Udt (user-defined type) and setting the UdtTypeName property to &#8220;geometry&#8221;. This failed also.</p>
-
-<p>On a whim (I wish I could say it was something more scientific than a desire to leave no stone unturned), I then tried working with text and set it up this way:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
-</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">NVarChar</span><span class="p">);</span>
-</span><span class='line'><span class="c1">//</span>
-</span><span class='line'><span class="c1">//code in between omitted</span>
-</span><span class='line'><span class="c1">//</span>
-</span><span class='line'><span class="c1">//set value of parameter</span>
-</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsText</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/01/Using-ArcSDE-9.3-with-PostgreSQL-Part-3/">Using ArcSDE 9.3 With PostgreSQL, Part 3</a></h1>
+    
+    
+      <p class="meta">
+        
 
 
-<p>In this case, AsText returns the <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> representation of the shape. This worked! I have not dug into the details of why it worked but it seems the underlying spatial objects in SQL 2008 have some built-in default behaviours that coerce WKT. I am now loading data via a WinForms app with the aid of SharpMap. So, if you&#8217;re trying to update geometry from within your code, the above example is what worked for me.</p>
 
-<p>I&#8217;ll probably post the code to the data loader a little bit later after I incorporate SRID and geometry type constraints and the like.</p>
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-01T00:00:00-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2008</time>
+        
+         | <a href="/2008/07/01/Using-ArcSDE-9.3-with-PostgreSQL-Part-3/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Well, 9.3 is now shipping so the sun is setting on my time with the release candidate. One update from my first post: I posted the problem I was having with sdelayer -o register not calculate a default extent on the Beta forum and I got a reply that it shouldn&#8217;t work that way and they would look at it. I&#8217;ll probably see shortly whether a fix made it in this time or if I have to wait for a service pack.</p>
+
+<p>The last piece I wanted to cover was working with the layer that I loaded in from a shapefile using ArcCatalog. As I indicated before, I used the PG_GEOMETRY keyword to force the use of PostGIS geometry.</p>
+
+<p>I first left the layer as a simple feature. Within ArcGIS everything behaved as would be expected. I could note no difference in behavior versus what I would expect dealing with any other ArcSDE layer. I was also able to add the layer into uDig, but with a little anomalous behavior.</p>
+
+<p>The layer I was working with was a polygon layer. When I loaded the layer into uDig, it displayed as a polygon layer but the uDig TOC showed a line symbol:</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/07/udig_arcsde_layer.png"><img alt="ArcSDE PostgreSQL layers in uDig" class="alignnone size-medium wp-image-205" height="218" src="http://geobabble.files.wordpress.com/2008/07/udig_arcsde_layer.png?w=300" width="300" /></a></p>
+
+<p>Additionally, the fema_regions layer was not editable in uDig. The other layer editable but had the same display issues. To be fair, I had similar behavior with some layers I had loaded into PostGIS from shapefiles using FWTools. In that case, it didn&#8217;t happen with all of the layers I loaded. In this case, I have not experimented with enough data sets to determine if the behavior is consistent or intermittent. I would also need to test whether it&#8217;s the loader, PostGIS or uDig. Time has not been a friend here.</p>
+
+<p>Next, I did some experimentation with versioning. I versioned my milbases layer, created a test version, added a feature and save the edit. As expected, when I connected in uDig, it connected to the DEFAULT version and I did not see my edit. Since this layer was editable in uDig, I added a feature here and refreshed my ArcMap display. In this case, I was able to see the uDig-created feature (in DEFAULT) in both versions (again, as expected).</p>
+
+<p>My previous posts have brought a few questions about raster catalogs and the like. I have been able to load raster data and create raster catalogs. This is not, however, raster data in PostGIS. This is ArcSDE raster data next to PostGIS. PostGIS has no idea the raster data is there (although the raster footprints display in uDig as rectangles).</p>
+
+<p>So, depending on how you implement it, ArcSDE for PostgreSQL can provide interoperability between ArcGIS and an open-source stack. uDig can be leveraged in a pinch to edit data loaded into ArcSDE using the PostGIS geometry type, allowing you to expand to meet demand. Additionally, ESRI has implemented the full geodatabase capability within PostgreSQL, providing a great alternative to shops that was GIS but not necessarily Oracle/DB2/SQL Server.</p>
+
+<p>In future posts, I examine different technology mixes that can be used to build some compelling hybrid stacks.</p>
+
+<p>Now, where&#8217;s my 9.3 shipment?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/01/A-Little-Bit-of-Java/">A Little Bit of Java</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-01T00:00:00-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2008</time>
+        
+         | <a href="/2008/07/01/A-Little-Bit-of-Java/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just wrapped up the second phase of the first significant Java project I&#8217;ve done in a long time. In general, I try to be technology-agnostic but, due mainly to customer demand, I find myself working predominantly in .Net. As a result, I find myself treading water a little bit when I have to work with Java.</p>
+
+<p><img alt="" class="alignnone size-medium wp-image-203" height="300" src="http://geobabble.files.wordpress.com/2008/07/java.png?w=295" width="295" /></p>
+
+<p>I did this last project in NetBeans 6.1 and was generally pleased with it. I was originally an Eclipse fan but have been less and less happy with it with each release. But my real problem is that I need to get more comfortable with the workflow when working with Java and Java tools. This last round of coding was a little more &#8220;cowboy&#8221; than I am typcially comfortable with.</p>
+
+<p>This time around, I was working with ArcIMS (ugh), JSP and a couple of custom servlets. I found NetBeans integration of Tomcat to be pretty seamless, yielding a test/debug experience similar to that you get when developing ASP.NET in VS2005 and VS2008. I see hooks to integrate with SCC systems such as CVS and SVN. We&#8217;re currently using VSS (again, mostly .Net work) but I&#8217;ve been meaning to set up an SVN server. This may give me the little extra push I needed.</p>
 </div>
   
   

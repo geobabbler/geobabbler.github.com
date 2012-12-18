@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: geocoding | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/geocoding/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2012-12-18T12:13:04-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ArcSDE Geocoding Services Deprecated at 9.3]]></title>
+    <link href="http://blog.geomusings.com/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9.3/"/>
+    <updated>2008-08-01T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9.3</id>
+    <content type="html"><![CDATA[<p>This isn't a huge surprise but <a href="http://support.esri.com/index.cfm?fa=knowledgebase.documentation.viewDoc&amp;PID=66&amp;MetaID=1430">this announcement</a> made it official a couple of days ago.</p>
+
+<p>Basically, you'll need to use ArcGIS Server's server-side geocoding because the next release of ArcSDE won't include it. The PDF attached to the announcement gives more detail. I know we had moved away from ArcSDE geocoding some time ago because it didn't hold up to the load we were putting on it. We used Oracle Spatial instead.</p>
+
+<p>But, if you've got any apps that are still using ArcSDE for geocoding, now's the time the transition.</p>
+]]></content>
+  </entry>
+  
+</feed>

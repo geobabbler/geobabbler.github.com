@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcgis engine | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcgis-engine/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T11:50:48-05:00</updated>
+  <updated>2012-12-18T12:13:04-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Patch to ArcGIS 9.3 Service Pack 1]]></title>
+    <link href="http://blog.geomusings.com/2008/11/25/Patch-to-ArcGIS-9.3-Service-Pack-1/"/>
+    <updated>2008-11-25T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2008/11/25/Patch-to-ArcGIS-9.3-Service-Pack-1</id>
+    <content type="html"><![CDATA[<p>If you've recently installed ArcGIS 9.3 Service Pack 1, be aware that there is a patch out that fixes an issue with topology validation. You can read more about it here:</p>
+
+<p><a href="http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=35833">http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=35833</a></p>
+
+<p>This patch seems to apply to Desktop, Engine and Server so you may want to check it out.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ArcGIS 9.4 Holistic Testing Schedule Posted]]></title>
+    <link href="http://blog.geomusings.com/2008/08/01/ArcGIS-9.4-Holistic-Testing-Schedule-Posted/"/>
+    <updated>2008-08-01T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/08/01/ArcGIS-9.4-Holistic-Testing-Schedule-Posted</id>
+    <content type="html"><![CDATA[<p>In case you missed it, ESRI as posted the <a href="http://blogs.esri.com/Dev/blogs/holistictesting/">ArcGIS 9.4 holistic testing schedule</a>. The schedule currently runs through the end of April 2009 but doesn't give any hints of a release date.</p>
+
+<p>So, just in time for the UC next week, you can begin to think about 9.4. If you want to get involved with it, now's your chance.</p>
+
+<p>Hopefully, I'll see a lot of you next week.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ArcGIS 9.3 is Shipping]]></title>
+    <link href="http://blog.geomusings.com/2008/06/25/ArcGIS-9.3-is-Shipping/"/>
+    <updated>2008-06-25T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/06/25/ArcGIS-9.3-is-Shipping</id>
+    <content type="html"><![CDATA[<p>According to this <a href="http://www.gisuser.com/content/view/14986/">press release</a>, ArcGIS 9.3 started shipping today. ESRI has pretty much stuck to the aggressive schedule that they announced at the Dev Summit.</p>
+
+<p>My experiences thus far with the beta and the release candidate have been pretty positive so it'll be good to get the final product.</p>
+
+<p>Who's starting the pool on the when the first service pack will be out?  ;)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DDJ on "The Return of the Desktop"]]></title>
@@ -41,28 +80,6 @@
     <content type="html"><![CDATA[<p>Okay, I have no one to blame but myself. I have Desktop and the full EDN kit (except for ArcIMS) installed. Therefore, I've uninistalled everything 9.1 and reinstalled everything 9.2 and now I get to do the service packs. One day, I'll get back to coding, I'm sure.</p>
 
 <p>Meanwhile, the front of my forehead keeps getting flatter from banging it on the desk...</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Finally Upgrading to 9.2...]]></title>
-    <link href="http://blog.geomusings.com/2007/03/08/Finally-Upgrading-to-9.2/"/>
-    <updated>2007-03-08T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/03/08/Finally-Upgrading-to-9.2</id>
-    <content type="html"><![CDATA[<p>I'm a little behind the curve on this but I've had one customer holding out until recently. Now I can finally take the plunge. Who needs sleep? See you on the other side...  ;-)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Desktop? We Don't Need No Stinkin' Desktop!]]></title>
-    <link href="http://blog.geomusings.com/2007/01/25/Desktop-We-Dont-Need-No-Stinkin-Desktop/"/>
-    <updated>2007-01-25T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/01/25/Desktop-We-Dont-Need-No-Stinkin-Desktop</id>
-    <content type="html"><![CDATA[<p>I figured I'd pile on here because it seems that a little ganging up may be in order. <a href="http://www.spatiallyadjusted.com/2007/01/24/esri-arcgis-desktop-and-the-developer-summit">James</a> and <a href="http://ambergis.wordpress.com/2007/01/24/and-what-is-desktop-chopped-liver/trackback/ http://www.spatiallyadjusted.com/2007/01/24/esri-arcgis-desktop-and-the-developer-summit">Kirk</a> have posted about the dearth of Desktop sessions at the upcoming <a href="http://www.esri.com/events/devsummit/sessions/technical.html">Developer Summit</a>.</p>
-
-<p>Kirk also provides a good, specific example of a server-only feature that would be useful, and perfectly possible, in Desktop. One of the big advantages to having a product like ArcGIS Server which, like Engine and Desktop, is built from ArcObjects, is that you can have the same core set of objects to use to build applications in all three environments. Yes, there will be some peculiarities to each platform (especially Server) that dictate some special cases but, really, something like the FeatureGraphicsLayer that Kirk points out should be available in all cases.</p>
-
-<p>ArcObjects is a behemoth and ESRI's challenge will be not to fork the code base unnecessarily along platform lines. I realize Server is the cool kid on the block right now but Desktop is going to be the workhorse for a long time. ESRI needs to make sure it doesn't get left behind at the API level.</p>
 ]]></content>
   </entry>
   

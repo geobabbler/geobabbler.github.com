@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcobjects | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcobjects/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T11:50:48-05:00</updated>
+  <updated>2012-12-18T12:13:04-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -404,6 +404,23 @@
 <p>I was able to turn this around pretty quickly (less than a day) due to two main facts: 1) GeoCommons is well-designed and makes strong use of web standards and open interfaces to expose data in very well-known formats and 2) ArcGIS is, as it has always been, a very extensible platform. If it doesn't support a data source that you want to use, you can probably make it do so (although not always as easily as this example). <del datetime="2010-06-02T22:05:16+00:00">I plan on tidying up the code a bit more and making it available here so keep checking back.</del></p>
 
 <p><strong>UPDATE:</strong> The code for this post is available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>. It includes the source code and the Visual Studio 2008 solution as well as the binary for those of you who are not programmers. It has only been run/tested against ArcGIS Desktop 9.3.1 SP1.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[zigGIS 2.0.2 Getting Closer]]></title>
+    <link href="http://blog.geomusings.com/2009/01/01/zigGIS-2.0.2-Getting-Closer/"/>
+    <updated>2009-01-01T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2009/01/01/zigGIS-2.0.2-Getting-Closer</id>
+    <content type="html"><![CDATA[<p><a href="http://abegillespie.blogspot.com">Abe</a> announced via <a href="http://twitter.com/zigGIS">Twitter</a> today that <a href="http://pub.obtusesoft.com/">zigGIS</a> 2.0.2 will be available in about a month. This a small but significant release becuase zigGIS will now support the generic PostGIS "GEOMETRY" type. Because ArcGIS expects homogenous feaure classes, zigGIS will ask the user to choose a geometry type for the the specified GEOMETRY-typed column. So, if your table has mixed geometry types, you will need to specify one (like polygon for example) and zigGIS will present only records of that type to ArcGIS.</p>
+
+<p>Secondly, zigGIS will no longer expect your primary key to be called "gid". This should reduce the instances where tables need to be modified for use with zigGIS.</p>
+
+<p>In previous releases, a few enterprising users had figured out how to get zigGIS to see views as layers by manually hacking them into the geometry_columns table. This was one way to get around the "gid" and GEOMETRY limitations. In 2.0.2, views will be fully supported so that no such hacking will be necessary.</p>
+
+<p>Abe, Paolo and I had a chat session a while back about the zigGIS roadmap and this represents the first step down that road. More information will be forthcoming as we flesh out the details of further changes.</p>
+
+<p><img alt="" class="alignleft" height="270" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" title="zigGIS" width="270" /></p>
 ]]></content>
   </entry>
   
@@ -945,29 +962,6 @@ public class GeomHelper
 <p>The article gives a few examples of products that are making use of local resources instead merely relying on the server for everything. In the article, things like <a href="http://dojotoolkit.org/">Dojo</a>, <a href="http://gears.google.com/">Gears</a> and <a href="http://silverlight.net/">Silverlight</a> are discussed. We're already seeing some of this trend in our market with the advent of the various virtual globes (<a href="http://earth.google.com/">Google Earth</a>, <a href="http://worldwind.arc.nasa.gov/">NASA World Wind</a>, <a href="http://www.esri.com/software/arcgis/explorer/index.html">ArcGIS Explorer</a>, etc.). These apps tap into very data-rich servers or services but use local resources for tasks such as tile caching. I think GIS is an ideal place to push the boundaries of this model due to the resource-intensive nature of some geospatial processes.</p>
 
 <p>This is an area where, with a little work, the <a href="http://www.esri.com">ESRI</a> product line could shine. With <a href="http://www.esri.com/software/arcgis/about/desktop_gis.html">ArcGIS Desktop</a>, <a href="http://www.esri.com/software/arcgis/arcgisengine/index.html">Engine</a> and <a href="http://www.esri.com/software/arcgis/arcgisserver/">Server</a>, the same objects can potentially reside on the server as well as the desktop. It would be interesting to see these objects be able to communicate together in such a way as distribute processing load between themselves. Of course, any of the technologies mentioned in the article could serve as a basis to do a similar thing with non-ESRI technologies or for users with only a browser. Not that such an approach would be easy or trivial, but it would certainly be worthwhile.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Way Ahead for zigGIS]]></title>
-    <link href="http://blog.geomusings.com/2007/08/03/Way-Ahead-for-zigGIS/"/>
-    <updated>2007-08-03T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2007/08/03/Way-Ahead-for-zigGIS</id>
-    <content type="html"><![CDATA[<p><a href="http://abegillespie.blogspot.com">Abe</a>, <a href="http://www.paolocorti.net">Paolo</a> and I had a chat session yesterday to coordinate efforts on <a href="http://code.google.com/p/ziggis">zigGIS</a>. It was good session and we're all on the same page with getting zigGIS solidified.</p>
-
-<p>The general theme of the outcome from yesterday is that we want to make zigGIS a solid experience for <a href="http://postgis.refractions.net/">PostGIS</a> users first. We have discussed other data sources in the past but we feel that we should nail down PostGIS first and then let that be a reference implementation for other data sources such as <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle Spatial</a>, <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=MsSqlSpatial">MS SQL Spatial</a> and the like.</p>
-
-<p>With that said, the most glaring gap in the current capability of zigGIS is editing. Meaning you can't. Editing is our highest priority in the near future. Over the next few weeks, we will be developing use cases to define an editing workflow. We'll also prototype ways to integrate zigGIS with the native editing capabilities of ArcMap in order to reduce the amount of custom editing code we need to write.</p>
-
-<p>We'll also be restructuring the existing code. The current code is rather flat in that individual .cs files contain multiple classes and the directory structure doesn't reflect the namespaces. Fixing all of that will give us a little more flexibility with version control and managing distributed programming. It'll also make it easier if...ahem...any other programmers want to join the project.</p>
-
-<p>There are also still some performance issues with the current capabilities we need to iron out, such as the one <a href="http://geobabble.wordpress.com/2007/05/08/ziggis-and-spatial-references-part-3/">Bruce pointed out</a> a while ago.</p>
-
-<p>Of course the catalog objects are ongoing but there may not be any movement on that until after we get the code restructured. Paolo is going on vacation for three weeks :D but Abe is planning to start the code restructure in the meantime as a way to re-familiarize himself with the code.</p>
-
-<p>As always, the biggest impediment is time. It seems that the need to put food on the table refuses to go away but we should be able to build a little more forward momentum than we've seen recently.</p>
-
-<p><a href="http://code.google.com/p/ziggis" title="zigGIS Logo"><img alt="zigGIS Logo" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" /></a></p>
 ]]></content>
   </entry>
   

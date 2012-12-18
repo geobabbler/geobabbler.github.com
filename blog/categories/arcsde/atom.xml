@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcsde | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcsde/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-17T11:50:48-05:00</updated>
+  <updated>2012-12-18T12:13:04-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -70,111 +70,104 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[PostgreSQL Support in ArcGIS]]></title>
-    <link href="http://blog.geomusings.com/2008/03/18/PostgreSQL-Support-in-ArcGIS/"/>
-    <updated>2008-03-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/03/18/PostgreSQL-Support-in-ArcGIS</id>
-    <content type="html"><![CDATA[<p>I just sat through a session titled "Working With the Geodatabase Effectively Using SQL." It was heavily focused on ST_GEOMETRY. That's pretty much what they want us to use. Interestingly, though, there won't be ST_GEOMETRY in SQL Server 2008. They've added it to PostgreSQL (more on that later) but not SQL Server. Seems a little strange to me.</p>
+    <title type="html"><![CDATA[SQL Server SIG at the UC]]></title>
+    <link href="http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC/"/>
+    <updated>2008-08-06T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC</id>
+    <content type="html"><![CDATA[<p>My blogging has been slower this time around because I've been doing a lot of booth duty. This is my thrid conference this year and some of our other staff are getting to go to the sessions. I did, however, go to the SQL Server SIG a little while ago.</p>
 
-<p>There was a brief discussion of what PostgreSQL support will look like. There are no big surprises, just a little more detail. As I said, ESRI is implementing ST_GEOMETRY and also fully supporting the PostGIS spatial type. ST_GEOMETRY will be the default spatial type for ArcGIS but you will be able to use the PostGIS type via configuration keyword. The differences are:</p>
+<p>Ed Katibah had a few tricks up his sleeve. First off, he dropped the news that, as of 11:00am, SQL Server 2008 is now in RTM. Very soon, the final version will be in our hands. That's great news to everyone who has been working with the CTPs and RCs.</p>
+
+<p>Ed had few other nuggets. He described the stress-testing that SQL 2008 has undergone. In short, there has been about 375,000 hours of stress testing run against SQL 2008 so we should be able to expect it to be solid. Additionally, Microsoft has already been running on SQL 2008 for "a few months." To me, this is all great news that makes me feel even more confident about the product (which already had my confidence). When I first installed the November CTP, I felt that much of the platform was already production-ready but more testing and use can't have hurt.</p>
+
+<p>Ed went on to describe the two spatial types and reationale for doing that. That discussion is well documented and I fall in the "it's a good thing category" mainly because of previous work with applications that had over-the-horizon requirements.</p>
+
+<p>Ed gave props to Paul Ramsey during his talk when explaining the XY switching debate. It was great to see that kind of respect on display.</p>
+
+<p>Some nuts and bolts: SQL 2008 limits spatial objects to about 250 million vertices. This greatly exceeds Ed's largest test case, which is a high-res vector data set of the world's oceans. Polygons are limited to about 65,000 holes. I think those limits leave a lot of wiggle room. He also discussed the significance of coordinate ordering for the geography data type. Basically, it's counter-clockwise for outer rings and clockwise for inner rings. This is consistent with implementations in Informix, DB2 and Oracle (those are what he mentioned). He did mention that this was an industry consensus but there was no official specification on this matter. Ed also mentioned it may be a topic of future discussion for OGC.</p>
+
+<p>Ed also demonstrated the spatial results window in the SQL management Studio. This is a really nice tool that lets you visualize the results of your spatial SQL inside the management studio. As a developer, that will be a huge help because I won't have to do a test run to see if I got the query right. Ed just saved me a bunch of time!</p>
+
+<p>Ed went on to announce a companion CodePlex site for SQL Server 2008 spatial tools: <a href="http://www.codeplex.com/sqlspatialtools">www.codeplex.com/SqlSpatialTools</a>. There are already some tools that Isaac has posted but Ed said that other tools will include shapefile and KML converters. The site will also be open to contribs from the community. All of the tools currently there were developed using the <a href="http://blogs.msdn.com/isaac/archive/2008/05/30/our-upcoming-builder-api.aspx">Builder API</a> and full source code is available so they serve has great examples of working with the Builder API.</p>
+
+<p>All in all, it was a great talk. Ed's one of the nicest guys ever and he is having a lot of fun with ArcSDE on SQL Server 2008.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Good PostGIS Overview...]]></title>
+    <link href="http://blog.geomusings.com/2008/08/06/A-Good-PostGIS-Overview/"/>
+    <updated>2008-08-06T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/08/06/A-Good-PostGIS-Overview</id>
+    <content type="html"><![CDATA[<p>Steven Citron-Pousty gave a talk on PostGIS and has helpfully posted his slides <a href="http://www.slideshare.net/scitronpousty/using-post-gis-to-add-some-spatial-flavor-to-your-application">here</a>. It's a good introductory overview and provides some good examples of basic spatial SQL in PostGIS.</p>
+
+<p>With ArcGIS Server now supporting PostgreSQL as a back end RDBMS and also supporting the use of PostGIS geometries, a lot of new users may be migrating to the PostgreSQL platform. This presentation is a good overview for anyone picking it up for the first time. Thanks, @TheSteve0!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ArcSDE Geocoding Services Deprecated at 9.3]]></title>
+    <link href="http://blog.geomusings.com/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9.3/"/>
+    <updated>2008-08-01T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9.3</id>
+    <content type="html"><![CDATA[<p>This isn't a huge surprise but <a href="http://support.esri.com/index.cfm?fa=knowledgebase.documentation.viewDoc&amp;PID=66&amp;MetaID=1430">this announcement</a> made it official a couple of days ago.</p>
+
+<p>Basically, you'll need to use ArcGIS Server's server-side geocoding because the next release of ArcSDE won't include it. The PDF attached to the announcement gives more detail. I know we had moved away from ArcSDE geocoding some time ago because it didn't hold up to the load we were putting on it. We used Oracle Spatial instead.</p>
+
+<p>But, if you've got any apps that are still using ArcSDE for geocoding, now's the time the transition.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using ArcSDE 9.3 with PostgreSQL, Part 2]]></title>
+    <link href="http://blog.geomusings.com/2008/06/02/Using-ArcSDE-9.3-with-PostgreSQL-Part-2/"/>
+    <updated>2008-06-02T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/06/02/Using-ArcSDE-9.3-with-PostgreSQL-Part-2</id>
+    <content type="html"><![CDATA[<p>In my <a href="http://geobabble.wordpress.com/2008/05/28/using-arcsde-93-with-postgresql-part-1/">previous post</a>, I discussed some approaches to configuring <a href="http://www.postgresql.org">PostgreSQL</a> databases and accessing the data in them with <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> 9.3. For this post, I will describe some of my ongoing experiences with getting data into ArcSDE 9.3.</p>
+
+<p>There are two main ways that I am investigating of loading/making available your spatial data in ArcSDE 9.3 for PostgreSQL. The first is the traditional method of importing a feature class via ArcCatalog. (You can also create data in this manner but I haven't played with that yet.) The second is to register an existing <a href="http://postgis.refractions.net">PostGIS</a> table as a layer using the "<a href="http://edndoc.esri.com/arcsde/9.0/admin_cmd_refs/sdelayer.htm">sdelayer</a> -o register" command-line tool. I will discuss this latter option first.<!--more--></p>
+
+<p>My first experience in trying to register an existing layer met with abject failure. I was greeted with an error message stating that I had to be the owner of the table in order to register it. I was already aware of this fact via the online documentation and I was, indeed, the owner of the table.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/05/sdelayer_register_owner_error.png"><img alt="Error message from sdelayer command" class="alignnone size-medium wp-image-189" height="151" src="http://geobabble.files.wordpress.com/2008/05/sdelayer_register_owner_error.png?w=300" width="300" /></a></p>
+
+<p>I hacked at this numerous time, parsing through PostgreSQL and ArcSDE log files to no avail. I did find some cryptic messages referring to tables in a "postgres" schema (which I didn't have), but generally found nothing helpful.</p>
+
+<p>Next I turned to ArcCatalog and decided to import a shapefile and see how well that worked. I set up an ArcSDE connection as depicted below.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/05/connect_props.png"><img alt="My connection properties" class="alignnone size-medium wp-image-190" height="280" src="http://geobabble.files.wordpress.com/2008/05/connect_props.png?w=300" width="300" /></a></p>
+
+<p>I was able to connect just fine but my first attempt to import a shapefile failed with a message saying it could not create a feature class named "arcsde_test1.postgres.fema_regions". At that point, I realized that ArcCatalog was assuming that I was importing the data into the schema of the user that I was connected as. The "postgres" user is the equivalent to SQL Server's "sa". PostgreSQL doesn't create a schema for it automatically and I don't typically create one for it in my databases. In this case, because I was testing, I did (not sure if that's a good practice or not). I did so using the following SQL in pgAdmin III:</p>
+
+<p>CREATE SCHEMA AUTHORIZATION postgres;</p>
+
+<p>This creates a schema for the user that will own the objects in the schema. Once this was in place, I was able to import my shapefile with no issues. I did make sure to use the PG_GEOMETRY configuration keyword to ensure that the PostGIS data type was used.</p>
+
+<p>This got me wondering about my earlier registration problem. I went back and used shape2pgsql to import a shapefile into the newly created postgres schema and then attempted to use the sdelayer utility to register it with ArcSDE. This time it registered! What I learned is that, in addition to being the owner of the table, the table must be in the schema for the user that you are using to register the table. In my case, it wasn't enough that the "postgres" user already owned the table. The table also had to be in the postgres user schema in my database.</p>
+
+<p>At this point I had one layer which had been loaded via ArcCatalog and using PostGIS geometries and I had another copy of the same data set loaded via shp2pgsql and registered via "sdelayer -o register". It was time to check the behavior of each. Because I was using PostGIS geometry, I wanted to test both layers in ArcMap and in <a href="http://udig.refractions.net/">uDig</a>.</p>
+
+<p>First, the layer registered with the sdelayer command-line tool. This layer did not initially draw in ArcMap after it was registered. With a little investigation in ArcCatalog, I realized the X and Y offsets, the scaling factor and XY cluster tolerance were not set. I will not go into an ArcSDE tuning discussion here but suffice it to say I was able to rectify this problem. I have used the "sdelayer -o register" approach in the past with Oracle Spatial and did not have to take this step so I am chalking it up to a "beta-ism". I will submit this as feedback to ESRI. The next two images show this data set. The top image shows it in ArcMap and the bottom shows it in uDig. Both applications are reading the same PostGIS data set. Bear in mind that additional tuning was required in ArcSDE and this tuning will need to be maintained separately but, as of this point, both applications are reading the same data set.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/06/milbases_postgis_arcmap.png"><img alt="" class="alignnone size-medium wp-image-191" height="181" src="http://geobabble.files.wordpress.com/2008/06/milbases_postgis_arcmap.png?w=300" width="300" /></a></p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/06/milbases_postgis_udig.png"><img alt="" class="alignnone size-medium wp-image-192" height="181" src="http://geobabble.files.wordpress.com/2008/06/milbases_postgis_udig.png?w=300" width="300" /></a></p>
+
+<p>With this having been accomplished, it was now time to see what I could do with the data. Since I believe in jumping in with both feet, I went straight to editing. My test was pretty simple: with both ArcMap and uDig pointed at the layer, I did the following:</p>
 
 <ol>
-<li><p>ST_GEOMETRY types and functions will reside in the "sde" schema (I guess that's more efficient than call it the "arcgis_server_enterprise_basic" schema). PostGIS types and functions will reside in the public schema by default as is currently the case.</p></li>
-<li><p>The ST_GEOMETRY implementation will be consistent with those on Oracle, DB2 and Informix so, if you're developing an app that is cross-platform (RDBMS-wise), you <em>may</em> want to use ST_GEOMETRY. It was said that the PostGIS spatial type only resides on PostgreSQL (we'll dodge the obvious OGC-compliance piece which makes that statement somewhat shaky).</p></li>
-<li><p>The ST_GEOMETRY data type supports parametric geometry such as arcs and circles and the like whereas the PostGIS type does not. (Can you believe I've never looked into that? If that's not correct, please feel free to correct me.) Of course, the REST API doesn't support those and converts them to simple geometry...</p></li>
-<li><p>The ST_GEOMETRY spatial data is stored in ESRI's compressed shape format which is sent directly to clients without translation. PostGIS stores in WKB format, which ArcGIS must first convert to compressed shape before sending so there will be something of a performance hit. Interpret that however you want, I'm just reporting.</p></li>
+<li><p>Add a new feature using ArcMap and save it (the big triangle in the Northwest).
+<a href="http://geobabble.files.wordpress.com/2008/06/arcmap_edit.png"><img alt="" class="alignnone size-medium wp-image-193" height="187" src="http://geobabble.files.wordpress.com/2008/06/arcmap_edit.png?w=300" width="300" /></a></p></li>
+<li><p>Refresh the display in uDig to show the new feature.
+<a href="http://geobabble.files.wordpress.com/2008/06/arcmap_edit_udig.png"><img alt="" class="alignnone size-medium wp-image-194" height="187" src="http://geobabble.files.wordpress.com/2008/06/arcmap_edit_udig.png?w=300" width="300" /></a></p></li>
+<li><p>Modify the feature in uDig and commit the change.
+<a href="http://geobabble.files.wordpress.com/2008/06/udig_edit.png"><img alt="" class="alignnone size-medium wp-image-195" height="187" src="http://geobabble.files.wordpress.com/2008/06/udig_edit.png?w=300" width="300" /></a></p></li>
+<li><p>Refresh the display in ArcMap to show the update.
+<a href="http://geobabble.files.wordpress.com/2008/06/udig_edit_arcmap.png"><img alt="" class="alignnone size-medium wp-image-196" height="187" src="http://geobabble.files.wordpress.com/2008/06/udig_edit_arcmap.png?w=300" width="300" /></a></p></li>
 </ol>
 
 
-<p>ST_GEOMETRY will use the PostGIS GIST spatial indexing framework but will implement an RTREE strategy through its own set of geometry operators. Additionally, ST_GEOMETRY columns can be defined within a CREATE TABLE statement compared to the use of the AddGeometryColumn function in PostGIS. Regardless of the spatial type used, tables created through SQL will still need to be registered with the geodatabase through the "sdelayer -o register" process in order to be used in ArcGIS. I've done this before with Oracle Spatial as a means to let Oracle do all of the heavy lifting. I would imagine the same strategy could be used on PostgreSQL if you want PostGIS to do all of the management of the data.</p>
-
-<p>As I said, there's nothing earth-shattering there. It's pretty much what I expected but now there are more details.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ArcSDE - Time For a Change]]></title>
-    <link href="http://blog.geomusings.com/2007/11/05/ArcSDE-Time-For-a-Change/"/>
-    <updated>2007-11-05T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/11/05/ArcSDE-Time-For-a-Change</id>
-    <content type="html"><![CDATA[<p>I view <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> (and its predecessor, SDE) as something of a seminal technology. In my quest for true enterprise integration of GIS, ArcSDE <del datetime="2009-05-04T21:24:40+00:00">fills</del> filled a crucial gap by providing the ability to store, manage and analyze spatial data in the same <a href="http://en.wikipedia.org/wiki/Relational_database_management_system">RDBMS</a> used for everything else. Long gone are the days when I had to manage relates between INFO tables or shapefiles and that's a good thing. I have since accomplished similar tasks with <a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle Spatial</a> but SDE was the first product I ever used that offered the capability to bring my GIS in from the cold.</p>
-
-<p>At version 9.3, ArcSDE will support <a href="http://www.postgresql.org/">PostgreSQL</a> as a back-end, meaning you don't <em>also</em> need to license an expensive RDBMS in addition to ArcGIS to take advantage of everything ArcGIS Server has to offer. This gives us another option and options are good.</p>
-
-<p>I have blogged before about my involvment with <a href="http://code.google.com/p/ziggis/">zigGIS</a>, which has given me a lot of exposure to PostGIS. I've also done a good bit of work with Oracle Spatial. Both experiences have given me experience with, and a love of, spatial SQL (as each has implemented it). Having all of the data types and methods necessary to store, manage and analyze spatial data completely encapsulated in the RDBMS is a huge advantage. Building an n-tier or services-oriented system is so much easier because all I really need to interact with my spatial data is an OLEDB provider (we're a .NET shop). This encapsulation serves to further expose the disadvantages of the current middleware approach of ArcSDE.<!--more--></p>
-
-<p>Basically, there's a good bit going on with the data (especially if you've versioned your geodatabase) that the RDBMS doesn't know about. This can pose problems for replication, backup, security, failover and a host of other issues. Most of these can be addressed by adhering to ESRI's system design white paper as well as the implementation of some (good) third-party tools.</p>
-
-<p>Before I get too far down this road, let me re-iterate that ArcSDE will support PostgreSQL at 9.3 and that's good. I imagine it'll look a lot like current ArcSDE but with PG on the back end. That's fine and understandable so let me offer up one man's opinion on what ESRI should do with ArcSDE at 10.x.</p>
-
-<p>I think the middleware (giomgr, etc.) needs to go. All of what ArcSDE currently does can and should be pushed completely into the RDBMS. All of the platforms currently supported by ArcSDE, as well as PostgreSQL, can support this. The way I see it, this can be accomplished in two basic ways.</p>
-
-<ol>
-<li><p>Slay the beast - This is the more drastic and, IMO, the least preferable but I'll deal with it first. This approach would boil down to recognition that each of the database platforms supported by ArcSDE (including <a href="http://www.directionsmag.com/editorials.php?article_id=2477">SQL Server 2008</a>, which will be out by the time ArcGIS 10 is) has some form of embedded spatial support and ArcGIS will simply support each of those capabilities, essentially getting out of the spatial data management business. This would lead to issues of consistency across platforms (spatial indexing, query languages, support for partitioning, etc.) and also probably mean a reduction in capability when you consider versioning, feature data sets, raster support and many other features of an ArcSDE geodatabase. Ultimately, I think this approach would be the least desirable for the ESRI user community.</p></li>
-<li><p>Push it down - This approach is, in my opinion, the logical endpoint of what ESRI has already started with the implementation of st_geometry. It is the creation of spatial data types and associated behaviors at the database level. Again, all of the platforms currently supported by ArcSDE can handle this as evidenced by the existence of spatial extensions (and the <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=MsSqlSpatial">MsSqlSpatial</a> open-source project for SQL 2005). This wasn't necessarily true when SDE was first introduced so the middleware approach made sense. So I think ESRI should aggressively push all of the capability of ArcSDE down to the database level where it ultimately belongs. This would address a couple of traditionally nagging issues:</p></li>
-</ol>
-
-
-<ul>
-    <li>Security - Security would be completely handled at the RDBMS level using the native security model of the RDBMS. In addition, there would be no need for a separate ArcSDE service that needs to connect via an 'sde' user. This has always caused problems for us, especially in shops where passwords must be changed periodically. In addition, it would eliminate the need to use port 5151. For MS SQL Server, it should be straightforward to implement Windows integrated authentication. It possible now but not terribly easy and we are constantly having tweak it whenever a new sysadmin comes along.</li>
-
-    <li>Administration - By and large, your DBAs could handle most of the day-to-day admin. Native replication, backup and recovery tools should work also. In addition, it should be easier to set up failover and native clustering should work as well. By pushing everything down, the need for third-party tools to handle a lot these functions should go away (but they'll stay around in general because the RDBMS tools aren't always great).</li>
-</ul>
-
-
-<p>So why not just support the native spatial extensions rather than create new ones? I see consistency being one primary reason. Essentially, ESRI could implement their own spatial objects and methods in a manner so that behaviors are consistent across platform. In addition, capability would also be consistent, especially in the area of raster handling but also in terms of versioning, topology, etc. It probably would only have partial benefit with regard to SQL since each platform's flavor of SQL is different (but that's getting better). Where it would benefit at the SQL level would be having all of the spatial functions with consistent calls and signatures.</p>
-
-<p>This approach would also isolate the spatial data management into the data tier, making easier to support n-tier systems and SOA. From an application perspective, there's no reason why ESRI can't wrap ArcObjects around it to make transparent to an application developer. I could go on and on...</p>
-
-<p>There are a lot of questions one could raise: Would it be an OGC compliant implementation? Would it be an "embrace and extend" approach where it's an OGC compliant implementation extended to support all of the additional features of a geodatabase? Would it be completely proprietary? The answers to all of those would have to be left up to ESRI. For me, it ulimately comes down to the fact that ArcSDE needs to change. The middleware needs to go away and the capability needs to be pushed to the RDBMS level. I don't think it's a particularly revolutionary thought, but thought I'd add it to the pile just in case pile has any bearing. Maybe that's what they've got planned for 10.x and st_geometry et. al. is just the first hint. If so, count me as a yes vote. If not, I'd encourage them to plot a new course.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Bringing It All Together...]]></title>
-    <link href="http://blog.geomusings.com/2007/06/26/Bringing-It-All-Together/"/>
-    <updated>2007-06-26T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2007/06/26/Bringing-It-All-Together</id>
-    <content type="html"><![CDATA[<p>These are pretty fun times to be working in GIS. There's an explosion of new technologies across the whole spectrum and integration possibilities are seemingly boundless. Back when I got started, <a href="http://www.esri.com">ESRI</a> and <a href="http://www.intergraph.com">Intergaph</a> were duking it out and others, like <a href="http://www.mapinfo.com">MapInfo</a>, were out there on the periphery also. <a href="http://grass.itc.it/">GRASS</a> was flying the OS banner and there were a few good free tools, such as the various ones put out by <a href="http://en.wikipedia.org/wiki/Sol_Katz">Sol Katz</a> at the <a href="http://www.blm.gov/wo/st/en.html">BLM</a>.</p>
-
-<p>Everything quieted down for a few years but there's been a flowering of new technologies (well-documented elsewhere) over the last couple of years in both the commercial and open-source communities. I am particularly impressed with the pace at which the open-source community has ramped up with tools of strong quality and capability. In addition, the back-and-forth between <a href="http://earth.google.com/">Google</a> and <a href="http://www.microsoft.com/virtualearth/default.mspx">Microsoft</a> has put better tools in the hands of the average consumer. That doesn't come without drawbacks, but I see it as a net positive.</p>
-
-<p>What I find interesting about all of this activity is that it demonstrates that the closed/commerical/competitive approach can bear fruit and so can the open-source/free/collaborative approach. Where you fall in the spectrum between the two is totally up to you but no one can offer up any concrete evidence that one is vastly superior to the other at this point. In addition, it's becoming increasingly clear that they don't have to be mutually exclusive.</p>
-
-<p>When you throw in <a href="http://www.opengeospatial.org">OGC</a> standards and well as <em>de facto</em> standards such as <a href="http://code.google.com/apis/kml/documentation/">KML</a>, it becomes quite possible to stitch together technologies of various parentage effectively. I offer up the following as a concrete example:</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/06/os_free_commercial.png" title="Click to enlarge..."><img src="http://geobabble.files.wordpress.com/2007/06/os_free_commercial.thumbnail.png" /></a></p>
-
-<p>This screenshot depicts a map (no, it's not pretty but blame that on me) that was assembled using several technologies. The application is obviously <a href="http://www.esri.com/software/arcgis/about/desktop_gis.html">ArcMap</a>. Working from the bottom up, the layers are:</p>
-
-<ul>
-    <li>Counties - US Counties residing in <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> and <a href="http://www.microsoft.com/sql/default.mspx">SQL Server</a></li>
-    <li>State Boundaries - US States loaded directly from a local install of <a href="http://postgis.refractions.net/">PostGIS</a> using the <a href="http://code.google.com/p/ziggis/">zigGIS</a> connector</li>
-    <li>Major Water - A shapefile on the local hard drive</li>
-    <li>Hospitals - A <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> layer being served from my <a href="http://geoserver.org/">GeoServer</a> <a href="http://geobabble.wordpress.com/2007/06/19/my-little-open-source-stack/">instance</a> and loaded into ArcMap with the help of the free <a href="http://www.thecarbonproject.com/carbonarc.php">CarbonArc Lite</a> extension from the <a href="http://www.thecarbonproject.com">Carbon Project</a>. Behind Geoserver, the data sits in PostGIS.</li>
-</ul>
-
-
-<p>So we have commercially licensed software (ArcMap, ArcSDE, SQL Server), freeware (CarbonArc Lite) and open-source software (zigGIS, PostGIS, GeoServer, <a href="http://www.postgresql.org/">PostgreSQL</a>) working together to make this product. All are good tools that, working together, bolster each others' shortcomings. This kind of thing demostrates the "best-of-breed" (hate that term) concept very well.</p>
-
-<p>A few months back, <a href="http://www.paolocorti.net/public/wordpress/index.php/2007/01/19/full-oss-solution-vs-osscommercial-solution-mix/">Paolo posted</a> about mixing commercial and open-source tools. I think this will eventually be the prevalent means of doing business.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Moving Forward On A Couple of Fronts]]></title>
-    <link href="http://blog.geomusings.com/2007/04/24/Moving-Forward-On-A-Couple-of-Fronts/"/>
-    <updated>2007-04-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2007/04/24/Moving-Forward-On-A-Couple-of-Fronts</id>
-    <content type="html"><![CDATA[<p>Well, it's been a while since I've posted anything technical. Work has been a little crazy and I'm not willing to carve into time with the family to keep other stuff moving. As a result a few things have been sitting for a while but I've been able to get around to two things.</p>
-
-<p>First, I've been playing with making a <a href="http://msdn2.microsoft.com/en-us/netframework/aa663324.aspx">WCF</a> web service that wraps spatial calls to <a href="http://postgis.refractions.net/">PostGIS</a>. The first thing I'm building is a call to do a coordinate transformation. Fairly simple stuff. This is actually my standard "getting my feet wet" task. I have written the same thing over the years in MapObjects, ArcObjects, ArcGIS Server, COM, Java, VB.NET, C#...you name it. Now, it's my guinea pig for WCF.</p>
-
-<p>WCF changes the way web services are done in .NET. Given the larger focus on support SOA with .NET 3.0, the changes make sense. Overall, I think SOA in general will be easier in 3.0 but web services in particular are not as simple to implement as in 2.0. That's an overall change for the better IMO but it takes some getting used to. I've pretty much got it working on the service side but my client code is still having trouble. Once I get it ironed out, I plan to post what I did and discuss some of the issues.</p>
-
-<p>Secondly, I'm picking back up with building ArcCatalog objects for <a href="http://code.google.com/p/ziggis">ZigGIS</a>. I'm trying to follow the model <a href="http://www.esri.com">ESRI</a> established with how to manage connections to ArcSDE in ArcCatalog. I've gotten far enough that I have a connection dialog that will write out a .zig file. The next step is to iterate the .zig files and list them as nodes in the ArcCatalog tree. More on that as I move along, also.</p>
-
-<p>So the purpose of this post is really more to stick my head out and say "I'm still here." There, I've said it. More again soon...</p>
+<p>As can be seen from the series of screen captures, this test worked flawlessly. I have also been able to render the data in both desktops and perform analysis on it. It is important to remember that this test only addresses PostGIS layers that have been registered with ArcSDE via the "sdelayer -o register" command line tool. In my next post I will dig a little deeper with the layer I loaded via ArcCatalog.</p>
 ]]></content>
   </entry>
   
