@@ -1,0 +1,24 @@
+---
+layout: blog
+title: And Now For Something Completely Different - ArcGIS Schematics
+post_author: bdollins
+categories:
+- arcgis desktop
+- ArcGIS Schematics
+- esri
+- gis
+---
+
+When I started this blog, I didn't imagine I'd ever blog about ArcGIS Schematics. I looked at it shortly after <a href="http://www.esri.com/news/arcnews/summer02articles/intro-schematics.html">ESRI acquired the product</a> and it was, how shall I say, a little rough. Since then, I have always kind of thought of it as a refugee from the Island of Misfit Extensions.<!--more-->
+
+I have recently had the occasion to dig into Schematics more deeply. I won't say that familiarity has disavowed me of the "refugee" impression. It's probably safer to say that I am beginning to be able to bend it to my will.
+
+<img alt="ArcGIS Schematics rolls with a rough crowd" src="http://www.joyeur.com/images/138.jpg" />
+
+So why am I delving back into Schematics? Essentially, I am supporting a group of analysts that do most of their work in ArcGIS. There is an increasing amount of non-spatial data which they want to visualize as links and nodes and analyze. Schematics purports to fit that bill and do so without needing to introduce another software tool. I am working at a location that has an ELA in place. With an ELA, every problem starts to look like a GIS problem. Basically, I am putting Schematics through the paces to determine if it can meet requirements before looking at other tools that would require an additional purchase.
+
+On the plus side, Schematics does have some tools that enable network analysis on schematic diagrams. Tools such a finding the path between two node and finding loops can expose links that may not be obvious in a complex diagram. It would be nice if there were a tool that allowed you to find all paths between nodes but I haven't found one yet. Also a potential plus is to link up your diagram with a map where nodes or links have a spatial representation. I haven't played with this yet and don't know if I will.
+
+On the minus side: The diagrams look pretty rudimentary. The stock symbols are very basic and the symbol editor is outdated. I haven't found a way to load in an image as a symbol. The designer tool, where you define your node and link types, define your data source, queries and the like is very cumbersome, unintuitive and non-visual. It looks like a bad VB6 app and may very well be. The designer is a separate executable that is only loosely integrated with ArcCatalog and ArcMap (although this may not be a bad thing). Additionally, controlling diagram layout is very clunky and would be cumbersome for a large diagram.
+
+Out of the box, I would not put Schematics in front of an analyst. It is too cumbersome and complex and there are tools that do what it does better. I have not had the opportunity to delve into its ArcObjects API to see how much I can streamline things. Given my experience so far, I may not bother. ArcGIS Schematics is beginning the emit the faint stench of bitrot as it doesn't look like any real attention has been paid to it in a while. I will push forward with my dalliance with it for a little while longer but the jury is still out as to whether it will be a long-term solution.

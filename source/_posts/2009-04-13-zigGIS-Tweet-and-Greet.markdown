@@ -1,0 +1,16 @@
+---
+layout: blog
+title: zigGIS Tweet and Greet
+post_author: bdollins
+categories:
+- beer
+- gis
+- twitter
+- ziggis
+---
+
+After being involved with <a href="http://pub.obtusesoft.com">zigGIS</a> for a couple of years now, I'm excited that <a href="http://paolocorti.net">Paolo Corti</a> is going to be visiting the States next week and that Abe and I will finally get to meet him (and vice versa). The three of us will be meeting at the <a href="http://www.lolitabar.net">Lolita Bar</a> in New York City at 6pm on April 24th.
+
+If you're in the area (or you want to make a special trip), we could use all the help we can get to give Paolo a warm welcome to the US. I hope to see you there. <a href="http://twitter.com/zigGIS">Tweet us</a> if you think you'll make it.
+
+<img alt="A frosty cold helping of zig." height="225" src="http://geobabble.files.wordpress.com/2009/04/zigbeer2.png" title="A frosty cold helping of zig." width="169" />
