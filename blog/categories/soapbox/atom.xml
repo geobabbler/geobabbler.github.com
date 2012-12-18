@@ -4,7 +4,7 @@
   <title><![CDATA[Category: soapbox | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/soapbox/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T12:13:04-05:00</updated>
+  <updated>2012-12-18T14:17:38-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -131,6 +131,56 @@
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[Does Vendor Lock-In Increase Health-Care Costs?]]></title>
+    <link href="http://blog.geomusings.com/2009/11/14/Does-Vendor-Lock-In-Increase-Health-Care-Costs/"/>
+    <updated>2009-11-14T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2009/11/14/Does-Vendor-Lock-In-Increase-Health-Care-Costs</id>
+    <content type="html"><![CDATA[<p>Today is World Diabetes Day. I am a parent of a child with Type 1 diabetes (also known as juvenile diabetes). As such, my child is dependent upon insulin and will be until a cure is found. I am using my blog today to discuss the issue of interoperability (or lack thereof) of medical devices.<!--more--></p>
+
+<p>My child is primarily dependent upon two medical devices for diabetes management. The first is a blood glucose meter which is used to check blood sugar. The second is an insulin pump which maintains a suitable basal rate of insulin and also helps cover carbohydrate intake at meals. Both devices produce a fair amount of data  that allows us to see what is happening with blood glucose levels and help us make adjustments to keep things going smoothly.</p>
+
+<p>We have a fairly typical setup in which neither of these devices talks to each other so we download data from them into software on our computer. Over the past decade, interoperability has been a leading issue in the geospatial industry. As such, it has made me sensitive to it in other areas, most notably in diabetes management. What I have come to realize is that there is very little in the way of true interoperability in this area and I think it is potentially very relevant to the current discussions of reducing health-care costs. Our case serves as an example:</p>
+
+<p>Each of the devices we use comes with its own software. The software for the glucose monitor allows us to hook the devices up to a USB port and download all of the blood glucose information they contain (we use more than one, all from the same vendor). The insulin pump has a different piece of software that allow us to download information to examine basal rates and boluses in conjunction with blood glucose. It also downloads the meal-time glucose numbers. In order to properly cover for a meal, you must tell the pump what your current glucose is so that information is available for download. The complexity begins here.</p>
+
+<p>Good management of diabetes requires glucose checks throughout the day, not just at mealtime. In order to get a complete picture of what is going on, you must download from the glucose monitor to see all of the information. Our insulin pump software provides the ability to hook up our monitor and download information directly. This gives us that complete picture. The glucose meter software does not allow download from any insulin pumps. It must be entered manually (ugh) or imported from a CSV file. It expects the CSV to be formatted in a way that is not supported by our insulin pump software.</p>
+
+<p>The insulin pump software does not support two of the type of meters that we use, so we cannot download that information into it. What this implies is that, although all of our glucose monitors are from the same vendor, their firmware is sufficiently different to indicate that nothing resembling a standard interface is used. If I use the software for the glucose monitor, I can install a driver update to support new devices from the vendor. These driver updates are not recognized by the insulin pump software.</p>
+
+<p>Why do we use both pieces of software? The glucose monitor software is the only way to get a full picture of the glucose readings. The insulin pump software provides better statistical analysis tools. I need them both and that is my problem. I should be able to simply plug in each device and upload to either piece of software (or some other if I wish). This is a quite solvable problem but the vendors lack any incentive because you become dependent upon their tools.</p>
+
+<p>Over time, devices from different vendors leapfrog each other in capability. A new glucose monitor requires less blood, a new pump gives you more ways to tune basal rates, etc. As you do what is best for your child and get the best devices available, you are faced with the problem of importing and exporting your historical diabetes data between different pieces of software. The importance of this data is such that it can cause people to stick with a single vendor regardless of the cost or effectiveness of the devices.</p>
+
+<p>The interoperability issue concerns me more as closed-loop systems begin to hit the market. These are systems in which the monitor and the pump do talk to each other (usually via signalling) and work together. Some systems feature new continuous glucose monitoring devices (CGM) that constantly sample blood glucose and message the pump to make adjustments. Many of these systems are still waiting for approval. CGMs are new and have issues but we can expect the technology to mature. The leap-frogging process will continue. The problem with closed-loop systems is that I have only seen them discussed in terms of single-vendor solutions. Vendor A's CGM will work in concert with Vendor A's pump but I have seen no evidence that, if Vendor B produces a better CGM, it will be able to work in the closed-loop system. I see this as having the potential to reduce patient choice, suppress demand, reduce negotiating power with vendors and keep costs artificially high.</p>
+
+<p>In the community in which I work my "day job", we think about these issues a lot. I think I was somewhat surprised to see how little these issues seem to be considered in the health industry. Because we deal with diabetes every day, I tend to look at it through that lens but I can imagine that it is pervasive elsewhere. I think this is an area that can and should be looked at as something that has the potential to reduce costs independent of health insurance and the more hotly contested topics in the current debate.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What Is This "GIS" Of Which You Speak?]]></title>
+    <link href="http://blog.geomusings.com/2009/10/27/What-Is-This-GIS-Of-Which-You-Speak/"/>
+    <updated>2009-10-27T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2009/10/27/What-Is-This-GIS-Of-Which-You-Speak</id>
+    <content type="html"><![CDATA[<p><a href="http://donmeltz.com/blog/index.php/2009/10/25/gis-is-dead-long-live-gis/">Don Meltz</a> has kicked off the most recent round of discussion about the nature/state of ?GIS? (I put that in quotes since I am the one who declared it a myth). <a href="http://blogs.weogeo.com/jamesfee/2009/10/27/spatial-isn%E2%80%99t-special/">James</a> and <a href="http://blog.fortiusone.com/2009/10/27/the-once-and-future-map-the-destiny-of-gis/">Sean</a> also weighed with their thoughts on the subject. Like it or not, they are right. The technology that has for years been labeled as ?GIS? and segmented (somewhat artificially) from the rest of the IT industry is, with increasing speed, being integrated into the tapestry of mainstream IT. This trend is not only something that I think is irreversible and good, it is something that I have been actively working toward for my entire career.<!--more--></p>
+
+<p>The nature of spatial technologies is changing and, in the very near future, it will no longer be sufficient to merely be proficient with such technologies. As a software developer and a consultant, I recognize that it is important to first have expertise in software development tools, patterns and practices in addition to proficiency with spatial tools. It is key to have an understanding of how to appropriately integrate spatial data and methods into a system or application. This may not always mean having a big, pretty map front-and-center in the UI (if you need one at all). Spatial tools have always been great for eye candy but their true power lies in the analytical capability and this capability can add value independent of visualization on a map.</p>
+
+<p>The trend of spatial tools and methods blending into mainstream IT can be seen in the advent of the "neo" approach where slippy maps and the like have grown from web technologies (as opposed to ?web maps? being crammed into pages via ?GIS servers?). They will extend to include more spatial capabilities as the technology advances. Who among us really thought 10 years ago that javascript would be able to handle the things currently being accomplished with jQuery, ExtJS and the like. The same type of evolution in capability will continue and can already be seen in things like GeoExt and the ESRI Javascript API. (The trend exists in other segments as well but I use javascript libraries as an illustration.) Additionally the integration of spatial data and methods at the RDBMS level demonstrates what we all know to be true: spatial data is just another data type and should be treated as such.</p>
+
+<p>I have never really considered "desktop GIS" to be anything more than applications that allow you to make maps and perform spatial analysis. They are part graphics package and part statistics package and part "geography package". To be sure, correct implementation of spatial methods takes a lot of skill. Correct spatial analysis takes a lot of potentially specialized skill. There are multiple kinds of spatial data that have unique properties and techniques. But it is important here to separate the person from the tool, much like engineers use CAD as a tool but it doesn?t define who they are.</p>
+
+<p>I don't think desktop tools will go away in the near future because some spatial operations are too complex or cumbersome to be done "on the fly" at runtime. There are too many cases where data simply needs to be pre-processed and the results used in an application or presented to a user.</p>
+
+<p>But make no mistake that current trends in databases, APIs, servers and "clouds" (forgive my use of shorthand) will continue to the point where the "GIS" components of such systems will be indistinguishable from the rest. Spatial data will be used or presented in an integrated fashion (HTML 5 perhaps?) and users will grow as accustomed it as they have to all of the various effects enabled by AJAX. In short, the current concept of a "geo-stack" will simply give way to a stack that has spatial logic in there if you need it. That's as it should be.</p>
+
+<p>So, in my opinion, it's the technology that's evolving, blending into the background and disappearing. This will have the natural effect of meaning that less "GIS Analysts" will be needed over time but that will happen mostly in areas where the need for them was rather light and necessitated only by artificial boundaries between spatial tools and the rest of the IT environment. Advancements in technology may automate some more advanced applications as well (witness what's happening with feature extraction, for instance).</p>
+
+<p>Ultimately, the point made in other places holds true that proficiency with spatial analysis married with some specific domain knowledge will be key. Proficiency with spatial tools alone will not be compelling skill set. As for the tools themselves, it'll be like they were never there.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Time to Kill the Red-Blue Maps]]></title>
     <link href="http://blog.geomusings.com/2008/11/05/Time-to-Kill-the-Red-Blue-Maps/"/>
     <updated>2008-11-05T00:00:00-05:00</updated>
@@ -179,27 +229,6 @@
 <p>So, is neogeography GIS? I don't know. What's the measure? Those put forth by Mike Hickey are different than those put forth as arguments against desktop mapping years ago. So, really, the hurdle has just been moved. Maybe neo-geo isn't GIS...yet. But does anyone really think the technology won't advance? Take a look at <a href="http://featureserver.org/">FeatureServer</a>. Take a look at the various spatial SQL implementations in <a href="http://postgis.refractions.net">PostGIS</a>, <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a>, <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle</a> and many others. People are trying to solve that problem. If ESRI ever puts out their <a href="http://virtualearth4gov.spaces.live.com/Blog/cns!369B39F890CE30C1!408.entry">REST API</a>, the neo-geo community will have the full power (maybe) of ArcGIS Server at their disposal. I have an idea: if MapInfo feels that neo-geo isn't really GIS, why don't they create a product line targeted at giving the neo-geo community "real GIS" tools. Whatever those are. Looks like a market opportunity to me.</p>
 
 <p>Making decisions about the viability/validity of neo-geo based on the current state of the technology is a little short-sighted to say the least.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Up On the Soapbox]]></title>
-    <link href="http://blog.geomusings.com/2007/10/08/Up-On-the-Soapbox/"/>
-    <updated>2007-10-08T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2007/10/08/Up-On-the-Soapbox</id>
-    <content type="html"><![CDATA[<p><a href="http://apb.directionsmag.com/archives/3441-NPR-on-Withholding-Critical-Infrastructure-Data.html">This one</a> caught my eye when it came across Planet GS so I listened to the referenced piece.</p>
-
-<p>Suffice it so say that I've been kind of close to this issue (more so in the past than I am now) and this kind of thing just really burns my arse.</p>
-
-<p>I am less inclined to follow the line of logic that local officials are holding this data close as a means of accumulating power, although it certainly could lead to that. My experience is that most people are genuinely concerned about what they can do the keep their citizens safe while also providing good service.</p>
-
-<p>Sean Gorman makes the dead-on point that geospatial data is proliferating rapidly and that it will overwhelm efforts to hold it back. It's great that the town GIS staff doesn't want to release manhole data but it's really kind of moot when I can take a photo of them with my GPS-enabled phone.</p>
-
-<p>The most salient point of the whole piece is made at the end when it is pointed out that there are no national guidelines in place governing the release of such information. Some areas make it available online. Others (like Greenwich, CT apparently) release nothing. This is exactly the kind of thing that DHS should be tackling but isn't and hasn't (and probably won't). Apparently, six years isn't enough.</p>
-
-<p>As has been said about other issues, the people who want to do harm will find a way to get this information. Stances like that taken by Greenwich will only hamper law-abiding citizens with legitimate uses for the data. A structured process with appropriate checks in place will provide access to it in a way that minimizes (but never eliminates, because you can't) risk.</p>
-
-<p>Lacking any real guidance (and state, local and private infrastructure managers have been seeking guidance for years), the city of Greenwich can't really be faulted. These are tough issues that don't have easy solutions. Meanwhile, technology marches on. Maybe it's time to get off the starting block.</p>
 ]]></content>
   </entry>
   

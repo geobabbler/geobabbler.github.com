@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Does Vendor Lock-In Increase Health-Care Costs? - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="Today is World Diabetes Day. I am a parent of a child with Type 1 diabetes (also known as juvenile diabetes). As such, my child is dependent upon &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2009/11/14/Does-Vendor-Lock-In-Increase-Health-Care-Costs/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Does Vendor Lock-In Increase Health-Care Costs?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-14T00:00:00-05:00" pubdate data-updated="true">Nov 14<span>th</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Today is World Diabetes Day. I am a parent of a child with Type 1 diabetes (also known as juvenile diabetes). As such, my child is dependent upon insulin and will be until a cure is found. I am using my blog today to discuss the issue of interoperability (or lack thereof) of medical devices.<!--more--></p>
+
+<p>My child is primarily dependent upon two medical devices for diabetes management. The first is a blood glucose meter which is used to check blood sugar. The second is an insulin pump which maintains a suitable basal rate of insulin and also helps cover carbohydrate intake at meals. Both devices produce a fair amount of data  that allows us to see what is happening with blood glucose levels and help us make adjustments to keep things going smoothly.</p>
+
+<p>We have a fairly typical setup in which neither of these devices talks to each other so we download data from them into software on our computer. Over the past decade, interoperability has been a leading issue in the geospatial industry. As such, it has made me sensitive to it in other areas, most notably in diabetes management. What I have come to realize is that there is very little in the way of true interoperability in this area and I think it is potentially very relevant to the current discussions of reducing health-care costs. Our case serves as an example:</p>
+
+<p>Each of the devices we use comes with its own software. The software for the glucose monitor allows us to hook the devices up to a USB port and download all of the blood glucose information they contain (we use more than one, all from the same vendor). The insulin pump has a different piece of software that allow us to download information to examine basal rates and boluses in conjunction with blood glucose. It also downloads the meal-time glucose numbers. In order to properly cover for a meal, you must tell the pump what your current glucose is so that information is available for download. The complexity begins here.</p>
+
+<p>Good management of diabetes requires glucose checks throughout the day, not just at mealtime. In order to get a complete picture of what is going on, you must download from the glucose monitor to see all of the information. Our insulin pump software provides the ability to hook up our monitor and download information directly. This gives us that complete picture. The glucose meter software does not allow download from any insulin pumps. It must be entered manually (ugh) or imported from a CSV file. It expects the CSV to be formatted in a way that is not supported by our insulin pump software.</p>
+
+<p>The insulin pump software does not support two of the type of meters that we use, so we cannot download that information into it. What this implies is that, although all of our glucose monitors are from the same vendor, their firmware is sufficiently different to indicate that nothing resembling a standard interface is used. If I use the software for the glucose monitor, I can install a driver update to support new devices from the vendor. These driver updates are not recognized by the insulin pump software.</p>
+
+<p>Why do we use both pieces of software? The glucose monitor software is the only way to get a full picture of the glucose readings. The insulin pump software provides better statistical analysis tools. I need them both and that is my problem. I should be able to simply plug in each device and upload to either piece of software (or some other if I wish). This is a quite solvable problem but the vendors lack any incentive because you become dependent upon their tools.</p>
+
+<p>Over time, devices from different vendors leapfrog each other in capability. A new glucose monitor requires less blood, a new pump gives you more ways to tune basal rates, etc. As you do what is best for your child and get the best devices available, you are faced with the problem of importing and exporting your historical diabetes data between different pieces of software. The importance of this data is such that it can cause people to stick with a single vendor regardless of the cost or effectiveness of the devices.</p>
+
+<p>The interoperability issue concerns me more as closed-loop systems begin to hit the market. These are systems in which the monitor and the pump do talk to each other (usually via signalling) and work together. Some systems feature new continuous glucose monitoring devices (CGM) that constantly sample blood glucose and message the pump to make adjustments. Many of these systems are still waiting for approval. CGMs are new and have issues but we can expect the technology to mature. The leap-frogging process will continue. The problem with closed-loop systems is that I have only seen them discussed in terms of single-vendor solutions. Vendor A&#8217;s CGM will work in concert with Vendor A&#8217;s pump but I have seen no evidence that, if Vendor B produces a better CGM, it will be able to work in the closed-loop system. I see this as having the potential to reduce patient choice, suppress demand, reduce negotiating power with vendors and keep costs artificially high.</p>
+
+<p>In the community in which I work my &#8220;day job&#8221;, we think about these issues a lot. I think I was somewhat surprised to see how little these issues seem to be considered in the health industry. Because we deal with diabetes every day, I tend to look at it through that lens but I can imagine that it is pervasive elsewhere. I think this is an area that can and should be looked at as something that has the potential to reduce costs independent of health insurance and the more hotly contested topics in the current debate.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-14T00:00:00-05:00" pubdate data-updated="true">Nov 14<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/diabetes/'>diabetes</a>, <a class='category' href='/blog/categories/soapbox/'>soapbox</a>, <a class='category' href='/blog/categories/where-did-that-come-from-/'>where did that come from?</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2009/11/14/Does-Vendor-Lock-In-Increase-Health-Care-Costs/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2009/11/14/Does-Vendor-Lock-In-Increase-Health-Care-Costs/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/11/12/gvSIG-1.9-Released/" title="Previous Post: gvSIG 1.9 Released">&laquo; gvSIG 1.9 Released</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/11/17/Happy-GIS-Day-2009/" title="Next Post: Happy GIS Day 2009">Happy GIS Day 2009 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-4.0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: where did that come from? | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/where-did-that-come-from-/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T12:13:04-05:00</updated>
+  <updated>2012-12-18T14:17:38-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,99 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Happy GIS Day 2009]]></title>
+    <link href="http://blog.geomusings.com/2009/11/17/Happy-GIS-Day-2009/"/>
+    <updated>2009-11-17T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2009/11/17/Happy-GIS-Day-2009</id>
+    <content type="html"><![CDATA[<p><img alt="" class="aligncenter size-full wp-image-740" height="265" src="http://geobabble.files.wordpress.com/2009/11/great_map.png" title="It's the Great Map" width="257" /></p>
+
+<p>GIS Day is when the Great Map renders from its cache and slips around the world giving GPS units to all the good geographers.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Does Vendor Lock-In Increase Health-Care Costs?]]></title>
+    <link href="http://blog.geomusings.com/2009/11/14/Does-Vendor-Lock-In-Increase-Health-Care-Costs/"/>
+    <updated>2009-11-14T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2009/11/14/Does-Vendor-Lock-In-Increase-Health-Care-Costs</id>
+    <content type="html"><![CDATA[<p>Today is World Diabetes Day. I am a parent of a child with Type 1 diabetes (also known as juvenile diabetes). As such, my child is dependent upon insulin and will be until a cure is found. I am using my blog today to discuss the issue of interoperability (or lack thereof) of medical devices.<!--more--></p>
+
+<p>My child is primarily dependent upon two medical devices for diabetes management. The first is a blood glucose meter which is used to check blood sugar. The second is an insulin pump which maintains a suitable basal rate of insulin and also helps cover carbohydrate intake at meals. Both devices produce a fair amount of data  that allows us to see what is happening with blood glucose levels and help us make adjustments to keep things going smoothly.</p>
+
+<p>We have a fairly typical setup in which neither of these devices talks to each other so we download data from them into software on our computer. Over the past decade, interoperability has been a leading issue in the geospatial industry. As such, it has made me sensitive to it in other areas, most notably in diabetes management. What I have come to realize is that there is very little in the way of true interoperability in this area and I think it is potentially very relevant to the current discussions of reducing health-care costs. Our case serves as an example:</p>
+
+<p>Each of the devices we use comes with its own software. The software for the glucose monitor allows us to hook the devices up to a USB port and download all of the blood glucose information they contain (we use more than one, all from the same vendor). The insulin pump has a different piece of software that allow us to download information to examine basal rates and boluses in conjunction with blood glucose. It also downloads the meal-time glucose numbers. In order to properly cover for a meal, you must tell the pump what your current glucose is so that information is available for download. The complexity begins here.</p>
+
+<p>Good management of diabetes requires glucose checks throughout the day, not just at mealtime. In order to get a complete picture of what is going on, you must download from the glucose monitor to see all of the information. Our insulin pump software provides the ability to hook up our monitor and download information directly. This gives us that complete picture. The glucose meter software does not allow download from any insulin pumps. It must be entered manually (ugh) or imported from a CSV file. It expects the CSV to be formatted in a way that is not supported by our insulin pump software.</p>
+
+<p>The insulin pump software does not support two of the type of meters that we use, so we cannot download that information into it. What this implies is that, although all of our glucose monitors are from the same vendor, their firmware is sufficiently different to indicate that nothing resembling a standard interface is used. If I use the software for the glucose monitor, I can install a driver update to support new devices from the vendor. These driver updates are not recognized by the insulin pump software.</p>
+
+<p>Why do we use both pieces of software? The glucose monitor software is the only way to get a full picture of the glucose readings. The insulin pump software provides better statistical analysis tools. I need them both and that is my problem. I should be able to simply plug in each device and upload to either piece of software (or some other if I wish). This is a quite solvable problem but the vendors lack any incentive because you become dependent upon their tools.</p>
+
+<p>Over time, devices from different vendors leapfrog each other in capability. A new glucose monitor requires less blood, a new pump gives you more ways to tune basal rates, etc. As you do what is best for your child and get the best devices available, you are faced with the problem of importing and exporting your historical diabetes data between different pieces of software. The importance of this data is such that it can cause people to stick with a single vendor regardless of the cost or effectiveness of the devices.</p>
+
+<p>The interoperability issue concerns me more as closed-loop systems begin to hit the market. These are systems in which the monitor and the pump do talk to each other (usually via signalling) and work together. Some systems feature new continuous glucose monitoring devices (CGM) that constantly sample blood glucose and message the pump to make adjustments. Many of these systems are still waiting for approval. CGMs are new and have issues but we can expect the technology to mature. The leap-frogging process will continue. The problem with closed-loop systems is that I have only seen them discussed in terms of single-vendor solutions. Vendor A's CGM will work in concert with Vendor A's pump but I have seen no evidence that, if Vendor B produces a better CGM, it will be able to work in the closed-loop system. I see this as having the potential to reduce patient choice, suppress demand, reduce negotiating power with vendors and keep costs artificially high.</p>
+
+<p>In the community in which I work my "day job", we think about these issues a lot. I think I was somewhat surprised to see how little these issues seem to be considered in the health industry. Because we deal with diabetes every day, I tend to look at it through that lens but I can imagine that it is pervasive elsewhere. I think this is an area that can and should be looked at as something that has the potential to reduce costs independent of health insurance and the more hotly contested topics in the current debate.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Twitter Shows Blitz]]></title>
+    <link href="http://blog.geomusings.com/2009/10/06/Twitter-Shows-Blitz/"/>
+    <updated>2009-10-06T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2009/10/06/Twitter-Shows-Blitz</id>
+    <content type="html"><![CDATA[<p>This past weekend, NFL Sunday to be specific, I was the victim of a TV/internet outage due to a mistake made by a technician while they did some work at the junction box shared by my next-door neighbor and I. As a result, I was unable to watch my beloved <a href="http://www.redskins.com">Washington NFL franchise</a> hobble to another almost-loss so I had to find another way to keep tabs on the game. Since my internet service was also down, that left me with my BlackBerry Tour as my sole means of connectivity.</p>
+
+<p>I initially started off on the ESPN site, trying to keep track of the action. Finding this unsatisfactory, I switched to MSNBC with the auto-refresh set to 30 seconds. I quickly realized that the information I was getting was woefully behind and quite inadequate. Then I had a different idea.<!--more--></p>
+
+<p>I went to <a href="http://search.twitter.com">search.twitter.com</a>, set up a search on the <a href="http://hashtags.org">hashtag </a>relevant to the team and, behold, a stream of commentary from everyone ranging from <a href="http://twitter.com/redskinsinsider">Washington Post sports reporters</a> to people in the stands at FedEx field to people watching on TV at home began to come my way. As fast as I could refresh the page, I knew what play had just been run, what players were involved, what the result of the play was and what the reaction was on the sidelines and in the stands.</p>
+
+<p>I can?t say it was like being there or watching it on TV but it was definitely on par with listening to the radio broadcast of the game. As far as I am concerned, <a href="http://twitter.com">Twitter</a> mopped up the floor with the mainstream media and their poor web extensions. Through Twitter, I got a sense of the ebb and flow of the game and I actually was as excited as when listening on the radio.</p>
+
+<p>Much has been made of Twitter?s near-real-time search capability. I have used search columns in <a href="http://tweetdeck.com">Tweetdeck</a> to keep tabs on conferences and the like but this experience leads me to believe that a fundamental shift may be near. In my opinion, this not only puts traditional media outlets on notice but also social media outlets that are really only slightly more real-time than blogging (I?m looking at you <a href="http://www.facebook.com">Facebook</a>).</p>
+
+<p>The ultimate kicker for me? Although I have a Twitter account, it is not needed to use Twitter search. Anyone can do this without an account?.for free?.without ads. Still wondering what Twitter is all about?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Amazon and the Fountain of Youth]]></title>
+    <link href="http://blog.geomusings.com/2009/09/17/Amazon-and-the-Fountain-of-Youth/"/>
+    <updated>2009-09-17T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2009/09/17/Amazon-and-the-Fountain-of-Youth</id>
+    <content type="html"><![CDATA[<p>Yesterday, I enjoyed Seth Godin's post titled <a href="http://sethgodin.typepad.com/seths_blog/2009/09/the-end-of-dumb-software.html">"The End of Dumb Software."</a> This morning, I got an e-mail started off like this:</p>
+
+<blockquote>
+Dear Amazon.com Customer,
+As someone who has purchased or rated books by Norman Bridwell, you might like to know that <em>Clifford The Champion</em> will be released on October 1, 2009.  You can pre-order yours at a savings of $5.20 by following the link below.
+</blockquote>
+
+
+<!--more-->
+
+
+<p>This e-mail serves as another great example of Seth Godin's point.</p>
+
+<p>About 10 years ago, I ordered a set of "Clifford the Big Red Dog" books for my son, who was about two years old at the time. I had the package addressed to him and he was quite delighted by the idea that the mail carrier just brought him some Clifford books. We got quite a lot of enjoyment out of reading those books to him and, later, having him read them to us.</p>
+
+<p>Over years, I have continued to get e-mail announcements such as the one above about the release of a new Clifford book or a sale on older books. Each time I get one, I shake my head for Amazon in sympathy for its lost opportunity.</p>
+
+<p>What gets me is that Amazon already has all of the information its needs to make this process smarter. It knows what book I bought and when I bought it and has demonstrated that it is willing to store and use that information for a very long time. If you look up the reading level of <a href="http://www.amazon.com/gp/product/0590442805/ref=s9_simz_gw_s0_p14_i1?pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=center-2&amp;pf_rd_r=1DS0ZZV66M3V927HNKDR&amp;pf_rd_t=101&amp;pf_rd_p=470938631&amp;pf_rd_i=507846">a Clifford book</a>, you will see that it says it's for reading levels of 4 - 8 years. If you know nothing else about me, you can add 10 to 4 - 8 can come up with the assumption that my child is now between 14 and 18 years old. (You'd be wrong because it misses the fact that many parents read these books to kids who are much younger but not as wrong as the current case.)</p>
+
+<p>However, in Amazon-land, my son is still apparently 4 - 8 years old and interested in Clifford books. Having recently passed the age of 40, Amazon-land is looking pretty attractive.</p>
+
+<p>I understand the mechanics of the current approach. When a new Clifford book is coming out, you query your database for anyone who ever bought one and blast an e-mail. It's a relatively low cost process beyond a momentary surge in bandwidth and may net you a good number of sales given the size of the Amazon database. But is it really low cost? What is the cost in lost customer confidence when someone like me gets one of those e-mails and thinks "do they really think I need Clifford books after ten years?" Maybe Amazon's sales volume is such that it doesn't really matter to them but I doubt that.</p>
+
+<p>Given the computing power demonstrated by Amazon with its EC2 and S3 offerings, it clearly has the resources to be smarter. Rather than a simple dumb e-mail blast, it could <em>actually use</em> the data it already collects about customers, sales and products (books in this case) to target its promotions automatically. Would be that hard to cross-reference the "progressed age" of my child with books that target that age group. Most 14 - 18 year-olds are, at a minimum, having to deal with required reading lists in high school that draw from a pretty standard list of titles. Not to mention cross-referencing sales data of popular or new titles relevant to the age group.</p>
+
+<p>Of cource, this isn't just relevant to children's books. Amazon has been around long enough and collected enough data that it should be more effectively tracking, analyzing and taking advantage of the changing demographics of its customer base. Ultimately, Amazon would target its promotions better and I, as a customer, may get more relevant information from it.</p>
+
+<p>While it would be harder to implement than a simple blast, I have a hard time imagining that a little temporal reasoning wouldn't be a better approach for both Amazon and its customers.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[April Fool - Ancient GIS Discovered]]></title>
@@ -29,67 +122,6 @@
 <p>Also found at the site were fragments of what appears to be a stone tablet with a map engraved on it. It is the first evidence that ancient navigators may have used tablets for mapping and charting. "It appears that they used information from the database to mark up the basemap on the tablet with some form of ink, which could be easily removed as needed." said Dr. Balatro.</p>
 
 <p>More information on the discovery can be found <a href="http://is.gd/3BW">here</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Nearest Book]]></title>
-    <link href="http://blog.geomusings.com/2008/11/17/Nearest-Book/"/>
-    <updated>2008-11-17T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2008/11/17/Nearest-Book</id>
-    <content type="html"><![CDATA[<p>This meme is percolating across the internets and it's kinda fun.</p>
-
-<blockquote>By definition then, the terrorists and their followers become excluded from civil society of the mainstream, while the sympathetic public remains included.</blockquote>
-
-
-<p><em>The Geographical Dimensions of Terrorism</em>, edited by Susan L. Cutter, Douglas B. Richardson and Thomas J. Wilbanks.</p>
-
-<p><strong>The instructions</strong>: Grab the nearest book. Open it to page 56. Find the fifth sentence. Post the text of the sentence in your journal along with these instructions. Don?t dig for your favorite book, the cool book, or the intellectual one: pick the CLOSEST.</p>
-
-<p>If I hadn't cleaned my desk on Friday, it would've most likely been something about Test-Driven Development but I did so this one was closest today which is interesting since it's been ages since I read it. This particular excerpt comes from a passage describing the two primary audiences of terrorists and the social/physical separation of those audiences. It is taken from the section titled "Geographies of Inclusion/Exclusion" by Colin Flint.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Lyrical Revisionism]]></title>
-    <link href="http://blog.geomusings.com/2008/04/09/Lyrical-Revisionism/"/>
-    <updated>2008-04-09T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/04/09/Lyrical-Revisionism</id>
-    <content type="html"><![CDATA[<p>"Buy the sky and
-Sell the sky and
-Lift your arms up to the sky
-And ask the sky
-And ask the sky
-Don't fall on me"</p>
-
-<p>Did REM predict carbon trading in 1986?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First ArcGIS 9.4 Screenshot]]></title>
-    <link href="http://blog.geomusings.com/2008/03/31/First-ArcGIS-94-Screenshot/"/>
-    <updated>2008-03-31T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/03/31/First-ArcGIS-94-Screenshot</id>
-    <content type="html"><![CDATA[<p>You saw it here first...</p>
-
-<!--more-->
-
-
-<p><img alt="ArcGIS 9.4 circa 1 April 2008" src="http://geobabble.files.wordpress.com/2008/03/arcgis94.png" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Quote of the Day...]]></title>
-    <link href="http://blog.geomusings.com/2008/03/28/Quote-of-the-Day/"/>
-    <updated>2008-03-28T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/03/28/Quote-of-the-Day</id>
-    <content type="html"><![CDATA[<p>Abe Gillespie had the quote of the day in his latest <a href="http://abegillespie.blogspot.com/2008/03/ziggis-update.html">post</a> about <a href="http://code.google.com/p/ziggis">zigGIS</a>.</p>
-
-<p>In describing the development approach (disclaimer: I have been known to dabble in the zigGIS code from time to time although it's been the Abe show recently), Abe described it as "software 2.0" which, in his words, "doesn't mean much, but mostly we're not responsible to deadlines."</p>
-
-<p>That alone was worth firing up the aggregator today. :)</p>
 ]]></content>
   </entry>
   
