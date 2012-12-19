@@ -4,7 +4,7 @@
   <title><![CDATA[Category: FedUC | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/feduc/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T22:16:30-05:00</updated>
+  <updated>2012-12-19T14:13:06-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,54 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My Day At the 2011 FedUC]]></title>
+    <link href="http://blog.geomusings.com/2011/01/21/My-Day-At-the-2011-FedUC/"/>
+    <updated>2011-01-21T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/01/21/My-Day-At-the-2011-FedUC</id>
+    <content type="html"><![CDATA[<p>For a variety of reasons, I only spent one day at the <a href="http://www.esri.com/events/feduc/index.html">FedUC</a> this year. I chose Thursday because that was the day of the DevGeo session, as well as the National Security Session and a SIG in which I was interested. As a result, I did not see the plenary or any of the big-screen demos. With a few meetings crammed in, my day was a whirlwind. What follows is my view of the FedUC but it is by no means comprehensive. To get a more complete picture, I suggest checking out <a href="http://apb.directionsmag.com/archives/9273-Update-3-Wed-Morning-Plenary-FedUC.html">Adena's</a> <a href="http://apb.directionsmag.com/archives/9275-Update-Wed-Afternoon-Plenary-FedUC.html">updates</a> <a href="http://apb.directionsmag.com/archives/9282-Hottest-Thing-on-FedUC-Floor-Zebra-Imagings-Holograms.html">over</a> at <a href="http://apb.directionsmag.com/archives/9278-FedUC-Session-on-Geospatial-Platform-and-Geodata.gov.html">Directions</a>.</p>
+
+<p><img alt="#FedUC" src="http://www.esri.com/news/graphics/feduc.jpg" /></p>
+
+<!--more-->
+
+
+<p>I started out in the National Security Session where I saw demos of some mobile apps done for warfighter use and some web-based common operational picture apps targeted at the homeland security community. Perhaps it was the use case that was discussed, combined with my background doing similar work but the Android app, as it was shown, rang a little hollow for me. I thought homeland security demos were on more solid ground. The use cases were familiar, being similar to those shown in previous years, but the tools are now more advanced and the applications more effective. I have worked with most of the tools discussed (ArcGIS Server, the web APIs, geoprocessing tools, etc.) in similar contexts so I thought the technical content was on target. I am a little concerned that multiple agencies seem to be building similar systems under the guise of addressing their own unique requirements. The proliferation of operating pictures and services and such is quickly creating a hydra that may bog down under the weight of its own redundancy. This is not strictly a technology or GIS problem but all of the nice mapping apps put a very visible face on the issue of lack of coordination.</p>
+
+<p>My next stop was the <a href="http://www.esri.com/events/feduc/agenda/dev-geo.html">DevGeo</a> session. Because of overlap with the National Security session, I missed the first part on the iOS API but arrived in time for discussion of the Microsoft APIs. The session was technically an all-day thing but I like the way <a href="http://twitter.com/jimbarry">Jim Barry</a> and team broke it up by technology (with specific time slots for each). This made it easy to drop in for the APIs which interested you but also cut out for other sessions during times when other APIs were being discussed.</p>
+
+<p>Before I get too far into the meat of the DevGeo, I want to point out that this is a case where <a href="http://www.esri.com">Esri</a> listened to feedback regarding the FedUC. Back in the fall, I suggested to <a href="http://twitter.com/jsteffenson">John Steffenson</a> that some flavor of the DevGeo session they did in Silicon Valley would be a great thing to add to the FedUC. Much to my surprise, John took the idea forward and it happened. I think the addition of DevGeo, which is much more technically focused than the FedUC content tends to normally be, was a good way to round out the conference.</p>
+
+<p>Jim Barry also told me that they are planning five more dev meetups in the DC area in 2011. I'm not sure about other regions, but developers in this area tend to spend a lot of time in cubicles in windowless rooms behind cipher locks so I think these meetups are a good way to foster more collaboration. I know I won't make all five but I'll hit what I can.</p>
+
+<p>[caption id="" align="alignnone" width="412" caption="This guy could stand to get out more."]<img alt="" height="274" src="http://youcube.us/wp-content/uploads/2008/08/officespace.jpg" title="This guy could stand to get out more." width="412" />[/caption]</p>
+
+<p>As for the session itself, I saw the various Microsoft APIs and then also the Android API. I work a lot with the Silverlight API so I'm familiar with it but I did see the Sharepoint tools. It's no secret that I'm not a Sharepoint fan but Esri has done a lot of work to provide web parts that make it pretty easy to insert maps and GIS tools without a lot of code. These parts seem to be targeted at Sharepoint administrators and they make it very easy to map data contained in Sharepoint lists and such. I think Esri succeeded in creating tools that integrate well with workflows with which a Sharepoint administrator is comfortable.</p>
+
+<p>Another interesting thing is the upcoming Silverlight App Builder. This is a wizard-like tool that allows you to build a baseline application framework by choosing a basemap, components such as the navigator, various toolbars and tools, behaviors, actions and the like. What it does is roll up a lot of the tools that the Silverlight API team has been putting out for a while now so you can pick what you want to start with for your application.</p>
+
+<p>I have not actually touched the app builder yet but it seems to create a baseline solution which will build a functioning app with the components you chose. From there, you can deploy the app as-is or begin extending it with your own code. To be perfectly honest, it's probably not something I would use (out of personal preference, not a commentary on the app builder) but I can see its value. I have worked in settings where developers start a Silverlight API app by taking the Silverlight Showcase and stripping out what they don't need. That's a good way to create a mess and I think the app builder provides the opportunity for building a cleaner baseline by adding in only what you do need. It's supposed to be in beta by the the time of the Dev Summit.</p>
+
+<p>The Windows Phone API looked as effective as any other API. Esri is getting pretty good at turning out APIs for various platforms now so it's no surprise that they are on top of Windows Phone. Really, I have nothing to say about the API itself as I was fascinated by the room as the topic transitioned to Windows Phone. The room was filled to capacity (between 150 and 200 people) and only one person had a Windows Phone. As the discussion of the API progressed, people started to leave. I found the lack of interest in the platform almost palpable.</p>
+
+<p>From there, I went to lunch and ditched my backpack. I never once opened my laptop but had my iPad all day. Tablets rule. The days of the laptop are numbered.</p>
+
+<p>I took a swing through the exhibit hall to specifically catch up with the Brian and Jack Flood of <a href="http://www.arc2earth.com">Arc2Earth</a> and also Brian and Ryan at <a href="http://voyagergis.com/">VoyagerGIS</a>. Arc2Earth is really expanding its cloud support. Upcoming changes are going to greatly simplify pushing data to Google AppEngine. The current version of Arc2Earth Cloud Services is a little cumbersome in that regard and they have been working on streamlining the process. Additionally, they are adding support for the full range of Google geospatial services, including Fusion Tables. This will bring these services right into ArcMap where they can augment existing workflows and data sources. (Disclaimer: <a href="http://www.zekiah.com">My company</a> is an Arc2Earth reseller.)</p>
+
+<p><img alt="Arc2Cloud" src="http://www.arc2earth.com/images/slide1.png" /></p>
+
+<p>I hadn't really seen VoyagerGIS since GIS in the Rockies but they continue to expand their product. At first glance, it looks like a search tool (which it is) but I've always been more impressed by the insights it can give you into your own data use. One of the earliest features that impressed me was the ability to easily identify duplicate data sets, not only by content but by schema (structure). These two things alone can go a long way to helping reduce data redundancy. Additionally the tool indexes ArcMap documents. With this information, you can begin to get insight into what data sets are actually being used in your organization. Basically, the act of indexing your data for search provides the potential for a lot more insight. VoyagerGIS seems to have really hooked into this concept. But don't take my word for it, <a href="http://voyagergis.com/account/signin">download it and try it</a>.</p>
+
+<p>After that, I sat in on a SIG related to infrastructure protection. It gave me a lot of flashbacks and I could probably write an entire (very boring) post on just that. Let's just say there needs to be a lot more thought put into understanding infrastructure interdependence and that federal efforts to engage states on this issue still have a long way to go.</p>
+
+<p>I then swung back through DevGeo for the Android API before my brain was full and my feet hurt. In general, DevGeo was pretty high-level. I would call it a topical overview of the various developer tools provided by Esri but seeing some live demos (Of code...yes, I am a geek because I'd rather see live coding than a PowerPoint any day.) and being able ask some questions is much more valuable than browsing the resource center (at least for me).</p>
+
+<p>I did not go to the Esri shindig at the Natural History Museum as I instead went to the #geoglobaldomination at RFD. Quite a few people from the DC geo scene were there (such as a large crew from <a href="http://www.fortiusone.com">FortiusOne</a>). One of the great things about Esri's conferences is that they act as something of a center of gravity for geo types of all stripes. So there was a great mingling of ideas and catching up with some people that I hadn't seen in a long time. Then, it was time to head for home.</p>
+
+<p>So that closes the books for me on this year's FedUC. Due to scheduling, this will be the only one of the big Esri conferences I'll hit this year so I'll be looking for another backchannel from the <a href="http://www.dtsagile.com/">DTS</a> guys to keep up with the Dev Summit and the International User Conference. :-)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DevGeo Session at the Esri FedUC]]></title>
@@ -547,21 +595,6 @@
 <p>ArcGIS Server would benefit greatly from breaking its dependency on COM. I would not complain if I never had to do <a href="http://blog.davebouwman.com/index.php/2009/12/zen-and-the-art-of-serverobjectextensions/">this kind of stuff</a> anymore. This would, of course, mean replacing the capability for extending ArcGIS Server using ArcObjects with a similar capability. It would also mean choosing what to replace it with: .Net?...Java?...ROR?...something else? I think recent efforts with the REST API and its client technologies (JSAPI, Flex API, Silverlight API) speak to a way ahead. I can now pick a native approach and build ArcGIS solutions with less COM than ever before and ArcGIS Server itself is abstracted from the client code enough that replacing the technology that drives it can be relatively transparent. My hope is that these APIs continue to evolve and become more robust and are, perhaps, augmented by a server-side API to enable the development of advanced custom tools without the use of COM.</p>
 
 <p>While ArcGIS Server is far from perfect, it does provide one of the better (quasi)REST APIs available and a consistent way to expose geo-processing and analysis in web applications. I think an official realization that Server is different and a commitment to re-engineer it top to bottom will benefit it in the long run. So the announcement of 10.0 now begs the question ?What is the roadmap for the 10.x series?? I haven?t seen anything yet that indicates 10.0 will introduce such changes but, perhaps, it could be setting the stage for them. ArcGIS 9.0 was released in May 2004. By the time of the scheduled release of 10.0, we will have been working with 9.x for six years. The 8.x series lasted about three and a half years. Given that we could be looking at a few years of 10.x, I?d be interested in knowing more about the underpinnings of 10.x and plans for the future. Could make the <a href="http://www.esri.com/events/devsummit/index.html">DevSummit</a> and <a href="http://www.esri.com/events/feduc/index.html">FedUC</a> interesting this year.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Open Post - Will you be attending the ESRI Federal User Conference?]]></title>
-    <link href="http://blog.geomusings.com/2009/12/23/Open-Post-Will-you-be-attending-the-ESRI-Federal-User-Conference/"/>
-    <updated>2009-12-23T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2009/12/23/Open-Post-Will-you-be-attending-the-ESRI-Federal-User-Conference</id>
-    <content type="html"><![CDATA[<p>The <a href="http://www.esri.com/events/feduc/index.html">2010 ESRI Federal User Conference</a> is fast approaching. As one of the larger geospatially-oriented events to occur each year in my neck of the woods, I make it a point to attend. Over the last few years, the conference has grown in attendance and content and it's always a good place to meet up with people.</p>
-
-<p>I go primarily because I do a lot of consulting to the federal government. ESRI makes it very easy for federal employees to attend as well by giving them free admission and admission is relatively inexpensive for state/local users. I have, however, had a recurring conversation with some of my friends at the local ESRI office that I think the audience for the FedUC is broader than is suggested by the name. The FedUC, in my opinion, has the potential to be a full East Coast user conference. As much as I like going to San Diego, I like the FedUC because it tends to be more focused and down-to-business.</p>
-
-<p>So, my question is this: If you are a state/local government or educational user of ESRI tools, will you be attending the FedUC? If so, what is attracting you to it and what do you expect to get out of it?</p>
-
-<p>(This is similar to a question I asked on Twitter but 140 characters is rather limiting for this.)</p>
 ]]></content>
   </entry>
   

@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Updating my earlier post: I completed my upgrade to 9.2 yesterday with the installation of the last service pack. The first thing I did was upgrade &hellip;">
+  <meta name="description" content="All Points got the ball rolling this time around. Peter Batty responded with his usual thoughtfulness and Paul Ramsey gets the award for the best &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/03/11/PostGIS-and-ArcGIS-9.2/">PostGIS and ArcGIS 9.2</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh/">So Neo-Geo Is Not GIS, Huh?</a></h1>
     
     
       <p class="meta">
@@ -88,22 +88,28 @@
   
 
 
-<time datetime="2007-03-11T00:00:00-05:00" pubdate data-updated="true">Mar 11<span>th</span>, 2007</time>
+<time datetime="2007-12-05T00:00:00-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2007</time>
         
-         | <a href="/2007/03/11/PostGIS-and-ArcGIS-9.2/#disqus_thread">Comments</a>
+         | <a href="/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Updating my <a href="http://geobabble.wordpress.com/2006/12/17/postgis-and-arcgis-91/">earlier post</a>:</p>
+  <div class="entry-content"><p><a href="http://apb.directionsmag.com/archives/3703-Neogeography-is-not-GIS;-not-LI.html">All Points</a> got the ball rolling this time around. <a href="http://geothought.blogspot.com/2007/12/no-data-creation-in-neogeography-errr.html">Peter Batty</a> responded with his usual thoughtfulness and <a href="http://geotips.blogspot.com/2007/12/real-men-use-real-gis-software.html">Paul Ramsey</a> gets the award for the best reponse so far.</p>
 
-<p>I completed my upgrade to 9.2 yesterday with the installation of the last service pack. The first thing I did was upgrade <a href="http://code.google.com/p/ziggis">zigGIS</a> to ensure that there wouldn&#8217;t be problems. I have to say that the first thing I noticed was all of the tools ESRI has integrated with VS2005. I liked what they did with 2003 but these are even better. One thing I liked was the &#8220;Add ArcGIS Reference&#8221; tool. It updated my old 9.1 references to 9.2 without my having to remove them first. It was nice to have that step taken away.</p>
+<p>I watch this and can&#8217;t help but wonder: haven&#8217;t we been here before?</p>
 
-<p>That was all I needed to do. After I upgraded the references and built the project, it worked like a charm. I&#8217;ve got to work on a clean way to swap the references in and out, though. <a href="http://www.paolocorti.net">Paolo</a> is still at 9.0. When I was at 9.1, I would have to go and update references every time a pulled a new version from Google Code. Right now, I just keep a copy of the .csproj off to the side but there should be a more elegant way to do it.</p>
+<p>If we replace the phrase &#8221;<a href="http://gislounge.com/internet-mapping/google-maps/neogeography/">neogeography</a>&#8221; with the phrase &#8220;desktop mapping&#8221; then I feel like we had this conversation 10 (or more) years ago. The ironic part is that MapInfo was in the position then that neo-geo is in now.</p>
 
-<p>So the good news is that zigGIS has now been verified against 9.0 (SP3), 9.1 and 9.2.</p>
+<p>Many GIS hard-liners argued that non-topological mapping packages could not be called GIS. &#8220;Real GIS&#8221; understood topology and could do analysis based upon topology. That argument was mostly forwarded by the <a href="http://en.wikipedia.org/wiki/ArcInfo">Arc/Info</a> crowd (although I don&#8217;t think <a href="http://www.esri.com">ESRI</a> was directly involved, it arose more from Arc/Info adherents). Software such as <a href="http://www.mapinfo.com/location/integration">MapInfo</a>, <a href="http://www.caliper.com/">Maptitude</a>, etc. was not &#8220;real GIS&#8221; and, therefore, their outputs could not be trusted.</p>
+
+<p>Well, we see what happened: that market proliferated. <a href="http://en.wikipedia.org/wiki/ArcView_3.x">ArcView 3.x</a> became the most widely used GIS package around at the time. Other desktop systems (MapInfo, <a href="http://www.manifold.net">Manifold</a>, etc.) beefed up their capabilities and ESRI eventually produced ArcMap. Anyone care to have that conversation again? I didn&#8217;t think so.</p>
+
+<p>So, is neogeography GIS? I don&#8217;t know. What&#8217;s the measure? Those put forth by Mike Hickey are different than those put forth as arguments against desktop mapping years ago. So, really, the hurdle has just been moved. Maybe neo-geo isn&#8217;t GIS&#8230;yet. But does anyone really think the technology won&#8217;t advance? Take a look at <a href="http://featureserver.org/">FeatureServer</a>. Take a look at the various spatial SQL implementations in <a href="http://postgis.refractions.net">PostGIS</a>, <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a>, <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle</a> and many others. People are trying to solve that problem. If ESRI ever puts out their <a href="http://virtualearth4gov.spaces.live.com/Blog/cns!369B39F890CE30C1!408.entry">REST API</a>, the neo-geo community will have the full power (maybe) of ArcGIS Server at their disposal. I have an idea: if MapInfo feels that neo-geo isn&#8217;t really GIS, why don&#8217;t they create a product line targeted at giving the neo-geo community &#8220;real GIS&#8221; tools. Whatever those are. Looks like a market opportunity to me.</p>
+
+<p>Making decisions about the viability/validity of neo-geo based on the current state of the technology is a little short-sighted to say the least.</p>
 </div>
   
   
@@ -116,7 +122,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/03/09/Almost-There-with-9.2/">Almost There With 9.2</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/03/A-Year-of-GeoMusings/">A Year of GeoMusings</a></h1>
     
     
       <p class="meta">
@@ -132,148 +138,22 @@
   
 
 
-<time datetime="2007-03-09T00:00:00-05:00" pubdate data-updated="true">Mar 9<span>th</span>, 2007</time>
+<time datetime="2007-12-03T00:00:00-05:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2007</time>
         
-         | <a href="/2007/03/09/Almost-There-with-9.2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Okay, I have no one to blame but myself. I have Desktop and the full EDN kit (except for ArcIMS) installed. Therefore, I&#8217;ve uninistalled everything 9.1 and reinstalled everything 9.2 and now I get to do the service packs. One day, I&#8217;ll get back to coding, I&#8217;m sure.</p>
-
-<p>Meanwhile, the front of my forehead keeps getting flatter from banging it on the desk&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/03/08/Finally-Upgrading-to-9.2/">Finally Upgrading to 9.2&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-03-08T00:00:00-05:00" pubdate data-updated="true">Mar 8<span>th</span>, 2007</time>
-        
-         | <a href="/2007/03/08/Finally-Upgrading-to-9.2/#disqus_thread">Comments</a>
+         | <a href="/2007/12/03/A-Year-of-GeoMusings/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I&#8217;m a little behind the curve on this but I&#8217;ve had one customer holding out until recently. Now I can finally take the plunge. Who needs sleep? See you on the other side&#8230;  ;-)</p>
-</div>
-  
-  
+  <div class="entry-content"><p>It&#8217;s been a year since I stood up GeoMusings. This is my second attempt at blogging. My first, ArcDeveloper, fizzled mainly because of a lack of focus on my part. So I started again on 1 December of 2006. I was originally on Blogger but quickly moved to WordPress. Early on, I started playing with <a href="http://code.google.com/p/ziggis/">zigGIS</a>, the open-source <a href="http://postgis.refractions.net/">PostGIS</a> connector for <a href="http://en.wikipedia.org/wiki/ArcMap">ArcMap</a>. I was impressed with the code and eventually joined the project. So the first couple of months were heavily focused on zigGIS and the blog may have been interpreted as a &#8220;zigGIS blog.&#8221; That was never the intent but have been the first impression.</p>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/02/24/How-Do-You-Disable-This-Dialog-in-ArcMap/">How Do You Disable This Dialog in ArcMap?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-02-24T00:00:00-05:00" pubdate data-updated="true">Feb 24<span>th</span>, 2007</time>
-        
-         | <a href="/2007/02/24/How-Do-You-Disable-This-Dialog-in-ArcMap/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong><strong>UPDATE</strong></strong><em>Check the comments for the resolution to this. 9.2 offers a registry setting and, since I&#8217;m upgrading, I&#8217;ll make use of that. I got pretty far on my API hack though.</em></p>
-
-<p>My question is twofold: First: Can you stop this dialog from appearing in ArcMap 9.1? Second: If not, does 9.2 give you the option to turn this thing off?</p>
-
-<p><img alt="ArcMap Drawing Errors?Dialog" src="http://geobabble.files.wordpress.com/2007/02/arcmap_draw_error.JPG" /></p>
-
-<p>I have posted a similar query on the ESRI forums but I thought the blogosphere may be able to weigh in on this. This dialog was introduced at 9.1 as a &#8220;feature&#8221; but it&#8217;s not the most developer-friendly thing in the world. A little background:</p>
-
-<p>I have an application running as a Windows service that is receiving data and stuffing it into ArcSDE. I have another app that&#8217;s an ArcMap extension. It refreshed the map on a specified interval and shows the new data as it comes in. There is no syncronization between the two. As you would expect, there are occaionally collisions. The ArcSDE layer may be in load-only mode or something similar. I have a lot of exception-handling in place to trap all of those kinds of things.</p>
-
-<p>This dialog defies all of that. Despite my exception handling, it still pops up and it completely freaks out my users. I would like to turn it off. (I would really like to kill it.) I can&#8217;t find a registry setting or any other such option that allows me to do that so I&#8217;m stumped. Any help would be appreciated and I promise to sing your praises on this blog if you have the solution.</p>
-
-<p>For background: we are using 9.1 (for a number of reasons). We are starting the upgrade planning to go to 9.2. If 9.2 fixes this, then I&#8217;ll stop worrying about it. Any useful info would be very helpful. My next step is some slimy Windows API hack to suppress the damned thing.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/02/21/Working-with-.zig-files/">Working With .zig Files</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The last couple of days have shown some traffic being driven to my blog from search terms such as &#8220;opening zig file&#8221; so I thought I&#8217;d offer up a discussion of the format.</p>
-
-<p>Abe Gillespie, the original developer of <a href="http://code.google.com/p/ziggis">zigGIS</a>, developed the zig file as a means of persisting PostGIS connection information used to access a layer and display it in ArcMap. He threw us a blast from the past by choosing the old Windows INI format as the zig file syntax. I admire the choice because, truth be told, I still use that format from time to time. For simple configuration information, it&#8217;s more efficient than XML.</div>
+<p>Generally, the blog has been a way for me to vent about things I&#8217;m working with as well as an outlet for my own experimentation. It has been a great way for me to get exposed to the open-source GIS community. There&#8217;s a lot of impressive work going on in that area and it&#8217;s been interesting to see the pace with which open-source technology is advancing. I have also been able to meet some great people, such as <a href="http://www.paolocorti.net/public/wordpress/">Paolo</a> and <a href="http://abegillespie.blogspot.com">Abe</a> as well as many others. Anyway, here are some of the observations/opinions I&#8217;ve formed as a result of a year of blogging:</div>
   
   
     <footer>
-      <a rel="full-article" href="/2007/02/21/Working-with-.zig-files/">Read on &rarr;</a>
+      <a rel="full-article" href="/2007/12/03/A-Year-of-GeoMusings/">Read on &rarr;</a>
     </footer>
   
 
@@ -285,7 +165,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/16/DDJ-Article-on-MyMap-Javascript-API/">DDJ Article on MyMap Javascript API</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/02/Stealing-GPS/">Stealing GPS&#8230;</a></h1>
     
     
       <p class="meta">
@@ -301,18 +181,28 @@
   
 
 
-<time datetime="2007-02-16T00:00:00-05:00" pubdate data-updated="true">Feb 16<span>th</span>, 2007</time>
+<time datetime="2007-12-02T00:00:00-05:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2007</time>
         
-         | <a href="/2007/02/16/DDJ-Article-on-MyMap-Javascript-API/#disqus_thread">Comments</a>
+         | <a href="/2007/12/02/Stealing-GPS/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>An <a href="http://www.ddj.com/dept/webservices/197003355">article</a> in the latest Dr. Dobb&#8217;s caught my eye. It&#8217;s about MyMap; a javascript api that standardizes the calls between Google Maps, Yahoo Maps and Virtual Earth. I&#8217;m always drawn when mapping tools get press outside of the GIS world. MyMap is predicated on the idea that each mapping engine provides similar capabilities. There is a different .js file for each but the function calls are the same. Therefore, it makes it relatively easy to provide similar capabilities for your web app regardless of the back-end engine.</p>
+  <div class="entry-content"><p>The following was reported on the local news in Washington, DC:</p>
 
-<p>I installed the <a href="ftp://66.77.27.238/sourcecode/ddj/2007/0703.zip">sample</a> from the DDJ resource center and it&#8217;s pretty straightforward. You may need to comment out the call to Google Maps because the API key won&#8217;t work for you. If you have your own, you can use that. Either way, the Yahoo and VE calls work fine and give good idea of how MyMap works. I&#8217;d recommend checking it out.</p>
+<blockquote>
+<em>WRC-TV
+updated 7:37 p.m. ET, Mon., Nov. 26, 2007
+BETHESDA, Md. - On two nights earlier this month, several cars were broken into in Bethesda, police said. The break-ins occurred overnight Nov. 7 to Nov. 8 and overnight Nov. 11 to Nov. 12, police said. Between the two nights, a total of 49 cars were broken into. 
+
+The culprits stole global positioning systems.</em>
+</blockquote>
+
+
+<p>You have to wonder about the logic of stealing something that locates itself&#8230;
+Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://www.msnbc.msn.com/id/21979301/</a></p>
 </div>
   
   
@@ -325,7 +215,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/14/zigGIS-1.1.0.20768-Now-Available/">zigGIS 1.1.0.20768 Now Available!</a></h1>
+      <h1 class="entry-title"><a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">SQL Server 2008 SharpMap Data Provider Code</a></h1>
     
     
       <p class="meta">
@@ -341,18 +231,77 @@
   
 
 
-<time datetime="2007-02-14T00:00:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2007</time>
+<time datetime="2007-11-28T00:00:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2007</time>
         
-         | <a href="/2007/02/14/zigGIS-1.1.0.20768-Now-Available/#disqus_thread">Comments</a>
+         | <a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.paolocorti.net">Paolo</a> moves fast! The new installer is available for download at the <a href="http://code.google.com/p/ziggis">zigGIS project home</a>. Bear in mind that zigGIS depends on the ArcObjects .NET libraries. A good post on making sure you&#8217;ve got them is available <a href="http://mrrichie.spaces.live.com/blog/cns!DD16C3F34F4D913E!582.entry">here</a>.</p>
+  <div class="entry-content"><p>As promised, I have uploaded the data provider code I <a href="http://geobabble.wordpress.com/2007/11/20/sharpmap-and-sql-server-2008-spatial/">mentioned earlier</a> to the <a href="http://www.codeplex.com/SharpMap">SharpMap</a> site. It&#8217;s written in C#. I took the existing Oracle provider, stripped out the Oracle SQL and put in T-SQL. There are a couple of things I&#8217;m still trying to chase down but it&#8217;s basically done at this point. I know they&#8217;re busy trying to finish up SharpMap 2.0 so I don&#8217;t know how long it&#8217;ll take to become available. Just in case, here&#8217;s the code:</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">Read on &rarr;</a>
+    </footer>
+  
 
-<p>The last version had over 200 downloads. Please feel free to post feedback at the project site. All feedback helps us make it better.</p>
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/">Spatial References in SQL Server 2008, Part 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>With some guidance from <a href="http://geotips.blogspot.com/">Paul Ramsey</a>, I implemented a check constraint on my sample table to allow only a single SRID in a table. As Paul indicated in <a href="http://geobabble.wordpress.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/#comment-3803">his comment on my previous post</a>, <a href="http://postgis.refractions.net">PostGIS</a> does this for you. SQL 2008 doesn&#8217;t yet but I hope it does. The syntax for my table was:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">--only allow WGS84</span>
+</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">SpatialTable</span>
+</span><span class='line'>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">enforce_srid_geometry</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4326</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After doing that, the following SQL will properly fail:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">UPDATE</span> <span class="n">SpatialTable</span>
+</span><span class='line'>  <span class="k">SET</span> <span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4127</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thanks to Paul for chiming in!</p>
 </div>
   
   
@@ -365,7 +314,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/13/zigGIS-Update-Coming-Soon/">zigGIS Update Coming Soon</a></h1>
+      <h1 class="entry-title"><a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-November-CTP/">Spatial References in SQL Server 2008 November CTP</a></h1>
     
     
       <p class="meta">
@@ -381,25 +330,65 @@
   
 
 
-<time datetime="2007-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2007</time>
+<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
         
-         | <a href="/2007/02/13/zigGIS-Update-Coming-Soon/#disqus_thread">Comments</a>
+         | <a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-November-CTP/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Things have been a little slow on the <a href="http://code.google.com/p/ziggis/">zigGIS</a> front for the last few weeks. Both Paolo and I have been incredibly busy at work. We have both made some updates but it&#8217;s been hard to pull them together into a coherent release. That&#8217;s getting very close now. Enhancements this time around will include:</p>
+  <div class="entry-content"><p>I&#8217;ve been playing with the <a href="http://www.microsoft.com/sql/2008/default.mspx">SQL 2008 November CTP</a> since it was released last week and have been generally impressed but as I have delved into its handling fo spatial references, I have noted some areas of concern. Keeping in mind that it&#8217;s a CTP, I&#8217;m hoping that some aspects may be addressed before release.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/11/26/Spatial-References-in-SQL-Server-2008-November-CTP/">Read on &rarr;</a>
+    </footer>
+  
 
-<ol>
-    <li>On-the-fly reprojection - We have been able to get layers with different SRIDs to overlay correctly. Also, you can change the SRIF of the map and the layers display correctly. Obviously, we haven&#8217;t tested every spatial reference out there but we&#8217;re encouraged.</li>
-    <li>Dataset Enumeration - We can now list the PostGIS layers in the database to which we connect. Paolo has implemented a new dialog that allows you to pick the layer you want rather than having to type it.</li>
-    <li>Use of a PropertySet for workspace properties - It&#8217;s now not as tightly coupled to the .zig file and more consistent with how other data sources are implemented in ArcGIS</li>
-</ol>
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/20/SharpMap-and-SQL-Server-2008-Spatial/">SharpMap and SQL Server 2008 Spatial</a></h1>
+    
+    
+      <p class="meta">
+        
 
 
-<p>Paolo is working hard to pull all of our changes together and get a release out soon. There are probably other updates that I&#8217;m missing but there will be a full accounting once the release is out. We&#8217;re still working toward some bigger issues, such as editing. Also, we&#8217;ve begun the development of some catalog objects. Those will be addressed in subsequent releases.</p>
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-20T00:00:00-05:00" pubdate data-updated="true">Nov 20<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/20/SharpMap-and-SQL-Server-2008-Spatial/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I downloaded the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">November CTP</a> yesterday and couldn&#8217;t resist. Today I wrote a <a href="http://www.codeplex.com/SharpMap">SharpMap</a> data provider for it. The black rectangle below represents a sample data set I created. It&#8217;s not as pretty as the Mexico data I used with <a href="http://www.sqlite.org/">SQLite</a> but it&#8217;s beautiful to me. It&#8217;s being displayed in the DemoWinForm app that comes with SharpMap 0.9. I am still working in 0.9 because a project I am on is using it. I&#8217;ll migrate to 2.0 a little later.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.png" title="sharpmap_sql2008.png"><img alt="sharpmap_sql2008.png" src="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.thumbnail.png" /></a></p>
+
+<p>Anyway, <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">I previously sung the praises of SharpMap and its ease of extensibility</a>. The turn-around time needed to write a provider speaks well of SQL 2008 to this point. All of the native SharpMap functions for handling WKB are working fine with the output from SQL 2008. This tells me that Microsoft is doing a good job of implementing OGC specifications.</p>
+
+<p>I am compiling my first impressions about SQL 2008 Spatial and will post them later. Most of them are favorable. It&#8217;s the first public beta of sorts and there are still some things missing (coordinate tranformations for instance) that I hope will come later but it makes a good first impression. Outside of the spatial capability, the platform in general seems stable. It&#8217;s almost production-ready as is.</p>
+
+<p>I will post the code to the provider later. There&#8217;s one piece unrelated to data handling that I need to clean up and then I&#8217;ll most likely post it over on the SharpMap site and see if they&#8217;ll take it. After that, I guess I&#8217;ll build a data loader&#8230;</p>
 </div>
   
   
@@ -412,7 +401,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/07/ArcGIS-Next/">ArcGIS.Next (+)</a></h1>
+      <h1 class="entry-title"><a href="/2007/11/19/SQL-Server-2008-November-CTP-Released/">SQL Server 2008 November CTP Released</a></h1>
     
     
       <p class="meta">
@@ -428,24 +417,18 @@
   
 
 
-<time datetime="2007-02-07T00:00:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2007</time>
+<time datetime="2007-11-19T00:00:00-05:00" pubdate data-updated="true">Nov 19<span>th</span>, 2007</time>
         
-         | <a href="/2007/02/07/ArcGIS-Next/#disqus_thread">Comments</a>
+         | <a href="/2007/11/19/SQL-Server-2008-November-CTP-Released/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Steve has <a href="http://thesteve0.wordpress.com/2007/02/06/notes-from-the-esri-cahinvguam-regional-users-group/">blogged</a> about Clint Brown&#8217;s talk at the CA/HI/NV/Guam RUG meeting. There&#8217;s nothing particularly suprprising but we&#8217;re starting to get dates and features tied to version numbers.</p>
+  <div class="entry-content"><p>It&#8217;s downloading as I write. Here&#8217;s the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">link</a>. Now the rest of us can try the spatial support!</p>
 
-<p>I am encouraged that 9.3 will be in beta soon. ESRI&#8217;s odd-numbered releases are always more stable. The support for <a href="http://www.postgresql.org/">PostgreSQL</a> with ArcSDE is not a surprise. It will be interesting to see whether that ends up being a port of ArcSDE to PostgreSQL or whether they will take advantage of <a href="http://postgis.refractions.net/">PostGIS</a>. I suspect the former. However, the ability to choose an open-source RDBMS greatly reduces the overall cost of implementing ArcSDE. That can only be a good thing. Also, I&#8217;m glad they chose PostgreSQL rather than <a href="http://www.mysql.com/">MySQL</a>. At the risk of slings and arrows, I much prefer PG to MySQL.</p>
-
-<p>I am particularly encouraged by some of the features planned for 10.0. I also don&#8217;t see most of those features happening without ArcGIS finally moving away from COM. That will be an extremely welcome change. Hopefully, they will go straight to <a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF</a> for the UI.</p>
-
-<p>So what about <a href="http://code.google.com/p/ziggis/">zigGIS</a>? I see no reason to stop. If ESRI just implements PostGIS, maybe zigGIS becomes redundant but I suspect the GPL will prevent them from doing that. Therefore, I see it being more of a port of the existing ArcSDE. Anyway, I think the need for a completely free connector to PostGIS will continue, so we will keep moving forward.</p>
-
-<p>All in all, I&#8217;m encouraged by what&#8217;s on the way with regard to the technology. I&#8217;d still like to get more of an idea who ESRI&#8217;s &#8220;Steve Ballmer&#8221; is, though.</p>
+<p>This is something that&#8217;s been long overdue from Microsoft. It&#8217;s time to lock myself in the basement. :)</p>
 </div>
   
   
@@ -458,7 +441,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/05/Two-Roads-Diverged-in-a-Yellow-Wood/">Two Roads Diverged in a Yellow Wood&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/2007/11/15/Navteq-MapReporter/">Navteq MapReporter</a></h1>
     
     
       <p class="meta">
@@ -474,28 +457,66 @@
   
 
 
-<time datetime="2007-02-05T00:00:00-05:00" pubdate data-updated="true">Feb 5<span>th</span>, 2007</time>
+<time datetime="2007-11-15T00:00:00-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2007</time>
         
-         | <a href="/2007/02/05/Two-Roads-Diverged-in-a-Yellow-Wood/#disqus_thread">Comments</a>
+         | <a href="/2007/11/15/Navteq-MapReporter/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>With apologies to the great Robert Frost.</p>
+  <div class="entry-content"><p>I was attending a working group meeting yesterday and learned of Navteq&#8217;s <a href="http://mapreporter.com">MapReporter</a> site. It is a system they have implemented to allow users to report data errors to Navteq. The interface seems very intuitive. It even does a good job of picking locations from partial addresses. The image below shows that map interface:</p>
 
-<p>I&#8217;ll admit that over the last few months I&#8217;ve become something of an open-source convert. I&#8217;ve been in the consulting business for about 15 years now and I&#8217;ve made through the &#8220;holy wars&#8221; relatively unscathed (Microsoft/Linux, IE/Netscape/Firefox, Oracle/Everyone else, ad nauseum). I&#8217;ve said it before that it&#8217;s not religion, it&#8217;s technology. I&#8217;ve gotten to this particular point in my career with two basic philosophies intact: 1) Nothing big works and 2) I can do whatever you need to do on whatever platform you want with whatever tools you give me; it&#8217;s just a matter of &#8220;how.&#8221;</p>
+<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.png" title="Navteq MapReporter map interface"><img alt="Navteq MapReporter map interface" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.thumbnail.png" /></a></p>
 
-<p>Most of my GIS consulting work over the years has been with ESRI technologies and it&#8217;s served me and my customers well. In general, it works and, more importantly, I know how it works. But over the last couple of years, there has been a disturbing trend with the technology: it&#8217;s gotten more complex (nothing big works) and more expensive. When my Federal customers start to balk, I know there&#8217;s a problem. In addition, there&#8217;s ESRI itself. It is still a privately held company with an owner that&#8217;s not getting any younger. Lacking any evidence of a transition plan that maps out how the next 10 to 15 years will go, I&#8217;ve begun doing the only responsible thing for my company and my customers: hedging my bets.</p>
+<p>Once in, there is a standard form so that you can report the nature of the data error. Here is a screen shot (the address in the map above is not the same one I used in the form, which is why it&#8217;s blurred here):</p>
 
-<p>Given that most of ESRI&#8217;s serious commercial competition imploded years ago (don&#8217;t try to debate that with your single-digit-market-share tool of choice), I began paying more attention to open-source products. The approach I&#8217;ve taken is to try to piece together an open-source architecture that I would feel as comfortable recommending to a customer as the ESRI architecture. My focus has begun to gel around a core few: <a href="http://docs.codehaus.org/display/GEOS/Home">GeoServer</a>, <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=SharpMap">SharpMap</a>, <a href="http://www.postgresql.org/">PostgreSQL</a>/<a href="http://postgis.refractions.net/">PostGIS </a>and <a href="http://qgis.org/">QGIS</a>. Also key for me is that any client technology must be able to take advantage of Oracle Spatial. It&#8217;s not open-source, but it&#8217;s everywhere.</p>
+<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.png" title="Navteq MapReporter entry from"><img alt="Navteq MapReporter entry from" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.thumbnail.png" /></a></p>
 
-<p>Being a programmer from the ArcObjects/ArcSDE mold, the ones I&#8217;ve been having the most fun with are SharpMap and PostGIS. As I&#8217;ve posted before, I even joined the <a href="http://code.google.com/p/ziggis/">zigGIS</a> project to enable connectivity between PostGIS and ArcGIS. That&#8217;s been the most fun I&#8217;ve had in a long time. Probably the weakest link so far is the lack of a really good desktop tool that I could put in front of one of my analysts and say &#8220;make a map that looks as good as the ones you make in ArcMap.&#8221; QGIS is on the right track but still pretty far from the station. My analysts, thus far, won&#8217;t give it a second look.</p>
+<p>I was able to pretty quickly report an error. One nice feature is that the system gives you a tracking number so you can check the status of your issue. You can submit a report as a guest or you can create an account. I have not created an account yet to see what that does for you because the page that allows you to create an account (supplying your personal info) does not use SSL (although the login page for those who have accounts does). They may want to fix that. Otherwise, it seems like a nice tool and a good way to keep the database up to date.</p>
+</div>
+  
+  
 
-<p>So how has all of this made me a convert? It&#8217;s come down to the simple convenience of open-source. I&#8217;m still doing a lot of experimenting. Some of my existing customers are really interested in implementing open-source but can&#8217;t quite make the switch yet. So I was playing around with a very simple tool I was trying to build using SharpMap and I just couldn&#8217;t get it to work. I figured I had to be doing something wrong so I opened up SharpMap&#8217;s source code and examined the class I was using, realized my mistake, and moved on. The power and simplicity of that act, compared to the years of hacking against ArcObjects bugs and documentation, was breathtaking. It&#8217;s raised the bar significantly in terms of my expectations of software.</p>
 
-<p>Now to step back from the edge a little: It&#8217;s not religion. Most of my customers use, and are committed to, ESRI technology. I&#8217;ve had a good working relationship with the company and the people in it. Also, quite frankly, many open-source tools are very immature and unstable. But, as ESRI shifts their focus more to the enterprise market, there will be an increasing number of small of mid-sized users getting into the geospatial game for the first time who will feel priced out. For my part, it would be irresponsible not to be prepared to address their needs with an alternate set of technologies. It will be interesting to see which becomes the road less traveled.</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/12/Monday-Frivolity-My-Latest-Project-Plan/">Monday Frivolity - My Latest Project Plan</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-12T00:00:00-05:00" pubdate data-updated="true">Nov 12<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/12/Monday-Frivolity-My-Latest-Project-Plan/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I decided to go for the honest approach&#8230;</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/11/project_plan_humor.png"><img alt="Think this'll fly?" class="alignnone size-thumbnail wp-image-115" height="46" src="http://geobabble.files.wordpress.com/2007/11/project_plan_humor.png?w=128" title="Think this'll fly?" width="128" /></a></p>
+
+<p>Maybe I&#8217;ll just use this as a template from now on. :)</p>
 </div>
   
   

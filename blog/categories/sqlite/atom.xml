@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sqlite | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/sqlite/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T22:16:30-05:00</updated>
+  <updated>2012-12-19T14:13:06-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite 3.0 Beta Is Available]]></title>
+    <link href="http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available/"/>
+    <updated>2011-08-19T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available</id>
+    <content type="html"><![CDATA[<p>Alessandro Furieri announced the availability of the beta of SpatiaLite 3.0.0 on 17 August. It can be downloaded here: <a href="http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html">http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html</a>.</p>
+
+<p>Some of the more interesting additions include additional support for topology and the ability to export <a href="http://geojson.org">GeoJSON</a>.</p>
+
+<p>I did a <strong>very</strong> quick test with QGIS 1.7.0 and was able to directly access and edit a table in a database I created with SpatiaLite 3.0.0 so that's initially promising.</p>
+
+<p>[caption id="attachment_1985" align="aligncenter" width="300" caption="The extra island off the coast of Canada was edited in with QGIS."]<a href="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png"><img alt="" class="size-medium wp-image-1985" height="160" src="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png?w=300" title="Accessing SpatiaLite 3.0.0 in QGIS" width="300" /></a>[/caption]</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SpatiaLite Provider Now In SharpMap Repository]]></title>
@@ -1037,25 +1052,6 @@ enhanced GUI-tool:
 <p>It's out there now in the SVN trunk if you're so inclined. I am curious how long it will take to cascade through to the <a href="http://wiki.osgeo.org/wiki/OSGeo_Win32_Installer">OSGEO4W</a> build.</p>
 
 <p>If you haven't check out SpatiaLite, I highly encourage you to do so. It is powerful and <em>very</em> lightweight.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Odds and Ends (SpatiaLite and Stuff)]]></title>
-    <link href="http://blog.geomusings.com/2008/12/30/Odds-and-Ends-SpatiaLite-and-Stuff/"/>
-    <updated>2008-12-30T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2008/12/30/Odds-and-Ends-SpatiaLite-and-Stuff</id>
-    <content type="html"><![CDATA[<p>It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as well. We established a new presence in Colorado Springs (I'll be traveling there at the end of January). Additionally, I've been busy with project work and have recently begun spend part time on a customer site. So, the blog has been squeezed a little.</p>
-
-<p>I am doing more work with <a href="http://www.esri.com/software/arcgis/arcgisserver/">ArcGIS Server 9.3</a> and the Javascript API but probably won't have enough to blog about for a few more weeks. Also, at the urging of <a href="http://geopdf.blogspot.com/">Adam Estrada</a>, I have begun dabbling more with <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>. You may remember my post some time ago about integrating <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">SQLite with SharpMap</a>. SpatiaLite is a spatial extension to SQLite and it seems to be very powerful. I am currently re-working my previous code so that I'll have a SpatiaLite provider for <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. With the use of the <a href="http://sqlite.phxsoftware.com/">SQLite OLEDB provider</a>, this has gone fairly smoothly.</p>
-
-<p>The thing I really like about it is the portability. You can basically drop a couple of DLLs and go. Additionally, SpatiaLite has strong support for many spatial operations so it can be a fairly robust analysis back-end. These two attributes raise a lot of possibilities for mobile applications. I have done some mobile development work with <a href="http://postgis.refractions.net/">PostGIS</a> (okay, the platforms were fairly heavy but they were in vehicles that rolled around) and it worked well but SpatiaLite might ease some of those "in the field" workflows, especially the delivery of relevant basemap information.</p>
-
-<p>With regard to SharpMap, it looks like SpatiaLite provider is under way for 2.0. I am doing my own for 0.9 because it helps me get more comfortable with SpatiaLite. Once I am finished, I'll be happy to share my code but you may want to take a look at what's being implemented with 2.0. It's fairly elegant.</p>
-
-<p>Also of interest, the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Users Google Group</a>.</p>
-
-<p>Update: the code for SharpMap 2.0 is currently located <a href="http://code.google.com/p/sharpmapv2/">here</a>.</p>
 ]]></content>
   </entry>
   

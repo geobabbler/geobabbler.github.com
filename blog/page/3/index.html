@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="My project work the last few months has kept me away from a lot of my favorite open-source tools and I was starting to get hives. Specifically, it &hellip;">
+  <meta name="description" content="I just got word from Anthony Quartararo that the dates for WhereCampTampaBay have been set for February 10-11, 2012. That seems like a pretty sweet &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2011/08/01/Triggered-Notifications-Using-PostGIS/">Triggered Notifications Using PostGIS</a></h1>
+      <h1 class="entry-title"><a href="/2011/11/21/Dates-Set-for-WhereCampTampaBay/">Dates Set for WhereCampTampaBay</a></h1>
     
     
       <p class="meta">
@@ -88,359 +88,23 @@
   
 
 
-<time datetime="2011-08-01T00:00:00-04:00" pubdate data-updated="true">Aug 1<span>st</span>, 2011</time>
+<time datetime="2011-11-21T00:00:00-05:00" pubdate data-updated="true">Nov 21<span>st</span>, 2011</time>
         
-         | <a href="/2011/08/01/Triggered-Notifications-Using-PostGIS/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>My project work the last few months has kept me away from a lot of my favorite open-source tools and I was starting to get hives. Specifically, it had been a while since I had worked with <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://postgis.refractions.net">PostGIS</a> and I was missing the experience, so I dreamed up something to do.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-1898" height="307" src="http://geobabble.files.wordpress.com/2011/08/elephant.png" title="Elephant" width="461" /></p>
-
-<p>I do a lot of work implementing situational awareness systems for my customers and one common requirement is automated notification of events. I decided that I wanted to roll a completely FOSS approach to sending an SMS notification based upon the results of a spatial query. This post will discuss the basic wiring to make it all work. I&#8217;ll probably add more advanced features in subsequent posts but I&#8217;ll be sticking to the basics for now.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2011/08/01/Triggered-Notifications-Using-PostGIS/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/04/07/Working-with-the-GeoIQ-Features-API/">Working With the GeoIQ Features API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-04-07T00:00:00-04:00" pubdate data-updated="true">Apr 7<span>th</span>, 2011</time>
-        
-         | <a href="/2011/04/07/Working-with-the-GeoIQ-Features-API/#disqus_thread">Comments</a>
+         | <a href="/2011/11/21/Dates-Set-for-WhereCampTampaBay/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I find myself pointing people to GeoCommons for data more often these days. With over <a href="http://blog.geoiq.com/2011/02/28/50000-unique-datasets-on-geocommons-woot/">50,000 data sets</a>, there&#8217;s a lot there. The people I work with seem to usually be able to find data of value there so I&#8217;ve been putting a little time into <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">making it easier</a> to get data from GeoCommons. As I&#8217;ve mentioned before, many of them are long-standing ESRI users. While they are becoming more aware of alternate tools and data sources, it is still important for them to be able to get data into the ESRI environment where their custom tools reside.</p>
+  <div class="entry-content"><p>I just got word from <a href="http://twitter.com/tonyquartararo">Anthony Quartararo</a> that the dates for <a href="http://wherecamptb.org/">WhereCampTampaBay</a> have been set for February 10-11, 2012. That seems like a pretty sweet time of year for a weekend in Florida.</p>
 
-<p>Given the content of my recent posts, it?s no secret that my recent project work has involved the ESRI Silverlight API so I decided extend it to more easily access data from GeoCommons.</p>
+<p>[caption id=&#8221;&#8221; align=&#8221;alignnone&#8221; width=&#8221;500&#8221; caption=&#8221;By February, you&#039;ll be ready for this.&#8221;]<img alt="" height="375" src="http://www.qci-online.com/wp-content/uploads/2010/05/TampaPalms4.jpg" width="500" />[/caption]</p>
 
-<p><a href="http://geobabble.files.wordpress.com/2011/04/dogs_and_cats.png"><img alt="" class="aligncenter size-full wp-image-1670" height="281" src="http://geobabble.files.wordpress.com/2011/04/dogs_and_cats.png" title="Dogs and cats living together" width="500" /></a></p>
+<p>The 10th will feature an IgniteSpatial lightning talk session with the actual unconference happening on the 11th. I had a great time at WhereCampDC back in May and I know Florida has a very active spatial community that deals with a diverse problem set. I think this has the potential to very a very good event.</p>
 
-<p>Recently, <a href="http://www.geoiq.com">GeoIQ</a> pubished an update to their RESTful API that includes a &#8221;<a href="http://developer.geoiq.com/api/rest-api/#Features-API">Features API</a>,&#8221; which gives you a little more direct access to the features in a GeoIQ data set (GeoIQ is the platform upon which GeoCommons is built). Previously, if I needed to access data from GeoCommons in the ESRI Silverlight API, I would just access it as KML using the native <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client.Toolkit.DataSources~ESRI.ArcGIS.Client.Toolkit.DataSources.KmlLayer.html">KmlLayer class</a>. The GeoIQ Features API, however, offers more fine-grained control over how much data we return in the form of various query parameters. Currently, the API only returns JSON (GeoIQ&#8217;s own syntax or GeoJSON) so it was time to do something different.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2011/04/07/Working-with-the-GeoIQ-Features-API/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/03/21/Using-BruTile-and-MapsUI-to-Enable-WeoGeo-Previews/">Using BruTile and MapsUI to Enable WeoGeo Previews</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-03-21T00:00:00-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2011</time>
-        
-         | <a href="/2011/03/21/Using-BruTile-and-MapsUI-to-Enable-WeoGeo-Previews/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A few weeks ago, <a href="http://geobabble.wordpress.com/2011/03/02/announcing-weogeo-tools-for-arcgis/">my company announced the availability</a> of the first beta version of <a href="http://www.zekiah.com/index.php?q=weogeo">WeoGeo Tools for ArcGIS</a>. Unlike the previous version, which opened a separate browser window, this new release allows a user to order a data set from <a href="http://market.weogeo.com">WeoGeo Market</a> or a library from inside ArcMap.</p>
-
-<p>One of the challenges was enabling data set previews. If you browse data sets using the <a href="http://www.weogeo.com">WeoGeo</a> online tool, you can get an idea of what the data set contains by using the data set preview images supplied by the data set provider.</p>
-
-<p>When we developed the first version of WeoGeo Tools for WeoGeo, they used kamap to create preview tiles for data sets. This was accomplished by used either one of two desktop tools: the weoapp (command line) or gWeoApp (GUI). The first version of WeoGeo Tools used the weoapp in the background to create tiles when uploading data. </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2011/03/21/Using-BruTile-and-MapsUI-to-Enable-WeoGeo-Previews/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/01/26/Getting-Started-With-a-Python-Wrapper-For-the-WeoGeo-API/">Getting Started With a Python Wrapper for the WeoGeo API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-26T00:00:00-05:00" pubdate data-updated="true">Jan 26<span>th</span>, 2011</time>
-        
-         | <a href="/2011/01/26/Getting-Started-With-a-Python-Wrapper-For-the-WeoGeo-API/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>One of my <a href="http://geobabble.wordpress.com/2011/01/03/turning-it-up-to-11/">goals for 2011</a> was to sharpen my Python skills. As if on cue, <a href="http://www.weogeo.com">WeoGeo</a> puts out a Python wrapper for their RESTful API. It can be found <a href="http://code.google.com/p/weogeo-public-code/">here</a>. The good news is that I now have a familiar problem set to sink my teeth into. The bad news (for me) is that it&#8217;s so easy to use it&#8217;s probably not going to do much for my Python skills.</p>
-
-<p>The wrapper addresses the full WeoGeo API (Datasets, Jobs, Events, etc.) so it exposes pretty much everything you can through through the WeoGeo SaaS. For example, here is a very simple browse operation:</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2011/01/26/Getting-Started-With-a-Python-Wrapper-For-the-WeoGeo-API/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/12/16/Simple-Annotations-With-the-Esri-Silverlight-API/">Simple Annotations With the Esri Silverlight API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-16T00:00:00-05:00" pubdate data-updated="true">Dec 16<span>th</span>, 2010</time>
-        
-         | <a href="/2010/12/16/Simple-Annotations-With-the-Esri-Silverlight-API/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In a previous post, I mentioned that I developed a MeasureString function for use in developing an annotation tool. In this post, I&#8217;ll go into a little bit more detail about that tool. For purposes of discussion, I extended the interactive graphics sample from the <a href="http://help.arcgis.com/en/webapi/silverlight/samples/start.htm">Esri Silverlight API interactive SDK</a>.</p>
-
-<p>For starters, I added another tool to the sample&#8217;s tool bar (circled in red below) to provide access to the annotation capability.</p>
-
-<p><img alt="" class="alignleft size-full wp-image-1372" height="168" src="http://geobabble.files.wordpress.com/2010/12/sl_anno_1.png" title="Annotation tool on the toolbar" width="500" /></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2010/12/16/Simple-Annotations-With-the-Esri-Silverlight-API/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/12/13/DevGeo-Session-at-the-Esri-FedUC/">DevGeo Session at the Esri FedUC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-13T00:00:00-05:00" pubdate data-updated="true">Dec 13<span>th</span>, 2010</time>
-        
-         | <a href="/2010/12/13/DevGeo-Session-at-the-Esri-FedUC/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>We are approximately a month away from the <a href="http://www.esri.com/events/feduc/index.html">Esri Federal User Conference</a>. It is probably the largest geospatially-themed event in the DC/Maryland/Virginia area each year and has gotten bigger each year. I have documented this conference in the past and have pointed out that, despite its name, there is a lot of information that can be of value for state/local and other non-Federal users of Esri products. Given constrained travel budgets, it?s a good option for people who may not be able to make it to San Diego.</p>
-
-<p>This year, Esri has added something new to the FedUC. It was somewhat innocuously <a href="http://twitter.com/#!/JimBarry/status/13301630267039745">tweeted by Jim Barry</a> last week but is, in my opinion, a significant addition. If you check the agenda, you will now see that Thursday, January 20 now includes an <a href="http://www.esri.com/events/feduc/agenda/dev-geo.html">all-day DevGeo session</a>. This is a follow-on event to the <a href="http://www.esri.com/events/devgeo/index.html">inaugural DevGeo session</a> put on in Silicon Valley in November.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2010/12/13/DevGeo-Session-at-the-Esri-FedUC/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/12/10/Ten-Second-Tidy/">Ten-Second Tidy</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-10T00:00:00-05:00" pubdate data-updated="true">Dec 10<span>th</span>, 2010</time>
-        
-         | <a href="/2010/12/10/Ten-Second-Tidy/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Things have been a bit hectic the last few weeks and that&#8217;s left little time for blogging. Quite a bit has happened so I thought I&#8217;d do a little round-up (if for no other reason than to clear my own head).</p>
-
-<p>[youtube=http://www.youtube.com/watch?v=cJa7P6dfmco]</p>
-
-<p>In no particular order:</p>
-
-<p><strong>Steve Coast to Microsoft</strong> (I told you it had been a while) - Firstly, congratulations to Steve (#sincerity).  Secondly, this clearly is the final proof that crowd-sourced data in general, and OpenStreetMaps (sic) in particular, <a href="http://geobabble.wordpress.com/2010/09/16/be-the-crowd/">has no real value when compared to &#8220;authoritative&#8221; data sources</a> (#sarcasm).</p>
-
-<p><strong>Google Fusion Tables</strong> - The only real problem at this point is the size limitation but, otherwise, this will be a game-changer for storing and sharing data. In its current form, it&#8217;s already fairly easy to push your data up and expose it through Google&#8217;s APIs. It&#8217;ll be interesting to see if it gets easier. Support for spatial queries hints at some analytical capability, too. Speaking of which&#8230;</p>
-
-<p><strong>Analytics in GeoCommons</strong> - This is one to watch. They are debuting a new function each day <a href="http://blog.fortiusone.com/2010/12/06/the-12-analytics-of-christmas/">on their blog</a>. FortiusOne builds their platform API-first, UI-second so everything they are showing should be exposed through their APIs. This will be a huge step in moving cloud-based geospatial technology from the &#8220;bit-bucket&#8221; stage to having a more complete workflow on the cloud infrastructure.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2010/12/10/Ten-Second-Tidy/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/12/01/Where-Has-The-Time-Gone/">Where Has the Time Gone?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-01T00:00:00-05:00" pubdate data-updated="true">Dec 1<span>st</span>, 2010</time>
-        
-         | <a href="/2010/12/01/Where-Has-The-Time-Gone/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It&#8217;s been four years to the day since I started this blog. This was not my first attempt at blogging but I wasn&#8217;t happy with my first one so it&#8217;s been lost to the recycle bin of history. It was (and still is) intended to be an outlet for my observations and experiences arising from my work. Sometimes, that means I post code and other times it means I post rants.</p>
-
-<p>My <a href="http://geobabble.wordpress.com/2006/12/01/irasterlayer-export-gotcha-in-92/">first post</a> was regarding a bug with raster layers in ArcGIS 9.2. That project evolved to include the use of <a href="http://sharpmap.codeplex.com/">SharpMap</a> and <a href="http://postgis.refractions.net/">PostGIS</a>, which led me to get involved with <a href="http://www.obtusesoft.com">zigGIS</a>. From there, I got more involved with open-source GIS while also staying current with the various permutations of <a href="http://www.esri.com">Esri</a> technology (I can now say I was working with it when it was &#8220;EE ESS ARE EYE&#8221;).</p>
-
-<p><img alt="Now I just need a cake." src="http://www.latestgifts.co.uk/img/Candles/birthday-candle-number-4-four-large.jpg" /></p>
-
-<p>Today, I&#8217;m still working with a lot of Esri tools (especially since I still do a lot of work for the government) but I still maintain a mix of open-source tools and, more recently, have begun working with various cloud platforms (see recent posts on <a href="http://www.weogeo.com">WeoGeo</a>, <a href="http://www.geocommons.com">GeoCommons </a>and <a href="http://www.arc2earth.com">Arc2Earth</a>).</p>
-
-<p>So, whereas I was probably spending over 80% of my time working with ESRI tools when I started, I&#8217;d say that number is closer to 50% now. I would not, however, read much into that other than my own personal decisions. I feel the broader perspective of working with a variety of tools makes me a better <a href="http://www.zekiah.com">consultant</a>, regardless of which platform my customer has chosen.</p>
-
-<p>Over the past four years, I have gotten to know a lot of very smart people as a direct result of this blog so it&#8217;s definitely been a positive experience for me.</p>
-
-<p>To all who have stopped by over that time, please accept my sincerest thanks.</p>
+<p>To register for IgniteSpatial: <a href="http://wherecamptbignite-auto.eventbrite.com/">http://wherecamptbignite-auto.eventbrite.com/</a>
+To register for WhereCampTampaBay: <a href="http://wherecamptbunconference-auto.eventbrite.com/">http://wherecamptbunconference-auto.eventbrite.com/</a></p>
 </div>
   
   
@@ -453,7 +117,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API/">DynamicLayer Auto-Refresh for ESRI Silverlight API</a></h1>
+      <h1 class="entry-title"><a href="/2011/11/16/How-to-Delete-Your-Klout-Profile/">How to Delete Your Klout Profile</a></h1>
     
     
       <p class="meta">
@@ -469,24 +133,22 @@
   
 
 
-<time datetime="2010-11-01T00:00:00-04:00" pubdate data-updated="true">Nov 1<span>st</span>, 2010</time>
+<time datetime="2011-11-16T00:00:00-05:00" pubdate data-updated="true">Nov 16<span>th</span>, 2011</time>
         
-         | <a href="/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API/#disqus_thread">Comments</a>
+         | <a href="/2011/11/16/How-to-Delete-Your-Klout-Profile/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Despite <a href="http://techcrunch.com/2010/10/30/rip-silverlight-on-the-web/">recent news regarding Silverlight</a>, I expect some of my projects to continue using it for the near term. Others may be taking the same tack, so I thought I&#8217;d go ahead and offer this up.</p>
+  <div class="entry-content"><p>Klout is a service that purports to measure your influence across social media channels. The purpose of this post is not to render judgement on that concept but rather to show how to opt out. It was not a terribly intuitive process so I thought others might be interested in how to go about it.</p>
 
-<p>Several of the projects I support have the requirement to periodically refresh specific layers in order to track change or movement. These layers can range from weather to vehicle locations and such. I have typically accomplished this with a timer that refreshes the layer(s) on a specified interval. This can get rather cumbersome if you have different layers that require different refresh intervals.</p>
-
-<p>Working within <a href="http://www.silverlight.net/">Silverlight</a>, I have the option of using an existing layer class as a base class and extending it to include an automatic refresh capability. However, some classes, such as the <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.ArcGISDynamicMapServiceLayer.html">ArcGISDynamicMapServiceLayer</a>, are sealed and cannot be extended. Luckily, the <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=d197f51a-de07-4edf-9cba-1f1b4a22110d&amp;displaylang=en">Expression Blend SDK</a> enables me to get around this by attaching a custom behavior. </div>
+</div>
   
   
     <footer>
-      <a rel="full-article" href="/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API/">Read on &rarr;</a>
+      <a rel="full-article" href="/2011/11/16/How-to-Delete-Your-Klout-Profile/">Read on &rarr;</a>
     </footer>
   
 
@@ -498,7 +160,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/10/27/Completing-the-Model/">Completing the Model</a></h1>
+      <h1 class="entry-title"><a href="/2011/11/15/fgeojson/">F=geojson</a></h1>
     
     
       <p class="meta">
@@ -514,20 +176,351 @@
   
 
 
-<time datetime="2010-10-27T00:00:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2010</time>
+<time datetime="2011-11-15T00:00:00-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2011</time>
         
-         | <a href="/2010/10/27/Completing-the-Model/#disqus_thread">Comments</a>
+         | <a href="/2011/11/15/fgeojson/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>It has been a truism for some time that GIS enables us to build models of the Earth. Esri Press has even offered a book on geodatabase design called ?<a href="http://esripress.esri.com/display/index.cfm?fuseaction=display&amp;websiteID=27">Modeling Our World</a>? for a while. Traditionally, GIS has given us the ability to model the surface of the earth (in a broad sense), including our effect upon it. That can be extended to subsurface modeling and weather modeling and similar concepts but, in general, GIS has focused on the surface of the earth, plus or minus a few thousand meters or so. </div>
+  <div class="entry-content"><p>On November 11, 2011, I gave a lightning talk at the <a href="http://www.meetup.com/DevMeetUpNortheast/events/37184672/">ESRI Dev Meetup in Silver Spring, MD</a>. My talk was titled &#8220;If I Were Jack For a Day.&#8221; Despite the infinite comedic potential of that title, it was a tongue-in-cheek look at some items on my wish list for the <a href="http://en.wikipedia.org/wiki/ArcGIS">ArcGIS</a> platform.</p>
+
+<p>An increasing portion of my consulting work deals with helping users integrate their established ArcGIS infrastructures with other spatial technologies. So my talk was a semi-selfish look at things that would make my life as a consultant and integrator easier.</p>
+
+<p><a href="http://twitter.com/geeknixta">Nick Furness</a> will post the slides but they aren&#8217;t designed to stand on their own so I thought I&#8217;d address them here to provide context. I&#8217;ll take them one or two per post in no particular order. With that, first up on the docket:</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2245" height="360" src="http://geobabble.files.wordpress.com/2011/11/fgeojson.png" title="f=geojson" width="480" /></p>
+
+</div>
   
   
     <footer>
-      <a rel="full-article" href="/2010/10/27/Completing-the-Model/">Read on &rarr;</a>
+      <a rel="full-article" href="/2011/11/15/fgeojson/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/11/14/Today-Is-World-Diabetes-Day/">Today Is World Diabetes Day</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-14T00:00:00-05:00" pubdate data-updated="true">Nov 14<span>th</span>, 2011</time>
+        
+         | <a href="/2011/11/14/Today-Is-World-Diabetes-Day/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.idf.org/worlddiabetesday/"><img alt="" class="aligncenter size-full wp-image-2225" height="383" src="http://geobabble.files.wordpress.com/2011/11/wdd.png" title="World Diabetes Day" width="590" /></a></p>
+
+<p><a href="http://www.cdc.gov/diabetes/">Learn More&#8230;</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/11/02/ESRI-Dev-Meetup-Silver-Spring-MD/">ESRI Dev Meetup, Silver Spring, MD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-02T00:00:00-04:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2011</time>
+        
+         | <a href="/2011/11/02/ESRI-Dev-Meetup-Silver-Spring-MD/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Another <a href="http://www.meetup.com/DevMeetUpNortheast/events/37184672/">ESRI Dev Meetup is happening in the DC</a> area on November 10th. This time, it&#8217;s at Fire Station One in Silver Spring, MD (kudos to <a href="http://twitter.com/geeknixta">Nick Furness</a> for doing a good job of moving them around the DMV). These are generally a good time and ESRI doesn&#8217;t actually try to drive the content train too much. As a result, you can hear about the some interesting integration use cases. I can even attest that ESRI doesn&#8217;t check your current maintenance status at the door!</p>
+
+<p>[caption id=&#8221;&#8221; align=&#8221;aligncenter&#8221; width=&#8221;230&#8221; caption=&#8221;No drink tickets needed&#8221;]<img alt="" height="300" src="http://uncrate.com/p/2008/05/imperial-pint-glass.jpg" title="Mmmmmmm" width="230" />[/caption]</p>
+
+<p>I <em>think</em> they are still looking for lightning talks. Please sign up to do one or they&#8217;ll have to fill in the open slots with technical marketing speak! Mine has been tentatively approved by Nick under the guidance &#8220;Don&#8217;t say anything that&#8217;ll get me fired.&#8221;</p>
+
+<p>I hope to see you there.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/10/28/FCC-Broadband-Map-Featured-by-CBS/">FCC Broadband Map Featured by CBS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-28T00:00:00-04:00" pubdate data-updated="true">Oct 28<span>th</span>, 2011</time>
+        
+         | <a href="/2011/10/28/FCC-Broadband-Map-Featured-by-CBS/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://twitter.com/Byrne_Tweets">Michael Byrne</a> of the Federal Communications Commission (FCC) gave a really good talk at FOSS4G, telling the story of the FCC <a href="http://www.broadbandmap.gov">National Broadband Map</a> application, which is built on open-source geospatial tools. In addition to being open-source, it&#8217;s a modern web system that makes diligent use of caching and other techniques to achieve great performance. I do a lot of work in the Federal space and, in my opinion, it&#8217;s one of best public-facing Federal web tools deployed in recent memory.</p>
+
+<p>[caption id=&#8221;attachment_2204&#8221; align=&#8221;aligncenter&#8221; width=&#8221;590&#8221; caption=&#8221;FCC National Broadband Map&#8221;]<a href="http://geobabble.files.wordpress.com/2011/10/fccmap2.png"><img alt="" class="size-full wp-image-2204" height="368" src="http://geobabble.files.wordpress.com/2011/10/fccmap2.png" title="FCC National Broadband Map" width="590" /></a>[/caption]</p>
+
+<p>CBS News, <a href="http://www.cbsnews.com/8301-501465_162-20127020-501465/fcc-approves-$4.5-billion-for-broadband-in-era-of-steve-jobs/">in discussing a new $4.5 billion broadband fund by the FCC</a>, features a nice screenshot of the system. It&#8217;s nice to see good work and innovation get recognized. Michael and his team should be proud.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/10/25/PgMap-Is-Now-SpatialKit/">PgMap Is Now SpatialKit</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-25T00:00:00-04:00" pubdate data-updated="true">Oct 25<span>th</span>, 2011</time>
+        
+         | <a href="/2011/10/25/PgMap-Is-Now-SpatialKit/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/">I blogged a while back on PgMap</a>, a freeware ArcGIS extension for directly connecting to PostGIS. <a href="http://st-links.com/default.aspx">ST-Links</a>, the makers of PgMap, sent out an e-mail this morning announcing that PgMap and QMap (the equivalent technology for interacting with SQL Server 2008 spatial data) have been combined into a single tool called SpatialKit. This move comes as part of the 3.0 release of the tool.</p>
+
+<p>The same announcement also mentioned a <a href="http://groups.google.com/group/spatialkit?hl=en">Google Group dedicated to SpatialKit</a>. When I took a look at PgMap before, it seemed to be a pretty nice tool so I&#8217;m looking forward to digging into this. If you were a previous user of zigGIS, or if you have experimented with ArcSquirrel for SQL Server 2008 access, you may want to check out SpatialKit.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/10/21/Have-a-Good-Weekend-and-Remember-Atanas/">Have a Good Weekend and Remember Atanas</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-21T00:00:00-04:00" pubdate data-updated="true">Oct 21<span>st</span>, 2011</time>
+        
+         | <a href="/2011/10/21/Have-a-Good-Weekend-and-Remember-Atanas/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m about to head out for the weekend. As we get ready to go about our weekend activities, let&#8217;s not forget that Atanas Entchev and his family are <a href="http://njgeo.org/2011/10/17/colleague-in-need-atanas-entchev/">still</a> being <a href="http://www.cecintl.com/facilities_rr_nj_006.html">detained</a>. If you have not yet donated to the <a href="http://www.tenthcave.com/2011/10/plea-for-help.html">Entchev legal fund</a>, please take time to do so before you head out. Please keep them in your thoughts and <a href="https://writerep.house.gov/writerep/welcome.shtml">take action</a> on their behalf.</p>
+
+<p>[caption id=&#8221;&#8221; align=&#8221;aligncenter&#8221; width=&#8221;300&#8221; caption=&#8221;Geospatial professional Atanas Entchev&#8221;]<img alt="" height="300" src="http://mapbrief.com/wp-content/uploads/2011/10/atanas.jpg" title="Atanas Entchev" width="300" />[/caption]</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/10/17/Support-Atanas-Entchev/">Support Atanas Entchev</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-17T00:00:00-04:00" pubdate data-updated="true">Oct 17<span>th</span>, 2011</time>
+        
+         | <a href="/2011/10/17/Support-Atanas-Entchev/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>UPDATE:</strong> Atanas&#8217; daughter, Christina, is now using his Twitter account to get information out. In addition, she posted a <a href="http://www.tenthcave.com/2011/10/plea-for-help.html">message from Atanas</a> on his blog. He and his son are currently being detained. Also, please see the comment stream to John&#8217;s post (link below) for additional information about sending letters of support. Letters that are not signed may no be considered so, if sending an e-mail, be sure to send a signed, scanned copy as an attachment.</p>
+
+<hr />
+
+
+<p><a href="http://njgeo.org/2011/10/17/colleague-in-need-atanas-entchev/">John Reiser posted this piece</a> on the situation of our colleague, Atanas Entchev. Atanas, a native of Bulgaria, came to the United States in 1991, followed soon thereafter by his family. They applied for asylum and have been in litigation regarding their status ever since. The latest opinion, filed on June 23, 2011 by the US Third Circuit Court of Appeals <a href="http://www.ca3.uscourts.gov/opinarch/104369np.pdf">may be found here</a> (.pdf). Says John:</p>
+
+<blockquote>
+After emigrating here with his family over twenty years ago to escape political persecution, the US Government is now planning to deport the Entchevs.
+</blockquote>
+
+
+<p>My dealings with Atanas have been almost exclusively through social media channels and I have never met him in person. Despite that, I feel I know him as a result of his open participation in those arenas. His knowledge of the applications of GIS, especially at the municipal level, is top-notch. His contributions to the GIS community, such as the publications listed in his <a href="http://www.linkedin.com/profile/view?id=8637855&amp;authType=name&amp;authToken=eUA1&amp;locale=en_US&amp;pvs=pp&amp;trk=ppro_viewmore">LinkedIn profile</a>, as well as his <a href="http://www.directionsmag.com/authors/atanas-entchev/121956">contributions to Directions Magazine</a> and his <a href="http://blog.entchev.com/">blog</a> demonstrate active engagement in his (our) professional community. He is also a small business owner, having founded <a href="http://entchev.com/index.htm">his own GIS services company</a> in 2005.</p>
+
+<p>Of course, legal opinions are only meant to focus on relevant law. As a result, this tapestry of the Entchevs life in America becomes obscured. At one point, the opinion says (LPR = Legal Permanent Resident):</p>
+
+<blockquote>
+Although the daughter&#8217;s adjustment to LPR status may slightly strengthen Entchev&#8217;s ties to the community, and as a matter of discretion the Department of State may therefore be more inclined to grant a waiver, it is far from clear that the status of Entchev&#8217;s daughter as an LPR would result in a different outcome for a new waiver application.
+</blockquote>
+
+
+<p>Not being a lawyer, I can&#8217;t comment on the legal content but this is a very sterile reduction of the Entchevs&#8217; life. Those of us who have been linked to Atanas through social media know of his love of sailing, tennis and biking and have seen photos of the Entchevs enjoying the arts around the New York region. So, during two decades of litigation, the legal merits of which have left the Third Circuit Court of Appeals unmoved, the Entchevs have built a rich, textured, wholly American life.</p>
+
+<p>As Atanas&#8217;s wife Mayia says:</p>
+
+<blockquote>
+If you are willing and able to write a letter of recommendation, your contribution will be invaluable to our case, and would be greatly appreciated by our family.
+</blockquote>
+
+
+<p>If you know Atanas, please take time to write a letter in support of him and his family. Instructions are in John&#8217;s post.</p>
+
+<p>Please also see posts from <a href="http://www.spatiallyadjusted.com/2011/10/17/stand-up-for-atanas-entchev/">James Fee</a>, <a href="http://blog.entchev.com/2011/10/17/a-call-for-help-for-atanas.aspx">Randal Hale</a> and <a href="http://gislounge.com/help-support-geospatial-professional-atanas-entchev/">Caitlin Dempsey</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/10/13/CartoDB-Leaflet-Easy/">CartoDB + Leaflet = Easy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-13T00:00:00-04:00" pubdate data-updated="true">Oct 13<span>th</span>, 2011</time>
+        
+         | <a href="/2011/10/13/CartoDB-Leaflet-Easy/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One of the biggest sources of buzz at <a href="http://2011.foss4g.org/">FOSS4G</a> was <a href="http://cartodb.com">CartoDB</a>. It is a hosted solution from <a href="http://vizzuality.com/">Vizzuality</a> that uses <a href="http://postgis.org/">PostGIS</a> to allow you to store your spatial data online. I got a beta account a couple of weeks ago but life (i.e. paying work) kept getting in the way but I finally got to play with it recently.</p>
+
+<p>One of the things that intrigued me is that, similar to <a href="http://www.google.com/fusiontables/Home/">Google Fusion Tables</a>, CartoDB exposes a SQL interface through a RESTful API (I&#8217;m still not sure if the term &#8220;API&#8221; applies to REST but it&#8217;s a convenient shorthand). Essentially, CartoDB exposes PostgreSQL SQL and the spatial SQL extensions of PostGIS. Once your data is loaded, you can query it and return the results as either CartoDB&#8217;s JSON syntax, KML or <a href="http://geojson.org">GeoJSON</a>.</p>
+
+<p>With this information, I set out to build a simple application to query property data and display the results on a map in a browser. In addition to CartoDB, I elected to use the <a href="http://leaflet.cloudmade.com/">Leaflet</a> Javascript library to accomplish the mapping (although I also experimented with OpenLayers). Displaying and styling GeoJSON in Leaflet is very straightforward and this task gave me and excuse to get a little more comfortable with it.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2011/10/13/CartoDB-Leaflet-Easy/">Read on &rarr;</a>
     </footer>
   
 

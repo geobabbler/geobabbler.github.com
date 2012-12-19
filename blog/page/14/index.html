@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="The zigGIS 2.0 beta is wrapping up this week. We got some good feedback and Abe was able to fix a few bugs. We&#8217;ll begin focusing on getting the &hellip;">
+  <meta name="description" content="I mentioned in an earlier post that I was working on building a SpatiaLite data provider for SharpMap 0.9. That effort was mainly a learning exercise &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/05/02/zigGIS-2.0-Beta-Closing-Release-Near/">zigGIS 2.0 Beta Closing, Release Near</a></h1>
+      <h1 class="entry-title"><a href="/2009/04/11/SpatiaLite-Provider-Code-for-SharpMap-09/">SpatiaLite Provider Code for SharpMap 0.9</a></h1>
     
     
       <p class="meta">
@@ -88,20 +88,78 @@
   
 
 
-<time datetime="2008-05-02T00:00:00-04:00" pubdate data-updated="true">May 2<span>nd</span>, 2008</time>
+<time datetime="2009-04-11T00:00:00-04:00" pubdate data-updated="true">Apr 11<span>th</span>, 2009</time>
         
-         | <a href="/2008/05/02/zigGIS-2.0-Beta-Closing-Release-Near/#disqus_thread">Comments</a>
+         | <a href="/2009/04/11/SpatiaLite-Provider-Code-for-SharpMap-09/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The <a href="http://twitter.com/zigGIS">zigGIS 2.0</a> beta is wrapping up this week. We got some good feedback and Abe was able to fix a few bugs. We&#8217;ll begin focusing on getting the release out. We are shooting for May 20th but that may slip because there&#8217;s a lot to do.</p>
+  <div class="entry-content"><p>I mentioned in an <a href="http://geobabble.wordpress.com/2008/12/30/odds-and-ends-spatialite-and-stuff/">earlier post</a> that I was working on building a <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a> data provider for <a href="http://www.codeplex.com/sharpmap">SharpMap</a> 0.9. That effort was mainly a learning exercise for me as work has already begun on one for SharpMap 2.0. I am making the source code available below. I have unit tested it (thanks <a href="http://www.gallio.org/">mbUnit3 and Gallio</a>) so it should be pretty solid.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2009/04/11/SpatiaLite-Provider-Code-for-SharpMap-09/">Read on &rarr;</a>
+    </footer>
+  
 
-<p><a href="http://postgis.refractions.net">PostGIS</a> editing is working pretty well now and, in general, it&#8217;s much more solid. zigGIS will work with ArcGIS 9.0 through 9.2. I need to test it against the 9.3 beta but that&#8217;ll have to wait a few days. Also, the full capability will work with <a href="http://www.esri.com/software/arcgis/arcview/about/features.html">ArcView</a> (or any other license tier of ArcGIS), so direct read/edit of PostGIS will be open to anyone with ArcGIS.</p>
 
-<p>Also, the <a href="http://obtusesoft.com">Obtuse</a> web site will be standing up so there will be more information.</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/04/07/SpatiaLite-230-Released/">SpatiaLite 2.3.0 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-07T00:00:00-04:00" pubdate data-updated="true">Apr 7<span>th</span>, 2009</time>
+        
+         | <a href="/2009/04/07/SpatiaLite-230-Released/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Alessandro has been very busy lately. He announced, via the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Google Group</a>, the release of version 2.3.0. The new features include (from the announcement):</p>
+
+<blockquote>
+- supporting Routing [VirtualNetwork]
+- supporting EXIF GPS pictures
+- compatibility support for FDO/OGR RFC16 [VirtualFDO]
+- intensive and generalize debugging
+- AMALGAMATION: all the stuff put in a single source, as SQLite already does a complete SpatialDBMS engine in just 2 (two) C sources
+- clear separation between the LIB and the TOOLs
+- libspatialite-2.3.0 now includes libsqlite; linking a single library allow to support a full SpatialDBMS engine [some 800KB required]
+- now builds on M$ Visual Studio .NET as well
+========================================================
+enhanced GUI-tool:
+- color SQL syntax
+- full DB self-initialization during creation
+  [using init_spatialite.sql is no longer required]
+- introducing MEMORY-DB &#8230; try and see &#8230;
+  &#8230; never seen before something comparable &#8230;
+</blockquote>
+
+
+<p>If you haven&#8217;t checked out SpatiaLite, you really should. It&#8217;s a very unique and useful tool.</p>
 </div>
   
   
@@ -114,7 +172,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/05/02/ArcGIS-9.2-SP5-Issue-with-Oracle/">ArcGIS 9.2 SP5 Issue With Oracle</a></h1>
+      <h1 class="entry-title"><a href="/2009/04/01/April-Fool-Ancient-GIS-Discovered/">April Fool - Ancient GIS Discovered</a></h1>
     
     
       <p class="meta">
@@ -130,20 +188,63 @@
   
 
 
-<time datetime="2008-05-02T00:00:00-04:00" pubdate data-updated="true">May 2<span>nd</span>, 2008</time>
+<time datetime="2009-04-01T00:00:00-04:00" pubdate data-updated="true">Apr 1<span>st</span>, 2009</time>
         
-         | <a href="/2008/05/02/ArcGIS-9.2-SP5-Issue-with-Oracle/#disqus_thread">Comments</a>
+         | <a href="/2009/04/01/April-Fool-Ancient-GIS-Discovered/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I just got and e-mail about an issue with ArcGIS 9.2 SP5 and Oracle. The knowledge base article is:</p>
+  <div class="entry-content"><p>Researchers working at the base of Mount Ararat in Eastern Turkey have discovered the remnants of what appears to an ancient map-based navigation system that is being called the &#8220;world&#8217;s first GIS.&#8221; The presence of the artifact, which has been dubbed &#8220;ArkMap&#8221;, at the base of mountain is seen as further evidence that Ararat was indeed the resting place of Noah&#8217;s Biblical ark.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2009/04/01/April-Fool-Ancient-GIS-Discovered/">Read on &rarr;</a>
+    </footer>
+  
 
-<p><a href="http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=34765">http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=34765</a></p>
 
-<p>Happy reading!</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/03/29/GIS-People-on-Twitter/">GIS People on Twitter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-29T00:00:00-04:00" pubdate data-updated="true">Mar 29<span>th</span>, 2009</time>
+        
+         | <a href="/2009/03/29/GIS-People-on-Twitter/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Update: &#8220;The GIS Forum&#8221; mentioned here is no longer online.</strong></p>
+
+<p>If you haven&#8217;t seen Allan Laframboise&#8217;s excellent presentation from the DevSummit on the <a href="http://www.slideshare.net/aGISGuy/geoweb-community-development-how-web-20-are-you">GeoWeb Community</a>, I highly encourage you to check it out. It includes some poll results with very surprising data about the use of social media (or lack thereof) by GIS developers.</p>
+
+<p>One of the resources that he mentions near the end is <a href="http://www.thegisforum.com">the GIS Forum</a>, which has been covered by others. I wanted to take the opportunity to highlight, in the spirit of Allan&#8217;s presentation, the growing list of GIS folks on Twitter that is being compiled on the GIS Forum. It can be found <a href="http://www.thegisforum.com/wikis/socialmedia/twitter-names.aspx">here</a>.</p>
+
+<p>I personally find <a href="http://twitter.com">Twitter</a> to be an invaluable resource. I also find the GIS Forum to be a nice complement to it as a means to support more detailed discussions that may spin off from Twitter interaction. If you&#8217;re just getting started on Twitter (or doing your homework that Allan assigned), I suggest checking out the list to build your community quickly.</p>
 </div>
   
   
@@ -156,7 +257,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/04/30/Coming-Up-For-Air/">Coming Up for Air</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/26/SpatiaLite-Support-in-QGIS/">SpatiaLite Support in QGIS</a></h1>
     
     
       <p class="meta">
@@ -172,22 +273,20 @@
   
 
 
-<time datetime="2008-04-30T00:00:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2008</time>
+<time datetime="2009-03-26T00:00:00-04:00" pubdate data-updated="true">Mar 26<span>th</span>, 2009</time>
         
-         | <a href="/2008/04/30/Coming-Up-For-Air/#disqus_thread">Comments</a>
+         | <a href="/2009/03/26/SpatiaLite-Support-in-QGIS/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Work has a funny way of intruding on blogging. I&#8217;ve been writing a LOT of proposals lately. The funny part is that so have a lot of others that I know. Federal, state, local&#8230;they seem to have gotten their budgets all at the same time. There are worse problems to have.</p>
+  <div class="entry-content"><p>Alessandro announced on <a href="http://groups.google.com/group/spatialite-users">SpatiaLite group</a> today that <a href="http://www.qgis.org/">QGIS</a> 1.1 will include a data provider for <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>, the spatial extender for SQLite.</p>
 
-<p>During this period (which I am calling my &#8220;Word Period&#8221;) I have been watching as <a href="http://abegillespie.blogspot.com">Abe</a> and <a href="http://www.paolocorti.net">Paolo</a> get <a href="http://obtusesoft.com">zigGIS</a> out the door. I was able to confirm that I indeed introduced a bug a couple of versions back. I guess you can&#8217;t win &#8216;em all.</p>
+<p>It&#8217;s out there now in the SVN trunk if you&#8217;re so inclined. I am curious how long it will take to cascade through to the <a href="http://wiki.osgeo.org/wiki/OSGeo_Win32_Installer">OSGEO4W</a> build.</p>
 
-<p>I have been keeping my sanity by slinging a little code here and there. I am hoping to finish up an experimental <a href="http://twitter.com">Twitter</a> client for <a href="http://www.esri.com/software/arcgis/explorer/index.html">ArcGIS Explorer</a>. Mainly, it&#8217;s an exercise to get me familiar with the Twitter and <a href="http://twittervision.com/">Twittervision</a> APIs. Plus, it&#8217;s been a while since I&#8217;ve done anything with AGX. The upcoming builds look exciting so I want to get comfortable with it again.</p>
-
-<p>There&#8217;s light at the end of tunnel on the proposal stuff so I&#8217;m hoping to get a little more technical again here in the next couple of weeks. Until then, I&#8217;ll have to accept the fact that Word, Paint.Net, Acrobat and Twhirl (all work and no play) have pushed Visual Studio and anything GIS related off my recently used list.</p>
+<p>If you haven&#8217;t check out SpatiaLite, I highly encourage you to do so. It is powerful and <em>very</em> lightweight.</p>
 </div>
   
   
@@ -200,7 +299,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/04/20/zigGIS-2.0-in-Beta/">zigGIS 2.0 in Beta</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/24/A-Couple-of-PostgreSQL-Conferences/">A Couple of PostgreSQL Conferences</a></h1>
     
     
       <p class="meta">
@@ -216,20 +315,20 @@
   
 
 
-<time datetime="2008-04-20T00:00:00-04:00" pubdate data-updated="true">Apr 20<span>th</span>, 2008</time>
+<time datetime="2009-03-24T00:00:00-04:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
         
-         | <a href="/2008/04/20/zigGIS-2.0-in-Beta/#disqus_thread">Comments</a>
+         | <a href="/2009/03/24/A-Couple-of-PostgreSQL-Conferences/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Those of you following the progress of zigGIS via <a href="http://twitter.com/zigGIS">Twitter</a> may have noticed that zigGIS 2.0 is being released to the beta testers. This version features better handling of spatial references and well as enabling editing of PostGIS data using native ArcMap tools.</p>
+  <div class="entry-content"><p>It looks like <a href="http://www.postgresqlconference.org/">PostgreSQL Conference, US</a> is putting on a couple of conferences in April. The first, East 2009, is at Drexel University in Philadelphia, Pennsylvania from 3 April to 5 April. The final schedule for that one can be found <a href="http://www.postgresqlconference.org/2009/east/">here</a>.</p>
 
-<p>There&#8217;s been a lot of code cleanup along the way and Paolo has build a new installer using NSIS. I will being developing the ArcCatalog objects again in the coming weeks, once the core product is stable (which is pretty much is now but it&#8217;s nice to have others to beat on it for a while).</p>
+<p>For those on the West Coast, there is PgDay at <a href="http://www.linuxfestnorthwest.org/">LinuxFest Northwest</a> in Bellingham, Washington on 25 April. Paper submissions are still being taken for that one so, if you think you want to present, check it out <a href="http://www.postgresqlconference.org/2009/pgday/lfnw/">here</a>.</p>
 
-<p>The <a href="http://obtusesoft.com">Obtuse</a> web site should become more informative in the near future but, for now, keep checking here, <a href="http://abegillespie.blogspot.com">here</a> and <a href="http://www.paolocorti.net/public/wordpress/">here</a> or follow along on Twitter.</p>
+<p>Updates: Steve Citron-Pousty informs me (see below) that he will be presenting about PostGIS at the Bellingham conference. Additionally, Regina has informed me about <a href="http://www.pgcon.org/2009/">PGCon 2009</a> in Ottawa, Canada on 21-22 May, where her group will also be talking about PostGIS.</p>
 </div>
   
   
@@ -242,7 +341,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/04/14/MapObjects-Reminiscences/">MapObjects Reminiscences</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/12/And-Now-For-Something-Completely-Different-ArcGIS-Schematics/">And Now for Something Completely Different - ArcGIS Schematics</a></h1>
     
     
       <p class="meta">
@@ -258,28 +357,21 @@
   
 
 
-<time datetime="2008-04-14T00:00:00-04:00" pubdate data-updated="true">Apr 14<span>th</span>, 2008</time>
+<time datetime="2009-03-12T00:00:00-04:00" pubdate data-updated="true">Mar 12<span>th</span>, 2009</time>
         
-         | <a href="/2008/04/14/MapObjects-Reminiscences/#disqus_thread">Comments</a>
+         | <a href="/2009/03/12/And-Now-For-Something-Completely-Different-ArcGIS-Schematics/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://gisprog.wordpress.com/2008/04/09/mapobjects-evaluation-version/">GIS Programming relays the fact</a> that the MapObjects Evaluation version is no longer available. <a href="http://geobabble.wordpress.com/2007/07/09/mo-no-mo/">I posted a while back</a> about MO not being supported on Vista. In recent <a href="http://twitter.com">Twitter</a> conversations I have learned that some folks are still running MOIMS apps.</p>
-
-<p>The bottom line is that MapObjects rivals ArcView 3.x as the ESRI product with the most enthusastic fan base. Just mention MO to a GIS developer of a certain age (ahem) and the war stories will start to flow. So, in honor of this latest nail in the coffin, let &#8216;em flow.</p>
-
-<p>Do you still use/support MO? If so, what are you doing with it?</p>
-
-<p>Do you plan to migrate to ArcGIS Engine or will you consider other libraries, like <a href="http://www.codeplex.com/sharpmap">SharpMap</a>?</p>
-
-<p>What was coolest thing you ever did with MO?</p>
-
-<p>For me, it was a modular application that we designed to integrate a bunch of free-standing analysis apps. Some were AV3 extensions, some were done in MapBasic MapX, some were completely proprietary code, some were already in MO. Our customer couldn&#8217;t easily build an integrated analysis product with all of those results. We designed a common GUI and a plug-in COM API so that all of those apps could be migrated into one place but managed according their own lifecycles. We got it working and also built in some collaboration features. We got a couple of releases out before ESRI released ArcGIS with a similar architecture and we decided to go there. It didn&#8217;t upset me too much, I considered it the sincerest form of flattery ;)  .</p>
-</div>
+  <div class="entry-content"><p>When I started this blog, I didn&#8217;t imagine I&#8217;d ever blog about ArcGIS Schematics. I looked at it shortly after <a href="http://www.esri.com/news/arcnews/summer02articles/intro-schematics.html">ESRI acquired the product</a> and it was, how shall I say, a little rough. Since then, I have always kind of thought of it as a refugee from the Island of Misfit Extensions.</div>
   
+  
+    <footer>
+      <a rel="full-article" href="/2009/03/12/And-Now-For-Something-Completely-Different-ArcGIS-Schematics/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -290,7 +382,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/04/14/Follow-zigGIS-on-Twitter/">Follow zigGIS on Twitter</a></h1>
+      <h1 class="entry-title"><a href="/2009/02/20/ESRI-FedUC-2009-One-Mans-Limited-Perspective/">ESRI FedUC 2009 - One Man&#8217;s Limited Perspective</a></h1>
     
     
       <p class="meta">
@@ -306,26 +398,21 @@
   
 
 
-<time datetime="2008-04-14T00:00:00-04:00" pubdate data-updated="true">Apr 14<span>th</span>, 2008</time>
+<time datetime="2009-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
         
-         | <a href="/2008/04/14/Follow-zigGIS-on-Twitter/#disqus_thread">Comments</a>
+         | <a href="/2009/02/20/ESRI-FedUC-2009-One-Mans-Limited-Perspective/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://obtusesoft.com">Obtuse Software</a> has established a Twitter account for zigGIS with the intent of using Twitter to broadcast status updates on zigGIS. The link to the zigGIS home on Twitter is:</p>
-
-<p><a href="http://twitter.com/zigGIS">twitter.com/zigGIS</a></p>
-
-<p>Twitter users who are interested in keeping up to date as zigGIS 2.0 moves through beta into its release and beyond can simply follow zigGIS on Twitter. I highly encourage those that are interested to follow. Initially, this will be an outbound form of communication. We will tweet to anyone who follows but we will not be immediately following anyone.</p>
-
-<p>It is a future goal of ours to evaluate the effectiveness of Twitter as a means of gathering feedback on zigGIS and integrating that feedback into the development process.</p>
-
-<p><img alt="" class="alignleft size-full wp-image-174" src="http://geobabble.files.wordpress.com/2008/04/twitter.png" /></p>
-</div>
+  <div class="entry-content"><p>I say &#8220;limited&#8221; because I went exactly one day (Thursday) and the day was filled with side meetings. Most of the technical information I got came from hallway discussions with ESRI staff and from folks in the showcase. Therefore, most of my observations are at a very high level.</div>
   
+  
+    <footer>
+      <a rel="full-article" href="/2009/02/20/ESRI-FedUC-2009-One-Mans-Limited-Perspective/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -336,7 +423,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/04/09/ZigGIS-Beta/">ZigGIS Beta</a></h1>
+      <h1 class="entry-title"><a href="/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2/">Using PostgreSQL Views in zigGIS 2.0.2</a></h1>
     
     
       <p class="meta">
@@ -352,27 +439,21 @@
   
 
 
-<time datetime="2008-04-09T00:00:00-04:00" pubdate data-updated="true">Apr 9<span>th</span>, 2008</time>
+<time datetime="2009-01-27T00:00:00-05:00" pubdate data-updated="true">Jan 27<span>th</span>, 2009</time>
         
-         | <a href="/2008/04/09/ZigGIS-Beta/#disqus_thread">Comments</a>
+         | <a href="/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>As zigGIS 2.0 enters its beta stage, I am (somewhat strangely) reminded of the famous line from Yeats:</p>
-
-<p>&#8220;what rough beast, its hour come round at last,
-Slouches towards Bethlehem to be born?&#8221;</p>
-
-<p>Kind of a weird thing to have pop into your head in relation to something as positive as zigGIS, but sleep deprivation can do that.</p>
-
-<p>Anyway, this is more of a status update than an invite. ZigGIS 2.0 is getting ready to enter its beta stage. The beta will be a closed beta amongst a subset of existing users. <a href="http://abegillespie.blogspot.com/2008/04/teb-beta.html">Abe has blogged about it.</a> It&#8217;ll help us get it tested while also keeping the beta program manageable (for us).</p>
-
-<p>So, for those who will be beta testing, now is the time. For the rest who are interested, zigGIS 2.0 is moving forward. More info can be found on Abe&#8217;s blog and screencasts are available at the <a href="http://www.obtusesoft.com/">Obtuse</a> site.</p>
-</div>
+  <div class="entry-content"><p>When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database platforms. The way zigGIS was originally constructed, it used the PostGIS geometry_columns table to discover available spatial tables. This has worked well but we came to realize that there are numerous workflows that can be employed to create spatial tables in PostGIS and many of these don&#8217;t necessarily register in the geometry_columns table. For example, you can use a standard CREATE TABLE to create a table that includes a geometry column. In this case, the table will not be registered but will still be a valid spatial table. The same can be said for views.</div>
   
+  
+    <footer>
+      <a rel="full-article" href="/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -383,7 +464,7 @@ Slouches towards Bethlehem to be born?&#8221;</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/04/09/Lyrical-Revisionism/">Lyrical Revisionism</a></h1>
+      <h1 class="entry-title"><a href="/2009/01/19/Looking-Ahead-to-the-2009-ESRI-Federal-User-Conference/">Looking Ahead to the 2009 ESRI Federal User Conference</a></h1>
     
     
       <p class="meta">
@@ -399,105 +480,21 @@ Slouches towards Bethlehem to be born?&#8221;</p>
   
 
 
-<time datetime="2008-04-09T00:00:00-04:00" pubdate data-updated="true">Apr 9<span>th</span>, 2008</time>
+<time datetime="2009-01-19T00:00:00-05:00" pubdate data-updated="true">Jan 19<span>th</span>, 2009</time>
         
-         | <a href="/2008/04/09/Lyrical-Revisionism/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&#8220;Buy the sky and
-Sell the sky and
-Lift your arms up to the sky
-And ask the sky
-And ask the sky
-Don&#8217;t fall on me&#8221;</p>
-
-<p>Did REM predict carbon trading in 1986?</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/04/08/Dave-Bouwmans-Developer-Survey/">Dave Bouwman&#8217;s Developer Survey</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-04-08T00:00:00-04:00" pubdate data-updated="true">Apr 8<span>th</span>, 2008</time>
-        
-         | <a href="/2008/04/08/Dave-Bouwmans-Developer-Survey/#disqus_thread">Comments</a>
+         | <a href="/2009/01/19/Looking-Ahead-to-the-2009-ESRI-Federal-User-Conference/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Dave is conducting his <a href="http://blog.davebouwman.net/2008/04/08/WhatDoYouDoGeospatialDeveloperSurvey.aspx">2008 Geospatial Developer Survey</a>. If you&#8217;re a GIS developer, I highly encourage you to complete it!</p>
-</div>
+  <div class="entry-content"><p>It is time again for my annual plug for the <a href="http://www.esri.com/events/feduc/index.html">ESRI Federal User Conference (FedUC)</a>. Last year, I <a href="http://wordpress.com/tag/feduc/">blogged</a> as much as could. It&#8217;s no secret that I thought last year&#8217;s FedUC was the best they had done. It was the first one where I felt that there was more content than I could get to. It was a good mix of technology and real-world user implementations. Additionally, I had a lot of side meetings so it has become a good place to get some business done.</div>
   
   
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/04/04/Microsoft-Certifying-Open-Source/">Microsoft Certifying Open-Source</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-04-04T00:00:00-04:00" pubdate data-updated="true">Apr 4<span>th</span>, 2008</time>
-        
-         | <a href="/2008/04/04/Microsoft-Certifying-Open-Source/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I got a link to <a href="http://seekingalpha.com/article/71145-microsoft-s-savvy-open-source-move">this article</a> on SlashDot. It discusses Microsoft&#8217;s effort to begin actively certifying open-source applications for Windows Server 2008.</p>
-
-<p>I see this as a positive move. I use a lot of open-source apps on Windows myself. Many of my customers are still downright suspicious of open-source (I know) and achieving Windows certification will make it a lot easier to introduce them into some of the environments I support.</p>
-
-<p>Of course, those same environments are just now upgrading to Windows Server 2003 so maybe 2008 certification isn&#8217;t such a big deal.</p>
-</div>
-  
+    <footer>
+      <a rel="full-article" href="/2009/01/19/Looking-Ahead-to-the-2009-ESRI-Federal-User-Conference/">Read on &rarr;</a>
+    </footer>
   
 
 

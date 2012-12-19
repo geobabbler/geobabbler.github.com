@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="ESRI has released version 1.5 of the ArcGIS Server Javascript API. You can see what&#8217;s new here. I am most excited about SSL access but that&# &hellip;">
+  <meta name="description" content="Despite recent news regarding Silverlight, I expect some of my projects to continue using it for the near term. Others may be taking the same tack, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/10/02/ESRI-Javascript-API-15-Released/">ESRI Javascript API 1.5 Released</a></h1>
+      <h1 class="entry-title"><a href="/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API/">DynamicLayer Auto-Refresh for ESRI Silverlight API</a></h1>
     
     
       <p class="meta">
@@ -88,62 +88,24 @@
   
 
 
-<time datetime="2009-10-02T00:00:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2009</time>
+<time datetime="2010-11-01T00:00:00-04:00" pubdate data-updated="true">Nov 1<span>st</span>, 2010</time>
         
-         | <a href="/2009/10/02/ESRI-Javascript-API-15-Released/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>ESRI has released version 1.5 of the ArcGIS Server Javascript API. You can see what&#8217;s new <a href="http://resources.esri.com/help/9.3/arcgisserver/apis/javascript/arcgis/help/jshelp_start.htm#jshelp/new_v15.htm">here</a>.</p>
-
-<p>I am most excited about SSL access but that&#8217;s just me.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/09/23/GIS-for-Green-Mountain-Falls-CO-Step-1/">GIS for Green Mountain Falls, CO - Step 1</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-09-23T00:00:00-04:00" pubdate data-updated="true">Sep 23<span>rd</span>, 2009</time>
-        
-         | <a href="/2009/09/23/GIS-for-Green-Mountain-Falls-CO-Step-1/#disqus_thread">Comments</a>
+         | <a href="/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>&#8220;The journey of a thousand miles begins with a single step.&#8221; - Lao Tzu</p>
+  <div class="entry-content"><p>Despite <a href="http://techcrunch.com/2010/10/30/rip-silverlight-on-the-web/">recent news regarding Silverlight</a>, I expect some of my projects to continue using it for the near term. Others may be taking the same tack, so I thought I&#8217;d go ahead and offer this up.</p>
 
-<p>One of my colleagues did a presentation at GIS in the Rockies 2009 regarding a project we?ve been working for a couple of months, the development of a GIS solution for the town of <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=green+mountain+falls&amp;sll=37.0625,-95.677068&amp;sspn=33.847644,79.013672&amp;ie=UTF8&amp;ll=38.942187,-105.013332&amp;spn=0.064888,0.154324&amp;z=13&amp;iwloc=A">Green Mountain Falls, Colorado</a>. My colleague, Marshall Worthey, is also a resident and trustee of the town. Marshall is an ex-Army topo guy with a background in GIS. About a year ago, he told me about an upcoming project in which an Eagle Scout candidate was to collect the hiking trails around the town with a GPS. This was part of an effort he had undertaken to build a GIS capability that his town of 969 year-round residents could afford and maintain.</div>
+<p>Several of the projects I support have the requirement to periodically refresh specific layers in order to track change or movement. These layers can range from weather to vehicle locations and such. I have typically accomplished this with a timer that refreshes the layer(s) on a specified interval. This can get rather cumbersome if you have different layers that require different refresh intervals.</p>
+
+<p>Working within <a href="http://www.silverlight.net/">Silverlight</a>, I have the option of using an existing layer class as a base class and extending it to include an automatic refresh capability. However, some classes, such as the <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.ArcGISDynamicMapServiceLayer.html">ArcGISDynamicMapServiceLayer</a>, are sealed and cannot be extended. Luckily, the <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=d197f51a-de07-4edf-9cba-1f1b4a22110d&amp;displaylang=en">Expression Blend SDK</a> enables me to get around this by attaching a custom behavior. </div>
   
   
     <footer>
-      <a rel="full-article" href="/2009/09/23/GIS-for-Green-Mountain-Falls-CO-Step-1/">Read on &rarr;</a>
+      <a rel="full-article" href="/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API/">Read on &rarr;</a>
     </footer>
   
 
@@ -155,7 +117,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/09/17/Amazon-and-the-Fountain-of-Youth/">Amazon and the Fountain of Youth</a></h1>
+      <h1 class="entry-title"><a href="/2010/10/27/Completing-the-Model/">Completing the Model</a></h1>
     
     
       <p class="meta">
@@ -171,28 +133,20 @@
   
 
 
-<time datetime="2009-09-17T00:00:00-04:00" pubdate data-updated="true">Sep 17<span>th</span>, 2009</time>
+<time datetime="2010-10-27T00:00:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2010</time>
         
-         | <a href="/2009/09/17/Amazon-and-the-Fountain-of-Youth/#disqus_thread">Comments</a>
+         | <a href="/2010/10/27/Completing-the-Model/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Yesterday, I enjoyed Seth Godin&#8217;s post titled <a href="http://sethgodin.typepad.com/seths_blog/2009/09/the-end-of-dumb-software.html">&#8220;The End of Dumb Software.&#8221;</a> This morning, I got an e-mail started off like this:</p>
-
-<blockquote>
-Dear Amazon.com Customer,
-As someone who has purchased or rated books by Norman Bridwell, you might like to know that <em>Clifford The Champion</em> will be released on October 1, 2009.  You can pre-order yours at a savings of $5.20 by following the link below.
-</blockquote>
-
-
-</div>
+  <div class="entry-content"><p>It has been a truism for some time that GIS enables us to build models of the Earth. Esri Press has even offered a book on geodatabase design called ?<a href="http://esripress.esri.com/display/index.cfm?fuseaction=display&amp;websiteID=27">Modeling Our World</a>? for a while. Traditionally, GIS has given us the ability to model the surface of the earth (in a broad sense), including our effect upon it. That can be extended to subsurface modeling and weather modeling and similar concepts but, in general, GIS has focused on the surface of the earth, plus or minus a few thousand meters or so. </div>
   
   
     <footer>
-      <a rel="full-article" href="/2009/09/17/Amazon-and-the-Fountain-of-Youth/">Read on &rarr;</a>
+      <a rel="full-article" href="/2010/10/27/Completing-the-Model/">Read on &rarr;</a>
     </footer>
   
 
@@ -204,7 +158,7 @@ As someone who has purchased or rated books by Norman Bridwell, you might like t
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/09/12/MapWindow-to-NET/">MapWindow to .NET</a></h1>
+      <h1 class="entry-title"><a href="/2010/10/08/MeasureString-for-Silverlight/">MeasureString for Silverlight</a></h1>
     
     
       <p class="meta">
@@ -220,20 +174,252 @@ As someone who has purchased or rated books by Norman Bridwell, you might like t
   
 
 
-<time datetime="2009-09-12T00:00:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2009</time>
+<time datetime="2010-10-08T00:00:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2010</time>
         
-         | <a href="/2009/09/12/MapWindow-to-NET/#disqus_thread">Comments</a>
+         | <a href="/2010/10/08/MeasureString-for-Silverlight/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The <a href="http://www.mapwindow.org/">MapWindow</a> open-source project will be holding its <a href="http://www.mapwindow.org/conference/2010/index.php">first-ever user conference</a> from March 31 to April 2, 2010 in Orlando, Florida. Aside from being a great milestone for MapWindow, it is also being billed as a &#8220;coming out party&#8221; for MapWindow  6, its first native .NET version.</p>
+  <div class="entry-content"><p>I was working on an annotation tool for an application I am developing using the <a href="http://help.arcgis.com/en/webapi/silverlight/index.html">Esri Silverlight API</a>. The <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.Symbols.TextSymbol.html">TextSymbol</a> class has properties to specify the X and Y offsets in order to position the text relative to the symbol&#8217;s base point. I needed to calculate the size of the string in order to determine the offset I wanted to use. Silverlight seems to have no intrinsic equivalent to the <a href="http://msdn.microsoft.com/en-us/library/6xe5hazb.aspx">MeasureString function</a> so I hacked this up. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2010/10/08/MeasureString-for-Silverlight/">Read on &rarr;</a>
+    </footer>
+  
 
-<p>For those of you who are not familiar with MapWindow, it is and open-source (MPL 1.1) mapping library (think SharpMap or MapObjects) for use in developing applications, managed by the Geospatial Software Lab at Idaho State University. Although its desktop application and some geoprocessing tools have been written in .NET (VB.NET and C# respectively) for some time, the main library has been a 32-bit ActiveX control written in C++. At version 6, it will finally be fully .NET.</p>
 
-<p>I had used MapWindow a little bit some years ago but haven&#8217;t recently due to its ActiveX structure. I will definitely add it to my (ever-growing) list of things to check out now that it&#8217;s been ported.</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/10/06/Geocoding-with-GeoCommons/">Geocoding With GeoCommons</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-06T00:00:00-04:00" pubdate data-updated="true">Oct 6<span>th</span>, 2010</time>
+        
+         | <a href="/2010/10/06/Geocoding-with-GeoCommons/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One of the new features included in the latest release of <a href="http://www.geocommons.com">GeoCommons</a> is geocoding. Previous releases have provided the ability to upload non-spatial data (such as CSV files) and walk through a wizard-like interface to join that data with existing spatial data sets already in GeoCommons. This latest release brings the <a href="http://geocommons.com/help/FortiusOne_Geocoder">FortiusOne Geocoder</a> to bear to give you the ability to upload data containing US addresses and generate point locations. In my opinion, this is a very powerful addition to GeoCommons. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2010/10/06/Geocoding-with-GeoCommons/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/09/29/Zombie-Shapefile/">Zombie Shapefile?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-29T00:00:00-04:00" pubdate data-updated="true">Sep 29<span>th</span>, 2010</time>
+        
+         | <a href="/2010/09/29/Zombie-Shapefile/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So I was walking to the <a href="http://www.esri.com/events/dev-meetup/index.html">Esri Dev Meetup</a> in Arlington, VA with <a href="http://www.maploser.com/">Kate Chapman</a> and <a href="http://www.adamestrada.com">Adam Estrada</a> and we were talking about <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>. Specifically, we were discussing <a href="http://www.spatiallyadjusted.com/2010/09/16/spatialite-is-not-the-shapefile-of-the-future/">James&#8217; recent post</a> and the lack of uptake of SpatiaLite. The really easy thing to do is to lay the blame at the feet of <a href="http://www.esri.com">Esri</a> for not supporting it. But then it occurred to me that Esri hasn&#8217;t succeeded in making the file <a href="http://webhelp.esri.com/arcgisdesktop/9.2/index.cfm?TopicName=Types_of_geodatabases">geodatabase</a> the next shapefile nor did they succeed in making the personal geodatabase the next shapefile. When I think about it, Esri has been trying really hard to kill the shapefile for a long time, without success. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2010/09/29/Zombie-Shapefile/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/09/28/Me-and-zigGIS/">Me and zigGIS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-28T00:00:00-04:00" pubdate data-updated="true">Sep 28<span>th</span>, 2010</time>
+        
+         | <a href="/2010/09/28/Me-and-zigGIS/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you?ve been to the <a href="http://pub.obtusesoft.com">Obtuse Software</a> site recently, you may or may not have noticed a change to the ?<a href="http://pub.obtusesoft.com/who.aspx">Who We Are</a>? page. It now lists only <a href="http://abegillespie.blogspot.com">Abe Gillespie</a> and <a href="http://www.paolocorti.net/">Paolo Corti</a>. Prior to my trip to Colorado to talk about zigGIS at <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a>, I informed Abe and Paolo that I would be stepping back from any ?official? involvement in Obtuse.</p>
+
+<p>This does not mean that I am stepping back from involvement in zigGIS. I plan to continue to support zigGIS as it returns to open-source but, in truth, I haven?t done much with zigGIS day-to-day in a long time. As part of the <a href="http://abegillespie.blogspot.com/2010/04/prodigal-extension.html">return of zigGIS to open-source at version 3.0</a>, Abe has been working on a plan to give the community multiple paths to support the project, including sponsorship and technical support plans. I&#8217;m sure he&#8217;ll have the details out soon so I&#8217;ll leave it at that (since it&#8217;s not my story to tell). So, as Obtuse transitions to more of a supporting role for the zigGIS 3.0 open-source project, I felt that this was a good time to step away and become part of the community. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2010/09/28/Me-and-zigGIS/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/09/20/GIS-in-the-Rockies-NoCo-Roundup/">GIS in the Rockies / NoCo Roundup</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-20T00:00:00-04:00" pubdate data-updated="true">Sep 20<span>th</span>, 2010</time>
+        
+         | <a href="/2010/09/20/GIS-in-the-Rockies-NoCo-Roundup/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week marked a couple of firsts for me: it was my first time attending the <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a> conference and also my first time in Northern Colorado. I enjoyed my trip greatly.</p>
+
+<p>First off, the people of Northern Colorado were universally nice. That held true of everyone I met at the conference as well as people at every restaurant, gas station and other establishment I entered. Of course, why not? The countryside is beautiful. For a lifelong resident of the East Coast, the countryside of Northern Colorado represents the stereotypical image I get in my mind when I think of &#8220;the West.&#8221; Driving north from Denver, the plains stretched out on one side as far as I could see while, on the other side, mountains arose as if just &#8220;plopped&#8221; there. All of this under a sky so vast I have really only seen its like back East when driving through the Everglades.</p>
+
+<p>In this setting, I made my way to the conference. This is the first time I&#8217;ve been to such a regional conference. Due to committments at home, I had to fly out Wednesday morning so I did not get to catch <a href="http://twitter.com/pmbatty">Peter Batty&#8217;s</a> <a href="http://www.gisuser.com/content/view/21412/28/">keynote</a>. I did, however, run into <a href="http://twitter.com/briantimoney">Brian Timoney</a> and <a href="http://twitter.com/gletham">Glenn Letham</a> rather quickly so I started out with friendly faces. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2010/09/20/GIS-in-the-Rockies-NoCo-Roundup/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/09/16/Be-the-Crowd/">Be the Crowd</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-16T00:00:00-04:00" pubdate data-updated="true">Sep 16<span>th</span>, 2010</time>
+        
+         | <a href="/2010/09/16/Be-the-Crowd/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have generally been very happy with <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a> (more on that in another post) as it&#8217;s good to get a look at different uses, concerns and perspectives. This afternoon, I sat through the &#8220;Collaboration Panel&#8221; discussion. The panel was made of of a few people representing state, regional and local governments and well as utilities and academia. Almost uniformly, there was a fear (yes, I mean fear) of <a href="http://en.wikipedia.org/wiki/Crowdsourcing">crowdsourcing</a> that was best summed up by the following statement:</p>
+
+<blockquote> &#8220;Crowdsourcing presents a vulnerability to us.&#8221;</blockquote>
+
+
+<p>Thank goodness <a href="http://twitter.com/gletham/status/24679715438">Glenn Letham was sitting there and tweeted it</a> or I might not have believed I heard it. Over the course of the discussion, talk kept returning to the image of &#8220;just anyone&#8221; editing spatial data, opening up potential liability for jurisdictions. Another gem:</p>
+
+<blockquote>&#8220;When everyone is responsible, no one is responsible.&#8221;</blockquote>
+
+
+<p>I will grant that the entire discussion did not focus on crowdsourcing but it was a topic that was circled back to several times. I was left with a sense that, when these people think of crowdsourcing, they literally picture crowds of the &#8220;great unwashed&#8221; making random edits to critical data sets from there iPhones. Fear, uncertainty and doubt was projected at such a level that it exposed, well, fear, uncertainty and doubt on the part of the panelists.</p>
+
+<p>A great premium was placed on data being collected and managed by &#8220;authoritative&#8221; data providers, who collect data using a set of validated business rules and procedures. Yet a great premium was also placed on getting to the point where such data sets can be freely shared. This exposed to me another issue: a complete lack of understanding of the concept of crowdsourcing.</p>
+
+<p>I realize that, for governments, there can be legal and statutory issues with publicly sharing data sets (the Privacy Act with regard to parcel data, for example) that must be worked through. For this discussion, I will set those aside. The following statement was made late in the session:</p>
+
+<blockquote>&#8220;<a href="http://www.openstreetmap.org/">OpenStreetMap</a> will never be an authoritative data source.&#8221;</blockquote>
+
+
+<p>To that, I offer this (which I could not offer in the session since the floor was not opened):</p>
+
+<p>If you feel you are the &#8220;authoritative&#8221; provider for street data for your region and that you capture that data using vetted procedures and business rules that assure data quality and accuracy <em>and</em> you profess to want to be able to share that data with the public, why don&#8217;t you donate that data to OpenStreetMap so that it would then be providing &#8220;authoritative&#8221; data (or at least data derived from an &#8220;authoritative&#8221; source). People who choose to use OSM for their applications would then be using high-quality data.</p>
+
+<p>Why not, rather than tear down the concept, engage and participate, provide the model for how to do so and demonstrate leadership? In other words&#8230;</p>
+
+<p>Be the crowd!</p>
 </div>
   
   
@@ -246,7 +432,7 @@ As someone who has purchased or rated books by Norman Bridwell, you might like t
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/09/09/Communication-Proposal-Deadline-for-gvSIG-Conference/">Communication Proposal Deadline for gvSIG Conference</a></h1>
+      <h1 class="entry-title"><a href="/2010/08/26/gvSIG-and-Wine/">gvSIG and Wine</a></h1>
     
     
       <p class="meta">
@@ -262,29 +448,43 @@ As someone who has purchased or rated books by Norman Bridwell, you might like t
   
 
 
-<time datetime="2009-09-09T00:00:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2009</time>
+<time datetime="2010-08-26T00:00:00-04:00" pubdate data-updated="true">Aug 26<span>th</span>, 2010</time>
         
-         | <a href="/2009/09/09/Communication-Proposal-Deadline-for-gvSIG-Conference/#disqus_thread">Comments</a>
+         | <a href="/2010/08/26/gvSIG-and-Wine/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>As I <a href="http://geobabble.wordpress.com/2009/06/30/5th-gvsig-conference-announced/">posted before</a>, the 5th <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a> conference is scheduled for December 2-4, 2009 in Valencia. I got an e-mail reminder that communication proposals (presentations, posters, etc.) are due by September 21st. From the e-mail:</p>
+  <div class="entry-content"><p>I mean <a href="http://en.wikipedia.org/wiki/Wine">wine</a>, not <a href="http://www.winehq.org/">Wine</a>.</p>
+
+<p>I&#8217;ve got to give kudos for innovative marketing on this one. I found this interesting announcement from gvSIG in my inbox this morning:</p>
 
 <blockquote>
-We remind you that we are now expecting communication proposals for the 5th gvSIG Conference (Valencia, 2nd-4th December 2009) [1]. The deadline is September 21st.
+Enosat, in collaboration with the Association gvSIG, is going to carry  
+out an online course on Geographic Information Systems (GIS) and  
+Remote Sensing applied to vine-growing for the English-speaking  
+community.
 
-You just have to send an abstract, following the template provided on the Reports section of the Conference web page [2] to contacto-jornadas-gvsig@gva.es and the scientific committee will evaluate it to be in the conference programme.
+This new edition of the course is launched in English, hoping to  
+repeat the success of the previous edition in Spanish.
 
-There are two types of communications: presentation and poster. The communications have to be preferably related to the gvSIG project and the following issues will be also be considered in the evaluation:
+The GIS software used for this course is free software (gvSIG Desktop).
 
-  * Innovation.
-  * Usefulness for the GIS community.
-  * Usefulness for the free open source community.
+This course covers the basic concepts of GIS and Remote Sensing.  
+Furthermore, it enables students to apply these concepts to their  
+professional area. This course is aimed at the wine sector, that is,  
+technicians in charge of wineries, vine growers, etc.
+
+Places on the course are limited and the admission is in order of  
+registration. The syllabus and course details can be found at  
+<a href="http://www.enosat.com/formation.php">http://www.enosat.com/formation.php</a>
+For further information, please contact: <a href="mailto:course.enosat@gmail.com">course.enosat@gmail.com</a>
 </blockquote>
 
+
+<p>I really hope this takes off as I am already envisioning a host of implementation services built around this market. Now I&#8217;ve just got to translate my rates into bottles per hour. ;-)</p>
 </div>
   
   
@@ -297,7 +497,7 @@ There are two types of communications: presentation and poster. The communicatio
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/09/09/ArcGIS-931-SP1/">ArcGIS 9.3.1 SP1</a></h1>
+      <h1 class="entry-title"><a href="/2010/08/19/ArcGIS-100-and-101-Deprecation-Plan-Released/">ArcGIS 10.0 and 10.1 Deprecation Plan Released</a></h1>
     
     
       <p class="meta">
@@ -313,184 +513,30 @@ There are two types of communications: presentation and poster. The communicatio
   
 
 
-<time datetime="2009-09-09T00:00:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2009</time>
+<time datetime="2010-08-19T00:00:00-04:00" pubdate data-updated="true">Aug 19<span>th</span>, 2010</time>
         
-         | <a href="/2009/09/09/ArcGIS-931-SP1/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So the <a href="http://support.esri.com/index.cfm?fa=knowledgebase.documentation.viewDoc&amp;PID=17&amp;MetaID=1555">upcoming release</a> of ArcGIS 9.3.1 SP1 <a href="http://downloads2.esri.com/support/documentation/ao_/9.3.1_SP1_Announcement9_1.pdf">addresses a lot of issues</a>. I am somewhat curious why it&#8217;s not being called 9.3.2. Calling it a service pack seems to be mixing metaphors. Hopefully, ESRI will reconsider before it hits the street.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/08/21/Thank-You-Mark/">Thank You, Mark</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-21T00:00:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2009</time>
-        
-         | <a href="/2009/08/21/Thank-You-Mark/#disqus_thread">Comments</a>
+         | <a href="/2010/08/19/ArcGIS-100-and-101-Deprecation-Plan-Released/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Back in the early 1990s, toward the end of the administration of George H. W. Bush and into the beginning of the Clinton administration, we were in a bit of a recession. It was not as bad as things are right now but, to someone who had just graduated from college, it was a tough environment. Even the US Government had a hiring freeze on. There was just no work to be had.</p>
+  <div class="entry-content"><p><a href="http://twitter.com/mikehogan">Mike Hogan</a> tweeted that the Esri deprecation plan for ArcGIS 10.0 and 10.1 is now available. It can be found <a href="http://downloads2.esri.com/support/TechArticles/ArcGIS_10_and__101_Deprecation_Plan.pdf">here</a>. Much of what it contains is not new as Esri has been pretty good about getting information related to 10.x out. Some of the more interesting things (to me) include (comments in parens are mine):</p>
 
-<p>In the summer of 1993, I was bartender at the Chili&#8217;s in Waldorf, MD. I had about 8 years of restaurant experience and a freshly minted degree in Information Systems Management from the University of Maryland Baltimore County and very little else to recommend me in the face of so many college graduates and laid-off people with experience also looking for work.</p>
+<blockquote>
 
-<p>One of our regulars was a guy named Mark. He wasn&#8217;t my regular so much as Ed&#8217;s, who was the senior bartender that I worked with on Fridays. He and his girlfriend (future wife)  would come in for dinner and have a beer or two while waiting for a table. Waldorf was much smaller then and Chili&#8217;s was really the only game in town at the time.</p>
+ArcGIS Server 10.0 is the last release with support for 32-bit operating systems. The next release of ArcGIS Server (10.1) will run natively as a 64-bit application, requiring 64-bit operating systems. (I heard about the native 64-bit move at the Esri UC but I didn&#8217;t know that included dropping 32-bit. It&#8217;s not a big deal for me but I can imagine it&#8217;ll be an impact for many.)
 
-<p>Mark would also come in maybe once or twice a week after work and have a beer or two during the week. It was during one of these visits that he told me about a contract his company had just gotten digitizing Army bases for the chemical weapons treaty. I mentioned my degree and expressed interest if he was hiring and, a few days later, sent him my resume. Until he got my resume, he didn&#8217;t know my last name and I didn&#8217;t know his.</p>
+ArcGIS Server 10.0 is the last release supporting publishing non-optimized map documents (MXD files). The next major release will only support publishing optimized maps (MSDs) as that is the best practice for map publishing. (There you have it, no more serving from MXDs after 10.0.)
 
-<p>Eventually, I landed that job working for Mark Quasius at Applied Ordnance Technology (AOT). It got me started in a field that I had heard mentioned once, in passing, during a lecture in college: geographic information systems. During that job, I got exposed to AutoCAD, MapInfo, ARC/INFO (6.something), and ArcView 2.0. I got to do some programming in AML, MapBasic and a little bit of Clipper. I met a lot of really good and patient people, did some cool stuff, made some mistakes, learned from it all and moved on after about three years.</p>
+ArcGIS Server 10.1 will be the last planned release for the ArcGIS Server Web ADFs (Application Developer Framework) for both Microsoft .NET and Java. (We had a small &#8220;wake&#8221; in San Diego for the ADFs. I won&#8217;t shed a tear when it&#8217;s &#8220;official.&#8221;)
 
-<p>During my time at AOT, Mark got assigned to the Crystal City office and we didn&#8217;t work directly together as much. After I left, I lost touch with him but usually heard when he changed jobs and heard that he was having health problems a few years back. Yesterday, I learned that Mark Quasius passed away on August 9, too young, at the age of 45 after a long battle with cancer. Here is his <a href="http://www.sheboyganpress.com/article/20090813/SHE010301/908130348/1067/SHE01">obituary</a>.</p>
-
-<p>When I was leaving AOT, Mark told me the story of how I got that first job. Essentially, he had a big stack of resumes from applicants, many of whom looked stronger on paper. He felt he had something of an impression about me from our interactions at Chili&#8217;s and decided to take a chance on me. That decision earned him some quizzical looks from the owners but they left the decision up to him.</p>
-
-<p>So Mark Quasius gave me my first &#8220;real job&#8221; in the summer of 1993 and set me off on a career that I didn&#8217;t expect. For that, I will always be grateful to him. At the risk of sounding cliche, he should have had more time. Goodbye, Mark and thank you.</p>
-</div>
-  
-  
+ArcGIS Server 10.1 will no longer support local connections (DCOM connections) from Web ADF applications. ArcGIS Server 10.1 will be a web services (REST and SOAP) server only. (This is actually pretty major and the document details the impacts. <strong>If you have any ADF code doing editing and such, read this!</strong>)
+</blockquote>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/08/20/GeoLocation-API-for-Twitter-Announced/">GeoLocation API for Twitter Announced</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-20T00:00:00-04:00" pubdate data-updated="true">Aug 20<span>th</span>, 2009</time>
-        
-         | <a href="/2009/08/20/GeoLocation-API-for-Twitter-Announced/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Ryan Sarver <a href="http://blog.twitter.com/2009/08/location-location-location.html">announced today</a> the availability of a geolocation API for Twitter. It even supports GeoRSS and GeoJSON. This could be a potentially significant new step for Twitter. It looks like the API will be opened to <del datetime="2009-08-20T23:50:17+00:00">platform developers first</del> everyone (see <a href="http://twitter.com/rsarver/statuses/3437734477">here</a>).</p>
-
-<p>Tying in location to the near-real-time nature of the Twitter timeline opens up lots of potential location-based applications. Let the slippy-mapping commence!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/08/13/ArcGIS-Explorer-Build-900-Available/">ArcGIS Explorer Build 900 Available</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-13T00:00:00-04:00" pubdate data-updated="true">Aug 13<span>th</span>, 2009</time>
-        
-         | <a href="/2009/08/13/ArcGIS-Explorer-Build-900-Available/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Looks like ArcGIS Explorer 900 has dropped. It was pretty nice in beta and it&#8217;s good to see that it&#8217;s out now. It can be downloaded <a href="http://resources.esri.com/arcgisexplorer/900/index.cfm?fa=download">here</a>. The ribbon interface is nice. I&#8217;ve always liked the ribbon but I wasn&#8217;t a fan of how it was unceremoniously dropped on us in Office.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/08/02/ESRI-Silverlight-API-MapIt-Samples-Available/">ESRI Silverlight API MapIt Samples Available</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-02T00:00:00-04:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2009</time>
-        
-         | <a href="/2009/08/02/ESRI-Silverlight-API-MapIt-Samples-Available/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I just noticed that the samples page for the ESRI Silverlight API in the <a href="http://resources.esri.com/gateway/index.cfm">ESRI Resource Center</a> has been updated to include samples for interacting with <a href="http://www.esri.com/software/mapit/index.html">MapIt</a>. I haven&#8217;t had a chance to dig into MapIt yet but these should help you get started if you&#8217;re using <a href="http://silverlight.net/">Silverlight</a>. (Which I am for one project. More on that in a forthcoming post.) The graphics layer sample is <a href="http://resources.esri.com/help/9.3/arcgisserver/apis/silverlight/samples/start.htm#MapItGraphicsLayer">here</a>. From there you can check out the rest.</p>
+<p>There&#8217;s a lot of good information in the document, especially pertaining to ArcGIS Server so it&#8217;s definitely worth a read.</p>
 </div>
   
   

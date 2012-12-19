@@ -4,7 +4,7 @@
   <title><![CDATA[Category: geojson | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/geojson/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T22:16:30-05:00</updated>
+  <updated>2012-12-19T14:13:06-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -77,6 +77,36 @@
 <p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
 
 <p>As I said, I developed these to support workflows in existing applications. If you're looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[f=geojson]]></title>
+    <link href="http://blog.geomusings.com/2011/11/15/fgeojson/"/>
+    <updated>2011-11-15T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/11/15/fgeojson</id>
+    <content type="html"><![CDATA[<p>On November 11, 2011, I gave a lightning talk at the <a href="http://www.meetup.com/DevMeetUpNortheast/events/37184672/">ESRI Dev Meetup in Silver Spring, MD</a>. My talk was titled "If I Were Jack For a Day." Despite the infinite comedic potential of that title, it was a tongue-in-cheek look at some items on my wish list for the <a href="http://en.wikipedia.org/wiki/ArcGIS">ArcGIS</a> platform.</p>
+
+<p>An increasing portion of my consulting work deals with helping users integrate their established ArcGIS infrastructures with other spatial technologies. So my talk was a semi-selfish look at things that would make my life as a consultant and integrator easier.</p>
+
+<p><a href="http://twitter.com/geeknixta">Nick Furness</a> will post the slides but they aren't designed to stand on their own so I thought I'd address them here to provide context. I'll take them one or two per post in no particular order. With that, first up on the docket:</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2245" height="360" src="http://geobabble.files.wordpress.com/2011/11/fgeojson.png" title="f=geojson" width="480" /></p>
+
+<!--more-->
+
+
+<p>I'd love to see <a href="http://geojson.org/">GeoJSON</a> support, where appropriate, in the <a href="http://help.arcgis.com/en/arcgisserver/10.0/apis/rest/index.html">ArcGIS Server REST API</a> (or the <a href="http://www.esri.com/industries/landing-pages/geoservices/geoservices.html">GeoServices REST Specification</a> or <a href="http://www.esri.com/news/arcnews/summer11articles/a-note-about-names.html">whatever it's called</a>). I say "where appropriate" because the scope of the REST API is wide-ranging and only potentially meshes up with GeoJSON in a few areas. (Yes, I voted for this on the <a href="http://ideas.arcgis.com/ideaView?id=0873000000088U9AAI">ArcGIS Ideas</a> site.) One such example is querying a feature layer. Take this query for instance:</p>
+
+<p><a href="http://services.arcgisonline.com/ArcGIS/rest/services/Demographics/USA_1990-2000_Population_Change/MapServer/4/query?where=Name%3D%27Maryland%27&amp;f=json">http://services.arcgisonline.com/ArcGIS/rest/services/Demographics/USA_1990-2000_Population_Change/MapServer/4/query?where=Name%3D%27Maryland%27&amp;f=json</a></p>
+
+<p>I envision the option to specify "f=geojson" and have the result returned as a GeoJSON FeatureCollection. Why? Because it would make it much easier to integrate outputs from ArcGIS Server into applications or APIs that support GeoJSON. At least that's my parochial view of the world. This could be added side-by-side with the current JSON capability so as not to break existing clients.</p>
+
+<p>Frankly, I'd like to see GeoJSON support on the consumption side all up and down the stack. It would be nice if ArcMap could be pointed at a URL that emits GeoJSON and load it into a map as a fully functional layer. Of course, it would be nice if ArcGIS supported direct access to a number of other spatial data sources but that was the topic of another slide which I'll get to in another post.</p>
+
+<p>Now I realize that GeoJSON hasn't been "formally" adopted as a standard but, then again, neither has the shapefile. In terms of adoption, the market has spoken with support across a number of platforms and an increasing number of APIs. In my opinion, GeoJSON has quickly become one of the more widely accepted de facto standards in our industry. (Don't take my word for it, <a href="http://www.google.com/search?q=geojson">ask Google</a>.)</p>
+
+<p>This doesn't offer up too many business drivers for ESRI to do such a thing, aside from greater flexibility and utility for ArcGIS Server as a data source, but as I said before, this is my semi-selfish look at things. GeoJSON support in ArcGIS Server would make my life easier and I'm sure I'm not alone.</p>
 ]]></content>
   </entry>
   
@@ -197,36 +227,42 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Completing the Model]]></title>
-    <link href="http://blog.geomusings.com/2010/10/27/Completing-the-Model/"/>
-    <updated>2010-10-27T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/10/27/Completing-the-Model</id>
-    <content type="html"><![CDATA[<p>It has been a truism for some time that GIS enables us to build models of the Earth. Esri Press has even offered a book on geodatabase design called ?<a href="http://esripress.esri.com/display/index.cfm?fuseaction=display&amp;websiteID=27">Modeling Our World</a>? for a while. Traditionally, GIS has given us the ability to model the surface of the earth (in a broad sense), including our effect upon it. That can be extended to subsurface modeling and weather modeling and similar concepts but, in general, GIS has focused on the surface of the earth, plus or minus a few thousand meters or so. <!--more--></p>
+    <title type="html"><![CDATA[GeoServices REST Specification and OGC]]></title>
+    <link href="http://blog.geomusings.com/2011/06/16/GeoServices-REST-Specification-and-OGC/"/>
+    <updated>2011-06-16T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/06/16/GeoServices-REST-Specification-and-OGC</id>
+    <content type="html"><![CDATA[<p>So this is what I get for missing the Ignite sessions at WhereCampDC<sup>*</sup>:</p>
 
-<p>One important aspect of our world that has defied modeling with traditional GIS tools is us. While it?s true that we can use GIS to do demographic analysis that market analysis and the like, those applications have typically fallen into the sweet spot of traditional GIS in that they typically involve analyzing aggregations of data captured over a period of time. These applications, like most others that are well-handled by GIS, are slow-moving.</p>
+<p>http://twitter.com/#!/spara/status/81369354746331136</p>
 
-<p><img alt="" height="308" src="http://bulgaria.usembassy.gov/uploads/sO/bX/sObXJ0cSW96V4g6DMGj4hA/earth.gif" title="Earth" width="303" /></p>
+<p><sup>*</sup>I got to dance with my daughter and help her chase fireflies so I win.</p>
 
-<p>All of these applications have a lot of value (or else most of us wouldn?t be doing our current jobs), but they present an incomplete picture. If we were to take the model of our world as represented by traditional GIS, turn it into reality and place that world in orbit; I suspect an alien visitor would come upon it and find a lifeless world with strong evidence that a people once lived there. GIS does a great job of showing the expansion of new subdivisions and their parcels, road networks, utility networks, the demographic makeup of their residents and the like. But, every day, each of those people leaves their homes and goes to countless locations throughout their day for brief time periods and myriad reasons. Such movements are fleeting and not well-handled by traditional GIS tools.</p>
+<p>The worst-kept rumor/secret in recent memory is now "out there" so here are my thoughts:</p>
 
-<p>Over the last few years, the emergence of location-aware social media has given us a window into these fleeting aspects of human behavior. Tools such as <a href="http://foursquare.com">Foursquare</a>, <a href="http://twitter.com">Twitter </a>and <a href="http://facebook.com">Facebook</a>, combined with microformats such as <a href="http://www.georss.org/Main_Page">GeoRSS</a> and <a href="http://geojson.org/">GeoJSON</a> and wired into advanced smartphone platforms (and many other technologies) are building a ?story? that is profound. We can see who was doing what, where they did it and when. This clearly has some ?Big Brother? implications that we must consider. But, over time, it can provide a detailed picture of almost archaeological significance (imagine the value of the Twitter stream of one day in Republican Rome).</p>
+<!--more-->
 
-<p>The exploitation of these information streams is still in its infancy. We?ll see a lot of micro-targeting of content such as advertising (cast a smaller net more precisely) and other such applications. Geo-fencing has also gotten a lot of press lately. That?s a concept that has been worked with great value over the years in the defense and security worlds, but may have found its ?killer app? with location-aware social media. Many other applications and tools are on the way; I?m sure, as more people turn their imagination to them.</p>
 
-<p>So, while there?s been a lot of churn regarding the value of such streams (?Don?t clutter my Twitter timeline with your check-ins!?), they are here to stay. They help us complete the model by enabling us to model ourselves; the way we live, at the pace we live.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Twitter to Fix GeoJSON Error]]></title>
-    <link href="http://blog.geomusings.com/2009/11/26/Twitter-to-Fix-GeoJSON-Error/"/>
-    <updated>2009-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2009/11/26/Twitter-to-Fix-GeoJSON-Error</id>
-    <content type="html"><![CDATA[<p><a href="http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses%C2%A0update">Well that was quick.</a></p>
+<ol>
+    
+<li>It makes perfect sense for <a href="http://www.opengeospatial.org/">OGC</a>. They were caught completely flatfooted by REST and this provides an expedient (and already widely-deployed) way to catch up, if they adopt it. Esri's API works pretty well and is certainly a nice starting point for a spec.</li>
 
-<p>Twitter will be fixing the <a href="http://geobabble.wordpress.com/2009/11/24/twitter-geojson-error/">previously mentioned error</a> in their GeoJSON X/Y ordering in version 2 of the Twitter API.</p>
+<li>It's also a no-brainer for <a href="http://www.esri.com">Esri</a>. If adopted, they are automatically OGC-compliant and may even be able to call ArcGIS Server a reference implementation. There's no way that doesn't benefit them and they would probably be the biggest winner in this. What would be nice is if Esri followed this up with some demonstration of commitment to the community such as releasing one or more of their REST API clients as open-source.</li>
 
-<p>It's great to see such a quick acknowledgement and response.</p>
+<li>I assume this includes the Esri JSON syntax (my term), which is the underpinning of the GeoServices REST Specification. That leaves me wondering about <a href="http://geojson.org">GeoJSON</a>. It's a community specification that's been <a href="http://wiki.geojson.org/Users">widely adopted</a> across the industry. It wouldn't be very hard to augment the GeoServices spec with "f=geojson" on the calls that are appropriate but I can't see OGC doing that for a spec they don't own (although, by doing so, they would live into the "open" part of their name). 
+
+For what it's worth, I like GeoJSON and find it tighter and more focused than the Esri syntax for what it does and I think it should be part of the discussion somehow. It's not entirely a 1-to-1 match as GeoJSON is designed for transmitting geometries and features. The Esri JSON syntax is broader in scope, addressing not only geometries but also other functions such as listing available endpoints and fetching endpoint metadata and such. So GeoJSON, in its current form, would not address all of the needs of the GeoServices spec but would certainly be a viable option for functions such as returning the results of feature layer queries.</li>
+
+<li>It would be interesting to see whether the spec gets implemented across the community. It has been available for months but there hasn't been a wide uptake. The only example I am aware of is <a href="http://www.arc2earth.com/products/cloud/">Arc2Earth's cloud work</a> which <a href="http://ucdemos.appspot.com/a2e/ArcGIS/rest/services/NYC/NYC_Subways/MapServer/">implements it</a> on top of their Google-AppEngine-based services. Maybe OGC adoption would provide the kind of "top cover" that will give developers peace-of-mind. (Note: My company is an Arc2Earth reseller.)
+</li>
+
+[caption id="attachment_1824" align="aligncenter" width="442" caption="Arc2Earth sample in Esri Silverlight demo application"]<img alt="" class="size-full wp-image-1824" height="202" src="http://geobabble.files.wordpress.com/2011/06/a2e_esrisl.png" title="Arc2Earth Cloud Service in Esri Silverlight API" width="442" />[/caption]
+
+<li>If the <a href="http://www.esri.com/library/whitepapers/pdfs/geoservices-rest-spec.pdf">GeoServices REST Specification</a> (Beware, PDF) is adopted by OGC, it will continue a trend begun with the adoption of KML and GeoRSS in which they formally adopt community and de facto standards that have emerged and been proven in the industry. I think that's a valid approach that can exist alongside their usual standards development process. This case is a little different than those in that it was developed by a single vendor (like KML) and has been released and documented (like KML) but hasn't really been widely implemented outside its initial vendor base prior to consideration (unlike KML). That's a subtle but important difference that bears watching.
+</li>
+</ol>
+
+
+<p>Those were some of my initial thoughts upon hearing this. If it happens, it's obviously of immediate benefit to both OGC and Esri. The lack of any viable presence by OGC in this area has left a void that has begun to be filled by other efforts, including Esri's. It'll be interesting to see the longer-term implications. I think <a href="http://www.spatiallyadjusted.com/2011/06/16/esri-rest-api-could-be-an-ogc-standard/">James</a> is correct that we can expect to see implementations on server platforms such as <a href="http://mapserver.org/">MapServer</a> and <a href="http://geoserver.org/display/GEOS/Welcome">GeoServer</a> but I wonder how relevant it will be in the emerging environment surrounding big data and hosted (i.e. cloud) infrastructures. An end-to-end GIS interface may be less relevant than a more atomic approach that allows support for spatial types to be injected as needed into a larger framework (for example, supporting use of GeoJSON on specific calls the way Twitter does). There's room for both approaches but distinct paths are beginning to emerge.</p>
 ]]></content>
   </entry>
   

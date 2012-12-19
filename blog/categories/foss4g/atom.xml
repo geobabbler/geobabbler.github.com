@@ -4,7 +4,7 @@
   <title><![CDATA[Category: FOSS4G | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/foss4g/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T22:16:30-05:00</updated>
+  <updated>2012-12-19T14:13:06-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -130,6 +130,79 @@
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[FOSS4G Quick Hits]]></title>
+    <link href="http://blog.geomusings.com/2011/09/19/FOSS4G-Quick-Hits/"/>
+    <updated>2011-09-19T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/09/19/FOSS4G-Quick-Hits</id>
+    <content type="html"><![CDATA[<p>I had the distinct pleasure of attending my first <a href="http://2011.foss4g.org">FOSS4G conference in Denver</a> last week. Having not attended one previously, I can only rely on the opinions of others that this has been the best FOSS4G yet. For me, this was best geospatial conference I have attended. I'll probably blog in more detail about some of the things I saw but here are my high-level observations:</p>
+
+<p>[caption id="attachment_2089" align="aligncenter" width="300" caption="It&#039;s time to refresh your thinking about open-source geospatial tools."]<img alt="" class="size-medium wp-image-2089" height="266" src="http://geobabble.files.wordpress.com/2011/09/rotary_sign3.jpg?w=300" title="rotary_sign3" width="300" />[/caption]</p>
+
+<!--more-->
+
+
+<ol>
+<li><p><a href="http://www.qgis.org/">QGIS</a> - I didn't attend many QGIS sessions but I didn't need to. It had everyone talking in hallways during breaks. Remember a few years ago when the desktop was the weak link with open-source GIS? Forget about that.</p></li>
+<li><p><a href="http://www.vizzuality.com/">Vizzuality</a> is doing great things to deploy usable mapping applications on the web with open-source tools. Every session   they led was standing-room only, with good reason.</p></li>
+<li><p><a href="http://vizzuality.com/cartoset">CartoSet</a> and <a href="https://cartodb.com/">CartoDB</a> - from the aforementioned Vizzuality. These open-source tools are designed to help speed the front-end and back-end development of a web application respectively. These are at the top of my list of things to check out.</p></li>
+<li><p>One of the key characteristics of most of the open-source tools discussed in sessions I attended is that they originally grew out of the need to solve a problem. They were not just built on spec, hoping someone would find them useful. As a result, these tools tend to already be proven within the problem set for which they were built.</p></li>
+<li><p><a href="http://postgis.refractions.net/">PostGIS</a> - If open-source geospatial is a flowering field, then PostGIS is the water that hydrates it. The amount of tools that support it is staggering (including CartoDB). The importance of a robust, open-source, spatial data store cannot be overstated and the role PostGIS plays as a foundation technology is pivotal. As for PostGIS 2.0, Michael Weisman sums it up best here:</p></li>
+</ol>
+
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>My second takeaway from <a href="https://twitter.com/search/%23foss4g">#foss4g</a>: PostGIS 2's tagline should be "You no longer have an excuse to use anything else."</p>&mdash; Michael Weisman (@mweisman) <a href="https://twitter.com/mweisman/status/115163092207403010" data-datetime="2011-09-17T20:39:55+00:00">September 17, 2011</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<ol>
+<li>Javascript mapping libraries - <a href="http://openlayers.org/">there</a> are <a href="http://leaflet.cloudmade.com/">now</a> more <a href="http://2011.foss4g.org/sessions/geomap-%E2%80%93-new-open-source-javascript-mapping-api">ways</a> to <a href="http://polymaps.org/">get</a> an <a href="http://mapstraction.com/">interactive</a> map <a href="http://www.tile5.org/">into</a> a browser than I can keep track of. Those based on Javascript and/or HTML5 are proliferating like wildfire. The "I" in "RIA" now stands for "intranet".</li>
+</ol>
+
+
+<p>I'm still organizing my notes and thoughts about what I saw at FOSS4G. It's impossible to describe the richness of the information that was available. The only real downtime I had was that which I sought for myself. I'll follow up these quick observations in the near future as I begin to dig into the new tools I was exposed to.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pre-FOSS4G Roundup]]></title>
+    <link href="http://blog.geomusings.com/2011/09/12/Pre-FOSS4G-Roundup/"/>
+    <updated>2011-09-12T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/09/12/Pre-FOSS4G-Roundup</id>
+    <content type="html"><![CDATA[<p>I'm getting ready to head out to Denver for the 2011 installment of <a href="http://2011.foss4g.org">FOSS4G</a>. It seems like my biggest problem will be figuring out how to clone myself in order to sit in every session. Open-source geospatial is such a vibrant and active area right now that there's just so much to see and learn.</p>
+
+<p>A couple of things of note (to me) before I head out the door:</p>
+
+<!--more-->
+
+
+<ol>
+<li>An announcement came through last week on the geowanking mailing list of a new tool called <a href="http://www.mxd2map.org/index.html">MXD2Map</a>, which purports to convert <a href="http://www.esri.com/software/arcgis/arcgis-for-desktop/index.html">ArcMap</a> MXD documents to <a href="http://mapserver.org/">MapServer</a> map files with corresponding <a href="http://www.opengeospatial.org/standards/wms">WMS</a> and <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> services created. I have not had a chance to look at it yet (mainly because I don't have a current instance of MapServer running) but I'm excited to give it a go when I get a chance. From the MXD2Map site:</li>
+</ol>
+
+
+<blockquote>
+What is MXD2map?
+MXD2map has the ability to publish ArcGIS MXD-files as OGC webservices via UMN MapServer.
+
+MXD2map combines the following advantages:
+
+Create your maps within your accustomed working environment with ArcGIS Desktop
+Convert your project into a UMN MapServer confiuration mapfile
+Intranetwide publishing of your own data via OGC webservices (e.g. WMS/WFS)
+MXD2map is actively supported by <a href="http://www.bsh.de/">Bundesamt fuer Seeschifffahrt und Hydrographie</a> in Hamburg.
+</blockquote>
+
+
+<ol>
+<li><p>It seems to me that a greater number of questions on <a href="http://gis.stackexchange.com/">gis.stackexchange.com</a> are related to open-source GIS tools these days. Occasionally, questions from the site catch my eye in my Twitter timeline and it seemed like more and more were discussing open-source tools. As I wrote this post this morning, 17 of the first 50 questions were related to various open-source geospatial tools, ranging from desktop to web to database to libraries. This is a purely anecdotal observation on my part but the increase of questions on a forum like this seems to point to potentially greater activity in terms of using these tools to implement solutions.</p></li>
+<li><p>A little <a href="http://en.wikipedia.org/wiki/Front_Range">Front Range</a> love. I watched the activity at <a href="http://stateofthemap.org/">SOTM11</a> via Twitter off and on this weekend. This leads into FOSS4G and follows less than two weeks after <a href="http://www.gisintherockies.org/GISITR2011/Home/Default.aspx">GIS in the Rockies</a> (also in Denver). I think the Front Range just effectively demonstrated that it is the leading region in the country in terms of all things spatial.</p></li>
+</ol>
+
+
+<p>That's it. I'm excited about catching up with old friends, meeting new ones, connecting Twitter avatars to real faces, and soaking up lots of FOSS4G knowledge.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Using Dynamic Non-Spatial Data In GeoCommons]]></title>
     <link href="http://blog.geomusings.com/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons/"/>
     <updated>2011-09-07T00:00:00-04:00</updated>
@@ -195,7 +268,7 @@
     <id>http://blog.geomusings.com/2010/12/10/Ten-Second-Tidy</id>
     <content type="html"><![CDATA[<p>Things have been a bit hectic the last few weeks and that's left little time for blogging. Quite a bit has happened so I thought I'd do a little round-up (if for no other reason than to clear my own head).</p>
 
-<p>[youtube=http://www.youtube.com/watch?v=cJa7P6dfmco]</p>
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/cJa7P6dfmco?color=white&theme=light"></iframe></p>
 
 <p>In no particular order:</p>
 

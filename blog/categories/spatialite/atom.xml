@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SpatiaLite | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/spatialite/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T22:16:30-05:00</updated>
+  <updated>2012-12-19T14:13:06-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -101,6 +101,21 @@ enjoy, Sandro
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[SpatiaLite 3.0 Beta Is Available]]></title>
+    <link href="http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available/"/>
+    <updated>2011-08-19T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available</id>
+    <content type="html"><![CDATA[<p>Alessandro Furieri announced the availability of the beta of SpatiaLite 3.0.0 on 17 August. It can be downloaded here: <a href="http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html">http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html</a>.</p>
+
+<p>Some of the more interesting additions include additional support for topology and the ability to export <a href="http://geojson.org">GeoJSON</a>.</p>
+
+<p>I did a <strong>very</strong> quick test with QGIS 1.7.0 and was able to directly access and edit a table in a database I created with SpatiaLite 3.0.0 so that's initially promising.</p>
+
+<p>[caption id="attachment_1985" align="aligncenter" width="300" caption="The extra island off the coast of Canada was edited in with QGIS."]<a href="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png"><img alt="" class="size-medium wp-image-1985" height="160" src="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png?w=300" title="Accessing SpatiaLite 3.0.0 in QGIS" width="300" /></a>[/caption]</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[zigGIS Hotfix Available]]></title>
     <link href="http://blog.geomusings.com/2010/06/18/zigGIS-Hotfix-Available/"/>
     <updated>2010-06-18T00:00:00-04:00</updated>
@@ -115,17 +130,6 @@ link to the patch.</blockquote>
 
 
 <p><a href="http://abegillespie.blogspot.com">Abe</a> is working hard on <a href="http://geobabble.wordpress.com/2010/04/23/ziggis-3-0-to-be-open-source/">version 3.0</a> but obviously is continuing to support 2.x as well. Improvements include a new provider model which will better enable support for other data sources. A roadmap should be available soon.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SpatiaLite Provider Now In SharpMap Repository]]></title>
-    <link href="http://blog.geomusings.com/2010/02/01/SpatiaLite-Provider-Now-In-SharpMap-Repository/"/>
-    <updated>2010-02-01T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/02/01/SpatiaLite-Provider-Now-In-SharpMap-Repository</id>
-    <content type="html"><![CDATA[<p>I got a surprise e-mail from <a href="http://www.codeplex.com/site/users/view/FObermaier">Felix</a> today letting me know that the <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a> <a href="http://geobabble.wordpress.com/2009/04/11/spatialite-provider-code-for-sharpmap-09/">provider I posted some time ago</a>, along with <a href="http://">Kev's great spatial index work</a>, has been included in the <a href="http://sharpmap.codeplex.com">SharpMap</a> repository. If you're looking for one place to pick them up, now you've got it.</p>
-
-<p>If you haven't checked out SharpMap or SpatiaLite, I highly recommend both.</p>
 ]]></content>
   </entry>
   

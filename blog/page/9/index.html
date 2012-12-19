@@ -9,8 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Alessandro made two announcements today. First SpatiaLite 2.3.1 has been released. Changes include: * including SQLite v.3.6.16
-* including GEOS.3 1. &hellip;">
+  <meta name="description" content="Paul Meems announced today that a new beta version of MapWindow is available. From the announcement: We&#8217;ve just released the Beta Version of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/07/06/SpatialLite-231-and-RasterLite-10-Released/">SpatialLite 2.3.1 and RasterLite 1.0 Released</a></h1>
+      <h1 class="entry-title"><a href="/2010/08/06/New-MapWindow-Beta-Available/">New MapWindow Beta Available</a></h1>
     
     
       <p class="meta">
@@ -89,65 +88,30 @@
   
 
 
-<time datetime="2009-07-06T00:00:00-04:00" pubdate data-updated="true">Jul 6<span>th</span>, 2009</time>
+<time datetime="2010-08-06T00:00:00-04:00" pubdate data-updated="true">Aug 6<span>th</span>, 2010</time>
         
-         | <a href="/2009/07/06/SpatialLite-231-and-RasterLite-10-Released/#disqus_thread">Comments</a>
+         | <a href="/2010/08/06/New-MapWindow-Beta-Available/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Alessandro made two announcements today. First SpatiaLite 2.3.1 has been released. Changes include:</p>
+  <div class="entry-content"><p>Paul Meems announced today that a new beta version of MapWindow is available. From the announcement:</p>
 
 <blockquote>
-* including SQLite v.3.6.16
-* including GEOS.3 1.1
-* added SQL version functions: spatialite_version(),
-  proj4_version(), geos_version()
-* added SQL functions: IsTiffBlob(), IsWaveletBlob()
-  [RasterLite compatibility]
-* now supporting the &#8216;F&#8217; (float) datatype for DBF
-  [while reading some Shapefile]
+We&#8217;ve just released the Beta Version of July.
 
-bug fixes:
+It is available at <a href="http://svn.mapwindow.org/svnroot/InstallationProjects/4.8/Releases/MapWindowx86Full-v48Beta-installer.exe">http://svn.mapwindow.org/svnroot/InstallationProjects/4.8/Releases/MapWindowx86Full-v48Beta-installer.exe</a>
 
-* fixed a stupid initialization bug disabling MbrCache
-* fixed a stupid initialization bug disabling VirtualFDO
-* fixed some EXIF and EXIF-GPS inconsistencies
-* fixed incorrect SRID handling for PointN(), GeometryN() ..
-* fixed a nasty error [causing a crash] while parsing
-  degenerated WKT geometries (single-vertex LINESTRING &#8230;)
-* fixed some ./configure oddities
-  [&#8211;with-proj-include, &#8211;with-geos-include]
-* and many others &#8230;
+The supporting libraries (like GDAL, GEOS) have been updated to their latest versions.
+A lot of new enhancements have been added to the ocx, like image grouping, image overviews (pyramids), symbology (charts and coloring), use of the rotation values in world files.
+Not all new features made it yet to the Desktop, but we&#8217;re working on that.
+The features are available to you for your plug-in or script development or when you develop a custom application using the ocx.
 </blockquote>
 
 
-<p>Also from Alessandro, RasterLite 1.0:</p>
-
-<blockquote>
-today I released RasterLite, a really simple SpatiaLite-based C API [and related command-line management tools] supporting Raster Data Sources in a SpatiaLite DB.
-
-RasterLite implements TILING and multi-level PYRAMIDS, and take full profit from RTree-based Spatial Indexing.
-
-Individual tiles can be stored at your choice as:
-TIFF     [supporting monochrome CCITT FAX-4 compression]
-PNG      [loseless compression]
-GIF      [loseless compression]
-JPEG     [lossy compression]
-WAVELET  [lossy compression]
-
-As from my preliminary testings, RasterLite is able to handle really huge Raster Data Sources [several GB-sized] in a really efficient and painless way.
-
-You can find a tutorial explaining in depth how to use the following popular publicly available satellite imagery and DEMs:
-- TrueMarble 250m/pixel world coverage
-- ETOPO5 wold coverage
-- SRTM 90m/pixel world coverage
-</blockquote>
-
-
-<p>Information on both can be found at the <a href="http://www.gaia-gis.it/spatialite">SpatiaLite web site</a>.</p>
+<p>MapWindow is quite a powerful open-source (Mozilla Public License) mapping library for .NET. It&#8217;s under active development and seems to be adding capability rapidly. If you&#8217;re a developer looking for a library to add spatial capability to your application, you may want to check it out.</p>
 </div>
   
   
@@ -160,7 +124,7 @@ You can find a tutorial explaining in depth how to use the following popular pub
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/06/30/5th-gvSIG-Conference-Announced/">5th gvSIG Conference Announced</a></h1>
+      <h1 class="entry-title"><a href="/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches/">Arc2Earth Supports ArcGIS Server Tile Caches</a></h1>
     
     
       <p class="meta">
@@ -176,121 +140,27 @@ You can find a tutorial explaining in depth how to use the following popular pub
   
 
 
-<time datetime="2009-06-30T00:00:00-04:00" pubdate data-updated="true">Jun 30<span>th</span>, 2009</time>
+<time datetime="2010-08-02T00:00:00-04:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2010</time>
         
-         | <a href="/2009/06/30/5th-gvSIG-Conference-Announced/#disqus_thread">Comments</a>
+         | <a href="/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I got this announcement in my inbox today regarding <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a>, an open-source GIS desktop <a href="http://www.osgeo.org/gvsig">currently in</a> the <a href="http://www.osgeo.org/">OSGEO</a> <a href="http://www.osgeo.org/incubator">incubator</a>. If you are a gvSIG user, the 5th gvSIG Conference will be held this year in Valencia, Spain. See below for the full text:</p>
+  <div class="entry-content"><p>I just got an e-mail announcement from <a href="http://www.arc2earth.com">Arc2Earth</a> (disclaimer: my <a href="http://www.zekiah.com">company</a> is a reseller) regarding some updates to version 3 that have come out since the ESRI UC. One of the updates that catches my attention is:</p>
 
 <blockquote>
-The 5th Edition of the gvSIG Conference [1], organized by the Regional Ministry of Infrastructure and Transport (CIT), will be held from December 2nd until December 4th at the Feria Valencia Convention and Exhibition Center, and will once again host the eclipseDay.
-
-In these difficult times when collaboration is most important, we cope with the adversities together with the aim of coming out strengthened by them. We continue moving ahead together. This is part of the gvSIG project and through this approach we keep on growing. This is our slogan for the fifth edition of the gvSIG Conference: We keep growing.
-
-The call for papers for the Fifth Edition of the gvSIG conference is now open. As of today communication proposals can be sent to the email address: <a href="mailto:contacto-jornadas-gvsig@gva.es">contacto-jornadas-gvsig@gva.es</a>; they will be evaluated by the scientific committee as to their inclusion in the conference program. There are two types of communication: paper or poster. Information regarding to regulations on communication presentations can be found in the report&#8217;s section [2]. Abstracts will be accepted until September 21st .
-
-Organizations interested in collaborating in the event can find information in the section: How to collaborate? [3]
-
-
-[1] <a href="http://jornadas.gvsig.org/home/view?set_language=en">http://jornadas.gvsig.org/home/view?set_language=en</a>
-[2] <a href="http://jornadas.gvsig.org/reports">http://jornadas.gvsig.org/reports</a>
-[3] <a href="http://jornadas.gvsig.org/how-to-collaborate">http://jornadas.gvsig.org/how-to-collaborate</a>
+<strong>ArcGIS Server Tile Cache Format</strong> - You can now create or manage tile caches that can be used with ArcGIS Server. use Arc2Earth tile management tools (like the Change Detection Level) to dramatically reduce the time it takes to update tile caches
 </blockquote>
 
+
 </div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/06/26/Crazy-Times-Coming-Up-For-Air/">Crazy Times - Coming Up for Air</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-06-26T00:00:00-04:00" pubdate data-updated="true">Jun 26<span>th</span>, 2009</time>
-        
-         | <a href="/2009/06/26/Crazy-Times-Coming-Up-For-Air/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It&#8217;s been an extremely busy few months, as evidenced by the pace (or lack thereof) of blogging. I have been hopping between customer sites, mainly helping with ArcGIS Server implementations. We&#8217;re also re-hosting an ArcIMS site for someone. I expect that to eventually transition as well but we have to get it moved first. I&#8217;m also working a pro-bono implementation of PostGIS/GeoServer/OpenLayers for the town of Green Mountain Falls, Colorado. That&#8217;s been fun. It&#8217;s great to see how a small town can marshall it resources (Boys Scouts with GPS collected trails as an Eagle Scout project) to get things done. The initial implementation will be simple as they are more interested in getting their data out there but then we&#8217;ll circle back around to address public-service-type applications after that.</p>
-
-<p>Significant changes are coming for <a href="http://pub.obtusesoft.com">zigGIS</a>. Abe, Paolo and I have been laying out a roadmap for its way ahead. Look for an announcement soon via <a href="http://twitter.com/zigGIS">zigGIS on Twitter</a>.</p>
-
-<p>I have been having a lot of fun with the REST-based APIs from ESRI (Javascript, Flex, Silverlight/WPF). In particular, I&#8217;ve been happy with how extensible they are in terms of being able to support new data sources.
-<a href="http://openlayers.org/pipermail/users/2009-June/012414.html">OpenLayers 2.8</a> and <a href="http://blog.opengeo.org/2009/06/17/geoexplorer-preview/">GeoExplorer</a> are also on my radar but that radar screen is getting pretty crowded.</p>
-
-<p>All of this with less than a week to go before vacation. Whew!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/06/01/OpenGeo-Suite-A-Milestone/">OpenGeo Suite - a Milestone</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-06-01T00:00:00-04:00" pubdate data-updated="true">Jun 1<span>st</span>, 2009</time>
-        
-         | <a href="/2009/06/01/OpenGeo-Suite-A-Milestone/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>On May 28th OpenGeo <a href="http://blog.opengeo.org/2009/05/28/opengeo-suite-released/">announced the release of the OpenGeo Suite</a>. They also describe their open pricing structure for support of the suite.</p>
-
-<p>This announcement represents a milestone for open-source geospatial software. If you are of a technical nature and are expecting a detailed discussion of the technical advantages of the OpenGeo Suite, you should probably stop reading now. The OpenGeo Suite is a milestone because it establishes a fair pricing model that addresses what, in my opinion, has been the primary barrier to the adoption of open-source GIS in many enterprises: risk.</div>
   
   
     <footer>
-      <a rel="full-article" href="/2009/06/01/OpenGeo-Suite-A-Milestone/">Read on &rarr;</a>
+      <a rel="full-article" href="/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches/">Read on &rarr;</a>
     </footer>
   
 
@@ -302,7 +172,7 @@ Organizations interested in collaborating in the event can find information in t
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/05/13/ArcWeb-Services-Phase-Out/">ArcWeb Services Phase-Out</a></h1>
+      <h1 class="entry-title"><a href="/2010/07/27/GeoCommons-Add-In/">GeoCommons Add-In</a></h1>
     
     
       <p class="meta">
@@ -318,30 +188,20 @@ Organizations interested in collaborating in the event can find information in t
   
 
 
-<time datetime="2009-05-13T00:00:00-04:00" pubdate data-updated="true">May 13<span>th</span>, 2009</time>
+<time datetime="2010-07-27T00:00:00-04:00" pubdate data-updated="true">Jul 27<span>th</span>, 2010</time>
         
-         | <a href="/2009/05/13/ArcWeb-Services-Phase-Out/#disqus_thread">Comments</a>
+         | <a href="/2010/07/27/GeoCommons-Add-In/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I just got my ArcWeb Services phase-out reminder. Apparently, I am viewed as a user. I think I may have signed up for some of the free services a few years ago but haven&#8217;t used them. Anyway, here&#8217;s partial text of the message:</p>
+  <div class="entry-content"><p>Just a quick update on the <a href="http://www.geocommons.com">GeoCommons</a> importer for ArcMap <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">I blogged a while ago</a>:</p>
 
-<blockquote><strong>ESRI ArcWeb Services (AWS) Product Status Notification - ArcWeb Services Phase-Out Reminder</strong>
+<p>There is now an ArcGIS 10.0 add-in available as a download from the Google Code site. It is available <a href="http://code.google.com/p/geocommonsbrowser/downloads/list">here</a>.</p>
 
-With the ever increasing importance of providing market-leading online capabilities to its user community, ESRI has made the decision to focus its energy on one online strategy under the banner of ArcGIS. As a result, the ArcWeb Services product line is being phased out. 
-
-As a current ArcWeb customer, this notification is a follow-up reminder that ArcWeb Services will remain in place with full support until June 30, 2009 in order to support your existing applications and facilitate your transition to the capabilities of ArcGIS Server and ArcGIS Online. 
-
-Effective immediately, users will no longer be able to place orders for additional ArcWeb Services credits. ArcWeb Services subscribers with active accounts that expire prior to June 30, 2009 should contact aws_transition@esri.com to request an extension in order to support your transition to ArcGIS Server or ArcGIS Online.
-
-The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based applications that utilize ArcWeb Services. Users developing applications on ArcGIS 9.3.1 will need to refer to the ArcGIS Online SOAP API. Please visit the ArcGIS Online Resource Center for more details.
-</blockquote>
-
-
-<p>This doesn&#8217;t really affect me or any of my customers as AWS was never an option. If you&#8217;re using AWS, this is your heads-up.</p>
+<p>This should enable ArcGIS 10.0 users to also easily browse and get data from GeoCommons. Sorry, I don&#8217;t have the add-in code available yet. I&#8217;m a little swamped so it&#8217;ll be a while before I get to that but I wanted to make the download available.</p>
 </div>
   
   
@@ -354,7 +214,7 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/28/zigGIS-Photos/">zigGIS Photos</a></h1>
+      <h1 class="entry-title"><a href="/2010/07/26/Clouds/">Clouds</a></h1>
     
     
       <p class="meta">
@@ -370,64 +230,22 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
   
 
 
-<time datetime="2009-04-28T00:00:00-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2009</time>
+<time datetime="2010-07-26T00:00:00-04:00" pubdate data-updated="true">Jul 26<span>th</span>, 2010</time>
         
-         | <a href="/2009/04/28/zigGIS-Photos/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Paolo was kind enough to post photos of the <a href="http://pub.obtusesoft.com">zigGIS</a> team from our time in New York. You can find them <a href="http://www.flickr.com/photos/paoloandrenata/tags/ziggis/">here</a>. This was the first time the three of us had met up and we had a great time.</p>
-
-<p>We had some discussions about the way ahead for zigGIS and there are some big things in store that we&#8217;ll announce as we firm them up.</p>
-
-<p>It was also great of Brian Flood to come out and hang for a bit.</p>
-
-<p><a href="http://twitter.com/zigGIS">Follow zigGIS on Twitter</a> to keep apprised of updates and announcements.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/04/22/More-on-ArcGIS-Schematics/">More on ArcGIS Schematics</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-04-22T00:00:00-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2009</time>
-        
-         | <a href="/2009/04/22/More-on-ArcGIS-Schematics/#disqus_thread">Comments</a>
+         | <a href="/2010/07/26/Clouds/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>A few weeks ago, <a href="http://geobabble.wordpress.com/2009/03/12/and-now-for-something-completely-different-arcgis-schematics/">I posted</a> about <a href="http://www.esri.com/software/arcgis/extensions/schematics/index.html">ArcGIS Schematics</a>. That post came at the end of a frustrating day and was more negative in tone than I typically prefer. Since that post, I have had periodic exchanges with Rick Anderson, product manager at <a href="http://www.esri.com">ESRI</a>.</div>
+  <div class="entry-content"><p>I spent the vast majority of my time at the 2010 ESRI User Conference working the <a href="http://www.zekiah.com">Zekiah</a>/<a href="http://www.arc2earth.com">Arc2Earth </a>booth. That was fun as I got meet/reconnect with a lot of people but I didn&#8217;t see much of the conference itself. As a result, I haven&#8217;t really blogged it.</p>
+
+<p><a href="http://www.esri.com">ESRI</a> continued with the &#8220;cloud ready&#8221; theme that was rolled out at the Federal User Conference but with more details about how they are moving to &#8220;the cloud.&#8221; This generated a lot of buzz amongst many of the attendees from what I could tell. One of the big new features of Arc2Earth v3 (disclaimer: my company is an Arc2Earth reseller) is Cloud Services. As a result, we had a banner in our booth that had the word &#8220;cloud&#8221; on it, prompting lots of people to stop.</div>
   
   
     <footer>
-      <a rel="full-article" href="/2009/04/22/More-on-ArcGIS-Schematics/">Read on &rarr;</a>
+      <a rel="full-article" href="/2010/07/26/Clouds/">Read on &rarr;</a>
     </footer>
   
 
@@ -439,7 +257,7 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/13/zigGIS-Tweet-and-Greet/">zigGIS Tweet and Greet</a></h1>
+      <h1 class="entry-title"><a href="/2010/07/11/uZard-Browser-Runs-Flash-on-BlackBerry/">uZard Browser Runs Flash on BlackBerry</a></h1>
     
     
       <p class="meta">
@@ -455,20 +273,66 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
   
 
 
-<time datetime="2009-04-13T00:00:00-04:00" pubdate data-updated="true">Apr 13<span>th</span>, 2009</time>
+<time datetime="2010-07-11T00:00:00-04:00" pubdate data-updated="true">Jul 11<span>th</span>, 2010</time>
         
-         | <a href="/2009/04/13/zigGIS-Tweet-and-Greet/#disqus_thread">Comments</a>
+         | <a href="/2010/07/11/uZard-Browser-Runs-Flash-on-BlackBerry/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>After being involved with <a href="http://pub.obtusesoft.com">zigGIS</a> for a couple of years now, I&#8217;m excited that <a href="http://paolocorti.net">Paolo Corti</a> is going to be visiting the States next week and that Abe and I will finally get to meet him (and vice versa). The three of us will be meeting at the <a href="http://www.lolitabar.net">Lolita Bar</a> in New York City at 6pm on April 24th.</p>
+  <div class="entry-content"><p>With the festivities for the <a href="http://www.esri.com/events/user-conference/index.html">2010 ESRI User Conference</a> already underway, I stumbled across a new browser, called <a href="http://www.uzard.com/en/main/main.asp">uZard</a>, that BlackBerry users (depending on how old your model is) can use to browse the web and which also supports Flash. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2010/07/11/uZard-Browser-Runs-Flash-on-BlackBerry/">Read on &rarr;</a>
+    </footer>
+  
 
-<p>If you&#8217;re in the area (or you want to make a special trip), we could use all the help we can get to give Paolo a warm welcome to the US. I hope to see you there. <a href="http://twitter.com/zigGIS">Tweet us</a> if you think you&#8217;ll make it.</p>
 
-<p><img alt="A frosty cold helping of zig." height="225" src="http://geobabble.files.wordpress.com/2009/04/zigbeer2.png" title="A frosty cold helping of zig." width="169" /></p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/06/18/zigGIS-Hotfix-Available/">zigGIS Hotfix Available</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-18T00:00:00-04:00" pubdate data-updated="true">Jun 18<span>th</span>, 2010</time>
+        
+         | <a href="/2010/06/18/zigGIS-Hotfix-Available/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Abe announced the availability of hotfix 3 for <a href="http://pub.obtusesoft.com">zigGIS</a> 2.0.5. From the announcement:</p>
+
+<blockquote>Hotfix 3 fixes an issue that prevented point layers from being
+editable; it also includes all prior hotfixes.  The hotfix is a free
+upgrade and is highly recommended for all users.  Please go to
+<a href="http://pub.obtusesoft.com">http://pub.obtusesoft.com</a> &gt; My Order.  After logging in you&#8217;ll see a
+link to the patch.</blockquote>
+
+
+<p><a href="http://abegillespie.blogspot.com">Abe</a> is working hard on <a href="http://geobabble.wordpress.com/2010/04/23/ziggis-3-0-to-be-open-source/">version 3.0</a> but obviously is continuing to support 2.x as well. Improvements include a new provider model which will better enable support for other data sources. A roadmap should be available soon.</p>
 </div>
   
   
@@ -481,7 +345,7 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/11/SpatiaLite-Provider-Code-for-SharpMap-09/">SpatiaLite Provider Code for SharpMap 0.9</a></h1>
+      <h1 class="entry-title"><a href="/2010/06/16/See-You-at-the-UC/">See You at the UC</a></h1>
     
     
       <p class="meta">
@@ -497,20 +361,114 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
   
 
 
-<time datetime="2009-04-11T00:00:00-04:00" pubdate data-updated="true">Apr 11<span>th</span>, 2009</time>
+<time datetime="2010-06-16T00:00:00-04:00" pubdate data-updated="true">Jun 16<span>th</span>, 2010</time>
         
-         | <a href="/2009/04/11/SpatiaLite-Provider-Code-for-SharpMap-09/#disqus_thread">Comments</a>
+         | <a href="/2010/06/16/See-You-at-the-UC/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I mentioned in an <a href="http://geobabble.wordpress.com/2008/12/30/odds-and-ends-spatialite-and-stuff/">earlier post</a> that I was working on building a <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a> data provider for <a href="http://www.codeplex.com/sharpmap">SharpMap</a> 0.9. That effort was mainly a learning exercise for me as work has already begun on one for SharpMap 2.0. I am making the source code available below. I have unit tested it (thanks <a href="http://www.gallio.org/">mbUnit3 and Gallio</a>) so it should be pretty solid.</div>
+  <div class="entry-content"><p>I have finalized my travel plans for San Diego to attend the ESRI User Conference this year. I will be spending most of my time on the exhibit floor working a booth. My company, <a href="http://www.zekiah.com">Zekiah Technologies</a>, became a <a href="http://www.zekiah.com/gsa">GSA reseller</a> for <a href="http://www.arc2earth.com">Arc2Earth</a> this year so Zekiah will have a joint booth with Arc2Earth.</p>
+
+<p>I&#8217;ll be there with Brian and Jack Flood and we&#8217;ll have the newly-released Arc2Earth v3 on display. Come by booth 632 to see A2E Cloud Services (using Google&#8217;s Cloud) in action as well as integration with <a href="http://www.arcgis.com/home/">ArcGIS.com</a> and a number of other features, including the new ability to export ArcGIS layer styles to <a href="http://www.opengeospatial.org/standards/sld">SLD</a> (more on that in a future post). Don&#8217;t forget the free A2E Community Edition. If you won&#8217;t be at the UC, that&#8217;s a great way to check out what it can do.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/06/15/A-Couple-of-Updates/">A Couple of Updates</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-15T00:00:00-04:00" pubdate data-updated="true">Jun 15<span>th</span>, 2010</time>
+        
+         | <a href="/2010/06/15/A-Couple-of-Updates/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Shortly after my <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">previous post</a>, about browsing and downloading data from <a href="http://www.geocommons.com">GeoCommons</a>, hit the wires, I got quite a few back-channel requests for the code. I sent it out via e-mail to a number of people and then posted it via DropBox. I have finally gotten around to posting it up on Google Code, making things much more manageable. It is now available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>.</p>
+
+<p>I have made a few updates since the original post. Some were administrative but were functional. They are:</p>
+
+<ol>
+<li>The code was updated to replace SharpZipLib with <a href="http://dotnetzip.codeplex.com">DotNetZip</a> for handling zip files.</li>
+<li>The code now attempts to identify the default KML handler on the user&#8217;s system and pass KML directly to it for previewing.</li>
+<li>The user now gets a wait cursor when the tool is processing downloads and such. This should make it a little more usable.</li>
+<li>The code headers had been pasted in from <a href="http://sharpmap.codeplex.com">SharpMap</a> and I missed some references to SharpMap in the text. Those have been corrected.</li>
+</ol>
+
+
+<p>Anyway, thanks for all the interest. It sort of caught me off guard but at least the code is more accessible now. I&#8217;ve got a few more updates planned so this should streamline things.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/">Importing Data From GeoCommons Into ArcMap</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-02T00:00:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2010</time>
+        
+         | <a href="/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>UPDATE:</strong> <em>The code for this post is available at the bottom of the page.</em></p>
+
+<p>I have been doing a lot of development with the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">ESRI Silverlight API</a> recently. One of the requirements of my project is to be able to dynamically add KML data at runtime. The incorporation of <a href="http://code.google.com/apis/kml/documentation/">KML</a> was handled for us through <a href="http://resources.esri.com/arcgisserver/apis/silverlight/index.cfm?fa=codeGalleryDetails&amp;scriptID=16487">one of the ESRI samples</a> on the resource center so we pretty much just had to integrate that code and test against our use cases. For testing, I typically reached out to <a href="http://www.geocommons.com">GeoCommons</a> since any data set available there can be streamed as KML.</p>
+
+<p>Obviously, this is not my first exposure to GeoCommons but, when discussing it, I found that many of the analysts I spoke with were not aware of it and did not use it much. So I decided to tackle developing a simple ArcMap extension to allow a user to search GeoCommons and then download/add data to ArcMap without the need to manually download, unzip and add the data themselves.</div>
   
   
     <footer>
-      <a rel="full-article" href="/2009/04/11/SpatiaLite-Provider-Code-for-SharpMap-09/">Read on &rarr;</a>
+      <a rel="full-article" href="/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/">Read on &rarr;</a>
     </footer>
   
 
@@ -522,7 +480,7 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/07/SpatiaLite-230-Released/">SpatiaLite 2.3.0 Released</a></h1>
+      <h1 class="entry-title"><a href="/2010/05/18/Quilted-Map-of-Monongahela-National-Forest/">Quilted Map of Monongahela National Forest</a></h1>
     
     
       <p class="meta">
@@ -538,37 +496,26 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
   
 
 
-<time datetime="2009-04-07T00:00:00-04:00" pubdate data-updated="true">Apr 7<span>th</span>, 2009</time>
+<time datetime="2010-05-18T00:00:00-04:00" pubdate data-updated="true">May 18<span>th</span>, 2010</time>
         
-         | <a href="/2009/04/07/SpatiaLite-230-Released/#disqus_thread">Comments</a>
+         | <a href="/2010/05/18/Quilted-Map-of-Monongahela-National-Forest/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Alessandro has been very busy lately. He announced, via the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Google Group</a>, the release of version 2.3.0. The new features include (from the announcement):</p>
+  <div class="entry-content"><p>I found this map on display at the <a href="http://en.wikipedia.org/wiki/Cranberry_Glades">Cranberry Glades</a> <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=38.203056,+-80.266389&amp;sll=37.0625,-95.677068&amp;sspn=38.41771,79.013672&amp;ie=UTF8&amp;ll=38.202576,-80.266113&amp;spn=0.596777,1.234589&amp;z=10">visitor center</a> in West Virginia (click any of the pictures to enlarge them):</p>
 
-<blockquote>
-- supporting Routing [VirtualNetwork]
-- supporting EXIF GPS pictures
-- compatibility support for FDO/OGR RFC16 [VirtualFDO]
-- intensive and generalize debugging
-- AMALGAMATION: all the stuff put in a single source, as SQLite already does a complete SpatialDBMS engine in just 2 (two) C sources
-- clear separation between the LIB and the TOOLs
-- libspatialite-2.3.0 now includes libsqlite; linking a single library allow to support a full SpatialDBMS engine [some 800KB required]
-- now builds on M$ Visual Studio .NET as well
-========================================================
-enhanced GUI-tool:
-- color SQL syntax
-- full DB self-initialization during creation
-  [using init_spatialite.sql is no longer required]
-- introducing MEMORY-DB &#8230; try and see &#8230;
-  &#8230; never seen before something comparable &#8230;
-</blockquote>
+<p><a href="http://geobabble.files.wordpress.com/2010/05/img_2429.jpg"><img alt="" class="alignnone size-medium wp-image-903" height="225" src="http://geobabble.files.wordpress.com/2010/05/img_2429.jpg?w=300" title="Map of Monongahela National Forest" width="300" /></a></p>
 
+<p>One of the rangers working there told me it is to scale (although the quilt itself lacks any indication of scale).</p>
 
-<p>If you haven&#8217;t checked out SpatiaLite, you really should. It&#8217;s a very unique and useful tool.</p>
+<p>The next two pictures are close-ups showing the north arrow and the use of buttons as place markers. The kids we are traveling with were fascinated by this map. You will notice a red box over a portion of the forest. That was the area covered by a relief map on a table elsewhere in the visitor center.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/05/img_2430.jpg"><img alt="" class="alignnone size-medium wp-image-904" height="225" src="http://geobabble.files.wordpress.com/2010/05/img_2430.jpg?w=300" title="Buttons as place markers" width="300" /></a></p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/05/img_2431.jpg"><img alt="" class="alignnone size-medium wp-image-905" height="225" src="http://geobabble.files.wordpress.com/2010/05/img_2431.jpg?w=300" title="Quilted north arrow" width="300" /></a></p>
 </div>
   
   

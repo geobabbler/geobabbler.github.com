@@ -4,7 +4,7 @@
   <title><![CDATA[Category: database | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/database/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T22:16:30-05:00</updated>
+  <updated>2012-12-19T14:13:06-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -56,6 +56,49 @@ enjoy, Sandro
 
 
 <p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I'll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite 3.0 Beta Is Available]]></title>
+    <link href="http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available/"/>
+    <updated>2011-08-19T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available</id>
+    <content type="html"><![CDATA[<p>Alessandro Furieri announced the availability of the beta of SpatiaLite 3.0.0 on 17 August. It can be downloaded here: <a href="http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html">http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html</a>.</p>
+
+<p>Some of the more interesting additions include additional support for topology and the ability to export <a href="http://geojson.org">GeoJSON</a>.</p>
+
+<p>I did a <strong>very</strong> quick test with QGIS 1.7.0 and was able to directly access and edit a table in a database I created with SpatiaLite 3.0.0 so that's initially promising.</p>
+
+<p>[caption id="attachment_1985" align="aligncenter" width="300" caption="The extra island off the coast of Canada was edited in with QGIS."]<a href="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png"><img alt="" class="size-medium wp-image-1985" height="160" src="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png?w=300" title="Accessing SpatiaLite 3.0.0 in QGIS" width="300" /></a>[/caption]</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[So, Which Is It?]]></title>
+    <link href="http://blog.geomusings.com/2011/08/17/So-Which-Is-It/"/>
+    <updated>2011-08-17T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/17/So-Which-Is-It</id>
+    <content type="html"><![CDATA[<p><strong>Update:</strong> I pulled this link out of the comment thread below to emphasize it. It seems to answer this question for now: <a href="http://forums.arcgis.com/threads/35676-Edit-spatial-data-with-quot-ArcGIS-for-Desktop-10.1-quot-in-non-SDE-RDBMS-systems">http://forums.arcgis.com/threads/35676-Edit-spatial-data-with-quot-ArcGIS-for-Desktop-10.1-quot-in-non-SDE-RDBMS-systems</a></p>
+
+<p>Since my <a href="http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road/">previous</a> <a href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/">posts</a> about <a href="http://st-links.com/default.aspx">PgMap</a> and the shuttering of <a href="http://www.obtusesoft.com/">zigGIS</a>, the nature of the planned support for connecting directly to spatial databases from ArcGIS 10.1 has gotten somewhat muddier.</p>
+
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/zU9lv_WqK6k?color=white&theme=light"></iframe></p>
+
+<p>One of the first indications of direct support was <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">this statement from the ESRI UC Q&amp;A</a>.</p>
+
+<!--more-->
+
+
+<p>This statement, of course, doesn't specifically say anything about editing. I followed up with some people at <a href="http://www.esri.com">ESRI</a> (who shall remain nameless) who said the intent was to support editing of spatial databases in the same manner as current simple feature editing. So there we have it, read/edit from ArcMap without the need of ArcSDE.</p>
+
+<p>Or not...</p>
+
+<p>Subsequently, I have gotten a direct message on Twitter (from someone outside ESRI) indicating that editing will be supported only through the Spatial Data Server (SDS) and will require an SDS license. That seems to be bolstered by this <a href="http://proceedings.esri.com/library/userconf/proc11/uc/tw-pdfs/tw_1472.pdf">PDF from the ESRI UC</a>.</p>
+
+<p>So, at this point, I'll confess to being a little confused. There's a lot of new technology and capability being introduced at 10.1. (Hmmmm, maybe it should be 11.0?) So, given that it's all still in beta, I'll chalk it up to general churn associated with an impending release.</p>
+
+<p>Regardless of what the exact story is, I'm not sure it'll affect any decisions related to zigGIS. If ArcMap isn't supported, PgMap is still a compelling alternative for ArcGIS Desktop users. But perhaps someone from ESRI can help clear this up so the community can know what to expect.</p>
 ]]></content>
   </entry>
   
@@ -313,26 +356,6 @@ enjoy, Sandro
 <p>Even at this early stage, I've got to consider performance. The spatial query in the trigger is performing amazingly fast but my data is still small. I've got spatial indices built on the data sets but I'll need to keep an eye on that as this grows. Thankfully, <a href="http://www.manning.com/obe/">'PostGIS In Action'</a> offers lots of tips in that regard. Another design consideration I've made is that all of my spatial data sets will be stored in the same spatial reference. PostGIS has nice coordinate transformation capabilities but I don't want to introduce that into my trigger functions in case data starts to grow. I plan to pre-process buffers and such for the same reasons.</p>
 
 <p>I'm pretty happy with this so far primarily because all of the logic is executing at the database level. There's really no need to extract any of this logic out into a middle-tier library of any kind and it's running without any dependence on any middleware. It's also a nice use of spatial processing that doesn't involve a map. I love maps but they aren't necessary in every application of spatial technology. I'm also excited to have a meaty requirement to dig into to help with my Python explorations. I've missed working with these tools. It's good to be back.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[zigGIS 2.0.2 Enhancements Announced]]></title>
-    <link href="http://blog.geomusings.com/2009/01/14/zigGIS-2.0.2-Enhancements-Announced/"/>
-    <updated>2009-01-14T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2009/01/14/zigGIS-2.0.2-Enhancements-Announced</id>
-    <content type="html"><![CDATA[<p><a href="http://abegillespie.blogspot.com/2009/01/ziggis-candy.html">Abe posted</a> today about upcoming enhancements in <a href="http://pub.obtusesoft.com">zigGIS</a> 2.0.2. These changes address some of the most common feedback that we've heard from users. Abe has been working hard to get these changes implemented and released in a timely fashion. Testing will begin shortly.</p>
-
-<p>In addition to the flexibility that Abe describes, these changes also begin to position zigGIS to support other data sources beyond PostGIS.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Upgrading to SQL Server 2008 February CTP]]></title>
-    <link href="http://blog.geomusings.com/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP/"/>
-    <updated>2008-02-25T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP</id>
-    <content type="html"><![CDATA[<p>There is no direct upgrade yet so you need to remove the November CTP. Apparently, the uninstall doesn't always work well (hey, it's beta). Luckily, <a href="http://dotnettim.spaces.live.com/blog/cns!4B800EB59FAEDC2A!152.entry">Tim's post</a> straightened me out. This worked for me. More accurately, the guidance in Michael's comment worked for me.</p>
 ]]></content>
   </entry>
   

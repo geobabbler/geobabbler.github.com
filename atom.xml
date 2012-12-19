@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T22:16:30-05:00</updated>
+  <updated>2012-12-19T14:13:06-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -1290,277 +1290,59 @@ enjoy, Sandro
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[CartoDB + Leaflet = Easy]]></title>
-    <link href="http://blog.geomusings.com/2011/10/13/CartoDB-Leaflet-Easy/"/>
-    <updated>2011-10-13T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/10/13/CartoDB-Leaflet-Easy</id>
-    <content type="html"><![CDATA[<p>One of the biggest sources of buzz at <a href="http://2011.foss4g.org/">FOSS4G</a> was <a href="http://cartodb.com">CartoDB</a>. It is a hosted solution from <a href="http://vizzuality.com/">Vizzuality</a> that uses <a href="http://postgis.org/">PostGIS</a> to allow you to store your spatial data online. I got a beta account a couple of weeks ago but life (i.e. paying work) kept getting in the way but I finally got to play with it recently.</p>
+    <title type="html"><![CDATA[Anne Arundel County, Maryland Announces GIS Data Downloads]]></title>
+    <link href="http://blog.geomusings.com/2011/12/14/Anne-Arundel-County-Maryland-Announces-GIS-Data-Downloads/"/>
+    <updated>2011-12-14T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/12/14/Anne-Arundel-County-Maryland-Announces-GIS-Data-Downloads</id>
+    <content type="html"><![CDATA[<p>A while back, I <a href="http://blog.geomusings.com/2011/09/26/free-maryland-gis-data-resources/">posted</a> about county-level GIS data available in the State of Maryland. I was very happy to see an <a href="http://www.linkedin.com/groupItem?view=&amp;gid=3300945&amp;item=ANET%3AS%3A84763573&amp;trk=NUS_RITM-title">announcement on LinkedIn</a> that Anne Arundel County, Maryland has rolled out a new <a href="http://www.aacounty.org/OIT/GIS/GISData.cfm">data download page</a> that makes their GIS data freely available.</p>
 
-<p>One of the things that intrigued me is that, similar to <a href="http://www.google.com/fusiontables/Home/">Google Fusion Tables</a>, CartoDB exposes a SQL interface through a RESTful API (I&#8217;m still not sure if the term &#8220;API&#8221; applies to REST but it&#8217;s a convenient shorthand). Essentially, CartoDB exposes PostgreSQL SQL and the spatial SQL extensions of PostGIS. Once your data is loaded, you can query it and return the results as either CartoDB&#8217;s JSON syntax, KML or <a href="http://geojson.org">GeoJSON</a>.</p>
+<p>[caption id=&#8221;attachment_2356&#8221; align=&#8221;aligncenter&#8221; width=&#8221;346&#8221; caption=&#8221;Anne Arundel County is home to Annapolis, the capital of Maryland and my favorite place on earth.&#8221;]<a href="http://geobabble.files.wordpress.com/2011/12/md_state_house_2011_12_14.jpg"><img alt="" class="size-full wp-image-2356" height="614" src="http://geobabble.files.wordpress.com/2011/12/md_state_house_2011_12_14.jpg" title="md_state_house_2011_12_14" width="346" /></a>[/caption]</p>
 
-<p>With this information, I set out to build a simple application to query property data and display the results on a map in a browser. In addition to CartoDB, I elected to use the <a href="http://leaflet.cloudmade.com/">Leaflet</a> Javascript library to accomplish the mapping (although I also experimented with OpenLayers). Displaying and styling GeoJSON in Leaflet is very straightforward and this task gave me and excuse to get a little more comfortable with it.</p>
-
-<!--more-->
-
-
-<p>For starters, I downloaded building footprints for St. Mary&#8217;s County, Maryland (freely available <a href="http://www.stmarysmd.com/gis/">here</a>). The footprints themselves are countywide so I also downloaded the boundary for Leonardtown, Maryland and used <a href="http://qgis.org/">QGIS</a> to clip out just those buildings that fell within the town boundary. Once my data was prepped, I uploaded it into CartoDB.</p>
-
-<div style="text-align: center;"><img alt="" class="size-full wp-image-2134" height="359" src="http://geobabble.files.wordpress.com/2011/10/cartodb_upload.png" title="cartodb_upload" width="590" /><div style="text-align: center; font-size: 14px">The CartoDB uploader is very easy to use.<br /></div></div>
-
-
-<p>Once the data is uploaded and made public, it is as easy as a URL to pull down the GeoJSON (or even KML). Click here:</p>
-
-<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson</a></p>
-
-<p>You&#8217;ll notice that some SQL is embedded in the URL. Finding the commercial properties in the data set is as simple as adding a WHERE clause:</p>
-
-<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20'Commercial'&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20&#8217;Commercial&#8217;&amp;format=geojson</a></p>
-
-<p>This became the basis of my sample application. I decided to do a simple property finder that allows a user to find buildings by property type and square footage. As I mentioned, it&#8217;s very easy to use GeoJSON with Leaflet. Here is the Javascript function that fetches the buildings from CartoDB and adds them to the map. It uses jQuery to do the actual fetch and then processes the result, adding the features into a Leaflet GeoJSON layer.</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'>   <span class="kd">function</span> <span class="nx">getBuildings</span><span class="p">()</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">bldgLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">();</span>
-</span><span class='line'>        <span class="c1">//here we also parse the attributes for the popups on the map</span>
-</span><span class='line'>        <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;featureparse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">color</span><span class="o">:</span>  <span class="s1">&#39;#BDBDBD&#39;</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">fill</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;#EF6548&#39;</span><span class="p">,</span> <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mf">0.85</span> <span class="p">});</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span><span class="p">){</span>
-</span><span class='line'>              <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;lt;b&amp;gt;Address:&amp;lt;/b&amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot;&amp;lt;br/&amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span><span class="p">){</span>
-</span><span class='line'>              <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;lt;b&amp;gt;Property Type:&amp;lt;/b&amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span> <span class="o">+</span> <span class="s2">&quot;&amp;lt;br/&amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span><span class="p">){</span>
-</span><span class='line'>              <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;lt;b&amp;gt;Square Footage:&amp;lt;/b&amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span> <span class="o">+</span> <span class="s2">&quot;&amp;lt;br/&amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>          <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="p">});</span>
-</span><span class='line'>  
-</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span>
-</span><span class='line'>            <span class="s2">&quot;http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;amp;format=geojson&amp;amp;callback=?&quot;</span><span class="p">,</span>
-</span><span class='line'>            <span class="kd">function</span><span class="p">(</span><span class="nx">geojson</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">features</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">addGeoJSON</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
-</span><span class='line'>            <span class="p">})</span>
-</span><span class='line'>        <span class="p">});</span>
-</span><span class='line'>      
-</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">bldgLayer</span><span class="p">);</span>     
-</span><span class='line'>  <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><del datetime="2011-10-14T14:44:58+00:00">If you look closely, you&#8217;ll notice the use of a proxy handler to get past the same origin restriction. This handler is written in .Net. I had been using a Python proxy but urllib2 was indicating header errors in the return from CartoDB so I fell back to this one. I&#8217;ll dig into that more later.</del> (Thanks to <a href="http://twitter.com/jatorre">Javier de la Torre</a> for straightening me out with the use of a callback.) The above routine is basically the template for all the work in the app. Aside from the basemap tiles, the app loads the town boundary and the buildings from CartoDB. A similar funtion drives the query function, building and passing a WHERE clause to CartoDB. The image below shows the interface with query results in blue. The popups are performed by Leaflet.</p>
-
-<div style="text-align: center;"><img alt="" class="size-full wp-image-2139" height="300" src="http://geobabble.files.wordpress.com/2011/10/propfinder.png" title="propfinder" width="590" /><div style="text-align: center; font-size: 14px">Selected buildings are shown in blue with popups to display the property details<br /></div></div>
-
-
-<p>All told, this app took about 3 or so hours to build and deploy. This version doesn&#8217;t actually make use of any spatial SQL yet but I&#8217;ll add that soon. The live demo can be found here: <a href="http://demo.zekiah.com/propfinder/">http://demo.zekiah.com/propfinder/</a> (give the buildings a few seconds to load). It seems to work well in Firefox and Chrome and is functional, although clunky, in IE9. I haven&#8217;t tried Safari or earlier versions of IE.</p>
-
-<p>CartoDB is still in beta but already seems solid and is definitely powerful. As a hosted solution, there are associated costs but that&#8217;s to be expected. I&#8217;ll keep playing with it but it&#8217;s already impressive.</p>
+<p>Kudos to <a href="http://twitter.com/Eric112200">Eric Wilson</a> and everyone else in the Anne Arundel County GIS group for making this happen. Here&#8217;s hoping more follow suit.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Using Dynamic Non-Spatial Data In GeoCommons]]></title>
-    <link href="http://blog.geomusings.com/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons/"/>
-    <updated>2011-09-07T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons</id>
-    <content type="html"><![CDATA[<p>In <a href="http://blog.geomusings.com/2011/08/30/prying-data-open/">my previous post</a>, I described how I used a Python script to scrape power outage information from a local web site and convert it into an RSS feed. In this post, I&#8217;ll show how I used GeoCommons to visualize the changing information over time.</p>
+    <title type="html"><![CDATA[Great News About Atanas!]]></title>
+    <link href="http://blog.geomusings.com/2011/12/09/Great-News-About-Atanas/"/>
+    <updated>2011-12-09T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/12/09/Great-News-About-Atanas</id>
+    <content type="html"><![CDATA[<p><a href="http://twitter.com/atanas">Atanas</a> tweeted this last night:</p>
 
-<p>The process starts by creating a data set in GeoCommmons based on a URL link to the feed created in the previous post. The general process for doing that can be found <a href="http://geocommons.com/help/User_Manual#Add-a-URL-Link-from-the-web">here</a> in the GeoCommons documentation.</p>
-
-<!--more-->
-
-
-<p>My feed is not a GeoRSS feed so it has no location data of its own for GeoCommons to work with. During the upload process, I reached this screen, which starts the process of helping to attach location to my data.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2037" height="388" src="http://geobabble.files.wordpress.com/2011/09/geocommons4.png" title="Geolocating data in GeoCommons" width="590" /></p>
-
-<p>The feed summarizes power outage by ZIP code so I chose &#8220;Join with a boundary dataset&#8221; so that I could join it with ZIP code boundaries I had previously uploaded.</p>
-
-<p>I selected the attribute in my feed (title) that was to be used to join with a corresponding attribute in the boundary data set (Zip) as shown below.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2038" height="345" src="http://geobabble.files.wordpress.com/2011/09/geocommons6.png" title="GeoCommons6" width="590" /></p>
-
-<p>You&#8217;ll notice that the success message indicates three features were matched. This is true for this version of the feed because ZIP codes with zero power outages are not reported. The join, however, updates itself as the feed updates so more or less polygons may appear in the current version, depending upon feed content.</p>
-
-<p>After reviewing my data and providing some basic metadata, GeoCommons performed the join and my data set was ready to go.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2041" height="443" src="http://geobabble.files.wordpress.com/2011/09/geocommons9.png" title="Completed data set" width="554" /></p>
-
-<p>In the image above, you&#8217;ll notice a link labeled &#8220;fetch latest.&#8221; That link, which is formatted as &#8220;http://geocommons.com/overlays/{overlayid}/fetch,&#8221; can be used to manually get the latest version of the feed, which is stored by GeoCommons. Essentially, GeoCommons stores the state of each feature in the data set as the feed is fetched so you build a &#8220;version history&#8221; your data. As long as you have a date/time attribute, you can use GeoCommons to visualize the changes over time.</p>
-
-<p>In addition to the Python code from previous post, I also used a variant on the script found at <a href="http://www.voidspace.org.uk/python/articles/authentication.shtml">http://www.voidspace.org.uk/python/articles/authentication.shtml</a>. The fetching capability requires authentication so I modified the script to call the &#8220;fetch&#8221; URL using my GeoCommons user name and password. The script may be overkill but work perfectly without any changes.</p>
-
-<p>On the server, I wrote a four-line batch file to act as a driver for the whole process. This batch file is what is called by a scheduled task in Windows.</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">del</span> <span class="p">*.</span><span class="n">xml</span>
-</span><span class='line'><span class="n">del</span> <span class="p">*.</span><span class="n">pickle</span>
-</span><span class='line'><span class="n">python</span> <span class="n">SmecoFeedObj</span><span class="p">.</span><span class="n">py</span>
-</span><span class='line'><span class="n">python</span> <span class="n">fetchlatest</span><span class="p">.</span><span class="n">py</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class='embed tweet'><blockquote class="twitter-tweet"><p>Out on day 65. Thank you all for everything. Details later on tenthcave.com. <a href="https://twitter.com/search/%23freeatanas">#freeatanas</a></p>&mdash; Atanas Entchev (@atanas) <a href="https://twitter.com/atanas/status/144991222040231936" data-datetime="2011-12-09T04:06:15+00:00">December 9, 2011</a></blockquote>
+<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 
 
-<p>As you can see, the batch is very simple. It deletes the old files, scrapes the latest version and writes new files (SmecoFeedObj.py) and then updates the GeoCommons data set (fetchlatest.py).</p>
+<p>This is the best news possible. I, like many others, will await details on his <a href="http://www.tenthcave.com/">blog</a>. I couldn&#8217;t be happier for Atanas and his family.</p>
 
-<p>The server is a Windows server so I set up a scheduled task (How to: <a href="http://support.microsoft.com/kb/308569">XP</a>, <a href="http://windows.microsoft.com/en-US/windows-vista/Schedule-a-task">Vista</a>, <a href="http://windows.microsoft.com/en-US/windows7/schedule-a-task">Windows 7</a>, <a href="http://technet.microsoft.com/en-us/library/cc738106(WS.10).aspx">Server 2003</a>, <a href="http://technet.microsoft.com/en-us/library/cc725745.aspx">Server 2008</a>). I set my task up to run once an hour so the latest data is scraped and pushed to GeoCommons hourly.</p>
+<p>It&#8217;s good to have you back, my friend.</p>
 
-<p>With the data set now created and being updated, it can be used to make maps in GeoCommons to visualize the changing data. I created two maps to demonstrate this. <a href="http://geocommons.com/maps/97820">The first</a>, using a filter, allows a user to filter the feed data to a time window of their choosing and map just the outage data for that time window.</p>
-
-<p>The <a href="http://geocommons.com/maps/97820">second map</a>, shown below, uses GeoCommons animation capability to allow a user to &#8220;play through&#8221; the data based upon the publication date/time. A user can either drag the time slider manually or let it play automatically. They can also adjust the width of the slider to narrow/widen the time window. I&#8217;ve been told by GeoIQ that animation is under active improvement so I&#8217;m interested to see how it evolves. This was my first attempt at using it with my own data so I&#8217;m sure I&#8217;m not using it optimally. That said, I&#8217;m impressed with how easy it was to set up a time-based animation.</p>
-
-<div style="text-align: center"><a href="http://geocommons.com/maps/97820"><img alt="" class="size-full wp-image-2043" height="278" src="http://geobabble.files.wordpress.com/2011/09/geocommons10.png" title="GeoCommons map animating power outage data" width="590" /></a><div style="text-align: center;font-size: 14px;">GeoCommons map animating power outage data<br/></div></div>
-
-
-<p>All-in-all, it took me about 4 hours to go from data embedded in an HTML page to a working map animation. That really speaks to the power of the tools available today, from programming languages like Python and open standards like RSS to online tools like GeoCommons, as well as a host of others I didn&#8217;t use for this work. It is becoming easier all the time to integrate and use spatial tools to exploit data from traditionally non-spatial sources and share the results widely. As traditional &#8220;GIS&#8221; fades into the background, the resulting fusion of more standard technologies is opening a wider world of possibilities.</p>
+<p><strong>UPDATE</strong>: Here&#8217;s a little more information from Atanas himself: <a href="http://www.tenthcave.com/2011/12/out-on-day-65.html">http://www.tenthcave.com/2011/12/out-on-day-65.html</a></p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Prying Data Open]]></title>
-    <link href="http://blog.geomusings.com/2011/08/30/Prying-Data-Open/"/>
-    <updated>2011-08-30T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/08/30/Prying-Data-Open</id>
-    <content type="html"><![CDATA[<p>In the aftermath of Hurricane Irene, I was trying to get information from my <a href="http://www.smeco.coop">local electric cooperative</a> about outages. There were many (including my neighborhood) and I wanted to see the scale of the problem. It turns out, they have a page with a map that shows current outages by zip code.</p>
+    <title type="html"><![CDATA[Arc2Earth Sync Beta Announced]]></title>
+    <link href="http://blog.geomusings.com/2011/11/23/Arc2Earth-Sync-Beta-Announced/"/>
+    <updated>2011-11-23T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/11/23/Arc2Earth-Sync-Beta-Announced</id>
+    <content type="html"><![CDATA[<p>Over on <a href="https://plus.google.com/112324940962843535547/posts/B9T9M1vPLCz">Google+</a> (and also on Twitter), <a href="http://twitter.com/bflood">Brian Flood</a> announced the impending availability of Arc2Earth Sync Beta to existing <a href="http://www.arc2earth.com">Arc2Earth</a> users. This has been brewing for for a while and Brian says it best:</p>
 
-<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png"><img alt="" class="size-medium wp-image-2018" height="202" src="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png?w=300" title="smeco_outage" width="300" /></a><div style="text-align: center; font-size: 14px">Old school outage map<br /></div></div>
+<blockquote>
+&#8220;What makes Sync really cool is the live edit synchronization and the ability to publish online to different formats. It&#8217;s a great way to provide integration between ArcGIS desktops/online and the other Cloud database providers like Google.&#8221;
+</blockquote>
 
-
-<p>It&#8217;s pretty old-school as far as web maps go but it gets the job done. Their day job is making electricity, not web maps, so I won&#8217;t critique it too much. One thing I did notice is that the map seems to be dynamically generated (as do the tables on the page) from some inaccessible data source. I search and tried to find some kind of feed, to no avail.</p>
 
 <!--more-->
 
 
-<p>The data on this page is ideal for an RSS feed which could be consumed by any of the local news portals, online mapping sites, and other outlets that may be used by the public. Yet, there is no feed. Here is an example of useful information locked away behind an uninformed design decision. The organization has already made the decision to publish this information so using RSS or social media would not expose anything more than what is already being released.</p>
+<p>So it gives users the ability to publish, edit and synchronize data they are storing in on-line, hosted environments using the editing tools of ArcMap. The initial beta will only support Google Fusion Tables but support for Google Earth Builder and - this caught my eye right away - <a href="http://cartodb.com">CartoDB</a> are scheduled for after the first of the year.</p>
 
-<p>It makes me wonder about the scale of this problem. How much more information is being produced in relatively inaccessible forms by otherwise well-intentioned organizations? In this case, the information is being produced as an HTML page, so we can always scrape and republish the information, which is exactly what I did. The resulting feed can be found here:</p>
+<p>[caption id=&#8221;attachment_2322&#8221; align=&#8221;aligncenter&#8221; width=&#8221;500&#8221; caption=&#8221;Arc2Earth Sync stands to give ArcGIS users an assortment of hosted data platforms to choose from.&#8221;]<img alt="" class="size-full wp-image-2322" height="375" src="http://geobabble.files.wordpress.com/2011/11/assorted_donuts1.jpg" title="Choices, choices..." width="500" />[/caption]</p>
 
-<p><a href="http://demo.zekiah.com/smecofeed/smeco_outage.xml">http://demo.zekiah.com/smecofeed/smeco_outage.xml</a></p>
+<p>There are a lot of ArcGIS for Desktop users out there and exposing different hosted solutions using workflows and tools with which they are comfortable has the potential to do a lot for user choice and the ability to control one&#8217;s own data.</p>
 
-<p>The feed is simple: the ZIP code is in the item title and the number households affected is in the item description (by itself with no other decoration). Since ZIP codes are fairly standard, it makes it easy to consume the feed and do other things with it, such as <a href="http://geocommons.com/maps/97440">map it on GeoCommons</a>. This map may seem redundant but now the data can be layered with other data sets such as shelter locations, ice distribution centers and the like, making it more useful.</p>
-
-<p>To produce this feed I used Python. <a href="http://blog.davebouwman.com/">Dave Bouwman</a> pointed me to <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> and I also made use of the <a href="http://www.crummy.com/software/ScrapeNFeed/">ScrapeNFeed</a> library (which makes use of <a href="http://www.dalkescientific.com/Python/PyRSS2Gen.html">PyRSS2Gen</a>). I have it set up on a cron job to update every two hours and dump a new XML file. I decided this was preferable to doing a direct link back to the page because I&#8217;m unsure how robust their server is. I am posting my code below in the event that someone else needs to do this. This type of approach is very fragile. You&#8217;ll see from the code that it&#8217;s very dependent upon the structure of the source HTML. So, if the page structure changes, the feed will break. This is obviously not ideal so it&#8217;s best to view it as a band-aid.</p>
-
-<p>I suspect that there&#8217;s a lot of this kind of thing going on. Where you find it, it&#8217;s best to engage with the organization to help make it better and that&#8217;s my next step here. There&#8217;s been a lot of talk about open data in our industry for a while, along with a lot of activity. Situations like this make me realize the scale of the work yet to be done. It will take a lot of effort to open up data all the way down the line and, perhaps, even more effort to help organizations understand why it is beneficial to do so in the first place. But it&#8217;s work that needs to be done.</p>
-
-<p>As promised, here&#8217;s the Python code should anyone find it useful:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">PyRSS2Gen</span> <span class="kn">import</span> <span class="n">RSSItem</span><span class="p">,</span> <span class="n">Guid</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">ScrapeNFeed</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">SmecoFeed</span><span class="p">(</span><span class="n">ScrapeNFeed</span><span class="o">.</span><span class="n">ScrapedFeed</span><span class="p">):</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">def</span> <span class="nf">HTML2RSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
-</span><span class='line'>                <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
-</span><span class='line'>                <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-</span><span class='line'>                <span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">)</span>
-</span><span class='line'>                <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span class='line'>                <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-</span><span class='line'>                        <span class="n">row</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-</span><span class='line'>                        <span class="n">cols</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)</span>
-</span><span class='line'>                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span><span class="p">:</span>
-</span><span class='line'>                            <span class="nb">zip</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
-</span><span class='line'>                            <span class="nb">zip</span> <span class="o">=</span> <span class="nb">zip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-</span><span class='line'>                            <span class="n">tot</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
-</span><span class='line'>                            <span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-</span><span class='line'>                          <span class="c">#This link is not real. It will simply take you to the homepage.</span>
-</span><span class='line'>                            <span class="n">lnk</span> <span class="o">=</span> <span class="s">&#39;http://www.smeco.coop#&#39;</span> <span class="o">+</span> <span class="nb">zip</span>
-</span><span class='line'>                            <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RSSItem</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">zip</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="n">tot</span><span class="p">,</span><span class="n">link</span><span class="o">=</span><span class="n">lnk</span><span class="p">))</span>
-</span><span class='line'>                            <span class="c">#print zip</span>
-</span><span class='line'>                            <span class="c">#print tot</span>
-</span><span class='line'>                            <span class="c">#cols = row.findAll(&#39;td&#39;)</span>
-</span><span class='line'>                            <span class="c">#for col in cols:</span>
-</span><span class='line'>                            <span class="c">#    print col.string</span>
-</span><span class='line'>                <span class="bp">self</span><span class="o">.</span><span class="n">addRSSItems</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">SmecoFeed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;Current SMECO outages (as scraped by Zekiah Technologies)&quot;</span><span class="p">,</span>
-</span><span class='line'>                 <span class="s">&#39;http://outage.smeco.coop&#39;</span><span class="p">,</span>
-</span><span class='line'>                 <span class="s">&quot;Current SMECO power outages by ZIP code&quot;</span><span class="p">,</span>
-</span><span class='line'>                 <span class="s">&#39;smeco_outage.xml&#39;</span><span class="p">,</span>
-</span><span class='line'>       <span class="s">&#39;smeco_outage.pickle&#39;</span><span class="p">,</span>
-</span><span class='line'>                 <span class="n">managingEditor</span><span class="o">=</span><span class="s">&#39;bill@zekiah.com (Bill Dollins)&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p>Here is a link to Brian&#8217;s screencast showing Arc2Earth Sync in action: <a href="https://arc2earth.viewscreencasts.com/fe762cac52664083ad5dfdfcd0f750c9">https://arc2earth.viewscreencasts.com/fe762cac52664083ad5dfdfcd0f750c9</a></p>
 ]]></content>
   </entry>
   

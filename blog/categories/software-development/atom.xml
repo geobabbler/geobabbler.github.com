@@ -4,7 +4,7 @@
   <title><![CDATA[Category: software development | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/software-development/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T22:16:30-05:00</updated>
+  <updated>2012-12-19T14:13:06-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -208,6 +208,63 @@
 <p>In a more robust application (meaning not a sample for a blog post), you could put the results into a map or feed them into locally-installed analysis tools for further processing or do just about anything you want that supports your workflow. I've been a fan of the analytical capability of GeoIQ for some time and I hope, whatever the future holds, that these kinds of tools make it into the next generation of products.</p>
 
 <p>The full Windows Forms code for this sample is <a href="https://gist.github.com/3137738" target="_blank">available here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ESRI Dev Meetup, Silver Spring, MD]]></title>
+    <link href="http://blog.geomusings.com/2011/11/02/ESRI-Dev-Meetup-Silver-Spring-MD/"/>
+    <updated>2011-11-02T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/11/02/ESRI-Dev-Meetup-Silver-Spring-MD</id>
+    <content type="html"><![CDATA[<p>Another <a href="http://www.meetup.com/DevMeetUpNortheast/events/37184672/">ESRI Dev Meetup is happening in the DC</a> area on November 10th. This time, it's at Fire Station One in Silver Spring, MD (kudos to <a href="http://twitter.com/geeknixta">Nick Furness</a> for doing a good job of moving them around the DMV). These are generally a good time and ESRI doesn't actually try to drive the content train too much. As a result, you can hear about the some interesting integration use cases. I can even attest that ESRI doesn't check your current maintenance status at the door!</p>
+
+<p>[caption id="" align="aligncenter" width="230" caption="No drink tickets needed"]<img alt="" height="300" src="http://uncrate.com/p/2008/05/imperial-pint-glass.jpg" title="Mmmmmmm" width="230" />[/caption]</p>
+
+<p>I <em>think</em> they are still looking for lightning talks. Please sign up to do one or they'll have to fill in the open slots with technical marketing speak! Mine has been tentatively approved by Nick under the guidance "Don't say anything that'll get me fired."</p>
+
+<p>I hope to see you there.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Piling On About Python]]></title>
+    <link href="http://blog.geomusings.com/2011/05/25/Piling-On-About-Python/"/>
+    <updated>2011-05-25T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/05/25/Piling-On-About-Python</id>
+    <content type="html"><![CDATA[<p>First and foremost, I am not a <a href="http://www.python.org">Python</a> expert. I am not even sure I could effectively play one on TV. <a href="http://geobabble.wordpress.com/2011/01/03/turning-it-up-to-11/">As I mentioned at the beginning of the year</a>, I am trying to beef up my Python skills.</p>
+
+<p>Secondly, what I have to say in this post isn't particularly original or unique. <a href="http://sgillies.net/blog/find?q=python&amp;submit=Search">Others</a> <a href="http://blog.safe.com/2009/10/snakes-on-a-map-python-in-gis/">have</a> <a href="http://www.spatiallyadjusted.com/2011/01/03/2011-the-year-python-takes-over-gis/">said</a> it before.</p>
+
+<p>So I am posting this because I have fielded some form of this question at least ten times (no exaggeration) in the past couple of months: "What skill do you recommend most for someone getting into GIS today?"   <!--more--></p>
+
+<p>My answer, invariably, has become "Python."</p>
+
+<p>[caption id="attachment_1759" align="aligncenter" width="278" caption="Python: The Swiss Army Knife of GIS programming"]<img alt="Python: The Swiss Army Knife of GIS programming" class="size-full wp-image-1759" height="296" src="http://geobabble.files.wordpress.com/2011/05/wenger_giant_knife.png" title="Python: The Swiss Army Knife of GIS programming" width="277" />[/caption]</p>
+
+<p>This may sound like a very programmer-centric answer, and it may be, but just today I got this in an e-mail from one of the senior GIS analysts with whom I work:</p>
+
+<blockquote>Looks like you were right.  Can't use field calculator to do what I'm trying to do.  I'll be writing a Python script.</blockquote>
+
+
+<p>He had been trying to use the ArcGIS Desktop field calculator to find the minimum value in a column. After a quick call to Esri, he confirmed that it didn't work that way. Gone are the days when a GIS analyst can just sit down, double-click the icon of their desktop GIS of choice and accomplish everything they need to do solely with the use of <a href="http://en.wikipedia.org/wiki/WIMP_(computing)">WIMP</a>. Truly effective analysts will need to do some scripting and that's where Python comes in.</p>
+
+<p>Python is a real language that can be used to build real, complex, enterprise-scale applications. It also happens to be very effective for scripting as well. In the Esri world, the thankful sunsetting of VBA leaves analysts with Python as the recommended way to accomplish that. That said, if you are entering the GIS field in 2011, you need to have Python in your arsenal. It simply positions you to work with a broad set of tools, such as:</p>
+
+<p><a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/What_is_ArcPy/000v000000v7000000/">ArcGIS</a>
+<a href="http://www.qgis.org/wiki/Writing_Python_Plugins">Quantum GIS</a>
+<a href="http://mapnik.org/">Mapnik</a>
+<a href="http://trac.osgeo.org/gdal/wiki/GdalOgrInPython">GDAL/OGR</a>
+<a href="http://trac.gispython.org/lab/wiki/Shapely">Shapely</a>
+<a href="http://grass.osgeo.org/wiki/GRASS_and_Python">GRASS</a>
+<a href="http://postgis.refractions.net/documentation/">PostGIS/PostgreSQL</a>
+<a href="http://code.google.com/p/weogeo-public-code/downloads/list">WeoGeo</a>
+<a href="http://geodjango.org/">GeoDjango</a>
+<a href="http://groups.google.com/group/python-gis-sig">And a host of others discussed here.</a>
+And more, I'm sure.</p>
+
+<p>This list is not comprehensive nor is it intended to be. It is meant to show that, wherever you want to go, Python is probably already there. Some of the tools listed there are not strictly GIS tools but are designed to perform some component functions of GIS very well so interpret the list broadly. Also, this list doesn't really touch upon python libraries that can help with commonly performed related tasks like statistical analysis (things like <a href="http://rpy.sourceforge.net/">rpy</a>, which interfaces with <a href="http://www.r-project.org/">R</a> via Python).</p>
+
+<p>If it's not obvious by now, I am becoming a Python convert and having a lot of fun in my explorations. I can't think of another time in my career where one language has cut across such a wide array of tools. It makes me wish I could have all those years of <a href="http://en.wikipedia.org/wiki/ARC_Macro_Language">AML</a> back.</p>
 ]]></content>
   </entry>
   
@@ -542,279 +599,6 @@
 <p>These two examples access data provided to GeoCommons by the State of Arkansas as described by Learon Dalby <a href="http://www.gisuser.com/content/view/23022/222/">here</a>. In XAML, we are accessing the railroad lines that intersect a 100KM buffer around the supplied point. In the second, we are loading all of the state senate district boundaries.</p>
 
 <p>That's fairly high-level overview of the integration tasks that were needed to provide access to GeoCommons from the ESRI Silverlight API using the GeoIQ Features API. I'll post a sample project and code soon once I get things cleaned up a bit more. Stayed tuned...</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DevGeo Session at the Esri FedUC]]></title>
-    <link href="http://blog.geomusings.com/2010/12/13/DevGeo-Session-at-the-Esri-FedUC/"/>
-    <updated>2010-12-13T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/12/13/DevGeo-Session-at-the-Esri-FedUC</id>
-    <content type="html"><![CDATA[<p>We are approximately a month away from the <a href="http://www.esri.com/events/feduc/index.html">Esri Federal User Conference</a>. It is probably the largest geospatially-themed event in the DC/Maryland/Virginia area each year and has gotten bigger each year. I have documented this conference in the past and have pointed out that, despite its name, there is a lot of information that can be of value for state/local and other non-Federal users of Esri products. Given constrained travel budgets, it?s a good option for people who may not be able to make it to San Diego.</p>
-
-<p>This year, Esri has added something new to the FedUC. It was somewhat innocuously <a href="http://twitter.com/#!/JimBarry/status/13301630267039745">tweeted by Jim Barry</a> last week but is, in my opinion, a significant addition. If you check the agenda, you will now see that Thursday, January 20 now includes an <a href="http://www.esri.com/events/feduc/agenda/dev-geo.html">all-day DevGeo session</a>. This is a follow-on event to the <a href="http://www.esri.com/events/devgeo/index.html">inaugural DevGeo session</a> put on in Silicon Valley in November.</p>
-
-<!--more-->
-
-
-<p>Esri has stepped up its direct engagement with developers recently, most notably through the excellent <a href="http://www.esri.com/events/dev-meetup/index.html">Dev Meetup series</a>. Those sessions have been driven primarily by users and, as a result, have had a surprisingly wide range of topics (Windows authentication and PostgreSQL in Illinois, <a href="http://geocommons.com">GeoCommons</a> integration in DC, etc.). The nature of development on the Esri platform is changing rapidly. Gone are the days when ArcObjects was the bread-and-butter of Esri development. I have done a lot of ArcObjects development (and am still doing some) but it is now possible to develop robust applications on the Esri platform without ever writing a line of ArcObjects code. The change has been more gradual than the shift from AML and Avenue to ArcObjects was but is no less significant.</p>
-
-<p>As a result, events like DevGeo are important for staying current on the latest APIs and tools for the Esri platform. The addition of this event to the FedUC provides an opportunity for developers in the region to jump start their familiarity with these tools. It extends the value of the FedUC and was a good move by Esri to add it to the agenda.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DynamicLayer Auto-Refresh for ESRI Silverlight API]]></title>
-    <link href="http://blog.geomusings.com/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API/"/>
-    <updated>2010-11-01T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/11/01/DynamicLayer-Auto-Refresh-for-ESRI-Silverlight-API</id>
-    <content type="html"><![CDATA[<p>Despite <a href="http://techcrunch.com/2010/10/30/rip-silverlight-on-the-web/">recent news regarding Silverlight</a>, I expect some of my projects to continue using it for the near term. Others may be taking the same tack, so I thought I'd go ahead and offer this up.</p>
-
-<p>Several of the projects I support have the requirement to periodically refresh specific layers in order to track change or movement. These layers can range from weather to vehicle locations and such. I have typically accomplished this with a timer that refreshes the layer(s) on a specified interval. This can get rather cumbersome if you have different layers that require different refresh intervals.</p>
-
-<p>Working within <a href="http://www.silverlight.net/">Silverlight</a>, I have the option of using an existing layer class as a base class and extending it to include an automatic refresh capability. However, some classes, such as the <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.ArcGISDynamicMapServiceLayer.html">ArcGISDynamicMapServiceLayer</a>, are sealed and cannot be extended. Luckily, the <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=d197f51a-de07-4edf-9cba-1f1b4a22110d&amp;displaylang=en">Expression Blend SDK</a> enables me to get around this by attaching a custom behavior. <!--more--></p>
-
-<p>The ArcGISDynamicMapServiceLayer descends from the <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.DynamicLayer.html">DynamicLayer</a> inheritance hierarchy, which provides access to a <em>Refresh</em> method. So I developed the following behavior to attach to a DynamicLayer (or anything that derives from it). It makes use of a <a href="http://msdn.microsoft.com/en-us/library/system.windows.threading.dispatchertimer.aspx">DispatcherTimer</a> to refresh the layer to which it is attached. In this particular implementation, each layer gets its own timer. That met my requirement of having different refresh rates for different layers. It may be preferable in some instances to pass in a reference to a single timer to control all layers. In either case, you can simply attach the behavior only to those layers that you need to refresh. This can get you around iterating the map's <em>Layers</em> collection at each timer tick (or other such approaches).</p>
-
-<p>This is the code for the behavior itself. Scroll down for a snippet showing how to implement it.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="cm">/*Copyright (c) 2010, Zekiah Technologies, Inc.</span>
-</span><span class='line'><span class="cm">All rights reserved.&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="cm">&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="cm">&lt;p&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</span>
-</span><span class='line'><span class="cm">Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</span>
-</span><span class='line'><span class="cm">Neither the name of the Zekiah Technologies, Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</span>
-</span><span class='line'><span class="cm">THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-</span><span class='line'><span class="k">using</span> <span class="nn">System.Windows.Input</span><span class="p">;</span>
-</span><span class='line'><span class="k">using</span> <span class="nn">System.Windows.Interactivity</span><span class="p">;</span>
-</span><span class='line'><span class="k">using</span> <span class="nn">System.Windows.Threading</span><span class="p">;</span>
-</span><span class='line'><span class="k">using</span> <span class="nn">ESRI.ArcGIS.Client</span><span class="p">;</span>
-</span><span class='line'><span class="k">using</span> <span class="nn">ESRI.ArcGIS.Client.Geometry</span><span class="p">;</span>
-</span><span class='line'><span class="k">using</span> <span class="nn">System.Windows</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">namespace</span> <span class="nn">Zekiah.ArcGIS.Behaviors</span>
-</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="c1">/// &amp;amp;lt;summary&amp;amp;gt;</span>
-</span><span class='line'><span class="c1">/// Adds automatic refresh to a DynamicLayer object (or any</span>
-</span><span class='line'><span class="c1">/// class that inherits from DynamicLayer. </span>
-</span><span class='line'><span class="c1">/// &amp;amp;lt;/summary&amp;amp;gt;</span>
-</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">AutoRefresh</span> <span class="p">:</span> <span class="n">Behavior</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">DynamicLayer</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>     <span class="k">private</span> <span class="n">DispatcherTimer</span> <span class="n">_tmr</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">/// &amp;amp;lt;summary&amp;amp;gt;</span>
-</span><span class='line'>    <span class="c1">/// Called after the behavior is attached to an AssociatedObject.</span>
-</span><span class='line'>    <span class="c1">/// &amp;amp;lt;/summary&amp;amp;gt;</span>
-</span><span class='line'>    <span class="c1">/// &amp;amp;lt;remarks&amp;amp;gt;Override this to hook up functionality to the AssociatedObject.&amp;amp;lt;/remarks&amp;amp;gt;</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnAttached</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">base</span><span class="p">.</span><span class="n">OnAttached</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">initTimer</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="n">TimeSpan</span> <span class="n">Interval</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">get</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">_tmr</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="n">initTimer</span><span class="p">();</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">_tmr</span><span class="p">.</span><span class="n">Interval</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">set</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">_tmr</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="n">initTimer</span><span class="p">();</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="n">_tmr</span><span class="p">.</span><span class="n">Interval</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">_tmr</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
-</span><span class='line'>            <span class="n">initTimer</span><span class="p">();</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(!</span><span class="n">_tmr</span><span class="p">.</span><span class="n">IsEnabled</span><span class="p">)</span>
-</span><span class='line'>            <span class="n">_tmr</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Stop</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">((</span><span class="n">_tmr</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">amp</span><span class="p">;&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="n">_tmr</span><span class="p">.</span><span class="n">IsEnabled</span><span class="p">))</span>
-</span><span class='line'>            <span class="n">_tmr</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">/// &amp;amp;lt;summary&amp;amp;gt;</span>
-</span><span class='line'>    <span class="c1">/// Called when the behavior is being detached from its AssociatedObject, </span>
-</span><span class='line'>    <span class="c1">/// but before it has actually occurred.</span>
-</span><span class='line'>    <span class="c1">/// &amp;amp;lt;/summary&amp;amp;gt;</span>
-</span><span class='line'>    <span class="c1">/// &amp;amp;lt;remarks&amp;amp;gt;Override this to unhook functionality from the AssociatedObject.&amp;amp;lt;/remarks&amp;amp;gt;</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnDetaching</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">base</span><span class="p">.</span><span class="n">OnDetaching</span><span class="p">();</span>
-</span><span class='line'>        <span class="n">_tmr</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">private</span> <span class="k">void</span> <span class="nf">initTimer</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">_tmr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DispatcherTimer</span><span class="p">();</span>
-</span><span class='line'>        <span class="n">_tmr</span><span class="p">.</span><span class="n">Interval</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TimeSpan</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">30</span><span class="p">);</span> <span class="c1">//default thirty second interval</span>
-</span><span class='line'>        <span class="n">_tmr</span><span class="p">.</span><span class="n">Tick</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">_tmr_Tick</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">void</span> <span class="nf">_tmr_Tick</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">AssociatedObject</span><span class="p">.</span><span class="n">Refresh</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'> <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>The following code shows how to attach the behavior. In this case, I just kept the default 30 second interval (more than enough for this weather layer). For layers of type ArcGISDynamicMapServiceLayer, it is necessary to set <em>DisableClientCaching</em> to true or you'll never see a refresh.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="kt">var</span> <span class="n">lyr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="n">ArcGISDynamicMapServiceLayer</span><span class="p">();</span>
-</span><span class='line'>        <span class="n">lyr</span><span class="p">.</span><span class="n">DisableClientCaching</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">lyr</span><span class="p">.</span><span class="n">Url</span> <span class="p">=</span> <span class="s">&quot;http://services.nationalmap.gov/ArcGIS/rest/services/NEXRAD_Weather/MapServer&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="kt">var</span> <span class="n">autoRefresh</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Zekiah</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Behaviors</span><span class="p">.</span><span class="n">AutoRefresh</span><span class="p">();</span>
-</span><span class='line'>        <span class="kt">var</span> <span class="n">behaviors</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">Windows</span><span class="p">.</span><span class="n">Interactivity</span><span class="p">.</span><span class="n">Interaction</span><span class="p">.</span><span class="n">GetBehaviors</span><span class="p">(</span><span class="n">lyr</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">behaviors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">autoRefresh</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">autoRefresh</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">Map</span><span class="p">.</span><span class="n">Layers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">lyr</span><span class="p">);</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>I've used this for both ArcGIS Server dynamic layers as well as WMS layers so far. I also have a version that attached to GraphicsLayer objects so that I can refresh GeoRSS layers. So far this technique has worked pretty well for me.</p>
 ]]></content>
   </entry>
   

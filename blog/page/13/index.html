@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Well, 9.3 is now shipping so the sun is setting on my time with the release candidate. One update from my first post: I posted the problem I was &hellip;">
+  <meta name="description" content="Looks like ArcGIS Explorer 900 has dropped. It was pretty nice in beta and it&#8217;s good to see that it&#8217;s out now. It can be downloaded here &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/07/01/Using-ArcSDE-9.3-with-PostgreSQL-Part-3/">Using ArcSDE 9.3 With PostgreSQL, Part 3</a></h1>
+      <h1 class="entry-title"><a href="/2009/08/13/ArcGIS-Explorer-Build-900-Available/">ArcGIS Explorer Build 900 Available</a></h1>
     
     
       <p class="meta">
@@ -88,36 +88,16 @@
   
 
 
-<time datetime="2008-07-01T00:00:00-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2008</time>
+<time datetime="2009-08-13T00:00:00-04:00" pubdate data-updated="true">Aug 13<span>th</span>, 2009</time>
         
-         | <a href="/2008/07/01/Using-ArcSDE-9.3-with-PostgreSQL-Part-3/#disqus_thread">Comments</a>
+         | <a href="/2009/08/13/ArcGIS-Explorer-Build-900-Available/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Well, 9.3 is now shipping so the sun is setting on my time with the release candidate. One update from my first post: I posted the problem I was having with sdelayer -o register not calculate a default extent on the Beta forum and I got a reply that it shouldn&#8217;t work that way and they would look at it. I&#8217;ll probably see shortly whether a fix made it in this time or if I have to wait for a service pack.</p>
-
-<p>The last piece I wanted to cover was working with the layer that I loaded in from a shapefile using ArcCatalog. As I indicated before, I used the PG_GEOMETRY keyword to force the use of PostGIS geometry.</p>
-
-<p>I first left the layer as a simple feature. Within ArcGIS everything behaved as would be expected. I could note no difference in behavior versus what I would expect dealing with any other ArcSDE layer. I was also able to add the layer into uDig, but with a little anomalous behavior.</p>
-
-<p>The layer I was working with was a polygon layer. When I loaded the layer into uDig, it displayed as a polygon layer but the uDig TOC showed a line symbol:</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2008/07/udig_arcsde_layer.png"><img alt="ArcSDE PostgreSQL layers in uDig" class="alignnone size-medium wp-image-205" height="218" src="http://geobabble.files.wordpress.com/2008/07/udig_arcsde_layer.png?w=300" width="300" /></a></p>
-
-<p>Additionally, the fema_regions layer was not editable in uDig. The other layer editable but had the same display issues. To be fair, I had similar behavior with some layers I had loaded into PostGIS from shapefiles using FWTools. In that case, it didn&#8217;t happen with all of the layers I loaded. In this case, I have not experimented with enough data sets to determine if the behavior is consistent or intermittent. I would also need to test whether it&#8217;s the loader, PostGIS or uDig. Time has not been a friend here.</p>
-
-<p>Next, I did some experimentation with versioning. I versioned my milbases layer, created a test version, added a feature and save the edit. As expected, when I connected in uDig, it connected to the DEFAULT version and I did not see my edit. Since this layer was editable in uDig, I added a feature here and refreshed my ArcMap display. In this case, I was able to see the uDig-created feature (in DEFAULT) in both versions (again, as expected).</p>
-
-<p>My previous posts have brought a few questions about raster catalogs and the like. I have been able to load raster data and create raster catalogs. This is not, however, raster data in PostGIS. This is ArcSDE raster data next to PostGIS. PostGIS has no idea the raster data is there (although the raster footprints display in uDig as rectangles).</p>
-
-<p>So, depending on how you implement it, ArcSDE for PostgreSQL can provide interoperability between ArcGIS and an open-source stack. uDig can be leveraged in a pinch to edit data loaded into ArcSDE using the PostGIS geometry type, allowing you to expand to meet demand. Additionally, ESRI has implemented the full geodatabase capability within PostgreSQL, providing a great alternative to shops that was GIS but not necessarily Oracle/DB2/SQL Server.</p>
-
-<p>In future posts, I examine different technology mixes that can be used to build some compelling hybrid stacks.</p>
-
-<p>Now, where&#8217;s my 9.3 shipment?</p>
+  <div class="entry-content"><p>Looks like ArcGIS Explorer 900 has dropped. It was pretty nice in beta and it&#8217;s good to see that it&#8217;s out now. It can be downloaded <a href="http://resources.esri.com/arcgisexplorer/900/index.cfm?fa=download">here</a>. The ribbon interface is nice. I&#8217;ve always liked the ribbon but I wasn&#8217;t a fan of how it was unceremoniously dropped on us in Office.</p>
 </div>
   
   
@@ -130,7 +110,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/07/01/A-Little-Bit-of-Java/">A Little Bit of Java</a></h1>
+      <h1 class="entry-title"><a href="/2009/08/02/ESRI-Silverlight-API-MapIt-Samples-Available/">ESRI Silverlight API MapIt Samples Available</a></h1>
     
     
       <p class="meta">
@@ -146,22 +126,16 @@
   
 
 
-<time datetime="2008-07-01T00:00:00-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2008</time>
+<time datetime="2009-08-02T00:00:00-04:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2009</time>
         
-         | <a href="/2008/07/01/A-Little-Bit-of-Java/#disqus_thread">Comments</a>
+         | <a href="/2009/08/02/ESRI-Silverlight-API-MapIt-Samples-Available/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I just wrapped up the second phase of the first significant Java project I&#8217;ve done in a long time. In general, I try to be technology-agnostic but, due mainly to customer demand, I find myself working predominantly in .Net. As a result, I find myself treading water a little bit when I have to work with Java.</p>
-
-<p><img alt="" class="alignnone size-medium wp-image-203" height="300" src="http://geobabble.files.wordpress.com/2008/07/java.png?w=295" width="295" /></p>
-
-<p>I did this last project in NetBeans 6.1 and was generally pleased with it. I was originally an Eclipse fan but have been less and less happy with it with each release. But my real problem is that I need to get more comfortable with the workflow when working with Java and Java tools. This last round of coding was a little more &#8220;cowboy&#8221; than I am typcially comfortable with.</p>
-
-<p>This time around, I was working with ArcIMS (ugh), JSP and a couple of custom servlets. I found NetBeans integration of Tomcat to be pretty seamless, yielding a test/debug experience similar to that you get when developing ASP.NET in VS2005 and VS2008. I see hooks to integrate with SCC systems such as CVS and SVN. We&#8217;re currently using VSS (again, mostly .Net work) but I&#8217;ve been meaning to set up an SVN server. This may give me the little extra push I needed.</p>
+  <div class="entry-content"><p>I just noticed that the samples page for the ESRI Silverlight API in the <a href="http://resources.esri.com/gateway/index.cfm">ESRI Resource Center</a> has been updated to include samples for interacting with <a href="http://www.esri.com/software/mapit/index.html">MapIt</a>. I haven&#8217;t had a chance to dig into MapIt yet but these should help you get started if you&#8217;re using <a href="http://silverlight.net/">Silverlight</a>. (Which I am for one project. More on that in a forthcoming post.) The graphics layer sample is <a href="http://resources.esri.com/help/9.3/arcgisserver/apis/silverlight/samples/start.htm#MapItGraphicsLayer">here</a>. From there you can check out the rest.</p>
 </div>
   
   
@@ -174,7 +148,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/06/25/ArcGIS-9.3-is-Shipping/">ArcGIS 9.3 Is Shipping</a></h1>
+      <h1 class="entry-title"><a href="/2009/07/06/SpatialLite-231-and-RasterLite-10-Released/">SpatialLite 2.3.1 and RasterLite 1.0 Released</a></h1>
     
     
       <p class="meta">
@@ -190,231 +164,118 @@
   
 
 
-<time datetime="2008-06-25T00:00:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2008</time>
+<time datetime="2009-07-06T00:00:00-04:00" pubdate data-updated="true">Jul 6<span>th</span>, 2009</time>
         
-         | <a href="/2008/06/25/ArcGIS-9.3-is-Shipping/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>According to this <a href="http://www.gisuser.com/content/view/14986/">press release</a>, ArcGIS 9.3 started shipping today. ESRI has pretty much stuck to the aggressive schedule that they announced at the Dev Summit.</p>
-
-<p>My experiences thus far with the beta and the release candidate have been pretty positive so it&#8217;ll be good to get the final product.</p>
-
-<p>Who&#8217;s starting the pool on the when the first service pack will be out?  ;)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/06/25/AGX-Build-480-is-Corny/">AGX Build 480 Is Corny</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-25T00:00:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2008</time>
-        
-         | <a href="/2008/06/25/AGX-Build-480-is-Corny/#disqus_thread">Comments</a>
+         | <a href="/2009/07/06/SpatialLite-231-and-RasterLite-10-Released/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Or maybe it&#8217;s just this post.</p>
-
-<p>It&#8217;s always fun in tools such as ArcGIS Explorer and Google Earth to browse around your local area and check out the familiar sites, especially when there is an update. In my case, that means browsing around Southern Maryland. The imagery in build 480 for my area was apparently captured in the fall since corn mazes can be see pretty clearly. Here are the approximate coordinates of a couple:</p>
-
-<p>-76.698488, 38.323529
--76.720778, 38.411094</p>
-
-<p>The second is of particular interest. I took my daughter to that one in Pre-K. I know this because the owners helpfully carved the words &#8220;Forrest Hall Farm 2005&#8221; into the field. This is all the more interesting since the copyright statement at the corner of the screen would lead you to believe you are looking at 2007 imagery.</p>
-
-<p>This kind of like looking for the errors in movies.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/06/16/DMS-to-Decimal-Degrees-Function-for-PostgreSQL/">DMS to Decimal Degrees Function for PostgreSQL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-16T00:00:00-04:00" pubdate data-updated="true">Jun 16<span>th</span>, 2008</time>
-        
-         | <a href="/2008/06/16/DMS-to-Decimal-Degrees-Function-for-PostgreSQL/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><!--zekiah -->
-
-
-<p>For another project, I had to work with a PostgreSQL table that was storing locations in Degrees/Minutes/Seconds. We had to create an event layer in ArcGIS so they had to be converted to decimal degrees. The server was not using PostGIS and I really had no control over the configuration (although the admins would let us create views or functions to facilitate what we needed). So I wrote a function to accomplish the conversion and allow us to create a view. It was pretty simple (and others may have more elegant approaches) but I figured I&#8217;d post it to save someone else some work in the future. Here&#8217;s the code:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">dms2dd</span><span class="p">(</span>
-</span><span class='line'>       <span class="n">D</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">M</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">S</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">HEMI</span> <span class="nb">character</span> <span class="k">varying</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
-</span><span class='line'>   <span class="p">)</span> <span class="k">RETURNS</span> <span class="nb">double precision</span> <span class="k">AS</span> <span class="s">$$</span>
-</span><span class='line'>   <span class="k">DECLARE</span>
-</span><span class='line'>      <span class="n">ret</span> <span class="nb">double precision</span><span class="p">;</span>
-</span><span class='line'>      <span class="n">dir</span> <span class="nb">integer</span><span class="p">;</span>
-</span><span class='line'>   <span class="k">BEGIN</span>
-</span><span class='line'>      <span class="n">dir</span> <span class="o">:=</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">--init to 1 for default positive return</span>
-</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">--init to zero.</span>
-</span><span class='line'>      <span class="c1">--ONLY S or W will trip this. Any other letter or NULL will result in positive return value</span>
-</span><span class='line'>      <span class="k">IF</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span> <span class="k">OR</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;W&#39;</span> <span class="k">THEN</span>
-</span><span class='line'>  <span class="n">dir</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">1</span><span class="p">;</span> <span class="c1">--then southern or western hemisphere</span>
-</span><span class='line'>      <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-</span><span class='line'>      <span class="c1">--SOME data has negative values in minutes and seconds as well as degrees. Use ABS to standardize all three.</span>
-</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="p">(</span><span class="n">ABS</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">D</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">M</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">S</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span><span class="o">/</span><span class="mf">60</span><span class="p">)))</span><span class="o">/</span><span class="mf">60</span><span class="p">)));</span>
-</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="n">ret</span> <span class="o">*</span> <span class="n">dir</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">RETURN</span> <span class="n">ret</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">END</span><span class="p">;</span>
-</span><span class='line'>  <span class="s">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The function doesn&#8217;t care whether it&#8217;s latitude or longitude. You&#8217;ll also notice that it&#8217;s not doing any bounds checking. That&#8217;s because our table had a constraint limiting the degree values of latitude and longitude to between -90/90 and -180/180 respectively. There&#8217;s still a little room for error on the aggregated value, though. Our table had D, M, S and the hemisphere indicator stored in separate columns. The numeric values were stored as integers.</p>
-
-<p>The usage for my table was:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">SELECT</span> <span class="n">dms2dd</span><span class="p">(</span><span class="n">lat_d</span><span class="p">,</span><span class="n">lat_m</span><span class="p">,</span><span class="n">lat_s</span><span class="p">,</span><span class="n">lat_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">latitude</span><span class="p">,</span>
-</span><span class='line'> <span class="n">lat_d</span><span class="p">,</span> <span class="n">lat_m</span><span class="p">,</span> <span class="n">lat_s</span><span class="p">,</span> <span class="n">lat_hemi</span><span class="p">,</span>
-</span><span class='line'>  <span class="n">dms2dd</span><span class="p">(</span><span class="n">lon_d</span><span class="p">,</span><span class="n">lon_m</span><span class="p">,</span><span class="n">lon_s</span><span class="p">,</span><span class="n">lon_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">longitude</span><span class="p">,</span>
-</span><span class='line'>   <span class="n">lon_d</span><span class="p">,</span> <span class="n">lon_m</span><span class="p">,</span> <span class="n">lon_s</span> <span class="k">as</span> <span class="n">latitude</span> <span class="k">from</span> <span class="n">dms_coords</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Enjoy.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/06/04/Oregon-PostgreSQL-Conference/">Oregon PostgreSQL Conference</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-04T00:00:00-04:00" pubdate data-updated="true">Jun 4<span>th</span>, 2008</time>
-        
-         | <a href="/2008/06/04/Oregon-PostgreSQL-Conference/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This came through my inbox. I thought it may be of interest to PostgreSQL/PostGIS/ArcGIS 9.3 users in the Pacific Northwest.</p>
+  <div class="entry-content"><p>Alessandro made two announcements today. First SpatiaLite 2.3.1 has been released. Changes include:</p>
 
 <blockquote>
-Request for proposals: PDXPUG PgDay, due by June 20,2008
+* including SQLite v.3.6.16
+* including GEOS.3 1.1
+* added SQL version functions: spatialite_version(),
+  proj4_version(), geos_version()
+* added SQL functions: IsTiffBlob(), IsWaveletBlob()
+  [RasterLite compatibility]
+* now supporting the &#8216;F&#8217; (float) datatype for DBF
+  [while reading some Shapefile]
 
-PDXPUG PgDay will be on July 20, 2008.  This is a one-day conference happening the day before OSCON at the Oregon Convention Center.
+bug fixes:
 
-We are inviting anyone who has something interesting to share about PostgreSQL to send us a proposal!
+* fixed a stupid initialization bug disabling MbrCache
+* fixed a stupid initialization bug disabling VirtualFDO
+* fixed some EXIF and EXIF-GPS inconsistencies
+* fixed incorrect SRID handling for PointN(), GeometryN() ..
+* fixed a nasty error [causing a crash] while parsing
+  degenerated WKT geometries (single-vertex LINESTRING &#8230;)
+* fixed some ./configure oddities
+  [&#8211;with-proj-include, &#8211;with-geos-include]
+* and many others &#8230;
+</blockquote>
 
-We&#8217;d like to have at one 1.5 hour tutorial and up to five 45-minute talks.
 
-We welcome talks in any of the following areas:
+<p>Also from Alessandro, RasterLite 1.0:</p>
 
-* Case studies involving interesting and innovative uses of PostgreSQL from an application developer, PostgreSQL developer or administrative user perspective
-* Converting from other databases to PostgreSQL
-* How-to accomplish database administration tasks (partitioning, backups, replication, writing stored procedures)
-* Practical advice on configuration, monitoring and database management
+<blockquote>
+today I released RasterLite, a really simple SpatiaLite-based C API [and related command-line management tools] supporting Raster Data Sources in a SpatiaLite DB.
 
-We will notify submitters of their acceptance by June 25, 2008.
+RasterLite implements TILING and multi-level PYRAMIDS, and take full profit from RTree-based Spatial Indexing.
 
-Thank you and we look forward to seeing you at PDXPUG PgDay!
+Individual tiles can be stored at your choice as:
+TIFF     [supporting monochrome CCITT FAX-4 compression]
+PNG      [loseless compression]
+GIF      [loseless compression]
+JPEG     [lossy compression]
+WAVELET  [lossy compression]
 
--selena
-&#8211;
-Selena Deckelmann
-United States PostgreSQL Association- <a href="http://www.postgresql.us">http://www.postgresql.us</a></blockquote>
+As from my preliminary testings, RasterLite is able to handle really huge Raster Data Sources [several GB-sized] in a really efficient and painless way.
+
+You can find a tutorial explaining in depth how to use the following popular publicly available satellite imagery and DEMs:
+- TrueMarble 250m/pixel world coverage
+- ETOPO5 wold coverage
+- SRTM 90m/pixel world coverage
+</blockquote>
+
+
+<p>Information on both can be found at the <a href="http://www.gaia-gis.it/spatialite">SpatiaLite web site</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/06/30/5th-gvSIG-Conference-Announced/">5th gvSIG Conference Announced</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-30T00:00:00-04:00" pubdate data-updated="true">Jun 30<span>th</span>, 2009</time>
+        
+         | <a href="/2009/06/30/5th-gvSIG-Conference-Announced/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I got this announcement in my inbox today regarding <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a>, an open-source GIS desktop <a href="http://www.osgeo.org/gvsig">currently in</a> the <a href="http://www.osgeo.org/">OSGEO</a> <a href="http://www.osgeo.org/incubator">incubator</a>. If you are a gvSIG user, the 5th gvSIG Conference will be held this year in Valencia, Spain. See below for the full text:</p>
+
+<blockquote>
+The 5th Edition of the gvSIG Conference [1], organized by the Regional Ministry of Infrastructure and Transport (CIT), will be held from December 2nd until December 4th at the Feria Valencia Convention and Exhibition Center, and will once again host the eclipseDay.
+
+In these difficult times when collaboration is most important, we cope with the adversities together with the aim of coming out strengthened by them. We continue moving ahead together. This is part of the gvSIG project and through this approach we keep on growing. This is our slogan for the fifth edition of the gvSIG Conference: We keep growing.
+
+The call for papers for the Fifth Edition of the gvSIG conference is now open. As of today communication proposals can be sent to the email address: <a href="mailto:contacto-jornadas-gvsig@gva.es">contacto-jornadas-gvsig@gva.es</a>; they will be evaluated by the scientific committee as to their inclusion in the conference program. There are two types of communication: paper or poster. Information regarding to regulations on communication presentations can be found in the report&#8217;s section [2]. Abstracts will be accepted until September 21st .
+
+Organizations interested in collaborating in the event can find information in the section: How to collaborate? [3]
+
+
+[1] <a href="http://jornadas.gvsig.org/home/view?set_language=en">http://jornadas.gvsig.org/home/view?set_language=en</a>
+[2] <a href="http://jornadas.gvsig.org/reports">http://jornadas.gvsig.org/reports</a>
+[3] <a href="http://jornadas.gvsig.org/how-to-collaborate">http://jornadas.gvsig.org/how-to-collaborate</a>
+</blockquote>
 
 </div>
   
@@ -428,7 +289,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/06/02/Using-ArcSDE-9.3-with-PostgreSQL-Part-2/">Using ArcSDE 9.3 With PostgreSQL, Part 2</a></h1>
+      <h1 class="entry-title"><a href="/2009/06/26/Crazy-Times-Coming-Up-For-Air/">Crazy Times - Coming Up for Air</a></h1>
     
     
       <p class="meta">
@@ -444,106 +305,23 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
   
 
 
-<time datetime="2008-06-02T00:00:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2008</time>
+<time datetime="2009-06-26T00:00:00-04:00" pubdate data-updated="true">Jun 26<span>th</span>, 2009</time>
         
-         | <a href="/2008/06/02/Using-ArcSDE-9.3-with-PostgreSQL-Part-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In my <a href="http://geobabble.wordpress.com/2008/05/28/using-arcsde-93-with-postgresql-part-1/">previous post</a>, I discussed some approaches to configuring <a href="http://www.postgresql.org">PostgreSQL</a> databases and accessing the data in them with <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> 9.3. For this post, I will describe some of my ongoing experiences with getting data into ArcSDE 9.3.</p>
-
-<p>There are two main ways that I am investigating of loading/making available your spatial data in ArcSDE 9.3 for PostgreSQL. The first is the traditional method of importing a feature class via ArcCatalog. (You can also create data in this manner but I haven&#8217;t played with that yet.) The second is to register an existing <a href="http://postgis.refractions.net">PostGIS</a> table as a layer using the &#8221;<a href="http://edndoc.esri.com/arcsde/9.0/admin_cmd_refs/sdelayer.htm">sdelayer</a> -o register&#8221; command-line tool. I will discuss this latter option first.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/06/02/Using-ArcSDE-9.3-with-PostgreSQL-Part-2/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/05/28/Using-ArcSDE-9.3-with-PostgreSQL-Part-1/">Using ArcSDE 9.3 With PostgreSQL, Part 1</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-28T00:00:00-04:00" pubdate data-updated="true">May 28<span>th</span>, 2008</time>
-        
-         | <a href="/2008/05/28/Using-ArcSDE-9.3-with-PostgreSQL-Part-1/#disqus_thread">Comments</a>
+         | <a href="/2009/06/26/Crazy-Times-Coming-Up-For-Air/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This post may cover some similar ground to that which <a href="http://blog.davebouwman.net/2008/05/12/PostGISRound2ReadingTheManual.aspx">Dave has been treading</a> but I&#8217;m just trying to document my experiences as they occur.</p>
+  <div class="entry-content"><p>It&#8217;s been an extremely busy few months, as evidenced by the pace (or lack thereof) of blogging. I have been hopping between customer sites, mainly helping with ArcGIS Server implementations. We&#8217;re also re-hosting an ArcIMS site for someone. I expect that to eventually transition as well but we have to get it moved first. I&#8217;m also working a pro-bono implementation of PostGIS/GeoServer/OpenLayers for the town of Green Mountain Falls, Colorado. That&#8217;s been fun. It&#8217;s great to see how a small town can marshall it resources (Boys Scouts with GPS collected trails as an Eagle Scout project) to get things done. The initial implementation will be simple as they are more interested in getting their data out there but then we&#8217;ll circle back around to address public-service-type applications after that.</p>
 
-<p>By virtue of my association with <a href="http://www.obtusesoft.com">zigGIS</a>, I&#8217;ve been involved with using <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://postgis.refractions.net">PostGIS</a> in the <a href="http://www.esri.com">ArcGIS</a> envrionment for some time now. One of the primary sources of excitement about 9.3 for me was that <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> would finally support PostgreSQL as an RDBMS platform. ArcSDE has always been positioned as an enterprise platform and has, therefore, been rather expensive. This expense has been compounded by the need to also separately license an RDBMS platform such as Oracle, SQL Server or DB2 in addition to ArcSDE. PostgreSQL helps alleviate some of that cost while also providing very advanced capability.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/05/28/Using-ArcSDE-9.3-with-PostgreSQL-Part-1/">Read on &rarr;</a>
-    </footer>
-  
+<p>Significant changes are coming for <a href="http://pub.obtusesoft.com">zigGIS</a>. Abe, Paolo and I have been laying out a roadmap for its way ahead. Look for an announcement soon via <a href="http://twitter.com/zigGIS">zigGIS on Twitter</a>.</p>
 
+<p>I have been having a lot of fun with the REST-based APIs from ESRI (Javascript, Flex, Silverlight/WPF). In particular, I&#8217;ve been happy with how extensible they are in terms of being able to support new data sources.
+<a href="http://openlayers.org/pipermail/users/2009-June/012414.html">OpenLayers 2.8</a> and <a href="http://blog.opengeo.org/2009/06/17/geoexplorer-preview/">GeoExplorer</a> are also on my radar but that radar screen is getting pretty crowded.</p>
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/05/26/San-Diego-in-August/">San Diego in August</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-26T00:00:00-04:00" pubdate data-updated="true">May 26<span>th</span>, 2008</time>
-        
-         | <a href="/2008/05/26/San-Diego-in-August/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Beats the heck out of Washington in August.</p>
-
-<p>I&#8217;ll be doing booth duty most of the week at the <a href="http://esri.com/events/uc/">ESRI UC</a> this year. I&#8217;ll be in booth 612 doing the old soft-shoe for <a href="http://www.zekiah.com">Zekiah</a>. Feel free to stop by and say hello. I&#8217;m hoping there will be some good off-site meetups.</p>
-
-<p>This trip will complete my 2008 ESRI conference trifecta (quad-fecta if you count the BP Conference/Dev Summit as two distinct events). I wear a lot of hats in my business and this conference is good for the business side. It&#8217;ll be <em>really</em> hard to top the technical content of the Dev Summit (and I&#8217;m not expecting it) but, based on the Where 2.0 <a href="http://twitter.com">Twitter</a> buzz (and, yes, there was Where 2.0 Twitter buzz), I think there&#8217;ll even more good stuff about 9.3. I&#8217;ll probably blog in more detail in the near future but I think 9.3 may be the most significant ArcGIS release since 8.0.</p>
+<p>All of this with less than a week to go before vacation. Whew!</p>
 </div>
   
   
@@ -556,7 +334,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/05/20/zigGIS-2.0-To-Be-Released-on-May-21st/">zigGIS 2.0 to Be Released on May 21st</a></h1>
+      <h1 class="entry-title"><a href="/2009/06/01/OpenGeo-Suite-A-Milestone/">OpenGeo Suite - a Milestone</a></h1>
     
     
       <p class="meta">
@@ -572,22 +350,200 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
   
 
 
-<time datetime="2008-05-20T00:00:00-04:00" pubdate data-updated="true">May 20<span>th</span>, 2008</time>
+<time datetime="2009-06-01T00:00:00-04:00" pubdate data-updated="true">Jun 1<span>st</span>, 2009</time>
         
-         | <a href="/2008/05/20/zigGIS-2.0-To-Be-Released-on-May-21st/#disqus_thread">Comments</a>
+         | <a href="/2009/06/01/OpenGeo-Suite-A-Milestone/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Today was the original target for releasing zigGIS 2.0. There is a flurry of activity at <a href="http://www.obtusesoft.com">Obtuse</a> to get the web site and the online store ready. May 21st is the definite release date as all of the loose ends are tying up nicely.</p>
+  <div class="entry-content"><p>On May 28th OpenGeo <a href="http://blog.opengeo.org/2009/05/28/opengeo-suite-released/">announced the release of the OpenGeo Suite</a>. They also describe their open pricing structure for support of the suite.</p>
 
-<p>A lot of work has been put into improving performance, especially with large <a href="http://postgis.refractions.net">PostGIS</a> data sets. Additionally, editing is now supported. The new version has a couple of workflow tools to support check-in and check-out of features from PostGIS but all editing is done with the native ArcMap tools. zigGIS has been designed to allow full editing capability with an ArcView license so anyone with a valid license for Desktop will be able to edit their PostGIS data.</p>
+<p>This announcement represents a milestone for open-source geospatial software. If you are of a technical nature and are expecting a detailed discussion of the technical advantages of the OpenGeo Suite, you should probably stop reading now. The OpenGeo Suite is a milestone because it establishes a fair pricing model that addresses what, in my opinion, has been the primary barrier to the adoption of open-source GIS in many enterprises: risk.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2009/06/01/OpenGeo-Suite-A-Milestone/">Read on &rarr;</a>
+    </footer>
+  
 
-<p>The original plans were to support all 9.x versions of ArcGIS Desktop but the devil has been in the details on that. The initial release will support 9.2 with earlier versions to come shortly thereafter. Testing against the 9.3 RC will occur shortly.</p>
 
-<p>It seems like forever since I first came across this bizarrely-named project but it&#8217;s been exciting to play a part in its growth.</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/05/13/ArcWeb-Services-Phase-Out/">ArcWeb Services Phase-Out</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-13T00:00:00-04:00" pubdate data-updated="true">May 13<span>th</span>, 2009</time>
+        
+         | <a href="/2009/05/13/ArcWeb-Services-Phase-Out/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just got my ArcWeb Services phase-out reminder. Apparently, I am viewed as a user. I think I may have signed up for some of the free services a few years ago but haven&#8217;t used them. Anyway, here&#8217;s partial text of the message:</p>
+
+<blockquote><strong>ESRI ArcWeb Services (AWS) Product Status Notification - ArcWeb Services Phase-Out Reminder</strong>
+
+With the ever increasing importance of providing market-leading online capabilities to its user community, ESRI has made the decision to focus its energy on one online strategy under the banner of ArcGIS. As a result, the ArcWeb Services product line is being phased out. 
+
+As a current ArcWeb customer, this notification is a follow-up reminder that ArcWeb Services will remain in place with full support until June 30, 2009 in order to support your existing applications and facilitate your transition to the capabilities of ArcGIS Server and ArcGIS Online. 
+
+Effective immediately, users will no longer be able to place orders for additional ArcWeb Services credits. ArcWeb Services subscribers with active accounts that expire prior to June 30, 2009 should contact aws_transition@esri.com to request an extension in order to support your transition to ArcGIS Server or ArcGIS Online.
+
+The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based applications that utilize ArcWeb Services. Users developing applications on ArcGIS 9.3.1 will need to refer to the ArcGIS Online SOAP API. Please visit the ArcGIS Online Resource Center for more details.
+</blockquote>
+
+
+<p>This doesn&#8217;t really affect me or any of my customers as AWS was never an option. If you&#8217;re using AWS, this is your heads-up.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/04/28/zigGIS-Photos/">zigGIS Photos</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-28T00:00:00-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2009</time>
+        
+         | <a href="/2009/04/28/zigGIS-Photos/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Paolo was kind enough to post photos of the <a href="http://pub.obtusesoft.com">zigGIS</a> team from our time in New York. You can find them <a href="http://www.flickr.com/photos/paoloandrenata/tags/ziggis/">here</a>. This was the first time the three of us had met up and we had a great time.</p>
+
+<p>We had some discussions about the way ahead for zigGIS and there are some big things in store that we&#8217;ll announce as we firm them up.</p>
+
+<p>It was also great of Brian Flood to come out and hang for a bit.</p>
+
+<p><a href="http://twitter.com/zigGIS">Follow zigGIS on Twitter</a> to keep apprised of updates and announcements.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/04/22/More-on-ArcGIS-Schematics/">More on ArcGIS Schematics</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-22T00:00:00-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2009</time>
+        
+         | <a href="/2009/04/22/More-on-ArcGIS-Schematics/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A few weeks ago, <a href="http://geobabble.wordpress.com/2009/03/12/and-now-for-something-completely-different-arcgis-schematics/">I posted</a> about <a href="http://www.esri.com/software/arcgis/extensions/schematics/index.html">ArcGIS Schematics</a>. That post came at the end of a frustrating day and was more negative in tone than I typically prefer. Since that post, I have had periodic exchanges with Rick Anderson, product manager at <a href="http://www.esri.com">ESRI</a>.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2009/04/22/More-on-ArcGIS-Schematics/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/04/13/zigGIS-Tweet-and-Greet/">zigGIS Tweet and Greet</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-13T00:00:00-04:00" pubdate data-updated="true">Apr 13<span>th</span>, 2009</time>
+        
+         | <a href="/2009/04/13/zigGIS-Tweet-and-Greet/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After being involved with <a href="http://pub.obtusesoft.com">zigGIS</a> for a couple of years now, I&#8217;m excited that <a href="http://paolocorti.net">Paolo Corti</a> is going to be visiting the States next week and that Abe and I will finally get to meet him (and vice versa). The three of us will be meeting at the <a href="http://www.lolitabar.net">Lolita Bar</a> in New York City at 6pm on April 24th.</p>
+
+<p>If you&#8217;re in the area (or you want to make a special trip), we could use all the help we can get to give Paolo a warm welcome to the US. I hope to see you there. <a href="http://twitter.com/zigGIS">Tweet us</a> if you think you&#8217;ll make it.</p>
+
+<p><img alt="A frosty cold helping of zig." height="225" src="http://geobabble.files.wordpress.com/2009/04/zigbeer2.png" title="A frosty cold helping of zig." width="169" /></p>
 </div>
   
   

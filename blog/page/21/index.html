@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="These are pretty fun times to be working in GIS. There&#8217;s an explosion of new technologies across the whole spectrum and integration &hellip;">
+  <meta name="description" content="Well, salvaging the brightest outlook I can from the aforementioned hard drive crash, it does present me with an opportunity to &#8220;trim the fat&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/06/26/Bringing-It-All-Together/">Bringing It All Together&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/2008/01/15/A-Silk-Purse/">A Silk Purse&#8230;</a></h1>
     
     
       <p class="meta">
@@ -88,38 +88,59 @@
   
 
 
-<time datetime="2007-06-26T00:00:00-04:00" pubdate data-updated="true">Jun 26<span>th</span>, 2007</time>
+<time datetime="2008-01-15T00:00:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2008</time>
         
-         | <a href="/2007/06/26/Bringing-It-All-Together/#disqus_thread">Comments</a>
+         | <a href="/2008/01/15/A-Silk-Purse/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>These are pretty fun times to be working in GIS. There&#8217;s an explosion of new technologies across the whole spectrum and integration possibilities are seemingly boundless. Back when I got started, <a href="http://www.esri.com">ESRI</a> and <a href="http://www.intergraph.com">Intergaph</a> were duking it out and others, like <a href="http://www.mapinfo.com">MapInfo</a>, were out there on the periphery also. <a href="http://grass.itc.it/">GRASS</a> was flying the OS banner and there were a few good free tools, such as the various ones put out by <a href="http://en.wikipedia.org/wiki/Sol_Katz">Sol Katz</a> at the <a href="http://www.blm.gov/wo/st/en.html">BLM</a>.</p>
-
-<p>Everything quieted down for a few years but there&#8217;s been a flowering of new technologies (well-documented elsewhere) over the last couple of years in both the commercial and open-source communities. I am particularly impressed with the pace at which the open-source community has ramped up with tools of strong quality and capability. In addition, the back-and-forth between <a href="http://earth.google.com/">Google</a> and <a href="http://www.microsoft.com/virtualearth/default.mspx">Microsoft</a> has put better tools in the hands of the average consumer. That doesn&#8217;t come without drawbacks, but I see it as a net positive.</p>
-
-<p>What I find interesting about all of this activity is that it demonstrates that the closed/commerical/competitive approach can bear fruit and so can the open-source/free/collaborative approach. Where you fall in the spectrum between the two is totally up to you but no one can offer up any concrete evidence that one is vastly superior to the other at this point. In addition, it&#8217;s becoming increasingly clear that they don&#8217;t have to be mutually exclusive.</p>
-
-<p>When you throw in <a href="http://www.opengeospatial.org">OGC</a> standards and well as <em>de facto</em> standards such as <a href="http://code.google.com/apis/kml/documentation/">KML</a>, it becomes quite possible to stitch together technologies of various parentage effectively. I offer up the following as a concrete example:</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/06/os_free_commercial.png" title="Click to enlarge..."><img src="http://geobabble.files.wordpress.com/2007/06/os_free_commercial.thumbnail.png" /></a></p>
-
-<p>This screenshot depicts a map (no, it&#8217;s not pretty but blame that on me) that was assembled using several technologies. The application is obviously <a href="http://www.esri.com/software/arcgis/about/desktop_gis.html">ArcMap</a>. Working from the bottom up, the layers are:</p>
-
-<ul>
-    <li>Counties - US Counties residing in <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> and <a href="http://www.microsoft.com/sql/default.mspx">SQL Server</a></li>
-    <li>State Boundaries - US States loaded directly from a local install of <a href="http://postgis.refractions.net/">PostGIS</a> using the <a href="http://code.google.com/p/ziggis/">zigGIS</a> connector</li>
-    <li>Major Water - A shapefile on the local hard drive</li>
-    <li>Hospitals - A <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> layer being served from my <a href="http://geoserver.org/">GeoServer</a> <a href="http://geobabble.wordpress.com/2007/06/19/my-little-open-source-stack/">instance</a> and loaded into ArcMap with the help of the free <a href="http://www.thecarbonproject.com/carbonarc.php">CarbonArc Lite</a> extension from the <a href="http://www.thecarbonproject.com">Carbon Project</a>. Behind Geoserver, the data sits in PostGIS.</li>
-</ul>
+  <div class="entry-content"><p>Well, salvaging the brightest outlook I can from the aforementioned hard drive crash, it does present me with an opportunity to &#8220;trim the fat&#8221; as it were. So, at first glance here&#8217;s the stuff (in no particular order) that will get put back on immediately:</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/01/15/A-Silk-Purse/">Read on &rarr;</a>
+    </footer>
+  
 
 
-<p>So we have commercially licensed software (ArcMap, ArcSDE, SQL Server), freeware (CarbonArc Lite) and open-source software (zigGIS, PostGIS, GeoServer, <a href="http://www.postgresql.org/">PostgreSQL</a>) working together to make this product. All are good tools that, working together, bolster each others&#8217; shortcomings. This kind of thing demostrates the &#8220;best-of-breed&#8221; (hate that term) concept very well.</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/01/14/Grrrrrrrrrrrrrrrrrrrrr/">Grrrrrrrrrrrrrrrrrrrrr</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<p>A few months back, <a href="http://www.paolocorti.net/public/wordpress/index.php/2007/01/19/full-oss-solution-vs-osscommercial-solution-mix/">Paolo posted</a> about mixing commercial and open-source tools. I think this will eventually be the prevalent means of doing business.</p>
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-14T00:00:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2008</time>
+        
+         | <a href="/2008/01/14/Grrrrrrrrrrrrrrrrrrrrr/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>That, coincidentally, is the sound a laptop hard drive makes right before it craps out and is also the sound you find yourself making afterward&#8230;</p>
+
+<p>This&#8217;ll be good for the schedule. :|</p>
 </div>
   
   
@@ -132,7 +153,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/06/25/Rotating-a-Point-Around-a-Base-Point/">Rotating a Point Around a Base Point</a></h1>
+      <h1 class="entry-title"><a href="/2008/01/13/Weekend-Frivolity-from-TLC/">Weekend Frivolity From TLC</a></h1>
     
     
       <p class="meta">
@@ -148,39 +169,190 @@
   
 
 
-<time datetime="2007-06-25T00:00:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2007</time>
+<time datetime="2008-01-13T00:00:00-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2008</time>
         
-         | <a href="/2007/06/25/Rotating-a-Point-Around-a-Base-Point/#disqus_thread">Comments</a>
+         | <a href="/2008/01/13/Weekend-Frivolity-from-TLC/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>A while back, I was working on a project that required us to rotate a polygon around a base point and do a spatial query to analyze some underlying demographic data. I was working in ArcObjects and could find no intrinsic way to do what I needed to do so I wrote the following routine. As you can imagine, I had to break the polygon up into individual points and rotate each one. Despite the fact that I was using ArcObjects point objects and all of the attendant COM interop calls, it worked pretty well (a polygon consisting of ~5000 point was rotated in less than a second on a less-than-robust workstation).</p>
+  <div class="entry-content"><p>We were watching &#8220;The Real Estate Pros&#8221; on TLC last night. This quote caught my attention. A very nice lady was explaining how they were going to cut out the rafters of a house to create a vaulted ceiling because they wanted:</p>
 
-<p>The math is pretty simple: Assuming that the base point and target point form the two ends of the hypotenuse of a right triangle with one leg of the triangle being a segment of the X axis, you simply:</p>
-
-<ol>
-    <li>Calculate the length of the hypotenuse</li>
-    <li>Calculate the current angle of the hypotenuse</li>
-    <li>Add the rotation angle to the current angle</li>
-    <li>Calculate the coordinates of the new end point of the hypotenuse</li>
-</ol>
+<blockquote>more cubic square footage in the house</blockquote>
 
 
-<p>The code below shows how to do it but there are a couple of notes about it:</p>
-
-<ul>
-    <li>The coordinates must be in decimal degrees so you&#8217;ll need to unproject any projected coordinates and then re-project the result. This <em>may</em> introduce some distortion. I didn&#8217;t notice any in my application but I&#8217;d suggest some more rigorous testing if you&#8217;ve got tight precision requirements.</li>
-    <li>Rotation follows engineering standards (zero East, counter-clockwise)</li>
-    <li>This code is only mildly based on ArcObjects. It uses the AO IPoint interface and Point but that&#8217;s it. It is trival to implement it with another point object (such as SharpMap) or just use numeric values.</li>
-    <li>The base point is shifted to 0,0 and the same offset is applied to all other points in order to keep the math straightforward.</li>
-    <li>It&#8217;s in C#</li>
-</ul>
+<p>Somewhere, her high school geometry teacher cringed.</p>
+</div>
+  
+  
 
 
-<p>So there it is. It&#8217;s fairly simple but it&#8217;s been useful for me on a couple of occasions since I wrote it.</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/01/07/SharpMap-on-Apache/">SharpMap on Apache</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-07T00:00:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2008</time>
+        
+         | <a href="/2008/01/07/SharpMap-on-Apache/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In the words of Pete Townshend (as sung by Roger Daltrey):</p>
+
+<p>&#8220;Why should I care? Why should I care?&#8221;</p>
+
+<p>I can&#8217;t answer that one for you. I ran into <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">this post</a> while searching out something else. It shows how to get <a href="http://asp.net/">ASP.NET</a> running under <a href="http://httpd.apache.org/">Apache</a> on Windows. Curiosity got the better of me and I had to try it. One important note is that mod_aspdotnet is no longer maintained by the Apache Software Foundation. It&#8217;s now available as a <a href="http://sourceforge.net/projects/mod-aspdotnet">separate project on SourceForge</a>. If you download the latest version, it works with Apache 2.2.6.</p>
+
+<p>Although both Apache and mod_aspdotnet have had subsequent releases since this has been posted, the instructions still work. It was about 10 minutes to get the sample project running and not much longer to get <a href="http://www.codeplex.com/SharpMap">SharpMap&#8217;s </a>&#8220;DemoWebSite&#8221; project working. Here&#8217;s a screen capture (there nothing that makes it obvious it&#8217;s running on Apache so You&#8217;ll just have to trust me).</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.png" title="Can you see the real me? Can ya?"><img alt="Can you see the real me? Can ya?" src="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.thumbnail.png" /></a></p>
+
+<p>This could be somewhat useful if you&#8217;re using a non-Server version of Windows and want to avoid the connection limitations of IIS. Beyond that, it&#8217;s probably just interesting.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/">SQL Server 2008 Spatial - One Month Later</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-28T00:00:00-05:00" pubdate data-updated="true">Dec 28<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So it&#8217;s been about a month since the release of the SQL Server 2008 November CTP. I&#8217;ve been dabbling with it and have made several posts about it. I still have a lot more digging to do with it but here are my impressions after a month:</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/21/2008-ESRI-Federal-Users-Conference/">2008 ESRI Federal Users Conference</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-21T00:00:00-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+        
+         | <a href="/2007/12/21/2008-ESRI-Federal-Users-Conference/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>James <a href="http://www.spatiallyadjusted.com/2007/12/03/2008-esri-developer-summit/">posted</a> a couple of weeks ago about he Dev Summit. That got me curious, is anyone planning on going to the <a href="http://www.esri.com/events/feduc/index.html">Federal User Conference</a> in DC? It&#8217;s kind of mini East Coast UC. My company does a lot of federal and defense work so I&#8217;ll be there. It seems to be attracting more people each year in general but especially those from local governments around the region that don&#8217;t have travel budgets for San Diego. Rather ironic since it was originally targeted at federal users.</p>
+
+<p>It&#8217;s actually something of an unusual year in that it looks like I&#8217;ll be at all of the big ESRI conferences this year (FedUC, BP/Dev, International UC).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/SQL-Server-2008-WKT-XY-Switching-Illustrated/">SQL Server 2008 WKT X/Y Switching Illustrated</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/18/SQL-Server-2008-WKT-XY-Switching-Illustrated/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>UPDATE:</strong> Microsoft has <a href="http://blogs.msdn.com/isaac/archive/2007/12/27/latitude-longitude-ordering.aspx">announced</a> that they will address this issue in an upcoming CTP. They plan to implement longitude-latitude ordering in WKB and WKT for both the geography and geometry types.</p>
+
+<p>In a response to my <a href="http://geobabble.wordpress.com/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/">previous post</a>, <a href="http://www.spatialdatalogic.com/cs/blogs/brian_flood/default.aspx">Brian Flood</a> mentioned the ongoing discussion about <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> and the &#8220;switching&#8221; of X and Y values in <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> strings depending upon which spatial data type, geometry or geography, is being used. The SQL snippet below boils the issue down to a simple example:</p>
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -189,95 +361,23 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'> <span class="k">private</span> <span class="n">IPoint</span> <span class="nf">rotatePoint</span><span class="p">(</span><span class="n">IPoint</span> <span class="n">basePoint</span><span class="p">,</span> <span class="n">IPoint</span> <span class="n">sourcePoint</span><span class="p">,</span> <span class="kt">double</span> <span class="n">rotationAngle</span><span class="p">)</span>
-</span><span class='line'> <span class="p">{</span>
-</span><span class='line'>     <span class="kt">double</span> <span class="n">r</span><span class="p">;</span>
-</span><span class='line'>     <span class="kt">double</span> <span class="n">theta</span><span class="p">;</span>
-</span><span class='line'>     <span class="kt">double</span> <span class="n">offsetX</span><span class="p">;</span>
-</span><span class='line'>     <span class="kt">double</span> <span class="n">offsetY</span><span class="p">;</span>
-</span><span class='line'>     <span class="kt">double</span> <span class="n">offsetTheta</span><span class="p">;</span>
-</span><span class='line'>     <span class="kt">double</span> <span class="n">rotateX</span><span class="p">;</span>
-</span><span class='line'>     <span class="kt">double</span> <span class="n">rotateY</span><span class="p">;</span>
-</span><span class='line'>     <span class="kt">double</span> <span class="n">rotationRadians</span><span class="p">;</span>
-</span><span class='line'>     <span class="n">IPoint</span> <span class="n">retPoint</span><span class="p">;</span>
-</span><span class='line'>     <span class="k">try</span>
-</span><span class='line'>     <span class="p">{</span>
-</span><span class='line'>         <span class="c1">//shift x and y relative to 0,0 origin </span>
-</span><span class='line'>         <span class="n">offsetX</span> <span class="p">=</span> <span class="p">(</span><span class="n">sourcePoint</span><span class="p">.</span><span class="n">X</span> <span class="p">+</span> <span class="p">(</span><span class="n">basePoint</span><span class="p">.</span><span class="n">X</span> <span class="p">*</span> <span class="p">-</span><span class="m">1</span><span class="p">));</span>
-</span><span class='line'>         <span class="n">offsetY</span> <span class="p">=</span> <span class="p">(</span><span class="n">sourcePoint</span><span class="p">.</span><span class="n">Y</span> <span class="p">+</span> <span class="p">(</span><span class="n">basePoint</span><span class="p">.</span><span class="n">Y</span> <span class="p">*</span> <span class="p">-</span><span class="m">1</span><span class="p">));</span>
-</span><span class='line'>         <span class="c1">//convert to radians. take absolute value (necessary for x coord only). </span>
-</span><span class='line'>         <span class="n">offsetX</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">offsetX</span> <span class="p">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">/</span> <span class="m">180</span><span class="p">));</span>
-</span><span class='line'>         <span class="n">offsetY</span> <span class="p">=</span> <span class="n">offsetY</span> <span class="p">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">/</span> <span class="m">180</span><span class="p">);</span>
-</span><span class='line'>         <span class="n">rotationRadians</span> <span class="p">=</span> <span class="n">rotationAngle</span> <span class="p">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">/</span> <span class="m">180</span><span class="p">);</span>
-</span><span class='line'>         <span class="c1">//get distance from origin to source point </span>
-</span><span class='line'>         <span class="n">r</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">offsetX</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">offsetY</span><span class="p">,</span> <span class="m">2</span><span class="p">));</span>
-</span><span class='line'>         <span class="c1">//get current angle of orientation </span>
-</span><span class='line'>         <span class="n">theta</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Atan</span><span class="p">(</span><span class="n">offsetY</span> <span class="p">/</span> <span class="n">offsetX</span><span class="p">);</span>
-</span><span class='line'>         <span class="c1">// add rotation value to theta to get new angle of orientation </span>
-</span><span class='line'>         <span class="n">offsetTheta</span> <span class="p">=</span> <span class="n">theta</span> <span class="p">+</span> <span class="n">rotationRadians</span><span class="p">;</span>
-</span><span class='line'>         <span class="c1">//calculate new x coord </span>
-</span><span class='line'>         <span class="n">rotateX</span> <span class="p">=</span> <span class="n">r</span> <span class="p">*</span> <span class="n">Math</span><span class="p">.</span><span class="n">Cos</span><span class="p">(</span><span class="n">offsetTheta</span><span class="p">);</span>
-</span><span class='line'>         <span class="c1">//calculate new y coord </span>
-</span><span class='line'>         <span class="n">rotateY</span> <span class="p">=</span> <span class="n">r</span> <span class="p">*</span> <span class="n">Math</span><span class="p">.</span><span class="n">Sin</span><span class="p">(</span><span class="n">offsetTheta</span><span class="p">);</span>
-</span><span class='line'>         <span class="c1">//convert new x and y back to decimal degrees </span>
-</span><span class='line'>         <span class="n">rotateX</span> <span class="p">=</span> <span class="n">rotateX</span> <span class="p">*</span> <span class="p">(</span><span class="m">180</span> <span class="p">/</span> <span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">);</span>
-</span><span class='line'>         <span class="n">rotateY</span> <span class="p">=</span> <span class="n">rotateY</span> <span class="p">*</span> <span class="p">(</span><span class="m">180</span> <span class="p">/</span> <span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">);</span>
-</span><span class='line'>         <span class="c1">//shift new x and y relative to base point </span>
-</span><span class='line'>         <span class="n">rotateX</span> <span class="p">=</span> <span class="p">(</span><span class="n">rotateX</span> <span class="p">+</span> <span class="n">basePoint</span><span class="p">.</span><span class="n">X</span><span class="p">);</span>
-</span><span class='line'>         <span class="n">rotateY</span> <span class="p">=</span> <span class="p">(</span><span class="n">rotateY</span> <span class="p">+</span> <span class="n">basePoint</span><span class="p">.</span><span class="n">Y</span><span class="p">);</span>
-</span><span class='line'>         <span class="c1">//return new point </span>
-</span><span class='line'>         <span class="n">retPoint</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PointClass</span><span class="p">();</span>
-</span><span class='line'>         <span class="n">retPoint</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="n">rotateX</span><span class="p">;</span>
-</span><span class='line'>         <span class="n">retPoint</span><span class="p">.</span><span class="n">Y</span> <span class="p">=</span> <span class="n">rotateY</span><span class="p">;</span>
-</span><span class='line'>         <span class="k">return</span> <span class="n">retPoint</span><span class="p">;</span>
-</span><span class='line'>     <span class="p">}</span>
-</span><span class='line'>     <span class="k">catch</span>
-</span><span class='line'>     <span class="p">{</span>
-</span><span class='line'>         <span class="k">return</span> <span class="n">sourcePoint</span><span class="p">;</span>
-</span><span class='line'>     <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="k">g</span> <span class="n">geometry</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="k">g</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="k">g</span><span class="p">.</span><span class="n">STX</span> <span class="k">as</span> <span class="n">geomX</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="n">h</span> <span class="n">geography</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="n">h</span> <span class="o">=</span> <span class="n">geography</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="n">h</span><span class="p">.</span><span class="n">Lat</span> <span class="k">as</span> <span class="n">geogLat</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>In both cases, the value returned is 3. As can be seen, the same WKT string is being used in both cases. The main difference is that one example queries the X value of a GEOMETRY object and the other queries the Lat (Latitude, or Y) value of a GEOGRAPHY object. So, depending on the data type, the same ordinal can be X or Y. You can check out the debate on this topic <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2431933&amp;SiteID=1">here</a>. It is a great discussion that covers a lot of ground and I highly recommend checking it out.</p>
+
+<p>For me, the issue is consistency. Regardless of the mindsets of professionals vs. non-professionals or the imprecision of the OGC spec, the bottom line is that the same call behaves differently for two related data types. Admittedly GEOGRAPHY and GEOMETRY do different things. GEOGRAPHY is for geodetic (spherical) data and GEOMETRY is for planar data. This fact, however, has no bearing on how WKT is parsed. The current situation is analagous to having a rounding function that by default rounds up for doubles and rounds down for singles.</p>
+
+<p>At this point, I would normally say pick a method and run with it for both data types but I do have a preference here. I think that WKT should be parsed as X,Y consistently in order to provide better interoperability with a wider variety of client software. The simple fact is that most products out there do X,Y. For instance, I am working with SharpMap and it generates WKT in X,Y order and assumes X,Y order when parsing. Other database platforms such as Oracle, PostGIS and MySQL do the same but it&#8217;s the client software that matters most in this case. I&#8217;m sure that others can chime in with more examples.</p>
+
+<p>I am intrigued by the use of a separate data type to handle geodetic data but the X,Y order of WKT has no bearing here. To my way of thinking, the best approach would be to commit to X,Y order for both GEOMETRY and GEOGRAPHY.</p>
 </div>
   
   
@@ -290,7 +390,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/06/19/My-Little-Open-Source-Stack/">My Little Open-Source Stack</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/18/MSDN-Article-on-Mapping-with-WPF/">MSDN Article on Mapping With WPF</a></h1>
     
     
       <p class="meta">
@@ -306,24 +406,20 @@
   
 
 
-<time datetime="2007-06-19T00:00:00-04:00" pubdate data-updated="true">Jun 19<span>th</span>, 2007</time>
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
         
-         | <a href="/2007/06/19/My-Little-Open-Source-Stack/#disqus_thread">Comments</a>
+         | <a href="/2007/12/18/MSDN-Article-on-Mapping-with-WPF/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>It&#8217;s been a while since I&#8217;ve posted and things have been busy. Soccer season has ended, the kids have finished school and I&#8217;ve finished up at my client site and moved back to the office. Among the many things I&#8217;ve been working on, I&#8217;ve started building an open-source GIS stack. It&#8217;s not entirely open-source since it&#8217;s installed on a Windows server but the purists will have to get over that.</p>
+  <div class="entry-content"><p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It&#8217;s a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn&#8217;t be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
 
-<p>So far, I&#8217;ve got <a href="http://www.postgresql.org/">PostgreSQL</a>/<a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://docs.codehaus.org/display/GEOS/Home">GeoServer 1.5.1</a> installed. I&#8217;ve got GeoServer running as a Windows service and I&#8217;ve loaded a couple of data sets into PostGIS, serving one out through GeoServer for now. I&#8217;ve been able to successfully connect to the <a href="http://www.opengeospatial.org/standards/wms">WMS</a> and <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> remotely using <a href="http://udig.refractions.net/confluence/display/UDIG/Home">uDig</a> as a client. <a href="http://code.google.com/apis/kml/documentation/">KML</a> seems to work fine for the sample data sets that install with GeoServer but my test layer doesn&#8217;t work correctly. That&#8217;s not as much of an issue for us right now because we&#8217;ll probably focus on <a href="http://worldwind.arc.nasa.gov/">World Wind</a> for the spinny globe component. Basically, I&#8217;m at the infrastructure-building stage. My next step is to set up <a href="http://www.codeplex.com/SharpMap">SharpMap</a> and start writing some apps.</p>
+<p>I&#8217;ve been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven&#8217;t had a chance to extract what I&#8217;ve done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it&#8217;s shaping up in SharpMap 2.0.</p>
 
-<p>The only hiccup I&#8217;ve had so far dealt with getting GeoServer to run as a service. Every time I logged out, the service would stop (not a great feature in a service). It turns out that I had the DLL and JARs for the <a href="http://wrapper.tanukisoftware.org/doc/english/introduction.html">Java Service Wrapper</a> in the wrong place. Now it works fine.</p>
-
-<p>So far, I&#8217;m impressed with how smoothly it&#8217;s going. We&#8217;ll see how long that keeps up once I start slinging code. ;)</p>
-
-<p><img alt="The road less traveled?" src="http://geobabble.files.wordpress.com/2007/06/road.jpg" /></p>
+<p>So, if you&#8217;re looking for an example of how to render spatial data in WPF, this is a good one.</p>
 </div>
   
   
@@ -336,7 +432,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/">Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/">Inserting SQL 2008 Geometry With a SqlCommand</a></h1>
     
     
       <p class="meta">
@@ -352,22 +448,20 @@
   
 
 
-<time datetime="2007-05-09T00:00:00-04:00" pubdate data-updated="true">May 9<span>th</span>, 2007</time>
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
         
-         | <a href="/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/#disqus_thread">Comments</a>
+         | <a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support for user-defined spatial references. It pretty much boils down to querying the the appropriate SR from the PostGIS spatial_ref_sys table and applying the value of the srtext column to create a spatial reference in ArcObjects.</p>
+  <div class="entry-content"><p><strong>Update (7/1/2011):</strong> I wrote this post early in the SQL 2008 CTP. I no longer use the method described here. If you found this post via StackOverflow or some other Q&amp;A site, I highly recommend this post by Vish as a more efficient way of doing things: <a href="http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/">http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/</a></p>
 
-<p>This approach has a few advantages and disadvantages. First, the advantages. Although both PostGIS and ESRI implement the EPSG spatial reference codes, there is not a one-to-one match between the two. Therefore, you could get an SRID in PostGIS that&#8217;s not supported in ArcGIS. The approach described above should alleviate that, adding stability. Secondly, if you&#8217;ve created a user-defined spatial reference in PostGIS, you should be able to use it in ArcGIS.</p>
+<p>I&#8217;m in the process of using <a href="http://codeplex.com/SharpMap">SharpMap</a> to write a utility to load spatial data into my <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> instance. A couple of the SharpMap data providers have a static method to load data from a shapefile (really any other SharpMap data provider, but I digress). The method creates a table and uses an ADO.Net command object (<a href="http://msdn2.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx">SqlCommand</a> in this case) load individual records into the table. I started using the existing <a href="http://www.codeplex.com/SharpMap/SourceControl/FileView.aspx?itemId=30508&amp;changeSetId=28971">MsSql provider</a> as a template, which load the geometry&#8217;s WKB into an image column.</p>
 
-<p>The disadvantages are relatively minor. First, all of the spatial references, even those created from standard EPSG SRs will appear to ArcGIS as custom spatial references, mainly because of the differing syntax of the SR string. Also, some unit definitions from PostGIS are not specifically recognized by ArcGIS. For instance &#8220;US survey feet&#8221; is shown as &#8220;unknown&#8221; in ArcGIS. This last one may be more than minor, depending on if it has any effect on distance calculations and the like but I haven&#8217;t gotten around to testing it yet.</p>
-
-<p>So, how about some code? Here&#8217;s a C# routine that I&#8217;m developing for zigGIS (don&#8217;t look, it&#8217;s not there yet). It&#8217;s based on a previous routine that Paolo and I developed. I should note that the Connection and AutoDataReader objects are zigGIS classes that inherit from ADO.NET classes. You should be able to replace them with standard OleDbConnection and DataReader objects and be fine.</p>
+<p>The problem with SQL 2008 comes in when you add a parameter to the command. You must specify the data type of the parameter by passing it a <a href="http://msdn2.microsoft.com/en-us/library/system.data.sqldbtype.aspx">SqlDbType</a> enumeration. Currently, there is no enumeration that corresponds to geometry (or geography for that matter). My first attempt was to leave the parameter defined as the type SqlDbType.VarBinary and set the value as such:</p>
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -376,65 +470,42 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'>        <span class="k">static</span> <span class="k">public</span> <span class="n">ISpatialReference</span> <span class="nf">setEsriSpatiaReferenceFromSrText</span><span class="p">(</span><span class="kt">int</span> <span class="n">srid</span><span class="p">,</span> <span class="n">Connection</span> <span class="n">conn</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">ISpatialReference</span> <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">srText</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>            <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">try</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="c1">//Bill: query srtext associated with srid</span>
-</span><span class='line'>                <span class="n">AutoDataReader</span> <span class="n">dr</span> <span class="p">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">doQuery</span><span class="p">(</span><span class="s">&quot;select * from spatial_ref_sys where srid = &quot;</span> <span class="p">+</span> <span class="n">srid</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">dr</span><span class="p">.</span><span class="n">Read</span><span class="p">())</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="n">srText</span> <span class="p">=</span> <span class="n">dr</span><span class="p">[</span><span class="s">&quot;srtext&quot;</span><span class="p">]</span> <span class="p">+</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>                    <span class="n">ISpatialReferenceFactory2</span> <span class="n">srf</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SpatialReferenceEnvironmentClass</span><span class="p">();</span>
-</span><span class='line'>                    <span class="k">if</span> <span class="p">(</span><span class="n">srText</span> <span class="p">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>                    <span class="p">{</span>
-</span><span class='line'>                        <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>                    <span class="p">}</span>
-</span><span class='line'>                    <span class="k">else</span>
-</span><span class='line'>                    <span class="p">{</span>
-</span><span class='line'>                        <span class="c1">//use srText to construct SR.</span>
-</span><span class='line'>                        <span class="n">srf</span><span class="p">.</span><span class="n">CreateESRISpatialReference</span><span class="p">(</span><span class="n">srText</span><span class="p">,</span> <span class="k">out</span> <span class="n">sr</span><span class="p">,</span> <span class="k">out</span> <span class="n">i</span><span class="p">);</span>
-</span><span class='line'>                    <span class="p">}</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="k">catch</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="c1">//PostGis srid is not implemented as an Esri Factory Code</span>
-</span><span class='line'>                <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">VarBinary</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsBinary</span><span class="p">();</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>In this case, feature.Geometry is of type SharpMap.Geometries.Geometry and AsBinary returns the <a href="http://dev.mysql.com/doc/refman/5.0/en/gis-wkb-format.html">WKB</a> representation of the shape. This code failed when attempting to execute the command, throwing an exception indicating that the table column (type geometry) was not a valid binary data type.</p>
+
+<p>So I next tried defining the data type of the parameter as SqlDbType.Udt (user-defined type) and setting the UdtTypeName property to &#8220;geometry&#8221;. This failed also.</p>
+
+<p>On a whim (I wish I could say it was something more scientific than a desire to leave no stone unturned), I then tried working with text and set it up this way:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">NVarChar</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsText</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case, AsText returns the <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> representation of the shape. This worked! I have not dug into the details of why it worked but it seems the underlying spatial objects in SQL 2008 have some built-in default behaviours that coerce WKT. I am now loading data via a WinForms app with the aid of SharpMap. So, if you&#8217;re trying to update geometry from within your code, the above example is what worked for me.</p>
+
+<p>I&#8217;ll probably post the code to the data loader a little bit later after I incorporate SRID and geometry type constraints and the like.</p>
 </div>
   
   
@@ -447,7 +518,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/05/08/zigGIS-and-Spatial-References-Part-3/">zigGIS and Spatial References, Part 3</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/">Spatial References in SQL Server 2008, Part 3</a></h1>
     
     
       <p class="meta">
@@ -463,241 +534,29 @@
   
 
 
-<time datetime="2007-05-08T00:00:00-04:00" pubdate data-updated="true">May 8<span>th</span>, 2007</time>
+<time datetime="2007-12-08T00:00:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2007</time>
         
-         | <a href="/2007/05/08/zigGIS-and-Spatial-References-Part-3/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post updates <a href="http://geobabble.wordpress.com/2006/12/29/ziggis-and-spatial-references-part-2/">this post</a> and <a href="http://geobabble.wordpress.com/2006/12/21/ziggis-and-spatial-references/">this one</a>.</p>
-
-<p>One of our beloved 5 users ;-), James, pointed out recently that <a href="http://code.google.com/p/ziggis">zigGIS</a> still has issues with user-defined coordinate systems. Alas, this is true. When we implemented support for on-the-fly &#8220;reprojection,&#8221; we limited it to the standard <a href="http://www.epsg.org">EPSG</a> SRIDs supported by both <a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://www.esri.com/software/arcgis/">ArcGIS</a>. This was mainly due to the fact that we were trying to fix a number of things at once.</p>
-
-<p>I have begun to look at building in support for user-defined spatial references. The main difference I see is that the prj syntax is slightly different between PostGIS and ArcGIS. For example the prj strings for SRID 4326 (WGS84) are not the same. They seem to behave correctly but this creates a situation where ArcGIS will recognize all standard SRs as custom is I load them using the PostGIS strings. It&#8217;s not a huge deal, just interesting. However, <a href="http://www.paolocorti.net">Paolo</a> did notice that ESRI and PostGIS data sources with (theoretically) the same SR can have a slight offset when overlaid in ArcMap. So maybe it&#8217;s more than just interesting.</p>
-
-<p>I plan to leave the current code alone and just put in routines to handle custom SRs but maybe I&#8217;ll also play with the standard ones to see if it makes a difference.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/04/24/Moving-Forward-On-A-Couple-of-Fronts/">Moving Forward on a Couple of Fronts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-04-24T00:00:00-04:00" pubdate data-updated="true">Apr 24<span>th</span>, 2007</time>
-        
-         | <a href="/2007/04/24/Moving-Forward-On-A-Couple-of-Fronts/#disqus_thread">Comments</a>
+         | <a href="/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Well, it&#8217;s been a while since I&#8217;ve posted anything technical. Work has been a little crazy and I&#8217;m not willing to carve into time with the family to keep other stuff moving. As a result a few things have been sitting for a while but I&#8217;ve been able to get around to two things.</p>
+  <div class="entry-content"><p>A little clarification is in order:</p>
 
-<p>First, I&#8217;ve been playing with making a <a href="http://msdn2.microsoft.com/en-us/netframework/aa663324.aspx">WCF</a> web service that wraps spatial calls to <a href="http://postgis.refractions.net/">PostGIS</a>. The first thing I&#8217;m building is a call to do a coordinate transformation. Fairly simple stuff. This is actually my standard &#8220;getting my feet wet&#8221; task. I have written the same thing over the years in MapObjects, ArcObjects, ArcGIS Server, COM, Java, VB.NET, C#&#8230;you name it. Now, it&#8217;s my guinea pig for WCF.</p>
+<p>SQL Server 2008 Books Online makes the following statement about SRIDs:</p>
 
-<p>WCF changes the way web services are done in .NET. Given the larger focus on support SOA with .NET 3.0, the changes make sense. Overall, I think SOA in general will be easier in 3.0 but web services in particular are not as simple to implement as in 2.0. That&#8217;s an overall change for the better IMO but it takes some getting used to. I&#8217;ve pretty much got it working on the service side but my client code is still having trouble. Once I get it ironed out, I plan to post what I did and discuss some of the issues.</p>
+<blockquote>
+&#8220;A SQL Server-supported SRID for geography instances must be used when performing calculations or using methods with geography spatial data. The SRID must match one of the SRIDs displayed in the sys.spatial_reference_systems catalog view.&#8221;
+</blockquote>
 
-<p>Secondly, I&#8217;m picking back up with building ArcCatalog objects for <a href="http://code.google.com/p/ziggis">ZigGIS</a>. I&#8217;m trying to follow the model <a href="http://www.esri.com">ESRI</a> established with how to manage connections to ArcSDE in ArcCatalog. I&#8217;ve gotten far enough that I have a connection dialog that will write out a .zig file. The next step is to iterate the .zig files and list them as nodes in the ArcCatalog tree. More on that as I move along, also.</p>
 
-<p>So the purpose of this post is really more to stick my head out and say &#8220;I&#8217;m still here.&#8221; There, I&#8217;ve said it. More again soon&#8230;</p>
-</div>
-  
-  
+<p>As previously noted, SQL 2008 supports two spatial data types: geometry and geography. As can be seen, the above statement only applies to the geography data type. If you are using geometry, the SRID can be set to anything (I have done so). It would probably be a best practice to stick to <a href="http://www.epsg.org/">EPSG</a>-defined SRIDs but this does open up the possibility of user-defined spatial references similar to <a href="http://postgis.refractions.net">PostGIS</a>. <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2505683&amp;SiteID=1">In a discussion with Isaac on the MSDN forum</a>, he clarified that they plan to leave such things to the discretion of the database designers/users for implementation. As can be seen in the discussion, it seems they may also write up some best practices but it seems many things such as constraints to limit SRIDs and geometry types will be left to users/developers/DBAs to implement.</p>
 
+<p>So, as a result of the discussion, I think I have a better understanding of <a href="http://www.microsoft.com">MSFT</a>&#8217;s intent and how to proceed with SQL 2008. It will be interesting to adjust my way of thinking from what I have come to expect from other products.</p>
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/04/20/Today-We-Are-All-Hokies/">Today We Are All Hokies&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-04-20T00:00:00-04:00" pubdate data-updated="true">Apr 20<span>th</span>, 2007</time>
-        
-         | <a href="/2007/04/20/Today-We-Are-All-Hokies/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Hokie Nation has invited everyone to wear their school colors today as a show of solidarity. I will. You should, too. I work with a lot of VT grads. I have seen that their lifelong identification with VT rivals that of Notre Dame alumni.</p>
-
-<p>So, from this Retreiver to all of Hokie Nation: My prayers are with you.</p>
-
-<p>Bill Dollins
-University of Maryland Baltimore County (UMBC) &#8216;92</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/04/15/Sometimes-Its-the-Simple-Stuff/">Sometimes It&#8217;s the Simple Stuff&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-04-15T00:00:00-04:00" pubdate data-updated="true">Apr 15<span>th</span>, 2007</time>
-        
-         | <a href="/2007/04/15/Sometimes-Its-the-Simple-Stuff/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;ve become very enamoured of the new VE-based map display at weather.com. For example, <a href="http://www.weather.com/outlook/homeandgarden/home/map/interactive/20622?from=36hour_map_large&amp;zoom=7&amp;interactiveMapLayer=radar">here&#8217;s my location</a>. My wife had to drive out to Ohio yesterday and, with the big storm moving across the country, I&#8217;ve been spending more time at weather.com than usual.</p>
-
-<p>Anyway, one of the most useful features of the display, from an interactive mapping standpoint, is one that seems rather innocuous. It&#8217;s the little crosshair in the center of the map. This is the point that you&#8217;ll zoom in to as you use the slider bar. You&#8217;ll notice it here:</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/04/ve_crosshair.png" title="I guess vacation is over?"><img alt="I guess vacation is over?" src="http://geobabble.files.wordpress.com/2007/04/ve_crosshair.thumbnail.png" /></a></p>
-
-<p>My issue with the &#8220;slider bar&#8221; approach to zooming has always been how you have to eyeball your location to the center and then readjust as you zoom in. This one little feature has virtually eliminated the need to for me to do that. So that&#8217;s the simple little detail that&#8217;s making me happy today.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/03/30/Outta-Here/">Outta Here&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-03-30T00:00:00-04:00" pubdate data-updated="true">Mar 30<span>th</span>, 2007</time>
-        
-         | <a href="/2007/03/30/Outta-Here/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;m off with the family for a week of sun, sand and frothy umbrella drinks.</p>
-
-<p>I&#8217;ve spent the last couple of days working on a <a href="http://msdn2.microsoft.com/en-us/netframework/aa663324.aspx">WCF</a> web service wrapping some <a href="http://postgis.refractions.net/">PostGIS</a> calls. I hope to be able to write about it not long after I get back. I&#8217;m also continuing with the ArcCatalog objects for <a href="http://code.google.com/p/ziggis">zigGIS</a> but work has had this funny way of intruding lately.</p>
-
-<p>See you later&#8230;</p>
-
-<p><img alt="The weather is here. Wish you were beautiful." height="320" src="http://www.performance-vision.com/california/royal-palm.JPG" width="240" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/03/21/zigGIS-1.2-Is-Out/">zigGIS 1.2 Is Out</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-03-21T00:00:00-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2007</time>
-        
-         | <a href="/2007/03/21/zigGIS-1.2-Is-Out/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Congratulations to <a href="http://www.paolocorti.net/public/wordpress/index.php/2007/03/21/ziggis-12-released">Paolo</a> for getting <a href="http://code.google.com/p/ziggis">zigGIS</a> 1.2 out the door. He&#8217;s put a lot of work into fixing problems with selections and renderers and making it a much more usable tool.</p>
-
-<p>His post contains a list of features implemented at this version and it&#8217;s really a huge step forward. I am focusing on developing catalog objects but my recent upgrade to 9.2 has me doing regression testing on a lot of my code for my clients. Paolo deserves credit for really taking the bull by the horns for this release.</p>
-
-<p>Those of you who are looking at the feature list for 9.3 and seeing PostgreSQL support should come on over. It&#8217;s already here. ;-)</p>
+<p>Also, other discussions on the forum seem to indicate that this release will not have any coordinate transformation functions so those of us planning to use and develop with SQL 2008 should probably get comfortable with something like <a href="http://www.codeplex.com/ProjNET">Proj.Net</a>.</p>
 </div>
   
   

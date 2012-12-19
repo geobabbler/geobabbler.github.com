@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T22:16:30-05:00</updated>
+  <updated>2012-12-19T14:13:06-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -130,6 +130,39 @@
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[FOSS4G Quick Hits]]></title>
+    <link href="http://blog.geomusings.com/2011/09/19/FOSS4G-Quick-Hits/"/>
+    <updated>2011-09-19T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/09/19/FOSS4G-Quick-Hits</id>
+    <content type="html"><![CDATA[<p>I had the distinct pleasure of attending my first <a href="http://2011.foss4g.org">FOSS4G conference in Denver</a> last week. Having not attended one previously, I can only rely on the opinions of others that this has been the best FOSS4G yet. For me, this was best geospatial conference I have attended. I'll probably blog in more detail about some of the things I saw but here are my high-level observations:</p>
+
+<p>[caption id="attachment_2089" align="aligncenter" width="300" caption="It&#039;s time to refresh your thinking about open-source geospatial tools."]<img alt="" class="size-medium wp-image-2089" height="266" src="http://geobabble.files.wordpress.com/2011/09/rotary_sign3.jpg?w=300" title="rotary_sign3" width="300" />[/caption]</p>
+
+<!--more-->
+
+
+<ol>
+<li><p><a href="http://www.qgis.org/">QGIS</a> - I didn't attend many QGIS sessions but I didn't need to. It had everyone talking in hallways during breaks. Remember a few years ago when the desktop was the weak link with open-source GIS? Forget about that.</p></li>
+<li><p><a href="http://www.vizzuality.com/">Vizzuality</a> is doing great things to deploy usable mapping applications on the web with open-source tools. Every session   they led was standing-room only, with good reason.</p></li>
+<li><p><a href="http://vizzuality.com/cartoset">CartoSet</a> and <a href="https://cartodb.com/">CartoDB</a> - from the aforementioned Vizzuality. These open-source tools are designed to help speed the front-end and back-end development of a web application respectively. These are at the top of my list of things to check out.</p></li>
+<li><p>One of the key characteristics of most of the open-source tools discussed in sessions I attended is that they originally grew out of the need to solve a problem. They were not just built on spec, hoping someone would find them useful. As a result, these tools tend to already be proven within the problem set for which they were built.</p></li>
+<li><p><a href="http://postgis.refractions.net/">PostGIS</a> - If open-source geospatial is a flowering field, then PostGIS is the water that hydrates it. The amount of tools that support it is staggering (including CartoDB). The importance of a robust, open-source, spatial data store cannot be overstated and the role PostGIS plays as a foundation technology is pivotal. As for PostGIS 2.0, Michael Weisman sums it up best here:</p></li>
+</ol>
+
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>My second takeaway from <a href="https://twitter.com/search/%23foss4g">#foss4g</a>: PostGIS 2's tagline should be "You no longer have an excuse to use anything else."</p>&mdash; Michael Weisman (@mweisman) <a href="https://twitter.com/mweisman/status/115163092207403010" data-datetime="2011-09-17T20:39:55+00:00">September 17, 2011</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<ol>
+<li>Javascript mapping libraries - <a href="http://openlayers.org/">there</a> are <a href="http://leaflet.cloudmade.com/">now</a> more <a href="http://2011.foss4g.org/sessions/geomap-%E2%80%93-new-open-source-javascript-mapping-api">ways</a> to <a href="http://polymaps.org/">get</a> an <a href="http://mapstraction.com/">interactive</a> map <a href="http://www.tile5.org/">into</a> a browser than I can keep track of. Those based on Javascript and/or HTML5 are proliferating like wildfire. The "I" in "RIA" now stands for "intranet".</li>
+</ol>
+
+
+<p>I'm still organizing my notes and thoughts about what I saw at FOSS4G. It's impossible to describe the richness of the information that was available. The only real downtime I had was that which I sought for myself. I'll follow up these quick observations in the near future as I begin to dig into the new tools I was exposed to.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Prying Data Open]]></title>
     <link href="http://blog.geomusings.com/2011/08/30/Prying-Data-Open/"/>
     <updated>2011-08-30T00:00:00-04:00</updated>
@@ -247,612 +280,89 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Getting Started With a Python Wrapper For the WeoGeo API]]></title>
-    <link href="http://blog.geomusings.com/2011/01/26/Getting-Started-With-a-Python-Wrapper-For-the-WeoGeo-API/"/>
-    <updated>2011-01-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2011/01/26/Getting-Started-With-a-Python-Wrapper-For-the-WeoGeo-API</id>
-    <content type="html"><![CDATA[<p>One of my <a href="http://geobabble.wordpress.com/2011/01/03/turning-it-up-to-11/">goals for 2011</a> was to sharpen my Python skills. As if on cue, <a href="http://www.weogeo.com">WeoGeo</a> puts out a Python wrapper for their RESTful API. It can be found <a href="http://code.google.com/p/weogeo-public-code/">here</a>. The good news is that I now have a familiar problem set to sink my teeth into. The bad news (for me) is that it's so easy to use it's probably not going to do much for my Python skills.</p>
+    <title type="html"><![CDATA[Piling On About Python]]></title>
+    <link href="http://blog.geomusings.com/2011/05/25/Piling-On-About-Python/"/>
+    <updated>2011-05-25T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/05/25/Piling-On-About-Python</id>
+    <content type="html"><![CDATA[<p>First and foremost, I am not a <a href="http://www.python.org">Python</a> expert. I am not even sure I could effectively play one on TV. <a href="http://geobabble.wordpress.com/2011/01/03/turning-it-up-to-11/">As I mentioned at the beginning of the year</a>, I am trying to beef up my Python skills.</p>
 
-<p>The wrapper addresses the full WeoGeo API (Datasets, Jobs, Events, etc.) so it exposes pretty much everything you can through through the WeoGeo SaaS. For example, here is a very simple browse operation:</p>
+<p>Secondly, what I have to say in this post isn't particularly original or unique. <a href="http://sgillies.net/blog/find?q=python&amp;submit=Search">Others</a> <a href="http://blog.safe.com/2009/10/snakes-on-a-map-python-in-gis/">have</a> <a href="http://www.spatiallyadjusted.com/2011/01/03/2011-the-year-python-takes-over-gis/">said</a> it before.</p>
+
+<p>So I am posting this because I have fielded some form of this question at least ten times (no exaggeration) in the past couple of months: "What skill do you recommend most for someone getting into GIS today?"   <!--more--></p>
+
+<p>My answer, invariably, has become "Python."</p>
+
+<p>[caption id="attachment_1759" align="aligncenter" width="278" caption="Python: The Swiss Army Knife of GIS programming"]<img alt="Python: The Swiss Army Knife of GIS programming" class="size-full wp-image-1759" height="296" src="http://geobabble.files.wordpress.com/2011/05/wenger_giant_knife.png" title="Python: The Swiss Army Knife of GIS programming" width="277" />[/caption]</p>
+
+<p>This may sound like a very programmer-centric answer, and it may be, but just today I got this in an e-mail from one of the senior GIS analysts with whom I work:</p>
+
+<blockquote>Looks like you were right.  Can't use field calculator to do what I'm trying to do.  I'll be writing a Python script.</blockquote>
+
+
+<p>He had been trying to use the ArcGIS Desktop field calculator to find the minimum value in a column. After a quick call to Esri, he confirmed that it didn't work that way. Gone are the days when a GIS analyst can just sit down, double-click the icon of their desktop GIS of choice and accomplish everything they need to do solely with the use of <a href="http://en.wikipedia.org/wiki/WIMP_(computing)">WIMP</a>. Truly effective analysts will need to do some scripting and that's where Python comes in.</p>
+
+<p>Python is a real language that can be used to build real, complex, enterprise-scale applications. It also happens to be very effective for scripting as well. In the Esri world, the thankful sunsetting of VBA leaves analysts with Python as the recommended way to accomplish that. That said, if you are entering the GIS field in 2011, you need to have Python in your arsenal. It simply positions you to work with a broad set of tools, such as:</p>
+
+<p><a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/What_is_ArcPy/000v000000v7000000/">ArcGIS</a>
+<a href="http://www.qgis.org/wiki/Writing_Python_Plugins">Quantum GIS</a>
+<a href="http://mapnik.org/">Mapnik</a>
+<a href="http://trac.osgeo.org/gdal/wiki/GdalOgrInPython">GDAL/OGR</a>
+<a href="http://trac.gispython.org/lab/wiki/Shapely">Shapely</a>
+<a href="http://grass.osgeo.org/wiki/GRASS_and_Python">GRASS</a>
+<a href="http://postgis.refractions.net/documentation/">PostGIS/PostgreSQL</a>
+<a href="http://code.google.com/p/weogeo-public-code/downloads/list">WeoGeo</a>
+<a href="http://geodjango.org/">GeoDjango</a>
+<a href="http://groups.google.com/group/python-gis-sig">And a host of others discussed here.</a>
+And more, I'm sure.</p>
+
+<p>This list is not comprehensive nor is it intended to be. It is meant to show that, wherever you want to go, Python is probably already there. Some of the tools listed there are not strictly GIS tools but are designed to perform some component functions of GIS very well so interpret the list broadly. Also, this list doesn't really touch upon python libraries that can help with commonly performed related tasks like statistical analysis (things like <a href="http://rpy.sourceforge.net/">rpy</a>, which interfaces with <a href="http://www.r-project.org/">R</a> via Python).</p>
+
+<p>If it's not obvious by now, I am becoming a Python convert and having a lot of fun in my explorations. I can't think of another time in my career where one language has cut across such a wide array of tools. It makes me wish I could have all those years of <a href="http://en.wikipedia.org/wiki/ARC_Macro_Language">AML</a> back.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mapping GISP and PMP Certifications with GeoCommons and the ESRI Silverlight API]]></title>
+    <link href="http://blog.geomusings.com/2011/02/02/Mapping-GISP-and-PMP-Certifications-with-GeoCommons-and-the-ESRI-Silverlight-API/"/>
+    <updated>2011-02-02T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/02/02/Mapping-GISP-and-PMP-Certifications-with-GeoCommons-and-the-ESRI-Silverlight-API</id>
+    <content type="html"><![CDATA[<p>Note: The application described in this post is running <a href="http://demo.zekiah.com/heatmap">here</a>. It requires Silverlight 4.</p>
+
+<p>I was perusing my <a href="http://www.linkedin.com">LinkedIn</a> connections and noticed that quite a few had <a href="http://en.wikipedia.org/wiki/Project_Management_Professional">PMP</a> certifications. I also noticed that most of those who did seemed to be in the Washington, DC area. Of course, given that I live in that region, my sample could be a bit skewed but then I started <a href="http://twitter.com/#!/billdollins/status/30277725008699392">thinking out loud</a> (via Twitter):</p>
+
+<blockquote>I would love to see a heat map showing concentrations of PMPs. I bet the DC area would be white-hot. I suspect others not so much.</blockquote>
+
+
+<p>Naturally, I could not let this sit. How hard could it be? It turns out it wasn't that hard so I decided to throw a small app together to look at the data. In the process of working out an approach, I decided to also look at <a href="http://www.gisci.org/certification_program_description.aspx">GISP</a> certifications because the data set is smaller and is available as one download from the <a href="http://www.gisci.org/">GISCI</a>. Here's a blow-by-blow:</p>
 
 <!--more-->
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">WeoGeoAPI</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">do</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">browse</span> <span class="n">of</span> <span class="n">WeoGeo</span> <span class="n">Market</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">session</span> <span class="o">=</span> <span class="n">WeoGeoAPI</span><span class="o">.</span><span class="n">weoSession</span><span class="p">(</span><span class="s">&#39;market.weogeo.com&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">session</span><span class="o">.</span><span class="n">connectToMarket</span><span class="p">()</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">send</span> <span class="n">some</span> <span class="n">parameters</span> <span class="n">to</span> <span class="n">look</span> <span class="k">for</span> <span class="n">vector</span> <span class="n">data</span> <span class="n">sets</span> <span class="n">covering</span> <span class="n">Washington</span><span class="p">,</span> <span class="n">DC</span><span class="o">.&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">datasets</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">getDatasets</span><span class="p">(</span><span class="s">&#39;JSON&#39;</span><span class="p">,</span> <span class="s">&#39;&amp;amp;data_type=VECTOR&amp;amp;per_page=2&amp;amp;page=1&amp;amp;north=39.043&amp;amp;south=38.767&amp;amp;west=-77.2&amp;amp;east=-77.906&#39;</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">prints</span> <span class="n">the</span> <span class="n">raw</span> <span class="n">JSON</span> <span class="n">response</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">print</span> <span class="n">datasets</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p><strong>Preparing the data</strong></p>
 
-<p>The output, cleaned up with <a href="http://jsonlint.com/">JSONLint</a> is at the end of this post. The WeoGeo JSON output for a dataset is large so I used the 'per_page" parameter to limit the response to two datasets.</p>
+<p>Both the GISCI and <a href="http://www.pmi.org">PMI</a> maintain registries of current certification holders. In the case of the GISCI, the registry is available as a single download, if needed, so I grabbed the current list of certified GISPs (as of January 26, 2011). I only cared about location and date (which I'll make use of in the future) so I stripped out all of the names. Then I deleted all of the non-US records (to keep my geocoding easy). That left me with city, state and date. To geocode the data, I uploaded it to <a href="http://www.geocommons.com">GeoCommons</a>. I have <a href="http://geobabble.wordpress.com/2010/10/06/geocoding-with-geocommons/">blogged about this capability previously</a> but this was a larger data set (and only required matching cities). The processing took about 20 seconds and only missed about 75 records out of about about 4500 records. The majority of the missed locations were APO/FPO addresses so I just removed those records. Once that was done, I left the data up on GeoCommons where <a href="http://geocommons.com/overlays/87503">it's still available</a>.</p>
 
-<p>Since I started playing with the wrapper, WeoGeo has posted a test script which shows how to use it. I'll start playing with creating jobs next. A word of caution about jobs: I highly recommend creating your own individual WeoGeo library (free) and loading a couple of datasets to play with. Most of the datasets on WeoGeo Market are for sale commercially so that's probably not the best place to test an API.</p>
+<p>For the PMP data the basic process was the same but getting the data was a little trickier. The PMI doesn't offer a single download so I had to use their query tool to query US records my the first letter of the last name. The query tool returns a maximum of 1000 records so I ended up with about 24,000 records ("Q", "X" and "Z" don't have 1000 records). I pieced this together in Excel, stripped out the names and ended up with the same information I had for the GISP data. In this case, the data set is not complete but I felt like it probably was still representative of the geographic dispersion of certification holders so I went forward.</p>
 
-<p>In all, the wrapper seems pretty straightforward. I'm looking forward to working with it in more detail.</p>
+<p>The PMP data set was too large to upload and geocode on GeoCommons (which caps geocoding at 5000 records). Fortunately, Kate and <a href="http://www.fortiusone.com">FortiusOne</a> was gracious enough to geocode it for me (I wanted to use the same geocoder for both data sets). After a little cleanup, <a href="http://geocommons.com/overlays/87707">I posted that one to GeoCommons as well</a>.</p>
 
-<p>The JSON response to the browse executed above:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-<span class='line-number'>108</span>
-<span class='line-number'>109</span>
-<span class='line-number'>110</span>
-<span class='line-number'>111</span>
-<span class='line-number'>112</span>
-<span class='line-number'>113</span>
-<span class='line-number'>114</span>
-<span class='line-number'>115</span>
-<span class='line-number'>116</span>
-<span class='line-number'>117</span>
-<span class='line-number'>118</span>
-<span class='line-number'>119</span>
-<span class='line-number'>120</span>
-<span class='line-number'>121</span>
-<span class='line-number'>122</span>
-<span class='line-number'>123</span>
-<span class='line-number'>124</span>
-<span class='line-number'>125</span>
-<span class='line-number'>126</span>
-<span class='line-number'>127</span>
-<span class='line-number'>128</span>
-<span class='line-number'>129</span>
-<span class='line-number'>130</span>
-<span class='line-number'>131</span>
-<span class='line-number'>132</span>
-<span class='line-number'>133</span>
-<span class='line-number'>134</span>
-<span class='line-number'>135</span>
-<span class='line-number'>136</span>
-<span class='line-number'>137</span>
-<span class='line-number'>138</span>
-<span class='line-number'>139</span>
-<span class='line-number'>140</span>
-<span class='line-number'>141</span>
-<span class='line-number'>142</span>
-<span class='line-number'>143</span>
-<span class='line-number'>144</span>
-<span class='line-number'>145</span>
-<span class='line-number'>146</span>
-<span class='line-number'>147</span>
-<span class='line-number'>148</span>
-<span class='line-number'>149</span>
-<span class='line-number'>150</span>
-<span class='line-number'>151</span>
-<span class='line-number'>152</span>
-<span class='line-number'>153</span>
-<span class='line-number'>154</span>
-<span class='line-number'>155</span>
-<span class='line-number'>156</span>
-<span class='line-number'>157</span>
-<span class='line-number'>158</span>
-<span class='line-number'>159</span>
-<span class='line-number'>160</span>
-<span class='line-number'>161</span>
-<span class='line-number'>162</span>
-<span class='line-number'>163</span>
-<span class='line-number'>164</span>
-<span class='line-number'>165</span>
-<span class='line-number'>166</span>
-<span class='line-number'>167</span>
-<span class='line-number'>168</span>
-<span class='line-number'>169</span>
-<span class='line-number'>170</span>
-<span class='line-number'>171</span>
-<span class='line-number'>172</span>
-<span class='line-number'>173</span>
-<span class='line-number'>174</span>
-<span class='line-number'>175</span>
-<span class='line-number'>176</span>
-<span class='line-number'>177</span>
-<span class='line-number'>178</span>
-<span class='line-number'>179</span>
-<span class='line-number'>180</span>
-<span class='line-number'>181</span>
-<span class='line-number'>182</span>
-<span class='line-number'>183</span>
-<span class='line-number'>184</span>
-<span class='line-number'>185</span>
-<span class='line-number'>186</span>
-<span class='line-number'>187</span>
-<span class='line-number'>188</span>
-<span class='line-number'>189</span>
-<span class='line-number'>190</span>
-<span class='line-number'>191</span>
-<span class='line-number'>192</span>
-<span class='line-number'>193</span>
-<span class='line-number'>194</span>
-<span class='line-number'>195</span>
-<span class='line-number'>196</span>
-<span class='line-number'>197</span>
-<span class='line-number'>198</span>
-<span class='line-number'>199</span>
-<span class='line-number'>200</span>
-<span class='line-number'>201</span>
-<span class='line-number'>202</span>
-<span class='line-number'>203</span>
-<span class='line-number'>204</span>
-<span class='line-number'>205</span>
-<span class='line-number'>206</span>
-<span class='line-number'>207</span>
-<span class='line-number'>208</span>
-<span class='line-number'>209</span>
-<span class='line-number'>210</span>
-<span class='line-number'>211</span>
-<span class='line-number'>212</span>
-<span class='line-number'>213</span>
-<span class='line-number'>214</span>
-<span class='line-number'>215</span>
-<span class='line-number'>216</span>
-<span class='line-number'>217</span>
-<span class='line-number'>218</span>
-<span class='line-number'>219</span>
-<span class='line-number'>220</span>
-<span class='line-number'>221</span>
-<span class='line-number'>222</span>
-<span class='line-number'>223</span>
-<span class='line-number'>224</span>
-<span class='line-number'>225</span>
-<span class='line-number'>226</span>
-<span class='line-number'>227</span>
-<span class='line-number'>228</span>
-<span class='line-number'>229</span>
-<span class='line-number'>230</span>
-<span class='line-number'>231</span>
-<span class='line-number'>232</span>
-<span class='line-number'>233</span>
-<span class='line-number'>234</span>
-<span class='line-number'>235</span>
-<span class='line-number'>236</span>
-<span class='line-number'>237</span>
-<span class='line-number'>238</span>
-<span class='line-number'>239</span>
-<span class='line-number'>240</span>
-<span class='line-number'>241</span>
-<span class='line-number'>242</span>
-<span class='line-number'>243</span>
-<span class='line-number'>244</span>
-<span class='line-number'>245</span>
-<span class='line-number'>246</span>
-<span class='line-number'>247</span>
-<span class='line-number'>248</span>
-<span class='line-number'>249</span>
-<span class='line-number'>250</span>
-<span class='line-number'>251</span>
-<span class='line-number'>252</span>
-<span class='line-number'>253</span>
-<span class='line-number'>254</span>
-<span class='line-number'>255</span>
-<span class='line-number'>256</span>
-<span class='line-number'>257</span>
-<span class='line-number'>258</span>
-<span class='line-number'>259</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="s1">&#39;per_page&#39;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-</span><span class='line'><span class="s1">&#39;total_entries&#39;</span><span class="o">:</span> <span class="mi">34</span><span class="p">,</span>
-</span><span class='line'><span class="s1">&#39;current_page&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'><span class="s1">&#39;total_pages&#39;</span><span class="o">:</span> <span class="mi">17</span><span class="p">,</span>
-</span><span class='line'><span class="s1">&#39;items&#39;</span><span class="o">:</span> <span class="p">[</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="s1">&#39;rating&#39;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;projection&#39;</span><span class="o">:</span> <span class="s1">&#39;geo&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_margin&#39;</span><span class="o">:</span> <span class="mf">1995.0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;uncompressed_misc_files_size&#39;</span><span class="o">:</span> <span class="mi">7683891</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;spatial_resolution&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;children_count&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;library&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Pitney Bowes - Business Insight&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="mi">112</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="s1">&#39;kml_file_size&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;hosted&#39;</span><span class="o">:</span> <span class="nx">True</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;market&#39;</span><span class="o">:</span> <span class="s1">&#39;Complete&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;center_lat&#39;</span><span class="o">:</span> <span class="mf">38.8051135</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;layers&#39;</span><span class="o">:</span> <span class="p">[</span>
-</span><span class='line'>            <span class="s1">&#39;all&#39;</span>
-</span><span class='line'>        <span class="p">],</span>
-</span><span class='line'>        <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="o">-</span><span class="mf">74.986282</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;votes&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;content_license&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;http: //licenses.weogeo.com/licenses/8/original.PDF?1273263090&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;PBBI Software and Data End User License v. April 2008&#39;</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="s1">&#39;data_type&#39;</span><span class="o">:</span> <span class="s1">&#39;VECTOR&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;royalty_model&#39;</span><span class="o">:</span> <span class="s1">&#39;CREDITED&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="o">-</span><span class="mf">79.487651</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;scales&#39;</span><span class="o">:</span> <span class="s1">&#39;6;7;8;9;10;11;12&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_discount_expires_at&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;boundaries&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="s1">&#39;geo&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;+proj=latlong +datum=wgs84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="s1">&#39;39.723622&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="s1">&#39;-79.487651&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;geo-wgs84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="s1">&#39;-74.986282&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="s1">&#39;37.886605&#39;</span>
-</span><span class='line'>            <span class="p">},</span>
-</span><span class='line'>            <span class="s1">&#39;tiles&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_lines&#39;</span><span class="o">:</span> <span class="s1">&#39;316&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_samples&#39;</span><span class="o">:</span> <span class="s1">&#39;316&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;line_pixel_size&#39;</span><span class="o">:</span> <span class="s1">&#39;-830.510836842&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;sample_pixel_size&#39;</span><span class="o">:</span> <span class="s1">&#39;1585.72818023&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;spherical_mercator&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="s1">&#39;-8848524.83367&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="s1">&#39;4825860.68838&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="s1">&#39;-8347434.72872&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="s1">&#39;4563419.26394&#39;</span>
-</span><span class='line'>            <span class="p">},</span>
-</span><span class='line'>            <span class="s1">&#39;native&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_lines&#39;</span><span class="o">:</span> <span class="s1">&#39;316&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_samples&#39;</span><span class="o">:</span> <span class="s1">&#39;316&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;line_pixel_size&#39;</span><span class="o">:</span> <span class="s1">&#39;-830.510836842&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;sample_pixel_size&#39;</span><span class="o">:</span> <span class="s1">&#39;1585.72818023&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;spherical_mercator&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="s1">&#39;-8848524.83367&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="s1">&#39;4825860.68838&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="s1">&#39;-8347434.72872&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="s1">&#39;4563419.26394&#39;</span>
-</span><span class='line'>            <span class="p">},</span>
-</span><span class='line'>            <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;geo-WGS84&#39;</span>
-</span><span class='line'>            <span class="p">},</span>
-</span><span class='line'>            <span class="s1">&#39;baseimage&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_lines&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_samples&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="s1">&#39;-8848524.833673440000000&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;line_pixel_size&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;sample_pixel_size&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;spherical_mercator&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;spherical_mercator&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="s1">&#39;4945185.028635530000000&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="s1">&#39;-8347434.728720820000000&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="s1">&#39;4444094.923682910000000&#39;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="s1">&#39;tile_layer_type&#39;</span><span class="o">:</span> <span class="s1">&#39;xyz&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_discount_rate&#39;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_discount_expire_option&#39;</span><span class="o">:</span> <span class="nx">True</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;x_conv&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;parents_count&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;status&#39;</span><span class="o">:</span> <span class="s1">&#39;Approved&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="mf">39.723622</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;description&#39;</span><span class="o">:</span> <span class="s1">&#39;&amp;amp;lt;b&amp;amp;gt;StreetPro USA&amp;amp;lt;/b&amp;amp;gt;&amp;amp;lt;br&amp;amp;gt;\nVersion 2009.12&amp;amp;lt;br&amp;amp;gt;&amp;amp;lt;br&amp;amp;gt; \nStreetPro offers users a premier street-level data product featuring accuracy and street display quality unparalleled in the industry. It reflects real world geographic conditions with the most current street data available.&amp;amp;lt;br /&amp;amp;gt;With StreetPro,</span>
-</span><span class='line'><span class="s1">        perform the most comprehensive,</span>
-</span><span class='line'><span class="s1">        efficient and effective street-based analysis possible.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;StreetPro U.S.: &amp;amp;lt;br /&amp;amp;gt; * Provides the most complete,</span>
-</span><span class='line'><span class="s1">        current and comprehensive streets on the market.&amp;amp;lt;br /&amp;amp;gt; * Integrates easily with Pitney Bowes Business Insight software.&amp;amp;lt;br /&amp;amp;gt; * Includes exclusive tools for use with Pitney Bowes Business Insight software.&amp;amp;lt;br /&amp;amp;gt; * Ships with display templates to get up and running quickly and easily with great looking maps.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;Created from Tele Atlas streets,</span>
-</span><span class='line'><span class="s1">        this highly accurate street data is gathered from over 35,</span>
-</span><span class='line'><span class="s1">        000 sources including E911 agencies,</span>
-</span><span class='line'><span class="s1">        the U.S. Postal Service,</span>
-</span><span class='line'><span class="s1">        city planning commissions,</span>
-</span><span class='line'><span class="s1">        state departments of transportation and other local government sources. &#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;spatial_resolution_in_meters&#39;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_min_margin&#39;</span><span class="o">:</span> <span class="mf">477.67</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;from_appliance?&#39;</span><span class="o">:</span> <span class="nx">False</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;center_long&#39;</span><span class="o">:</span> <span class="o">-</span><span class="mf">77.2369665</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;user&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="s1">&#39;pbbidata&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;rating&#39;</span><span class="o">:</span> <span class="mf">5.0</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;votes&#39;</span><span class="o">:</span> <span class="mi">1</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="s1">&#39;data_created_on&#39;</span><span class="o">:</span> <span class="s1">&#39;2009/12/15&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_max_discount&#39;</span><span class="o">:</span> <span class="mf">304.32</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;permalink&#39;</span><span class="o">:</span> <span class="s1">&#39;pbbidata_streetpro_maryland&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;uploaded_at&#39;</span><span class="o">:</span> <span class="s1">&#39;2010/05/06 15: 42: 51 -0400&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="nx">u</span><span class="s1">&#39;StreetPro\xae Maryland&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;price_type&#39;</span><span class="o">:</span> <span class="s1">&#39;VARIABLE&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;tile_file_format&#39;</span><span class="o">:</span> <span class="s1">&#39;png&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;number_of_layers&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;file_format&#39;</span><span class="o">:</span> <span class="s1">&#39;mapinfo_tab&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;token&#39;</span><span class="o">:</span> <span class="s1">&#39;64ac8785-eab9-4856-b04b-1f33d872f511&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;uncompressed_data_files_size&#39;</span><span class="o">:</span> <span class="mi">127090387</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;y_conv&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;max_price&#39;</span><span class="o">:</span> <span class="mf">1995.0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="mf">37.886605</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="s1">&#39;rating&#39;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;projection&#39;</span><span class="o">:</span> <span class="s1">&#39;geo&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_margin&#39;</span><span class="o">:</span> <span class="mf">1995.0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;uncompressed_misc_files_size&#39;</span><span class="o">:</span> <span class="mi">7683891</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;spatial_resolution&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;children_count&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;library&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Pitney Bowes - Business Insight&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="mi">112</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="s1">&#39;kml_file_size&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;hosted&#39;</span><span class="o">:</span> <span class="nx">True</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;market&#39;</span><span class="o">:</span> <span class="s1">&#39;Complete&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;center_lat&#39;</span><span class="o">:</span> <span class="mf">38.003375</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;layers&#39;</span><span class="o">:</span> <span class="p">[</span>
-</span><span class='line'>            <span class="s1">&#39;all&#39;</span>
-</span><span class='line'>        <span class="p">],</span>
-</span><span class='line'>        <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="o">-</span><span class="mf">75.166435</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;votes&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;content_license&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;http: //licenses.weogeo.com/licenses/8/original.PDF?1273263090&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;PBBI Software and Data End User License v. April 2008&#39;</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="s1">&#39;data_type&#39;</span><span class="o">:</span> <span class="s1">&#39;VECTOR&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;royalty_model&#39;</span><span class="o">:</span> <span class="s1">&#39;CREDITED&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="o">-</span><span class="mf">83.675415</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;scales&#39;</span><span class="o">:</span> <span class="s1">&#39;5;6;7;8;9;10;11;12&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_discount_expires_at&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;boundaries&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="s1">&#39;geo&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;+proj=latlong +datum=wgs84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="s1">&#39;39.466012&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="s1">&#39;-83.675415&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;geo-wgs84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="s1">&#39;-75.166435&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="s1">&#39;36.540738&#39;</span>
-</span><span class='line'>            <span class="p">},</span>
-</span><span class='line'>            <span class="s1">&#39;tiles&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_lines&#39;</span><span class="o">:</span> <span class="s1">&#39;316&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_samples&#39;</span><span class="o">:</span> <span class="s1">&#39;316&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;line_pixel_size&#39;</span><span class="o">:</span> <span class="s1">&#39;-1308.10717344&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;sample_pixel_size&#39;</span><span class="o">:</span> <span class="s1">&#39;2997.51683788&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;spherical_mercator&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="s1">&#39;-9314704.58972&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="s1">&#39;4788645.33132&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="s1">&#39;-8367489.26895&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="s1">&#39;4375283.46452&#39;</span>
-</span><span class='line'>            <span class="p">},</span>
-</span><span class='line'>            <span class="s1">&#39;native&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_lines&#39;</span><span class="o">:</span> <span class="s1">&#39;316&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_samples&#39;</span><span class="o">:</span> <span class="s1">&#39;316&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;line_pixel_size&#39;</span><span class="o">:</span> <span class="s1">&#39;-1308.10717344&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;sample_pixel_size&#39;</span><span class="o">:</span> <span class="s1">&#39;2997.51683788&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;spherical_mercator&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="s1">&#39;-9314704.58972&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="s1">&#39;4788645.33132&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="s1">&#39;-8367489.26895&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="s1">&#39;4375283.46452&#39;</span>
-</span><span class='line'>            <span class="p">},</span>
-</span><span class='line'>            <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;datum&#39;</span><span class="o">:</span> <span class="s1">&#39;WGS84&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;geo-WGS84&#39;</span>
-</span><span class='line'>            <span class="p">},</span>
-</span><span class='line'>            <span class="s1">&#39;baseimage&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_lines&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;number_of_samples&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;west&#39;</span><span class="o">:</span> <span class="s1">&#39;-9314704.589715850000000&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;line_pixel_size&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;sample_pixel_size&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;proj4&#39;</span><span class="o">:</span> <span class="s1">&#39;spherical_mercator&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;projection_datum&#39;</span><span class="o">:</span> <span class="s1">&#39;spherical_mercator&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="s1">&#39;5055572.058304870000000&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;east&#39;</span><span class="o">:</span> <span class="s1">&#39;-8367489.268945700000000&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="s1">&#39;4108356.737534730000000&#39;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="s1">&#39;tile_layer_type&#39;</span><span class="o">:</span> <span class="s1">&#39;xyz&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_discount_rate&#39;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_discount_expire_option&#39;</span><span class="o">:</span> <span class="nx">True</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;x_conv&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;parents_count&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;status&#39;</span><span class="o">:</span> <span class="s1">&#39;Approved&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;north&#39;</span><span class="o">:</span> <span class="mf">39.466012</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;description&#39;</span><span class="o">:</span> <span class="s1">&#39;&amp;amp;lt;b&amp;amp;gt;StreetPro USA&amp;amp;lt;/b&amp;amp;gt;&amp;amp;lt;br&amp;amp;gt;\nVersion 2009.12&amp;amp;lt;br&amp;amp;gt;&amp;amp;lt;br&amp;amp;gt; \nStreetPro offers users a premier street-level data product featuring accuracy and street display quality unparalleled in the industry. It reflects real world geographic conditions with the most current street data available.&amp;amp;lt;br /&amp;amp;gt;With StreetPro,</span>
-</span><span class='line'><span class="s1">        perform the most comprehensive,</span>
-</span><span class='line'><span class="s1">        efficient and effective street-based analysis possible.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;StreetPro U.S.: &amp;amp;lt;br /&amp;amp;gt; * Provides the most complete,</span>
-</span><span class='line'><span class="s1">        current and comprehensive streets on the market.&amp;amp;lt;br /&amp;amp;gt; * Integrates easily with Pitney Bowes Business Insight software.&amp;amp;lt;br /&amp;amp;gt; * Includes exclusive tools for use with Pitney Bowes Business Insight software.&amp;amp;lt;br /&amp;amp;gt; * Ships with display templates to get up and running quickly and easily with great looking maps.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;Created from Tele Atlas streets,</span>
-</span><span class='line'><span class="s1">        this highly accurate street data is gathered from over 35,</span>
-</span><span class='line'><span class="s1">        000 sources including E911 agencies,</span>
-</span><span class='line'><span class="s1">        the U.S. Postal Service,</span>
-</span><span class='line'><span class="s1">        city planning commissions,</span>
-</span><span class='line'><span class="s1">        state departments of transportation and other local government sources. &#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;spatial_resolution_in_meters&#39;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_min_margin&#39;</span><span class="o">:</span> <span class="mf">477.71</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;from_appliance?&#39;</span><span class="o">:</span> <span class="nx">False</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;center_long&#39;</span><span class="o">:</span> <span class="o">-</span><span class="mf">79.420925</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;user&#39;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="s1">&#39;pbbidata&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;rating&#39;</span><span class="o">:</span> <span class="mf">5.0</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;votes&#39;</span><span class="o">:</span> <span class="mi">1</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="s1">&#39;data_created_on&#39;</span><span class="o">:</span> <span class="s1">&#39;2009/12/15&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;provider_max_discount&#39;</span><span class="o">:</span> <span class="mf">304.37</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;permalink&#39;</span><span class="o">:</span> <span class="s1">&#39;pbbidata_streetpro_virginia&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;uploaded_at&#39;</span><span class="o">:</span> <span class="s1">&#39;2010/05/06 14: 35: 58 -0400&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="nx">u</span><span class="s1">&#39;StreetPro\xae Virginia&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;price_type&#39;</span><span class="o">:</span> <span class="s1">&#39;VARIABLE&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;tile_file_format&#39;</span><span class="o">:</span> <span class="s1">&#39;png&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;number_of_layers&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;file_format&#39;</span><span class="o">:</span> <span class="s1">&#39;mapinfo_tab&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;token&#39;</span><span class="o">:</span> <span class="s1">&#39;06ce3537-deb2-cc51-a081-2360eff828f7&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;uncompressed_data_files_size&#39;</span><span class="o">:</span> <span class="mi">234980712</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;y_conv&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;max_price&#39;</span><span class="o">:</span> <span class="mf">1995.0</span><span class="p">,</span>
-</span><span class='line'>        <span class="s1">&#39;south&#39;</span><span class="o">:</span> <span class="mf">36.540738</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">]</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[zigGIS Hotfix Available]]></title>
-    <link href="http://blog.geomusings.com/2010/06/18/zigGIS-Hotfix-Available/"/>
-    <updated>2010-06-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/18/zigGIS-Hotfix-Available</id>
-    <content type="html"><![CDATA[<p>Abe announced the availability of hotfix 3 for <a href="http://pub.obtusesoft.com">zigGIS</a> 2.0.5. From the announcement:</p>
+<p><strong>Mapping the data</strong></p>
 
-<blockquote>Hotfix 3 fixes an issue that prevented point layers from being
-editable; it also includes all prior hotfixes.  The hotfix is a free
-upgrade and is highly recommended for all users.  Please go to
-<a href="http://pub.obtusesoft.com">http://pub.obtusesoft.com</a> &gt; My Order.  After logging in you'll see a
-link to the patch.</blockquote>
+<p>I wanted to use a heat map to show the data (for no particular reason). There are numerous ways to accomplish this but I chose to use the <a href="http://help.arcgis.com/en/webapi/silverlight/index.html">ESRI ArcGIS API for Silverlight</a>. I made this choice primarily because a lot of my project work right now involves it so the tools are at my fingertips. Also, it has a HeatMapLayer class which I had not had a chance to try yet.</p>
 
+<p>So I set up a simple mapping application and, at runtime, I load the data from GeoCommons and populate each heat map layer with the points from the appropriate data set. In this case I loaded the data as CSV (which is one of the data options on GeoCommons) by making the appropriate call to the GeoCommons API. I chose CSV because I only needed the latitude and longitude of each location and CSV was actually the least wordy transmission mode. I parsed the data using the <a href="http://kbcsv.codeplex.com/">KBCsv</a> parser available on CodePlex. I could have also loaded the data as GeoJSON and used <a href="http://json.codeplex.com/">JSON.Net</a> or Vish's outstanding <a href="http://viswaug.wordpress.com/2008/05/11/geojsonnet-a-net-library-to-produce-geojson-output/">GeoJSON.Net</a> library but CSV suited my needs in this case. Here is a screen shot showing the GISP data.</p>
 
-<p><a href="http://abegillespie.blogspot.com">Abe</a> is working hard on <a href="http://geobabble.wordpress.com/2010/04/23/ziggis-3-0-to-be-open-source/">version 3.0</a> but obviously is continuing to support 2.x as well. Improvements include a new provider model which will better enable support for other data sources. A roadmap should be available soon.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Couple of Updates]]></title>
-    <link href="http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates/"/>
-    <updated>2010-06-15T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates</id>
-    <content type="html"><![CDATA[<p>Shortly after my <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">previous post</a>, about browsing and downloading data from <a href="http://www.geocommons.com">GeoCommons</a>, hit the wires, I got quite a few back-channel requests for the code. I sent it out via e-mail to a number of people and then posted it via DropBox. I have finally gotten around to posting it up on Google Code, making things much more manageable. It is now available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>.</p>
+<p><a href="http://geobabble.files.wordpress.com/2011/02/gisp_heatmap1.png"><img alt="" class="alignleft size-full wp-image-1484" height="242" src="http://geobabble.files.wordpress.com/2011/02/gisp_heatmap1.png" title="GISP Heat Map" width="590" /></a></p>
 
-<p>I have made a few updates since the original post. Some were administrative but were functional. They are:</p>
+<p><strong>Reading the data</strong></p>
 
-<ol>
-<li>The code was updated to replace SharpZipLib with <a href="http://dotnetzip.codeplex.com">DotNetZip</a> for handling zip files.</li>
-<li>The code now attempts to identify the default KML handler on the user's system and pass KML directly to it for previewing.</li>
-<li>The user now gets a wait cursor when the tool is processing downloads and such. This should make it a little more usable.</li>
-<li>The code headers had been pasted in from <a href="http://sharpmap.codeplex.com">SharpMap</a> and I missed some references to SharpMap in the text. Those have been corrected.</li>
-</ol>
+<p>So, did the data confirm the suspicion from my original tweet? Yes. The ESRI API calculates heat map intensity based upon the data that is visible in the current map extent. When you zoom out to the whole nation, you can clearly see that the highest concentration of both certifications, by far, is in the Washington, DC area. If you zoom in more and pan around, the mapping adjusts itself so you can get a better representation of other areas by zooming in to them (and away from DC). You can also adjust the display with the intensity tool to bring out some local variations.</p>
 
+<p>What doesn't come across well is relative scale. There are a lot more PMPs than GISPs but that doesn't show well in this presentation. That's why I chose to put a toggle on the map because there's very little value in seeing the two data sets overlaid.</p>
 
-<p>Anyway, thanks for all the interest. It sort of caught me off guard but at least the code is more accessible now. I've got a few more updates planned so this should streamline things.</p>
+<p>All told, it took about two hours to get the core of the application in place and maybe about another hour to tidy things up. With GeoCommons, it literally took longer to prep the data than to geocode it and the native heat mapping capability of the ESRI Silverlight API was extremely easy to use. The Silverlight implementation shuts out most mobile users and anyone on Linux (Moonlight is not yet Silverlight 4 compatible) so, for those reasons, I'll continue to explore more standards-based approaches but this combination of tools certainly helped me answer my question quickly.</p>
+
+<p>This application is currently being served up live at <a href="http://demo.zekiah.com/heatmap">demo.zekiah.com/heatmap</a></p>
 ]]></content>
   </entry>
   
