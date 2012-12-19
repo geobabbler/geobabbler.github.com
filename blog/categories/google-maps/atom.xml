@@ -4,7 +4,7 @@
   <title><![CDATA[Category: google maps | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/google-maps/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T14:17:38-05:00</updated>
+  <updated>2012-12-18T22:16:30-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Arc2Earth Supports ArcGIS Server Tile Caches]]></title>
+    <link href="http://blog.geomusings.com/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches/"/>
+    <updated>2010-08-02T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches</id>
+    <content type="html"><![CDATA[<p>I just got an e-mail announcement from <a href="http://www.arc2earth.com">Arc2Earth</a> (disclaimer: my <a href="http://www.zekiah.com">company</a> is a reseller) regarding some updates to version 3 that have come out since the ESRI UC. One of the updates that catches my attention is:</p>
+
+<blockquote>
+<strong>ArcGIS Server Tile Cache Format</strong> - You can now create or manage tile caches that can be used with ArcGIS Server. use Arc2Earth tile management tools (like the Change Detection Level) to dramatically reduce the time it takes to update tile caches
+</blockquote>
+
+
+<!--more-->
+
+
+<p>Previous versions of Arc2Earth generated tiles in the Google/Bing XYZ format, using the appropriate file naming conventions and directory structures. This update now gives a user the ability to generate a cache using the ArcGIS Server naming conventions. It will still correspond to the Google/Bing zoom levels and still use web mercator but it will conform to the ArcGIS Server "exploded" cache structure.</p>
+
+<p>This should be very handy for those organizations that may have their production ArcGIS Server in a different location than the data that they use to generate tiles.  Now the work can be done in ArcMap. This, combined with Arc2Earth's change detection feature, will save a lot of work for some of my customers.</p>
+
+<p>The full change log is here: <a href="http://links.arc2earth.com/changelog">http://links.arc2earth.com/changelog</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[StatCounter Recent Visitor Map]]></title>

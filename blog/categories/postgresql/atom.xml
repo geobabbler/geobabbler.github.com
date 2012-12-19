@@ -4,7 +4,7 @@
   <title><![CDATA[Category: postgresql | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/postgresql/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T14:17:38-05:00</updated>
+  <updated>2012-12-18T22:16:30-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -562,6 +562,66 @@
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[Me and zigGIS]]></title>
+    <link href="http://blog.geomusings.com/2010/09/28/Me-and-zigGIS/"/>
+    <updated>2010-09-28T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/09/28/Me-and-zigGIS</id>
+    <content type="html"><![CDATA[<p>If you?ve been to the <a href="http://pub.obtusesoft.com">Obtuse Software</a> site recently, you may or may not have noticed a change to the ?<a href="http://pub.obtusesoft.com/who.aspx">Who We Are</a>? page. It now lists only <a href="http://abegillespie.blogspot.com">Abe Gillespie</a> and <a href="http://www.paolocorti.net/">Paolo Corti</a>. Prior to my trip to Colorado to talk about zigGIS at <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a>, I informed Abe and Paolo that I would be stepping back from any ?official? involvement in Obtuse.</p>
+
+<p>This does not mean that I am stepping back from involvement in zigGIS. I plan to continue to support zigGIS as it returns to open-source but, in truth, I haven?t done much with zigGIS day-to-day in a long time. As part of the <a href="http://abegillespie.blogspot.com/2010/04/prodigal-extension.html">return of zigGIS to open-source at version 3.0</a>, Abe has been working on a plan to give the community multiple paths to support the project, including sponsorship and technical support plans. I'm sure he'll have the details out soon so I'll leave it at that (since it's not my story to tell). So, as Obtuse transitions to more of a supporting role for the zigGIS 3.0 open-source project, I felt that this was a good time to step away and become part of the community. <!--more--></p>
+
+<p>But enough about me, this post is called ?Me and zigGIS? so I?ll address some of the key needs for zigGIS 3.0, as I see them. Abe is planning a complete rewrite in order to make zigGIS better. A certain amount of that will have to stay on his plate (with help from Paolo) but it?s a large effort. To that end, help is needed. <a href="http://abegillespie.blogspot.com/2010/06/on-to-30.html">Abe published the roadmap</a> a while back so you can take a look and see what needs to be done. zigGIS 3.0 will happen faster and better with the help of additional developers, testers, end-users, etc.</p>
+
+<p><img alt="null" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" /></p>
+
+<p>Developers are the most obvious. If you have C# and/or ArcObjects experience and want to get involved in an open-source project, zigGIS can use the help. Testing has always been a big issue with zigGIS as it has lots of moving parts. Between <a href="http://www.esri.com">ArcMap</a>, .Net, <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.postgis.com">PostGIS</a>, there are a lot of pieces which drive testing of zigGIS. Each new release of any of these can necessitate compatibility testing, the results of which can drive changes to the code. One of the great things about open-source is that those kinds of things can happen more fluidly. Recognizing, however, that not every user of zigGIS is a developer, it?s good to know who may want to take a compiled executable and put it through its paces or who may want to test an installer.</p>
+
+<p>Another big thing on the roadmap is internationalization. A lot of the users of zigGIS (maybe even most of them) are from outside the United States. Supporting languages other than English would be a good thing to do. That?s something that wouldn't necessarily require any coding skill at all but would be a huge help.</p>
+
+<p>As an aside, when zigGIS 2.0 was released, we <a href="http://code.google.com/p/ziggis/">left zigGIS 1.x (licensed under the GPL) available</a>. It is read-only and lacks many of the features that have been added to 2.x but the downloads have continued so I know there is an appetite for an open-source tool that does what zigGIS does. So I hope that some of those people who have continued to use 1.x can help build 3.0.</p>
+
+<p>So why help? Why zigGIS? I?ll address these questions in more detail in future posts. Before I ever got involved with the project, <a href="http://geobabble.wordpress.com/2006/12/17/postgis-and-arcgis-91/">I blogged about it</a>. The use case was a little clearer back then as ArcGIS simply did not support PostgreSQL/PostGIS as a back end. That changed at 9.3 and, although it may have muddied the waters somewhat for zigGIS, it provided a good option for ArcGIS users. So zigGIS had to find its niche.</p>
+
+<p>Over the last couple of years, I have been putting some thought into that and I think that it can provide a nice way to augment workflow in an ArcGIS environment, allowing an organization to maximize the value of its ArcView licenses. Additionally, zigGIS is a nice option for an organization that is growing into its GIS capability. Such an organization may use ArcMap and may be ready to begin managing its spatial data centrally but may not quite be ready to make down-range decisions regarding web-mapping, online GIS and the like. zigGIS can provide a nice stepping stone to help a shop get more organized while also giving it more time to decide its next steps, allowing it to make longer-range decisions about technology and resources on its own schedule. I?ll be exploring these use cases in more detail in future posts.</p>
+
+<p>So, while I?ve stepped away from Obtuse, I don?t plan to step away from zigGIS. As I continue on with my consulting, it is a technology that has key place in my toolbox. I?m glad it will be returning to open-source and I am looking forward to seeing how it evolves. I have greatly enjoyed my association with Abe and Paolo thus far and look forward to it continuing in a new and different form.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Look at "PostGIS In Action"]]></title>
+    <link href="http://blog.geomusings.com/2010/04/21/A-Look-at-PostGIS-In-Action/"/>
+    <updated>2010-04-21T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/04/21/A-Look-at-PostGIS-In-Action</id>
+    <content type="html"><![CDATA[<p>Over the past few weeks, I have been reading a copy of the upcoming book by Regina Obe and Leo Hsu titled "<a href="http://manning.com/obe/">PostGIS In Action</a>." Through my work with <a href="http://pub.obtusesoft.com">zigGIS</a> and some of my consulting work with <a href="http://www.zekiah.com">Zekiah</a>, I have been using <a href="http://postgis.refractions.net/">PostGIS</a> with good results for some time now. I have found that it matches or exceeds the capabilities of its commercial counterparts and I can be quite productive with it.</p>
+
+<p><img alt="" src="http://www.manning.com/obe/obe_cover150.jpg" /></p>
+
+<p>Regina has been a frequent contributor to zigGIS discussions over the years and her expertise with PostGIS has definitely helped <a href="http://dpulp.com/">Abe</a>, <a href="http://www.paolocorti.net/">Paolo</a> and I as we have worked on it. Also, many tips from the <a href="http://www.bostongis.com/">Boston GIS blog/site</a> have been very helpful so I have been looking forward to this book for some time.<!--more--></p>
+
+<p>I must confess to being something of a "book guy." I like having a book on my lap as I work through a problem (using my multiple monitors for actual implementation). "PostGIS in Action" puts most of what I need between one set of covers.</p>
+
+<p>This book addresses a problem I have run into repeatedly in my consulting work: educating database professionals (DBAs, developers, etc.) on working with spatial data in a manner that they are familiar with. The authors are extremely knowledgeable about database technologies of all kinds and it comes through here.</p>
+
+<p>Since PostGIS extends <a href="http://www.postgresql.org/">PostgreSQL</a>, it is impossible to separate the two when discussing good data design and implementation. The "Data Modeling" chapter provides a good discussion of various considerations when working with spatial data (use of complex geometries vs. points, homogeneous vs. heterogeneous geometry columns, etc.) but it also provides one of the best discussions of PostgreSQL table inheritance and partitioning that I have found in one place. Each topic, as throughout the book, is backed up by SQL examples and succinct discussion of the pros and cons of each approach.</p>
+
+<p>The design consideration regarding storing geometry as points versus storing lines or polygons may seem basic to a GIS professional but is a discussion I have had repeatedly throughout my career with database designers who are new to spatial data. Many times, their initial instinct is to store X and Y values in separate columns in a table. This may be a perfectly valid approach for a given data set and how it is to be used but many design considerations come into play. "PostGIS In Action" does a good job of encapsulating those considerations in a manner that is consistent with how most database professionals approach database design.</p>
+
+<p>Another concept that typically confounds database professionals on their first exposure to spatial data is the spatial reference system. "PostGIS In Action" has a chapter dedicated to spatial reference systems. It discusses various common spatial references and their pros and cons as well as the components of a spatial reference (ellipsoid, datum, projection, etc.). This is a complex topic and the purpose of this book is not to "teach GIS" but it is a crucial topic when working with spatial data. The chapter gives a good overview of the concepts and considerations surrounding spatial references. If you are starting to work with spatial data, you will leave the chapter with an understanding of their importance and the fact that you should probably dig into them further.</p>
+
+<p>"PostGIS In Action" continues on to discuss using PostGIS to perform spatial analysis. As always, real SQL samples are used so that a database professional will become comfortable with the use of spatial joins, spatial indexing, the many spatial functions built into PostGIS and many other concepts and techniques. Throughout the book, the authors return to a few examples (the fictional "Hello Town", San Francisco, Washington, DC) so that each topic is discussed within a problem set with which we become familiar. Additionally, tools such as <a href="http://www.gdal.org/ogr/">OGR</a> and <a href="http://www.qgis.org/">QGIS/SPIT</a> are also discussed (with examples).</p>
+
+<p>I could go on but I will summarize what I like about "PostGIS In Action": it provides a solid foundation for an experienced database professional who needs to begin working with spatial data using PostGIS and PostgreSQL.</p>
+
+<p>Throughout this post, I have used the term "database professional" to describe who I think will benefit from this book. It is not for beginners or the faint of heart. You should be very comfortable with your knowledge of relational databases, SQL and (optionally) PostgreSQL before diving into the book. "PostGIS in Action" does not teach RDBMS basics, nor should it.</p>
+
+<p>From the solid foundation it provides, the book delves into advanced topics and techniques that will enable the reader to become productive with PostGIS. A programmer can also benefit from the practical SQL examples in the book to write better applications (regardless of language) on top of of PostGIS/PostgreSQL. I also think database professionals working on other platforms (such as Oracle/Oracle Spatial) could benefit from the better understanding of the unique characteristics of spatial data that can be achieved with this book. They will also begin to see how well PostgreSQL stacks up against commercial RDBMS platforms in terms of capability.</p>
+
+<p>The subject of spatial data, as well as its implementation in PostGIS, is too big for one book to attempt to handle in a "one-stop shop" manner. "PostGIS In Action" wisely avoids trying to do this. It is a good starting point to begin building expertise if you are new to spatial data and, if you are experienced with it, you will probably learn a few things you didn't know. I recommend checking out "PostGIS In Action" if you are or will be working with PostGIS or spatial data.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[A Couple of PostgreSQL Conferences]]></title>
     <link href="http://blog.geomusings.com/2009/03/24/A-Couple-of-PostgreSQL-Conferences/"/>
     <updated>2009-03-24T00:00:00-04:00</updated>
@@ -571,58 +631,6 @@
 <p>For those on the West Coast, there is PgDay at <a href="http://www.linuxfestnorthwest.org/">LinuxFest Northwest</a> in Bellingham, Washington on 25 April. Paper submissions are still being taken for that one so, if you think you want to present, check it out <a href="http://www.postgresqlconference.org/2009/pgday/lfnw/">here</a>.</p>
 
 <p>Updates: Steve Citron-Pousty informs me (see below) that he will be presenting about PostGIS at the Bellingham conference. Additionally, Regina has informed me about <a href="http://www.pgcon.org/2009/">PGCon 2009</a> in Ottawa, Canada on 21-22 May, where her group will also be talking about PostGIS.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using PostgreSQL Views in zigGIS 2.0.2]]></title>
-    <link href="http://blog.geomusings.com/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2/"/>
-    <updated>2009-01-27T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2</id>
-    <content type="html"><![CDATA[<p>When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database platforms. The way zigGIS was originally constructed, it used the PostGIS geometry_columns table to discover available spatial tables. This has worked well but we came to realize that there are numerous workflows that can be employed to create spatial tables in PostGIS and many of these don't necessarily register in the geometry_columns table. For example, you can use a standard CREATE TABLE to create a table that includes a geometry column. In this case, the table will not be registered but will still be a valid spatial table. The same can be said for views.<!--more--></p>
-
-<p>SQL Server 2008 doesn't have any equivalent to the geometry_columns table and most likely won't. When considering extending zigGIS to support SQL Server, we were basically left with two paths:</p>
-
-<ol>
-<li>Create tables analagous to the PostGIS geometry_columns and spatial_ref_sys tables (and possibly other supporting structures) inside a zigGIS schema or:</li>
-<li>Eliminate the need to have your data listed in geometry_columns and have zigGIS "discover" your spatial data by examining the schema information.</li>
-</ol>
-
-
-<p>Since our preference is always to keep zigGIS as light as possible, we went with the latter. This approach was implemented in version 2.0.2. While we haven't extended to SQL Server yet, zigGIS does provide more flexibility for user to implement their own data workflow. For me, one of the biggest benefits is the ability to create a view in PostgreSQL and add it into ArcMap as a layer.</p>
-
-<p>For example, I have a spatial table called "states" which was imported from a shapefile of the US states. Additionally, I have a table called "us_states_pop" that contains population estimates from the US Census Bureau. Using the following SQL, I created a view that joined the two tables based upon the state abbreviation and displayed the 2007 and 2008 poplation estimates.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="n">s</span><span class="p">.</span><span class="n">gid</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">state_name</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">state_abbr</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">e20080701</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">e20070701</span>
-</span><span class='line'>   <span class="k">FROM</span> <span class="n">states</span> <span class="n">s</span>
-</span><span class='line'>   <span class="k">JOIN</span> <span class="n">us_states_pop</span> <span class="n">p</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">state_abbr</span><span class="p">::</span><span class="nb">text</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">abbr</span><span class="p">::</span><span class="nb">text</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>I saved this view with the name "vwStatePop". Your view must return a geometry column and an integer ID column (shape and gid in this case). Next, I started up ArcMap and selected my view like so:</p>
-
-<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png"><img alt="zigGIS 2.0.2 layer selector (click to enlarge)" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png" title="zig_pick_view" width="300" /></a><div style="text-align:center;font-size: 14px;">zigGIS 2.0.2 layer selector (click to enlarge)<br/><br/></div></div>
-
-
-<p>I simply selected the view in the dialog, then used the dropdowns to set the correct values for the ID column, geometry column and geometry type and then clicked "OK". The view data then displayed in ArcMap as any other layer like so:</p>
-
-<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2009/01/zig_view_map.png"><img alt="PostgreSQL/PostGIS spatial view displayed in ArcMap. (click to enlarge)" class="size-medium wp-image-465" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_view_map.png" title="zig_view_map" width="300" /></a><div style="text-align: center; font-size:14px">PostgreSQL/PostGIS spatial view displayed in ArcMap. (click to enlarge)<br/></div></div>
-
-
-<p>This was a fairly simple example but you can get pretty sophisticated with your views. I like the fact that I just need to create a standard PostgreSQL view in the same way that I always do and I can use it in ArcMap right away. The ability to use views in zigGIS is the enhancement I am most excited about in version 2.0.2.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[zigGIS 2.0.2 Enhancements Announced]]></title>
-    <link href="http://blog.geomusings.com/2009/01/14/zigGIS-2.0.2-Enhancements-Announced/"/>
-    <updated>2009-01-14T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2009/01/14/zigGIS-2.0.2-Enhancements-Announced</id>
-    <content type="html"><![CDATA[<p><a href="http://abegillespie.blogspot.com/2009/01/ziggis-candy.html">Abe posted</a> today about upcoming enhancements in <a href="http://pub.obtusesoft.com">zigGIS</a> 2.0.2. These changes address some of the most common feedback that we've heard from users. Abe has been working hard to get these changes implemented and released in a timely fashion. Testing will begin shortly.</p>
-
-<p>In addition to the flexibility that Abe describes, these changes also begin to position zigGIS to support other data sources beyond PostGIS.</p>
 ]]></content>
   </entry>
   

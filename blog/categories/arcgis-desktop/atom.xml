@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcgis desktop | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcgis-desktop/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T14:17:38-05:00</updated>
+  <updated>2012-12-18T22:16:30-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -68,469 +68,88 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Importing Data From GeoCommons Into ArcMap]]></title>
-    <link href="http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/"/>
-    <updated>2010-06-02T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap</id>
-    <content type="html"><![CDATA[<p><strong>UPDATE:</strong> <em>The code for this post is available at the bottom of the page.</em></p>
+    <title type="html"><![CDATA[Me and zigGIS]]></title>
+    <link href="http://blog.geomusings.com/2010/09/28/Me-and-zigGIS/"/>
+    <updated>2010-09-28T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/09/28/Me-and-zigGIS</id>
+    <content type="html"><![CDATA[<p>If you?ve been to the <a href="http://pub.obtusesoft.com">Obtuse Software</a> site recently, you may or may not have noticed a change to the ?<a href="http://pub.obtusesoft.com/who.aspx">Who We Are</a>? page. It now lists only <a href="http://abegillespie.blogspot.com">Abe Gillespie</a> and <a href="http://www.paolocorti.net/">Paolo Corti</a>. Prior to my trip to Colorado to talk about zigGIS at <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a>, I informed Abe and Paolo that I would be stepping back from any ?official? involvement in Obtuse.</p>
 
-<p>I have been doing a lot of development with the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">ESRI Silverlight API</a> recently. One of the requirements of my project is to be able to dynamically add KML data at runtime. The incorporation of <a href="http://code.google.com/apis/kml/documentation/">KML</a> was handled for us through <a href="http://resources.esri.com/arcgisserver/apis/silverlight/index.cfm?fa=codeGalleryDetails&amp;scriptID=16487">one of the ESRI samples</a> on the resource center so we pretty much just had to integrate that code and test against our use cases. For testing, I typically reached out to <a href="http://www.geocommons.com">GeoCommons</a> since any data set available there can be streamed as KML.</p>
+<p>This does not mean that I am stepping back from involvement in zigGIS. I plan to continue to support zigGIS as it returns to open-source but, in truth, I haven?t done much with zigGIS day-to-day in a long time. As part of the <a href="http://abegillespie.blogspot.com/2010/04/prodigal-extension.html">return of zigGIS to open-source at version 3.0</a>, Abe has been working on a plan to give the community multiple paths to support the project, including sponsorship and technical support plans. I'm sure he'll have the details out soon so I'll leave it at that (since it's not my story to tell). So, as Obtuse transitions to more of a supporting role for the zigGIS 3.0 open-source project, I felt that this was a good time to step away and become part of the community. <!--more--></p>
 
-<p>Obviously, this is not my first exposure to GeoCommons but, when discussing it, I found that many of the analysts I spoke with were not aware of it and did not use it much. So I decided to tackle developing a simple ArcMap extension to allow a user to search GeoCommons and then download/add data to ArcMap without the need to manually download, unzip and add the data themselves.<!--more--></p>
+<p>But enough about me, this post is called ?Me and zigGIS? so I?ll address some of the key needs for zigGIS 3.0, as I see them. Abe is planning a complete rewrite in order to make zigGIS better. A certain amount of that will have to stay on his plate (with help from Paolo) but it?s a large effort. To that end, help is needed. <a href="http://abegillespie.blogspot.com/2010/06/on-to-30.html">Abe published the roadmap</a> a while back so you can take a look and see what needs to be done. zigGIS 3.0 will happen faster and better with the help of additional developers, testers, end-users, etc.</p>
 
-<p>GeoCommons, and the GeoIQ platform on which it is based, are produced by <a href="http://www.fortiusone.com/">FortiusOne</a> and are comprised, broadly speaking, of two main components: Finder and Maker. Finder allows you to search/browse data on GeoCommons while Maker allows you to visualize/map the data online and produce map products with nothing but a browser required. That's a gross oversimplification of what GeoCommons can do so I recommend that you kick the tires yourself if you haven't already done so.</p>
+<p><img alt="null" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" /></p>
 
-<p>Finder supports <a href="http://www.opensearch.org/Home">OpenSearch</a> (see more about this <a href="http://blog.fortiusone.com/2010/01/05/better-know-a-geocommons-feature-opensearch/">here</a>) so the basic search syntax is simple and RESTful. Results can be returned in a number of formats such as JSON, KML and Atom. For example, a query using the search term "oil" and returning results as Atom would simply be:</p>
+<p>Developers are the most obvious. If you have C# and/or ArcObjects experience and want to get involved in an open-source project, zigGIS can use the help. Testing has always been a big issue with zigGIS as it has lots of moving parts. Between <a href="http://www.esri.com">ArcMap</a>, .Net, <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.postgis.com">PostGIS</a>, there are a lot of pieces which drive testing of zigGIS. Each new release of any of these can necessitate compatibility testing, the results of which can drive changes to the code. One of the great things about open-source is that those kinds of things can happen more fluidly. Recognizing, however, that not every user of zigGIS is a developer, it?s good to know who may want to take a compiled executable and put it through its paces or who may want to test an installer.</p>
 
-<p><a href="http://finder.geocommons.com/search.atom?query=oil">http://finder.geocommons.com/search.atom?query=oil</a></p>
+<p>Another big thing on the roadmap is internationalization. A lot of the users of zigGIS (maybe even most of them) are from outside the United States. Supporting languages other than English would be a good thing to do. That?s something that wouldn't necessarily require any coding skill at all but would be a huge help.</p>
 
-<p>We can further refine my query by added parameters such as "limit" to restrict the number of results returned (this can be a very good thing as there's quite a bit of data on GeoCommons) and "bbox", which can used to restrict your search to a specific geographic area. Once you have the search results, you can easily get at the actual data in a number of formats, KML and shapefile (zipped) for example. You specify the format in a RESTful manner by simply changing the URI. The following links point to Maryland zip code boundaries in KML and shapefile formats, respectively:</p>
+<p>As an aside, when zigGIS 2.0 was released, we <a href="http://code.google.com/p/ziggis/">left zigGIS 1.x (licensed under the GPL) available</a>. It is read-only and lacks many of the features that have been added to 2.x but the downloads have continued so I know there is an appetite for an open-source tool that does what zigGIS does. So I hope that some of those people who have continued to use 1.x can help build 3.0.</p>
 
-<p><a href="http://finder.geocommons.com/overlays/22026.kml">http://finder.geocommons.com/overlays/22026.kml</a>
-<a href="http://finder.geocommons.com/overlays/22026.zip">http://finder.geocommons.com/overlays/22026.zip</a></p>
+<p>So why help? Why zigGIS? I?ll address these questions in more detail in future posts. Before I ever got involved with the project, <a href="http://geobabble.wordpress.com/2006/12/17/postgis-and-arcgis-91/">I blogged about it</a>. The use case was a little clearer back then as ArcGIS simply did not support PostgreSQL/PostGIS as a back end. That changed at 9.3 and, although it may have muddied the waters somewhat for zigGIS, it provided a good option for ArcGIS users. So zigGIS had to find its niche.</p>
 
-<p>So what all of this boils down to is that Finder has a simple search syntax, returns results in a well-known format, and delivers data sets in standard formats. Integrating this into ArcMap should be fairly easy. I started by designing a simple search dialog:</p>
+<p>Over the last couple of years, I have been putting some thought into that and I think that it can provide a nice way to augment workflow in an ArcGIS environment, allowing an organization to maximize the value of its ArcView licenses. Additionally, zigGIS is a nice option for an organization that is growing into its GIS capability. Such an organization may use ArcMap and may be ready to begin managing its spatial data centrally but may not quite be ready to make down-range decisions regarding web-mapping, online GIS and the like. zigGIS can provide a nice stepping stone to help a shop get more organized while also giving it more time to decide its next steps, allowing it to make longer-range decisions about technology and resources on its own schedule. I?ll be exploring these use cases in more detail in future posts.</p>
 
-<p><img alt="" class="alignnone size-full wp-image-932" height="374" src="http://geobabble.files.wordpress.com/2010/06/geocommons_form.png" title="A simple GeoCommons query dialog" width="419" /></p>
-
-<p>This post is not intended to be a lesson on how to extend ArcMap so I'll describe the basic components at a high level. I used C# to develop the project and the dialog is built using regular Windows Forms rather than WPF. It uses version 3.5 of the .Net framework. There is a simple toolbar button that creates an instance of the form and passes in a reference to the ArcMap application so that the form can get access to information such as the current extent as needed.</p>
-
-<p>The workflow is fairly simple. Enter a "search term" in the text box (exactly as you would in the Finder web interface), select a "limit" (default is 20) and then click "execute" to run your search. The following is the code behind the "execute" button:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">IEnvelope</span> <span class="n">bounds</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">_mxd</span><span class="p">.</span><span class="n">ActiveView</span><span class="p">.</span><span class="n">Extent</span><span class="p">;</span> <span class="c1">//current map extent</span>
-</span><span class='line'>        <span class="n">bounds</span><span class="p">.</span><span class="n">Project</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">getWGS84</span><span class="p">());</span> <span class="c1">//convert to WGS84 for use in query</span>
-</span><span class='line'>        <span class="n">ExecuteSearch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">txtKeyword</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">comboBox1</span><span class="p">.</span><span class="n">SelectedItem</span><span class="p">.</span><span class="n">ToString</span><span class="p">()),</span> <span class="n">bounds</span><span class="p">.</span><span class="n">YMax</span><span class="p">,</span> <span class="n">bounds</span><span class="p">.</span><span class="n">YMin</span><span class="p">,</span> <span class="n">bounds</span><span class="p">.</span><span class="n">XMax</span><span class="p">,</span> <span class="n">bounds</span><span class="p">.</span><span class="n">XMin</span><span class="p">);</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>And the ExecuteSearch method that does the work:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">WebClient</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebClient</span><span class="p">();</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;http://finder.geocommons.com/search.atom?query={0}&amp;amp;amp;limit={1}&amp;amp;amp;bbox={2},{3},{4},{5}&quot;</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">limit</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">west</span><span class="p">,</span> <span class="n">south</span><span class="p">,</span> <span class="n">east</span><span class="p">,</span> <span class="n">north</span><span class="p">);</span> <span class="c1">//format the URI</span>
-</span><span class='line'>        <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringCompleted</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">DownloadStringCompletedEventHandler</span><span class="p">(</span><span class="n">request_DownloadStringCompleted</span><span class="p">);</span> <span class="c1">//attach handler for async call</span>
-</span><span class='line'>        <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringAsync</span><span class="p">(</span><span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">url</span><span class="p">));</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>These two pieces of code format the URI and make the call to the GeoCommons API. As you can see, it automatically uses the current map extent to bound the query. GeoCommons expects the bounding box to be in WGS84 so I convert the extent before building the URI. The "getWGS84" method is an ArcObjects helper function that I wrote years ago and reuse extensively.</p>
-
-<p>The next part of the workflow is to parse the search results and display them in the "results" list box. To support that, I created the following (very simple) class:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">class</span> <span class="nc">OverlayInfo</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">shapelink</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">kmllink</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">infolink</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>Basically, I'll create an instance of OverlayInfo for each search result and add it to the results list, using the "title" property as the display member. I could have set up a data contract to bind these directly to the atom entries (and I may still do that) but, for the limited information I am handling at the moment, it was simpler to parse the atom using LINQ to XML. That work is done in the DownloadStringCompleted event handler here:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Error</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Result</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">XElement</span> <span class="n">root</span> <span class="p">=</span> <span class="n">XElement</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">n</span> <span class="p">=</span> <span class="n">root</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">LocalName</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">XNamespace</span> <span class="n">atom</span> <span class="p">=</span> <span class="s">&quot;http://www.w3.org/2005/Atom&quot;</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">IEnumerable</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">XElement</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="n">entries</span> <span class="p">=</span> <span class="n">root</span><span class="p">.</span><span class="n">Elements</span><span class="p">(</span><span class="n">atom</span> <span class="p">+</span> <span class="s">&quot;entry&quot;</span><span class="p">);</span> <span class="c1">//get the entry elements</span>
-</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="n">XElement</span> <span class="n">entry</span> <span class="k">in</span> <span class="n">entries</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="n">XElement</span> <span class="n">title</span> <span class="p">=</span> <span class="n">entry</span><span class="p">.</span><span class="n">Elements</span><span class="p">(</span><span class="n">atom</span> <span class="p">+</span> <span class="s">&quot;title&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">();</span> <span class="c1">//query the entry title</span>
-</span><span class='line'>                <span class="n">IEnumerable</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">XElement</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="n">links</span> <span class="p">=</span>
-</span><span class='line'>                <span class="p">(</span><span class="k">from</span> <span class="n">el</span> <span class="k">in</span> <span class="n">entry</span><span class="p">.</span><span class="n">Elements</span><span class="p">(</span><span class="n">atom</span> <span class="p">+</span> <span class="s">&quot;link&quot;</span><span class="p">)</span>
-</span><span class='line'>                 <span class="k">where</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="n">el</span><span class="p">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">)</span> <span class="p">==</span> <span class="s">&quot;application/vnd.google-earth.kml+xml&quot;</span>
-</span><span class='line'>                 <span class="k">select</span> <span class="n">el</span><span class="p">).</span><span class="n">Take</span><span class="p">(</span><span class="m">1</span><span class="p">);</span> <span class="c1">//query the link to the KML resource</span>
-</span><span class='line'>
-</span><span class='line'>                <span class="n">XElement</span> <span class="n">link</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">links</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="n">link</span> <span class="p">=</span> <span class="n">links</span><span class="p">.</span><span class="n">First</span><span class="p">();</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">link</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="kt">string</span> <span class="n">kml</span> <span class="p">=</span> <span class="n">links</span><span class="p">.</span><span class="n">Attributes</span><span class="p">(</span><span class="s">&quot;href&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">().</span><span class="n">Value</span><span class="p">;</span>
-</span><span class='line'>                    <span class="kt">string</span> <span class="n">shp</span> <span class="p">=</span> <span class="n">kml</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;kml&quot;</span><span class="p">,</span> <span class="s">&quot;zip&quot;</span><span class="p">);</span> <span class="c1">//coerce to zip (shapefile) link</span>
-</span><span class='line'>                    <span class="kt">string</span> <span class="n">info</span> <span class="p">=</span> <span class="n">kml</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;.kml&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span> <span class="c1">//coerce to general information link</span>
-</span><span class='line'>                    <span class="n">OverlayInfo</span> <span class="n">overlay</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OverlayInfo</span> <span class="p">{</span> <span class="n">title</span> <span class="p">=</span> <span class="n">title</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">shapelink</span> <span class="p">=</span> <span class="n">shp</span><span class="p">,</span> <span class="n">kmllink</span> <span class="p">=</span> <span class="n">kml</span><span class="p">,</span> <span class="n">infolink</span> <span class="p">=</span> <span class="n">info</span> <span class="p">};</span> <span class="c1">//create instance of OverlayInfo</span>
-</span><span class='line'>                    <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">overlay</span><span class="p">);</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">else</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>I use LINQ to query the entries out of the feed, iterate them, create an instance of OverlayInfo for each entry and add it to the list box. LINQ is nice for data structures that are known at runtime and I like it better than XPath for querying XML documents (although it's touchier about namespaces).</p>
-
-<p>With that, the user now sees a list of search results. It's time to do something with them. For this pass, they can preview the KML for a selected result or they can download the shapefile data for it. The KML preview simply provides a means to look at the data before getting it.</p>
-
-<p>You will recall that we attached the links to the KML and shapefile data to the OverlayInfo object for each result when we added it to the list so working with it is as simple as this:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">OverlayInfo</span> <span class="n">overlay</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">SelectedItem</span> <span class="k">as</span> <span class="n">OverlayInfo</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">overlay</span><span class="p">.</span><span class="n">kmllink</span><span class="p">);</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>For this pass, the code simply does a shell execute using the KML link so what this actually does is cause the link to be opened in the default browser which should then prompt you to open the data in Google Earth (or whatever your default KML handler is). In the near future, I will update this to go to GE directly but this worked for now.</p>
-
-<p>The "download" button actually downloads the data and adds it to ArcMap automatically. Handling this is a little more complicated because GeoCommons delivers the shapefile data in a zip file so it needs to be uncompressed first. For handling zip files, I used the open-source <a href="http://dotnetzip.codeplex.com/">DotNetZip</a> to handle the zip files. Here's the bulk of the heavy lifting for handling the shapefiles:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="k">void</span> <span class="n">download_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//TODO: move all of this out of the event handler</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetTempPath</span><span class="p">();</span> <span class="c1">//find user&#39;s temp folder</span>
-</span><span class='line'>        <span class="n">OverlayInfo</span> <span class="n">overlay</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">SelectedItem</span> <span class="k">as</span> <span class="n">OverlayInfo</span><span class="p">;</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">file</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetFileName</span><span class="p">(</span><span class="n">overlay</span><span class="p">.</span><span class="n">shapelink</span><span class="p">);</span>
-</span><span class='line'>        <span class="c1">//build all of the necessary file info</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">filebase</span> <span class="p">=</span> <span class="n">file</span><span class="p">.</span><span class="n">ToLower</span><span class="p">().</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;.zip&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">outfolder</span> <span class="p">=</span> <span class="n">tmp</span> <span class="p">+</span> <span class="n">filebase</span><span class="p">;</span> <span class="c1">//output location</span>
-</span><span class='line'>        <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Directory</span><span class="p">.</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="n">outfolder</span><span class="p">);</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">outpath</span> <span class="p">=</span> <span class="n">tmp</span> <span class="p">+</span> <span class="n">filebase</span> <span class="p">+</span> <span class="s">&quot;\\&quot;</span> <span class="p">+</span> <span class="n">file</span><span class="p">;</span>
-</span><span class='line'>        <span class="c1">//download the data</span>
-</span><span class='line'>        <span class="n">WebRequest</span> <span class="n">req</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">overlay</span><span class="p">.</span><span class="n">shapelink</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">WebResponse</span> <span class="n">resp</span> <span class="p">=</span> <span class="n">req</span><span class="p">.</span><span class="n">GetResponse</span><span class="p">();</span>
-</span><span class='line'>        <span class="n">Stream</span> <span class="n">strm</span> <span class="p">=</span> <span class="n">resp</span><span class="p">.</span><span class="n">GetResponseStream</span><span class="p">();</span>
-</span><span class='line'>        <span class="n">SaveStreamToFile</span><span class="p">(</span><span class="n">outpath</span><span class="p">,</span> <span class="n">strm</span><span class="p">);</span>
-</span><span class='line'>        <span class="c1">//unzip the data, getting the name of the .shp file</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">shapefile</span> <span class="p">=</span> <span class="n">Utils</span><span class="p">.</span><span class="n">ExtractFiles</span><span class="p">(</span><span class="n">outpath</span><span class="p">,</span> <span class="n">outfolder</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">resp</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
-</span><span class='line'>        <span class="c1">//there may have been an error or no actual shapefile</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">shapefile</span> <span class="p">!=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">workspace</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetDirectoryName</span><span class="p">(</span><span class="n">shapefile</span><span class="p">);</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">dataset</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetFileName</span><span class="p">(</span><span class="n">shapefile</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">dataset</span> <span class="p">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">ToLower</span><span class="p">().</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;.shp&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">AddShapefile</span><span class="p">(</span><span class="n">workspace</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">overlay</span><span class="p">.</span><span class="n">title</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">private</span> <span class="k">void</span> <span class="nf">SaveStreamToFile</span><span class="p">(</span><span class="kt">string</span> <span class="n">fileFullPath</span><span class="p">,</span> <span class="n">Stream</span> <span class="n">stream</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">using</span><span class="p">(</span><span class="n">Stream</span> <span class="n">fs</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">fileFullPath</span><span class="p">,</span> <span class="n">FileMode</span><span class="p">.</span><span class="n">Create</span><span class="p">)</span> <span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="kt">byte</span> <span class="p">[]</span><span class="n">buf</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">1000</span><span class="p">];</span>
-</span><span class='line'>                <span class="kt">int</span> <span class="n">iRead</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
-</span><span class='line'>                <span class="k">do</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="n">iRead</span> <span class="p">=</span> <span class="n">stream</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">buf</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
-</span><span class='line'>                    <span class="k">if</span> <span class="p">(</span><span class="n">iRead</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
-</span><span class='line'>                        <span class="n">fs</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">iRead</span><span class="p">);</span>
-</span><span class='line'>                <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">iRead</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">);</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//TODO: examine and throw</span>
-</span><span class='line'>            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">private</span> <span class="k">void</span> <span class="nf">AddShapefile</span><span class="p">(</span><span class="kt">string</span> <span class="n">folder</span><span class="p">,</span> <span class="kt">string</span> <span class="n">dataset</span><span class="p">,</span> <span class="kt">string</span> <span class="n">description</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">IWorkspaceFactory</span> <span class="n">wkspcfact</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ShapefileWorkspaceFactoryClass</span><span class="p">()</span> <span class="k">as</span> <span class="n">IWorkspaceFactory</span><span class="p">;</span>
-</span><span class='line'>            <span class="c1">//System.IO.Path.</span>
-</span><span class='line'>            <span class="n">IFeatureWorkspace</span> <span class="n">wkspc</span> <span class="p">=</span> <span class="n">wkspcfact</span><span class="p">.</span><span class="n">OpenFromFile</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">IFeatureWorkspace</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">IFeatureLayer</span> <span class="n">lyr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FeatureLayerClass</span><span class="p">()</span> <span class="k">as</span> <span class="n">IFeatureLayer</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">IFeatureClass</span> <span class="n">fc</span> <span class="p">=</span> <span class="n">wkspc</span><span class="p">.</span><span class="n">OpenFeatureClass</span><span class="p">(</span><span class="n">dataset</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">IGeoDataset</span> <span class="n">gds</span> <span class="p">=</span> <span class="n">fc</span> <span class="k">as</span> <span class="n">IGeoDataset</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">IGeoDatasetSchemaEdit</span> <span class="n">edit</span> <span class="p">=</span> <span class="n">gds</span> <span class="k">as</span> <span class="n">IGeoDatasetSchemaEdit</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">edit</span><span class="p">.</span><span class="n">CanAlterSpatialReference</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="c1">//GeoCommons does not deliver a .prj file with</span>
-</span><span class='line'>                <span class="c1">//shapefiles. This sets the spatial reference</span>
-</span><span class='line'>                <span class="n">edit</span><span class="p">.</span><span class="n">AlterSpatialReference</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">getWGS84</span><span class="p">());</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="n">lyr</span><span class="p">.</span><span class="n">FeatureClass</span> <span class="p">=</span> <span class="n">fc</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">lyr</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">description</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">lyr</span><span class="p">.</span><span class="n">SpatialReference</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">getWGS84</span><span class="p">();</span>
-</span><span class='line'>            <span class="n">_mxd</span><span class="p">.</span><span class="n">FocusMap</span><span class="p">.</span><span class="n">AddLayer</span><span class="p">(</span><span class="n">lyr</span><span class="p">);</span> <span class="c1">//_mxd is the current document open in ArcMap</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//TODO: put in better user notification</span>
-</span><span class='line'>            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>Below is a screen capture of all of this in action (click to enlarge). I zoomed into the Gulf of Mexico region and searched on the term "oil." As can be seen I selected the "Projected Oil Trajectory - Forecast 052610" data set and added it to ArcMap. I manually applied the color ramp after the download.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2010/06/geocommons_example.png"><img alt="" class="alignnone size-medium wp-image-934" height="178" src="http://geobabble.files.wordpress.com/2010/06/geocommons_example.png?w=300" title="GeoCommons/ArcMap example" width="300" /></a></p>
-
-<p>I was able to turn this around pretty quickly (less than a day) due to two main facts: 1) GeoCommons is well-designed and makes strong use of web standards and open interfaces to expose data in very well-known formats and 2) ArcGIS is, as it has always been, a very extensible platform. If it doesn't support a data source that you want to use, you can probably make it do so (although not always as easily as this example). <del datetime="2010-06-02T22:05:16+00:00">I plan on tidying up the code a bit more and making it available here so keep checking back.</del></p>
-
-<p><strong>UPDATE:</strong> The code for this post is available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>. It includes the source code and the Visual Studio 2008 solution as well as the binary for those of you who are not programmers. It has only been run/tested against ArcGIS Desktop 9.3.1 SP1.</p>
+<p>So, while I?ve stepped away from Obtuse, I don?t plan to step away from zigGIS. As I continue on with my consulting, it is a technology that has key place in my toolbox. I?m glad it will be returning to open-source and I am looking forward to seeing how it evolves. I have greatly enjoyed my association with Abe and Paolo thus far and look forward to it continuing in a new and different form.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[And Now For Something Completely Different - ArcGIS Schematics]]></title>
-    <link href="http://blog.geomusings.com/2009/03/12/And-Now-For-Something-Completely-Different-ArcGIS-Schematics/"/>
-    <updated>2009-03-12T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2009/03/12/And-Now-For-Something-Completely-Different-ArcGIS-Schematics</id>
-    <content type="html"><![CDATA[<p>When I started this blog, I didn't imagine I'd ever blog about ArcGIS Schematics. I looked at it shortly after <a href="http://www.esri.com/news/arcnews/summer02articles/intro-schematics.html">ESRI acquired the product</a> and it was, how shall I say, a little rough. Since then, I have always kind of thought of it as a refugee from the Island of Misfit Extensions.<!--more--></p>
+    <title type="html"><![CDATA[ArcGIS 10.0 and 10.1 Deprecation Plan Released]]></title>
+    <link href="http://blog.geomusings.com/2010/08/19/ArcGIS-100-and-101-Deprecation-Plan-Released/"/>
+    <updated>2010-08-19T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/08/19/ArcGIS-100-and-101-Deprecation-Plan-Released</id>
+    <content type="html"><![CDATA[<p><a href="http://twitter.com/mikehogan">Mike Hogan</a> tweeted that the Esri deprecation plan for ArcGIS 10.0 and 10.1 is now available. It can be found <a href="http://downloads2.esri.com/support/TechArticles/ArcGIS_10_and__101_Deprecation_Plan.pdf">here</a>. Much of what it contains is not new as Esri has been pretty good about getting information related to 10.x out. Some of the more interesting things (to me) include (comments in parens are mine):</p>
 
-<p>I have recently had the occasion to dig into Schematics more deeply. I won't say that familiarity has disavowed me of the "refugee" impression. It's probably safer to say that I am beginning to be able to bend it to my will.</p>
+<blockquote>
 
-<p><img alt="ArcGIS Schematics rolls with a rough crowd" src="http://www.joyeur.com/images/138.jpg" /></p>
+ArcGIS Server 10.0 is the last release with support for 32-bit operating systems. The next release of ArcGIS Server (10.1) will run natively as a 64-bit application, requiring 64-bit operating systems. (I heard about the native 64-bit move at the Esri UC but I didn't know that included dropping 32-bit. It's not a big deal for me but I can imagine it'll be an impact for many.)
 
-<p>So why am I delving back into Schematics? Essentially, I am supporting a group of analysts that do most of their work in ArcGIS. There is an increasing amount of non-spatial data which they want to visualize as links and nodes and analyze. Schematics purports to fit that bill and do so without needing to introduce another software tool. I am working at a location that has an ELA in place. With an ELA, every problem starts to look like a GIS problem. Basically, I am putting Schematics through the paces to determine if it can meet requirements before looking at other tools that would require an additional purchase.</p>
+ArcGIS Server 10.0 is the last release supporting publishing non-optimized map documents (MXD files). The next major release will only support publishing optimized maps (MSDs) as that is the best practice for map publishing. (There you have it, no more serving from MXDs after 10.0.)
 
-<p>On the plus side, Schematics does have some tools that enable network analysis on schematic diagrams. Tools such a finding the path between two node and finding loops can expose links that may not be obvious in a complex diagram. It would be nice if there were a tool that allowed you to find all paths between nodes but I haven't found one yet. Also a potential plus is to link up your diagram with a map where nodes or links have a spatial representation. I haven't played with this yet and don't know if I will.</p>
+ArcGIS Server 10.1 will be the last planned release for the ArcGIS Server Web ADFs (Application Developer Framework) for both Microsoft .NET and Java. (We had a small "wake" in San Diego for the ADFs. I won't shed a tear when it's "official.")
 
-<p>On the minus side: The diagrams look pretty rudimentary. The stock symbols are very basic and the symbol editor is outdated. I haven't found a way to load in an image as a symbol. The designer tool, where you define your node and link types, define your data source, queries and the like is very cumbersome, unintuitive and non-visual. It looks like a bad VB6 app and may very well be. The designer is a separate executable that is only loosely integrated with ArcCatalog and ArcMap (although this may not be a bad thing). Additionally, controlling diagram layout is very clunky and would be cumbersome for a large diagram.</p>
+ArcGIS Server 10.1 will no longer support local connections (DCOM connections) from Web ADF applications. ArcGIS Server 10.1 will be a web services (REST and SOAP) server only. (This is actually pretty major and the document details the impacts. <strong>If you have any ADF code doing editing and such, read this!</strong>)
+</blockquote>
 
-<p>Out of the box, I would not put Schematics in front of an analyst. It is too cumbersome and complex and there are tools that do what it does better. I have not had the opportunity to delve into its ArcObjects API to see how much I can streamline things. Given my experience so far, I may not bother. ArcGIS Schematics is beginning the emit the faint stench of bitrot as it doesn't look like any real attention has been paid to it in a while. I will push forward with my dalliance with it for a little while longer but the jury is still out as to whether it will be a long-term solution.</p>
+
+<p>There's a lot of good information in the document, especially pertaining to ArcGIS Server so it's definitely worth a read.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Using PostgreSQL Views in zigGIS 2.0.2]]></title>
-    <link href="http://blog.geomusings.com/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2/"/>
-    <updated>2009-01-27T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2009/01/27/Using-PostgreSQL-Views-in-zigGIS-2.0.2</id>
-    <content type="html"><![CDATA[<p>When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database platforms. The way zigGIS was originally constructed, it used the PostGIS geometry_columns table to discover available spatial tables. This has worked well but we came to realize that there are numerous workflows that can be employed to create spatial tables in PostGIS and many of these don't necessarily register in the geometry_columns table. For example, you can use a standard CREATE TABLE to create a table that includes a geometry column. In this case, the table will not be registered but will still be a valid spatial table. The same can be said for views.<!--more--></p>
+    <title type="html"><![CDATA[Arc2Earth Supports ArcGIS Server Tile Caches]]></title>
+    <link href="http://blog.geomusings.com/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches/"/>
+    <updated>2010-08-02T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches</id>
+    <content type="html"><![CDATA[<p>I just got an e-mail announcement from <a href="http://www.arc2earth.com">Arc2Earth</a> (disclaimer: my <a href="http://www.zekiah.com">company</a> is a reseller) regarding some updates to version 3 that have come out since the ESRI UC. One of the updates that catches my attention is:</p>
 
-<p>SQL Server 2008 doesn't have any equivalent to the geometry_columns table and most likely won't. When considering extending zigGIS to support SQL Server, we were basically left with two paths:</p>
-
-<ol>
-<li>Create tables analagous to the PostGIS geometry_columns and spatial_ref_sys tables (and possibly other supporting structures) inside a zigGIS schema or:</li>
-<li>Eliminate the need to have your data listed in geometry_columns and have zigGIS "discover" your spatial data by examining the schema information.</li>
-</ol>
+<blockquote>
+<strong>ArcGIS Server Tile Cache Format</strong> - You can now create or manage tile caches that can be used with ArcGIS Server. use Arc2Earth tile management tools (like the Change Detection Level) to dramatically reduce the time it takes to update tile caches
+</blockquote>
 
 
-<p>Since our preference is always to keep zigGIS as light as possible, we went with the latter. This approach was implemented in version 2.0.2. While we haven't extended to SQL Server yet, zigGIS does provide more flexibility for user to implement their own data workflow. For me, one of the biggest benefits is the ability to create a view in PostgreSQL and add it into ArcMap as a layer.</p>
-
-<p>For example, I have a spatial table called "states" which was imported from a shapefile of the US states. Additionally, I have a table called "us_states_pop" that contains population estimates from the US Census Bureau. Using the following SQL, I created a view that joined the two tables based upon the state abbreviation and displayed the 2007 and 2008 poplation estimates.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="n">s</span><span class="p">.</span><span class="n">gid</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">state_name</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">state_abbr</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">e20080701</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">e20070701</span>
-</span><span class='line'>   <span class="k">FROM</span> <span class="n">states</span> <span class="n">s</span>
-</span><span class='line'>   <span class="k">JOIN</span> <span class="n">us_states_pop</span> <span class="n">p</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">state_abbr</span><span class="p">::</span><span class="nb">text</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">abbr</span><span class="p">::</span><span class="nb">text</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>I saved this view with the name "vwStatePop". Your view must return a geometry column and an integer ID column (shape and gid in this case). Next, I started up ArcMap and selected my view like so:</p>
-
-<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png"><img alt="zigGIS 2.0.2 layer selector (click to enlarge)" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png" title="zig_pick_view" width="300" /></a><div style="text-align:center;font-size: 14px;">zigGIS 2.0.2 layer selector (click to enlarge)<br/><br/></div></div>
+<!--more-->
 
 
-<p>I simply selected the view in the dialog, then used the dropdowns to set the correct values for the ID column, geometry column and geometry type and then clicked "OK". The view data then displayed in ArcMap as any other layer like so:</p>
+<p>Previous versions of Arc2Earth generated tiles in the Google/Bing XYZ format, using the appropriate file naming conventions and directory structures. This update now gives a user the ability to generate a cache using the ArcGIS Server naming conventions. It will still correspond to the Google/Bing zoom levels and still use web mercator but it will conform to the ArcGIS Server "exploded" cache structure.</p>
 
-<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2009/01/zig_view_map.png"><img alt="PostgreSQL/PostGIS spatial view displayed in ArcMap. (click to enlarge)" class="size-medium wp-image-465" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_view_map.png" title="zig_view_map" width="300" /></a><div style="text-align: center; font-size:14px">PostgreSQL/PostGIS spatial view displayed in ArcMap. (click to enlarge)<br/></div></div>
+<p>This should be very handy for those organizations that may have their production ArcGIS Server in a different location than the data that they use to generate tiles.  Now the work can be done in ArcMap. This, combined with Arc2Earth's change detection feature, will save a lot of work for some of my customers.</p>
 
-
-<p>This was a fairly simple example but you can get pretty sophisticated with your views. I like the fact that I just need to create a standard PostgreSQL view in the same way that I always do and I can use it in ArcMap right away. The ability to use views in zigGIS is the enhancement I am most excited about in version 2.0.2.</p>
+<p>The full change log is here: <a href="http://links.arc2earth.com/changelog">http://links.arc2earth.com/changelog</a></p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[zigGIS 2.0.2 Enhancements Announced]]></title>
-    <link href="http://blog.geomusings.com/2009/01/14/zigGIS-2.0.2-Enhancements-Announced/"/>
-    <updated>2009-01-14T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2009/01/14/zigGIS-2.0.2-Enhancements-Announced</id>
-    <content type="html"><![CDATA[<p><a href="http://abegillespie.blogspot.com/2009/01/ziggis-candy.html">Abe posted</a> today about upcoming enhancements in <a href="http://pub.obtusesoft.com">zigGIS</a> 2.0.2. These changes address some of the most common feedback that we've heard from users. Abe has been working hard to get these changes implemented and released in a timely fashion. Testing will begin shortly.</p>
+    <title type="html"><![CDATA[GeoCommons Add-In]]></title>
+    <link href="http://blog.geomusings.com/2010/07/27/GeoCommons-Add-In/"/>
+    <updated>2010-07-27T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/07/27/GeoCommons-Add-In</id>
+    <content type="html"><![CDATA[<p>Just a quick update on the <a href="http://www.geocommons.com">GeoCommons</a> importer for ArcMap <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">I blogged a while ago</a>:</p>
 
-<p>In addition to the flexibility that Abe describes, these changes also begin to position zigGIS to support other data sources beyond PostGIS.</p>
+<p>There is now an ArcGIS 10.0 add-in available as a download from the Google Code site. It is available <a href="http://code.google.com/p/geocommonsbrowser/downloads/list">here</a>.</p>
+
+<p>This should enable ArcGIS 10.0 users to also easily browse and get data from GeoCommons. Sorry, I don't have the add-in code available yet. I'm a little swamped so it'll be a while before I get to that but I wanted to make the download available.</p>
 ]]></content>
   </entry>
   

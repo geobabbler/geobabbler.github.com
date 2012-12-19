@@ -4,7 +4,7 @@
   <title><![CDATA[Category: cloud | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/cloud/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-18T14:17:38-05:00</updated>
+  <updated>2012-12-18T22:16:30-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Clouds]]></title>
+    <link href="http://blog.geomusings.com/2010/07/26/Clouds/"/>
+    <updated>2010-07-26T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/07/26/Clouds</id>
+    <content type="html"><![CDATA[<p>I spent the vast majority of my time at the 2010 ESRI User Conference working the <a href="http://www.zekiah.com">Zekiah</a>/<a href="http://www.arc2earth.com">Arc2Earth </a>booth. That was fun as I got meet/reconnect with a lot of people but I didn't see much of the conference itself. As a result, I haven't really blogged it.</p>
+
+<p><a href="http://www.esri.com">ESRI</a> continued with the "cloud ready" theme that was rolled out at the Federal User Conference but with more details about how they are moving to "the cloud." This generated a lot of buzz amongst many of the attendees from what I could tell. One of the big new features of Arc2Earth v3 (disclaimer: my company is an Arc2Earth reseller) is Cloud Services. As a result, we had a banner in our booth that had the word "cloud" on it, prompting lots of people to stop.<!--more--></p>
+
+<p>Probably the biggest question I heard related to the cloud was "tell me how it works." Generally, people were not asking us about how Arc2Earth uses the cloud (although there was a lot of interest there but that is not the focus of this post) but rather to explain "the cloud" in conceptual terms. What I concluded was that, while ESRI's focus on the cloud raised the consciousness of cloud computing for many attendees, it did not necessarily raise their understanding of it. I don't particularly consider this a failing on the part of ESRI. I think they did a good job of continuing to flesh out their approach, which is what I would expect at their conference.</p>
+
+<p>[youtube=http://www.youtube.com/watch?v=oAB9Y2CVqZU]</p>
+
+<p>My problem with the term "the cloud" has always been that it conveys the impression of one monolithic entity that's "out there" to be used. In reality, there are multiple "clouds." Each of them is a massive computing infrastructure that is being exposed for users to rent for their computing needs. This is not unlike the more traditional hard infrastructures such as the power grid or telephone networks. One major difference is that they are not boxed into "natural monopolies" like physical networks can be. With internet access, you can freely pick and choose.</p>
+
+<p>The major infrastructures right now are owned by <a href="http://aws.amazon.com/ec2/">Amazon</a>, <a href="http://code.google.com/appengine/">Google</a> and <a href="http://www.microsoft.com/windowsazure/">Microsoft</a>. There are others but these three seem to be generating the most interest at the moment. Each has a different model for how it exposes its infrastructure for use. Layered onto them are companies that have built service offerings on top of these infrastructures, not unlike how there are different kinds of transportation companies (car rental, taxis, courier services, overnight shipping, trucking companies, etc.) that use the transportation infrastructure. In the geospatial market, the ones that I have the most experience with are <a href="http://www.weogeo.com">WeoGeo</a>, <a href="http://www.arc2earth.com">Arc2Earth</a>, <a href="http://www.fortiusone.com">GeoCommons/GeoIQ</a> and <a href="http://www.esri.com">ESRI</a>. Like the cloud providers, each has a different approach for exposing geospatial data and tools via the cloud infrastructure.</p>
+
+<p>The choice of cloud infrastructure and service provider can greatly affect workflow and also have widely varying costs so it's important to really dig in and understand the various permutations available and make the best choice for your organization. If you are considering moving your geospatial operations to "the cloud", it is worth taking time to understand the various cloud infrastructures, how they operate, and what the various service providers offer.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Couple of Updates]]></title>
+    <link href="http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates/"/>
+    <updated>2010-06-15T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates</id>
+    <content type="html"><![CDATA[<p>Shortly after my <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">previous post</a>, about browsing and downloading data from <a href="http://www.geocommons.com">GeoCommons</a>, hit the wires, I got quite a few back-channel requests for the code. I sent it out via e-mail to a number of people and then posted it via DropBox. I have finally gotten around to posting it up on Google Code, making things much more manageable. It is now available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>.</p>
+
+<p>I have made a few updates since the original post. Some were administrative but were functional. They are:</p>
+
+<ol>
+<li>The code was updated to replace SharpZipLib with <a href="http://dotnetzip.codeplex.com">DotNetZip</a> for handling zip files.</li>
+<li>The code now attempts to identify the default KML handler on the user's system and pass KML directly to it for previewing.</li>
+<li>The user now gets a wait cursor when the tool is processing downloads and such. This should make it a little more usable.</li>
+<li>The code headers had been pasted in from <a href="http://sharpmap.codeplex.com">SharpMap</a> and I missed some references to SharpMap in the text. Those have been corrected.</li>
+</ol>
+
+
+<p>Anyway, thanks for all the interest. It sort of caught me off guard but at least the code is more accessible now. I've got a few more updates planned so this should streamline things.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Importing Data From GeoCommons Into ArcMap]]></title>

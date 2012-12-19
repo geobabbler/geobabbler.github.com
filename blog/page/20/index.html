@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="This post from pfisk brought back a flood of memories. I haven&#8217;t done AutoLISP since I last used ArcCAD. I thought the point made about &hellip;">
+  <meta name="description" content="Abe, Paolo and I had a chat session yesterday to coordinate efforts on zigGIS. It was good session and we&#8217;re all on the same page with getting &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/18/pfisk-on-AutoLISP/">Pfisk on AutoLISP</a></h1>
+      <h1 class="entry-title"><a href="/2007/08/03/Way-Ahead-for-zigGIS/">Way Ahead for zigGIS</a></h1>
     
     
       <p class="meta">
@@ -88,16 +88,30 @@
   
 
 
-<time datetime="2007-01-18T00:00:00-05:00" pubdate data-updated="true">Jan 18<span>th</span>, 2007</time>
+<time datetime="2007-08-03T00:00:00-04:00" pubdate data-updated="true">Aug 3<span>rd</span>, 2007</time>
         
-         | <a href="/2007/01/18/pfisk-on-AutoLISP/#disqus_thread">Comments</a>
+         | <a href="/2007/08/03/Way-Ahead-for-zigGIS/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This <a href="http://vistasmalltalk.wordpress.com/2007/01/17/autolisps-legacy/">post</a> from pfisk brought back a flood of memories. I haven&#8217;t done AutoLISP since I last used <a href="http://support.esri.com/index.cfm?fa=software.filteredGateway&amp;PID=39">ArcCAD</a>. I thought the point made about leveraging concepts from AutoLISP for 3D drawings was an interesting one.</p>
+  <div class="entry-content"><p><a href="http://abegillespie.blogspot.com">Abe</a>, <a href="http://www.paolocorti.net">Paolo</a> and I had a chat session yesterday to coordinate efforts on <a href="http://code.google.com/p/ziggis">zigGIS</a>. It was good session and we&#8217;re all on the same page with getting zigGIS solidified.</p>
+
+<p>The general theme of the outcome from yesterday is that we want to make zigGIS a solid experience for <a href="http://postgis.refractions.net/">PostGIS</a> users first. We have discussed other data sources in the past but we feel that we should nail down PostGIS first and then let that be a reference implementation for other data sources such as <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle Spatial</a>, <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=MsSqlSpatial">MS SQL Spatial</a> and the like.</p>
+
+<p>With that said, the most glaring gap in the current capability of zigGIS is editing. Meaning you can&#8217;t. Editing is our highest priority in the near future. Over the next few weeks, we will be developing use cases to define an editing workflow. We&#8217;ll also prototype ways to integrate zigGIS with the native editing capabilities of ArcMap in order to reduce the amount of custom editing code we need to write.</p>
+
+<p>We&#8217;ll also be restructuring the existing code. The current code is rather flat in that individual .cs files contain multiple classes and the directory structure doesn&#8217;t reflect the namespaces. Fixing all of that will give us a little more flexibility with version control and managing distributed programming. It&#8217;ll also make it easier if&#8230;ahem&#8230;any other programmers want to join the project.</p>
+
+<p>There are also still some performance issues with the current capabilities we need to iron out, such as the one <a href="http://geobabble.wordpress.com/2007/05/08/ziggis-and-spatial-references-part-3/">Bruce pointed out</a> a while ago.</p>
+
+<p>Of course the catalog objects are ongoing but there may not be any movement on that until after we get the code restructured. Paolo is going on vacation for three weeks :D but Abe is planning to start the code restructure in the meantime as a way to re-familiarize himself with the code.</p>
+
+<p>As always, the biggest impediment is time. It seems that the need to put food on the table refuses to go away but we should be able to build a little more forward momentum than we&#8217;ve seen recently.</p>
+
+<p><a href="http://code.google.com/p/ziggis" title="zigGIS Logo"><img alt="zigGIS Logo" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" /></a></p>
 </div>
   
   
@@ -110,7 +124,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/16/Free-and-Closed.-Why/">Free and Closed. Why?</a></h1>
+      <h1 class="entry-title"><a href="/2007/08/02/Interesting-Washington-Post-Article/">Interesting Washington Post Article&#8230;</a></h1>
     
     
       <p class="meta">
@@ -126,28 +140,20 @@
   
 
 
-<time datetime="2007-01-16T00:00:00-05:00" pubdate data-updated="true">Jan 16<span>th</span>, 2007</time>
+<time datetime="2007-08-02T00:00:00-04:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2007</time>
         
-         | <a href="/2007/01/16/Free-and-Closed.-Why/#disqus_thread">Comments</a>
+         | <a href="/2007/08/02/Interesting-Washington-Post-Article/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I was IMing with <a href="http://www.paolocorti.net">Paolo</a>?today and we were discussing his employer&#8217;s decision to migrate to open-source. The conversation took a few turns and we touched upon the concept of free closed-source software vice free open-source software. His employer had rejected a free CMS that was not open-source.</p>
+  <div class="entry-content"><p>For those of you familiar with what Northern Virginia is like now, the following article may be of interest:</p>
 
-<p>This got me into a philosophical frame of mind. I began wondering if, in this day and age, there is any reason to consciously choose to release a software product as a free, but closed-source product? I raised this question a while back with regard to <a href="http://geobabble.wordpress.com/2006/12/28/why-isnt-arcgis-explorer-open-source/">ArcGIS Explorer</a>?but now I&#8217;m expanding the question. I would love to hear comments on this but I&#8217;d like to establish a few parameters:</p>
+<p><a href="http://www.washingtonpost.com/wp-dyn/content/article/2007/08/01/AR2007080102407.html">http://www.washingtonpost.com/wp-dyn/content/article/2007/08/01/AR2007080102407.html</a></p>
 
-<ol>
-    <li>I&#8217;m not interested in delving into the open-source vs. commercial software debate.</li>
-    <li>I&#8217;m not trying to criticize anyone who chooses to keep their source code closed. I&#8217;m genuinely curious about the decision process.</li>
-    <li>I&#8217;m not referring to things like &#8220;nagware&#8221;, demo software with restricted functionality or free products that are really teasers for commercial products (which is what?I consider <a href="http://www.ogleearth.com/2006/06/google_earth_at.html">Google Earth</a> to be).</li>
-    <li>Please keep it civil. We&#8217;re all grown-ups and/or professionals.</li>
-</ol>
-
-
-<p>I look forward to hearing your thoughts.</p>
+<p>It&#8217;s about how archaeologists are using some recently discovered aerial photos of Fairfax County from 1937 to analyze change over the decades.</p>
 </div>
   
   
@@ -160,7 +166,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/14/Derived-Geometry-Redux/">Derived Geometry Redux</a></h1>
+      <h1 class="entry-title"><a href="/2007/07/31/Extending-SharpMap-with-SQLite/">Extending SharpMap With SQLite</a></h1>
     
     
       <p class="meta">
@@ -176,22 +182,257 @@
   
 
 
-<time datetime="2007-01-14T00:00:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2007</time>
+<time datetime="2007-07-31T00:00:00-04:00" pubdate data-updated="true">Jul 31<span>st</span>, 2007</time>
         
-         | <a href="/2007/01/14/Derived-Geometry-Redux/#disqus_thread">Comments</a>
+         | <a href="/2007/07/31/Extending-SharpMap-with-SQLite/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>A long time ago, on a blog-hosting site far far away, there was a blog called ArcDeveloper (not to be confused with <a href="http://www.arcdeveloper.net/">ArcDeveloper.Net</a>, which came later and did more). That was my first blog. It went in a few different directions. I wasn&#8217;t happy with it, so I killed it. There&#8217;s nothing to link to now.</p>
+  <div class="entry-content"><p>Or vice versa.</p>
 
-<p>Anyway, one of the posts I did on that blog had to do with creating derived geometry classes in .Net. The basic premise is simple: create a class that inherits from one of the ArcObjects geometry classes and then extend it to fit your needs. My application at the time had to do with writing an ArcGIS client for <a href="http://www.incident.com/cookbook/index.php/Welcome_to_the_CAP_Cookbook">Common Alerting Protocol (CAP)</a> feeds.</div>
+<p>A while back I posted about setting up a <a href="http://geobabble.wordpress.com/2007/06/19/my-little-open-source-stack/">GIS server using open source GIS technologies</a>. When I left off, I was going to start messing with <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. I&#8217;ve been able to get back to that recently. I am working on a project where I need to do some basic spatial operations on a workstation but I want to keep a relatively small software foot print on the box. Of course, this screams &#8220;web service&#8221; or some such thing but the platform is mobile with no guaranteed network access.</p>
+
+<p>So I went back to SharpMap. It&#8217;s footprint is relatively small (compared to ArcGIS) and the licensing model can&#8217;t be beat :-) . Next, I had to focus on the data source. I decided to look at <a href="http://www.sqlite.org/">SQLite</a> due to its small footprint. Additionally, the availabiliy of an <a href="http://sqlite.phxsoftware.com/">OLEDB driver</a> gave me option for non-spatial data that shapefiles alone didn&#8217;t (I just didn&#8217;t want to wrestle with the dBase driver).</p>
+
+<p>So I got to do something I&#8217;ve wanted to do for a while: write my own data provider for SharpMap. There&#8217;s probably something out there already but how can I learn that way? So I based my data provider class on the class that already existed for MS SQL Server (MsSql.cs). It served as an excellent basis. I was surprised at how very easy it was to do this sort of implementation. The picture below depicts a SharpMap MapImage control with polygon data being read from SQLite.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/07/sharpmap_sqlite.png" title="SharpMap desktop app with data from?SQLite"><img alt="SharpMap desktop app with data from?SQLite" src="http://geobabble.files.wordpress.com/2007/07/sharpmap_sqlite.thumbnail.png" /></a></p>
+
+<p>SQLite is inherently text-based so I found it easier to store the geometry as <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> rather that <a href="http://dev.mysql.com/doc/refman/5.0/en/gis-wkb-format.html">WKB</a> but that actually helps me with another project requirement: displaying the data in a <a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF</a> form. Transforming the WKT to <a href="http://www.xaml.net/">XAML</a> will be easier but I digress.</p>
+
+<p>I am very impressed with the updates being made to SharpMap. I feel like I&#8217;m just scratching the surface of what it can do. Version 2.0 has not technically been released but I have found the latest builds to be very stable and I&#8217;m moving forward without hesitation using it in my project.</p>
+
+<p>I have uploaded my code below. Just rename it to a .cs file.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/07/sqllite.txt" title="SqlLite.cs Source Code">Click here for the SqlLite.cs source code</a></p>
+
+<p><a href="http://www.statcounter.com/" target="_blank"><img alt="hit counter" border="0" src="http://c31.statcounter.com/2901378/0/be706774/0/" /></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/07/27/ZigGIS-Catalog-Objects/">ZigGIS Catalog Objects</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-27T00:00:00-04:00" pubdate data-updated="true">Jul 27<span>th</span>, 2007</time>
+        
+         | <a href="/2007/07/27/ZigGIS-Catalog-Objects/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Things have been REALLY slow on <a href="http://code.google.com/p/ziggis">zigGIS</a> for a while. All of us (Paolo, Abe, me) have all been up to our eyeballs with work, leaving little time to work on the zig. Now that <a href="http://www.digital-pulp.com/">Abe is out on his own</a>, the three of us have been trying to coordinate a chat session to lay out a little bit of a way ahead. That has proven somewhat difficult in itself. I think the best way to handle it at this point is for Abe and I to go out to Rome and sit down with Paolo ;-) .</p>
+
+<p>Anyway, I had a little time so I pushed forward on the catalog objects. I&#8217;ve got it down to where the layers for a <a href="http://postgis.refractions.net/">PostGIS</a> database actually show up in the ArcCatalog tree but it&#8217;s still a little flaky from there. The screenshot below shows what I&#8217;ve got. You&#8217;ll notice that the geometry icons don&#8217;t show up. Well, the layer doesn&#8217;t draw in ArcCatalog either but everything still works fine in ArcMap.</p>
+
+<p><img alt="It?s a little closer?" src="http://geobabble.files.wordpress.com/2007/07/zigcatalog.png" /></p>
+
+<p>So now that I&#8217;ve got the hierarchy fleshed out, I can focus on the display logic. Incidentally, the attributes for the layers do show up so all is not completely lost.</p>
+
+<p>That&#8217;s what I&#8217;ve got for now. I can&#8217;t vouch for a specific schedule for a new release but we&#8217;re trying to coordinate that.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/07/23/New-DDJ-Column-on-Concurrency/">New DDJ Column on Concurrency</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-23T00:00:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2007</time>
+        
+         | <a href="/2007/07/23/New-DDJ-Column-on-Concurrency/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Anyone who has browsed this blog enough has probably figured out that I am a fan of <a href="http://www.ddj.com">Doctor Dobb&#8217;s Journal</a>. This month&#8217;s issue inaugurates <a href="http://www.ddj.com/dept/architect/200001985">a new column by Herb Sutter</a> dealing with concurrency. In my opinion, the confluence of mult-processor/multi-core systems with a greater emphasis on server-based GIS makes concurrency a huge issue for the GIS community.</p>
+
+<p>The most obvious example of where concurrency can be of benefit is ArcGIS Server. The entire ArcObjects library is exposed in such a way that complex geospatial operations can be published as services. Many such operations can benefit from concurrency, especially as they are executed in a multi-user, server-based context.</p>
+
+<p>I am of the opinion that the current 9.x architecture of AGS (with COM under the hood) is not optimally suited for such an approach but it will be interesting to see how <a href="http://www.esri.com">ESRI</a> addresses concurrency as 10.0 evolves. I also view the current AGS as a step along a path rather than an intended end state. Of course, there are other technologies out there. I merely hold up AGS as an obvious and visible example of a product that can benefit from being built with concurrency in mind. Of course, it&#8217;s up to us as software developers to correctly build our apps as well.</p>
+
+<p>That said, I highly recommend this column. The inaugural installment rightly kicks off from a conceptual standpoint but I suspect we&#8217;ll be in the weeds soon enough.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/07/23/Flashback/">Flashback&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-23T00:00:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2007</time>
+        
+         | <a href="/2007/07/23/Flashback/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Just back from vacation :-( and as a way of easing back into things, I have been tinkering with my <a href="http://msdn2.microsoft.com/en-us/netframework/aa663324.aspx">WCF</a> project that&#8217;s been sitting while the paying work has gotten done. It&#8217;s the one that wraps PostGIS coordinate conversion as a web service written using WCF. My copy of &#8221;<a href="http://www.wrox.com/WileyCDA/WroxTitle/productCd-0470089849.html">Professional WCF Programming</a>&#8221; arrived while I was gone so I had some incentive. The purpose of this project is more to get me comfortable with WCF than anything to do with coordinate conversion.</p>
+
+<p>Anyway, I have a simple WinForms client to test my service calls but I&#8217;ve noticed I need to clean and rebuild the project a lot. Suddenly, I had a flashback:</p>
+
+<p><img alt="How do I get rid of all these?pseudocodes?" src="http://geobabble.files.wordpress.com/2007/07/vs2005_build_menu.png" /></p>
+
+<p>I&#8217;m using build and clean again! If only there had been an AML editor as nice as this one&#8230;</p>
+
+<p>Oh well, back to work.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/07/11/Back-In-A-Bit/">Back in a Bit</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-11T00:00:00-04:00" pubdate data-updated="true">Jul 11<span>th</span>, 2007</time>
+        
+         | <a href="/2007/07/11/Back-In-A-Bit/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img alt="I wish I had a pencil-thin?mustache?" src="http://geobabble.files.wordpress.com/2007/07/fla.jpg" />
+See you again in a couple of weeks. Feel free to have a look around. Help yourself to something in the fridge. Please feed the cat and be sure to lock up when you leave.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/">Consuming GeoRSS in ArcMap With InMemoryWorkspaceFactory</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-10T00:00:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2007</time>
+        
+         | <a href="/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This will be my last post for a couple of weeks. I&#8217;m heading out to Florida tomorrow to spend time with my family and the Mouse. But before I head out, I thought I&#8217;d share a little something I&#8217;ve been working on.</p>
+
+<p>I&#8217;ve been playing the last few days with the <a href="http://edndoc.esri.com/arcobjects/9.2/ComponentHelp/esriDataSourcesGDB/InMemoryWorkspaceFactory.htm">InMemoryWorkspaceFactory</a> class in ArcObjects. I am looking at using it for a project I will be working on when I get back so I thought I&#8217;d do a little prototyping beforehand.</p>
+
+<p>The fact that it works in memory is very attractive, especially for using volatile data. <a href="http://georss.org/">GeoRSS</a> seemed like a natural source to use for prototyping.</p>
+
+</div>
   
   
     <footer>
-      <a rel="full-article" href="/2007/01/14/Derived-Geometry-Redux/">Read on &rarr;</a>
+      <a rel="full-article" href="/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/">Read on &rarr;</a>
     </footer>
   
 
@@ -203,7 +444,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/12/Standalone-IE6/">Standalone IE6</a></h1>
+      <h1 class="entry-title"><a href="/2007/07/09/MO-No-Mo/">MO No Mo&#8217;</a></h1>
     
     
       <p class="meta">
@@ -219,18 +460,31 @@
   
 
 
-<time datetime="2007-01-12T00:00:00-05:00" pubdate data-updated="true">Jan 12<span>th</span>, 2007</time>
+<time datetime="2007-07-09T00:00:00-04:00" pubdate data-updated="true">Jul 9<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/12/Standalone-IE6/#disqus_thread">Comments</a>
+         | <a href="/2007/07/09/MO-No-Mo/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Okay, this really has nothing to do with GIS but I wanted to get this info out there. I have a particular piece of software that I use regularly that involves connecting a device to my PC to exchange information. This software does not work with IE7 yet. Since automatic updates doesn&#8217;t really give you any choice in the matter (I love coming down in the morning and finding a new browser), this created a problem for me.</p>
+  <div class="entry-content"><p>Okay, there&#8217;s nothing terribly surprising about ESRI&#8217;s announcement regarding <a href="http://www.esri.com/software/mapobjects/index.html">MapObjects</a> in this <a href="http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=31074">technical article</a>. I would have been more surprised if they had announced that it <em>would</em> be supported or that there would be another version or something like that. In truth, I haven&#8217;t touched MapObjects in years. It was dead to me even if it was still on life support at ESRI. But there was something about seeing it in print:</p>
 
-<p>I found the following software that lets you install previous version of IE in standalone mode: <a href="http://tredosoft.com/Multiple_IE">http://tredosoft.com/Multiple_IE</a>. I imagine it may have applicability for testing and such but it also solved my problem.</p>
+<blockquote>MapObjects Windows 2.4 and MapObjects-Java 2.2 and 2.3 are not supported on the Windows Vista. ESRI is not certifying any new environments for MapObjects-Windows and there are no plans to support Vista with MapObjects-Java.</blockquote>
+
+
+<p>It brought back a lot of memories. I began programming when I was 10. I wrote a <a href="http://en.wikipedia.org/wiki/Dungeons_and_dragons">D&amp;D</a> character generator in <a href="http://en.wikipedia.org/wiki/BASIC_programming_language">BASIC</a> on a <a href="http://en.wikipedia.org/wiki/Commodore_64">Commodore 64</a>. I guess that makes me an old geek. D&amp;D and computers might even be a double-down. ;-)? I&#8217;ve pretty much been doing some form of BASIC ever since (not so much VB.Net anymore, though, as I do most of my .Net in C#) along with a lot of other languages. I got interested in maps a few years later and discovered I could fuse maps and computers as I headed into the workforce.</p>
+
+<p>Early on, I was able to do some <a href="http://extranet.mapinfo.com/products/Overview.cfm?productid=1063">MapBasic</a> stuff but that didn&#8217;t get too far. So I suffered through AML and Avenue for a while in order to feed the GIS development jones. Then along came MO.</p>
+
+<p>With MO, I was able to introduce an old friend (BASIC in the form of VB5 and later VB6) to a new friend (GIS, although it wasn&#8217;t new to me by then). I was able to write real apps that fused mapping with databases and other cool tools. For one customer, I built a COM system that featured a core UI and provided a pluggable architecture and an API so others could write plug-ins. Then we converted a lot of stand-alone apps to work in the system. Sounds familiar huh?</p>
+
+<p>From a GIS standpoint, MO wasn&#8217;t the most powerful game in town but it was <em>fun</em>! And, if you needed an algorithm or something that MO didn&#8217;t support, you could just implement it yourself in the language of your choice. There are operations that I originally implemented in MO/VB6 that I have migrated and still use in C#/ArcObjects/Others. In case I didn&#8217;t get the point across earlier, it was just plain fun.</p>
+
+<p>That was a while ago. GIS is still fun but I just don&#8217;t use MO anymore (maybe that&#8217;s the problem). ESRI&#8217;s announcement is sort of like when you read that <a href="http://en.wikipedia.org/wiki/Capital_Centre">the arena where you went to all of your concerts in your youth got dynamited to make room for a shopping plaza</a>. So, much like I did that day, I&#8217;ll pop a cold one, raise a glass and say &#8220;Thanks for the memories.&#8221;</p>
+
+<p><img alt="The better part of my hearing was left here." src="http://geobabble.files.wordpress.com/2007/07/cap_centre.png" /></p>
 </div>
   
   
@@ -243,7 +497,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/10/zigGIS-Update/">zigGIS Update</a></h1>
+      <h1 class="entry-title"><a href="/2007/07/04/Happy-Birthday-America/">Happy Birthday America!</a></h1>
     
     
       <p class="meta">
@@ -259,271 +513,18 @@
   
 
 
-<time datetime="2007-01-10T00:00:00-05:00" pubdate data-updated="true">Jan 10<span>th</span>, 2007</time>
+<time datetime="2007-07-04T00:00:00-04:00" pubdate data-updated="true">Jul 4<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/10/zigGIS-Update/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Paolo has posted an update to <a href="http://ziggis.googlecode.com/files/ZigGis11.zip">zigGIS</a>. This update deals more effectively with data layers that have an SRID associated (SRID != -1). They now seem to overlay well. On-the-fly reprojection is still not working but he is working on it. <a href="http://www.archaeogeek.com/blog/">Archaeogeek</a>?recently <a href="http://www.archaeogeek.com/blog/2007/01/05/arcgis-connectors-for-postgis/">posted</a> about some issues getting zigGIS to work.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/01/10/zigGIS-Update/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/10/In-For-a-Dime/">In for a Dime&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-10T00:00:00-05:00" pubdate data-updated="true">Jan 10<span>th</span>, 2007</time>
-        
-         | <a href="/2007/01/10/In-For-a-Dime/#disqus_thread">Comments</a>
+         | <a href="/2007/07/04/Happy-Birthday-America/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>&#8230;in for a dollar.</p>
+  <div class="entry-content"><p><img alt="flag_clay.png" src="http://geobabble.files.wordpress.com/2007/07/flag_clay.png" /></p>
 
-<p>I&#8217;ve been blogging about <a href="http://code.google.com/p/ziggis/">zigGIS</a> a lot (more than I had planned to, really). So, today, I joined the project. If you go to the site, you&#8217;ll see &#8220;bill&#8221; listed as one of the project owners. That&#8217;s me.</p>
-
-<p>I had a long IM session with Paolo today and there&#8217;s a lot to do. It&#8217;s an amazing project that has a lot of potential. Not just for PostGIS but other data sources as well. This is my first time joining an open-source project so that&#8217;ll be a learning experience for me as well. You can&#8217;t be a lurker forever&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/04/zigGIS-Installer/">zigGIS Installer</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-04T00:00:00-05:00" pubdate data-updated="true">Jan 4<span>th</span>, 2007</time>
-        
-         | <a href="/2007/01/04/zigGIS-Installer/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Paolo has created an <a href="http://ziggis.googlecode.com/svn/trunk/download/ZigGis11.zip">installer</a>?for zigGIS and has also posted an <a href="http://groups.google.com/group/ziggis/browse_frm/thread/8e6ffb8c38db1713">installation guide</a>. He has packaged together all of the correct versions of the supporting components so it solves the problems I described in an <a href="http://geobabble.wordpress.com/2006/12/17/postgis-and-arcgis-91/">earlier post</a>. I would highly recommend using the installer to get started.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/01/The-FedUC-Approaches/">The FedUC Approaches</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-01T00:00:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2007</time>
-        
-         | <a href="/2007/01/01/The-FedUC-Approaches/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The <a href="http://www.esri.com/events/feduc/index.html">ESRI Federal User Conference</a> is almost here. I&#8217;ll be going this year because my <a href="http://www.zekiah.com">company</a> is doing a booth. I like to refer to this event as the &#8220;UC-Lite&#8221; in that it&#8217;s smaller and more focused.</p>
-
-<p>I highly encourage anyone in the DC/MD/VA region to go. First of all, admission is free to all federal employees and it&#8217;s only $100 for state and local employees. If you can take the time and have the travel budget, I&#8217;d say go. Although, it&#8217;s the &#8220;Federal&#8221; UC, there&#8217;s enough general exposure to ESRI technology that this event is a nice alternative for those who can&#8217;t make San Diego. Basically, you see a lot of government applications of the technology but the concepts will cross over well to other markets and applications.</p>
-
-<p>Of course, this event occurs in my back yard so I&#8217;d like to see it thrive. See ya in DC&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/01/Happy-New-Year-and-a-Continued-Merry-Christmas/">Happy New Year and a Continued Merry Christmas</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-01T00:00:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2007</time>
-        
-         | <a href="/2007/01/01/Happy-New-Year-and-a-Continued-Merry-Christmas/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Greetings to all and wishes for a peaceful and prosperous 2007. And, for those of you keeping track at home, today would be &#8220;seven swans a-swimming&#8221;.</p>
-
-<p>I&#8217;m heading out for a business trip tomorrow that keeps me gone for the rest of the week so it&#8217;s time to pack away the decorations. Typically, we wait until after <a href="http://www.calendar-updates.com/info/holidays/us/threekings.aspx">Three King&#8217;s Day</a> but my travel schedule won&#8217;t allow for that this year.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2006/12/29/zigGIS-and-Spatial-References-Part-2/">zigGIS and Spatial References, Part 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-12-29T00:00:00-05:00" pubdate data-updated="true">Dec 29<span>th</span>, 2006</time>
-        
-         | <a href="/2006/12/29/zigGIS-and-Spatial-References-Part-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Update to <a href="http://geobabble.wordpress.com/2006/12/21/ziggis-and-spatial-references/">this post</a>:</p>
-
-<p>Another post about zigGIS. I didn&#8217;t really intend this blog to be so dominated by zigGIS but that&#8217;s certainly the way it&#8217;s been thus far. Basically, it&#8217;s just really cool and it satisfies my geek nature on a couple of fronts.</p>
-
-<p>After posting about the spatial reference issue before, I couldn&#8217;t resist digging into it. I found a placeholder in the implementation of IFeatureClass.  Abe G. had even left a comment there that he needed to go back and implement it. So I dove in&#8230;</p>
-
-<p>In the IFeatureClass implementation of CPostGisFeatureClass the SpatialReference property was stubbed out to always return and UnknownCoordinateSystem object. The feature class wraps a CLayer object (among others). This is the object I needed to use to get the spatial reference. The loadLayer method of CLayer (in the postgis_connector project) contained the following code:</p>
-
-<pre>
-<span class="kwrd">string</span> sql = CDbHelper.createSelectSql
-(CPostGisConstants.geometryColumnsTable + <span class="str">" as g"</span>,
-<span class="str">"g.*,g.oid,s."</span> + CPostGisConstants.spatialReferenceSrField,
-<span class="str">"left join "</span> + CPostGisConstants.spatialReferenceTable + 
-<span class="str">" as s on g."</span> +
-CPostGisConstants.spatialReferenceIdField + <span class="str">"=s."</span> +
-CPostGisConstants.spatialReferenceIdField,
-<span class="kwrd">where</span>);
-</pre>
-
-
-<p>This code queries the geometry_columns table for all of the metadata I need. So I added the following code to the CLayer class:</p>
-
-<pre>
-<span class="kwrd">private</span> <span class="kwrd">int</span> m_srid = -1;
-<span class="kwrd">public</span> <span class="kwrd">int</span> srid { get { <span class="kwrd">return</span> m_srid; } }
-</pre>
-
-
-<p>I then added this code to the loadLayer method&#8230;</p>
-
-<pre>
-m_srid = (<span class="kwrd">int</span>)((Int32)dr[<span class="str">"srid"</span>]);
-</pre>
-
-
-<p>&#8230;in order to expose the srid for the layer. The variable dr refers to an instance of the CAutoDataReader class defined in the postgis_connector project.</p>
-
-<p>Finally, i added the following code to the init method of the CPostGisFeatureClass class in the postgis_geodatabase project:</p>
-
-<pre>
-<span class="kwrd">if</span> (m_layer.srid != -1)
-{
-    ISpatialReferenceFactory2 srfact = <span class="kwrd">new</span> SpatialReferenceEnvironmentClass();
-    m_spaRef = srfact.CreateSpatialReference(m_layer.srid);
-}
-</pre>
-
-
-<p>With that, the layer properties dialog in ArcMap correctly reports my spatial reference and the geometry that once failed to draw now works fine. I&#8217;ve got some more clean-up to do to the code to add some error-handling and the like. I&#8217;m sure it wouldn&#8217;t take much to crash it right now.</p>
-
-<p>I think the thing I like about zigGIS is that it&#8217;s got something for everyone. ArcObjects geeks will appreciate the implementation of feature classes, cursors and the like. .NET geeks will appreciate nuggets like the CAutoDataReader class which is an implementation of the IDataReader interface. All in all, it&#8217;s a nice piece of work that I find more to like about as I dig deeper.</p>
-
-<p>As I mentioned before, the project has a new home in Google Code and the discussion forum is getting a little more active so maybe zigGIS will gain a little more momentum. That&#8217;s all for now&#8230;</p>
+<p>?I hope everyone has a safe and happy 4th.</p>
 </div>
   
   

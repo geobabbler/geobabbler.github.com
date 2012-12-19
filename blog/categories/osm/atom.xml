@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: OSM | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/osm/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2012-12-18T22:16:30-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ten-Second Tidy]]></title>
+    <link href="http://blog.geomusings.com/2010/12/10/Ten-Second-Tidy/"/>
+    <updated>2010-12-10T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2010/12/10/Ten-Second-Tidy</id>
+    <content type="html"><![CDATA[<p>Things have been a bit hectic the last few weeks and that's left little time for blogging. Quite a bit has happened so I thought I'd do a little round-up (if for no other reason than to clear my own head).</p>
+
+<p>[youtube=http://www.youtube.com/watch?v=cJa7P6dfmco]</p>
+
+<p>In no particular order:</p>
+
+<p><strong>Steve Coast to Microsoft</strong> (I told you it had been a while) - Firstly, congratulations to Steve (#sincerity).  Secondly, this clearly is the final proof that crowd-sourced data in general, and OpenStreetMaps (sic) in particular, <a href="http://geobabble.wordpress.com/2010/09/16/be-the-crowd/">has no real value when compared to "authoritative" data sources</a> (#sarcasm).</p>
+
+<p><strong>Google Fusion Tables</strong> - The only real problem at this point is the size limitation but, otherwise, this will be a game-changer for storing and sharing data. In its current form, it's already fairly easy to push your data up and expose it through Google's APIs. It'll be interesting to see if it gets easier. Support for spatial queries hints at some analytical capability, too. Speaking of which...</p>
+
+<p><strong>Analytics in GeoCommons</strong> - This is one to watch. They are debuting a new function each day <a href="http://blog.fortiusone.com/2010/12/06/the-12-analytics-of-christmas/">on their blog</a>. FortiusOne builds their platform API-first, UI-second so everything they are showing should be exposed through their APIs. This will be a huge step in moving cloud-based geospatial technology from the "bit-bucket" stage to having a more complete workflow on the cloud infrastructure.</p>
+
+<!--more-->
+
+
+<p><strong>Arc2Earth Data Services and Arc2Cloud</strong> - Continuing the theme of building a complete workflow, <a href="http://www.arc2earth.com">Arc2Earth</a> is working on exposing a <a href="http://www.arc2earth.com/services/data-services/">complete range of Google geospatial services</a> to ArcGIS Desktop users. It's no secret that I'm a fan of Arc2Earth (and <a href="http://www.zekiah.com">my company</a> is a reseller), but this represents a big expansion of capability. Google's cloud infrastructure works differently that Amazon's and I think what <a href="http://beta.arc2cloud.com/">Arc2Earth is doing</a> is important because it will open up another channel for users and enable them to <a href="http://geobabble.wordpress.com/2010/07/26/clouds/">make choices based on their needs and requirements</a>.</p>
+
+<p><strong>WeoGeo</strong> - <a href="http://www.weogeo.com">These guys</a> never sit still either. They've got some changes coming up that will greatly increase flexibility for managing spatial data on a cloud infrastructure. Taken together with the previous two entries on GeoCommons and Arc2Earth, I see a lot of innovation in cloud-based GIS really being driven by small, focused companies. This is not simply "push your server to an AMI and keep working." (Although that approach can have some utility.) Each of these companies is trying to figure out how to leverage the unique capabilities of cloud infrastructures to build new workflows and expand capability for users. And, it's important to note, they are making headway.</p>
+
+<p><strong>WhereCampDC</strong> - Obviously, judging from the <a href="http://wherecampdc.org/">web site</a>, it's still in the early planning stages but I'm excited by the idea. This is exactly the kind of independent event that this area needs. I have always been baffled by the lack of such events in this area, especially given the level of geospatial activity around here.</p>
+
+<p><strong>Google Earth 6</strong> - The <a href="http://www.google.com/earth/index.html">latest release</a> confirms that StreetView has yet to drive my street. For that I am happy.</p>
+
+<p><strong>FOSS4G</strong> - The conference doesn't happen until next September and already the buzz is building. I have had people that I know have yet to touch an open-source GIS tool ask me what I know about "that <a href="http://foss4g.org/static/index.html">conference</a> I'm hearing about in Denver."</p>
+
+<p><strong>Silverlight</strong> - I can't think of a technology in recent years that has given me more of a feeling of ambivalence. It has great capability and the Esri Silverlight API team has done good work building on it (this piece addresses Silverlight, not the Esri API). I think it'll continue to be a fine technology for intranet development but I'll leave it there. I don't expect my work with it to wind down anytime soon so I'll keep blogging it as I think it's perfectly possible to be productive with Silverlight within certain parameters. <a href="http://techcrunch.com/2010/10/30/rip-silverlight-on-the-web/">The whole episode regarding its future</a> (which was something of a tempest in a teapot, in reality) simply highlights the risks involved in relying on closed, proprietary technologies. This time, it was Silverlight, but make no mistake, the same risks are there with Flex/Flash (it just runs on more browser/OS combinations). Of course, there are risks with <em>any</em> technology choice but it's nice when those risks do not include "whim."</p>
+
+<p>So that's it for my odds and ends. It's good to get them stuffed back into the couch. 2010 has been an interesting year. It almost feels like a year in which groundwork is being laid. It may just be me, but I have a feeling of anticipation similar to what I feel right before the first daffodils appear in Spring. It just feels like there's a good bit of pent-up energy and that a lot of new things are about to spring forth. It could be loads of fun.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Be the Crowd]]></title>
+    <link href="http://blog.geomusings.com/2010/09/16/Be-the-Crowd/"/>
+    <updated>2010-09-16T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/09/16/Be-the-Crowd</id>
+    <content type="html"><![CDATA[<p>I have generally been very happy with <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a> (more on that in another post) as it's good to get a look at different uses, concerns and perspectives. This afternoon, I sat through the "Collaboration Panel" discussion. The panel was made of of a few people representing state, regional and local governments and well as utilities and academia. Almost uniformly, there was a fear (yes, I mean fear) of <a href="http://en.wikipedia.org/wiki/Crowdsourcing">crowdsourcing</a> that was best summed up by the following statement:</p>
+
+<blockquote> "Crowdsourcing presents a vulnerability to us."</blockquote>
+
+
+<p>Thank goodness <a href="http://twitter.com/gletham/status/24679715438">Glenn Letham was sitting there and tweeted it</a> or I might not have believed I heard it. Over the course of the discussion, talk kept returning to the image of "just anyone" editing spatial data, opening up potential liability for jurisdictions. Another gem:</p>
+
+<blockquote>"When everyone is responsible, no one is responsible."</blockquote>
+
+
+<p>I will grant that the entire discussion did not focus on crowdsourcing but it was a topic that was circled back to several times. I was left with a sense that, when these people think of crowdsourcing, they literally picture crowds of the "great unwashed" making random edits to critical data sets from there iPhones. Fear, uncertainty and doubt was projected at such a level that it exposed, well, fear, uncertainty and doubt on the part of the panelists.</p>
+
+<p>A great premium was placed on data being collected and managed by "authoritative" data providers, who collect data using a set of validated business rules and procedures. Yet a great premium was also placed on getting to the point where such data sets can be freely shared. This exposed to me another issue: a complete lack of understanding of the concept of crowdsourcing.</p>
+
+<p>I realize that, for governments, there can be legal and statutory issues with publicly sharing data sets (the Privacy Act with regard to parcel data, for example) that must be worked through. For this discussion, I will set those aside. The following statement was made late in the session:</p>
+
+<blockquote>"<a href="http://www.openstreetmap.org/">OpenStreetMap</a> will never be an authoritative data source."</blockquote>
+
+
+<p>To that, I offer this (which I could not offer in the session since the floor was not opened):</p>
+
+<p>If you feel you are the "authoritative" provider for street data for your region and that you capture that data using vetted procedures and business rules that assure data quality and accuracy <em>and</em> you profess to want to be able to share that data with the public, why don't you donate that data to OpenStreetMap so that it would then be providing "authoritative" data (or at least data derived from an "authoritative" source). People who choose to use OSM for their applications would then be using high-quality data.</p>
+
+<p>Why not, rather than tear down the concept, engage and participate, provide the model for how to do so and demonstrate leadership? In other words...</p>
+
+<p>Be the crowd!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[QGIS 1.4.0 Released]]></title>
+    <link href="http://blog.geomusings.com/2010/01/16/QGIS-140-Released/"/>
+    <updated>2010-01-16T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2010/01/16/QGIS-140-Released</id>
+    <content type="html"><![CDATA[<p><a href="http://blog.qgis.org/node/142">QGIS 1.4.0 has been released.</a> As <a href="http://wherewithal1.wordpress.com/">Terry</a> mentioned on Twitter, that news seemed to get lost amongst the discussion of the GeoDesign Summit and the rebranding of ArcGIS 9.4 to 10.0. I have made use of QGIS in the past and have been perusing 1.4.0 lately. I must state that I am not an analyst nor do I play one on TV but I have been very happy with this release.<!--more--></p>
+
+<p>QGIS has been building a lot of capability over the last few versions, in part because of its integration with GRASS but also partly because of its extensible nature. QGIS features a plug-in approach that allows developers to extend it using Python in addition to C++. This gives the ability for someone to develop plug-ins that run on all of the platforms supported by QGIS, lowering the barriers for third-party developers.</p>
+
+<p>The new release puts a lot of these capabilities out in front of you at start-up. This can lead to a first impression of a cluttered user interface but, in this case, I think it is a good decision. In my experience, users find hiding of capability attractive only if they are very familiar with a application and are comfortable navigating it to find what they need. This is not always true with a new application with which they may be unfamiliar.</p>
+
+<p>Many of the analysts that I work with, for instance, continue to go back to ArcMap because they know what tools it contains and how to access them. I have known for a while that QGIS has had many tools that would be attractive (such as some of the raster analysis tools) but it was not always obvious that those tools were present or how to access them.</p>
+
+<p>The new release resolves that. By putting everything on display, the capability is there to discover. As users get comfortable with QGIS, they can hide tools as desired and gain proficiency in navigating the application.</p>
+
+<p>I am particularly impressed with the support of <a href="http://www.openstreetmap.org/">OpenStreetMap</a> in QGIS. It provides tools to download OSM data, edit it and upload it from within your QGIS session.</p>
+
+<p>[caption id="attachment_787" align="aligncenter" width="300" caption="QGIS 1.4.0 with OSM data displayed"]<a href="http://geobabble.files.wordpress.com/2010/01/qgis1.png"><img alt="" class="size-medium wp-image-787" height="178" src="http://geobabble.files.wordpress.com/2010/01/qgis1.png?w=300" title="QGIS 1.4.0" width="300" /></a>[/caption]</p>
+
+<p>So, I?ve decided that it?s time to put QGIS in front of some of my analyst colleagues again and it?s also time for me to commit to learning how to build a QGIS plug-in. It may finally be the kick in the pants I need to get comfortable with Python.</p>
+]]></content>
+  </entry>
+  
+</feed>
