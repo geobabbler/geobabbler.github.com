@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Don Meltz has kicked off the most recent round of discussion about the nature/state of ?GIS? (I put that in quotes since I am the one who declared it &hellip;">
+  <meta name="description" content="Shortly after my previous post, about browsing and downloading data from GeoCommons, hit the wires, I got quite a few back-channel requests for the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/10/27/What-Is-This-GIS-Of-Which-You-Speak/">What Is This &#8220;GIS&#8221; of Which You Speak?</a></h1>
+      <h1 class="entry-title"><a href="/2010/06/15/A-Couple-of-Updates/">A Couple of Updates</a></h1>
     
     
       <p class="meta">
@@ -88,102 +88,28 @@
   
 
 
-<time datetime="2009-10-27T00:00:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2009</time>
+<time datetime="2010-06-15T00:00:00-04:00" pubdate data-updated="true">Jun 15<span>th</span>, 2010</time>
         
-         | <a href="/2009/10/27/What-Is-This-GIS-Of-Which-You-Speak/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://donmeltz.com/blog/index.php/2009/10/25/gis-is-dead-long-live-gis/">Don Meltz</a> has kicked off the most recent round of discussion about the nature/state of ?GIS? (I put that in quotes since I am the one who declared it a myth). <a href="http://blogs.weogeo.com/jamesfee/2009/10/27/spatial-isn%E2%80%99t-special/">James</a> and <a href="http://blog.fortiusone.com/2009/10/27/the-once-and-future-map-the-destiny-of-gis/">Sean</a> also weighed with their thoughts on the subject. Like it or not, they are right. The technology that has for years been labeled as ?GIS? and segmented (somewhat artificially) from the rest of the IT industry is, with increasing speed, being integrated into the tapestry of mainstream IT. This trend is not only something that I think is irreversible and good, it is something that I have been actively working toward for my entire career.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2009/10/27/What-Is-This-GIS-Of-Which-You-Speak/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/10/06/Twitter-Shows-Blitz/">Twitter Shows Blitz</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-10-06T00:00:00-04:00" pubdate data-updated="true">Oct 6<span>th</span>, 2009</time>
-        
-         | <a href="/2009/10/06/Twitter-Shows-Blitz/#disqus_thread">Comments</a>
+         | <a href="/2010/06/15/A-Couple-of-Updates/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This past weekend, NFL Sunday to be specific, I was the victim of a TV/internet outage due to a mistake made by a technician while they did some work at the junction box shared by my next-door neighbor and I. As a result, I was unable to watch my beloved <a href="http://www.redskins.com">Washington NFL franchise</a> hobble to another almost-loss so I had to find another way to keep tabs on the game. Since my internet service was also down, that left me with my BlackBerry Tour as my sole means of connectivity.</p>
+  <div class="entry-content"><p>Shortly after my <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">previous post</a>, about browsing and downloading data from <a href="http://www.geocommons.com">GeoCommons</a>, hit the wires, I got quite a few back-channel requests for the code. I sent it out via e-mail to a number of people and then posted it via DropBox. I have finally gotten around to posting it up on Google Code, making things much more manageable. It is now available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>.</p>
 
-<p>I initially started off on the ESPN site, trying to keep track of the action. Finding this unsatisfactory, I switched to MSNBC with the auto-refresh set to 30 seconds. I quickly realized that the information I was getting was woefully behind and quite inadequate. Then I had a different idea.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2009/10/06/Twitter-Shows-Blitz/">Read on &rarr;</a>
-    </footer>
-  
+<p>I have made a few updates since the original post. Some were administrative but were functional. They are:</p>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/10/02/ESRI-Javascript-API-15-Released/">ESRI Javascript API 1.5 Released</a></h1>
-    
-    
-      <p class="meta">
-        
+<ol>
+<li>The code was updated to replace SharpZipLib with <a href="http://dotnetzip.codeplex.com">DotNetZip</a> for handling zip files.</li>
+<li>The code now attempts to identify the default KML handler on the user&#8217;s system and pass KML directly to it for previewing.</li>
+<li>The user now gets a wait cursor when the tool is processing downloads and such. This should make it a little more usable.</li>
+<li>The code headers had been pasted in from <a href="http://sharpmap.codeplex.com">SharpMap</a> and I missed some references to SharpMap in the text. Those have been corrected.</li>
+</ol>
 
 
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-10-02T00:00:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2009</time>
-        
-         | <a href="/2009/10/02/ESRI-Javascript-API-15-Released/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>ESRI has released version 1.5 of the ArcGIS Server Javascript API. You can see what&#8217;s new <a href="http://resources.esri.com/help/9.3/arcgisserver/apis/javascript/arcgis/help/jshelp_start.htm#jshelp/new_v15.htm">here</a>.</p>
-
-<p>I am most excited about SSL access but that&#8217;s just me.</p>
+<p>Anyway, thanks for all the interest. It sort of caught me off guard but at least the code is more accessible now. I&#8217;ve got a few more updates planned so this should streamline things.</p>
 </div>
   
   
@@ -196,7 +122,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/09/23/GIS-for-Green-Mountain-Falls-CO-Step-1/">GIS for Green Mountain Falls, CO - Step 1</a></h1>
+      <h1 class="entry-title"><a href="/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/">Importing Data From GeoCommons Into ArcMap</a></h1>
     
     
       <p class="meta">
@@ -212,22 +138,24 @@
   
 
 
-<time datetime="2009-09-23T00:00:00-04:00" pubdate data-updated="true">Sep 23<span>rd</span>, 2009</time>
+<time datetime="2010-06-02T00:00:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2010</time>
         
-         | <a href="/2009/09/23/GIS-for-Green-Mountain-Falls-CO-Step-1/#disqus_thread">Comments</a>
+         | <a href="/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>&#8220;The journey of a thousand miles begins with a single step.&#8221; - Lao Tzu</p>
+  <div class="entry-content"><p><strong>UPDATE:</strong> <em>The code for this post is available at the bottom of the page.</em></p>
 
-<p>One of my colleagues did a presentation at GIS in the Rockies 2009 regarding a project we?ve been working for a couple of months, the development of a GIS solution for the town of <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=green+mountain+falls&amp;sll=37.0625,-95.677068&amp;sspn=33.847644,79.013672&amp;ie=UTF8&amp;ll=38.942187,-105.013332&amp;spn=0.064888,0.154324&amp;z=13&amp;iwloc=A">Green Mountain Falls, Colorado</a>. My colleague, Marshall Worthey, is also a resident and trustee of the town. Marshall is an ex-Army topo guy with a background in GIS. About a year ago, he told me about an upcoming project in which an Eagle Scout candidate was to collect the hiking trails around the town with a GPS. This was part of an effort he had undertaken to build a GIS capability that his town of 969 year-round residents could afford and maintain.</div>
+<p>I have been doing a lot of development with the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">ESRI Silverlight API</a> recently. One of the requirements of my project is to be able to dynamically add KML data at runtime. The incorporation of <a href="http://code.google.com/apis/kml/documentation/">KML</a> was handled for us through <a href="http://resources.esri.com/arcgisserver/apis/silverlight/index.cfm?fa=codeGalleryDetails&amp;scriptID=16487">one of the ESRI samples</a> on the resource center so we pretty much just had to integrate that code and test against our use cases. For testing, I typically reached out to <a href="http://www.geocommons.com">GeoCommons</a> since any data set available there can be streamed as KML.</p>
+
+<p>Obviously, this is not my first exposure to GeoCommons but, when discussing it, I found that many of the analysts I spoke with were not aware of it and did not use it much. So I decided to tackle developing a simple ArcMap extension to allow a user to search GeoCommons and then download/add data to ArcMap without the need to manually download, unzip and add the data themselves.</div>
   
   
     <footer>
-      <a rel="full-article" href="/2009/09/23/GIS-for-Green-Mountain-Falls-CO-Step-1/">Read on &rarr;</a>
+      <a rel="full-article" href="/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/">Read on &rarr;</a>
     </footer>
   
 
@@ -239,7 +167,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/09/17/Amazon-and-the-Fountain-of-Youth/">Amazon and the Fountain of Youth</a></h1>
+      <h1 class="entry-title"><a href="/2010/05/18/Quilted-Map-of-Monongahela-National-Forest/">Quilted Map of Monongahela National Forest</a></h1>
     
     
       <p class="meta">
@@ -255,28 +183,167 @@
   
 
 
-<time datetime="2009-09-17T00:00:00-04:00" pubdate data-updated="true">Sep 17<span>th</span>, 2009</time>
+<time datetime="2010-05-18T00:00:00-04:00" pubdate data-updated="true">May 18<span>th</span>, 2010</time>
         
-         | <a href="/2009/09/17/Amazon-and-the-Fountain-of-Youth/#disqus_thread">Comments</a>
+         | <a href="/2010/05/18/Quilted-Map-of-Monongahela-National-Forest/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Yesterday, I enjoyed Seth Godin&#8217;s post titled <a href="http://sethgodin.typepad.com/seths_blog/2009/09/the-end-of-dumb-software.html">&#8220;The End of Dumb Software.&#8221;</a> This morning, I got an e-mail started off like this:</p>
+  <div class="entry-content"><p>I found this map on display at the <a href="http://en.wikipedia.org/wiki/Cranberry_Glades">Cranberry Glades</a> <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=38.203056,+-80.266389&amp;sll=37.0625,-95.677068&amp;sspn=38.41771,79.013672&amp;ie=UTF8&amp;ll=38.202576,-80.266113&amp;spn=0.596777,1.234589&amp;z=10">visitor center</a> in West Virginia (click any of the pictures to enlarge them):</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/05/img_2429.jpg"><img alt="" class="alignnone size-medium wp-image-903" height="225" src="http://geobabble.files.wordpress.com/2010/05/img_2429.jpg?w=300" title="Map of Monongahela National Forest" width="300" /></a></p>
+
+<p>One of the rangers working there told me it is to scale (although the quilt itself lacks any indication of scale).</p>
+
+<p>The next two pictures are close-ups showing the north arrow and the use of buttons as place markers. The kids we are traveling with were fascinated by this map. You will notice a red box over a portion of the forest. That was the area covered by a relief map on a table elsewhere in the visitor center.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/05/img_2430.jpg"><img alt="" class="alignnone size-medium wp-image-904" height="225" src="http://geobabble.files.wordpress.com/2010/05/img_2430.jpg?w=300" title="Buttons as place markers" width="300" /></a></p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/05/img_2431.jpg"><img alt="" class="alignnone size-medium wp-image-905" height="225" src="http://geobabble.files.wordpress.com/2010/05/img_2431.jpg?w=300" title="Quilted north arrow" width="300" /></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/04/30/Second-Thoughts-on-First-Thoughts-on-ArcGIS-10/">Second Thoughts on First Thoughts on ArcGIS 10</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-30T00:00:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2010</time>
+        
+         | <a href="/2010/04/30/Second-Thoughts-on-First-Thoughts-on-ArcGIS-10/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Shortly after ESRI announced the re-christening of ArcGIS 9.4 to ArcGIS 10.0, I posted <a href="http://geobabble.wordpress.com/2010/01/13/first-thoughts-on-arcgis-10-0/">this</a>. In that post, I expressed doubt as to whether it would really live up to major release status.</p>
+
+<p>After having worked with ArcGIS 10 for a little while now, I feel it necessary to say that I was wrong. Due to the nature of recent projects, I have been experimenting mostly with Desktop. At the FedUC, it looked really impressive in demos up on the big screen but those were demos up on the big screen.</p>
+
+<p>Working with the release candidate, I have found it to be impressively fast and stable with fairly modest hardware resources. Many processes seem to run in the background where they used to lock ArcMap and prevent you from working. Also, the updated UI is a breath of fresh air. These things, combined with many other improvements, have convinced me that the move up to 10.0 was justified, as it is obvious that major restructuring has occurred. I&#8217;m still digging into how it may affect some of my previously-existing code but there&#8217;s really nothing that scares me about that. I&#8217;ll blog about the code migration in future posts, I&#8217;m sure.</p>
+
+<p>Given what I had previously posted, I felt it only fair to correct it based upon what I have observed. It looks like some good work from the folks in Redlands and I am looking forward to the full release.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/04/23/zigGIS-30-To-Be-Open-Source/">zigGIS 3.0 to Be Open-Source</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-23T00:00:00-04:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2010</time>
+        
+         | <a href="/2010/04/23/zigGIS-30-To-Be-Open-Source/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Update:</strong> zigGIS has been discontinued.</p>
+
+<p><a href="http://abegillespie.blogspot.com/2010/04/prodigal-extension.html">Abe officially announced</a> today that the next major release of <a href="http://pub.obtusesoft.com">zigGIS</a>, version 3.0, will return to open-source. This announcement was followed up with a message on the zigGIS Google Group. A snippet of that message is here:</p>
 
 <blockquote>
-Dear Amazon.com Customer,
-As someone who has purchased or rated books by Norman Bridwell, you might like to know that <em>Clifford The Champion</em> will be released on October 1, 2009.  You can pre-order yours at a savings of $5.20 by following the link below.
+We have some exciting news.  The next version of zigGIS will officially return to being truly open source.  That means zigGIS 3.0 will be free to download and use.
+
+Of course this doesn&#8217;t mean zigGIS 3.0 will be free to develop. Though zigGIS is held near and dear to the hearts of the Obtuse Software team it cannot be developed on love alone.  So we we&#8217;ll be seeking funding in ways alternative to selling licenses.  We&#8217;ll follow a more traditional open source model of accepting personal donations and corporate sponsorships and selling support contracts.
+
+Version 2.x will continue to be supported on the forums here and licenses sold at obtusesoft.com.  However, all funds will be applied directly to the development of 3.0.
 </blockquote>
 
 
+<p>I&#8217;m glad that zigGIS is returning to its open-source roots. Since the release of 2.0, the zigGIS user community has grown a lot and there has been interest from other developers in extending it in new ways. I am excited by the prospect of the involvement of a wider community of users and developers in its advancement.</p>
 </div>
   
   
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/04/21/A-Look-at-PostGIS-In-Action/">A Look at &#8220;PostGIS in Action&#8221;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-21T00:00:00-04:00" pubdate data-updated="true">Apr 21<span>st</span>, 2010</time>
+        
+         | <a href="/2010/04/21/A-Look-at-PostGIS-In-Action/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Over the past few weeks, I have been reading a copy of the upcoming book by Regina Obe and Leo Hsu titled &#8221;<a href="http://manning.com/obe/">PostGIS In Action</a>.&#8221; Through my work with <a href="http://pub.obtusesoft.com">zigGIS</a> and some of my consulting work with <a href="http://www.zekiah.com">Zekiah</a>, I have been using <a href="http://postgis.refractions.net/">PostGIS</a> with good results for some time now. I have found that it matches or exceeds the capabilities of its commercial counterparts and I can be quite productive with it.</p>
+
+<p><img alt="" src="http://www.manning.com/obe/obe_cover150.jpg" /></p>
+
+<p>Regina has been a frequent contributor to zigGIS discussions over the years and her expertise with PostGIS has definitely helped <a href="http://dpulp.com/">Abe</a>, <a href="http://www.paolocorti.net/">Paolo</a> and I as we have worked on it. Also, many tips from the <a href="http://www.bostongis.com/">Boston GIS blog/site</a> have been very helpful so I have been looking forward to this book for some time.</div>
+  
+  
     <footer>
-      <a rel="full-article" href="/2009/09/17/Amazon-and-the-Fountain-of-Youth/">Read on &rarr;</a>
+      <a rel="full-article" href="/2010/04/21/A-Look-at-PostGIS-In-Action/">Read on &rarr;</a>
     </footer>
   
 
@@ -288,7 +355,7 @@ As someone who has purchased or rated books by Norman Bridwell, you might like t
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/09/12/MapWindow-to-NET/">MapWindow to .NET</a></h1>
+      <h1 class="entry-title"><a href="/2010/03/17/Attention-Developers-Southern-Maryland-GiveCamp-This-Weekend/">Attention Developers - Southern Maryland GiveCamp This Weekend</a></h1>
     
     
       <p class="meta">
@@ -304,71 +371,25 @@ As someone who has purchased or rated books by Norman Bridwell, you might like t
   
 
 
-<time datetime="2009-09-12T00:00:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2009</time>
+<time datetime="2010-03-17T00:00:00-04:00" pubdate data-updated="true">Mar 17<span>th</span>, 2010</time>
         
-         | <a href="/2009/09/12/MapWindow-to-NET/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The <a href="http://www.mapwindow.org/">MapWindow</a> open-source project will be holding its <a href="http://www.mapwindow.org/conference/2010/index.php">first-ever user conference</a> from March 31 to April 2, 2010 in Orlando, Florida. Aside from being a great milestone for MapWindow, it is also being billed as a &#8220;coming out party&#8221; for MapWindow  6, its first native .NET version.</p>
-
-<p>For those of you who are not familiar with MapWindow, it is and open-source (MPL 1.1) mapping library (think SharpMap or MapObjects) for use in developing applications, managed by the Geospatial Software Lab at Idaho State University. Although its desktop application and some geoprocessing tools have been written in .NET (VB.NET and C# respectively) for some time, the main library has been a 32-bit ActiveX control written in C++. At version 6, it will finally be fully .NET.</p>
-
-<p>I had used MapWindow a little bit some years ago but haven&#8217;t recently due to its ActiveX structure. I will definitely add it to my (ever-growing) list of things to check out now that it&#8217;s been ported.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/09/09/Communication-Proposal-Deadline-for-gvSIG-Conference/">Communication Proposal Deadline for gvSIG Conference</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-09-09T00:00:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2009</time>
-        
-         | <a href="/2009/09/09/Communication-Proposal-Deadline-for-gvSIG-Conference/#disqus_thread">Comments</a>
+         | <a href="/2010/03/17/Attention-Developers-Southern-Maryland-GiveCamp-This-Weekend/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>As I <a href="http://geobabble.wordpress.com/2009/06/30/5th-gvsig-conference-announced/">posted before</a>, the 5th <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a> conference is scheduled for December 2-4, 2009 in Valencia. I got an e-mail reminder that communication proposals (presentations, posters, etc.) are due by September 21st. From the e-mail:</p>
+  <div class="entry-content"><p>The first <a href="http://www.somdgc.org/Default.aspx">Southern Maryland GiveCamp</a> is happening this weekend at <a href="http://www.smcm.edu/">St. Mary&#8217;s College of Maryland</a> in <a href="http://www.stmaryscity.org/">St. Mary&#8217;s City</a> for the benefit of <a href="http://www.somdgc.org/Request.aspx">19 local non-profits</a>. If you are unfamiliar with the concept of a GiveCamp, the web site sums it up but here is an excerpt:</p>
 
 <blockquote>
-We remind you that we are now expecting communication proposals for the 5th gvSIG Conference (Valencia, 2nd-4th December 2009) [1]. The deadline is September 21st.
-
-You just have to send an abstract, following the template provided on the Reports section of the Conference web page [2] to contacto-jornadas-gvsig@gva.es and the scientific committee will evaluate it to be in the conference programme.
-
-There are two types of communications: presentation and poster. The communications have to be preferably related to the gvSIG project and the following issues will be also be considered in the evaluation:
-
-  * Innovation.
-  * Usefulness for the GIS community.
-  * Usefulness for the free open source community.
+GiveCamp is a weekend-long event where software developers, designers, and database administrators donate their time to create custom software for non-profit organizations. This custom software could be a new website for the nonprofit organization, or a small data-collection application to keep track of members. The only limitation is that the project should be scoped to be able to be completed in a weekend.
 </blockquote>
 
+
+<p>The Southern Maryland GiveCamp is being put together by <a href="http://jpendarvis.blogspot.com/">Jim Pendarvis</a>, who is putting an enormous amount of work into it. I had planned to participate but events have conspired to prevent that, although three of my <a href="http://www.zekiah.com">Zekiah</a> co-workers will be there.</p>
+
+<p><strong>Jim still needs volunteers</strong>. If you are a developer in the Washington, DC area, I strongly encourage you to volunteer your time (<a href="http://www.somdgc.org/Tech.aspx">technical</a> and <a href="http://www.somdgc.org/NonTech.aspx">non-technical</a> volunteers are being sought). In addition to helping the community, you&#8217;ll also get the added benefit of spending the weekend in one of the <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=Saint+Marys+City,+St.+Mary's,+Maryland&amp;sll=-33.76676,150.774015&amp;sspn=0.039529,0.077162&amp;ie=UTF8&amp;cd=1&amp;geocode=FT6wRgIdJLRx-w&amp;split=0&amp;hq=&amp;hnear=Saint+Marys+City,+St.+Mary's,+Maryland&amp;ll=38.193942,-76.434288&amp;spn=0.074742,0.154324&amp;z=13&amp;iwloc=A">most beautiful locales in the region</a>.</p>
 </div>
   
   
@@ -381,7 +402,7 @@ There are two types of communications: presentation and poster. The communicatio
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/09/09/ArcGIS-931-SP1/">ArcGIS 9.3.1 SP1</a></h1>
+      <h1 class="entry-title"><a href="/2010/03/12/Thinking-About-Introductory-GIS-for-Kids/">Thinking About Introductory GIS for Kids</a></h1>
     
     
       <p class="meta">
@@ -397,18 +418,21 @@ There are two types of communications: presentation and poster. The communicatio
   
 
 
-<time datetime="2009-09-09T00:00:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2009</time>
+<time datetime="2010-03-12T00:00:00-05:00" pubdate data-updated="true">Mar 12<span>th</span>, 2010</time>
         
-         | <a href="/2009/09/09/ArcGIS-931-SP1/#disqus_thread">Comments</a>
+         | <a href="/2010/03/12/Thinking-About-Introductory-GIS-for-Kids/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>So the <a href="http://support.esri.com/index.cfm?fa=knowledgebase.documentation.viewDoc&amp;PID=17&amp;MetaID=1555">upcoming release</a> of ArcGIS 9.3.1 SP1 <a href="http://downloads2.esri.com/support/documentation/ao_/9.3.1_SP1_Announcement9_1.pdf">addresses a lot of issues</a>. I am somewhat curious why it&#8217;s not being called 9.3.2. Calling it a service pack seems to be mixing metaphors. Hopefully, ESRI will reconsider before it hits the street.</p>
-</div>
+  <div class="entry-content"><p>Several years ago, I took my family with me to the <a href="http://www.esri.com">ESRI</a> International User Conference and we spent a lot of time checking things out around San Diego. My son also participated in ?GIS Kids Camp? at the UC, where ESRI staff took kids through a few scenarios so they could do some simple analysis, data processing and mapping to get a feel for GIS. My son loved it and I think it was a good program that ESRI did a great job putting together.</div>
   
+  
+    <footer>
+      <a rel="full-article" href="/2010/03/12/Thinking-About-Introductory-GIS-for-Kids/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -419,7 +443,7 @@ There are two types of communications: presentation and poster. The communicatio
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/08/21/Thank-You-Mark/">Thank You, Mark</a></h1>
+      <h1 class="entry-title"><a href="/2010/03/02/Integrating-ASPNET-with-Drupal-in-the-Acquia-Stack/">Integrating ASP.NET With Drupal in the Acquia Stack</a></h1>
     
     
       <p class="meta">
@@ -435,30 +459,41 @@ There are two types of communications: presentation and poster. The communicatio
   
 
 
-<time datetime="2009-08-21T00:00:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2009</time>
+<time datetime="2010-03-02T00:00:00-05:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2010</time>
         
-         | <a href="/2009/08/21/Thank-You-Mark/#disqus_thread">Comments</a>
+         | <a href="/2010/03/02/Integrating-ASPNET-with-Drupal-in-the-Acquia-Stack/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Back in the early 1990s, toward the end of the administration of George H. W. Bush and into the beginning of the Clinton administration, we were in a bit of a recession. It was not as bad as things are right now but, to someone who had just graduated from college, it was a tough environment. Even the US Government had a hiring freeze on. There was just no work to be had.</p>
+  <div class="entry-content"><p>A while back, I posted <a href="http://geobabble.wordpress.com/2008/01/07/sharpmap-on-apache/">this</a> about running <a href="http://sharpmap.codeplex.com">SharpMap</a> on <a href="http://www.apache.org/">Apache</a>. At the time, the ability to run ASP.NET on Apache was mainly a curiosity to me but had little practical value. Recently, I had the need to revisit this technique for a project. I used the same <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">post</a> I had used previously as a reference, although the comment by Carlos there was more up-to-date and served me well this time.</p>
 
-<p>In the summer of 1993, I was bartender at the Chili&#8217;s in Waldorf, MD. I had about 8 years of restaurant experience and a freshly minted degree in Information Systems Management from the University of Maryland Baltimore County and very little else to recommend me in the face of so many college graduates and laid-off people with experience also looking for work.</p>
+<p>This time, we were migrating an old custom-built site to the <a href="http://drupal.org/">Drupal</a> CMS. The old site was a mixture of ASP Classic and ASP.NET. Drupal is a <a href="http://www.php.net/">PHP</a>-based CMS. Due to the deadline for completing the migration, there were two ASP.NET applications that we planned to leave in place. They automated custom workflows and our schedule didn&#8217;t allow for rewriting them. Drupal had been installed as part of the <a href="http://acquia.com/downloads">Acquia stack installer</a> that includes Apache, PHP, Drupal and <a href="http://www.mysql.com/">MySQL</a>.</p>
 
-<p>One of our regulars was a guy named Mark. He wasn&#8217;t my regular so much as Ed&#8217;s, who was the senior bartender that I worked with on Fridays. He and his girlfriend (future wife)  would come in for dinner and have a beer or two while waiting for a table. Waldorf was much smaller then and Chili&#8217;s was really the only game in town at the time.</p>
+<p>Following the instructions I had used previously, I integrated mod_aspdotnet in the Apache http.conf. I made the following entries, as instructed (these are sample entries for purposes of this post).</p>
 
-<p>Mark would also come in maybe once or twice a week after work and have a beer or two during the week. It was during one of these visits that he told me about a contract his company had just gotten digitizing Army bases for the chemical weapons treaty. I mentioned my degree and expressed interest if he was hiring and, a few days later, sent him my resume. Until he got my resume, he didn&#8217;t know my last name and I didn&#8217;t know his.</p>
+<p> <code>AspNetMount /SampleASP "c:/SampleASP"
+ Alias /SampleASP "c:/SampleASP"</code></p>
 
-<p>Eventually, I landed that job working for Mark Quasius at Applied Ordnance Technology (AOT). It got me started in a field that I had heard mentioned once, in passing, during a lecture in college: geographic information systems. During that job, I got exposed to AutoCAD, MapInfo, ARC/INFO (6.something), and ArcView 2.0. I got to do some programming in AML, MapBasic and a little bit of Clipper. I met a lot of really good and patient people, did some cool stuff, made some mistakes, learned from it all and moved on after about three years.</p>
+<p>These entries mount the ASP.NET application where it sits physically and alias it to a virtual directory in Apache. Having done this before, I was not worried. This time, however, it did not work. After some research, I realized that these directives were in conflict with some mod_rewrite entries that are part of the stack installer. They are:</p>
 
-<p>During my time at AOT, Mark got assigned to the Crystal City office and we didn&#8217;t work directly together as much. After I left, I lost touch with him but usually heard when he changed jobs and heard that he was having health problems a few years back. Yesterday, I learned that Mark Quasius passed away on August 9, too young, at the age of 45 after a long battle with cancer. Here is his <a href="http://www.sheboyganpress.com/article/20090813/SHE010301/908130348/1067/SHE01">obituary</a>.</p>
+<p><code>
+  ServerName localhost
+  RewriteEngine On
+  RewriteOptions Inherit
+  RewriteCond %{REQUEST_URI} !/acquia-drupal.<em>
+  RewriteCond %{REQUEST_URI} !/phpmyadmin.</em>
+  RewriteRule ^(/.*)?$ /acquia-drupal$1
+</code></p>
 
-<p>When I was leaving AOT, Mark told me the story of how I got that first job. Essentially, he had a big stack of resumes from applicants, many of whom looked stronger on paper. He felt he had something of an impression about me from our interactions at Chili&#8217;s and decided to take a chance on me. That decision earned him some quizzical looks from the owners but they left the decision up to him.</p>
+<p>In this case, any URI that does not look like http://${hostname}/acquia-drupal is rewritten to match that format. So my URI of http://${hostname}/SampleASP was being rewritten as http://${hostname}/acquia-drupal/SampleASP which does not exist and promptly fails. The solution to this problem was to modify the AspNetMount and Alias entries above to this:</p>
 
-<p>So Mark Quasius gave me my first &#8220;real job&#8221; in the summer of 1993 and set me off on a career that I didn&#8217;t expect. For that, I will always be grateful to him. At the risk of sounding cliche, he should have had more time. Goodbye, Mark and thank you.</p>
+<p> <code>AspNetMount /acquia-drupal/SampleASP "c:/SampleASP"
+ Alias /acquia-drupal/SampleASP "c:/SampleASP"</code></p>
+
+<p> This redirected properly and the ASP.NET executed. So, the lesson here is that, if you choose to use a stack installer, make sure you understand the customizations that the installer makes to the products it includes.</p>
 </div>
   
   
@@ -471,7 +506,7 @@ There are two types of communications: presentation and poster. The communicatio
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/08/20/GeoLocation-API-for-Twitter-Announced/">GeoLocation API for Twitter Announced</a></h1>
+      <h1 class="entry-title"><a href="/2010/02/25/Browsing-WeoGeo-Market-Using-the-ESRI-Silverlight-API/">Browsing WeoGeo Market Using the ESRI Silverlight API</a></h1>
     
     
       <p class="meta">
@@ -487,20 +522,25 @@ There are two types of communications: presentation and poster. The communicatio
   
 
 
-<time datetime="2009-08-20T00:00:00-04:00" pubdate data-updated="true">Aug 20<span>th</span>, 2009</time>
+<time datetime="2010-02-25T00:00:00-05:00" pubdate data-updated="true">Feb 25<span>th</span>, 2010</time>
         
-         | <a href="/2009/08/20/GeoLocation-API-for-Twitter-Announced/#disqus_thread">Comments</a>
+         | <a href="/2010/02/25/Browsing-WeoGeo-Market-Using-the-ESRI-Silverlight-API/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Ryan Sarver <a href="http://blog.twitter.com/2009/08/location-location-location.html">announced today</a> the availability of a geolocation API for Twitter. It even supports GeoRSS and GeoJSON. This could be a potentially significant new step for Twitter. It looks like the API will be opened to <del datetime="2009-08-20T23:50:17+00:00">platform developers first</del> everyone (see <a href="http://twitter.com/rsarver/statuses/3437734477">here</a>).</p>
+  <div class="entry-content"><p><strong>Updated: </strong> This demo application now running <a href="http://demo.zekiah.com/weosilverlight">here</a>. I will update this demo periodically, as time permits, so keep checking back.</p>
 
-<p>Tying in location to the near-real-time nature of the Twitter timeline opens up lots of potential location-based applications. Let the slippy-mapping commence!</p>
-</div>
+<p>At the <a href="http://www.esri.com/events/feduc/index.html">2010 ESRI Federal User Conference</a>, <a href="http://www.weogeo.com">WeoGeo</a> announced the availability of <a href="http://blogs.weogeo.com/jamesfee/2010/02/16/introducing-weogeo-tools-for-arcgis/">a toolbar for interacting with WeoGeo Market and private libraries from within ArcMap</a>. This, combined with Dan Dye?s <a href="http://blogs.weogeo.com/dandye/2010/01/07/weogeo-api-python-examples-part-1/">series of posts</a> showing how to use the <a href="http://wiki.weogeo.com/index.php/Developer:_API">WeoGeo REST API</a> with Python got me thinking about how easy it would be to integrate with ESRI?s clients for the ArcGIS Server REST API. All of my clients (it seems) are using the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">Silverlight API</a> these days so I am spending a lot of time with it and decided to use it as my testbed.</p>
+
+<p>My goal was simple, I wanted to browse the <a href="http://www.weogeo.com/market">WeoGeo Market</a> for any data sets in the current map extent, be able to select one from a list, and have its preview image display in the proper location on my Silverlight map.</div>
   
+  
+    <footer>
+      <a rel="full-article" href="/2010/02/25/Browsing-WeoGeo-Market-Using-the-ESRI-Silverlight-API/">Read on &rarr;</a>
+    </footer>
   
 
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Leaflet | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/leaflet/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T14:13:06-05:00</updated>
+  <updated>2012-12-19T17:20:03-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -161,6 +161,27 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The CartoDB documentation has greatly improved since my last post, including some <a href="http://developers.cartodb.com/examples.html" target="_blank">good developer examples</a>. A little bit of comfort with PostGIS-esque spatial SQL goes a long way with CartoDB. It's good to see how the platform is evolving.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Breaking Radio Silence]]></title>
+    <link href="http://blog.geomusings.com/2012/06/07/Breaking-Radio-Silence/"/>
+    <updated>2012-06-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/07/Breaking-Radio-Silence</id>
+    <content type="html"><![CDATA[<p>Things have been kind of quiet on the blog lately due to things being busy at work. I call that a good problem to have. Since the beginning of the year, I've written a a lot of proposals for a mixture of potential customers. Interestingly, I'm seeing a lot more call for "GIS Analyst" work. One trend I've noticed, at least in the Federal sector, is that the time between proposal due dates and award announcements seems to be lengthening. That may be an indication of the ongoing flux in funding and organizations try to figure out how to fund their requirements. It will be interesting to see how it shakes out. Of course, it's good that the opportunities are there in the first place.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2012/06/microphone.jpg"><img alt="" class="aligncenter size-full wp-image-2664" height="413" src="http://geobabble.files.wordpress.com/2012/06/microphone.jpg" title="microphone" width="413" /></a></p>
+
+<p>One the technical side of things, I've been involved in a smattering of things that's made it hard to roll up one good post. I'm pretty heavily involved in the PIM efforts that my colleague, Barry Schimpf, <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">has been blogging about</a> over on the <a href="http://www.zekiah.com" target="_blank">Zekiah</a> blog. <!--more--> Historically, the PIM data structures have been housed in Microsoft SQL Server, but we've been working on porting it to other platforms to provide options to end users. We've done an initial port to <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> but we've been spending most of our time on a <a href="http://www.sqlite.org/" target="_blank">SQLite</a>/<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> version. This has taken two forms. First is the port of the PIM structure itself to SQLite to make it easier to provide some of the PIM services such as profiling, version-to-version migrations, dataset generation, and validation in remote, field-based settings. Second is the generation/validation of physical implementations in SpatiaLite. This is being done for a customer who is expecting to do field data collection using SpatiaLite and these services will be helpful in enhancing data quality at the point of collection. Additionally, the SpatiaLite aspect of this work has had me living within <a href="http://qgis.org/" target="_blank">QGIS</a> lately.</p>
+
+<p>Another thing I've been experimenting with is the use of <a href="http://nodejs.org/" target="_blank">Node.js</a> for real-time data processing. Our long-standing work in the situational awareness realm has had us working with real-time data feeds for a long time. I'm interested in the possibility of using Node to tackle some of the feed collection tasks. I've used an event-driven approach for such tasks in the past so that aspect of Node is quite familiar to me but the use of Javascript, its ease of deployment and potential scalability are intriguing to me. I'm coming late to the party with Node, primarily due to my rustiness with Javascript, but I'm liking what I'm seeing so far.</p>
+
+<p>Beyond those major things, I've had the opportunity to start working with <a href="http://postgis.org/" target="_blank">PostGIS</a> 2.0 and play more with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://mapbox.com/" target="_blank">MapBox</a>. On the development side of things, these efforts have had be jumping back and forth a lot between C#, Javascript and a little bit of Python, as well as between Windows and Linux, depending on the task.</p>
+
+<p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
+
+<p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
 ]]></content>
   </entry>
   
@@ -616,122 +637,6 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[CartoDB + Leaflet = Easy]]></title>
-    <link href="http://blog.geomusings.com/2011/10/13/CartoDB-Leaflet-Easy/"/>
-    <updated>2011-10-13T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/10/13/CartoDB-Leaflet-Easy</id>
-    <content type="html"><![CDATA[<p>One of the biggest sources of buzz at <a href="http://2011.foss4g.org/">FOSS4G</a> was <a href="http://cartodb.com">CartoDB</a>. It is a hosted solution from <a href="http://vizzuality.com/">Vizzuality</a> that uses <a href="http://postgis.org/">PostGIS</a> to allow you to store your spatial data online. I got a beta account a couple of weeks ago but life (i.e. paying work) kept getting in the way but I finally got to play with it recently.</p>
-
-<p>One of the things that intrigued me is that, similar to <a href="http://www.google.com/fusiontables/Home/">Google Fusion Tables</a>, CartoDB exposes a SQL interface through a RESTful API (I'm still not sure if the term "API" applies to REST but it's a convenient shorthand). Essentially, CartoDB exposes PostgreSQL SQL and the spatial SQL extensions of PostGIS. Once your data is loaded, you can query it and return the results as either CartoDB's JSON syntax, KML or <a href="http://geojson.org">GeoJSON</a>.</p>
-
-<p>With this information, I set out to build a simple application to query property data and display the results on a map in a browser. In addition to CartoDB, I elected to use the <a href="http://leaflet.cloudmade.com/">Leaflet</a> Javascript library to accomplish the mapping (although I also experimented with OpenLayers). Displaying and styling GeoJSON in Leaflet is very straightforward and this task gave me and excuse to get a little more comfortable with it.</p>
-
-<!--more-->
-
-
-<p>For starters, I downloaded building footprints for St. Mary's County, Maryland (freely available <a href="http://www.stmarysmd.com/gis/">here</a>). The footprints themselves are countywide so I also downloaded the boundary for Leonardtown, Maryland and used <a href="http://qgis.org/">QGIS</a> to clip out just those buildings that fell within the town boundary. Once my data was prepped, I uploaded it into CartoDB.</p>
-
-<div style="text-align: center;"><img alt="" class="size-full wp-image-2134" height="359" src="http://geobabble.files.wordpress.com/2011/10/cartodb_upload.png" title="cartodb_upload" width="590" /><div style="text-align: center; font-size: 14px">The CartoDB uploader is very easy to use.<br /></div></div>
-
-
-<p>Once the data is uploaded and made public, it is as easy as a URL to pull down the GeoJSON (or even KML). Click here:</p>
-
-<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson</a></p>
-
-<p>You'll notice that some SQL is embedded in the URL. Finding the commercial properties in the data set is as simple as adding a WHERE clause:</p>
-
-<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20'Commercial'&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20'Commercial'&amp;format=geojson</a></p>
-
-<p>This became the basis of my sample application. I decided to do a simple property finder that allows a user to find buildings by property type and square footage. As I mentioned, it's very easy to use GeoJSON with Leaflet. Here is the Javascript function that fetches the buildings from CartoDB and adds them to the map. It uses jQuery to do the actual fetch and then processes the result, adding the features into a Leaflet GeoJSON layer.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">getBuildings</span><span class="p">()</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">bldgLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">();</span>
-</span><span class='line'>    <span class="c1">//here we also parse the attributes for the popups on the map</span>
-</span><span class='line'>    <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;featureparse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">color</span><span class="o">:</span>  <span class="s1">&#39;#BDBDBD&#39;</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">fill</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;#EF6548&#39;</span><span class="p">,</span> <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mf">0.85</span> <span class="p">});</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Address:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Property Type:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Square Footage:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="p">{</span>
-</span><span class='line'>        <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span>
-</span><span class='line'>        <span class="s2">&quot;http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;amp;amp;format=geojson&amp;amp;amp;callback=?&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="kd">function</span><span class="p">(</span><span class="nx">geojson</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">features</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">addGeoJSON</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">})</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">bldgLayer</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p><del datetime="2011-10-14T14:44:58+00:00">If you look closely, you'll notice the use of a proxy handler to get past the same origin restriction. This handler is written in .Net. I had been using a Python proxy but urllib2 was indicating header errors in the return from CartoDB so I fell back to this one. I'll dig into that more later.</del> (Thanks to <a href="http://twitter.com/jatorre">Javier de la Torre</a> for straightening me out with the use of a callback.) The above routine is basically the template for all the work in the app. Aside from the basemap tiles, the app loads the town boundary and the buildings from CartoDB. A similar funtion drives the query function, building and passing a WHERE clause to CartoDB. The image below shows the interface with query results in blue. The popups are performed by Leaflet.</p>
-
-<div style="text-align: center;"><img alt="" class="size-full wp-image-2139" height="300" src="http://geobabble.files.wordpress.com/2011/10/propfinder.png" title="propfinder" width="590" /><div style="text-align: center; font-size: 14px">Selected buildings are shown in blue with popups to display the property details<br /></div></div>
-
-
-<p>All told, this app took about 3 or so hours to build and deploy. This version doesn't actually make use of any spatial SQL yet but I'll add that soon. The live demo can be found here: <a href="http://demo.zekiah.com/propfinder/">http://demo.zekiah.com/propfinder/</a> (give the buildings a few seconds to load). It seems to work well in Firefox and Chrome and is functional, although clunky, in IE9. I haven't tried Safari or earlier versions of IE.</p>
-
-<p>CartoDB is still in beta but already seems solid and is definitely powerful. As a hosted solution, there are associated costs but that's to be expected. I'll keep playing with it but it's already impressive.</p>
 ]]></content>
   </entry>
   

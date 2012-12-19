@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CartoDB | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/cartodb/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T14:13:06-05:00</updated>
+  <updated>2012-12-19T17:20:03-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -126,6 +126,50 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The CartoDB documentation has greatly improved since my last post, including some <a href="http://developers.cartodb.com/examples.html" target="_blank">good developer examples</a>. A little bit of comfort with PostGIS-esque spatial SQL goes a long way with CartoDB. It's good to see how the platform is evolving.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FOSS4G North America]]></title>
+    <link href="http://blog.geomusings.com/2012/04/12/FOSS4G-North-America/"/>
+    <updated>2012-04-12T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/04/12/FOSS4G-North-America</id>
+    <content type="html"><![CDATA[<p>It's rather fitting that the second plenary talk on Wednesday had to do with "firehose" applications since the <a href="http://foss4g-na.org/" target="_blank">FOSS4G North America</a> (FOSS4GNA) conference was something of a firehose in itself. Despite the fact that the event was smaller than the worldwide event in Denver back in October, I came away with the same "full brain" feeling.</p>
+
+<p><img alt="It feels like I never leave this place." src="http://www.visitingdc.com/images/washington-dc-convention-center.jpg" /></p>
+
+<p>Of course, given the recent production release of <a href="http://blog.opengeo.org/2012/04/03/postgis-2-0-released/" target="_blank">PostGIS 2.0</a>, that was kind of the big story for this event. I attended a number of <a href="http://postgis.org/" target="_blank">PostGIS</a>/<a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>-related sessions and came away with lots of new information. I especially enjoyed <a href="http://twitter.com/pwramsey" target="_blank">Paul Ramsey's</a> "what's new" talk on Wednesday. One thing I enjoy about his talks (here and in Denver) is that he's not afraid to throw sample SQL up on the screen. It's one thing to hear about a new feature but it's another thing entirely to see a concrete example. Some may find the idea of raw SQL in a presentation abhorrent but it worked for me. <!--more--></p>
+
+<p>I've already started playing with PostGIS 2.0 but haven't gotten terribly far so these sessions helped a lot. It's already been pretty well vetted by the community during it's various pre-release stages so it seems remarkably stable. With the addition of topology and raster analysis in addition to 3D/4D indexing and new vector functions, PostGIS probably handles the majority of what most users would need for GIS analysis at the database level. I'm excited to dig deeper.</p>
+
+<p>I also attended a few web-mapping themed talks. If there is one word that consistently and repeatedly passed the lips of most of the presenters, it was "<a href="http://geojson.org/" target="_blank">GeoJSON</a>." I've <a href="http://blog.geomusings.com/?s=geojson" target="_blank">blogged about GeoJSON</a> in the past but it really is the oil that makes the modern geo-web run smoothly. The rate of adoption it is receiving rivals only one other <em>de facto</em> standard that I can recall: you may remember something called the shapefile. The fact is that anyone who's been hunting through their file system looking for the "next shapefile" has been looking in the wrong place. It lives behind that nice map in your browser. The shapefile took off because it solved a problem for what was the frontier of GIS in the 1990s; the transition from heavy workstations to desktop mapping. GeoJSON solves the problem of delivering vector spatial data for today's frontier; the transition from the desktop GIS to web mapping. It's that simple. We don't need another file format to solve an old problem that already has a solution.</p>
+
+<p>Of course, there was a lot more. I got introduced to <a href="http://cartodb.com/" target="_blank">CartoDB</a> in Denver, have <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/" target="_blank">experimented with it</a> since then and was able to get an update on its 1.0 release at one of the sessions. It remains a compelling option for spatial data hosting and <a href="http://vizzuality.com/" target="_blank">Vizzuality</a> are actively engaging with the open-source communities that build the tools they use. On the cartography side of things, <a href="http://stamen.com/" target="_blank">Stamen</a> continues to show how beautiful maps can be made with open-source tools. Similarly, <a href="http://mapbox.com/" target="_blank">MapBox</a> showed how they efficiently deliver high-quality maps on the web. For my money, the unsung hero of what MapBox is doing is <a href="http://mapbox.com/mbtiles-spec/utfgrid/" target="_blank">UTFGrid</a>. I hadn't delved into it deeply until I saw the announcement that <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> now supports it. UTFGrid is breathtakingly elegant in its approach to delivering richer content with tiles. I expect that, in a few years, UTFGrid will be a standard part under the hood of any web mapping experience, like tiles and slippy maps are today.</p>
+
+<p>The only consistent criticism I heard was that most of the sessions were "too technical." I can see some validity to this, given that the event was held in Washington, DC and many higher-level government or policy types who may have been seeking to conceptually understand open-source geospatial may have been put off. Commercial vendors have addressed this problem with the establishment of "executive tracks" at their events. That said, if that's the biggest criticism that can be leveled, then FOSS4GNA was a rousing success in my book.</p>
+
+<p>I have resolved that I will take at least one of my kids, if not both, to the next FOSS4G event that I attend. The attitude of the open-source crowd is one that I want to rub off on them. Aside from the energy that is exuded from a gathering such as this, the open-source world is full of people who see a problem and just set out to solve it. I want my kids to be exposed to that kind of initiative and understand the power that can come from harnessing it, even if they never go into a technical field.</p>
+
+<p>My understanding is that FOSS4GNA came together very quickly. Given that, it was a very high-quality conference and the organizers should be commended. Early tongue-in-cheek commentary referred to it as the "<a href="http://opengeo.org/" target="_blank">OpenGeo </a>User Conference." I felt like there was good balance and, when I attended sessions given by OpenGeo staff, I didn't feel like I was beaten over the head with the OpenGeo brand. All-in-all, I found my day-and-a-half at FOSS4GNA to be very beneficial and I'm hoping it becomes an annual event. (<strong>Update</strong>: It looks like next year's FOSS4GNA <a href="https://twitter.com/#!/foss4gna/status/190517270928293888" target="_blank">will be in Minnesota</a>.)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Busy Day for Releases]]></title>
+    <link href="http://blog.geomusings.com/2012/04/04/A-Busy-Day-for-Releases/"/>
+    <updated>2012-04-04T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/04/04/A-Busy-Day-for-Releases</id>
+    <content type="html"><![CDATA[<p>3 April 2012 was a busy day for releases/announcements in the geospatial field:</p>
+
+<p><a href="http://postgis.refractions.net/">PostGIS 2.0</a> - This long-anticipated major version of PostGIS was <a href="http://www.osgeo.org/node/1275">announced</a> with advanced features such as raster, topology, and 3D/4D indexing. Many have been using 2.0 for a while but the official release gives top-cover to organizations, such as some government agencies, that are not allowed to take systems "production" using software that is technically in beta.</p>
+
+<p><a href="http://cartodb.com/">CartoDB</a> v1 - I've <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/">blogged about CartoDB before</a> and it's an intriguing platform for hosting geospatial data and applications. It uses PostGIS 2.0 as its storage engine and exposes a lot of PostGIS capability through its API. It's a pretty elegant way to build interactive mapping applications. It's support of <a href="http://www.geojson.org/">GeoJSON</a> makes it easy to integrate with a number of mapping libraries</p>
+
+<p><a href="http://graffitimapper.org">GraffitiMapper</a> - This is a location-based application built by <a href="http://spatialnetworks.com/">Spatial Networks</a> on their <a href="http://spatialnetworks.com/products/fulcrum/">Fulcrum</a> platform. It's a great example of a specialized crowd-sourcing application. In this case, capturing graffiti using location as a potential indicator of other activity. It also really showcases the flexibility of Fulcrum. The app is currently only available for iOS but rumor has it Android is in the works.</p>
+
+<p>All-in-all, it was pretty exciting day. Congratulations to everyone involved in all of these releases.</p>
+
+<p>Well, my toy box is now overflowing so it's time to start playing.</p>
 ]]></content>
   </entry>
   
@@ -267,39 +311,6 @@
 <p>All told, this app took about 3 or so hours to build and deploy. This version doesn't actually make use of any spatial SQL yet but I'll add that soon. The live demo can be found here: <a href="http://demo.zekiah.com/propfinder/">http://demo.zekiah.com/propfinder/</a> (give the buildings a few seconds to load). It seems to work well in Firefox and Chrome and is functional, although clunky, in IE9. I haven't tried Safari or earlier versions of IE.</p>
 
 <p>CartoDB is still in beta but already seems solid and is definitely powerful. As a hosted solution, there are associated costs but that's to be expected. I'll keep playing with it but it's already impressive.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[FOSS4G Quick Hits]]></title>
-    <link href="http://blog.geomusings.com/2011/09/19/FOSS4G-Quick-Hits/"/>
-    <updated>2011-09-19T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/09/19/FOSS4G-Quick-Hits</id>
-    <content type="html"><![CDATA[<p>I had the distinct pleasure of attending my first <a href="http://2011.foss4g.org">FOSS4G conference in Denver</a> last week. Having not attended one previously, I can only rely on the opinions of others that this has been the best FOSS4G yet. For me, this was best geospatial conference I have attended. I'll probably blog in more detail about some of the things I saw but here are my high-level observations:</p>
-
-<p>[caption id="attachment_2089" align="aligncenter" width="300" caption="It&#039;s time to refresh your thinking about open-source geospatial tools."]<img alt="" class="size-medium wp-image-2089" height="266" src="http://geobabble.files.wordpress.com/2011/09/rotary_sign3.jpg?w=300" title="rotary_sign3" width="300" />[/caption]</p>
-
-<!--more-->
-
-
-<ol>
-<li><p><a href="http://www.qgis.org/">QGIS</a> - I didn't attend many QGIS sessions but I didn't need to. It had everyone talking in hallways during breaks. Remember a few years ago when the desktop was the weak link with open-source GIS? Forget about that.</p></li>
-<li><p><a href="http://www.vizzuality.com/">Vizzuality</a> is doing great things to deploy usable mapping applications on the web with open-source tools. Every session   they led was standing-room only, with good reason.</p></li>
-<li><p><a href="http://vizzuality.com/cartoset">CartoSet</a> and <a href="https://cartodb.com/">CartoDB</a> - from the aforementioned Vizzuality. These open-source tools are designed to help speed the front-end and back-end development of a web application respectively. These are at the top of my list of things to check out.</p></li>
-<li><p>One of the key characteristics of most of the open-source tools discussed in sessions I attended is that they originally grew out of the need to solve a problem. They were not just built on spec, hoping someone would find them useful. As a result, these tools tend to already be proven within the problem set for which they were built.</p></li>
-<li><p><a href="http://postgis.refractions.net/">PostGIS</a> - If open-source geospatial is a flowering field, then PostGIS is the water that hydrates it. The amount of tools that support it is staggering (including CartoDB). The importance of a robust, open-source, spatial data store cannot be overstated and the role PostGIS plays as a foundation technology is pivotal. As for PostGIS 2.0, Michael Weisman sums it up best here:</p></li>
-</ol>
-
-
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>My second takeaway from <a href="https://twitter.com/search/%23foss4g">#foss4g</a>: PostGIS 2's tagline should be "You no longer have an excuse to use anything else."</p>&mdash; Michael Weisman (@mweisman) <a href="https://twitter.com/mweisman/status/115163092207403010" data-datetime="2011-09-17T20:39:55+00:00">September 17, 2011</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
-
-<ol>
-<li>Javascript mapping libraries - <a href="http://openlayers.org/">there</a> are <a href="http://leaflet.cloudmade.com/">now</a> more <a href="http://2011.foss4g.org/sessions/geomap-%E2%80%93-new-open-source-javascript-mapping-api">ways</a> to <a href="http://polymaps.org/">get</a> an <a href="http://mapstraction.com/">interactive</a> map <a href="http://www.tile5.org/">into</a> a browser than I can keep track of. Those based on Javascript and/or HTML5 are proliferating like wildfire. The "I" in "RIA" now stands for "intranet".</li>
-</ol>
-
-
-<p>I'm still organizing my notes and thoughts about what I saw at FOSS4G. It's impossible to describe the richness of the information that was available. The only real downtime I had was that which I sought for myself. I'll follow up these quick observations in the near future as I begin to dig into the new tools I was exposed to.</p>
 ]]></content>
   </entry>
   

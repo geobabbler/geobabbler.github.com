@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SpatiaLite | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/spatialite/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T14:13:06-05:00</updated>
+  <updated>2012-12-19T17:20:03-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -101,35 +101,44 @@ enjoy, Sandro
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite 3.0 Beta Is Available]]></title>
-    <link href="http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available/"/>
-    <updated>2011-08-19T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available</id>
-    <content type="html"><![CDATA[<p>Alessandro Furieri announced the availability of the beta of SpatiaLite 3.0.0 on 17 August. It can be downloaded here: <a href="http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html">http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html</a>.</p>
+    <title type="html"><![CDATA[Breaking Radio Silence]]></title>
+    <link href="http://blog.geomusings.com/2012/06/07/Breaking-Radio-Silence/"/>
+    <updated>2012-06-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/07/Breaking-Radio-Silence</id>
+    <content type="html"><![CDATA[<p>Things have been kind of quiet on the blog lately due to things being busy at work. I call that a good problem to have. Since the beginning of the year, I've written a a lot of proposals for a mixture of potential customers. Interestingly, I'm seeing a lot more call for "GIS Analyst" work. One trend I've noticed, at least in the Federal sector, is that the time between proposal due dates and award announcements seems to be lengthening. That may be an indication of the ongoing flux in funding and organizations try to figure out how to fund their requirements. It will be interesting to see how it shakes out. Of course, it's good that the opportunities are there in the first place.</p>
 
-<p>Some of the more interesting additions include additional support for topology and the ability to export <a href="http://geojson.org">GeoJSON</a>.</p>
+<p><a href="http://geobabble.files.wordpress.com/2012/06/microphone.jpg"><img alt="" class="aligncenter size-full wp-image-2664" height="413" src="http://geobabble.files.wordpress.com/2012/06/microphone.jpg" title="microphone" width="413" /></a></p>
 
-<p>I did a <strong>very</strong> quick test with QGIS 1.7.0 and was able to directly access and edit a table in a database I created with SpatiaLite 3.0.0 so that's initially promising.</p>
+<p>One the technical side of things, I've been involved in a smattering of things that's made it hard to roll up one good post. I'm pretty heavily involved in the PIM efforts that my colleague, Barry Schimpf, <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">has been blogging about</a> over on the <a href="http://www.zekiah.com" target="_blank">Zekiah</a> blog. <!--more--> Historically, the PIM data structures have been housed in Microsoft SQL Server, but we've been working on porting it to other platforms to provide options to end users. We've done an initial port to <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> but we've been spending most of our time on a <a href="http://www.sqlite.org/" target="_blank">SQLite</a>/<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> version. This has taken two forms. First is the port of the PIM structure itself to SQLite to make it easier to provide some of the PIM services such as profiling, version-to-version migrations, dataset generation, and validation in remote, field-based settings. Second is the generation/validation of physical implementations in SpatiaLite. This is being done for a customer who is expecting to do field data collection using SpatiaLite and these services will be helpful in enhancing data quality at the point of collection. Additionally, the SpatiaLite aspect of this work has had me living within <a href="http://qgis.org/" target="_blank">QGIS</a> lately.</p>
 
-<p>[caption id="attachment_1985" align="aligncenter" width="300" caption="The extra island off the coast of Canada was edited in with QGIS."]<a href="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png"><img alt="" class="size-medium wp-image-1985" height="160" src="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png?w=300" title="Accessing SpatiaLite 3.0.0 in QGIS" width="300" /></a>[/caption]</p>
+<p>Another thing I've been experimenting with is the use of <a href="http://nodejs.org/" target="_blank">Node.js</a> for real-time data processing. Our long-standing work in the situational awareness realm has had us working with real-time data feeds for a long time. I'm interested in the possibility of using Node to tackle some of the feed collection tasks. I've used an event-driven approach for such tasks in the past so that aspect of Node is quite familiar to me but the use of Javascript, its ease of deployment and potential scalability are intriguing to me. I'm coming late to the party with Node, primarily due to my rustiness with Javascript, but I'm liking what I'm seeing so far.</p>
+
+<p>Beyond those major things, I've had the opportunity to start working with <a href="http://postgis.org/" target="_blank">PostGIS</a> 2.0 and play more with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://mapbox.com/" target="_blank">MapBox</a>. On the development side of things, these efforts have had be jumping back and forth a lot between C#, Javascript and a little bit of Python, as well as between Windows and Linux, depending on the task.</p>
+
+<p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
+
+<p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[zigGIS Hotfix Available]]></title>
-    <link href="http://blog.geomusings.com/2010/06/18/zigGIS-Hotfix-Available/"/>
-    <updated>2010-06-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/18/zigGIS-Hotfix-Available</id>
-    <content type="html"><![CDATA[<p>Abe announced the availability of hotfix 3 for <a href="http://pub.obtusesoft.com">zigGIS</a> 2.0.5. From the announcement:</p>
+    <title type="html"><![CDATA[Configuration Management for Geospatial Data Models]]></title>
+    <link href="http://blog.geomusings.com/2012/03/27/Configuration-Management-for-Geospatial-Data-Models/"/>
+    <updated>2012-03-27T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/03/27/Configuration-Management-for-Geospatial-Data-Models</id>
+    <content type="html"><![CDATA[<p>I wanted to take a opportunity to do something I don't often do, and draw attention to a series of posts that's going on over on <a href="http://www.zekiah.com/index.php?q=blog">my company's blog</a>. About a year ago, my company, <a href="http://www.zekiah.com">Zekiah Technologies</a> joined forces with Upper 90 Systems. Upper 90 was probably best known for their work building tools that supported the Spatial Data Standard for Facilities, Infrastructure, and Environment (SDSFIE), which is a data model that is used by the US DOD to standardize the representation of GIS data for the purpose of performing facilities management on military installations.</p>
 
-<blockquote>Hotfix 3 fixes an issue that prevented point layers from being
-editable; it also includes all prior hotfixes.  The hotfix is a free
-upgrade and is highly recommended for all users.  Please go to
-<a href="http://pub.obtusesoft.com">http://pub.obtusesoft.com</a> &gt; My Order.  After logging in you'll see a
-link to the patch.</blockquote>
+<p><a href="http://www.acq.osd.mil/ie/bei/disdi/factsheet_sdsfie.pdf" target="_blank">SDSFIE</a> (PDF) has existed for some time, with several versions of the standard being rolled out to its diverse user community. Through that process, we've learned a thing or two about configuration management of widely-implemented geospatial data models. This understanding has been turned into a series of tools designed to help with the issues surround lifecycle management of a data model (as opposed to physical databases themselves). <!--more--></p>
 
+<p>The approach and tools are loosely referred to as the "platform-independent model", or PIM. We call it that because the model defines the rules that govern how to create and manage a geospatial database in compliance with a given data standard, but the model is not the database itself. As a result, we can support physical implementations on any number of platforms (Esri, PostGIS, Oracle Spatial, SpatiaLite, Bentley, Autodesk, etc.). The tools give users the ability to perform version management, schema generation, compliance checking, profiling, development of migration paths between versions and many other functions.</p>
 
-<p><a href="http://abegillespie.blogspot.com">Abe</a> is working hard on <a href="http://geobabble.wordpress.com/2010/04/23/ziggis-3-0-to-be-open-source/">version 3.0</a> but obviously is continuing to support 2.x as well. Improvements include a new provider model which will better enable support for other data sources. A roadmap should be available soon.</p>
+<p>Barry Schimpf, the former president of Upper 90 Systems and now my colleague at Zekiah, has been working on a series of posts describing this approach and, eventually, the tools. Three posts have gone up with others on the way:</p>
+
+<p><a href="http://www.zekiah.com/index.php?q=blog/2012/01/13/expanding-usefulness-geospatial-data-standards" target="_blank">Expanding Usefulness of Geospatial Data Standards</a>
+<a href="http://www.zekiah.com/index.php?q=blog/2012/03/19/applying-flexible-yet-standard-geospatial-conventions" target="_blank">Applying Flexible, Yet Standard, Geospatial Conventions</a>
+<a href="http://www.zekiah.com/index.php?q=blog/2012/03/24/understanding-geospatial-data-rules-platform-independent-model-pim" target="_blank">Understanding Geospatial Data Rules in the Platform Independent Model (PIM)</a></p>
+
+<p>The approach Barry discusses has already been leveraged to support Federal data models beyond SDSFIE so we know it is transferable. We think it could have benefits for at the state, local, or regional levels as well. I encourage you to check out the posts and keep an eye out for more as they emerge.</p>
 ]]></content>
   </entry>
   

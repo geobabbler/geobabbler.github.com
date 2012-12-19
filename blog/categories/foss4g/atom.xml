@@ -4,7 +4,7 @@
   <title><![CDATA[Category: FOSS4G | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/foss4g/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T14:13:06-05:00</updated>
+  <updated>2012-12-19T17:20:03-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[FOSS4G North America]]></title>
+    <link href="http://blog.geomusings.com/2012/04/12/FOSS4G-North-America/"/>
+    <updated>2012-04-12T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/04/12/FOSS4G-North-America</id>
+    <content type="html"><![CDATA[<p>It's rather fitting that the second plenary talk on Wednesday had to do with "firehose" applications since the <a href="http://foss4g-na.org/" target="_blank">FOSS4G North America</a> (FOSS4GNA) conference was something of a firehose in itself. Despite the fact that the event was smaller than the worldwide event in Denver back in October, I came away with the same "full brain" feeling.</p>
+
+<p><img alt="It feels like I never leave this place." src="http://www.visitingdc.com/images/washington-dc-convention-center.jpg" /></p>
+
+<p>Of course, given the recent production release of <a href="http://blog.opengeo.org/2012/04/03/postgis-2-0-released/" target="_blank">PostGIS 2.0</a>, that was kind of the big story for this event. I attended a number of <a href="http://postgis.org/" target="_blank">PostGIS</a>/<a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>-related sessions and came away with lots of new information. I especially enjoyed <a href="http://twitter.com/pwramsey" target="_blank">Paul Ramsey's</a> "what's new" talk on Wednesday. One thing I enjoy about his talks (here and in Denver) is that he's not afraid to throw sample SQL up on the screen. It's one thing to hear about a new feature but it's another thing entirely to see a concrete example. Some may find the idea of raw SQL in a presentation abhorrent but it worked for me. <!--more--></p>
+
+<p>I've already started playing with PostGIS 2.0 but haven't gotten terribly far so these sessions helped a lot. It's already been pretty well vetted by the community during it's various pre-release stages so it seems remarkably stable. With the addition of topology and raster analysis in addition to 3D/4D indexing and new vector functions, PostGIS probably handles the majority of what most users would need for GIS analysis at the database level. I'm excited to dig deeper.</p>
+
+<p>I also attended a few web-mapping themed talks. If there is one word that consistently and repeatedly passed the lips of most of the presenters, it was "<a href="http://geojson.org/" target="_blank">GeoJSON</a>." I've <a href="http://blog.geomusings.com/?s=geojson" target="_blank">blogged about GeoJSON</a> in the past but it really is the oil that makes the modern geo-web run smoothly. The rate of adoption it is receiving rivals only one other <em>de facto</em> standard that I can recall: you may remember something called the shapefile. The fact is that anyone who's been hunting through their file system looking for the "next shapefile" has been looking in the wrong place. It lives behind that nice map in your browser. The shapefile took off because it solved a problem for what was the frontier of GIS in the 1990s; the transition from heavy workstations to desktop mapping. GeoJSON solves the problem of delivering vector spatial data for today's frontier; the transition from the desktop GIS to web mapping. It's that simple. We don't need another file format to solve an old problem that already has a solution.</p>
+
+<p>Of course, there was a lot more. I got introduced to <a href="http://cartodb.com/" target="_blank">CartoDB</a> in Denver, have <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/" target="_blank">experimented with it</a> since then and was able to get an update on its 1.0 release at one of the sessions. It remains a compelling option for spatial data hosting and <a href="http://vizzuality.com/" target="_blank">Vizzuality</a> are actively engaging with the open-source communities that build the tools they use. On the cartography side of things, <a href="http://stamen.com/" target="_blank">Stamen</a> continues to show how beautiful maps can be made with open-source tools. Similarly, <a href="http://mapbox.com/" target="_blank">MapBox</a> showed how they efficiently deliver high-quality maps on the web. For my money, the unsung hero of what MapBox is doing is <a href="http://mapbox.com/mbtiles-spec/utfgrid/" target="_blank">UTFGrid</a>. I hadn't delved into it deeply until I saw the announcement that <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> now supports it. UTFGrid is breathtakingly elegant in its approach to delivering richer content with tiles. I expect that, in a few years, UTFGrid will be a standard part under the hood of any web mapping experience, like tiles and slippy maps are today.</p>
+
+<p>The only consistent criticism I heard was that most of the sessions were "too technical." I can see some validity to this, given that the event was held in Washington, DC and many higher-level government or policy types who may have been seeking to conceptually understand open-source geospatial may have been put off. Commercial vendors have addressed this problem with the establishment of "executive tracks" at their events. That said, if that's the biggest criticism that can be leveled, then FOSS4GNA was a rousing success in my book.</p>
+
+<p>I have resolved that I will take at least one of my kids, if not both, to the next FOSS4G event that I attend. The attitude of the open-source crowd is one that I want to rub off on them. Aside from the energy that is exuded from a gathering such as this, the open-source world is full of people who see a problem and just set out to solve it. I want my kids to be exposed to that kind of initiative and understand the power that can come from harnessing it, even if they never go into a technical field.</p>
+
+<p>My understanding is that FOSS4GNA came together very quickly. Given that, it was a very high-quality conference and the organizers should be commended. Early tongue-in-cheek commentary referred to it as the "<a href="http://opengeo.org/" target="_blank">OpenGeo </a>User Conference." I felt like there was good balance and, when I attended sessions given by OpenGeo staff, I didn't feel like I was beaten over the head with the OpenGeo brand. All-in-all, I found my day-and-a-half at FOSS4GNA to be very beneficial and I'm hoping it becomes an annual event. (<strong>Update</strong>: It looks like next year's FOSS4GNA <a href="https://twitter.com/#!/foss4gna/status/190517270928293888" target="_blank">will be in Minnesota</a>.)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FOSS4G North America to Be Held In Washington, DC]]></title>
+    <link href="http://blog.geomusings.com/2012/01/23/FOSS4G-North-America-to-Be-Held-In-Washington-DC/"/>
+    <updated>2012-01-23T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/01/23/FOSS4G-North-America-to-Be-Held-In-Washington-DC</id>
+    <content type="html"><![CDATA[<p>I'm quite happy to see (HT, <a href="http://blog.gisuser.com/2012/01/23/north-america-gets-their-own-foss4g-conference-in-d-c/" target="_blank">Glenn Letham</a>) that <a href="http://www.osgeo.org/" target="_blank">OSGEO</a> is inaugurating an annual <a href="http://foss4g-na.org/" target="_blank">FOSS4G North America</a> conference this year in Washington, DC on April 10-12, 2012.</p>
+
+<p>DC is an appropriate place for this event because of the presence or arguably the single largest user of geospatial technology, the US Federal Government. I'm happy to see that <a href="http://twitter.com/Byrne_Tweets" target="_blank">Michael Byrne</a> is the keynote speaker as the <a href="http://broadbandmap.gov/" target="_blank">FCC National Broadband Map</a> has been a great success story in the use of open-source geospatial tools at the Federal level. I've been seeing more activity within the Federal Government recently but there's still a long way to go.</p>
+
+<p>I know a lot of people in this area that couldn't make it out to Denver last year for FOSS4G. I hope many of them come to this edition to see the state of the art in open-source geospatial tools. I know this conference is targeted to North America as a whole but, if you are in the DC area and active with geospatial technology, FOSS4G North America should be on your calendar.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[CartoDB + Leaflet = Easy]]></title>
@@ -199,101 +237,6 @@ MXD2map is actively supported by <a href="http://www.bsh.de/">Bundesamt fuer See
 
 
 <p>That's it. I'm excited about catching up with old friends, meeting new ones, connecting Twitter avatars to real faces, and soaking up lots of FOSS4G knowledge.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using Dynamic Non-Spatial Data In GeoCommons]]></title>
-    <link href="http://blog.geomusings.com/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons/"/>
-    <updated>2011-09-07T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons</id>
-    <content type="html"><![CDATA[<p>In <a href="http://blog.geomusings.com/2011/08/30/prying-data-open/">my previous post</a>, I described how I used a Python script to scrape power outage information from a local web site and convert it into an RSS feed. In this post, I'll show how I used GeoCommons to visualize the changing information over time.</p>
-
-<p>The process starts by creating a data set in GeoCommmons based on a URL link to the feed created in the previous post. The general process for doing that can be found <a href="http://geocommons.com/help/User_Manual#Add-a-URL-Link-from-the-web">here</a> in the GeoCommons documentation.</p>
-
-<!--more-->
-
-
-<p>My feed is not a GeoRSS feed so it has no location data of its own for GeoCommons to work with. During the upload process, I reached this screen, which starts the process of helping to attach location to my data.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2037" height="388" src="http://geobabble.files.wordpress.com/2011/09/geocommons4.png" title="Geolocating data in GeoCommons" width="590" /></p>
-
-<p>The feed summarizes power outage by ZIP code so I chose "Join with a boundary dataset" so that I could join it with ZIP code boundaries I had previously uploaded.</p>
-
-<p>I selected the attribute in my feed (title) that was to be used to join with a corresponding attribute in the boundary data set (Zip) as shown below.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2038" height="345" src="http://geobabble.files.wordpress.com/2011/09/geocommons6.png" title="GeoCommons6" width="590" /></p>
-
-<p>You'll notice that the success message indicates three features were matched. This is true for this version of the feed because ZIP codes with zero power outages are not reported. The join, however, updates itself as the feed updates so more or less polygons may appear in the current version, depending upon feed content.</p>
-
-<p>After reviewing my data and providing some basic metadata, GeoCommons performed the join and my data set was ready to go.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2041" height="443" src="http://geobabble.files.wordpress.com/2011/09/geocommons9.png" title="Completed data set" width="554" /></p>
-
-<p>In the image above, you'll notice a link labeled "fetch latest." That link, which is formatted as "http://geocommons.com/overlays/{overlayid}/fetch," can be used to manually get the latest version of the feed, which is stored by GeoCommons. Essentially, GeoCommons stores the state of each feature in the data set as the feed is fetched so you build a "version history" your data. As long as you have a date/time attribute, you can use GeoCommons to visualize the changes over time.</p>
-
-<p>In addition to the Python code from previous post, I also used a variant on the script found at <a href="http://www.voidspace.org.uk/python/articles/authentication.shtml">http://www.voidspace.org.uk/python/articles/authentication.shtml</a>. The fetching capability requires authentication so I modified the script to call the "fetch" URL using my GeoCommons user name and password. The script may be overkill but work perfectly without any changes.</p>
-
-<p>On the server, I wrote a four-line batch file to act as a driver for the whole process. This batch file is what is called by a scheduled task in Windows.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">del</span> <span class="p">&lt;</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">xml</span>
-</span><span class='line'><span class="n">del</span> <span class="p">&lt;/</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">pickle</span>
-</span><span class='line'><span class="n">python</span> <span class="n">SmecoFeedObj</span><span class="p">.</span><span class="n">py</span>
-</span><span class='line'><span class="n">python</span> <span class="n">fetchlatest</span><span class="p">.</span><span class="n">py</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>As you can see, the batch is very simple. It deletes the old files, scrapes the latest version and writes new files (SmecoFeedObj.py) and then updates the GeoCommons data set (fetchlatest.py).</p>
-
-<p>The server is a Windows server so I set up a scheduled task (How to: <a href="http://support.microsoft.com/kb/308569">XP</a>, <a href="http://windows.microsoft.com/en-US/windows-vista/Schedule-a-task">Vista</a>, <a href="http://windows.microsoft.com/en-US/windows7/schedule-a-task">Windows 7</a>, <a href="http://technet.microsoft.com/en-us/library/cc738106(WS.10).aspx">Server 2003</a>, <a href="http://technet.microsoft.com/en-us/library/cc725745.aspx">Server 2008</a>). I set my task up to run once an hour so the latest data is scraped and pushed to GeoCommons hourly.</p>
-
-<p>With the data set now created and being updated, it can be used to make maps in GeoCommons to visualize the changing data. I created two maps to demonstrate this. <a href="http://geocommons.com/maps/97820">The first</a>, using a filter, allows a user to filter the feed data to a time window of their choosing and map just the outage data for that time window.</p>
-
-<p>The <a href="http://geocommons.com/maps/97820">second map</a>, shown below, uses GeoCommons animation capability to allow a user to "play through" the data based upon the publication date/time. A user can either drag the time slider manually or let it play automatically. They can also adjust the width of the slider to narrow/widen the time window. I've been told by GeoIQ that animation is under active improvement so I'm interested to see how it evolves. This was my first attempt at using it with my own data so I'm sure I'm not using it optimally. That said, I'm impressed with how easy it was to set up a time-based animation.</p>
-
-<div style="text-align: center"><a href="http://geocommons.com/maps/97820"><img alt="" class="size-full wp-image-2043" height="278" src="http://geobabble.files.wordpress.com/2011/09/geocommons10.png" title="GeoCommons map animating power outage data" width="590" /></a><div style="text-align: center;font-size: 14px;">GeoCommons map animating power outage data<br/></div></div>
-
-
-<p>All-in-all, it took me about 4 hours to go from data embedded in an HTML page to a working map animation. That really speaks to the power of the tools available today, from programming languages like Python and open standards like RSS to online tools like GeoCommons, as well as a host of others I didn't use for this work. It is becoming easier all the time to integrate and use spatial tools to exploit data from traditionally non-spatial sources and share the results widely. As traditional "GIS" fades into the background, the resulting fusion of more standard technologies is opening a wider world of possibilities.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ten-Second Tidy]]></title>
-    <link href="http://blog.geomusings.com/2010/12/10/Ten-Second-Tidy/"/>
-    <updated>2010-12-10T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/12/10/Ten-Second-Tidy</id>
-    <content type="html"><![CDATA[<p>Things have been a bit hectic the last few weeks and that's left little time for blogging. Quite a bit has happened so I thought I'd do a little round-up (if for no other reason than to clear my own head).</p>
-
-<p><iframe width="560" height="420" src="http://www.youtube.com/embed/cJa7P6dfmco?color=white&theme=light"></iframe></p>
-
-<p>In no particular order:</p>
-
-<p><strong>Steve Coast to Microsoft</strong> (I told you it had been a while) - Firstly, congratulations to Steve (#sincerity).  Secondly, this clearly is the final proof that crowd-sourced data in general, and OpenStreetMaps (sic) in particular, <a href="http://geobabble.wordpress.com/2010/09/16/be-the-crowd/">has no real value when compared to "authoritative" data sources</a> (#sarcasm).</p>
-
-<p><strong>Google Fusion Tables</strong> - The only real problem at this point is the size limitation but, otherwise, this will be a game-changer for storing and sharing data. In its current form, it's already fairly easy to push your data up and expose it through Google's APIs. It'll be interesting to see if it gets easier. Support for spatial queries hints at some analytical capability, too. Speaking of which...</p>
-
-<p><strong>Analytics in GeoCommons</strong> - This is one to watch. They are debuting a new function each day <a href="http://blog.fortiusone.com/2010/12/06/the-12-analytics-of-christmas/">on their blog</a>. FortiusOne builds their platform API-first, UI-second so everything they are showing should be exposed through their APIs. This will be a huge step in moving cloud-based geospatial technology from the "bit-bucket" stage to having a more complete workflow on the cloud infrastructure.</p>
-
-<!--more-->
-
-
-<p><strong>Arc2Earth Data Services and Arc2Cloud</strong> - Continuing the theme of building a complete workflow, <a href="http://www.arc2earth.com">Arc2Earth</a> is working on exposing a <a href="http://www.arc2earth.com/services/data-services/">complete range of Google geospatial services</a> to ArcGIS Desktop users. It's no secret that I'm a fan of Arc2Earth (and <a href="http://www.zekiah.com">my company</a> is a reseller), but this represents a big expansion of capability. Google's cloud infrastructure works differently that Amazon's and I think what <a href="http://beta.arc2cloud.com/">Arc2Earth is doing</a> is important because it will open up another channel for users and enable them to <a href="http://geobabble.wordpress.com/2010/07/26/clouds/">make choices based on their needs and requirements</a>.</p>
-
-<p><strong>WeoGeo</strong> - <a href="http://www.weogeo.com">These guys</a> never sit still either. They've got some changes coming up that will greatly increase flexibility for managing spatial data on a cloud infrastructure. Taken together with the previous two entries on GeoCommons and Arc2Earth, I see a lot of innovation in cloud-based GIS really being driven by small, focused companies. This is not simply "push your server to an AMI and keep working." (Although that approach can have some utility.) Each of these companies is trying to figure out how to leverage the unique capabilities of cloud infrastructures to build new workflows and expand capability for users. And, it's important to note, they are making headway.</p>
-
-<p><strong>WhereCampDC</strong> - Obviously, judging from the <a href="http://wherecampdc.org/">web site</a>, it's still in the early planning stages but I'm excited by the idea. This is exactly the kind of independent event that this area needs. I have always been baffled by the lack of such events in this area, especially given the level of geospatial activity around here.</p>
-
-<p><strong>Google Earth 6</strong> - The <a href="http://www.google.com/earth/index.html">latest release</a> confirms that StreetView has yet to drive my street. For that I am happy.</p>
-
-<p><strong>FOSS4G</strong> - The conference doesn't happen until next September and already the buzz is building. I have had people that I know have yet to touch an open-source GIS tool ask me what I know about "that <a href="http://foss4g.org/static/index.html">conference</a> I'm hearing about in Denver."</p>
-
-<p><strong>Silverlight</strong> - I can't think of a technology in recent years that has given me more of a feeling of ambivalence. It has great capability and the Esri Silverlight API team has done good work building on it (this piece addresses Silverlight, not the Esri API). I think it'll continue to be a fine technology for intranet development but I'll leave it there. I don't expect my work with it to wind down anytime soon so I'll keep blogging it as I think it's perfectly possible to be productive with Silverlight within certain parameters. <a href="http://techcrunch.com/2010/10/30/rip-silverlight-on-the-web/">The whole episode regarding its future</a> (which was something of a tempest in a teapot, in reality) simply highlights the risks involved in relying on closed, proprietary technologies. This time, it was Silverlight, but make no mistake, the same risks are there with Flex/Flash (it just runs on more browser/OS combinations). Of course, there are risks with <em>any</em> technology choice but it's nice when those risks do not include "whim."</p>
-
-<p>So that's it for my odds and ends. It's good to get them stuffed back into the couch. 2010 has been an interesting year. It almost feels like a year in which groundwork is being laid. It may just be me, but I have a feeling of anticipation similar to what I feel right before the first daffodils appear in Spring. It just feels like there's a good bit of pent-up energy and that a lot of new things are about to spring forth. It could be loads of fun.</p>
 ]]></content>
   </entry>
   

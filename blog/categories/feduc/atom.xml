@@ -4,7 +4,7 @@
   <title><![CDATA[Category: FedUC | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/feduc/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T14:13:06-05:00</updated>
+  <updated>2012-12-19T17:20:03-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ESRI Federal GIS Conference Wrap-up]]></title>
+    <link href="http://blog.geomusings.com/2012/02/25/ESRI-Federal-GIS-Conference-Wrap-up/"/>
+    <updated>2012-02-25T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/02/25/ESRI-Federal-GIS-Conference-Wrap-up</id>
+    <content type="html"><![CDATA[<p>After arriving a little late on Day 2 due to needing to push updates to an application we're building for an NGO, I was able to catch most of the session about deploying ArcGIS Server in the cloud. James was sitting in the front and has <a href="http://www.spatiallyadjusted.com/2012/02/23/the-business-case-for-arcgis-in-da-cloud/" target="_blank">already blogged that session</a> so I won't go into detail about it here. One thing that did jump out at me came during the Q&amp;A, when someone asked about certification and accreditation (C&amp;A) of AWS deployments.</p>
+
+<p><img alt="" class="alignnone" height="419" src="http://www.visitingdc.com/images/washington-dc-convention-center.jpg" title="Washington Convention Center" width="620" /></p>
+
+<p>If you work in the Federal space, you know that C&amp;A is a huge issue for the deployment of any information system, regardless of platform, for the Federal Government. Since hosted deployments essentially mean outsourcing your physical infrastructure, information security types have understandably proceeded with caution here. <!--more--></p>
+
+<p>To be quite frank, C&amp;A is an issue that ESRI has historically treated superficially at best. It has been viewed as something for integrators to work out despite the fact that there are <a href="https://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002" target="_blank">FISMA</a> implications at the platform level as well. I am happy to say that seems to have changed. As I mentioned toward the end of my <a href="http://blog.geomusings.com/2012/02/23/esrifedcon-day-one-users-will-be-happy/">previous post</a>, ESRI seems to possess a much more mature and holistic understanding of the issues that drive Federal IT acquisition. This was on display here as the ESRI staff running the session provided intelligent answers regarding levels of FISMA compliance as well as the existence/creation of baseline C&amp;A packages that can help jump start <a href="http://iase.disa.mil/diacap/" target="_blank">DIACAP</a> accreditation. Due to time constraints, they didn't get into a lot of detail but it was clear there is now a deeper understanding of C&amp;A issues within ESRI.</p>
+
+<p>I also attended the <a href="http://www.esri.com/events/fedcon/agenda/dev-geo.html">DevGeo</a> segment on ArcGIS Runtime. This technology, which is different than I had expected in many ways, seems to finally plug a gap that has existed in the ESRI platform since the sunsetting of MapObjects. There is once again an easily deployable way to embed ESRI mapping capability into an application. The reality is that there's still a huge demand for desktop applications out there. Over the last two years, I have personally seen increased demand for various desktop tools as the majority of the development community has moved to the web. The ArcGIS Runtime demo I saw during the session already demonstrates that it can plug a serious performance issue that one of my customers is currently having with an in-vehicle application.</p>
+
+<p>The quick hits that jumped out at me: easy deployment model, lack of COM dependencies, native 64-bit support on Linux and Windows while also retaining 32-bit support on Windows, Linux support, and the ability to safely deploy Runtime applications side-by-side with older versions of ArcGIS. These reasons alone move it ahead of ArcGIS Engine in my consideration of tools to use when developing ESRI-centric applications.</p>
+
+<p>I also attended the session on the <a href="http://www.hifldwg.org" target="_blank">HIFLD</a> working group. This was something of a 10-year retrospective on the group that included a series of lightning talks about current efforts across participating agencies. I was in the room for the first meeting back in 2002 and <a href="http://www.zekiah.com" target="_blank">my company</a> continues to support it to this day. Today, it's primarily noted for for coordinating requirements for <a href="http://www.youtube.com/watch?v=IEhjN2y-o54" target="_blank">HSIP</a> (video link). HSIP does have some issues, <a href="http://www.epcupdates.org/2011/09/nga-release-homeland-security.html" target="_blank">fairly accurately portrayed here</a>, but the support team is making a good-faith effort to move to a more collaborative model while also trying to balance the often-competing priorities of the various stakeholders. It's not been easy and progress has been incremental but it's been a quiet, if qualified, success story so far in terms of applying GIS to homeland security issues.</p>
+
+<p>After that session, I headed out to the social. By this, I don't mean the official social at the Air and Space Museum. While this was an ESRI conference, ESRI tools are not the only ones I use. Due to the fact that the Federal GIS Conference draws an increasing number of geospatial users from around the country, an informal gathering has taken place at <a href="http://www.lovethebeer.com/rfd.html" target="_blank">RFD</a> over the last few years. This gathering typically includes not only conference attendees but also people with other DC-area geospatial companies such as <a href="http://www.geoiq.com" target="_blank">GeoIQ</a>. Some people attend the ESRI event and drop by RFD later. What usually results is a good mix of discussion. I have come to realize that I value these types of gatherings as a way to reconnect with people I don't get to see often, meet new people, and generally recharge my batteries. This informal gathering gives me a chance to throw a lot of different things into my melting pot and let them stew for a bit. I have come to view it as being almost as valuable as the conference itself.</p>
+
+<p>I didn't attend the last day because two days out of the office leaves a lot to catch up on. I was happy to catch up with everyone (far too numerous to name here) and look forward to the chance to do so again in the near future. For those who had to travel to DC to attend, I wish you safe travels home.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Esrifedcon Day One Users Will Be Happy]]></title>
+    <link href="http://blog.geomusings.com/2012/02/23/EsriFedCon-Day-One-Users-Will-Be-Happy/"/>
+    <updated>2012-02-23T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/02/23/EsriFedCon-Day-One-Users-Will-Be-Happy</id>
+    <content type="html"><![CDATA[<p>I didn't catch the first half of the Esri Federal GIS Conference plenary but James did a <a href="http://www.spatiallyadjusted.com/2012/02/22/the-esri-federal-gis-conference-plenary/" target="_blank">good recap of it on his blog</a>. I did, however, catch the second half and the opening of the exhibit hall.</p>
+
+<p>[caption id="attachment_2499" align="aligncenter" width="640" caption="GIS letters from the road"]<a href="http://geobabble.files.wordpress.com/2012/02/feduc2.png"><img alt="" class="size-full wp-image-2499" height="359" src="http://geobabble.files.wordpress.com/2012/02/feduc2.png" title="feduc2" width="640" /></a>[/caption]</p>
+
+<p>This year was a departure from previous years in that it wasn't a litany of the new things coming in each component of the Esri stack. The "GIS letters from the road" theme drew attention to problems that can be solved by leveraging the entire stack as a unit. It was a good twist that made it impossible to just drop in, hear about your favorite Esri product, and drop out. I have to give kudos to Esri's marketing team for taking it in this direction. <!--more--></p>
+
+<p>Overall, what I saw with 10.1 is that end users will be very happy. The whole user experience is smoother and just easier to use for end users. Some of what I saw was capability that has been around for quite some time but not presented to the user very well. Others, such as the drag-and-drop imagery handling is capability that eliminates work that technicians used to invest a lot of time into. Esri has really stepped up to automate a lot of bread-and-butter geoprocessing and include it in the core products as standard capability.</p>
+
+<p>Some of things I saw, such as the entire situational awareness demo, didn't show anything that I hadn't seen implemented by consultants and business partners in the past. In fact, the entire capability of the situational awareness demo was very close to something I built for an ops center in 2003. Additionally, niche capabilities such as drag-and-drop CSVs are things that would have once been left to business partners.</p>
+
+<p>So, what's different? Esri understands their customer better now; especially the Federal government. A world where an organization needs to take a balkanized approach to building the full capability they need, with a core stack from Esri and a bunch of add-on extensions from business partners, is a procurement nightmare for Federal organizations. The fact that such third-party tools sit outside of an ELA doesn't help. The end result is a less-than-satisfactory experience for users and perhaps a lot of unnecessary in-house development to avoid additional procurement. So, stuff all of this user-friendly capability into the core product and move on. I actually don't have much of a problem with that.</p>
+
+<p>All of this will be great for Esri and its end users. It might be less great for GIS technicians and certain kinds of business partners. With regard to analysts, all was not dark. Geoprocessing packages are a very powerful tool to encapsulate custom GIS analysis methods into standardized, repeatable processes that can be executed by end users. See that? End users again. If you're an experienced analyst who understands complex spatial modeling techniques, there's a bright future being the go-to person for such things. The technicians who did all the mundane data prep might want to start touching up their resumes, however.</p>
+
+<p>What I saw yesterday leads me to the same conclusion for both analysts and business partners: the ones who will thrive will be those who have a deep understanding of a vertical domain to which GIS can be applied. What I didn't see yesterday was a big push by Esri to get into the various verticals. This makes sense as is it would quickly spread them too thin. Business partners who made a living building generic add-on tools to plug gaps in ArcGIS probably have a limited time left. Business partners who really understand something like climate modeling, solar panel placement optimization, wildlife migration patterns, oil and gas exploration or a host of other vertical disciplines and understand how to apply GIS to them and build tools on top of the ArcGIS platform to support them will probably have nothing to worry about.</p>
+
+<p>The same goes for analysts. Current GIS analysts with deep experience will continue to be in demand. If, however, you are currently in college with the idea of being a "GIS Analyst", I strongly advise you to switch to another discipline and work toward becoming an analyst within that discipline who happens to know how use GIS as a tool.</p>
+
+<p>What about developers? Between all of the platforms on which ArcGIS is running and all of the tools needed in the various vertical domains, I think things will be wide open for quite some time. And, as the demos yesterday showed, there's a lot of value in being the person who can write the code that turns imagery preparation into a drag-and-drop process.</p>
+
+<p>What I saw yesterday was that Esri understands the value of the infrastructure they have put in place and that they also possess a mature, holistic understanding of their user base and are now happy to step on the gas pedal.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Esri Fed Conference]]></title>
+    <link href="http://blog.geomusings.com/2012/02/21/Esri-Fed-Conference/"/>
+    <updated>2012-02-21T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/02/21/Esri-Fed-Conference</id>
+    <content type="html"><![CDATA[<p>I'll be attending the <a href="http://www.esri.com/events/fedcon/index.html" target="_blank">Esri Federal <del datetime="2012-02-21T11:14:37+00:00">User</del> GIS Conference</a> this week. For various reasons, I'll be attending on the "Increased Carbon Footprint Plan" and commuting to and from the conference each day.</p>
+
+<p>I'm looking forward to the reprise of the <a href="http://www.esri.com/events/fedcon/agenda/dev-geo.html" target="_blank">DevGeo</a> session this year as well as a number of the sessions and also meeting up with a lot of my geo-geek friends. I haven't heard the details on #geoglobaldomination yet but I'm sure it will occur.</p>
+
+<p>I'll try to blog more during the course of the conference.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FOSS4G North America to Be Held In Washington, DC]]></title>
+    <link href="http://blog.geomusings.com/2012/01/23/FOSS4G-North-America-to-Be-Held-In-Washington-DC/"/>
+    <updated>2012-01-23T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/01/23/FOSS4G-North-America-to-Be-Held-In-Washington-DC</id>
+    <content type="html"><![CDATA[<p>I'm quite happy to see (HT, <a href="http://blog.gisuser.com/2012/01/23/north-america-gets-their-own-foss4g-conference-in-d-c/" target="_blank">Glenn Letham</a>) that <a href="http://www.osgeo.org/" target="_blank">OSGEO</a> is inaugurating an annual <a href="http://foss4g-na.org/" target="_blank">FOSS4G North America</a> conference this year in Washington, DC on April 10-12, 2012.</p>
+
+<p>DC is an appropriate place for this event because of the presence or arguably the single largest user of geospatial technology, the US Federal Government. I'm happy to see that <a href="http://twitter.com/Byrne_Tweets" target="_blank">Michael Byrne</a> is the keynote speaker as the <a href="http://broadbandmap.gov/" target="_blank">FCC National Broadband Map</a> has been a great success story in the use of open-source geospatial tools at the Federal level. I've been seeing more activity within the Federal Government recently but there's still a long way to go.</p>
+
+<p>I know a lot of people in this area that couldn't make it out to Denver last year for FOSS4G. I hope many of them come to this edition to see the state of the art in open-source geospatial tools. I know this conference is targeted to North America as a whole but, if you are in the DC area and active with geospatial technology, FOSS4G North America should be on your calendar.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My Day At the 2011 FedUC]]></title>
@@ -58,543 +138,6 @@
 <p>I did not go to the Esri shindig at the Natural History Museum as I instead went to the #geoglobaldomination at RFD. Quite a few people from the DC geo scene were there (such as a large crew from <a href="http://www.fortiusone.com">FortiusOne</a>). One of the great things about Esri's conferences is that they act as something of a center of gravity for geo types of all stripes. So there was a great mingling of ideas and catching up with some people that I hadn't seen in a long time. Then, it was time to head for home.</p>
 
 <p>So that closes the books for me on this year's FedUC. Due to scheduling, this will be the only one of the big Esri conferences I'll hit this year so I'll be looking for another backchannel from the <a href="http://www.dtsagile.com/">DTS</a> guys to keep up with the Dev Summit and the International User Conference. :-)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DevGeo Session at the Esri FedUC]]></title>
-    <link href="http://blog.geomusings.com/2010/12/13/DevGeo-Session-at-the-Esri-FedUC/"/>
-    <updated>2010-12-13T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/12/13/DevGeo-Session-at-the-Esri-FedUC</id>
-    <content type="html"><![CDATA[<p>We are approximately a month away from the <a href="http://www.esri.com/events/feduc/index.html">Esri Federal User Conference</a>. It is probably the largest geospatially-themed event in the DC/Maryland/Virginia area each year and has gotten bigger each year. I have documented this conference in the past and have pointed out that, despite its name, there is a lot of information that can be of value for state/local and other non-Federal users of Esri products. Given constrained travel budgets, it?s a good option for people who may not be able to make it to San Diego.</p>
-
-<p>This year, Esri has added something new to the FedUC. It was somewhat innocuously <a href="http://twitter.com/#!/JimBarry/status/13301630267039745">tweeted by Jim Barry</a> last week but is, in my opinion, a significant addition. If you check the agenda, you will now see that Thursday, January 20 now includes an <a href="http://www.esri.com/events/feduc/agenda/dev-geo.html">all-day DevGeo session</a>. This is a follow-on event to the <a href="http://www.esri.com/events/devgeo/index.html">inaugural DevGeo session</a> put on in Silicon Valley in November.</p>
-
-<!--more-->
-
-
-<p>Esri has stepped up its direct engagement with developers recently, most notably through the excellent <a href="http://www.esri.com/events/dev-meetup/index.html">Dev Meetup series</a>. Those sessions have been driven primarily by users and, as a result, have had a surprisingly wide range of topics (Windows authentication and PostgreSQL in Illinois, <a href="http://geocommons.com">GeoCommons</a> integration in DC, etc.). The nature of development on the Esri platform is changing rapidly. Gone are the days when ArcObjects was the bread-and-butter of Esri development. I have done a lot of ArcObjects development (and am still doing some) but it is now possible to develop robust applications on the Esri platform without ever writing a line of ArcObjects code. The change has been more gradual than the shift from AML and Avenue to ArcObjects was but is no less significant.</p>
-
-<p>As a result, events like DevGeo are important for staying current on the latest APIs and tools for the Esri platform. The addition of this event to the FedUC provides an opportunity for developers in the region to jump start their familiarity with these tools. It extends the value of the FedUC and was a good move by Esri to add it to the agenda.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Browsing WeoGeo Market Using the ESRI Silverlight API]]></title>
-    <link href="http://blog.geomusings.com/2010/02/25/Browsing-WeoGeo-Market-Using-the-ESRI-Silverlight-API/"/>
-    <updated>2010-02-25T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/02/25/Browsing-WeoGeo-Market-Using-the-ESRI-Silverlight-API</id>
-    <content type="html"><![CDATA[<p><strong>Updated: </strong> This demo application now running <a href="http://demo.zekiah.com/weosilverlight">here</a>. I will update this demo periodically, as time permits, so keep checking back.</p>
-
-<p>At the <a href="http://www.esri.com/events/feduc/index.html">2010 ESRI Federal User Conference</a>, <a href="http://www.weogeo.com">WeoGeo</a> announced the availability of <a href="http://blogs.weogeo.com/jamesfee/2010/02/16/introducing-weogeo-tools-for-arcgis/">a toolbar for interacting with WeoGeo Market and private libraries from within ArcMap</a>. This, combined with Dan Dye?s <a href="http://blogs.weogeo.com/dandye/2010/01/07/weogeo-api-python-examples-part-1/">series of posts</a> showing how to use the <a href="http://wiki.weogeo.com/index.php/Developer:_API">WeoGeo REST API</a> with Python got me thinking about how easy it would be to integrate with ESRI?s clients for the ArcGIS Server REST API. All of my clients (it seems) are using the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">Silverlight API</a> these days so I am spending a lot of time with it and decided to use it as my testbed.</p>
-
-<p>My goal was simple, I wanted to browse the <a href="http://www.weogeo.com/market">WeoGeo Market</a> for any data sets in the current map extent, be able to select one from a list, and have its preview image display in the proper location on my Silverlight map.<!--more--></p>
-
-<p>WeoGeo provides the tools needed to store spatial data online, in the cloud, and sell/disseminate it from there. It gives a user the ability choose options such as spatial reference, data format, geographic extent and other such parameters when they download. If you are a data provider that is selling data, WeoGeo can host it and handle the sales transaction for you. WeoGeo has more advanced data management capabilities as well but they are beyond the scope of this post, although I may delve into them in future posts.</p>
-
-<p>You can find and order data from WeoGeo completely online via their web site but, as the toolbar demonstrates, the WeoGeo API enables integration into the environment in which you work. A key part of the WeoGeo process is the ability to preview data sets to ensure that they are what you need. WeoGeo provides low-resolution KML images as well as other preview images to accomplish this via the web site. Those preview images are also exposed via the WeoGeo API. I decided to hook into the PNG images that are normally delivered via KML.</p>
-
-<p>The <a href="http://wiki.weogeo.com/index.php/Datasets_API">WeoGeo datasets API</a> provides the means to browse data that is available within a geographic extent. This is accomplished through a GET request described <a href="http://wiki.weogeo.com/index.php/Datasets_API#List_Datasets">here</a>. There are many parameters available to allow you to filter data sets but I stuck with the standard parameters this time around. The response depends on what you ask for. GET /datasets.weo will return WeoGeo?s XML document, or <a href="http://wiki.weogeo.com/index.php/Developer:_WeoFile">weo file</a>. GET /datasets.json will return a JSON formatted listing. For this attempt, I went with JSON.</p>
-
-<p>The call returns a list of data sets. The JSON for a single data set looks like this:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="s2">&quot;votes&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;royalty_model&quot;</span><span class="o">:</span> <span class="s2">&quot;UNCREDITED&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;rating&quot;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_discount_expire_option&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;permalink&quot;</span><span class="o">:</span> <span class="s2">&quot;spatialed_sample_sql_server_data&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Sample SQL Server Data&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;step_kamap&quot;</span><span class="o">:</span> <span class="mf">0.0717937948</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;spatial_resolution_in_meters&quot;</span><span class="o">:</span> <span class="mf">3233.80355656636</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;user&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;votes&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;rating&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;spatialed&quot;</span><span class="p">},</span>
-</span><span class='line'><span class="s2">&quot;center_lat&quot;</span><span class="o">:</span> <span class="mf">45.16073438845</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;west_kamap&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">179.1333928049</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;south_kamap&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">134.2235717723</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;number_of_layers&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;uncompressed_misc_files_size&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;token&quot;</span><span class="o">:</span> <span class="s2">&quot;37a39b7d-af4e-d55d-9aa6-1aaff9353594&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;north_kamap&quot;</span><span class="o">:</span> <span class="mf">224.6980287277</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;center_long&quot;</span><span class="o">:</span> <span class="mf">0.3283989648</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;Layer_1&quot;</span><span class="p">,</span> <span class="s2">&quot;Layer_2&quot;</span><span class="p">,</span> <span class="s2">&quot;Layer_3&quot;</span><span class="p">],</span>
-</span><span class='line'><span class="s2">&quot;data_type&quot;</span><span class="o">:</span> <span class="s2">&quot;OTHER&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;data_created_on&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;from_appliance?&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_discount_expires_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;primary_tag&quot;</span><span class="o">:</span> <span class="s2">&quot;SQL&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;south&quot;</span><span class="o">:</span> <span class="mf">18.9234204317</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;projection&quot;</span><span class="o">:</span> <span class="s2">&quot;GEO&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;market&quot;</span><span class="o">:</span> <span class="s2">&quot;Complete&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;file_format&quot;</span><span class="o">:</span> <span class="s2">&quot;GeoTIFF&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;east_kamap&quot;</span><span class="o">:</span> <span class="mf">179.7882076951</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;datum&quot;</span><span class="o">:</span> <span class="s2">&quot;WGS84&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;children_count&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;uploaded_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2009/06/01 22:23:52 -0400&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;uncompressed_data_files_size&quot;</span><span class="o">:</span> <span class="mi">75000770</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_discount_rate&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;price_type&quot;</span><span class="o">:</span> <span class="s2">&quot;FIXED&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;parents_count&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;north&quot;</span><span class="o">:</span> <span class="mf">71.3980483452</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;max_price&quot;</span><span class="o">:</span> <span class="mf">5.04</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;y_conv&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0000000000&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;west&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">179.1333928049</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;\u003Cp\u003ESQL Server 2008 Spatial data for the United States. The data is supplied as a zipped SQL Server Backup file (Sample_USA.bak.zip) and contains the following tables:\u003C/p\u003E\r\n\u003Cbr\u003E\r\n\u003Cul\u003E\r\n\u003Cli\u003EUS Counties \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS States \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS Zipcodes \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS CensusBlockGroups \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS GeoNames \u003Ci\u003E[points]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS Highways \u003Ci\u003E[linestrings]\u003C/i\u003E\u003C/li\u003E\r\n\u003C/ul\u003E\r\n\u003Cp\u003EEach table contains a column of type geometry (geom) and a column of type geography (geog).  The geom column is in a spherical Albers Equal Area projection (the sphere is WGS 84 Authalic, the units are in meters ).  The geog column is in WGS 84 ellipsoidal coordinates.\u003C/p\u003E\r\n  \r\n  &quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;x_conv&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0000000000&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;Approved&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;spatial_resolution&quot;</span><span class="o">:</span> <span class="mf">0.04114097905</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;scales&quot;</span><span class="o">:</span> <span class="s2">&quot;357765655;205940642;118545611;68238409;39280075;22610789&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_min_margin&quot;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;hosted&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;east&quot;</span><span class="o">:</span> <span class="mf">179.7901907345</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_max_discount&quot;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_margin&quot;</span><span class="o">:</span> <span class="mf">0.0</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>From this, I can parse anything I need to know about the data set. In order to handle this, I created a class in C# that can deserialize this JSON into a .Net object. A snippet of that class is here:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;[</span><span class="n">DataContract</span><span class="p">()]</span>
-</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">BrowseDataset</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;token&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Token</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;name&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;description&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Description</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;north_kamap&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">North</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;south_kamap&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">South</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;east_kamap&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">East</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;west_kamap&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">West</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;data_type&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">DataType</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;file_format&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Format</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;data_created_on&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">CreateDate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;provider_margin&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">FullPrice</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;hosted&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Hosted</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;projection&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Projection</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;datum&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Datum</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;center_lat&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">Latitude</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;center_long&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">Longitude</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;children_count&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">int</span> <span class="n">Children</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;parents_count&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">Parents</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;user&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="n">BrowseUser</span> <span class="n">User</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>As can be seen, I used DataContract and DataMember attributes to map the JSON values to properties. I also simplified the property names. If you take the time to compare, you?ll notice that I don?t handle all of the information. The dataset JSON contains more information than I needed for simply browsing so I am filtering out some of it. This doesn?t reduce traffic across the wire but does cut down on memory usage in my Silverlight client.</p>
-
-<p>For my purposes, I decided to extend the ESRI WMS sample for the Silverlight API. I chose this mainly because I am working in it at the moment for another project. To that UI, I added a button that will fetch a WeoGeo dataset listing for my current map extent.</p>
-
-<p><img alt="" height="85" src="http://geobabble.files.wordpress.com/2010/02/fetch_button.png" title="Button and list box for fetching/displaying data sets." width="165" /></p>
-
-<p>When that button is clicked, this event handler is fired:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="k">void</span> <span class="n">btnFetch_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">weo</span><span class="p">.</span><span class="n">ProxyUrl</span> <span class="p">=</span> <span class="n">PrefixProxy</span><span class="p">(</span><span class="s">&quot;http://xxxx&quot;</span><span class="p">).</span><span class="n">AbsoluteUri</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">weo</span><span class="p">.</span><span class="n">BrowseDatasetCompleted</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">BrowseDatasetCompletedHandler</span><span class="p">(</span><span class="n">weo_BrowseDatasetCompleted</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">Envelope</span> <span class="n">env</span> <span class="p">=</span> <span class="n">MyMap</span><span class="p">.</span><span class="n">Extent</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">weo</span><span class="p">.</span><span class="n">getDatasetList</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">YMax</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">YMin</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">XMax</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">XMin</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>"weo" is an instance of a wrapper class I created to encapsulate to WeoGeo interaction.</p>
-
-<p>You will notice that I set up a proxy URL. Silverlight and Flash both are designed to only call back to the server from which they are being served. Any external servers must have a crossdomain.xml file to allow calls from these clients. This means that any external server you may want to use must have one of these files in order to receive calls from Flash or Silverlight clients. Fortunately for this application, this ?security? feature can be circumvented by calling to a proxy handler back on our server which brokers requests and responses to and from external servers. The ESRI sample included a proxy handler that suited my needs so I just used that.</p>
-
-<p>The PrefixProxy (also from the ESRI sample) method includes some Silverlight-specific code so I kept it in my Silverlight Page class. I build a dummy call using the "http://xxxx" token so that my WeoGeo wrapper class doesn?t need to be Silverlight-specific. The wrapper then replaces the token with the correct call to the WeoGeo server. The wrapper?s getDatasetList method looks like this:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">public</span> <span class="k">void</span> <span class="n">getDatasetList</span><span class="p">(</span><span class="kt">int</span> <span class="n">page</span><span class="p">,</span> <span class="kt">double</span> <span class="n">north</span><span class="p">,</span> <span class="kt">double</span> <span class="n">south</span><span class="p">,</span> <span class="kt">double</span> <span class="n">east</span><span class="p">,</span> <span class="kt">double</span> <span class="n">west</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringCompleted</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">DownloadStringCompletedEventHandler</span><span class="p">(</span><span class="n">request_DownloadStringCompleted</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">_datasetBrowse</span><span class="p">,</span><span class="n">_protocol</span><span class="p">,</span> <span class="n">_library</span><span class="p">,</span> <span class="n">page</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">north</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">south</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">east</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">west</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">url</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">ProxyUrl</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;http://xxxx&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
-</span><span class='line'>            <span class="c1">//System.Windows.MessageBox.Show(url);</span>
-</span><span class='line'>            <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringAsync</span><span class="p">(</span><span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">url</span><span class="p">));</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">WebException</span> <span class="n">ex</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">throw</span> <span class="n">ex</span><span class="p">;</span> <span class="c1">//handled elsewhere</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>The WebClient class in Silverlight differs from the standard .Net WebClient in that it only makes asynchronous calls. So I attached a handler for the DownloadStringCompleted event. I then format the tokenized proxy URL with the correct URL to the WeoGeo Market and make the call. The _datasetBrowse variable is simply the template for the call and is defined as:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="kt">string</span> <span class="n">_datasetBrowse</span> <span class="p">=</span> <span class="s">@&quot;{0}{1}/datasets.json?page={2}&amp;amp;north={3}&amp;amp;south={4}&amp;amp;east={5}&amp;amp;west={6}&quot;</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>One note about this call: WeoGeo expects the values for the extent to be in the WGS84 (EPSG:4326) spatial reference. The ESRI Silverlight API does not do coordinate transformations internally so, if your map is not in WGS84, you will need to transform your extent before making the call to the WeoGeo API. In my case, I kept my life simple by using the Blue Marble WMS service that is served by JPL and is in WGS84 (this is a great resource and <a href="http://twitter.com/JeffHarrison">@JeffHarrison</a> was dead-on for reminding me of that fact) .</p>
-
-<p>The DownloadStringCompleted event handler looks like this:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">void</span> <span class="n">request_DownloadStringCompleted</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">DownloadStringCompletedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Result</span><span class="p">;</span>
-</span><span class='line'>             <span class="kt">byte</span><span class="p">[]</span> <span class="n">b</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">Unicode</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">MemoryStream</span> <span class="n">st</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MemoryStream</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">DataContractJsonSerializer</span> <span class="n">ds</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DataContractJsonSerializer</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">BrowseDatasets</span><span class="p">));</span>
-</span><span class='line'>            <span class="n">BrowseDatasets</span> <span class="n">retval</span> <span class="p">=</span> <span class="p">(</span><span class="n">BrowseDatasets</span><span class="p">)</span><span class="n">ds</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">(</span><span class="n">st</span><span class="p">);</span>
-</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="n">BrowseDataset</span> <span class="n">d</span> <span class="k">in</span> <span class="n">retval</span><span class="p">.</span><span class="n">items</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="n">d</span><span class="p">.</span><span class="n">Library</span> <span class="p">=</span> <span class="n">_library</span><span class="p">;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">BrowseResults</span> <span class="p">=</span> <span class="n">retval</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">BrowseDatasetCompleted</span><span class="p">(</span><span class="n">retval</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//System.Windows.MessageBox.Show(ex.ToString());</span>
-</span><span class='line'>            <span class="n">BrowseDatasets</span> <span class="n">erDs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BrowseDatasets</span><span class="p">();</span>
-</span><span class='line'>            <span class="n">erDs</span><span class="p">.</span><span class="n">items</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">BrowseDataset</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;();</span>
-</span><span class='line'>            <span class="n">BrowseDatasetCompleted</span><span class="p">(</span><span class="n">erDs</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>In essence, it takes the JSON response, deserializes it into a list of BrowseDataset objects and then raises the wrapper?s BrowseDatasetCompleted event to pass the object back to the Silverlight application. In this case, an exception produces an empty list.</p>
-
-<p>Back in the Silverlight application, the BrowseDatasetCompleted event handler looks like this:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">void</span> <span class="n">weo_BrowseDatasetCompleted</span><span class="p">(</span><span class="n">Weo4Net</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">BrowseDatasets</span> <span class="n">ds</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">ds</span><span class="p">.</span><span class="n">items</span><span class="p">.</span><span class="n">Count</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">DisplayMemberPath</span> <span class="p">=</span> <span class="s">&quot;Name&quot;</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="n">BrowseDataset</span> <span class="n">bds</span> <span class="k">in</span> <span class="n">ds</span><span class="p">.</span><span class="n">items</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">bds</span><span class="p">);</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">Visibility</span> <span class="p">=</span> <span class="n">Visibility</span><span class="p">.</span><span class="n">Visible</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">else</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">Visibility</span> <span class="p">=</span> <span class="n">Visibility</span><span class="p">.</span><span class="n">Collapsed</span><span class="p">;</span> <span class="c1">//hide if no data sets</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>We could do anything we want here but I am simply adding the data sets to a list box so they can be selected and previewed. At this point, we are ready to put some stuff on the map.</p>
-
-<p>The ESRI Silverlight API provides a layer class called an ElementLayer. This gives you the ability to add one or more UIElement objects to the map to get a very interactive UI. In Silverlight, if you can see it, it?s probably a UIElement so this is how you can add buttons, media, pictures, etc. onto your map. I used an ElementLayer to display the preview images from WeoGeo.</p>
-
-<p>Each BrowseDataset object contains the North, South, East and West properties that define the geographic extent of the data and, thus, the preview image. When the user selects a dataset in the list, I use this information to add an Image element to the layer and define where it should be displayed. That is all handled in the list?s SelectionChanged event handler like this:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="k">void</span> <span class="n">weoDatasetList_SelectionChanged</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">SelectionChangedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">ElementLayer</span> <span class="n">elyr</span> <span class="p">=</span> <span class="n">MyMap</span><span class="p">.</span><span class="n">Layers</span><span class="p">[</span><span class="s">&quot;weoPreviewLayer&quot;</span><span class="p">]</span> <span class="k">as</span> <span class="n">ElementLayer</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">BrowseDataset</span> <span class="n">ds</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">SelectedItem</span> <span class="k">as</span> <span class="n">BrowseDataset</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">elyr</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span> <span class="c1">//clear any previous previews</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;http://weodata.weogeo.com/dataset_tiles/{0}/kml.png&quot;</span><span class="p">,</span> <span class="n">ds</span><span class="p">.</span><span class="n">Token</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">Image</span> <span class="n">img</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Image</span><span class="p">();</span>
-</span><span class='line'>        <span class="n">BitmapImage</span> <span class="n">bmi</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BitmapImage</span><span class="p">(</span><span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">url</span><span class="p">));</span>
-</span><span class='line'>        <span class="n">img</span><span class="p">.</span><span class="n">Source</span> <span class="p">=</span> <span class="n">bmi</span><span class="p">;</span>
-</span><span class='line'>        <span class="c1">//set the ElementLayer.Envelope attribute of the Image</span>
-</span><span class='line'>        <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">Envelope</span> <span class="n">env</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">Envelope</span><span class="p">(</span><span class="n">ds</span><span class="p">.</span><span class="n">East</span><span class="p">,</span> <span class="n">ds</span><span class="p">.</span><span class="n">South</span><span class="p">,</span> <span class="n">ds</span><span class="p">.</span><span class="n">West</span><span class="p">,</span> <span class="n">ds</span><span class="p">.</span><span class="n">North</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">ElementLayer</span><span class="p">.</span><span class="n">SetEnvelope</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">env</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">elyr</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>As can be seen, this is designed to display one preview at a time. The main trick here is that the ElementLayer class defines an attached property called ?Envelope? to define the geographic extent of the UIEelement. In XAML, it would look like this:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;lt;</span>Image Stretch=&quot;Fill&quot; Source=&quot;http://weodata.weogeo.com/dataset_tiles/fc69c451-4714-8250-90d4-91b74528127e/kml.png&quot; esri:ElementLayer.Envelope=&quot;-78.0496954009,34.9499119752,-71.9494760266,40.0496953721&quot; /<span class="ni">&amp;gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>In code, you use the static ElementLayer.SetEnvelope method to set this value for your UIElement. With that, you can now pan/zoom to an extent that you want, click a button to fetch a dataset listing, and select select individual datasets in the list to see the preview images.</p>
-
-<p>I'll probably continue to explore the WeoGeo API with this application over time but this is my first pass. <a href="http://demo.zekiah.com/weosilverlight">I have it running on one of our servers</a> to play with but here is a screen capture:</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2010/02/weo_silverlight.png"><img alt="" class="alignnone size-medium wp-image-823" height="168" src="http://geobabble.files.wordpress.com/2010/02/weo_silverlight.png?w=300" title="ESRI SilverLight API showing Landsat preview image for a Tampa dataset." width="300" /></a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Heading to the 2010 ESRI Federal User Conference]]></title>
-    <link href="http://blog.geomusings.com/2010/02/17/Heading-to-the-2010-ESRI-Federal-User-Conference/"/>
-    <updated>2010-02-17T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/02/17/Heading-to-the-2010-ESRI-Federal-User-Conference</id>
-    <content type="html"><![CDATA[<p>I'm heading out this morning to the <a href="http://www.esri.com/events/feduc/index.html">FedUC</a>. Since it's in my back yard, I usually hit it every year but, this year, I'm staying up in the city to save myself an even more hellish commute than usual. The lingering snow and ice has thrown roads in this area into mayhem.</p>
-
-<p>Rumor has it that there are some <a href="http://www.spatiallyadjusted.com/2010/02/16/off-to-the-2010-esri-federal-user-conference/">West Coasters</a> making the trip for this one. It's a good thing Ross scheduled the <a href="http://www.google.com/calendar/render?eid=ZDlpZTJka2l0NzNhdWJiYWRxYTVmdGQzbzQgdXA3ZHFqMWpxa2JsaDU3MXNwaHZhZnJuODRAZw&amp;sf=true&amp;output=xml">#geoglobaldomination</a> this time so they couldn't use jet lag or time difference or some other excuse for missing it.</p>
-
-<p>There's definitely more of a buzz about the FedUC this year. I have personally spoken to many people locally who, due to the continued economic climate, are crossing San Diego off the list this year. It makes me start to wonder about whether the overall approach to these kinds of shows will start to shift to smaller, regional settings vice the single "big splash" event. Or maybe they should all just go virtual...</p>
-
-<p>If you're at the FedUC, maybe I'll see you there!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First Thoughts on ArcGIS 10.0]]></title>
-    <link href="http://blog.geomusings.com/2010/01/13/First-Thoughts-on-ArcGIS-100/"/>
-    <updated>2010-01-13T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/01/13/First-Thoughts-on-ArcGIS-100</id>
-    <content type="html"><![CDATA[<p>The <a href="http://www.esri.com/news/podcasts/audio/speaker/dangermond_arcgis10.mp3">announcement</a> that ArcGIS 9.4 is being re-christened as 10.0 leaves me feeling somewhat bemused. I have seen the new version of Desktop and it is nice and will finally update the current Office-97-feeling UI. The <a href="http://www.esri.com/software/arcgis/whats-new/whats-coming.html">list of changes coming in 10.0</a> (published so far) is impressive but I haven?t seen any discussion of the changes coming to the ArcGIS architecture, which is of greater interest to me as a developer and integrator. Given the past history of ArcGIS, calling this release 10.0, in my mind, implies a significant architectural shift. ArcGIS 8 was a clear departure from the previous releases of ARC/INFO. Indeed, it not only came with a new version but introduced the name ?ArcGIS.?<!--more--></p>
-
-<p>ArcGIS 9 represented a less-radical, but significant architectural update. By restructuring the underlying ArcObjects components of ArcGIS, ESRI enabled the introduction of ArcGIS Server and ArcGIS Engine and began to unify their desktop, web and mobile offerings. ArcGIS 8 would not have been able to support this.</p>
-
-<p>Quite frankly, I think the current ArcGIS architecture has just about run its course. I think it is time to recognize that desktop, web and mobile applications are each different and need to be built differently. The current reliance on a common pool of ArcObjects, while not necessarily a bad thing for the desktop platform, is a hindrance for ArcGIS Server. To be specific, I am talking about COM here.</p>
-
-<p>ArcGIS Server would benefit greatly from breaking its dependency on COM. I would not complain if I never had to do <a href="http://blog.davebouwman.com/index.php/2009/12/zen-and-the-art-of-serverobjectextensions/">this kind of stuff</a> anymore. This would, of course, mean replacing the capability for extending ArcGIS Server using ArcObjects with a similar capability. It would also mean choosing what to replace it with: .Net?...Java?...ROR?...something else? I think recent efforts with the REST API and its client technologies (JSAPI, Flex API, Silverlight API) speak to a way ahead. I can now pick a native approach and build ArcGIS solutions with less COM than ever before and ArcGIS Server itself is abstracted from the client code enough that replacing the technology that drives it can be relatively transparent. My hope is that these APIs continue to evolve and become more robust and are, perhaps, augmented by a server-side API to enable the development of advanced custom tools without the use of COM.</p>
-
-<p>While ArcGIS Server is far from perfect, it does provide one of the better (quasi)REST APIs available and a consistent way to expose geo-processing and analysis in web applications. I think an official realization that Server is different and a commitment to re-engineer it top to bottom will benefit it in the long run. So the announcement of 10.0 now begs the question ?What is the roadmap for the 10.x series?? I haven?t seen anything yet that indicates 10.0 will introduce such changes but, perhaps, it could be setting the stage for them. ArcGIS 9.0 was released in May 2004. By the time of the scheduled release of 10.0, we will have been working with 9.x for six years. The 8.x series lasted about three and a half years. Given that we could be looking at a few years of 10.x, I?d be interested in knowing more about the underpinnings of 10.x and plans for the future. Could make the <a href="http://www.esri.com/events/devsummit/index.html">DevSummit</a> and <a href="http://www.esri.com/events/feduc/index.html">FedUC</a> interesting this year.</p>
 ]]></content>
   </entry>
   

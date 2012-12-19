@@ -208,7 +208,147 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/07/18/Using-GeoIQ-Analytics-in-.Net-Applications/">Using GeoIQ Analytics in .Net Applications</a></h1>
+      <h1 class="entry-title"><a href="/2012/08/18/Mowers-and-Maps/">Mowers and Maps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-18T00:00:00-04:00" pubdate data-updated="true">Aug 18<span>th</span>, 2012</time>
+        
+         | <a href="/2012/08/18/Mowers-and-Maps/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was mowing the lawn today and trimming with the push mower pictured below. If it looks old, that&#8217;s because it is. I first acquired it in 1978 when it was given to me by neighbors that were moving to an apartment near the city, meaning they no longer needed it. It still starts on the third pull and I&#8217;ve used it every summer since it was given to me.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2823" height="360" src="http://geobabble.files.wordpress.com/2012/08/mower.jpeg" title="They don&#039;t make them like this anymore" width="640" /></p>
+
+<p>As I was mowing, I thought about how old the mower is and how it came to be in my possession. This led me to think about the origin of my fascination with maps. What does one have to do with the other? Allow me to explain.</p>
+
+<p>As you can imagine, I was fairly young when the lawn mower was given to me. I had gotten to know the neighbors up the street by playing with their son. One day, I noticed a large shelf of identical, leather-bound books taking up the entire back wall of a room. I asked what they were and they invited me to browse them. It turned out that my neighbor was the son of a long-time chair of the National Geographic Society. These books were actually bound collections, by year, of every issue of National Geographic from the first issue on.</p>
+
+<p>Over time, I would spend hours poring through these volumes, fascinated by the world as it was documented by National Geographic from 1888 forward. I did not get to read every issue but I was especially drawn to the maps when they were present. I realize now that my identity as a &#8220;map nerd&#8221; took root there.</p>
+
+<p>Coincidentally, 1978 was the year I first started programming. Those two experiences turned out to be major influences on who I became.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/08/14/Create-a-WeoGeo-Tilepack-from-ArcGIS-Tiles/">Create a WeoGeo Tilepack From ArcGIS Tiles</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-14T00:00:00-04:00" pubdate data-updated="true">Aug 14<span>th</span>, 2012</time>
+        
+         | <a href="/2012/08/14/Create-a-WeoGeo-Tilepack-from-ArcGIS-Tiles/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A couple of months ago, <a href="http://twitter.com/dandye" target="_blank">Dan Dye</a> at WeoGeo <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">posted about work he had done</a> to facilitate creating <a href="http://www.weogeo.com" target="_blank">WeoGeo</a> tile packs from <a href="http://mapbox.com/developers/mbtiles/" target="_blank">MBTiles</a> databases. Recently, I had the need to do the same with <a href="http://www.esri.com" target="_blank">ArcGIS</a> tiles. As Dan explained, WeoGeo uses a ZYX structure in their tile packs. This matched up nicely with the Level/Row/Column structure <a href="http://blogs.esri.com/esri/arcgis/2010/08/20/checking-your-local-cache-folders/" target="_blank">used by ArcGIS</a>. WeoGeo supports either WGS84 (EPSG:4326) or Spherical Mercator (EPSG:3857) as spatial references for tile packs. In my case, I used the latter. My preferred way of creating tiles from ArcGIS products is to use <a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>. While Arc2Earth does directly export to the WeoGeo structure, the tiles are watermarked with a WeoGeo logo, which was not needed in this case. Arc2Earth also exports to the ArcGIS structure, so a simple script to convert to the WeoGeo structure is all that was needed.</p>
+
+<p><img alt="Arc2Earth settings to create ArcGIS Tiles" class="aligncenter size-medium wp-image-2815" height="243" src="http://geobabble.files.wordpress.com/2012/08/a2e_ags.png?w=300" title="Arc2Earth settings to create ArcGIS Tiles" width="300" /></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2012/08/14/Create-a-WeoGeo-Tilepack-from-ArcGIS-Tiles/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/07/27/Favorite-QGIS-Resources-of-the-Moment/">Favorite QGIS Resources of the Moment</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-27T00:00:00-04:00" pubdate data-updated="true">Jul 27<span>th</span>, 2012</time>
+        
+         | <a href="/2012/07/27/Favorite-QGIS-Resources-of-the-Moment/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been dabbling more with Quantum GIS (<a href="http://qgis.org" target="_blank">QGIS</a>) lately. I&#8217;m not doing anything particularly sophisticated but it&#8217;s a great viewer for some data types (<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a>, <a href="http://geojson.org/" target="_blank">GeoJSON</a>) that aren&#8217;t supported by my commercial desktop GIS so it&#8217;s helping me validate outputs of some applications I&#8217;m writing.</p>
+
+<p><img alt="" src="http://fossies.org/unix/misc/qgis-1.8.0.tar.gz:a/qgis-1.8.0/images/splash/splash.png" /></p>
+
+<p>While I&#8217;ll never be a real cartographer, I am interested in doing a little more. Here are the resources that have been helping me the most lately&#8230;</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2012/07/27/Favorite-QGIS-Resources-of-the-Moment/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/">Using GeoIQ Analytics in .Net Applications</a></h1>
     
     
       <p class="meta">
@@ -226,7 +366,7 @@
 
 <time datetime="2012-07-18T00:00:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
         
-         | <a href="/2012/07/18/Using-GeoIQ-Analytics-in-.Net-Applications/#disqus_thread">Comments</a>
+         | <a href="/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/#disqus_thread">Comments</a>
         
       </p>
     
@@ -250,7 +390,52 @@
   
   
     <footer>
-      <a rel="full-article" href="/2012/07/18/Using-GeoIQ-Analytics-in-.Net-Applications/">Read on &rarr;</a>
+      <a rel="full-article" href="/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/07/10/GeoIQ-Esri/">GeoIQ & Esri</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-10T00:00:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time>
+        
+         | <a href="/2012/07/10/GeoIQ-Esri/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Okay, everybody calm the hell down. Anyone who thinks that the <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">Esri acquisition of GeoIQ</a> is strange hasn&#8217;t been paying attention to two things: 1) the direction that Esri says they want to go and 2) what the GeoIQ platform really is. I would be very surprised if GeoIQ becomes the 2012 version of <a href="http://www.thefreelibrary.com/ESRI+Acquires+Atlas+GIS+and+Atlas+SDK+--+Claritas+and+ESRI+Announce...-a018336428" target="_blank">Atlas GIS</a>. This acquisition/merger makes more sense than may be initially apparent.</p>
+
+<p>[youtube=http://www.youtube.com/watch?v=_eyFiClAzq8]</p>
+
+<p>It&#8217;s no secret that I&#8217;ve worked with <a href="http://www.esri.com" target="_blank">Esri</a> tools for a long time and my recent work with the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform has been well-documented on this blog, including work integrating the two platforms at the API level. Based on what I&#8217;ve seen from both companies, here are thoughts on why I think this move makes a lot of sense:  </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2012/07/10/GeoIQ-Esri/">Read on &rarr;</a>
     </footer>
   
 
@@ -307,7 +492,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/04/17/ArcGIS-Image-Services-and-Leaflet/">ArcGIS Image Services and Leaflet</a></h1>
+      <h1 class="entry-title"><a href="/2012/07/07/Planet-PostGIS-Online/">Planet PostGIS Online</a></h1>
     
     
       <p class="meta">
@@ -323,212 +508,22 @@
   
 
 
-<time datetime="2012-04-17T00:00:00-04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2012</time>
+<time datetime="2012-07-07T00:00:00-04:00" pubdate data-updated="true">Jul 7<span>th</span>, 2012</time>
         
-         | <a href="/2012/04/17/ArcGIS-Image-Services-and-Leaflet/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;ve become a big fan of <a href="http://leaflet.cloudmade.com/">Leaflet</a> for putting maps on the web. It gives me most of what I need without much of what I don&#8217;t and is fairly easily extended, as shown by the <a href="http://geojason.info/leaflet-vector-layers/">impressive work of Jason Sanford</a>.</p>
-
-<p>A while back, <a href="http://twitter.com/dbouwman">Dave Bouwman</a> <a href="http://blog.davebouwman.com/2011/08/04/leaflet-lean-mean-javascript-maps/">blogged about work</a> he and the team at <a href="http://www.dtsagile.com/">DTS Agile</a> had done extending Leaflet to support ArcGIS Server layers. Given that there are a lot of ArcGIS Servers out there, this is a good thing to have. Thanks to section 4(f) of the <a href="http://www.esri.com/legal/pdfs/e-800-termsofuse.pdf">Esri Web Services Terms of Use</a>, it&#8217;s less useful for use with ArcGIS Online, but that&#8217;s probably the topic of another post. </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/04/17/ArcGIS-Image-Services-and-Leaflet/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/02/08/Speaking-of-the-84/">Speaking of the 84%&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-08T00:00:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2012</time>
-        
-         | <a href="/2012/02/08/Speaking-of-the-84/#disqus_thread">Comments</a>
+         | <a href="/2012/07/07/Planet-PostGIS-Online/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>HT to <a href="http://sproke.blogspot.com/2012/02/game-changer-open-source-mapping-in.html">Sophia Parafina for the 84%</a>.</p>
+  <div class="entry-content"><p><a href="http://planet.postgis.net/">Planet PostGIS</a>, an aggregation of <a href="http://postgis.refractions.net/">PostGIS</a>-related blog content is now online. As the name suggests, it is built using the same technology as <a href="http://www.spatiallyadjusted.com">James Fee&#8217;s</a> <a href="http://planetgs.com">Planet Geospatial</a> but is focused on content related to PostGIS.</p>
 
-<p><strong>UPDATE</strong>: The NSIS script at utility batch file discussed here is now on github at <a href="https://github.com/geobabbler/pgstandalone" target="_blank">https://github.com/geobabbler/pgstandalone</a>. I&#8217;ll post a readme in the next day or so.</p>
+<p>If you are working with PostGIS, whether as part of an open-source stack or in conjunction with proprietary tools such as ArcGIS, you may want to check out Planet PostGIS.</p>
 
-<p>A few months ago, I asked the following question on Twitter and got this reply from Paul Ramsey:</p>
-
-<div class='embed tweet'><blockquote class="twitter-tweet" data-in-reply-to="136481537792294912"><p>@<a href="https://twitter.com/billdollins">billdollins</a> Possible yes, but might have to roll your own? You can get raw binaries in a zip file from download site&#8230;?</p>&mdash; Paul Ramsey (@pwramsey) <a href="https://twitter.com/pwramsey/status/136565522836897796" data-datetime="2011-11-15T22:05:32+00:00">November 15, 2011</a></blockquote>
-<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>We are working with a Federal Government customer that had the interesting policy that users can install software as long as it makes no changes to the Windows registry. These users are currently running a mix of Windows 7 and XP. We are working with them to help manage one of their data models. In this case, it&#8217;s more about performing configuration management on the model/standard itself rather than physical databases with real data in them. It&#8217;s a topic we touched on over at the Zekiah blog <a href="http://www.zekiah.com/index.php?q=blog/2012/01/13/expanding-usefulness-geospatial-data-standards" target="_blank">here</a> and an approach we have used successfully for years to manage the <a href="http://www.sdsfie.org/" target="_blank">SDSFIE</a> data standard. </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/02/08/Speaking-of-the-84/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/12/14/Anne-Arundel-County-Maryland-Announces-GIS-Data-Downloads/">Anne Arundel County, Maryland Announces GIS Data Downloads</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-14T00:00:00-05:00" pubdate data-updated="true">Dec 14<span>th</span>, 2011</time>
-        
-         | <a href="/2011/12/14/Anne-Arundel-County-Maryland-Announces-GIS-Data-Downloads/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A while back, I <a href="http://blog.geomusings.com/2011/09/26/free-maryland-gis-data-resources/">posted</a> about county-level GIS data available in the State of Maryland. I was very happy to see an <a href="http://www.linkedin.com/groupItem?view=&amp;gid=3300945&amp;item=ANET%3AS%3A84763573&amp;trk=NUS_RITM-title">announcement on LinkedIn</a> that Anne Arundel County, Maryland has rolled out a new <a href="http://www.aacounty.org/OIT/GIS/GISData.cfm">data download page</a> that makes their GIS data freely available.</p>
-
-<p>[caption id=&#8221;attachment_2356&#8221; align=&#8221;aligncenter&#8221; width=&#8221;346&#8221; caption=&#8221;Anne Arundel County is home to Annapolis, the capital of Maryland and my favorite place on earth.&#8221;]<a href="http://geobabble.files.wordpress.com/2011/12/md_state_house_2011_12_14.jpg"><img alt="" class="size-full wp-image-2356" height="614" src="http://geobabble.files.wordpress.com/2011/12/md_state_house_2011_12_14.jpg" title="md_state_house_2011_12_14" width="346" /></a>[/caption]</p>
-
-<p>Kudos to <a href="http://twitter.com/Eric112200">Eric Wilson</a> and everyone else in the Anne Arundel County GIS group for making this happen. Here&#8217;s hoping more follow suit.</p>
+<p>Thanks to <a href="http://www.linkedin.com/pub/regina-obe/7/5/200">Regina Obe</a> and everyone involved in setting this up.</p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/12/09/Great-News-About-Atanas/">Great News About Atanas!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-09T00:00:00-05:00" pubdate data-updated="true">Dec 9<span>th</span>, 2011</time>
-        
-         | <a href="/2011/12/09/Great-News-About-Atanas/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://twitter.com/atanas">Atanas</a> tweeted this last night:</p>
-
-<div class='embed tweet'><blockquote class="twitter-tweet"><p>Out on day 65. Thank you all for everything. Details later on tenthcave.com. <a href="https://twitter.com/search/%23freeatanas">#freeatanas</a></p>&mdash; Atanas Entchev (@atanas) <a href="https://twitter.com/atanas/status/144991222040231936" data-datetime="2011-12-09T04:06:15+00:00">December 9, 2011</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>This is the best news possible. I, like many others, will await details on his <a href="http://www.tenthcave.com/">blog</a>. I couldn&#8217;t be happier for Atanas and his family.</p>
-
-<p>It&#8217;s good to have you back, my friend.</p>
-
-<p><strong>UPDATE</strong>: Here&#8217;s a little more information from Atanas himself: <a href="http://www.tenthcave.com/2011/12/out-on-day-65.html">http://www.tenthcave.com/2011/12/out-on-day-65.html</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/11/23/Arc2Earth-Sync-Beta-Announced/">Arc2Earth Sync Beta Announced</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-23T00:00:00-05:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2011</time>
-        
-         | <a href="/2011/11/23/Arc2Earth-Sync-Beta-Announced/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Over on <a href="https://plus.google.com/112324940962843535547/posts/B9T9M1vPLCz">Google+</a> (and also on Twitter), <a href="http://twitter.com/bflood">Brian Flood</a> announced the impending availability of Arc2Earth Sync Beta to existing <a href="http://www.arc2earth.com">Arc2Earth</a> users. This has been brewing for for a while and Brian says it best:</p>
-
-<blockquote>
-&#8220;What makes Sync really cool is the live edit synchronization and the ability to publish online to different formats. It&#8217;s a great way to provide integration between ArcGIS desktops/online and the other Cloud database providers like Google.&#8221;
-</blockquote>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2011/11/23/Arc2Earth-Sync-Beta-Announced/">Read on &rarr;</a>
-    </footer>
   
 
 

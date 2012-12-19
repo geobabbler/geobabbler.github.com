@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Note: The application described in this post is running here. It requires Silverlight 4. I was perusing my LinkedIn connections and noticed that &hellip;">
+  <meta name="description" content="Alessandro Furieri announced the availability of the beta of SpatiaLite 3.0.0 on 17 August. It can be downloaded here: http://www.gaia-gis.it/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2011/02/02/Mapping-GISP-and-PMP-Certifications-with-GeoCommons-and-the-ESRI-Silverlight-API/">Mapping GISP and PMP Certifications With GeoCommons and the ESRI Silverlight API</a></h1>
+      <h1 class="entry-title"><a href="/2011/08/19/SpatiaLite-30-Beta-Is-Available/">SpatiaLite 3.0 Beta Is Available</a></h1>
     
     
       <p class="meta">
@@ -88,29 +88,73 @@
   
 
 
-<time datetime="2011-02-02T00:00:00-05:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2011</time>
+<time datetime="2011-08-19T00:00:00-04:00" pubdate data-updated="true">Aug 19<span>th</span>, 2011</time>
         
-         | <a href="/2011/02/02/Mapping-GISP-and-PMP-Certifications-with-GeoCommons-and-the-ESRI-Silverlight-API/#disqus_thread">Comments</a>
+         | <a href="/2011/08/19/SpatiaLite-30-Beta-Is-Available/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Note: The application described in this post is running <a href="http://demo.zekiah.com/heatmap">here</a>. It requires Silverlight 4.</p>
+  <div class="entry-content"><p>Alessandro Furieri announced the availability of the beta of SpatiaLite 3.0.0 on 17 August. It can be downloaded here: <a href="http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html">http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html</a>.</p>
 
-<p>I was perusing my <a href="http://www.linkedin.com">LinkedIn</a> connections and noticed that quite a few had <a href="http://en.wikipedia.org/wiki/Project_Management_Professional">PMP</a> certifications. I also noticed that most of those who did seemed to be in the Washington, DC area. Of course, given that I live in that region, my sample could be a bit skewed but then I started <a href="http://twitter.com/#!/billdollins/status/30277725008699392">thinking out loud</a> (via Twitter):</p>
+<p>Some of the more interesting additions include additional support for topology and the ability to export <a href="http://geojson.org">GeoJSON</a>.</p>
 
-<blockquote>I would love to see a heat map showing concentrations of PMPs. I bet the DC area would be white-hot. I suspect others not so much.</blockquote>
+<p>I did a <strong>very</strong> quick test with QGIS 1.7.0 and was able to directly access and edit a table in a database I created with SpatiaLite 3.0.0 so that&#8217;s initially promising.</p>
+
+<p>[caption id=&#8221;attachment_1985&#8221; align=&#8221;aligncenter&#8221; width=&#8221;300&#8221; caption=&#8221;The extra island off the coast of Canada was edited in with QGIS.&#8221;]<a href="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png"><img alt="" class="size-medium wp-image-1985" height="160" src="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png?w=300" title="Accessing SpatiaLite 3.0.0 in QGIS" width="300" /></a>[/caption]</p>
+</div>
+  
+  
 
 
-<p>Naturally, I could not let this sit. How hard could it be? It turns out it wasn&#8217;t that hard so I decided to throw a small app together to look at the data. In the process of working out an approach, I decided to also look at <a href="http://www.gisci.org/certification_program_description.aspx">GISP</a> certifications because the data set is smaller and is available as one download from the <a href="http://www.gisci.org/">GISCI</a>. Here&#8217;s a blow-by-blow:</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/08/17/So-Which-Is-It/">So, Which Is It?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-17T00:00:00-04:00" pubdate data-updated="true">Aug 17<span>th</span>, 2011</time>
+        
+         | <a href="/2011/08/17/So-Which-Is-It/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Update:</strong> I pulled this link out of the comment thread below to emphasize it. It seems to answer this question for now: <a href="http://forums.arcgis.com/threads/35676-Edit-spatial-data-with-quot-ArcGIS-for-Desktop-10.1-quot-in-non-SDE-RDBMS-systems">http://forums.arcgis.com/threads/35676-Edit-spatial-data-with-quot-ArcGIS-for-Desktop-10.1-quot-in-non-SDE-RDBMS-systems</a></p>
+
+<p>Since my <a href="http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road/">previous</a> <a href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/">posts</a> about <a href="http://st-links.com/default.aspx">PgMap</a> and the shuttering of <a href="http://www.obtusesoft.com/">zigGIS</a>, the nature of the planned support for connecting directly to spatial databases from ArcGIS 10.1 has gotten somewhat muddier.</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/zU9lv_WqK6k?color=white&theme=light"></iframe>
+
+
+<p>One of the first indications of direct support was <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">this statement from the ESRI UC Q&amp;A</a>.</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/2011/02/02/Mapping-GISP-and-PMP-Certifications-with-GeoCommons-and-the-ESRI-Silverlight-API/">Read on &rarr;</a>
+      <a rel="full-article" href="/2011/08/17/So-Which-Is-It/">Read on &rarr;</a>
     </footer>
   
 
@@ -122,7 +166,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2011/01/26/Getting-Started-With-a-Python-Wrapper-For-the-WeoGeo-API/">Getting Started With a Python Wrapper for the WeoGeo API</a></h1>
+      <h1 class="entry-title"><a href="/2011/08/09/Taking-A-Look-At-PgMap/">Taking a Look at PgMap</a></h1>
     
     
       <p class="meta">
@@ -138,24 +182,22 @@
   
 
 
-<time datetime="2011-01-26T00:00:00-05:00" pubdate data-updated="true">Jan 26<span>th</span>, 2011</time>
+<time datetime="2011-08-09T00:00:00-04:00" pubdate data-updated="true">Aug 9<span>th</span>, 2011</time>
         
-         | <a href="/2011/01/26/Getting-Started-With-a-Python-Wrapper-For-the-WeoGeo-API/#disqus_thread">Comments</a>
+         | <a href="/2011/08/09/Taking-A-Look-At-PgMap/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>One of my <a href="http://geobabble.wordpress.com/2011/01/03/turning-it-up-to-11/">goals for 2011</a> was to sharpen my Python skills. As if on cue, <a href="http://www.weogeo.com">WeoGeo</a> puts out a Python wrapper for their RESTful API. It can be found <a href="http://code.google.com/p/weogeo-public-code/">here</a>. The good news is that I now have a familiar problem set to sink my teeth into. The bad news (for me) is that it&#8217;s so easy to use it&#8217;s probably not going to do much for my Python skills.</p>
+  <div class="entry-content"><p>When I blogged about <a href="http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road/">the official end of zigGIS</a> last week, I included a mention of <a href="http://st-links.com/default.aspx">PgMap</a>, a free extension to <a href="http://www.esri.com">ArcMap</a> for direct read/edit of <a href="http://postgis.refractions.net">PostGIS</a> data. Judging from outbound links, there seems to be a good bit of interest in it so I decided to take a look.</p>
 
-<p>The wrapper addresses the full WeoGeo API (Datasets, Jobs, Events, etc.) so it exposes pretty much everything you can through through the WeoGeo SaaS. For example, here is a very simple browse operation:</p>
-
-</div>
+<p>To recap, Abe decided to pull the plug on zigGIS due to the fact that <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">ESRI will support direct read/edit of spatial databases</a> (as simple features) in 10.1. In my opinion, this is a good development. With native support coming, there was no need to continue with zigGIS. That support, however, will only exist in ArcGIS 10.1. Users of older versions will need to find alternatives. Based on our experience with zigGIS (as well as download data I&#8217;ve seen for the <a href="http://www.zekiah.com/index.php?q=weogeo">WeoGeo toolbar</a>), there are a lot of people (especially outside the US) still using ArcGIS 9.x so demand for an alternative will probably be high for some time.   </div>
   
   
     <footer>
-      <a rel="full-article" href="/2011/01/26/Getting-Started-With-a-Python-Wrapper-For-the-WeoGeo-API/">Read on &rarr;</a>
+      <a rel="full-article" href="/2011/08/09/Taking-A-Look-At-PgMap/">Read on &rarr;</a>
     </footer>
   
 
@@ -167,7 +209,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2011/01/25/Google-Group-for-GeoIQ-API/">Google Group for GeoIQ API</a></h1>
+      <h1 class="entry-title"><a href="/2011/08/03/zigGIS-The-End-of-the-Road/">zigGIS - the End of the Road</a></h1>
     
     
       <p class="meta">
@@ -183,66 +225,20 @@
   
 
 
-<time datetime="2011-01-25T00:00:00-05:00" pubdate data-updated="true">Jan 25<span>th</span>, 2011</time>
+<time datetime="2011-08-03T00:00:00-04:00" pubdate data-updated="true">Aug 3<span>rd</span>, 2011</time>
         
-         | <a href="/2011/01/25/Google-Group-for-GeoIQ-API/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Last week, I did <a href="http://www.gisuser.com/content/view/22492/222/">a piece on GISuser.com</a> about the release of the new Acetate feature on <a href="http://www.geocommons.com">GeoCommons</a>. GeoCommons is an implementation of <a href="http://www.fortiusone.com">FortiusOne&#8217;s</a> GeoIQ platform, which is exposed to developers via a <a href="http://geocommons.com/help/Developer_API">RESTful API</a>.</p>
-
-<p><img alt="gc logo" src="http://highearthorbit.com/wp-content/uploads/2008/10/geocommons-logo.jpg" /></p>
-
-<p>A couple of weeks ago, FortiusOne set up a <a href="http://groups.google.com/group/geoiq-api">Google Group for discussions about the GeoIQ API</a>. If you are using the API, or are merely interested in it, this is something you may want to check out.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/01/21/My-Day-At-the-2011-FedUC/">My Day at the 2011 FedUC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-21T00:00:00-05:00" pubdate data-updated="true">Jan 21<span>st</span>, 2011</time>
-        
-         | <a href="/2011/01/21/My-Day-At-the-2011-FedUC/#disqus_thread">Comments</a>
+         | <a href="/2011/08/03/zigGIS-The-End-of-the-Road/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>For a variety of reasons, I only spent one day at the <a href="http://www.esri.com/events/feduc/index.html">FedUC</a> this year. I chose Thursday because that was the day of the DevGeo session, as well as the National Security Session and a SIG in which I was interested. As a result, I did not see the plenary or any of the big-screen demos. With a few meetings crammed in, my day was a whirlwind. What follows is my view of the FedUC but it is by no means comprehensive. To get a more complete picture, I suggest checking out <a href="http://apb.directionsmag.com/archives/9273-Update-3-Wed-Morning-Plenary-FedUC.html">Adena&#8217;s</a> <a href="http://apb.directionsmag.com/archives/9275-Update-Wed-Afternoon-Plenary-FedUC.html">updates</a> <a href="http://apb.directionsmag.com/archives/9282-Hottest-Thing-on-FedUC-Floor-Zebra-Imagings-Holograms.html">over</a> at <a href="http://apb.directionsmag.com/archives/9278-FedUC-Session-on-Geospatial-Platform-and-Geodata.gov.html">Directions</a>.</p>
-
-<p><img alt="#FedUC" src="http://www.esri.com/news/graphics/feduc.jpg" /></p>
-
-</div>
+  <div class="entry-content"><p><a href="http://twitter.com/xanadont">Abe Gillespie</a> made it official today on the zigGIS Google Group: development on <a href="http://pub.obtusesoft.com">zigGIS</a> will cease.  </div>
   
   
     <footer>
-      <a rel="full-article" href="/2011/01/21/My-Day-At-the-2011-FedUC/">Read on &rarr;</a>
+      <a rel="full-article" href="/2011/08/03/zigGIS-The-End-of-the-Road/">Read on &rarr;</a>
     </footer>
   
 
@@ -254,7 +250,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2011/01/13/Looking-For-Something-To-Do-In-March-April/">Looking for Something to Do in March April?</a></h1>
+      <h1 class="entry-title"><a href="/2011/08/03/Arc2Earth-Focusing-On-Google-Earth-Builder/">Arc2Earth Focusing on Google Earth Builder</a></h1>
     
     
       <p class="meta">
@@ -270,134 +266,24 @@
   
 
 
-<time datetime="2011-01-13T00:00:00-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2011</time>
+<time datetime="2011-08-03T00:00:00-04:00" pubdate data-updated="true">Aug 3<span>rd</span>, 2011</time>
         
-         | <a href="/2011/01/13/Looking-For-Something-To-Do-In-March-April/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The second annual <a href="http://www.somdgc.org/Homepage.aspx">Southern Maryland GiveCamp</a> will be held on <del datetime="2011-01-23T00:42:57+00:00">March 25</del> April 1, 2011. Once again, it will occur on the campus of <a href="http://www.smcm.edu/">St. Mary&#8217;s College of Maryland</a>. One of a number of GiveCamps that occur around the country, this one will <a href="http://www.somdgc.org/NonProfits/GiveCamp_2011.aspx">benefit several non-profits</a> of all stripes in the Southern Maryland area.</p>
-
-<p><img alt="Maryland's original State House in St. Mary's City" src="http://www.smcm.edu/studentevents/_assets/images/state_house_lawn.jpg" /></p>
-
-<p>The concept behind GiveCamp is simple and elegant: &#8220;GiveCamp is a weekend-long event where software developers, designers, and database administrators donate their time to create custom software for non-profit organizations.&#8221;</p>
-
-<p>Last year&#8217;s event drew volunteers from up and down the East Coast. The organizers are still looking for volunteers for this year&#8217;s event. As a lifelong resident of Southern Maryland, I&#8217;d like to encourage my colleagues in the software development community, especially in the greater DC area, to consider coming down in March to <a href="http://somdgc.org/Volunteers.aspx">lend a hand</a>.</p>
-
-<p>Having spoken to a few people that participated last year, I understand that requirements ranged from simple to rather challenging. Regardless of the complexity of a requirement to those of us who develop software professionally, the value of a working web site or database or other such thing to a small organization with limited resources cannot be overstated.</p>
-
-<p>And if Southern Maryland is a bit far for you but you like the concept, there <a href="http://somdgc.org/AboutUs/WhoWeAre/OtherGiveCamps.aspx">may be a GiveCamp in your area</a>.</p>
-
-<p>Thanks to <a href="http://somdgc.org/AboutUs/WhoWeAre/PlanningCommittee.aspx">Jim Pendarvis and the rest of the planning committee</a> for putting this together.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/01/03/Turning-It-Up-to-11/">Turning It Up to 11</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-03T00:00:00-05:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2011</time>
-        
-         | <a href="/2011/01/03/Turning-It-Up-to-11/#disqus_thread">Comments</a>
+         | <a href="/2011/08/03/Arc2Earth-Focusing-On-Google-Earth-Builder/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>With 2011 upon us, here are a few things I hope to achieve this year (in no particular order):</p>
+  <div class="entry-content"><p><a href="http://www.arc2earth.com">Arc2Earth</a> (disclaimer: <a href="http://www.zekiah.com">my company</a> is an Arc2Earth reseller) has focused a lot on extending their integration with the Google cloud infrastructure. This started with Cloud Services, which provided the ability to push data into Google <a href="http://code.google.com/appengine/">AppEngine</a> and serve it through emulation of the <a href="http://help.arcgis.com/en/arcgisserver/10.0/apis/rest/index.html">Esri REST API</a> (among other options). This was expanded to include live editing of data hosted on AppEngine. More recently, Arc2Earth added support for <a href="http://www.google.com/fusiontables/public/tour/index.html">Google Fusion Tables</a>.</p>
 
-<ul>
-    <li>Enjoy life with my family</li>
-    <li>Sharpen my Python skills</li>
-    <li>Get better with Javascript</li>
-    <li>Build at least one useful application with a NoSQL back-end</li>
-    <li>Build at least one application that runs on a cloud infrastructure (maybe in conjunction with the previous three items)</li>
-    <li>Get better with many of the cloud-based geospatial tools and deepen my proficiency with <a href="http://www.arc2earth.com">Arc2Earth</a>, <a href="http://www.weogeo.com">WeoGeo</a> and <a href="http://www.fortiusone.com">GeoIQ</a> offerings in this area</li>
-    <li>Educate my customers (especially the Federal ones) and colleagues on all of these</li>
-    <li>Grow <a href="http://www.zekiah.com">my company</a></li>
-    <li>Engage more with my professional community (locally and beyond)</li>
-    <li>Stay on top of the latest research on management of type 1 diabetes and the search for a cure</li>
-    <li>Maintain enough control over my schedule to be able to accomplish all of these things</li>
-</ul>
+<p><img alt="arc2earth logo" src="http://www.arc2earth.com/wp-content/uploads/2010/10/logo_Arc2Earth_h.png" /></p>
 
-
-<p>Happy New Year, everyone!</p>
-
-<iframe width="560" height="420" src="http://www.youtube.com/embed/F7IZZXQ89Oc?color=white&theme=light"></iframe>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/12/16/Simple-Annotations-With-the-Esri-Silverlight-API/">Simple Annotations With the Esri Silverlight API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-16T00:00:00-05:00" pubdate data-updated="true">Dec 16<span>th</span>, 2010</time>
-        
-         | <a href="/2010/12/16/Simple-Annotations-With-the-Esri-Silverlight-API/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In a previous post, I mentioned that I developed a MeasureString function for use in developing an annotation tool. In this post, I&#8217;ll go into a little bit more detail about that tool. For purposes of discussion, I extended the interactive graphics sample from the <a href="http://help.arcgis.com/en/webapi/silverlight/samples/start.htm">Esri Silverlight API interactive SDK</a>.</p>
-
-<p>For starters, I added another tool to the sample&#8217;s tool bar (circled in red below) to provide access to the annotation capability.</p>
-
-<p><img alt="" class="alignleft size-full wp-image-1372" height="168" src="http://geobabble.files.wordpress.com/2010/12/sl_anno_1.png" title="Annotation tool on the toolbar" width="500" /></p>
-
-</div>
+<p>Late last year, they announced their <a href="http://beta.arc2cloud.com/">Arc2Cloud</a> initiative to expose Google&#8217;s spatial data services to ArcGIS users. This has seemed to fall of the radar a bit lately but, as we know, there have been <a href="http://www.google.com/enterprise/earthmaps/builder.html">changes brewing on the on the Google end of things</a> so some delays from Arc2Earth are understandable.</div>
   
   
     <footer>
-      <a rel="full-article" href="/2010/12/16/Simple-Annotations-With-the-Esri-Silverlight-API/">Read on &rarr;</a>
+      <a rel="full-article" href="/2011/08/03/Arc2Earth-Focusing-On-Google-Earth-Builder/">Read on &rarr;</a>
     </footer>
   
 
@@ -409,7 +295,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/12/13/DevGeo-Session-at-the-Esri-FedUC/">DevGeo Session at the Esri FedUC</a></h1>
+      <h1 class="entry-title"><a href="/2011/08/01/Triggered-Notifications-Using-PostGIS/">Triggered Notifications Using PostGIS</a></h1>
     
     
       <p class="meta">
@@ -425,24 +311,26 @@
   
 
 
-<time datetime="2010-12-13T00:00:00-05:00" pubdate data-updated="true">Dec 13<span>th</span>, 2010</time>
+<time datetime="2011-08-01T00:00:00-04:00" pubdate data-updated="true">Aug 1<span>st</span>, 2011</time>
         
-         | <a href="/2010/12/13/DevGeo-Session-at-the-Esri-FedUC/#disqus_thread">Comments</a>
+         | <a href="/2011/08/01/Triggered-Notifications-Using-PostGIS/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>We are approximately a month away from the <a href="http://www.esri.com/events/feduc/index.html">Esri Federal User Conference</a>. It is probably the largest geospatially-themed event in the DC/Maryland/Virginia area each year and has gotten bigger each year. I have documented this conference in the past and have pointed out that, despite its name, there is a lot of information that can be of value for state/local and other non-Federal users of Esri products. Given constrained travel budgets, it?s a good option for people who may not be able to make it to San Diego.</p>
+  <div class="entry-content"><p>My project work the last few months has kept me away from a lot of my favorite open-source tools and I was starting to get hives. Specifically, it had been a while since I had worked with <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://postgis.refractions.net">PostGIS</a> and I was missing the experience, so I dreamed up something to do.</p>
 
-<p>This year, Esri has added something new to the FedUC. It was somewhat innocuously <a href="http://twitter.com/#!/JimBarry/status/13301630267039745">tweeted by Jim Barry</a> last week but is, in my opinion, a significant addition. If you check the agenda, you will now see that Thursday, January 20 now includes an <a href="http://www.esri.com/events/feduc/agenda/dev-geo.html">all-day DevGeo session</a>. This is a follow-on event to the <a href="http://www.esri.com/events/devgeo/index.html">inaugural DevGeo session</a> put on in Silicon Valley in November.</p>
+<p><img alt="" class="aligncenter size-full wp-image-1898" height="307" src="http://geobabble.files.wordpress.com/2011/08/elephant.png" title="Elephant" width="461" /></p>
+
+<p>I do a lot of work implementing situational awareness systems for my customers and one common requirement is automated notification of events. I decided that I wanted to roll a completely FOSS approach to sending an SMS notification based upon the results of a spatial query. This post will discuss the basic wiring to make it all work. I&#8217;ll probably add more advanced features in subsequent posts but I&#8217;ll be sticking to the basics for now.</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/2010/12/13/DevGeo-Session-at-the-Esri-FedUC/">Read on &rarr;</a>
+      <a rel="full-article" href="/2011/08/01/Triggered-Notifications-Using-PostGIS/">Read on &rarr;</a>
     </footer>
   
 
@@ -454,7 +342,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/12/10/Ten-Second-Tidy/">Ten-Second Tidy</a></h1>
+      <h1 class="entry-title"><a href="/2011/07/01/Have-Fun-In-San-Diego/">Have Fun in San Diego</a></h1>
     
     
       <p class="meta">
@@ -470,33 +358,73 @@
   
 
 
-<time datetime="2010-12-10T00:00:00-05:00" pubdate data-updated="true">Dec 10<span>th</span>, 2010</time>
+<time datetime="2011-07-01T00:00:00-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2011</time>
         
-         | <a href="/2010/12/10/Ten-Second-Tidy/#disqus_thread">Comments</a>
+         | <a href="/2011/07/01/Have-Fun-In-San-Diego/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Things have been a bit hectic the last few weeks and that&#8217;s left little time for blogging. Quite a bit has happened so I thought I&#8217;d do a little round-up (if for no other reason than to clear my own head).</p>
+  <div class="entry-content"><p>As everyone gears up for the <a href="http://www.esri.com/events/user-conference/index.html">exodus to San Diego</a>, I wish everyone a good, enjoyable and fruitful time. There&#8217;s something to be said for the energy of 12,000+ geonerds in one place. As for me, I&#8217;ll be <a href="http://www.childrenwithdiabetes.com/activities/orlando2011/">here</a>, hanging with a couple hundred of the bravest, most inspiring young people you could ever meet. After that, it&#8217;s family time and and little R&amp;R.</p>
 
-<iframe width="560" height="420" src="http://www.youtube.com/embed/cJa7P6dfmco?color=white&theme=light"></iframe>
+<p>And be sure to use the <a href="http://uc.dtsagile.com/">Unofficial Esri UC BackChannel</a> by the guys at <a href="http://dtsagile.com/">DTS Agile</a>. It&#8217;s a great way to enrich your experience.</p>
+
+<p><img alt="Back soon." class="aligncenter size-full wp-image-1879" height="302" src="http://geobabble.files.wordpress.com/2011/07/back_soon.jpg" title="Back soon." width="400" /></p>
+
+<p>Have fun and, hopefully, I&#8217;ll catch up with many of you at <a href="http://2011.foss4g.org/">FOSS4G</a>.</p>
+</div>
+  
+  
 
 
-<p>In no particular order:</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/06/29/Open-Government-Open-Data-and-Some-Lessons-from-Arkansas/">Open Government, Open Data and Some Lessons From Arkansas</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<p><strong>Steve Coast to Microsoft</strong> (I told you it had been a while) - Firstly, congratulations to Steve (#sincerity).  Secondly, this clearly is the final proof that crowd-sourced data in general, and OpenStreetMaps (sic) in particular, <a href="http://geobabble.wordpress.com/2010/09/16/be-the-crowd/">has no real value when compared to &#8220;authoritative&#8221; data sources</a> (#sarcasm).</p>
 
-<p><strong>Google Fusion Tables</strong> - The only real problem at this point is the size limitation but, otherwise, this will be a game-changer for storing and sharing data. In its current form, it&#8217;s already fairly easy to push your data up and expose it through Google&#8217;s APIs. It&#8217;ll be interesting to see if it gets easier. Support for spatial queries hints at some analytical capability, too. Speaking of which&#8230;</p>
 
-<p><strong>Analytics in GeoCommons</strong> - This is one to watch. They are debuting a new function each day <a href="http://blog.fortiusone.com/2010/12/06/the-12-analytics-of-christmas/">on their blog</a>. FortiusOne builds their platform API-first, UI-second so everything they are showing should be exposed through their APIs. This will be a huge step in moving cloud-based geospatial technology from the &#8220;bit-bucket&#8221; stage to having a more complete workflow on the cloud infrastructure.</p>
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-29T00:00:00-04:00" pubdate data-updated="true">Jun 29<span>th</span>, 2011</time>
+        
+         | <a href="/2011/06/29/Open-Government-Open-Data-and-Some-Lessons-from-Arkansas/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was reading Brian Timoney&#8217;s excellent post &#8221;<a href="http://mapbrief.com/2011/06/29/open-government-is-a-slammed-door-at-the-blm/">Open Government is a Slammed Door at the BLM</a>,&#8221; when I encountered this line:</p>
+
+<blockquote>
+Top-down, large scale spatial-data-integration-by-directive simply doesn?t have the track record of success to justify the costs&#8230;
+</blockquote>
+
+
+<p>This resonates well with observations that I have made during the course of my recent work with the <a href="http://www.gis.arkansas.gov/">Arkansas GIO</a> office. The immediate focus of that work was to help AGIO assess the current state of their <a href="http://www.geostor.arkansas.gov/G6/Home.html">GeoStor</a> platform and gather data about current and emerging capabilities in order to support decision-making about whether to migrate to a hosted (cloud) environment. In the course of doing that work, I learned about the collaborative approach AGIO has taken with the cities and counties of Arkansas, which also informs some of the functional requirements of GeoStor.</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/2010/12/10/Ten-Second-Tidy/">Read on &rarr;</a>
+      <a rel="full-article" href="/2011/06/29/Open-Government-Open-Data-and-Some-Lessons-from-Arkansas/">Read on &rarr;</a>
     </footer>
   
 
@@ -508,7 +436,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/12/01/Where-Has-The-Time-Gone/">Where Has the Time Gone?</a></h1>
+      <h1 class="entry-title"><a href="/2011/06/28/Try-Some-Local-Fare/">Try Some Local Fare</a></h1>
     
     
       <p class="meta">
@@ -524,30 +452,70 @@
   
 
 
-<time datetime="2010-12-01T00:00:00-05:00" pubdate data-updated="true">Dec 1<span>st</span>, 2010</time>
+<time datetime="2011-06-28T00:00:00-04:00" pubdate data-updated="true">Jun 28<span>th</span>, 2011</time>
         
-         | <a href="/2010/12/01/Where-Has-The-Time-Gone/#disqus_thread">Comments</a>
+         | <a href="/2011/06/28/Try-Some-Local-Fare/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>It&#8217;s been four years to the day since I started this blog. This was not my first attempt at blogging but I wasn&#8217;t happy with my first one so it&#8217;s been lost to the recycle bin of history. It was (and still is) intended to be an outlet for my observations and experiences arising from my work. Sometimes, that means I post code and other times it means I post rants.</p>
+  <div class="entry-content"><p>A few days ago, Randal Hale <a href="http://www.northrivergeographic.com/archives/1259">posted an announcement</a> about the upcoming Southern Appalachian Conference on GIS to be held at East Tennessee State University. I have never attended that conference and probably won&#8217;t this year but, if you live and work in that area, you may want to check it out. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2011/06/28/Try-Some-Local-Fare/">Read on &rarr;</a>
+    </footer>
+  
 
-<p>My <a href="http://geobabble.wordpress.com/2006/12/01/irasterlayer-export-gotcha-in-92/">first post</a> was regarding a bug with raster layers in ArcGIS 9.2. That project evolved to include the use of <a href="http://sharpmap.codeplex.com/">SharpMap</a> and <a href="http://postgis.refractions.net/">PostGIS</a>, which led me to get involved with <a href="http://www.obtusesoft.com">zigGIS</a>. From there, I got more involved with open-source GIS while also staying current with the various permutations of <a href="http://www.esri.com">Esri</a> technology (I can now say I was working with it when it was &#8220;EE ESS ARE EYE&#8221;).</p>
 
-<p><img alt="Now I just need a cake." src="http://www.latestgifts.co.uk/img/Candles/birthday-candle-number-4-four-large.jpg" /></p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/06/16/GeoServices-REST-Specification-and-OGC/">GeoServices REST Specification and OGC</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<p>Today, I&#8217;m still working with a lot of Esri tools (especially since I still do a lot of work for the government) but I still maintain a mix of open-source tools and, more recently, have begun working with various cloud platforms (see recent posts on <a href="http://www.weogeo.com">WeoGeo</a>, <a href="http://www.geocommons.com">GeoCommons </a>and <a href="http://www.arc2earth.com">Arc2Earth</a>).</p>
 
-<p>So, whereas I was probably spending over 80% of my time working with ESRI tools when I started, I&#8217;d say that number is closer to 50% now. I would not, however, read much into that other than my own personal decisions. I feel the broader perspective of working with a variety of tools makes me a better <a href="http://www.zekiah.com">consultant</a>, regardless of which platform my customer has chosen.</p>
 
-<p>Over the past four years, I have gotten to know a lot of very smart people as a direct result of this blog so it&#8217;s definitely been a positive experience for me.</p>
 
-<p>To all who have stopped by over that time, please accept my sincerest thanks.</p>
+
+
+
+
+  
+
+
+<time datetime="2011-06-16T00:00:00-04:00" pubdate data-updated="true">Jun 16<span>th</span>, 2011</time>
+        
+         | <a href="/2011/06/16/GeoServices-REST-Specification-and-OGC/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So this is what I get for missing the Ignite sessions at WhereCampDC<sup>*</sup>:</p>
+
+<p>http://twitter.com/#!/spara/status/81369354746331136</p>
+
+<p><sup>*</sup>I got to dance with my daughter and help her chase fireflies so I win.</p>
+
+<p>The worst-kept rumor/secret in recent memory is now &#8220;out there&#8221; so here are my thoughts:</p>
+
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/2011/06/16/GeoServices-REST-Specification-and-OGC/">Read on &rarr;</a>
+    </footer>
   
 
 

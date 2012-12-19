@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T14:13:06-05:00</updated>
+  <updated>2012-12-19T17:20:03-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mowers and Maps]]></title>
+    <link href="http://blog.geomusings.com/2012/08/18/Mowers-and-Maps/"/>
+    <updated>2012-08-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/18/Mowers-and-Maps</id>
+    <content type="html"><![CDATA[<p>I was mowing the lawn today and trimming with the push mower pictured below. If it looks old, that's because it is. I first acquired it in 1978 when it was given to me by neighbors that were moving to an apartment near the city, meaning they no longer needed it. It still starts on the third pull and I've used it every summer since it was given to me.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2823" height="360" src="http://geobabble.files.wordpress.com/2012/08/mower.jpeg" title="They don&#039;t make them like this anymore" width="640" /></p>
+
+<p>As I was mowing, I thought about how old the mower is and how it came to be in my possession. This led me to think about the origin of my fascination with maps. What does one have to do with the other? Allow me to explain.</p>
+
+<p>As you can imagine, I was fairly young when the lawn mower was given to me. I had gotten to know the neighbors up the street by playing with their son. One day, I noticed a large shelf of identical, leather-bound books taking up the entire back wall of a room. I asked what they were and they invited me to browse them. It turned out that my neighbor was the son of a long-time chair of the National Geographic Society. These books were actually bound collections, by year, of every issue of National Geographic from the first issue on.</p>
+
+<p>Over time, I would spend hours poring through these volumes, fascinated by the world as it was documented by National Geographic from 1888 forward. I did not get to read every issue but I was especially drawn to the maps when they were present. I realize now that my identity as a "map nerd" took root there.</p>
+
+<p>Coincidentally, 1978 was the year I first started programming. Those two experiences turned out to be major influences on who I became.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GeoIQ API Wrappers for .Net]]></title>
+    <link href="http://blog.geomusings.com/2012/06/11/GeoIQ-API-Wrappers-for-Net/"/>
+    <updated>2012-06-11T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/11/GeoIQ-API-Wrappers-for-Net</id>
+    <content type="html"><![CDATA[<p>A while back, I built a small <a href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/" target="_blank">interface between GeoIQ/GeoCommons and ArcGIS Desktop</a>. From there, it became more of a full-fledged <a href="http://developer.geoiq.com/tools/arcgis-toolbar/" target="_blank">toolbar for ArcGIS</a>. During that effort, I began developing some .Net classes to wrap the <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">GeoIQ RESTful API</a>. As we progressed with the toolbar, my colleague <a href="http://www.hugoestrada.net/" target="_blank">Hugo Estrada</a> also contributed to the library.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2676" height="145" src="http://geobabble.files.wordpress.com/2012/06/geoiq_dotnet2.png" title="GeoIQ + .Net" width="640" /></p>
+
+<p>The original intent was to wrap the entire API but it turns out that we were undertaking this in the middle of GeoIQ's upgrade to version 2.0. In the intervening time, we got some projects implementing the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform for end users (such as the <a href="http://blog.geoiq.com/2012/04/27/visualizing-our-changing-climate-with-climascope/" target="_blank">Climascope portal</a> that Andrew Turner recently blogged about). <!--more--></p>
+
+<p>While all of this was going on, I would occasionally blog about some of the work we were doing and, thanks to various search engines, I've gotten a few inquiries about interfacing with GeoIQ within .Net applications. Apparently, GeoIQ has also had a few such inquiries.</p>
+
+<p>Because of this interest, I have decided to post the wrapper library as it currently stands to GitHub. It can be found here: <a href="https://github.com/geobabbler/GeoIQ4Net">https://github.com/geobabbler/GeoIQ4Net</a></p>
+
+<p>It is very much a work in progress. We have been able to extend it on a project-by-project basis to touch those parts of the API that we have needed to use. For example, you may notice that the wrapper for the GeoIQ Maps API is a little thin. It implements only what we needed to use during a project time crunch. You may also notice the lack of docs. Those will be coming soon, I promise.</p>
+
+<p>We have successfully used this library to develop desktop tools, command-line tools, <a href="http://www.silverlight.net/" target="_blank">Silverlight</a> applications and ASP.NET applications (old ASP.NET forms as well as MVC). Additionally, I have successfully compiled the library on Linux using <a href="http://www.mono-project.com/Main_Page" target="_blank">Mono</a> with no modifications. Most of the original methods have synchronous and asynchronous versions to support both Silverlight and ASP.NET applications, some of the later ones are still lacking asynchronous equivalents.</p>
+
+<p>I have my own road map of things that I'd like to implement to make the library more complete but, given the rising interest in integrating GeoIQ with .Net, I thought it best to put the code out now. Most of the initial development was funded by GeoIQ with the intent of releasing it as open-source. This step finally fulfills that vision. Please feel free to fork, improve, patch or contribute as you see fit and check back for updates. If you have questions, feel free to contact me directly (contact information is on the About page of this blog) until such time as I can post some docs.</p>
+
+<p>A couple of technical notes: The library is written in C#. There project files for the .Net Framework 3.5 and 4.0. This was done to meet the needs of ArcGIS 9.3 and Microsoft Office 2010, respectively. The library was been successfully used with private, hosted GeoIQ instances as well as <a href="http://www.geocommons.com" target="_blank">GeoCommons</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[CartoDB + Leaflet = Easy]]></title>
@@ -276,93 +320,6 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Piling On About Python]]></title>
-    <link href="http://blog.geomusings.com/2011/05/25/Piling-On-About-Python/"/>
-    <updated>2011-05-25T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/05/25/Piling-On-About-Python</id>
-    <content type="html"><![CDATA[<p>First and foremost, I am not a <a href="http://www.python.org">Python</a> expert. I am not even sure I could effectively play one on TV. <a href="http://geobabble.wordpress.com/2011/01/03/turning-it-up-to-11/">As I mentioned at the beginning of the year</a>, I am trying to beef up my Python skills.</p>
-
-<p>Secondly, what I have to say in this post isn't particularly original or unique. <a href="http://sgillies.net/blog/find?q=python&amp;submit=Search">Others</a> <a href="http://blog.safe.com/2009/10/snakes-on-a-map-python-in-gis/">have</a> <a href="http://www.spatiallyadjusted.com/2011/01/03/2011-the-year-python-takes-over-gis/">said</a> it before.</p>
-
-<p>So I am posting this because I have fielded some form of this question at least ten times (no exaggeration) in the past couple of months: "What skill do you recommend most for someone getting into GIS today?"   <!--more--></p>
-
-<p>My answer, invariably, has become "Python."</p>
-
-<p>[caption id="attachment_1759" align="aligncenter" width="278" caption="Python: The Swiss Army Knife of GIS programming"]<img alt="Python: The Swiss Army Knife of GIS programming" class="size-full wp-image-1759" height="296" src="http://geobabble.files.wordpress.com/2011/05/wenger_giant_knife.png" title="Python: The Swiss Army Knife of GIS programming" width="277" />[/caption]</p>
-
-<p>This may sound like a very programmer-centric answer, and it may be, but just today I got this in an e-mail from one of the senior GIS analysts with whom I work:</p>
-
-<blockquote>Looks like you were right.  Can't use field calculator to do what I'm trying to do.  I'll be writing a Python script.</blockquote>
-
-
-<p>He had been trying to use the ArcGIS Desktop field calculator to find the minimum value in a column. After a quick call to Esri, he confirmed that it didn't work that way. Gone are the days when a GIS analyst can just sit down, double-click the icon of their desktop GIS of choice and accomplish everything they need to do solely with the use of <a href="http://en.wikipedia.org/wiki/WIMP_(computing)">WIMP</a>. Truly effective analysts will need to do some scripting and that's where Python comes in.</p>
-
-<p>Python is a real language that can be used to build real, complex, enterprise-scale applications. It also happens to be very effective for scripting as well. In the Esri world, the thankful sunsetting of VBA leaves analysts with Python as the recommended way to accomplish that. That said, if you are entering the GIS field in 2011, you need to have Python in your arsenal. It simply positions you to work with a broad set of tools, such as:</p>
-
-<p><a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/What_is_ArcPy/000v000000v7000000/">ArcGIS</a>
-<a href="http://www.qgis.org/wiki/Writing_Python_Plugins">Quantum GIS</a>
-<a href="http://mapnik.org/">Mapnik</a>
-<a href="http://trac.osgeo.org/gdal/wiki/GdalOgrInPython">GDAL/OGR</a>
-<a href="http://trac.gispython.org/lab/wiki/Shapely">Shapely</a>
-<a href="http://grass.osgeo.org/wiki/GRASS_and_Python">GRASS</a>
-<a href="http://postgis.refractions.net/documentation/">PostGIS/PostgreSQL</a>
-<a href="http://code.google.com/p/weogeo-public-code/downloads/list">WeoGeo</a>
-<a href="http://geodjango.org/">GeoDjango</a>
-<a href="http://groups.google.com/group/python-gis-sig">And a host of others discussed here.</a>
-And more, I'm sure.</p>
-
-<p>This list is not comprehensive nor is it intended to be. It is meant to show that, wherever you want to go, Python is probably already there. Some of the tools listed there are not strictly GIS tools but are designed to perform some component functions of GIS very well so interpret the list broadly. Also, this list doesn't really touch upon python libraries that can help with commonly performed related tasks like statistical analysis (things like <a href="http://rpy.sourceforge.net/">rpy</a>, which interfaces with <a href="http://www.r-project.org/">R</a> via Python).</p>
-
-<p>If it's not obvious by now, I am becoming a Python convert and having a lot of fun in my explorations. I can't think of another time in my career where one language has cut across such a wide array of tools. It makes me wish I could have all those years of <a href="http://en.wikipedia.org/wiki/ARC_Macro_Language">AML</a> back.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mapping GISP and PMP Certifications with GeoCommons and the ESRI Silverlight API]]></title>
-    <link href="http://blog.geomusings.com/2011/02/02/Mapping-GISP-and-PMP-Certifications-with-GeoCommons-and-the-ESRI-Silverlight-API/"/>
-    <updated>2011-02-02T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2011/02/02/Mapping-GISP-and-PMP-Certifications-with-GeoCommons-and-the-ESRI-Silverlight-API</id>
-    <content type="html"><![CDATA[<p>Note: The application described in this post is running <a href="http://demo.zekiah.com/heatmap">here</a>. It requires Silverlight 4.</p>
-
-<p>I was perusing my <a href="http://www.linkedin.com">LinkedIn</a> connections and noticed that quite a few had <a href="http://en.wikipedia.org/wiki/Project_Management_Professional">PMP</a> certifications. I also noticed that most of those who did seemed to be in the Washington, DC area. Of course, given that I live in that region, my sample could be a bit skewed but then I started <a href="http://twitter.com/#!/billdollins/status/30277725008699392">thinking out loud</a> (via Twitter):</p>
-
-<blockquote>I would love to see a heat map showing concentrations of PMPs. I bet the DC area would be white-hot. I suspect others not so much.</blockquote>
-
-
-<p>Naturally, I could not let this sit. How hard could it be? It turns out it wasn't that hard so I decided to throw a small app together to look at the data. In the process of working out an approach, I decided to also look at <a href="http://www.gisci.org/certification_program_description.aspx">GISP</a> certifications because the data set is smaller and is available as one download from the <a href="http://www.gisci.org/">GISCI</a>. Here's a blow-by-blow:</p>
-
-<!--more-->
-
-
-<p><strong>Preparing the data</strong></p>
-
-<p>Both the GISCI and <a href="http://www.pmi.org">PMI</a> maintain registries of current certification holders. In the case of the GISCI, the registry is available as a single download, if needed, so I grabbed the current list of certified GISPs (as of January 26, 2011). I only cared about location and date (which I'll make use of in the future) so I stripped out all of the names. Then I deleted all of the non-US records (to keep my geocoding easy). That left me with city, state and date. To geocode the data, I uploaded it to <a href="http://www.geocommons.com">GeoCommons</a>. I have <a href="http://geobabble.wordpress.com/2010/10/06/geocoding-with-geocommons/">blogged about this capability previously</a> but this was a larger data set (and only required matching cities). The processing took about 20 seconds and only missed about 75 records out of about about 4500 records. The majority of the missed locations were APO/FPO addresses so I just removed those records. Once that was done, I left the data up on GeoCommons where <a href="http://geocommons.com/overlays/87503">it's still available</a>.</p>
-
-<p>For the PMP data the basic process was the same but getting the data was a little trickier. The PMI doesn't offer a single download so I had to use their query tool to query US records my the first letter of the last name. The query tool returns a maximum of 1000 records so I ended up with about 24,000 records ("Q", "X" and "Z" don't have 1000 records). I pieced this together in Excel, stripped out the names and ended up with the same information I had for the GISP data. In this case, the data set is not complete but I felt like it probably was still representative of the geographic dispersion of certification holders so I went forward.</p>
-
-<p>The PMP data set was too large to upload and geocode on GeoCommons (which caps geocoding at 5000 records). Fortunately, Kate and <a href="http://www.fortiusone.com">FortiusOne</a> was gracious enough to geocode it for me (I wanted to use the same geocoder for both data sets). After a little cleanup, <a href="http://geocommons.com/overlays/87707">I posted that one to GeoCommons as well</a>.</p>
-
-<p><strong>Mapping the data</strong></p>
-
-<p>I wanted to use a heat map to show the data (for no particular reason). There are numerous ways to accomplish this but I chose to use the <a href="http://help.arcgis.com/en/webapi/silverlight/index.html">ESRI ArcGIS API for Silverlight</a>. I made this choice primarily because a lot of my project work right now involves it so the tools are at my fingertips. Also, it has a HeatMapLayer class which I had not had a chance to try yet.</p>
-
-<p>So I set up a simple mapping application and, at runtime, I load the data from GeoCommons and populate each heat map layer with the points from the appropriate data set. In this case I loaded the data as CSV (which is one of the data options on GeoCommons) by making the appropriate call to the GeoCommons API. I chose CSV because I only needed the latitude and longitude of each location and CSV was actually the least wordy transmission mode. I parsed the data using the <a href="http://kbcsv.codeplex.com/">KBCsv</a> parser available on CodePlex. I could have also loaded the data as GeoJSON and used <a href="http://json.codeplex.com/">JSON.Net</a> or Vish's outstanding <a href="http://viswaug.wordpress.com/2008/05/11/geojsonnet-a-net-library-to-produce-geojson-output/">GeoJSON.Net</a> library but CSV suited my needs in this case. Here is a screen shot showing the GISP data.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2011/02/gisp_heatmap1.png"><img alt="" class="alignleft size-full wp-image-1484" height="242" src="http://geobabble.files.wordpress.com/2011/02/gisp_heatmap1.png" title="GISP Heat Map" width="590" /></a></p>
-
-<p><strong>Reading the data</strong></p>
-
-<p>So, did the data confirm the suspicion from my original tweet? Yes. The ESRI API calculates heat map intensity based upon the data that is visible in the current map extent. When you zoom out to the whole nation, you can clearly see that the highest concentration of both certifications, by far, is in the Washington, DC area. If you zoom in more and pan around, the mapping adjusts itself so you can get a better representation of other areas by zooming in to them (and away from DC). You can also adjust the display with the intensity tool to bring out some local variations.</p>
-
-<p>What doesn't come across well is relative scale. There are a lot more PMPs than GISPs but that doesn't show well in this presentation. That's why I chose to put a toggle on the map because there's very little value in seeing the two data sets overlaid.</p>
-
-<p>All told, it took about two hours to get the core of the application in place and maybe about another hour to tidy things up. With GeoCommons, it literally took longer to prep the data than to geocode it and the native heat mapping capability of the ESRI Silverlight API was extremely easy to use. The Silverlight implementation shuts out most mobile users and anyone on Linux (Moonlight is not yet Silverlight 4 compatible) so, for those reasons, I'll continue to explore more standards-based approaches but this combination of tools certainly helped me answer my question quickly.</p>
-
-<p>This application is currently being served up live at <a href="http://demo.zekiah.com/heatmap">demo.zekiah.com/heatmap</a></p>
 ]]></content>
   </entry>
   

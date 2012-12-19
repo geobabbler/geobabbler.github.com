@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="URISA 2007 is being held in Washington, DC. I&#8217;ll be manning the Zekiah Technologies booth (#321). If you&#8217;re there, swing by and introduce &hellip;">
+  <meta name="description" content="I found this article today about using VB9 and WPF to draw thematic maps. It&#8217;s a good walk-through of how to do it. The article admits that the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/08/11/Going-to-URISA-2007/">Going to URISA 2007</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/18/MSDN-Article-on-Mapping-with-WPF/">MSDN Article on Mapping With WPF</a></h1>
     
     
       <p class="meta">
@@ -88,18 +88,20 @@
   
 
 
-<time datetime="2007-08-11T00:00:00-04:00" pubdate data-updated="true">Aug 11<span>th</span>, 2007</time>
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
         
-         | <a href="/2007/08/11/Going-to-URISA-2007/#disqus_thread">Comments</a>
+         | <a href="/2007/12/18/MSDN-Article-on-Mapping-with-WPF/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.urisa.org/conferences/aboutannual">URISA 2007</a> is being held in Washington, DC. I&#8217;ll be manning the <a href="http://www.zekiah.com">Zekiah Technologies</a> booth (#321). If you&#8217;re there, swing by and introduce yourself.</p>
+  <div class="entry-content"><p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It&#8217;s a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn&#8217;t be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
 
-<p><img alt="" src="http://www.urisa.org/prev/urisalogo-med.jpg" /></p>
+<p>I&#8217;ve been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven&#8217;t had a chance to extract what I&#8217;ve done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it&#8217;s shaping up in SharpMap 2.0.</p>
+
+<p>So, if you&#8217;re looking for an example of how to render spatial data in WPF, this is a good one.</p>
 </div>
   
   
@@ -112,7 +114,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/08/10/Friday-Frivolity-from-the-Spam-Folder/">Friday Frivolity From the Spam Folder</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/">Inserting SQL 2008 Geometry With a SqlCommand</a></h1>
     
     
       <p class="meta">
@@ -128,28 +130,64 @@
   
 
 
-<time datetime="2007-08-10T00:00:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2007</time>
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
         
-         | <a href="/2007/08/10/Friday-Frivolity-from-the-Spam-Folder/#disqus_thread">Comments</a>
+         | <a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This is WAY off-topic, for those of hitting this from Planet GS or an aggregator.</p>
+  <div class="entry-content"><p><strong>Update (7/1/2011):</strong> I wrote this post early in the SQL 2008 CTP. I no longer use the method described here. If you found this post via StackOverflow or some other Q&amp;A site, I highly recommend this post by Vish as a more efficient way of doing things: <a href="http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/">http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/</a></p>
 
-<p>My deified status as been confirmed!</p>
+<p>I&#8217;m in the process of using <a href="http://codeplex.com/SharpMap">SharpMap</a> to write a utility to load spatial data into my <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> instance. A couple of the SharpMap data providers have a static method to load data from a shapefile (really any other SharpMap data provider, but I digress). The method creates a table and uses an ADO.Net command object (<a href="http://msdn2.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx">SqlCommand</a> in this case) load individual records into the table. I started using the existing <a href="http://www.codeplex.com/SharpMap/SourceControl/FileView.aspx?itemId=30508&amp;changeSetId=28971">MsSql provider</a> as a template, which load the geometry&#8217;s WKB into an image column.</p>
 
-<p>I was doing my weekly perusal of my spam folder to make sure SpamBayes didn&#8217;t actually filter something valid. I&#8217;m sure everyone has been getting the bogus &#8220;you&#8217;ve received a greeting card from a friend/family member/classmate/colleague/etc.&#8221; messages.</p>
+<p>The problem with SQL 2008 comes in when you add a parameter to the command. You must specify the data type of the parameter by passing it a <a href="http://msdn2.microsoft.com/en-us/library/system.data.sqldbtype.aspx">SqlDbType</a> enumeration. Currently, there is no enumeration that corresponds to geometry (or geography for that matter). My first attempt was to leave the parameter defined as the type SqlDbType.VarBinary and set the value as such:</p>
 
-<p>This one made me laugh&#8230;</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">VarBinary</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsBinary</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p><img src="http://geobabble.files.wordpress.com/2007/08/spam.png" /></p>
 
-<p>I&#8217;ve always had a pretty high opinion of myself but I have apparently not been aiming high enough!</p>
+<p>In this case, feature.Geometry is of type SharpMap.Geometries.Geometry and AsBinary returns the <a href="http://dev.mysql.com/doc/refman/5.0/en/gis-wkb-format.html">WKB</a> representation of the shape. This code failed when attempting to execute the command, throwing an exception indicating that the table column (type geometry) was not a valid binary data type.</p>
 
-<p>We now return to regularly scheduled programming.</p>
+<p>So I next tried defining the data type of the parameter as SqlDbType.Udt (user-defined type) and setting the UdtTypeName property to &#8220;geometry&#8221;. This failed also.</p>
+
+<p>On a whim (I wish I could say it was something more scientific than a desire to leave no stone unturned), I then tried working with text and set it up this way:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">NVarChar</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsText</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case, AsText returns the <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> representation of the shape. This worked! I have not dug into the details of why it worked but it seems the underlying spatial objects in SQL 2008 have some built-in default behaviours that coerce WKT. I am now loading data via a WinForms app with the aid of SharpMap. So, if you&#8217;re trying to update geometry from within your code, the above example is what worked for me.</p>
+
+<p>I&#8217;ll probably post the code to the data loader a little bit later after I incorporate SRID and geometry type constraints and the like.</p>
 </div>
   
   
@@ -162,7 +200,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/08/03/Way-Ahead-for-zigGIS/">Way Ahead for zigGIS</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/">Spatial References in SQL Server 2008, Part 3</a></h1>
     
     
       <p class="meta">
@@ -178,30 +216,29 @@
   
 
 
-<time datetime="2007-08-03T00:00:00-04:00" pubdate data-updated="true">Aug 3<span>rd</span>, 2007</time>
+<time datetime="2007-12-08T00:00:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2007</time>
         
-         | <a href="/2007/08/03/Way-Ahead-for-zigGIS/#disqus_thread">Comments</a>
+         | <a href="/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://abegillespie.blogspot.com">Abe</a>, <a href="http://www.paolocorti.net">Paolo</a> and I had a chat session yesterday to coordinate efforts on <a href="http://code.google.com/p/ziggis">zigGIS</a>. It was good session and we&#8217;re all on the same page with getting zigGIS solidified.</p>
+  <div class="entry-content"><p>A little clarification is in order:</p>
 
-<p>The general theme of the outcome from yesterday is that we want to make zigGIS a solid experience for <a href="http://postgis.refractions.net/">PostGIS</a> users first. We have discussed other data sources in the past but we feel that we should nail down PostGIS first and then let that be a reference implementation for other data sources such as <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle Spatial</a>, <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=MsSqlSpatial">MS SQL Spatial</a> and the like.</p>
+<p>SQL Server 2008 Books Online makes the following statement about SRIDs:</p>
 
-<p>With that said, the most glaring gap in the current capability of zigGIS is editing. Meaning you can&#8217;t. Editing is our highest priority in the near future. Over the next few weeks, we will be developing use cases to define an editing workflow. We&#8217;ll also prototype ways to integrate zigGIS with the native editing capabilities of ArcMap in order to reduce the amount of custom editing code we need to write.</p>
+<blockquote>
+&#8220;A SQL Server-supported SRID for geography instances must be used when performing calculations or using methods with geography spatial data. The SRID must match one of the SRIDs displayed in the sys.spatial_reference_systems catalog view.&#8221;
+</blockquote>
 
-<p>We&#8217;ll also be restructuring the existing code. The current code is rather flat in that individual .cs files contain multiple classes and the directory structure doesn&#8217;t reflect the namespaces. Fixing all of that will give us a little more flexibility with version control and managing distributed programming. It&#8217;ll also make it easier if&#8230;ahem&#8230;any other programmers want to join the project.</p>
 
-<p>There are also still some performance issues with the current capabilities we need to iron out, such as the one <a href="http://geobabble.wordpress.com/2007/05/08/ziggis-and-spatial-references-part-3/">Bruce pointed out</a> a while ago.</p>
+<p>As previously noted, SQL 2008 supports two spatial data types: geometry and geography. As can be seen, the above statement only applies to the geography data type. If you are using geometry, the SRID can be set to anything (I have done so). It would probably be a best practice to stick to <a href="http://www.epsg.org/">EPSG</a>-defined SRIDs but this does open up the possibility of user-defined spatial references similar to <a href="http://postgis.refractions.net">PostGIS</a>. <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2505683&amp;SiteID=1">In a discussion with Isaac on the MSDN forum</a>, he clarified that they plan to leave such things to the discretion of the database designers/users for implementation. As can be seen in the discussion, it seems they may also write up some best practices but it seems many things such as constraints to limit SRIDs and geometry types will be left to users/developers/DBAs to implement.</p>
 
-<p>Of course the catalog objects are ongoing but there may not be any movement on that until after we get the code restructured. Paolo is going on vacation for three weeks :D but Abe is planning to start the code restructure in the meantime as a way to re-familiarize himself with the code.</p>
+<p>So, as a result of the discussion, I think I have a better understanding of <a href="http://www.microsoft.com">MSFT</a>&#8217;s intent and how to proceed with SQL 2008. It will be interesting to adjust my way of thinking from what I have come to expect from other products.</p>
 
-<p>As always, the biggest impediment is time. It seems that the need to put food on the table refuses to go away but we should be able to build a little more forward momentum than we&#8217;ve seen recently.</p>
-
-<p><a href="http://code.google.com/p/ziggis" title="zigGIS Logo"><img alt="zigGIS Logo" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" /></a></p>
+<p>Also, other discussions on the forum seem to indicate that this release will not have any coordinate transformation functions so those of us planning to use and develop with SQL 2008 should probably get comfortable with something like <a href="http://www.codeplex.com/ProjNET">Proj.Net</a>.</p>
 </div>
   
   
@@ -214,7 +251,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/08/02/Interesting-Washington-Post-Article/">Interesting Washington Post Article&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh/">So Neo-Geo Is Not GIS, Huh?</a></h1>
     
     
       <p class="meta">
@@ -230,20 +267,28 @@
   
 
 
-<time datetime="2007-08-02T00:00:00-04:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2007</time>
+<time datetime="2007-12-05T00:00:00-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2007</time>
         
-         | <a href="/2007/08/02/Interesting-Washington-Post-Article/#disqus_thread">Comments</a>
+         | <a href="/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>For those of you familiar with what Northern Virginia is like now, the following article may be of interest:</p>
+  <div class="entry-content"><p><a href="http://apb.directionsmag.com/archives/3703-Neogeography-is-not-GIS;-not-LI.html">All Points</a> got the ball rolling this time around. <a href="http://geothought.blogspot.com/2007/12/no-data-creation-in-neogeography-errr.html">Peter Batty</a> responded with his usual thoughtfulness and <a href="http://geotips.blogspot.com/2007/12/real-men-use-real-gis-software.html">Paul Ramsey</a> gets the award for the best reponse so far.</p>
 
-<p><a href="http://www.washingtonpost.com/wp-dyn/content/article/2007/08/01/AR2007080102407.html">http://www.washingtonpost.com/wp-dyn/content/article/2007/08/01/AR2007080102407.html</a></p>
+<p>I watch this and can&#8217;t help but wonder: haven&#8217;t we been here before?</p>
 
-<p>It&#8217;s about how archaeologists are using some recently discovered aerial photos of Fairfax County from 1937 to analyze change over the decades.</p>
+<p>If we replace the phrase &#8221;<a href="http://gislounge.com/internet-mapping/google-maps/neogeography/">neogeography</a>&#8221; with the phrase &#8220;desktop mapping&#8221; then I feel like we had this conversation 10 (or more) years ago. The ironic part is that MapInfo was in the position then that neo-geo is in now.</p>
+
+<p>Many GIS hard-liners argued that non-topological mapping packages could not be called GIS. &#8220;Real GIS&#8221; understood topology and could do analysis based upon topology. That argument was mostly forwarded by the <a href="http://en.wikipedia.org/wiki/ArcInfo">Arc/Info</a> crowd (although I don&#8217;t think <a href="http://www.esri.com">ESRI</a> was directly involved, it arose more from Arc/Info adherents). Software such as <a href="http://www.mapinfo.com/location/integration">MapInfo</a>, <a href="http://www.caliper.com/">Maptitude</a>, etc. was not &#8220;real GIS&#8221; and, therefore, their outputs could not be trusted.</p>
+
+<p>Well, we see what happened: that market proliferated. <a href="http://en.wikipedia.org/wiki/ArcView_3.x">ArcView 3.x</a> became the most widely used GIS package around at the time. Other desktop systems (MapInfo, <a href="http://www.manifold.net">Manifold</a>, etc.) beefed up their capabilities and ESRI eventually produced ArcMap. Anyone care to have that conversation again? I didn&#8217;t think so.</p>
+
+<p>So, is neogeography GIS? I don&#8217;t know. What&#8217;s the measure? Those put forth by Mike Hickey are different than those put forth as arguments against desktop mapping years ago. So, really, the hurdle has just been moved. Maybe neo-geo isn&#8217;t GIS&#8230;yet. But does anyone really think the technology won&#8217;t advance? Take a look at <a href="http://featureserver.org/">FeatureServer</a>. Take a look at the various spatial SQL implementations in <a href="http://postgis.refractions.net">PostGIS</a>, <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a>, <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle</a> and many others. People are trying to solve that problem. If ESRI ever puts out their <a href="http://virtualearth4gov.spaces.live.com/Blog/cns!369B39F890CE30C1!408.entry">REST API</a>, the neo-geo community will have the full power (maybe) of ArcGIS Server at their disposal. I have an idea: if MapInfo feels that neo-geo isn&#8217;t really GIS, why don&#8217;t they create a product line targeted at giving the neo-geo community &#8220;real GIS&#8221; tools. Whatever those are. Looks like a market opportunity to me.</p>
+
+<p>Making decisions about the viability/validity of neo-geo based on the current state of the technology is a little short-sighted to say the least.</p>
 </div>
   
   
@@ -256,7 +301,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/07/31/Extending-SharpMap-with-SQLite/">Extending SharpMap With SQLite</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/03/A-Year-of-GeoMusings/">A Year of GeoMusings</a></h1>
     
     
       <p class="meta">
@@ -272,258 +317,259 @@
   
 
 
-<time datetime="2007-07-31T00:00:00-04:00" pubdate data-updated="true">Jul 31<span>st</span>, 2007</time>
+<time datetime="2007-12-03T00:00:00-05:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2007</time>
         
-         | <a href="/2007/07/31/Extending-SharpMap-with-SQLite/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Or vice versa.</p>
-
-<p>A while back I posted about setting up a <a href="http://geobabble.wordpress.com/2007/06/19/my-little-open-source-stack/">GIS server using open source GIS technologies</a>. When I left off, I was going to start messing with <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. I&#8217;ve been able to get back to that recently. I am working on a project where I need to do some basic spatial operations on a workstation but I want to keep a relatively small software foot print on the box. Of course, this screams &#8220;web service&#8221; or some such thing but the platform is mobile with no guaranteed network access.</p>
-
-<p>So I went back to SharpMap. It&#8217;s footprint is relatively small (compared to ArcGIS) and the licensing model can&#8217;t be beat :-) . Next, I had to focus on the data source. I decided to look at <a href="http://www.sqlite.org/">SQLite</a> due to its small footprint. Additionally, the availabiliy of an <a href="http://sqlite.phxsoftware.com/">OLEDB driver</a> gave me option for non-spatial data that shapefiles alone didn&#8217;t (I just didn&#8217;t want to wrestle with the dBase driver).</p>
-
-<p>So I got to do something I&#8217;ve wanted to do for a while: write my own data provider for SharpMap. There&#8217;s probably something out there already but how can I learn that way? So I based my data provider class on the class that already existed for MS SQL Server (MsSql.cs). It served as an excellent basis. I was surprised at how very easy it was to do this sort of implementation. The picture below depicts a SharpMap MapImage control with polygon data being read from SQLite.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/07/sharpmap_sqlite.png" title="SharpMap desktop app with data from?SQLite"><img alt="SharpMap desktop app with data from?SQLite" src="http://geobabble.files.wordpress.com/2007/07/sharpmap_sqlite.thumbnail.png" /></a></p>
-
-<p>SQLite is inherently text-based so I found it easier to store the geometry as <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> rather that <a href="http://dev.mysql.com/doc/refman/5.0/en/gis-wkb-format.html">WKB</a> but that actually helps me with another project requirement: displaying the data in a <a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF</a> form. Transforming the WKT to <a href="http://www.xaml.net/">XAML</a> will be easier but I digress.</p>
-
-<p>I am very impressed with the updates being made to SharpMap. I feel like I&#8217;m just scratching the surface of what it can do. Version 2.0 has not technically been released but I have found the latest builds to be very stable and I&#8217;m moving forward without hesitation using it in my project.</p>
-
-<p>I have uploaded my code below. Just rename it to a .cs file.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/07/sqllite.txt" title="SqlLite.cs Source Code">Click here for the SqlLite.cs source code</a></p>
-
-<p><a href="http://www.statcounter.com/" target="_blank"><img alt="hit counter" border="0" src="http://c31.statcounter.com/2901378/0/be706774/0/" /></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/07/27/ZigGIS-Catalog-Objects/">ZigGIS Catalog Objects</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-27T00:00:00-04:00" pubdate data-updated="true">Jul 27<span>th</span>, 2007</time>
-        
-         | <a href="/2007/07/27/ZigGIS-Catalog-Objects/#disqus_thread">Comments</a>
+         | <a href="/2007/12/03/A-Year-of-GeoMusings/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Things have been REALLY slow on <a href="http://code.google.com/p/ziggis">zigGIS</a> for a while. All of us (Paolo, Abe, me) have all been up to our eyeballs with work, leaving little time to work on the zig. Now that <a href="http://www.digital-pulp.com/">Abe is out on his own</a>, the three of us have been trying to coordinate a chat session to lay out a little bit of a way ahead. That has proven somewhat difficult in itself. I think the best way to handle it at this point is for Abe and I to go out to Rome and sit down with Paolo ;-) .</p>
+  <div class="entry-content"><p>It&#8217;s been a year since I stood up GeoMusings. This is my second attempt at blogging. My first, ArcDeveloper, fizzled mainly because of a lack of focus on my part. So I started again on 1 December of 2006. I was originally on Blogger but quickly moved to WordPress. Early on, I started playing with <a href="http://code.google.com/p/ziggis/">zigGIS</a>, the open-source <a href="http://postgis.refractions.net/">PostGIS</a> connector for <a href="http://en.wikipedia.org/wiki/ArcMap">ArcMap</a>. I was impressed with the code and eventually joined the project. So the first couple of months were heavily focused on zigGIS and the blog may have been interpreted as a &#8220;zigGIS blog.&#8221; That was never the intent but have been the first impression.</p>
 
-<p>Anyway, I had a little time so I pushed forward on the catalog objects. I&#8217;ve got it down to where the layers for a <a href="http://postgis.refractions.net/">PostGIS</a> database actually show up in the ArcCatalog tree but it&#8217;s still a little flaky from there. The screenshot below shows what I&#8217;ve got. You&#8217;ll notice that the geometry icons don&#8217;t show up. Well, the layer doesn&#8217;t draw in ArcCatalog either but everything still works fine in ArcMap.</p>
-
-<p><img alt="It?s a little closer?" src="http://geobabble.files.wordpress.com/2007/07/zigcatalog.png" /></p>
-
-<p>So now that I&#8217;ve got the hierarchy fleshed out, I can focus on the display logic. Incidentally, the attributes for the layers do show up so all is not completely lost.</p>
-
-<p>That&#8217;s what I&#8217;ve got for now. I can&#8217;t vouch for a specific schedule for a new release but we&#8217;re trying to coordinate that.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/07/23/New-DDJ-Column-on-Concurrency/">New DDJ Column on Concurrency</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-23T00:00:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2007</time>
-        
-         | <a href="/2007/07/23/New-DDJ-Column-on-Concurrency/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Anyone who has browsed this blog enough has probably figured out that I am a fan of <a href="http://www.ddj.com">Doctor Dobb&#8217;s Journal</a>. This month&#8217;s issue inaugurates <a href="http://www.ddj.com/dept/architect/200001985">a new column by Herb Sutter</a> dealing with concurrency. In my opinion, the confluence of mult-processor/multi-core systems with a greater emphasis on server-based GIS makes concurrency a huge issue for the GIS community.</p>
-
-<p>The most obvious example of where concurrency can be of benefit is ArcGIS Server. The entire ArcObjects library is exposed in such a way that complex geospatial operations can be published as services. Many such operations can benefit from concurrency, especially as they are executed in a multi-user, server-based context.</p>
-
-<p>I am of the opinion that the current 9.x architecture of AGS (with COM under the hood) is not optimally suited for such an approach but it will be interesting to see how <a href="http://www.esri.com">ESRI</a> addresses concurrency as 10.0 evolves. I also view the current AGS as a step along a path rather than an intended end state. Of course, there are other technologies out there. I merely hold up AGS as an obvious and visible example of a product that can benefit from being built with concurrency in mind. Of course, it&#8217;s up to us as software developers to correctly build our apps as well.</p>
-
-<p>That said, I highly recommend this column. The inaugural installment rightly kicks off from a conceptual standpoint but I suspect we&#8217;ll be in the weeds soon enough.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/07/23/Flashback/">Flashback&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-23T00:00:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2007</time>
-        
-         | <a href="/2007/07/23/Flashback/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Just back from vacation :-( and as a way of easing back into things, I have been tinkering with my <a href="http://msdn2.microsoft.com/en-us/netframework/aa663324.aspx">WCF</a> project that&#8217;s been sitting while the paying work has gotten done. It&#8217;s the one that wraps PostGIS coordinate conversion as a web service written using WCF. My copy of &#8221;<a href="http://www.wrox.com/WileyCDA/WroxTitle/productCd-0470089849.html">Professional WCF Programming</a>&#8221; arrived while I was gone so I had some incentive. The purpose of this project is more to get me comfortable with WCF than anything to do with coordinate conversion.</p>
-
-<p>Anyway, I have a simple WinForms client to test my service calls but I&#8217;ve noticed I need to clean and rebuild the project a lot. Suddenly, I had a flashback:</p>
-
-<p><img alt="How do I get rid of all these?pseudocodes?" src="http://geobabble.files.wordpress.com/2007/07/vs2005_build_menu.png" /></p>
-
-<p>I&#8217;m using build and clean again! If only there had been an AML editor as nice as this one&#8230;</p>
-
-<p>Oh well, back to work.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/07/11/Back-In-A-Bit/">Back in a Bit</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-11T00:00:00-04:00" pubdate data-updated="true">Jul 11<span>th</span>, 2007</time>
-        
-         | <a href="/2007/07/11/Back-In-A-Bit/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img alt="I wish I had a pencil-thin?mustache?" src="http://geobabble.files.wordpress.com/2007/07/fla.jpg" />
-See you again in a couple of weeks. Feel free to have a look around. Help yourself to something in the fridge. Please feed the cat and be sure to lock up when you leave.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/">Consuming GeoRSS in ArcMap With InMemoryWorkspaceFactory</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-10T00:00:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2007</time>
-        
-         | <a href="/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This will be my last post for a couple of weeks. I&#8217;m heading out to Florida tomorrow to spend time with my family and the Mouse. But before I head out, I thought I&#8217;d share a little something I&#8217;ve been working on.</p>
-
-<p>I&#8217;ve been playing the last few days with the <a href="http://edndoc.esri.com/arcobjects/9.2/ComponentHelp/esriDataSourcesGDB/InMemoryWorkspaceFactory.htm">InMemoryWorkspaceFactory</a> class in ArcObjects. I am looking at using it for a project I will be working on when I get back so I thought I&#8217;d do a little prototyping beforehand.</p>
-
-<p>The fact that it works in memory is very attractive, especially for using volatile data. <a href="http://georss.org/">GeoRSS</a> seemed like a natural source to use for prototyping.</p>
-
-</div>
+<p>Generally, the blog has been a way for me to vent about things I&#8217;m working with as well as an outlet for my own experimentation. It has been a great way for me to get exposed to the open-source GIS community. There&#8217;s a lot of impressive work going on in that area and it&#8217;s been interesting to see the pace with which open-source technology is advancing. I have also been able to meet some great people, such as <a href="http://www.paolocorti.net/public/wordpress/">Paolo</a> and <a href="http://abegillespie.blogspot.com">Abe</a> as well as many others. Anyway, here are some of the observations/opinions I&#8217;ve formed as a result of a year of blogging:</div>
   
   
     <footer>
-      <a rel="full-article" href="/2007/07/10/Consuming-GeoRSS-in-ArcMap-With-InMemoryWorkspaceFactory/">Read on &rarr;</a>
+      <a rel="full-article" href="/2007/12/03/A-Year-of-GeoMusings/">Read on &rarr;</a>
     </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/02/Stealing-GPS/">Stealing GPS&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-02T00:00:00-05:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2007</time>
+        
+         | <a href="/2007/12/02/Stealing-GPS/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The following was reported on the local news in Washington, DC:</p>
+
+<blockquote>
+<em>WRC-TV
+updated 7:37 p.m. ET, Mon., Nov. 26, 2007
+BETHESDA, Md. - On two nights earlier this month, several cars were broken into in Bethesda, police said. The break-ins occurred overnight Nov. 7 to Nov. 8 and overnight Nov. 11 to Nov. 12, police said. Between the two nights, a total of 49 cars were broken into. 
+
+The culprits stole global positioning systems.</em>
+</blockquote>
+
+
+<p>You have to wonder about the logic of stealing something that locates itself&#8230;
+Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://www.msnbc.msn.com/id/21979301/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">SQL Server 2008 SharpMap Data Provider Code</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-28T00:00:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As promised, I have uploaded the data provider code I <a href="http://geobabble.wordpress.com/2007/11/20/sharpmap-and-sql-server-2008-spatial/">mentioned earlier</a> to the <a href="http://www.codeplex.com/SharpMap">SharpMap</a> site. It&#8217;s written in C#. I took the existing Oracle provider, stripped out the Oracle SQL and put in T-SQL. There are a couple of things I&#8217;m still trying to chase down but it&#8217;s basically done at this point. I know they&#8217;re busy trying to finish up SharpMap 2.0 so I don&#8217;t know how long it&#8217;ll take to become available. Just in case, here&#8217;s the code:</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/">Spatial References in SQL Server 2008, Part 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>With some guidance from <a href="http://geotips.blogspot.com/">Paul Ramsey</a>, I implemented a check constraint on my sample table to allow only a single SRID in a table. As Paul indicated in <a href="http://geobabble.wordpress.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/#comment-3803">his comment on my previous post</a>, <a href="http://postgis.refractions.net">PostGIS</a> does this for you. SQL 2008 doesn&#8217;t yet but I hope it does. The syntax for my table was:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">--only allow WGS84</span>
+</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">SpatialTable</span>
+</span><span class='line'>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">enforce_srid_geometry</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4326</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After doing that, the following SQL will properly fail:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">UPDATE</span> <span class="n">SpatialTable</span>
+</span><span class='line'>  <span class="k">SET</span> <span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4127</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thanks to Paul for chiming in!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-November-CTP/">Spatial References in SQL Server 2008 November CTP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-November-CTP/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been playing with the <a href="http://www.microsoft.com/sql/2008/default.mspx">SQL 2008 November CTP</a> since it was released last week and have been generally impressed but as I have delved into its handling fo spatial references, I have noted some areas of concern. Keeping in mind that it&#8217;s a CTP, I&#8217;m hoping that some aspects may be addressed before release.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/11/26/Spatial-References-in-SQL-Server-2008-November-CTP/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/20/SharpMap-and-SQL-Server-2008-Spatial/">SharpMap and SQL Server 2008 Spatial</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-20T00:00:00-05:00" pubdate data-updated="true">Nov 20<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/20/SharpMap-and-SQL-Server-2008-Spatial/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I downloaded the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">November CTP</a> yesterday and couldn&#8217;t resist. Today I wrote a <a href="http://www.codeplex.com/SharpMap">SharpMap</a> data provider for it. The black rectangle below represents a sample data set I created. It&#8217;s not as pretty as the Mexico data I used with <a href="http://www.sqlite.org/">SQLite</a> but it&#8217;s beautiful to me. It&#8217;s being displayed in the DemoWinForm app that comes with SharpMap 0.9. I am still working in 0.9 because a project I am on is using it. I&#8217;ll migrate to 2.0 a little later.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.png" title="sharpmap_sql2008.png"><img alt="sharpmap_sql2008.png" src="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.thumbnail.png" /></a></p>
+
+<p>Anyway, <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">I previously sung the praises of SharpMap and its ease of extensibility</a>. The turn-around time needed to write a provider speaks well of SQL 2008 to this point. All of the native SharpMap functions for handling WKB are working fine with the output from SQL 2008. This tells me that Microsoft is doing a good job of implementing OGC specifications.</p>
+
+<p>I am compiling my first impressions about SQL 2008 Spatial and will post them later. Most of them are favorable. It&#8217;s the first public beta of sorts and there are still some things missing (coordinate tranformations for instance) that I hope will come later but it makes a good first impression. Outside of the spatial capability, the platform in general seems stable. It&#8217;s almost production-ready as is.</p>
+
+<p>I will post the code to the provider later. There&#8217;s one piece unrelated to data handling that I need to clean up and then I&#8217;ll most likely post it over on the SharpMap site and see if they&#8217;ll take it. After that, I guess I&#8217;ll build a data loader&#8230;</p>
+</div>
+  
   
 
 

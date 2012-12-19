@@ -4,7 +4,7 @@
   <title><![CDATA[Category: postgresql | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/postgresql/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T14:13:06-05:00</updated>
+  <updated>2012-12-19T17:20:03-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Planet PostGIS Online]]></title>
+    <link href="http://blog.geomusings.com/2012/07/07/Planet-PostGIS-Online/"/>
+    <updated>2012-07-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/07/Planet-PostGIS-Online</id>
+    <content type="html"><![CDATA[<p><a href="http://planet.postgis.net/">Planet PostGIS</a>, an aggregation of <a href="http://postgis.refractions.net/">PostGIS</a>-related blog content is now online. As the name suggests, it is built using the same technology as <a href="http://www.spatiallyadjusted.com">James Fee's</a> <a href="http://planetgs.com">Planet Geospatial</a> but is focused on content related to PostGIS.</p>
+
+<p>If you are working with PostGIS, whether as part of an open-source stack or in conjunction with proprietary tools such as ArcGIS, you may want to check out Planet PostGIS.</p>
+
+<p>Thanks to <a href="http://www.linkedin.com/pub/regina-obe/7/5/200">Regina Obe</a> and everyone involved in setting this up.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Breaking Radio Silence]]></title>
+    <link href="http://blog.geomusings.com/2012/06/07/Breaking-Radio-Silence/"/>
+    <updated>2012-06-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/07/Breaking-Radio-Silence</id>
+    <content type="html"><![CDATA[<p>Things have been kind of quiet on the blog lately due to things being busy at work. I call that a good problem to have. Since the beginning of the year, I've written a a lot of proposals for a mixture of potential customers. Interestingly, I'm seeing a lot more call for "GIS Analyst" work. One trend I've noticed, at least in the Federal sector, is that the time between proposal due dates and award announcements seems to be lengthening. That may be an indication of the ongoing flux in funding and organizations try to figure out how to fund their requirements. It will be interesting to see how it shakes out. Of course, it's good that the opportunities are there in the first place.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2012/06/microphone.jpg"><img alt="" class="aligncenter size-full wp-image-2664" height="413" src="http://geobabble.files.wordpress.com/2012/06/microphone.jpg" title="microphone" width="413" /></a></p>
+
+<p>One the technical side of things, I've been involved in a smattering of things that's made it hard to roll up one good post. I'm pretty heavily involved in the PIM efforts that my colleague, Barry Schimpf, <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">has been blogging about</a> over on the <a href="http://www.zekiah.com" target="_blank">Zekiah</a> blog. <!--more--> Historically, the PIM data structures have been housed in Microsoft SQL Server, but we've been working on porting it to other platforms to provide options to end users. We've done an initial port to <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> but we've been spending most of our time on a <a href="http://www.sqlite.org/" target="_blank">SQLite</a>/<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> version. This has taken two forms. First is the port of the PIM structure itself to SQLite to make it easier to provide some of the PIM services such as profiling, version-to-version migrations, dataset generation, and validation in remote, field-based settings. Second is the generation/validation of physical implementations in SpatiaLite. This is being done for a customer who is expecting to do field data collection using SpatiaLite and these services will be helpful in enhancing data quality at the point of collection. Additionally, the SpatiaLite aspect of this work has had me living within <a href="http://qgis.org/" target="_blank">QGIS</a> lately.</p>
+
+<p>Another thing I've been experimenting with is the use of <a href="http://nodejs.org/" target="_blank">Node.js</a> for real-time data processing. Our long-standing work in the situational awareness realm has had us working with real-time data feeds for a long time. I'm interested in the possibility of using Node to tackle some of the feed collection tasks. I've used an event-driven approach for such tasks in the past so that aspect of Node is quite familiar to me but the use of Javascript, its ease of deployment and potential scalability are intriguing to me. I'm coming late to the party with Node, primarily due to my rustiness with Javascript, but I'm liking what I'm seeing so far.</p>
+
+<p>Beyond those major things, I've had the opportunity to start working with <a href="http://postgis.org/" target="_blank">PostGIS</a> 2.0 and play more with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://mapbox.com/" target="_blank">MapBox</a>. On the development side of things, these efforts have had be jumping back and forth a lot between C#, Javascript and a little bit of Python, as well as between Windows and Linux, depending on the task.</p>
+
+<p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
+
+<p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FOSS4G North America]]></title>
+    <link href="http://blog.geomusings.com/2012/04/12/FOSS4G-North-America/"/>
+    <updated>2012-04-12T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/04/12/FOSS4G-North-America</id>
+    <content type="html"><![CDATA[<p>It's rather fitting that the second plenary talk on Wednesday had to do with "firehose" applications since the <a href="http://foss4g-na.org/" target="_blank">FOSS4G North America</a> (FOSS4GNA) conference was something of a firehose in itself. Despite the fact that the event was smaller than the worldwide event in Denver back in October, I came away with the same "full brain" feeling.</p>
+
+<p><img alt="It feels like I never leave this place." src="http://www.visitingdc.com/images/washington-dc-convention-center.jpg" /></p>
+
+<p>Of course, given the recent production release of <a href="http://blog.opengeo.org/2012/04/03/postgis-2-0-released/" target="_blank">PostGIS 2.0</a>, that was kind of the big story for this event. I attended a number of <a href="http://postgis.org/" target="_blank">PostGIS</a>/<a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>-related sessions and came away with lots of new information. I especially enjoyed <a href="http://twitter.com/pwramsey" target="_blank">Paul Ramsey's</a> "what's new" talk on Wednesday. One thing I enjoy about his talks (here and in Denver) is that he's not afraid to throw sample SQL up on the screen. It's one thing to hear about a new feature but it's another thing entirely to see a concrete example. Some may find the idea of raw SQL in a presentation abhorrent but it worked for me. <!--more--></p>
+
+<p>I've already started playing with PostGIS 2.0 but haven't gotten terribly far so these sessions helped a lot. It's already been pretty well vetted by the community during it's various pre-release stages so it seems remarkably stable. With the addition of topology and raster analysis in addition to 3D/4D indexing and new vector functions, PostGIS probably handles the majority of what most users would need for GIS analysis at the database level. I'm excited to dig deeper.</p>
+
+<p>I also attended a few web-mapping themed talks. If there is one word that consistently and repeatedly passed the lips of most of the presenters, it was "<a href="http://geojson.org/" target="_blank">GeoJSON</a>." I've <a href="http://blog.geomusings.com/?s=geojson" target="_blank">blogged about GeoJSON</a> in the past but it really is the oil that makes the modern geo-web run smoothly. The rate of adoption it is receiving rivals only one other <em>de facto</em> standard that I can recall: you may remember something called the shapefile. The fact is that anyone who's been hunting through their file system looking for the "next shapefile" has been looking in the wrong place. It lives behind that nice map in your browser. The shapefile took off because it solved a problem for what was the frontier of GIS in the 1990s; the transition from heavy workstations to desktop mapping. GeoJSON solves the problem of delivering vector spatial data for today's frontier; the transition from the desktop GIS to web mapping. It's that simple. We don't need another file format to solve an old problem that already has a solution.</p>
+
+<p>Of course, there was a lot more. I got introduced to <a href="http://cartodb.com/" target="_blank">CartoDB</a> in Denver, have <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/" target="_blank">experimented with it</a> since then and was able to get an update on its 1.0 release at one of the sessions. It remains a compelling option for spatial data hosting and <a href="http://vizzuality.com/" target="_blank">Vizzuality</a> are actively engaging with the open-source communities that build the tools they use. On the cartography side of things, <a href="http://stamen.com/" target="_blank">Stamen</a> continues to show how beautiful maps can be made with open-source tools. Similarly, <a href="http://mapbox.com/" target="_blank">MapBox</a> showed how they efficiently deliver high-quality maps on the web. For my money, the unsung hero of what MapBox is doing is <a href="http://mapbox.com/mbtiles-spec/utfgrid/" target="_blank">UTFGrid</a>. I hadn't delved into it deeply until I saw the announcement that <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> now supports it. UTFGrid is breathtakingly elegant in its approach to delivering richer content with tiles. I expect that, in a few years, UTFGrid will be a standard part under the hood of any web mapping experience, like tiles and slippy maps are today.</p>
+
+<p>The only consistent criticism I heard was that most of the sessions were "too technical." I can see some validity to this, given that the event was held in Washington, DC and many higher-level government or policy types who may have been seeking to conceptually understand open-source geospatial may have been put off. Commercial vendors have addressed this problem with the establishment of "executive tracks" at their events. That said, if that's the biggest criticism that can be leveled, then FOSS4GNA was a rousing success in my book.</p>
+
+<p>I have resolved that I will take at least one of my kids, if not both, to the next FOSS4G event that I attend. The attitude of the open-source crowd is one that I want to rub off on them. Aside from the energy that is exuded from a gathering such as this, the open-source world is full of people who see a problem and just set out to solve it. I want my kids to be exposed to that kind of initiative and understand the power that can come from harnessing it, even if they never go into a technical field.</p>
+
+<p>My understanding is that FOSS4GNA came together very quickly. Given that, it was a very high-quality conference and the organizers should be commended. Early tongue-in-cheek commentary referred to it as the "<a href="http://opengeo.org/" target="_blank">OpenGeo </a>User Conference." I felt like there was good balance and, when I attended sessions given by OpenGeo staff, I didn't feel like I was beaten over the head with the OpenGeo brand. All-in-all, I found my day-and-a-half at FOSS4GNA to be very beneficial and I'm hoping it becomes an annual event. (<strong>Update</strong>: It looks like next year's FOSS4GNA <a href="https://twitter.com/#!/foss4gna/status/190517270928293888" target="_blank">will be in Minnesota</a>.)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Speaking of the 84%...]]></title>
@@ -338,323 +397,6 @@ and don't know when I can get to it.
 
 
 <p>The full discussion thread is here: <a href="http://groups.google.com/group/ziggis/browse_thread/thread/14ae8a351564de9e">http://groups.google.com/group/ziggis/browse_thread/thread/14ae8a351564de9e</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Triggered Notifications Using PostGIS]]></title>
-    <link href="http://blog.geomusings.com/2011/08/01/Triggered-Notifications-Using-PostGIS/"/>
-    <updated>2011-08-01T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/08/01/Triggered-Notifications-Using-PostGIS</id>
-    <content type="html"><![CDATA[<p>My project work the last few months has kept me away from a lot of my favorite open-source tools and I was starting to get hives. Specifically, it had been a while since I had worked with <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://postgis.refractions.net">PostGIS</a> and I was missing the experience, so I dreamed up something to do.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-1898" height="307" src="http://geobabble.files.wordpress.com/2011/08/elephant.png" title="Elephant" width="461" /></p>
-
-<p>I do a lot of work implementing situational awareness systems for my customers and one common requirement is automated notification of events. I decided that I wanted to roll a completely FOSS approach to sending an SMS notification based upon the results of a spatial query. This post will discuss the basic wiring to make it all work. I'll probably add more advanced features in subsequent posts but I'll be sticking to the basics for now.</p>
-
-<!--more-->
-
-
-<p>I decided to keep my first pass relatively simple in order to work out the core logic and workflow. To get started, I really only needed a few things:</p>
-
-<ol>
-    <li>PostgreSQL with PostGIS installed. I simply used the <a href="http://www.opengeo.org">OpenGeo</a> Community Edition.</li>
-    <li><a href="http://developer.postgresql.org/pgdocs/postgres/plpython.html">plpython</a> - support for writing PostgreSQL functions in <a href="http://www.python.org">Python</a></li>
-    <li>Python - I used version 2.7 for this</li>
-    <li>Some spatial data - I loaded a data set of the US counties to test with</li>
-</ol>
-
-
-<p>Using these tools, I set out to create a core workflow that would use a trigger function attached to a point data set to test, whenever a record was inserted or updated, whether the point geometry fell within a specific US county (St. Mary's County, Maryland in this case). If so, the system would send an SMS message to me. In order to do this, I had to create the following:</p>
-
-<ol>
-    <li>An empty table with a PostGIS geometry column to store the incoming points</li>
-    <li>A trigger function to perform the spatial query on insert or update</li>
-    <li>A trigger to fire the trigger function</li>
-    <li>A function to send the SMS message</li>
-    <li>Some test SQL to insert records into the point table</li>
-</ol>
-
-
-<p>The first step was loading my county data, which I had in shapefile format. For that, I simply used <a href="http://www.qgis.org/">QGIS</a> and its SPIT plug-in. After that, I created the table that would hold my point data. Right now, it's just a point and an ID. The SQL is very simple:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">locations</span> <span class="p">(</span><span class="n">gid</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">);</span>
-</span><span class='line'><span class="k">SELECT</span> <span class="n">AddGeometryColumn</span> <span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">,</span><span class="s1">&#39;locations&#39;</span><span class="p">,</span><span class="s1">&#39;shape&#39;</span><span class="p">,</span><span class="mf">4326</span><span class="p">,</span><span class="s1">&#39;POINT&#39;</span><span class="p">,</span><span class="mf">2</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>This table is the one that does all the work. The initial trigger will be attached to it. The counties data set really just sits there waiting to be queried. I'll actually take the next three functions in the reverse of the order in which they will execute.</p>
-
-<p>The first function I wrote was the one that sends off the actual SMS message. That is its sole job in this process. After looking at different ways to accomplish the SMS, my old <a href="http://www.obtusesoft.com/">zigGIS</a> partner, <a href="http://twitter.com/xanadont">Abe</a> <a href="http://www.linkedin.com/in/agillesp">Gillespie</a>, clued me in to using each provider's e-mail gateway. So, by sending a properly formatted e-mail, the end user will receive an SMS message. You can learn more about it <a href="http://www.emailtextmessages.com/">here</a>. (Thanks, Abe!) So, my task really just became sending an e-mail message, which is nice because I want support that as well so now I can reuse code. After looking at various means to send e-mail from within PostgreSQL, I decided that Python was the most direct way to accomplish it.</p>
-
-<p>PostgreSQL supports using Python for functions in a manner similar to the way SQL Server supports embedded procedures written against the <a href="http://en.wikipedia.org/wiki/Common_Language_Runtime">Common Language Runtime</a>. You simply need to make sure plpython support is installed with your instance of PostgreSQL. Here is the code for the simplified messaging function:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">emailme</span><span class="p">(</span><span class="n">txt</span> <span class="nb">text</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">RETURNS</span> <span class="nb">integer</span> <span class="k">AS</span>
-</span><span class='line'><span class="s">$BODY$</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">starts</span> <span class="n">here</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Import</span> <span class="n">smtplib</span> <span class="k">for</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">sending</span> <span class="n">function</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">smtplib</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">email</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">re</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Import</span> <span class="n">the</span> <span class="n">email</span> <span class="n">modules</span> <span class="n">we</span><span class="s">&#39;ll need&lt;/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">mailfunction</span><span class="p">(</span><span class="n">recip</span><span class="p">,</span><span class="n">msgtxt</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="n">msgtxt</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># me == the sender&#39;s email address</span>
-</span><span class='line'><span class="c"># you == the recipient&#39;s email address</span>
-</span><span class='line'><span class="n">msg</span><span class="p">[</span><span class="s">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Message from PostgreSQL&#39;</span>
-</span><span class='line'><span class="n">msg</span><span class="p">[</span><span class="s">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;contact@zekiah.com&#39;</span>
-</span><span class='line'><span class="c">#msg[&#39;To&#39;] = &#39;not used here&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Send the message via our own SMTP server, but don&#39;t include the</span>
-</span><span class='line'><span class="c"># envelope header.</span>
-</span><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s">&#39;localhost&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="s">&#39;contact@zekiah.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">recip</span><span class="p">],</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">mailfunction</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;1234567890@vtext.com&#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">))</span>
-</span><span class='line'><span class="n">t</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</span><span class='line'><span class="k">return</span> <span class="mi">0</span>
-</span><span class='line'><span class="s">$BODY$</span>
-</span><span class='line'>  <span class="k">LANGUAGE</span> <span class="n">plpythonu</span> <span class="k">VOLATILE</span>
-</span><span class='line'>  <span class="k">COST</span> <span class="mf">100</span><span class="p">;</span>
-</span><span class='line'><span class="k">ALTER</span> <span class="k">FUNCTION</span> <span class="n">emailme</span><span class="p">(</span><span class="nb">text</span><span class="p">)</span> <span class="k">OWNER</span> <span class="k">TO</span> <span class="n">postgres</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>As can be seen, the Python code is embedded in the body of the function. Early on, I was experiencing significant slowness when sending the messages. After some code refactoring, I realized it was the SMTP handshake that was causing the problem. The original version used an external server that required authentication. I installed a local open-source SMTP server and configured it to allow unauthenticated relay from the local server and the bottleneck went away.</p>
-
-<p>This version of the code receives the message body as a parameter and sends to a hard-coded address. I plan to change this to accept the recipient address as well. Then the calling function can pass in an array of recipients who have subscribed to these messages. For now, the system just talks to me.</p>
-
-<p>Next, I built the trigger function. This is a little different from other platforms I've worked on. In SQL Server, a trigger is basically a stored procedure that gets called when a table event happens. When authoring, you simply build the one procedure. In PostgreSQL, you have two distinct objects: a trigger and a trigger function. The trigger function does the heavy lifting and the trigger is what calls it. In my case, the trigger function is what performs the actual spatial query to determine if the new point geometry falls within my county. The code for that function is here:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">Function</span> <span class="n">checkcounty</span><span class="p">()</span> <span class="k">RETURNS</span> <span class="k">TRIGGER</span> <span class="k">AS</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="s">$BODY$</span>
-</span><span class='line'><span class="k">DECLARE</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">shp</span> <span class="n">geometry</span><span class="p">;</span>
-</span><span class='line'><span class="n">a_row</span> <span class="n">counties</span><span class="nb">%ROWTYPE</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">BEGIN</span>
-</span><span class='line'><span class="n">shp</span> <span class="o">=</span> <span class="n">new</span><span class="mf">.</span><span class="n">shape</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">counties</span> <span class="k">WHERE</span> <span class="n">ST_Contains</span><span class="p">(</span><span class="n">counties</span><span class="mf">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">shp</span><span class="p">)</span> <span class="k">INTO</span> <span class="n">a_row</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">IF</span> <span class="n">a_row</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">THEN</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">IF</span> <span class="n">a_row</span><span class="mf">.</span><span class="s-Name">&quot;COUNTY&quot;</span> <span class="o">=</span> <span class="s1">&#39;Saint Marys County&#39;</span> <span class="k">THEN</span>
-</span><span class='line'>    <span class="k">PERFORM</span> <span class="n">emailme</span><span class="p">(</span><span class="s1">&#39;New feature in St. Mary`s County&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-</span><span class='line'><span class="k">RETURN</span> <span class="n">new</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">END</span><span class="p">;</span>
-</span><span class='line'><span class="s">$BODY$</span>
-</span><span class='line'><span class="k">LANGUAGE</span> <span class="s1">&#39;plpgsql&#39;</span> <span class="k">VOLATILE</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>Again, I'm just checking for one, hard-coded value. In my next iteration, I plan to make that configurable so that the trigger function will test for various user-specified conditions. Of course, the type of spatial relationship can also be configured.</p>
-
-<p>Lastly, the trigger itself. As can be seen, it's primary job is to call the trigger function when appropriate.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">locations_change</span>
-</span><span class='line'>  <span class="k">AFTER</span> <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">UPDATE</span>
-</span><span class='line'>  <span class="k">ON</span> <span class="n">locations</span>
-</span><span class='line'>  <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
-</span><span class='line'>  <span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">checkcounty</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>Once these were all in place, I used the following to test:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="c1">--TRUE</span>
-</span><span class='line'><span class="k">insert</span> <span class="k">into</span> <span class="n">locations</span>
-</span><span class='line'><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
-</span><span class='line'><span class="k">VALUES</span>
-</span><span class='line'><span class="p">(</span><span class="n">ST_PointFromText</span><span class="p">(</span><span class="s1">&#39;POINT(-76.662 38.348)&#39;</span><span class="p">,</span> <span class="mf">4326</span><span class="p">));</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;--</span><span class="k">FALSE</span>
-</span><span class='line'><span class="c1">--insert into locations</span>
-</span><span class='line'><span class="c1">--(shape)</span>
-</span><span class='line'><span class="c1">--VALUES</span>
-</span><span class='line'><span class="c1">--(ST_PointFromText(&#39;POINT(-76.622 37.895)&#39;, 4326));&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;--</span><span class="k">NULL</span>
-</span><span class='line'><span class="c1">--insert into locations</span>
-</span><span class='line'><span class="c1">--(shape)</span>
-</span><span class='line'><span class="c1">--VALUES</span>
-</span><span class='line'><span class="c1">--(ST_PointFromText(&#39;POINT(-74.482 37.734)&#39;, 4326));</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>These objects represent the basic skeleton of the notification capability I am building. In the future, I also want to support various types of messaging in addition to SMS and e-mail. I'm thinking of Twitter, publishing to RSS or Atom and other such options.</p>
-
-<p>Even at this early stage, I've got to consider performance. The spatial query in the trigger is performing amazingly fast but my data is still small. I've got spatial indices built on the data sets but I'll need to keep an eye on that as this grows. Thankfully, <a href="http://www.manning.com/obe/">'PostGIS In Action'</a> offers lots of tips in that regard. Another design consideration I've made is that all of my spatial data sets will be stored in the same spatial reference. PostGIS has nice coordinate transformation capabilities but I don't want to introduce that into my trigger functions in case data starts to grow. I plan to pre-process buffers and such for the same reasons.</p>
-
-<p>I'm pretty happy with this so far primarily because all of the logic is executing at the database level. There's really no need to extract any of this logic out into a middle-tier library of any kind and it's running without any dependence on any middleware. It's also a nice use of spatial processing that doesn't involve a map. I love maps but they aren't necessary in every application of spatial technology. I'm also excited to have a meaty requirement to dig into to help with my Python explorations. I've missed working with these tools. It's good to be back.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Me and zigGIS]]></title>
-    <link href="http://blog.geomusings.com/2010/09/28/Me-and-zigGIS/"/>
-    <updated>2010-09-28T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/09/28/Me-and-zigGIS</id>
-    <content type="html"><![CDATA[<p>If you?ve been to the <a href="http://pub.obtusesoft.com">Obtuse Software</a> site recently, you may or may not have noticed a change to the ?<a href="http://pub.obtusesoft.com/who.aspx">Who We Are</a>? page. It now lists only <a href="http://abegillespie.blogspot.com">Abe Gillespie</a> and <a href="http://www.paolocorti.net/">Paolo Corti</a>. Prior to my trip to Colorado to talk about zigGIS at <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a>, I informed Abe and Paolo that I would be stepping back from any ?official? involvement in Obtuse.</p>
-
-<p>This does not mean that I am stepping back from involvement in zigGIS. I plan to continue to support zigGIS as it returns to open-source but, in truth, I haven?t done much with zigGIS day-to-day in a long time. As part of the <a href="http://abegillespie.blogspot.com/2010/04/prodigal-extension.html">return of zigGIS to open-source at version 3.0</a>, Abe has been working on a plan to give the community multiple paths to support the project, including sponsorship and technical support plans. I'm sure he'll have the details out soon so I'll leave it at that (since it's not my story to tell). So, as Obtuse transitions to more of a supporting role for the zigGIS 3.0 open-source project, I felt that this was a good time to step away and become part of the community. <!--more--></p>
-
-<p>But enough about me, this post is called ?Me and zigGIS? so I?ll address some of the key needs for zigGIS 3.0, as I see them. Abe is planning a complete rewrite in order to make zigGIS better. A certain amount of that will have to stay on his plate (with help from Paolo) but it?s a large effort. To that end, help is needed. <a href="http://abegillespie.blogspot.com/2010/06/on-to-30.html">Abe published the roadmap</a> a while back so you can take a look and see what needs to be done. zigGIS 3.0 will happen faster and better with the help of additional developers, testers, end-users, etc.</p>
-
-<p><img alt="null" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" /></p>
-
-<p>Developers are the most obvious. If you have C# and/or ArcObjects experience and want to get involved in an open-source project, zigGIS can use the help. Testing has always been a big issue with zigGIS as it has lots of moving parts. Between <a href="http://www.esri.com">ArcMap</a>, .Net, <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.postgis.com">PostGIS</a>, there are a lot of pieces which drive testing of zigGIS. Each new release of any of these can necessitate compatibility testing, the results of which can drive changes to the code. One of the great things about open-source is that those kinds of things can happen more fluidly. Recognizing, however, that not every user of zigGIS is a developer, it?s good to know who may want to take a compiled executable and put it through its paces or who may want to test an installer.</p>
-
-<p>Another big thing on the roadmap is internationalization. A lot of the users of zigGIS (maybe even most of them) are from outside the United States. Supporting languages other than English would be a good thing to do. That?s something that wouldn't necessarily require any coding skill at all but would be a huge help.</p>
-
-<p>As an aside, when zigGIS 2.0 was released, we <a href="http://code.google.com/p/ziggis/">left zigGIS 1.x (licensed under the GPL) available</a>. It is read-only and lacks many of the features that have been added to 2.x but the downloads have continued so I know there is an appetite for an open-source tool that does what zigGIS does. So I hope that some of those people who have continued to use 1.x can help build 3.0.</p>
-
-<p>So why help? Why zigGIS? I?ll address these questions in more detail in future posts. Before I ever got involved with the project, <a href="http://geobabble.wordpress.com/2006/12/17/postgis-and-arcgis-91/">I blogged about it</a>. The use case was a little clearer back then as ArcGIS simply did not support PostgreSQL/PostGIS as a back end. That changed at 9.3 and, although it may have muddied the waters somewhat for zigGIS, it provided a good option for ArcGIS users. So zigGIS had to find its niche.</p>
-
-<p>Over the last couple of years, I have been putting some thought into that and I think that it can provide a nice way to augment workflow in an ArcGIS environment, allowing an organization to maximize the value of its ArcView licenses. Additionally, zigGIS is a nice option for an organization that is growing into its GIS capability. Such an organization may use ArcMap and may be ready to begin managing its spatial data centrally but may not quite be ready to make down-range decisions regarding web-mapping, online GIS and the like. zigGIS can provide a nice stepping stone to help a shop get more organized while also giving it more time to decide its next steps, allowing it to make longer-range decisions about technology and resources on its own schedule. I?ll be exploring these use cases in more detail in future posts.</p>
-
-<p>So, while I?ve stepped away from Obtuse, I don?t plan to step away from zigGIS. As I continue on with my consulting, it is a technology that has key place in my toolbox. I?m glad it will be returning to open-source and I am looking forward to seeing how it evolves. I have greatly enjoyed my association with Abe and Paolo thus far and look forward to it continuing in a new and different form.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Look at "PostGIS In Action"]]></title>
-    <link href="http://blog.geomusings.com/2010/04/21/A-Look-at-PostGIS-In-Action/"/>
-    <updated>2010-04-21T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/04/21/A-Look-at-PostGIS-In-Action</id>
-    <content type="html"><![CDATA[<p>Over the past few weeks, I have been reading a copy of the upcoming book by Regina Obe and Leo Hsu titled "<a href="http://manning.com/obe/">PostGIS In Action</a>." Through my work with <a href="http://pub.obtusesoft.com">zigGIS</a> and some of my consulting work with <a href="http://www.zekiah.com">Zekiah</a>, I have been using <a href="http://postgis.refractions.net/">PostGIS</a> with good results for some time now. I have found that it matches or exceeds the capabilities of its commercial counterparts and I can be quite productive with it.</p>
-
-<p><img alt="" src="http://www.manning.com/obe/obe_cover150.jpg" /></p>
-
-<p>Regina has been a frequent contributor to zigGIS discussions over the years and her expertise with PostGIS has definitely helped <a href="http://dpulp.com/">Abe</a>, <a href="http://www.paolocorti.net/">Paolo</a> and I as we have worked on it. Also, many tips from the <a href="http://www.bostongis.com/">Boston GIS blog/site</a> have been very helpful so I have been looking forward to this book for some time.<!--more--></p>
-
-<p>I must confess to being something of a "book guy." I like having a book on my lap as I work through a problem (using my multiple monitors for actual implementation). "PostGIS in Action" puts most of what I need between one set of covers.</p>
-
-<p>This book addresses a problem I have run into repeatedly in my consulting work: educating database professionals (DBAs, developers, etc.) on working with spatial data in a manner that they are familiar with. The authors are extremely knowledgeable about database technologies of all kinds and it comes through here.</p>
-
-<p>Since PostGIS extends <a href="http://www.postgresql.org/">PostgreSQL</a>, it is impossible to separate the two when discussing good data design and implementation. The "Data Modeling" chapter provides a good discussion of various considerations when working with spatial data (use of complex geometries vs. points, homogeneous vs. heterogeneous geometry columns, etc.) but it also provides one of the best discussions of PostgreSQL table inheritance and partitioning that I have found in one place. Each topic, as throughout the book, is backed up by SQL examples and succinct discussion of the pros and cons of each approach.</p>
-
-<p>The design consideration regarding storing geometry as points versus storing lines or polygons may seem basic to a GIS professional but is a discussion I have had repeatedly throughout my career with database designers who are new to spatial data. Many times, their initial instinct is to store X and Y values in separate columns in a table. This may be a perfectly valid approach for a given data set and how it is to be used but many design considerations come into play. "PostGIS In Action" does a good job of encapsulating those considerations in a manner that is consistent with how most database professionals approach database design.</p>
-
-<p>Another concept that typically confounds database professionals on their first exposure to spatial data is the spatial reference system. "PostGIS In Action" has a chapter dedicated to spatial reference systems. It discusses various common spatial references and their pros and cons as well as the components of a spatial reference (ellipsoid, datum, projection, etc.). This is a complex topic and the purpose of this book is not to "teach GIS" but it is a crucial topic when working with spatial data. The chapter gives a good overview of the concepts and considerations surrounding spatial references. If you are starting to work with spatial data, you will leave the chapter with an understanding of their importance and the fact that you should probably dig into them further.</p>
-
-<p>"PostGIS In Action" continues on to discuss using PostGIS to perform spatial analysis. As always, real SQL samples are used so that a database professional will become comfortable with the use of spatial joins, spatial indexing, the many spatial functions built into PostGIS and many other concepts and techniques. Throughout the book, the authors return to a few examples (the fictional "Hello Town", San Francisco, Washington, DC) so that each topic is discussed within a problem set with which we become familiar. Additionally, tools such as <a href="http://www.gdal.org/ogr/">OGR</a> and <a href="http://www.qgis.org/">QGIS/SPIT</a> are also discussed (with examples).</p>
-
-<p>I could go on but I will summarize what I like about "PostGIS In Action": it provides a solid foundation for an experienced database professional who needs to begin working with spatial data using PostGIS and PostgreSQL.</p>
-
-<p>Throughout this post, I have used the term "database professional" to describe who I think will benefit from this book. It is not for beginners or the faint of heart. You should be very comfortable with your knowledge of relational databases, SQL and (optionally) PostgreSQL before diving into the book. "PostGIS in Action" does not teach RDBMS basics, nor should it.</p>
-
-<p>From the solid foundation it provides, the book delves into advanced topics and techniques that will enable the reader to become productive with PostGIS. A programmer can also benefit from the practical SQL examples in the book to write better applications (regardless of language) on top of of PostGIS/PostgreSQL. I also think database professionals working on other platforms (such as Oracle/Oracle Spatial) could benefit from the better understanding of the unique characteristics of spatial data that can be achieved with this book. They will also begin to see how well PostgreSQL stacks up against commercial RDBMS platforms in terms of capability.</p>
-
-<p>The subject of spatial data, as well as its implementation in PostGIS, is too big for one book to attempt to handle in a "one-stop shop" manner. "PostGIS In Action" wisely avoids trying to do this. It is a good starting point to begin building expertise if you are new to spatial data and, if you are experienced with it, you will probably learn a few things you didn't know. I recommend checking out "PostGIS In Action" if you are or will be working with PostGIS or spatial data.</p>
 ]]></content>
   </entry>
   

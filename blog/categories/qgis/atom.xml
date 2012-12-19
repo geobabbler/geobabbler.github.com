@@ -4,7 +4,7 @@
   <title><![CDATA[Category: QGIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/qgis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T14:13:06-05:00</updated>
+  <updated>2012-12-19T17:20:03-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -56,73 +56,98 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[FOSS4G Quick Hits]]></title>
-    <link href="http://blog.geomusings.com/2011/09/19/FOSS4G-Quick-Hits/"/>
-    <updated>2011-09-19T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/09/19/FOSS4G-Quick-Hits</id>
-    <content type="html"><![CDATA[<p>I had the distinct pleasure of attending my first <a href="http://2011.foss4g.org">FOSS4G conference in Denver</a> last week. Having not attended one previously, I can only rely on the opinions of others that this has been the best FOSS4G yet. For me, this was best geospatial conference I have attended. I'll probably blog in more detail about some of the things I saw but here are my high-level observations:</p>
+    <title type="html"><![CDATA[Favorite QGIS Resources of the Moment]]></title>
+    <link href="http://blog.geomusings.com/2012/07/27/Favorite-QGIS-Resources-of-the-Moment/"/>
+    <updated>2012-07-27T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/27/Favorite-QGIS-Resources-of-the-Moment</id>
+    <content type="html"><![CDATA[<p>I've been dabbling more with Quantum GIS (<a href="http://qgis.org" target="_blank">QGIS</a>) lately. I'm not doing anything particularly sophisticated but it's a great viewer for some data types (<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a>, <a href="http://geojson.org/" target="_blank">GeoJSON</a>) that aren't supported by my commercial desktop GIS so it's helping me validate outputs of some applications I'm writing.</p>
 
-<p>[caption id="attachment_2089" align="aligncenter" width="300" caption="It&#039;s time to refresh your thinking about open-source geospatial tools."]<img alt="" class="size-medium wp-image-2089" height="266" src="http://geobabble.files.wordpress.com/2011/09/rotary_sign3.jpg?w=300" title="rotary_sign3" width="300" />[/caption]</p>
+<p><img alt="" src="http://fossies.org/unix/misc/qgis-1.8.0.tar.gz:a/qgis-1.8.0/images/splash/splash.png" /></p>
+
+<p>While I'll never be a real cartographer, I am interested in doing a little more. Here are the resources that have been helping me the most lately...</p>
 
 <!--more-->
 
 
-<ol>
-<li><p><a href="http://www.qgis.org/">QGIS</a> - I didn't attend many QGIS sessions but I didn't need to. It had everyone talking in hallways during breaks. Remember a few years ago when the desktop was the weak link with open-source GIS? Forget about that.</p></li>
-<li><p><a href="http://www.vizzuality.com/">Vizzuality</a> is doing great things to deploy usable mapping applications on the web with open-source tools. Every session   they led was standing-room only, with good reason.</p></li>
-<li><p><a href="http://vizzuality.com/cartoset">CartoSet</a> and <a href="https://cartodb.com/">CartoDB</a> - from the aforementioned Vizzuality. These open-source tools are designed to help speed the front-end and back-end development of a web application respectively. These are at the top of my list of things to check out.</p></li>
-<li><p>One of the key characteristics of most of the open-source tools discussed in sessions I attended is that they originally grew out of the need to solve a problem. They were not just built on spec, hoping someone would find them useful. As a result, these tools tend to already be proven within the problem set for which they were built.</p></li>
-<li><p><a href="http://postgis.refractions.net/">PostGIS</a> - If open-source geospatial is a flowering field, then PostGIS is the water that hydrates it. The amount of tools that support it is staggering (including CartoDB). The importance of a robust, open-source, spatial data store cannot be overstated and the role PostGIS plays as a foundation technology is pivotal. As for PostGIS 2.0, Michael Weisman sums it up best here:</p></li>
-</ol>
+<p>I'll start with three blogs:</p>
 
+<p><a href="http://underdark.wordpress.com/" target="_blank">Anita Graser</a> (<a href="http://twitter.com/underdarkgis" target="_blank">@underdarkgis</a>)</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>My second takeaway from <a href="https://twitter.com/search/%23foss4g">#foss4g</a>: PostGIS 2's tagline should be "You no longer have an excuse to use anything else."</p>&mdash; Michael Weisman (@mweisman) <a href="https://twitter.com/mweisman/status/115163092207403010" data-datetime="2011-09-17T20:39:55+00:00">September 17, 2011</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p><a href="http://woostuff.wordpress.com/" target="_blank">Nathan Woodrow</a> (<a href="http://twitter.com/madmanwoo" target="_blank">@madmanwoo</a>)</p>
 
-<ol>
-<li>Javascript mapping libraries - <a href="http://openlayers.org/">there</a> are <a href="http://leaflet.cloudmade.com/">now</a> more <a href="http://2011.foss4g.org/sessions/geomap-%E2%80%93-new-open-source-javascript-mapping-api">ways</a> to <a href="http://polymaps.org/">get</a> an <a href="http://mapstraction.com/">interactive</a> map <a href="http://www.tile5.org/">into</a> a browser than I can keep track of. Those based on Javascript and/or HTML5 are proliferating like wildfire. The "I" in "RIA" now stands for "intranet".</li>
-</ol>
+<p><a href="http://mapbox.com/blog/" target="_blank">The MapBox Blog</a> (<a href="http://twitter.com/mapbox" target="_blank">@mapbox</a>)</p>
 
+<p>The MapBox blog takes some explaining. It is primarily about how to be productive with MapBox, but some posts deal with using QGIS in your workflows. Those posts have some good information. All of these blogs have been helpful to me over the last couple of months.</p>
 
-<p>I'm still organizing my notes and thoughts about what I saw at FOSS4G. It's impossible to describe the richness of the information that was available. The only real downtime I had was that which I sought for myself. I'll follow up these quick observations in the near future as I begin to dig into the new tools I was exposed to.</p>
+<p>Outside of that, I set up a Google Alert for QGIS which feeds me all kinds of things: posts from other blogs, mailing entries, StackExchange questions, and so on. To make that easy, I ran the feed from that alert through <a href="http://ifttt.com/" target="_blank">ifttt.com</a> and have it posting to a Twitter account: (<a href="http://twitter.com/QGISInfo" target="_blank">@QGISInfo</a>). Feel free to check it out. Keep in mind that it's based on a Google search so odd results may creep in from time to time. I've been running the alert for a few weeks and it's been pretty clean. The Twitter feed is new and will be sparse until a few refresh cycles happen. Think of it as a poor man's "Planet QGIS." I hope you find it useful.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite 3.0 Beta Is Available]]></title>
-    <link href="http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available/"/>
-    <updated>2011-08-19T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/08/19/SpatiaLite-30-Beta-Is-Available</id>
-    <content type="html"><![CDATA[<p>Alessandro Furieri announced the availability of the beta of SpatiaLite 3.0.0 on 17 August. It can be downloaded here: <a href="http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html">http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html</a>.</p>
+    <title type="html"><![CDATA[QGIS 1.8.0 Released]]></title>
+    <link href="http://blog.geomusings.com/2012/06/21/QGIS-180-Released/"/>
+    <updated>2012-06-21T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/21/QGIS-180-Released</id>
+    <content type="html"><![CDATA[<p>I caught a tweet by my friend <a href="http://www.paolocorti.net/" target="_blank">Paolo Corti</a> this morning that <a href="http://qgis.org" target="_blank">QGIS</a> 1.8.0 has been released.</p>
 
-<p>Some of the more interesting additions include additional support for topology and the ability to export <a href="http://geojson.org">GeoJSON</a>.</p>
+<p>https://twitter.com/capooti/status/215767511990415360</p>
 
-<p>I did a <strong>very</strong> quick test with QGIS 1.7.0 and was able to directly access and edit a table in a database I created with SpatiaLite 3.0.0 so that's initially promising.</p>
+<p>Upon checking out the full list of new features <a href="http://lists.osgeo.org/pipermail/qgis-developer/2012-June/020685.html" target="_blank">here</a>, a few caught my eye:</p>
 
-<p>[caption id="attachment_1985" align="aligncenter" width="300" caption="The extra island off the coast of Canada was edited in with QGIS."]<a href="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png"><img alt="" class="size-medium wp-image-1985" height="160" src="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png?w=300" title="Accessing SpatiaLite 3.0.0 in QGIS" width="300" /></a>[/caption]</p>
+<blockquote>
+- QGIS Browser - a stand alone app and a new panel in QGIS. The
+browser lets you easily navigate your file system and connection based
+(PostGIS, WFS etc.) datasets, preview them and drag and drop items
+into the canvas.
+
+- DB Manager - the DB manager is now officially part of QGIS core. You
+can drag layers from the QGIS Browser into DB Manager and it will
+import your layer into your spatial database. Drag and drop tables
+between spatial databases and they will get imported. You can use the
+DB Manager to execute SQL queries against your spatial database and
+then view the spatial output for queries by adding the results to QGIS
+as a query layer.
+
+- MSSQL Spatial Support - you can now connect to your Microsoft SQL
+Server spatial databases using QGIS.
+
+- Support for PostGIS TopoGeometry datatype
+
+- Terrain Analysis Plugin - a new core plugin was added for doing
+terrain analysis - and it can make really good looking coloured relief
+maps.
+
+- Heatmap tool - a new core plugin has been added for generating
+raster heatmaps from point data. You may need to activate this plugin
+using the plugin manager.
+</blockquote>
+
+
+
+
+<!--more-->
+
+
+<p>It looks like a lot of focus has been placed on making it easier to user your data. If you are not familiar with QGIS, it's the best open-source desktop GIS out there and stands toe-to-toe with any commercial equivalent. A few years ago, desktop GIS was considered to be something of an Achilles heel for open-source GIS but that hasn't been true for a long time. I integrated QGIS into my work a while back and it figures more prominently for me with each release.</p>
+
+<p><img alt="" class="aligncenter size-medium wp-image-2692" height="225" src="http://geobabble.files.wordpress.com/2012/06/smiley-happy-face-yellow.jpg?w=300" title="Smiley-happy-face-yellow" width="300" /></p>
+
+<p>To get a sense of the kind of things you can do with QGIS, check out <a href="http://mapbox.com/blog/binning-alternative-point-maps/" target="_blank">this post</a> on the <a href="http://mapbox.com/" target="_blank">MapBox</a> blog and also check out <a href="http://woostuff.wordpress.com/" target="_blank">Nathan Woodrow's blog</a>. In addition, <a href="http://twitter.com/#!/dmgeo" target="_blank">Caitlyn Dempsey's</a> recent <a href="http://gislounge.com/where-are-the-gis-jobs-a-look-at-the-gis-job-market-in-the-united-states/" target="_blank">map of GIS job availability</a> was built using QGIS. These links are good examples to show that QGIS is excellent, professional GIS tool.</p>
+
+<p>I think my download just finished...</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[QGIS 1.4.0 Released]]></title>
-    <link href="http://blog.geomusings.com/2010/01/16/QGIS-140-Released/"/>
-    <updated>2010-01-16T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/01/16/QGIS-140-Released</id>
-    <content type="html"><![CDATA[<p><a href="http://blog.qgis.org/node/142">QGIS 1.4.0 has been released.</a> As <a href="http://wherewithal1.wordpress.com/">Terry</a> mentioned on Twitter, that news seemed to get lost amongst the discussion of the GeoDesign Summit and the rebranding of ArcGIS 9.4 to 10.0. I have made use of QGIS in the past and have been perusing 1.4.0 lately. I must state that I am not an analyst nor do I play one on TV but I have been very happy with this release.<!--more--></p>
+    <title type="html"><![CDATA[MapWindow Open-Source Conference Coming Up]]></title>
+    <link href="http://blog.geomusings.com/2012/05/25/MapWindow-Open-Source-Conference-Coming-Up/"/>
+    <updated>2012-05-25T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/05/25/MapWindow-Open-Source-Conference-Coming-Up</id>
+    <content type="html"><![CDATA[<p>Thanks to Twitter, I see that the <a href="http://www.mapwindow.org/conference/2012/" target="_blank">3rd annual MapWindow Open-Source GIS Conference</a> is coming up at the end of June. It is being held in Velp, The Netherlands. I call this conference out because it has a strong, but not exclusive, concentration on open-source GIS tools for the .Net environment, such as <a href="http://dotspatial.codeplex.com/" target="_blank">DotSpatial</a>, <a href="http://sharpmap.codeplex.com/" target="_blank">SharpMap</a>, and <a href="https://code.google.com/p/nettopologysuite/" target="_blank">NTS</a>. Additionally, there will be content on non-.Net tools such as PostGIS, OpenLayers and others. This makes sense as any complete stack usually contains a mix of technologies. <a href="http://postgis.org/" target="_blank">PostGIS</a> is almost the <em>de facto</em> standard back-end for open-source geo stacks and <a href="http://qgis.org/" target="_blank">QGIS</a> is probably the best open-source editor for it so inclusion of such tools is quite necessary.</p>
 
-<p>QGIS has been building a lot of capability over the last few versions, in part because of its integration with GRASS but also partly because of its extensible nature. QGIS features a plug-in approach that allows developers to extend it using Python in addition to C++. This gives the ability for someone to develop plug-ins that run on all of the platforms supported by QGIS, lowering the barriers for third-party developers.</p>
+<p><img alt="MapWindow" src="http://geobabble.files.wordpress.com/2012/05/mapwindow.png?w=245" /></p>
 
-<p>The new release puts a lot of these capabilities out in front of you at start-up. This can lead to a first impression of a cluttered user interface but, in this case, I think it is a good decision. In my experience, users find hiding of capability attractive only if they are very familiar with a application and are comfortable navigating it to find what they need. This is not always true with a new application with which they may be unfamiliar.</p>
-
-<p>Many of the analysts that I work with, for instance, continue to go back to ArcMap because they know what tools it contains and how to access them. I have known for a while that QGIS has had many tools that would be attractive (such as some of the raster analysis tools) but it was not always obvious that those tools were present or how to access them.</p>
-
-<p>The new release resolves that. By putting everything on display, the capability is there to discover. As users get comfortable with QGIS, they can hide tools as desired and gain proficiency in navigating the application.</p>
-
-<p>I am particularly impressed with the support of <a href="http://www.openstreetmap.org/">OpenStreetMap</a> in QGIS. It provides tools to download OSM data, edit it and upload it from within your QGIS session.</p>
-
-<p>[caption id="attachment_787" align="aligncenter" width="300" caption="QGIS 1.4.0 with OSM data displayed"]<a href="http://geobabble.files.wordpress.com/2010/01/qgis1.png"><img alt="" class="size-medium wp-image-787" height="178" src="http://geobabble.files.wordpress.com/2010/01/qgis1.png?w=300" title="QGIS 1.4.0" width="300" /></a>[/caption]</p>
-
-<p>So, I?ve decided that it?s time to put QGIS in front of some of my analyst colleagues again and it?s also time for me to commit to learning how to build a QGIS plug-in. It may finally be the kick in the pants I need to get comfortable with Python.</p>
+<p>For a number of reasons, I can't attend but I'll be watching the live stream with interest. It's location in Europe makes a lot of sense. I've always noticed that my early posts on SharpMap get a large portion of traffic from Europe and a majority of the user base of <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> was European so I suspect there is a lot of demand there for open-source tools built on .Net. This conference could be a good one-stop shop if you are interested in such tools.</p>
 ]]></content>
   </entry>
   

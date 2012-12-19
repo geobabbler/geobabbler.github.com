@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T14:13:06-05:00</updated>
+  <updated>2012-12-19T17:20:03-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -340,10 +340,73 @@ enjoy, Sandro
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[Mowers and Maps]]></title>
+    <link href="http://blog.geomusings.com/2012/08/18/Mowers-and-Maps/"/>
+    <updated>2012-08-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/18/Mowers-and-Maps</id>
+    <content type="html"><![CDATA[<p>I was mowing the lawn today and trimming with the push mower pictured below. If it looks old, that&#8217;s because it is. I first acquired it in 1978 when it was given to me by neighbors that were moving to an apartment near the city, meaning they no longer needed it. It still starts on the third pull and I&#8217;ve used it every summer since it was given to me.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2823" height="360" src="http://geobabble.files.wordpress.com/2012/08/mower.jpeg" title="They don&#039;t make them like this anymore" width="640" /></p>
+
+<p>As I was mowing, I thought about how old the mower is and how it came to be in my possession. This led me to think about the origin of my fascination with maps. What does one have to do with the other? Allow me to explain.</p>
+
+<p>As you can imagine, I was fairly young when the lawn mower was given to me. I had gotten to know the neighbors up the street by playing with their son. One day, I noticed a large shelf of identical, leather-bound books taking up the entire back wall of a room. I asked what they were and they invited me to browse them. It turned out that my neighbor was the son of a long-time chair of the National Geographic Society. These books were actually bound collections, by year, of every issue of National Geographic from the first issue on.</p>
+
+<p>Over time, I would spend hours poring through these volumes, fascinated by the world as it was documented by National Geographic from 1888 forward. I did not get to read every issue but I was especially drawn to the maps when they were present. I realize now that my identity as a &#8220;map nerd&#8221; took root there.</p>
+
+<p>Coincidentally, 1978 was the year I first started programming. Those two experiences turned out to be major influences on who I became.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Create a WeoGeo Tilepack from ArcGIS Tiles]]></title>
+    <link href="http://blog.geomusings.com/2012/08/14/Create-a-WeoGeo-Tilepack-from-ArcGIS-Tiles/"/>
+    <updated>2012-08-14T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/14/Create-a-WeoGeo-Tilepack-from-ArcGIS-Tiles</id>
+    <content type="html"><![CDATA[<p>A couple of months ago, <a href="http://twitter.com/dandye" target="_blank">Dan Dye</a> at WeoGeo <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">posted about work he had done</a> to facilitate creating <a href="http://www.weogeo.com" target="_blank">WeoGeo</a> tile packs from <a href="http://mapbox.com/developers/mbtiles/" target="_blank">MBTiles</a> databases. Recently, I had the need to do the same with <a href="http://www.esri.com" target="_blank">ArcGIS</a> tiles. As Dan explained, WeoGeo uses a ZYX structure in their tile packs. This matched up nicely with the Level/Row/Column structure <a href="http://blogs.esri.com/esri/arcgis/2010/08/20/checking-your-local-cache-folders/" target="_blank">used by ArcGIS</a>. WeoGeo supports either WGS84 (EPSG:4326) or Spherical Mercator (EPSG:3857) as spatial references for tile packs. In my case, I used the latter. My preferred way of creating tiles from ArcGIS products is to use <a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>. While Arc2Earth does directly export to the WeoGeo structure, the tiles are watermarked with a WeoGeo logo, which was not needed in this case. Arc2Earth also exports to the ArcGIS structure, so a simple script to convert to the WeoGeo structure is all that was needed.</p>
+
+<p><img alt="Arc2Earth settings to create ArcGIS Tiles" class="aligncenter size-medium wp-image-2815" height="243" src="http://geobabble.files.wordpress.com/2012/08/a2e_ags.png?w=300" title="Arc2Earth settings to create ArcGIS Tiles" width="300" /></p>
+
+<!--more-->
+
+
+<p>So I wrote a Python script to migrate from the ArcGIS structure to the WeoGeo structure. It primarily uses file system operations with a little bit of logic to unroll the hex-based file naming convention used by Esri. That script can be found <a href="https://github.com/geobabbler/ags2weo" target="_blank">here on GitHub</a>. Be sure to check out the README for the current state of the script. The biggest potential gotcha is that it doesn&#8217;t current use the ArcGIS conf.xml file so, if your ArcGIS cache contains non-consecutive zoom levels (0-2 and 4, for example), it will throw this script off. This has to do with the peculiarities in how Esri names the levels (Z) in their format. I&#8217;ll be making this more robust in subsequent versions, along with with some work to provide a more complete workflow.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Favorite QGIS Resources of the Moment]]></title>
+    <link href="http://blog.geomusings.com/2012/07/27/Favorite-QGIS-Resources-of-the-Moment/"/>
+    <updated>2012-07-27T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/27/Favorite-QGIS-Resources-of-the-Moment</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve been dabbling more with Quantum GIS (<a href="http://qgis.org" target="_blank">QGIS</a>) lately. I&#8217;m not doing anything particularly sophisticated but it&#8217;s a great viewer for some data types (<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a>, <a href="http://geojson.org/" target="_blank">GeoJSON</a>) that aren&#8217;t supported by my commercial desktop GIS so it&#8217;s helping me validate outputs of some applications I&#8217;m writing.</p>
+
+<p><img alt="" src="http://fossies.org/unix/misc/qgis-1.8.0.tar.gz:a/qgis-1.8.0/images/splash/splash.png" /></p>
+
+<p>While I&#8217;ll never be a real cartographer, I am interested in doing a little more. Here are the resources that have been helping me the most lately&#8230;</p>
+
+<!--more-->
+
+
+<p>I&#8217;ll start with three blogs:</p>
+
+<p><a href="http://underdark.wordpress.com/" target="_blank">Anita Graser</a> (<a href="http://twitter.com/underdarkgis" target="_blank">@underdarkgis</a>)</p>
+
+<p><a href="http://woostuff.wordpress.com/" target="_blank">Nathan Woodrow</a> (<a href="http://twitter.com/madmanwoo" target="_blank">@madmanwoo</a>)</p>
+
+<p><a href="http://mapbox.com/blog/" target="_blank">The MapBox Blog</a> (<a href="http://twitter.com/mapbox" target="_blank">@mapbox</a>)</p>
+
+<p>The MapBox blog takes some explaining. It is primarily about how to be productive with MapBox, but some posts deal with using QGIS in your workflows. Those posts have some good information. All of these blogs have been helpful to me over the last couple of months.</p>
+
+<p>Outside of that, I set up a Google Alert for QGIS which feeds me all kinds of things: posts from other blogs, mailing entries, StackExchange questions, and so on. To make that easy, I ran the feed from that alert through <a href="http://ifttt.com/" target="_blank">ifttt.com</a> and have it posting to a Twitter account: (<a href="http://twitter.com/QGISInfo" target="_blank">@QGISInfo</a>). Feel free to check it out. Keep in mind that it&#8217;s based on a Google search so odd results may creep in from time to time. I&#8217;ve been running the alert for a few weeks and it&#8217;s been pretty clean. The Twitter feed is new and will be sparse until a few refresh cycles happen. Think of it as a poor man&#8217;s &#8220;Planet QGIS.&#8221; I hope you find it useful.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Using GeoIQ Analytics in .Net Applications]]></title>
-    <link href="http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-.Net-Applications/"/>
+    <link href="http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/"/>
     <updated>2012-07-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-.Net-Applications</id>
+    <id>http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications</id>
     <content type="html"><![CDATA[<p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it&#8217;s my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That&#8217;s good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
 
 <p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
@@ -479,6 +542,49 @@ enjoy, Sandro
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[GeoIQ & Esri]]></title>
+    <link href="http://blog.geomusings.com/2012/07/10/GeoIQ-Esri/"/>
+    <updated>2012-07-10T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/10/GeoIQ-Esri</id>
+    <content type="html"><![CDATA[<p>Okay, everybody calm the hell down. Anyone who thinks that the <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">Esri acquisition of GeoIQ</a> is strange hasn&#8217;t been paying attention to two things: 1) the direction that Esri says they want to go and 2) what the GeoIQ platform really is. I would be very surprised if GeoIQ becomes the 2012 version of <a href="http://www.thefreelibrary.com/ESRI+Acquires+Atlas+GIS+and+Atlas+SDK+--+Claritas+and+ESRI+Announce...-a018336428" target="_blank">Atlas GIS</a>. This acquisition/merger makes more sense than may be initially apparent.</p>
+
+<p>[youtube=http://www.youtube.com/watch?v=_eyFiClAzq8]</p>
+
+<p>It&#8217;s no secret that I&#8217;ve worked with <a href="http://www.esri.com" target="_blank">Esri</a> tools for a long time and my recent work with the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform has been well-documented on this blog, including work integrating the two platforms at the API level. Based on what I&#8217;ve seen from both companies, here are thoughts on why I think this move makes a lot of sense:  <!--more--></p>
+
+<p><strong>First, why it makes sense for Esri&#8230;</strong></p>
+
+<p>GeoIQ/<a href="http://www.geocommons.com" target="_blank">GeoCommons</a> is, and has been for a long time, what <a href="http://www.arcgis.com/home/" target="_blank">ArcGIS Online</a> (AGOL) should be and still isn&#8217;t. It was built from the beginning as a hosted platform without any encumbrances of an existing technology/code base. It is stable, staying online throughout many recent incidents, in a way that AGOL can&#8217;t claim. The back-end data storage architecture, developed on a &#8220;NoSQL&#8221; platform and designed by GeoIQ, is already much more scalable than anything coming from a geodatabase legacy.</p>
+
+<p>Esri made their mark in client/server (there&#8217;s an oldie) GIS and have not been able to successfully move past it to this day. You can move ArcGIS to Amazon if you want but it&#8217;s still client/server. If you pull back and think about it, the least logical thing you can do when trying to build a SaaS is to try and port an architecture that was designed for desktops and servers. GeoIQ, on the other hand, never designed for those platforms. Their SaaS was built to be a hosted system, accessible via an API. That approach has enabled them to expand from data storage to cartographics/visualization to analytics smoothly and consistently.</p>
+
+<p>The API is key here. The GeoIQ platform is exposed via a &#8220;RESTish&#8221; <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">HTTP+JSON API</a>. If you examine the API documentation with an eye toward bridging to the Esri <a href="http://www.esri.com/news/releases/10_3qtr/geoservices-rest.html" target="_blank">GeoServices REST Specification</a> (which I have), it doesn&#8217;t take long to get from GeoIQ&#8217;s overlays, maps and analytics to Esri&#8217;s map services, feature services and server extensions. Resource hierarchies are a little different and, of course, JSON syntax is different but none of those are insurmountable hurdles. In fact, it would be no more difficult to make GeoIQ emit Esri JSON than it would be to make the Esri REST API emit <a href="http://www.geojson.org" target="_blank">GeoJSON</a>.</p>
+
+<p>Based on my previous analyses, I don&#8217;t think putting a GeoServices REST implementation on top of GeoIQ would be the most technically challenging thing in the world. And given the existence of the <a href="http://www.opengeospatial.org/projects/groups/gservrestswg" target="_blank">OGC GeoService REST SWG</a>, doing so may eventually get you in line for standards compliance. (I&#8217;ll leave the rest of you to debate the value of that.) But, aside from potential standards compliance, the biggest reason to do so would be to enable all of the existing Esri client tools that already know how to interact with the Esri REST API to be able to talk to the GeoIQ platform.</p>
+
+<p>So let&#8217;s summarize: In a hosted world, the back-end implementation doesn&#8217;t really matter much because client tools talk through an API. If I&#8217;m using HTTP to communicate, I don&#8217;t care if it&#8217;s COM or Java or Ruby or whatever on the back end. That&#8217;s why APIs are valuable and those built to use standards like HTTP are even more so. GeoIQ has an in-place, highly-scalable, spatial storage/visualization/analytics platform that&#8217;s exposed through an HTTP interface. Bolt on another interface, and you have ArcGIS Online. There&#8217;s some work involved but not nearly as much as building the platform from scratch.</p>
+
+<p>So, if Esri is smart, the GeoIQ platform becomes ArcGIS Online. They&#8217;d need to work on improving the tools to pass data between the hosted platform and the client/server platform, and maybe tighter integration with the desktop tools to ease publishing. It would probably be good to beef up symbology in GeoIQ as this is one thing that Esri currently does better, more easily, than GeoIQ. Also the analytical tools in place with GeoIQ are already win over AGOL.</p>
+
+<p><strong>Why it makes sense for GeoIQ&#8230;</strong></p>
+
+<p>So I&#8217;ve done a good bit of work with the GeoIQ platform and APIs. Probably not enough to call myself an expert but enough to feel comfortable. I&#8217;ve worked on a couple of successful implementations, including the <a href="http://blog.geoiq.com/2012/04/27/visualizing-our-changing-climate-with-climascope/" target="_blank">ClimaScope portal recently mentioned on the GeoIQ blog</a> and am currently in the middle of another one. I have found the platform to be impressive, with the potential for a great amount of productivity.</p>
+
+<p>A couple of years ago, I had the good fortune to attend the FortiusOne holiday party (they weren&#8217;t yet called GeoIQ). One thing that struck me about that evening was the dedication and passion that every single employee seemed to have for what they were doing. Everyone was committed to building the best tools they possibly could. I got the sense that if someone were tasked with building a CSV exporter, they would make sure it was the best CSV exporter anyone had ever seen. I came away from that experience a believer.</p>
+
+<p>Over the ensuing time working with the GeoIQ platform, I have noticed small anomalies here and there: documentation that&#8217;s not quite up to date, small bugs, longer response times, etc. These types of issues are not uncommon but are somewhat out of character for an organization with a high level of dedication and enthusiasm.</p>
+
+<p>That said, my role as a business owner has given me an interest in things such as acquisition drivers. What I have come to realize is that the small issues I was observing are not uncommon for a small company that has achieved a certain level of growth but has plateaued. In other words, growing pains. The reasons small companies plateau are varied but getting past a plateau can be difficult and may require additional resources that are difficult to muster internally. This can lead small companies to seek acquisition.</p>
+
+<p>GeoIQ has always been very dedicated to how their technology is applied. They have a noticeable footprint in the DoD world and have had high-profile implementations such as the World Bank, World Wildlife Fund and others on the NGO side of things. Not coincidentally, these are areas in which Esri is active. In short, there has probably always been more in common between Esri and GeoIQ than met the eye. GeoIQ now has access to the resources of a larger company than help mitigate their growing pains and help them more effectively focus on the application areas they care about.</p>
+
+<p>In my opinion, this acquisition not only makes sense, it is somewhat classic. In hindsight, it could even be called obvious. I could go on about this but I won&#8217;t.</p>
+
+<p>Many in our industry, myself included, took a vicarious enjoyment in the David-versus-Goliath interplay between GeoIQ and Esri but now it&#8217;s time for us to get back to work. I think all of the principals involved in this transaction deserve credit for keeping open minds and being able to look past all of that to recognize the potential common benefits of joining forces. I sincerely hope GeoIQ doesn&#8217;t become the next Atlas GIS and I suspect it won&#8217;t.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[CartoDB/Leaflet Sample Update]]></title>
     <link href="http://blog.geomusings.com/2012/07/09/CartoDBLeaflet-Sample-Update/"/>
     <updated>2012-07-09T00:00:00-04:00</updated>
@@ -577,772 +683,15 @@ enjoy, Sandro
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[ArcGIS Image Services and Leaflet]]></title>
-    <link href="http://blog.geomusings.com/2012/04/17/ArcGIS-Image-Services-and-Leaflet/"/>
-    <updated>2012-04-17T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/04/17/ArcGIS-Image-Services-and-Leaflet</id>
-    <content type="html"><![CDATA[<p>I&#8217;ve become a big fan of <a href="http://leaflet.cloudmade.com/">Leaflet</a> for putting maps on the web. It gives me most of what I need without much of what I don&#8217;t and is fairly easily extended, as shown by the <a href="http://geojason.info/leaflet-vector-layers/">impressive work of Jason Sanford</a>.</p>
+    <title type="html"><![CDATA[Planet PostGIS Online]]></title>
+    <link href="http://blog.geomusings.com/2012/07/07/Planet-PostGIS-Online/"/>
+    <updated>2012-07-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/07/Planet-PostGIS-Online</id>
+    <content type="html"><![CDATA[<p><a href="http://planet.postgis.net/">Planet PostGIS</a>, an aggregation of <a href="http://postgis.refractions.net/">PostGIS</a>-related blog content is now online. As the name suggests, it is built using the same technology as <a href="http://www.spatiallyadjusted.com">James Fee&#8217;s</a> <a href="http://planetgs.com">Planet Geospatial</a> but is focused on content related to PostGIS.</p>
 
-<p>A while back, <a href="http://twitter.com/dbouwman">Dave Bouwman</a> <a href="http://blog.davebouwman.com/2011/08/04/leaflet-lean-mean-javascript-maps/">blogged about work</a> he and the team at <a href="http://www.dtsagile.com/">DTS Agile</a> had done extending Leaflet to support ArcGIS Server layers. Given that there are a lot of ArcGIS Servers out there, this is a good thing to have. Thanks to section 4(f) of the <a href="http://www.esri.com/legal/pdfs/e-800-termsofuse.pdf">Esri Web Services Terms of Use</a>, it&#8217;s less useful for use with ArcGIS Online, but that&#8217;s probably the topic of another post. <!--more--></p>
+<p>If you are working with PostGIS, whether as part of an open-source stack or in conjunction with proprietary tools such as ArcGIS, you may want to check out Planet PostGIS.</p>
 
-<p>I recently had the need to use an <a href="http://help.arcgis.com/en/arcgisserver/10.0/help/arcgis_server_dotnet_help/index.html#//009300000043000000">ArcGIS Server image service</a> with a Leaflet app. Specifically, I was using the USGS <a href="http://isse.cr.usgs.gov/ArcGIS/rest/services/Orthoimagery/USGS_EDC_Ortho_NAIP/ImageServer">NAIP image service</a>. This service is available as a WMS, which works perfectly well with Leaflet, but I needed to take advantage of some of the capabilities of the <a href="http://www.esri.com">Esri</a> service, such being able to set the interpolation method.</p>
-
-<p>The API signature for interacting with an image service is somewhat different from that of a dynamic map service with ArcGIS Server so I took the DTS AgsDynamicLayer class and modified to an AgsImageLayer class. Because the image service does some raster operations on the fly, it can be a little slower than a standard tiled or dynamic service. As a result, I&#8217;d recommend only going this route if you need to allow your users to fiddle with some options. For most production web-mapping applications, you&#8217;ll probably want to stick with tiles.</p>
-
-<p>It seemed kind of silly to fork the <a href="https://github.com/dtsagile/Leaflet">DTS code</a> for one class so I sent it to Dave, who was gracious enough to accept it. Thanks to DTS for their work, which made my life much easier. Since they have day jobs, too, I&#8217;m not sure when it will appear so I thought I&#8217;d post it here as well in case someone may find it useful. Most of the code came over from the DTS class, with modifications I needed to work with image services. With apologies for the length, here it is:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-<span class='line-number'>108</span>
-<span class='line-number'>109</span>
-<span class='line-number'>110</span>
-<span class='line-number'>111</span>
-<span class='line-number'>112</span>
-<span class='line-number'>113</span>
-<span class='line-number'>114</span>
-<span class='line-number'>115</span>
-<span class='line-number'>116</span>
-<span class='line-number'>117</span>
-<span class='line-number'>118</span>
-<span class='line-number'>119</span>
-<span class='line-number'>120</span>
-<span class='line-number'>121</span>
-<span class='line-number'>122</span>
-<span class='line-number'>123</span>
-<span class='line-number'>124</span>
-<span class='line-number'>125</span>
-<span class='line-number'>126</span>
-<span class='line-number'>127</span>
-<span class='line-number'>128</span>
-<span class='line-number'>129</span>
-<span class='line-number'>130</span>
-<span class='line-number'>131</span>
-<span class='line-number'>132</span>
-<span class='line-number'>133</span>
-<span class='line-number'>134</span>
-<span class='line-number'>135</span>
-<span class='line-number'>136</span>
-<span class='line-number'>137</span>
-<span class='line-number'>138</span>
-<span class='line-number'>139</span>
-<span class='line-number'>140</span>
-<span class='line-number'>141</span>
-<span class='line-number'>142</span>
-<span class='line-number'>143</span>
-<span class='line-number'>144</span>
-<span class='line-number'>145</span>
-<span class='line-number'>146</span>
-<span class='line-number'>147</span>
-<span class='line-number'>148</span>
-<span class='line-number'>149</span>
-<span class='line-number'>150</span>
-<span class='line-number'>151</span>
-<span class='line-number'>152</span>
-<span class='line-number'>153</span>
-<span class='line-number'>154</span>
-<span class='line-number'>155</span>
-<span class='line-number'>156</span>
-<span class='line-number'>157</span>
-<span class='line-number'>158</span>
-<span class='line-number'>159</span>
-<span class='line-number'>160</span>
-<span class='line-number'>161</span>
-<span class='line-number'>162</span>
-<span class='line-number'>163</span>
-<span class='line-number'>164</span>
-<span class='line-number'>165</span>
-<span class='line-number'>166</span>
-<span class='line-number'>167</span>
-<span class='line-number'>168</span>
-<span class='line-number'>169</span>
-<span class='line-number'>170</span>
-<span class='line-number'>171</span>
-<span class='line-number'>172</span>
-<span class='line-number'>173</span>
-<span class='line-number'>174</span>
-<span class='line-number'>175</span>
-<span class='line-number'>176</span>
-<span class='line-number'>177</span>
-<span class='line-number'>178</span>
-<span class='line-number'>179</span>
-<span class='line-number'>180</span>
-<span class='line-number'>181</span>
-<span class='line-number'>182</span>
-<span class='line-number'>183</span>
-<span class='line-number'>184</span>
-<span class='line-number'>185</span>
-<span class='line-number'>186</span>
-<span class='line-number'>187</span>
-<span class='line-number'>188</span>
-<span class='line-number'>189</span>
-<span class='line-number'>190</span>
-<span class='line-number'>191</span>
-<span class='line-number'>192</span>
-<span class='line-number'>193</span>
-<span class='line-number'>194</span>
-<span class='line-number'>195</span>
-<span class='line-number'>196</span>
-<span class='line-number'>197</span>
-<span class='line-number'>198</span>
-<span class='line-number'>199</span>
-<span class='line-number'>200</span>
-<span class='line-number'>201</span>
-<span class='line-number'>202</span>
-<span class='line-number'>203</span>
-<span class='line-number'>204</span>
-<span class='line-number'>205</span>
-<span class='line-number'>206</span>
-<span class='line-number'>207</span>
-<span class='line-number'>208</span>
-<span class='line-number'>209</span>
-<span class='line-number'>210</span>
-<span class='line-number'>211</span>
-<span class='line-number'>212</span>
-<span class='line-number'>213</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//Class for interacting with ArcGIS Server image services</span>
-</span><span class='line'><span class="c1">//Bill Dollins - Zekiah Technologies</span>
-</span><span class='line'><span class="c1">//Modified from AgsDynamicLayer.js by DTSAgile</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">L</span><span class="p">.</span><span class="nx">AgsImageLayer</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">includes</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Mixin</span><span class="p">.</span><span class="nx">Events</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">minZoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">maxZoom</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">attribution</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">opacity</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;PNG8&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="nx">bandids</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="nx">compressionquality</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>      <span class="nx">interpolation</span><span class="o">:</span> <span class="s1">&#39;RSP_NearestNeighbor&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="nx">pixelType</span><span class="o">:</span> <span class="s1">&#39;U8&#39;</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nx">unloadInvisibleTiles</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">mobileWebkit</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="cm">/*String*/</span><span class="nx">url</span><span class="p">,</span> <span class="cm">/*Object*/</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_url</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//public properties that modify the map</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nx">setInterpolation</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">interpolation</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">interpolation</span> <span class="o">=</span> <span class="nx">interpolation</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">getInterpolation</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">setOpacity</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">opacity</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//set it immediately</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="nx">opacity</span><span class="p">;</span>
-</span><span class='line'>            <span class="c1">// stupid webkit hack to force redrawing of tiles</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">webkitTransform</span> <span class="o">+=</span> <span class="s1">&#39; translate(0,0)&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="nx">opacity</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">getOpacity</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">opacity</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">reset</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">update</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'><span class="c1">//        var topLeft = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest()),</span>
-</span><span class='line'><span class="c1">//                bottomRight = this._map.latLngToLayerPoint(this._map.getBounds().getSouthEast()),</span>
-</span><span class='line'><span class="c1">//                size = bottomRight.subtract(topLeft);</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">//        L.DomUtil.setPosition(this._image, topLeft);</span>
-</span><span class='line'><span class="c1">//        this._image.style.width = size.x + &#39;px&#39;;</span>
-</span><span class='line'><span class="c1">//        this._image.style.height = size.y + &#39;px&#39;;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">updating</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">show</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;visible&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">hide</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">isVisible</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">===</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">onAdd</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_map</span> <span class="o">=</span> <span class="nx">map</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;viewreset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;moveend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_moveEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;zoomend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_zoomEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">onRemove</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">().</span><span class="nx">mapPane</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;viewreset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;moveend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_moveEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;zoomend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_zoomEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">_initImage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">DomUtil</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;leaflet-image-layer&#39;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;hidden&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">opacity</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="c1">//TODO createImage util method to remove duplication        </span>
-</span><span class='line'>        <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">,</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nx">onselectstart</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">falseFn</span><span class="p">,</span>
-</span><span class='line'>            <span class="nx">onmousemove</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">falseFn</span><span class="p">,</span>
-</span><span class='line'>            <span class="nx">onload</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onImageLoad</span><span class="p">,</span>
-</span><span class='line'>            <span class="nx">src</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_getImageUrl</span><span class="p">(),</span>
-</span><span class='line'>            <span class="nx">updating</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-</span><span class='line'>            <span class="nx">agsLayer</span><span class="o">:</span> <span class="k">this</span><span class="p">,</span>
-</span><span class='line'>            <span class="nx">map</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span>
-</span><span class='line'>        <span class="p">});</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">().</span><span class="nx">mapPane</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">_getImageUrl</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//construct the export image url</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">bnds</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">();</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">sz</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">();</span>
-</span><span class='line'>        <span class="c1">//bboxsr &amp;amp; imagesr params need to be specified like so to avoid alignment problems on some map services - not sure why</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">bbox</span> <span class="o">=</span> <span class="s1">&#39;bbox=&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getSouthEast</span><span class="p">().</span><span class="nx">lng</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getSouthEast</span><span class="p">().</span><span class="nx">lat</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getNorthWest</span><span class="p">().</span><span class="nx">lng</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getNorthWest</span><span class="p">().</span><span class="nx">lat</span> <span class="o">+</span> <span class="s1">&#39;&amp;amp;bboxsr=4326&amp;amp;imageSR=3857&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;size=&#39;</span> <span class="o">+</span> <span class="nx">sz</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">sz</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;format=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">format</span><span class="p">;</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">pixeltype</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;pixelType=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">pixelType</span><span class="p">;</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">interpolation</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;interpolation=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">;</span>
-</span><span class='line'>      <span class="c1">//Some of the following parameters are supported by ArcGIS Server Image Services but not implemented here.</span>
-</span><span class='line'>      <span class="c1">//They have been included as placeholders.</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">nodata</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;noData=&#39;</span><span class="p">;</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">compressionquality</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;compressionQuality=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">compressionquality</span><span class="p">;</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">bandids</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;bandIds=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">bandids</span><span class="p">;</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">mosaicprops</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;mosaicProperties=&#39;</span><span class="p">;</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">viewpointprops</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;viewpointProperties=&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_url</span> <span class="o">+</span> <span class="s1">&#39;/exportImage?&#39;</span> <span class="o">+</span> <span class="nx">bbox</span> <span class="o">+</span> <span class="nx">size</span> <span class="o">+</span> <span class="nx">format</span> <span class="o">+</span> <span class="nx">pixeltype</span> <span class="o">+</span> <span class="nx">nodata</span> <span class="o">+</span> <span class="nx">interpolation</span> <span class="o">+</span> <span class="nx">compressionquality</span> <span class="o">+</span> <span class="nx">bandids</span> <span class="o">+</span> <span class="nx">mosaicprops</span> <span class="o">+</span> <span class="nx">viewpointprops</span> <span class="o">+</span> <span class="s1">&#39;&amp;amp;f=image&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nx">url</span><span class="p">;</span> <span class="c1">// this._url + &#39;/export?&#39; + bbox + size + layers + format + transparent + &#39;&amp;amp;f=image&#39;;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">_updateLayer</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">updating</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//console.log(&#39;Updating layer NW: &#39; + map.getBounds().getNorthWest());            </span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">updating</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="c1">//update the src based on the new location</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_getImageUrl</span><span class="p">();</span>
-</span><span class='line'>            <span class="c1">//reset the image location on the map</span>
-</span><span class='line'>            <span class="c1">//            //hang the info on the image, we&#39;ll actually update it onload to make sure we don&#39;t reposition it before the new image comes down</span>
-</span><span class='line'>            <span class="c1">//this doesn&#39;t seem to work on mobile</span>
-</span><span class='line'>            <span class="c1">//            this._image.topLeft = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest());</span>
-</span><span class='line'>            <span class="c1">//            var bottomRight = this._map.latLngToLayerPoint(this._map.getBounds().getSouthEast());</span>
-</span><span class='line'>            <span class="c1">//            this._image.size = bottomRight.subtract(this._image.topLeft);</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="kd">var</span> <span class="nx">topLeft</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">latLngToLayerPoint</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">().</span><span class="nx">getNorthWest</span><span class="p">()),</span>
-</span><span class='line'>                <span class="nx">bottomRight</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">latLngToLayerPoint</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">().</span><span class="nx">getSouthEast</span><span class="p">()),</span>
-</span><span class='line'>                <span class="nx">size</span> <span class="o">=</span> <span class="nx">bottomRight</span><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="nx">topLeft</span><span class="p">);</span>
-</span><span class='line'>            <span class="nx">L</span><span class="p">.</span><span class="nx">DomUtil</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">,</span> <span class="nx">topLeft</span><span class="p">);</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">size</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">size</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">_moveEnd</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//console.log(&#39;in _moveEnd : NW: &#39; + map.getBounds().getNorthWest());</span>
-</span><span class='line'>        <span class="c1">//don&#39;t set display:none for moves - makes for smoother panning - no flicker</span>
-</span><span class='line'>        <span class="c1">//oops, that didn&#39;t work on mobile</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">_zoomEnd</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//console.log(&#39;in _moveEnd&#39;);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">//        //zoom the image...(animate it?)</span>
-</span><span class='line'>        <span class="c1">//        //L.DomUtil.setPosition(this, this.topLeft);</span>
-</span><span class='line'>        <span class="c1">//        //debugger;</span>
-</span><span class='line'>        <span class="c1">//        //it&#39;s gonna be something like this but it&#39;s not quite right - also will need to get/ calculate the correct factor (using 1.5 below) and change it for zoom out</span>
-</span><span class='line'>        <span class="c1">//        //and we need to properly calculate the new left and top - just hard coded approximate values below</span>
-</span><span class='line'>        <span class="c1">//        this._image.style.left = &#39;-420px&#39;;</span>
-</span><span class='line'>        <span class="c1">//        this._image.style.top = &#39;-228px&#39;;</span>
-</span><span class='line'>        <span class="c1">//        this._image.style.width = this._image.width * 1.5 + &#39;px&#39;;</span>
-</span><span class='line'>        <span class="c1">//        this._image.style.height = this._image.height * 1.5 + &#39;px&#39;;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">//for now, we&#39;ll just do this</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">_reset</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">().</span><span class="nx">mapPane</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_initImage</span><span class="p">();</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">_onImageLoad</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//        //reset the image location on the map - doing it this way does not seem to work on mobile</span>
-</span><span class='line'>        <span class="c1">//        L.DomUtil.setPosition(this, this.topLeft);</span>
-</span><span class='line'>        <span class="c1">//        this.style.width = this.size.x + &#39;px&#39;;</span>
-</span><span class='line'>        <span class="c1">//        this.style.height = this.size.y + &#39;px&#39;;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">//this is the image</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">//make sure it&#39;s visible and reset the updating flag</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;visible&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">updating</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Speaking of the 84%...]]></title>
-    <link href="http://blog.geomusings.com/2012/02/08/Speaking-of-the-84/"/>
-    <updated>2012-02-08T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/02/08/Speaking-of-the-84</id>
-    <content type="html"><![CDATA[<p>HT to <a href="http://sproke.blogspot.com/2012/02/game-changer-open-source-mapping-in.html">Sophia Parafina for the 84%</a>.</p>
-
-<p><strong>UPDATE</strong>: The NSIS script at utility batch file discussed here is now on github at <a href="https://github.com/geobabbler/pgstandalone" target="_blank">https://github.com/geobabbler/pgstandalone</a>. I&#8217;ll post a readme in the next day or so.</p>
-
-<p>A few months ago, I asked the following question on Twitter and got this reply from Paul Ramsey:</p>
-
-<div class='embed tweet'><blockquote class="twitter-tweet" data-in-reply-to="136481537792294912"><p>@<a href="https://twitter.com/billdollins">billdollins</a> Possible yes, but might have to roll your own? You can get raw binaries in a zip file from download site&#8230;?</p>&mdash; Paul Ramsey (@pwramsey) <a href="https://twitter.com/pwramsey/status/136565522836897796" data-datetime="2011-11-15T22:05:32+00:00">November 15, 2011</a></blockquote>
-<script src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>We are working with a Federal Government customer that had the interesting policy that users can install software as long as it makes no changes to the Windows registry. These users are currently running a mix of Windows 7 and XP. We are working with them to help manage one of their data models. In this case, it&#8217;s more about performing configuration management on the model/standard itself rather than physical databases with real data in them. It&#8217;s a topic we touched on over at the Zekiah blog <a href="http://www.zekiah.com/index.php?q=blog/2012/01/13/expanding-usefulness-geospatial-data-standards" target="_blank">here</a> and an approach we have used successfully for years to manage the <a href="http://www.sdsfie.org/" target="_blank">SDSFIE</a> data standard. <!--more--></p>
-
-<p>So we&#8217;ve applied the technique to another data standard for another Federal organization. In this case, we need to distribute tools to help data modelers work with the platform-independent logical model (PIM) on their own desktops. Typically, this has been centrally managed and accessible via an implementation in SQL Server. (Don&#8217;t get wrapped around the term &#8220;platform-independent.&#8221; We use it in a different context within this work.) Since we have to distribute to desktops, and SQL Server makes a slew of registry entries, and <a href="http://www.postgresql.org" target="_blank">PostgreSQL</a> has no licensing issues, we decided to go the PostgreSQL route.</p>
-
-<p>It turns out, this was pretty easy. After doing the work for our approach, I have subsequently found posts showing a similar approach (as always, it depends on the day and the search term), which was nice because they sort of validated what I had already done.</p>
-
-<p>Paul was on the right track with using the Windows binaries from the PostgreSQL site. Natively, PostgreSQL doesn&#8217;t need any registry entries, which makes sense given that it also runs on Linux and Unix. Registry entries are typically introduced by the one-click installers that do helpful things like setting PostgreSQL up as a service and a few other things that require registry entries on Windows. These are very useful things that I avail myself of when I use PostgreSQL on Windows. In this particular use case, those features were not helpful.</p>
-
-<p>One thing that you&#8217;ll notice when you use the one-click installer is that you&#8217;ll end up with a batch file called &#8220;pg_env.bat&#8221; in the install folder for your version. It looks something like this:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="nv">@ECHO</span> <span class="n">OFF</span>
-</span><span class='line'><span class="n">REM</span> <span class="n">The</span> <span class="n">script</span> <span class="n">sets</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">helpful</span> <span class="k">for</span> <span class="n">PostgreSQL</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PATH</span><span class="p">=</span><span class="s2">&quot;C:\Program Files (x86)\PostgreSQL\8.4\bin&quot;</span><span class="err">;</span><span class="k">%</span><span class="n">PATH</span><span class="p">%</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATA</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PostgreSQL</span><span class="p">\</span><span class="n">8</span><span class="p">.</span><span class="n">4</span><span class="p">\</span><span class="n">data</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATABASE</span><span class="p">=</span><span class="n">postgres</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGUSER</span><span class="p">=</span><span class="n">postgres</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGPORT</span><span class="p">=</span><span class="n">5432</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGLOCALEDIR</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PostgreSQL</span><span class="p">\</span><span class="n">8</span><span class="p">.</span><span class="n">4</span><span class="p">\</span><span class="n">share</span><span class="p">\</span><span class="n">locale</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>As you can see, I&#8217;m working with version 8.4 of PostgreSQL. That version is what has been blessed but I am also rolling up an implementation of this approach for 9.1 as we expect to get that approval soon.</p>
-
-<p>With this batch file and the unzipped binaries, we have everything we need to run PostgreSQL without running an installer that makes registry entries. Now all we need to do is tell each user to unzip the binaries, edit the batch file to point to the correct paths, open a command window and run the batch file&#8230;</p>
-
-<p>&#8230;Clearly, there was a little more work to do to make this operate smoothly.</p>
-
-<p>First, we wanted <a href="http://www.postgis.org/" target="_blank">PostGIS</a> in our build. As I mentioned before, the PIM represents a logical model that doesn&#8217;t store actual data, but we wanted it to know about PostGIS data types. Additionally, we wanted to distribute the PIM with PostgreSQL. In this case, we did a little bit of prep work using a standard install of PostgreSQL to add PostGIS (and its template database) and build/populate our PIM database.</p>
-
-<p>Once we had this done, we moved the data directory over to our &#8220;unzipped&#8221; instance of PostgreSQL. We tested by running our batch file from the command prompt and starting PosgreSQL the same way. In our case, we changed the listening port to 54325. We then attempted to connect via pgAdmin3 and had success:</p>
-
-<div style="text-align: center;"><img alt="" class="size-full wp-image-2471" height="274" src="http://geobabble.files.wordpress.com/2012/02/pgpost1.png" title="pgpost1" width="235" /><div style="text-align: center; font-size: 14px">Connection successful!<br /></div></div>
-
-
-<p>This is all well and good, but probably still a bit much to ask a user to do. So we built an installer. In this case, we used the <a href="http://nsis.sourceforge.net/Main_Page" target="_blank">Nullsoft Scriptable Install System</a> (NSIS) to build our own installer and ensure that no registry entries were made. So once we had our instance/data prepped the way we wanted it, we zipped it all back up for inclusion in the installer. The NSIS script for the installer is at the end of this post.</p>
-
-<p>For the installer to work, we also made use of the <a href="http://nsis.sourceforge.net/ZipDLL_plug-in">ZipDLL plug-in</a> for NSIS. The installer essentially prompts the user to specify the install location then unzips the PostgreSQL binaries/data, builds the driver batch file and places shortcuts on the user&#8217;s desktop. It&#8217;s really that simple. We have a utility (also a batch file) that builds the driver batch file as the installer runs. When it&#8217;s done, the installer cleans up the zip file and the utility. The resulting driver batch file looks like this (where the user specified &#8220;C:\Program Files (x86)\PGStandalone11&#8221; as the install location):</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">REM</span> <span class="n">This</span> <span class="n">file</span> <span class="n">was</span> <span class="n">automatically</span> <span class="n">generated</span>
-</span><span class='line'><span class="n">REM</span> <span class="n">This</span> <span class="n">script</span> <span class="n">sets</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">helpful</span> <span class="k">for</span> <span class="n">PostgreSQL</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PATH</span><span class="p">=</span><span class="s2">&quot;C:\Program Files (x86)\PGStandalone11\bin&quot;</span><span class="err">;</span><span class="k">%</span><span class="n">PATH</span><span class="p">%</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATA</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PGStandalone11</span><span class="p">\</span><span class="n">data</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATABASE</span><span class="p">=</span><span class="n">postgres</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGUSER</span><span class="p">=</span><span class="n">postgres</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGPORT</span><span class="p">=</span><span class="n">54325</span>
-</span><span class='line'><span class="nv">@SET</span> <span class="n">PGLOCALEDIR</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PGStandalone11</span><span class="p">\</span><span class="n">share</span><span class="p">\</span><span class="n">locale</span>
-</span><span class='line'><span class="n">CALL</span> <span class="s2">&quot;C:\Program Files (x86)\PGStandalone11\bin\postgres.exe&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We also drop two shortcuts on the desktop:</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2475" height="161" src="http://geobabble.files.wordpress.com/2012/02/pgpost2.png" title="pgpost2" width="316" /></p>
-
-<p>The shortcut labeled &#8220;Start PostGIS PIM&#8221; executes the batch file above. The shortcut labeled &#8220;Manage PostGIS PIM&#8221; starts pgAdmin3. I am currently trying to get pgAdmin3 to read the connection information from its settings.ini file instead of looking to the registry. If the user adds the connection on their own, it will write information to the HKCU hive of the registry. This may end up being acceptable but I probably still won&#8217;t let it go until I solve this problem.</p>
-
-<p>Once we get this completely finalized, I&#8217;ll make the script and the utilities available. Another reason that I love PostgreSQL is that things like this seem to end up being easier than you would think. That&#8217;s a sign of a well-built piece of software, in my opinion.</p>
-
-<p>And here&#8217;s the installer&#8217;s NSIS script:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>!define CO_DIR &quot;Zekiah Technologies&quot;
-</span><span class='line'>!define NAME &quot;Standalone PostgreSQL/PostGIS Install for Windows&quot;
-</span><span class='line'>!define SHORTNAME &quot;PGStandalone&quot;
-</span><span class='line'>!define UNINSTALLER &quot;uninstall.exe&quot;
-</span><span class='line'>
-</span><span class='line'>OutFile &quot;setup_${SHORTNAME}.exe&quot;
-</span><span class='line'>Name &quot;${NAME}&quot;
-</span><span class='line'>Caption &quot;${NAME} Setup&quot;
-</span><span class='line'>InstallDir &quot;$PROGRAMFILES\${SHORTNAME}&quot;
-</span><span class='line'>CompletedText &quot;Success.&quot;
-</span><span class='line'>XPStyle &quot;On&quot;
-</span><span class='line'>InstallColors /windows
-</span><span class='line'>
-</span><span class='line'>Page directory
-</span><span class='line'>Page instfiles
-</span><span class='line'>ShowInstDetails show
-</span><span class='line'>
-</span><span class='line'>Section &quot;Install&quot;
-</span><span class='line'>    SetOutPath $INSTDIR
-</span><span class='line'>
-</span><span class='line'>    ; Create uninstaller first, so user can clean up if we barf.
-</span><span class='line'>    WriteUninstaller &quot;$INSTDIR\${UNINSTALLER}&quot; ;this actually does nothing right now
-</span><span class='line'>
-</span><span class='line'>    ; Extract all the files.
-</span><span class='line'>    DetailPrint &quot;Extracting files...&quot;
-</span><span class='line'>  File pg.zip
-</span><span class='line'>  ZipDLL::extractall &quot;$INSTDIR\pg.zip&quot; &quot;$INSTDIR&quot;
-</span><span class='line'>  
-</span><span class='line'>  ;Write batch file using INSTDIR to set correct paths
-</span><span class='line'>    Call WriteBatchFile
-</span><span class='line'>    DetailPrint &quot;OK: Batch file written&quot;
-</span><span class='line'>
-</span><span class='line'>    Call OutputToTemp
-</span><span class='line'>    GetFullPathName /short $0 $INSTDIR
-</span><span class='line'>  Delete &quot;$INSTDIR\pg.zip&quot;
-</span><span class='line'>
-</span><span class='line'>    ; Add start menu shortcuts.
-</span><span class='line'>    DetailPrint &quot;Adding shortcuts...&quot;
-</span><span class='line'>    SetShellVarContext all
-</span><span class='line'>    CreateDirectory &quot;$SMPROGRAMS\${NAME}&quot;
-</span><span class='line'>    SetOutPath &quot;$SMPROGRAMS\${NAME}&quot;
-</span><span class='line'>    CreateShortCut &quot;Uninstall.lnk&quot; &quot;$INSTDIR\${UNINSTALLER}&quot;
-</span><span class='line'>  CreateShortCut &quot;$DESKTOP\Start PostGIS PIM.lnk&quot; &quot;$INSTDIR\pg_standalone.bat&quot; &quot;&quot;
-</span><span class='line'>  CreateShortCut &quot;$DESKTOP\Manage PostGIS PIM.lnk&quot; &quot;$INSTDIR\bin\pgAdmin3.exe&quot; &quot;&quot;
-</span><span class='line'>
-</span><span class='line'>    ; Success.
-</span><span class='line'>    DetailPrint &quot;All Done!&quot;
-</span><span class='line'>SectionEnd
-</span><span class='line'>
-</span><span class='line'>Function OutputToTemp
-</span><span class='line'>    ExpandEnvStrings $5 &quot;%TEMP%&quot;
-</span><span class='line'>    SetOutPath $5
-</span><span class='line'>FunctionEnd
-</span><span class='line'>
-</span><span class='line'>Function un.OutputToTemp
-</span><span class='line'>    ExpandEnvStrings $5 &quot;%TEMP%&quot;
-</span><span class='line'>    SetOutPath $5
-</span><span class='line'>FunctionEnd
-</span><span class='line'>
-</span><span class='line'>Function WriteBatchFile
-</span><span class='line'>    ; execute utility to create batch file to execute PostgreSQL
-</span><span class='line'>
-</span><span class='line'>    Call OutputToTemp
-</span><span class='line'>    File &quot;utils\make_pg_env.bat&quot;
-</span><span class='line'>    ExecWait &#39;&quot;$5\make_pg_env.bat&quot; &quot;$INSTDIR&quot;&#39;
-</span><span class='line'>FunctionEnd
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>UninstPage uninstConfirm
-</span><span class='line'>UninstPage instfiles
-</span><span class='line'>ShowUninstDetails hide
-</span><span class='line'>
-</span><span class='line'>Section &quot;Uninstall&quot;
-</span><span class='line'>    ; Remove all start menu shortcuts.
-</span><span class='line'>    DetailPrint &quot;Removing shortcuts...&quot;
-</span><span class='line'>    SetShellVarContext all
-</span><span class='line'>    Delete &quot;$SMPROGRAMS\${NAME}\*&quot;
-</span><span class='line'>    RmDir &quot;$SMPROGRAMS\${NAME}&quot;
-</span><span class='line'>
-</span><span class='line'>    DetailPrint &quot;Removing files...&quot;
-</span><span class='line'>
-</span><span class='line'>    Delete &quot;$INSTDIR\${UNINSTALLER}&quot;
-</span><span class='line'>    RmDir &quot;$INSTDIR&quot;
-</span><span class='line'>SectionEnd
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Anne Arundel County, Maryland Announces GIS Data Downloads]]></title>
-    <link href="http://blog.geomusings.com/2011/12/14/Anne-Arundel-County-Maryland-Announces-GIS-Data-Downloads/"/>
-    <updated>2011-12-14T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2011/12/14/Anne-Arundel-County-Maryland-Announces-GIS-Data-Downloads</id>
-    <content type="html"><![CDATA[<p>A while back, I <a href="http://blog.geomusings.com/2011/09/26/free-maryland-gis-data-resources/">posted</a> about county-level GIS data available in the State of Maryland. I was very happy to see an <a href="http://www.linkedin.com/groupItem?view=&amp;gid=3300945&amp;item=ANET%3AS%3A84763573&amp;trk=NUS_RITM-title">announcement on LinkedIn</a> that Anne Arundel County, Maryland has rolled out a new <a href="http://www.aacounty.org/OIT/GIS/GISData.cfm">data download page</a> that makes their GIS data freely available.</p>
-
-<p>[caption id=&#8221;attachment_2356&#8221; align=&#8221;aligncenter&#8221; width=&#8221;346&#8221; caption=&#8221;Anne Arundel County is home to Annapolis, the capital of Maryland and my favorite place on earth.&#8221;]<a href="http://geobabble.files.wordpress.com/2011/12/md_state_house_2011_12_14.jpg"><img alt="" class="size-full wp-image-2356" height="614" src="http://geobabble.files.wordpress.com/2011/12/md_state_house_2011_12_14.jpg" title="md_state_house_2011_12_14" width="346" /></a>[/caption]</p>
-
-<p>Kudos to <a href="http://twitter.com/Eric112200">Eric Wilson</a> and everyone else in the Anne Arundel County GIS group for making this happen. Here&#8217;s hoping more follow suit.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Great News About Atanas!]]></title>
-    <link href="http://blog.geomusings.com/2011/12/09/Great-News-About-Atanas/"/>
-    <updated>2011-12-09T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2011/12/09/Great-News-About-Atanas</id>
-    <content type="html"><![CDATA[<p><a href="http://twitter.com/atanas">Atanas</a> tweeted this last night:</p>
-
-<div class='embed tweet'><blockquote class="twitter-tweet"><p>Out on day 65. Thank you all for everything. Details later on tenthcave.com. <a href="https://twitter.com/search/%23freeatanas">#freeatanas</a></p>&mdash; Atanas Entchev (@atanas) <a href="https://twitter.com/atanas/status/144991222040231936" data-datetime="2011-12-09T04:06:15+00:00">December 9, 2011</a></blockquote>
-<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>This is the best news possible. I, like many others, will await details on his <a href="http://www.tenthcave.com/">blog</a>. I couldn&#8217;t be happier for Atanas and his family.</p>
-
-<p>It&#8217;s good to have you back, my friend.</p>
-
-<p><strong>UPDATE</strong>: Here&#8217;s a little more information from Atanas himself: <a href="http://www.tenthcave.com/2011/12/out-on-day-65.html">http://www.tenthcave.com/2011/12/out-on-day-65.html</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Arc2Earth Sync Beta Announced]]></title>
-    <link href="http://blog.geomusings.com/2011/11/23/Arc2Earth-Sync-Beta-Announced/"/>
-    <updated>2011-11-23T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2011/11/23/Arc2Earth-Sync-Beta-Announced</id>
-    <content type="html"><![CDATA[<p>Over on <a href="https://plus.google.com/112324940962843535547/posts/B9T9M1vPLCz">Google+</a> (and also on Twitter), <a href="http://twitter.com/bflood">Brian Flood</a> announced the impending availability of Arc2Earth Sync Beta to existing <a href="http://www.arc2earth.com">Arc2Earth</a> users. This has been brewing for for a while and Brian says it best:</p>
-
-<blockquote>
-&#8220;What makes Sync really cool is the live edit synchronization and the ability to publish online to different formats. It&#8217;s a great way to provide integration between ArcGIS desktops/online and the other Cloud database providers like Google.&#8221;
-</blockquote>
-
-
-<!--more-->
-
-
-<p>So it gives users the ability to publish, edit and synchronize data they are storing in on-line, hosted environments using the editing tools of ArcMap. The initial beta will only support Google Fusion Tables but support for Google Earth Builder and - this caught my eye right away - <a href="http://cartodb.com">CartoDB</a> are scheduled for after the first of the year.</p>
-
-<p>[caption id=&#8221;attachment_2322&#8221; align=&#8221;aligncenter&#8221; width=&#8221;500&#8221; caption=&#8221;Arc2Earth Sync stands to give ArcGIS users an assortment of hosted data platforms to choose from.&#8221;]<img alt="" class="size-full wp-image-2322" height="375" src="http://geobabble.files.wordpress.com/2011/11/assorted_donuts1.jpg" title="Choices, choices..." width="500" />[/caption]</p>
-
-<p>There are a lot of ArcGIS for Desktop users out there and exposing different hosted solutions using workflows and tools with which they are comfortable has the potential to do a lot for user choice and the ability to control one&#8217;s own data.</p>
-
-<p>Here is a link to Brian&#8217;s screencast showing Arc2Earth Sync in action: <a href="https://arc2earth.viewscreencasts.com/fe762cac52664083ad5dfdfcd0f750c9">https://arc2earth.viewscreencasts.com/fe762cac52664083ad5dfdfcd0f750c9</a></p>
+<p>Thanks to <a href="http://www.linkedin.com/pub/regina-obe/7/5/200">Regina Obe</a> and everyone involved in setting this up.</p>
 ]]></content>
   </entry>
   
