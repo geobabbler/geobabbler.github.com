@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mymap | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/mymap/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2012-12-21T13:28:14-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[DDJ Article on MyMap Javascript API]]></title>
+    <link href="http://blog.geomusings.com/2007/02/16/ddj-article-on-mymap-javascript-api/"/>
+    <updated>2007-02-16T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2007/02/16/ddj-article-on-mymap-javascript-api</id>
+    <content type="html"><![CDATA[<p>An <a href="http://www.ddj.com/dept/webservices/197003355">article</a> in the latest Dr. Dobb's caught my eye. It's about MyMap; a javascript api that standardizes the calls between Google Maps, Yahoo Maps and Virtual Earth. I'm always drawn when mapping tools get press outside of the GIS world. MyMap is predicated on the idea that each mapping engine provides similar capabilities. There is a different .js file for each but the function calls are the same. Therefore, it makes it relatively easy to provide similar capabilities for your web app regardless of the back-end engine.</p>
+
+<p>I installed the <a href="ftp://66.77.27.238/sourcecode/ddj/2007/0703.zip">sample</a> from the DDJ resource center and it's pretty straightforward. You may need to comment out the call to Google Maps because the API key won't work for you. If you have your own, you can use that. Either way, the Yahoo and VE calls work fine and give good idea of how MyMap works. I'd recommend checking it out.</p>
+]]></content>
+  </entry>
+  
+</feed>

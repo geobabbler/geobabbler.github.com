@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Cutting Tiles for ArcGIS Server Using TileMill - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="There&#8217;s been a lot of talk about TileMill and CartoCSS lately, with good cause. TileMill makes it very easy generate beautiful map tiles using &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2012/10/03/cutting-tiles-for-arcgis-server-using-tilemill/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cutting Tiles for ArcGIS Server Using TileMill</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-03T00:00:00-04:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>There&#8217;s been a lot of talk about <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a> lately, with good cause. TileMill makes it very easy generate beautiful map tiles using the <a href="http://mapnik.org/" target="_blank">Mapnik</a> engine and CartoCSS provides a familiar method to author the cartographic representation of spatial data. <a href="http://mapbrief.com/2012/09/27/gis-cartography-the-latest-best-opportunity-to-bridge-the-chasm/" target="_blank">As Brian Timoney points out</a>, CartoCSS has the added bonus of making best practices shareable via copy-and-paste.</p>
+
+
+
+
+<p>Naturally, the best way to take advantage of TileMill is to export your tiles to <a href="https://github.com/mapbox/mbtiles-spec" target="_blank">MBTiles</a> and use <a href="http://mapbox.com/" target="_blank">MapBox</a> hosting. If that&#8217;s not an option, you can pretty easily self-host with <a href="https://github.com/mapbox/tilestream" target="_blank">TileStream</a>. That said, there are some organizations that, due to larger GIS workflows, IT policies, and a host of other legitimate reasons, need or choose to use <a href="http://www.esri.com" target="_blank">ArcGIS Server</a> to do map hosting. For those organizations, TileMill is still an option to create attractive basemaps, within certain constraints.</p>
+
+
+<p><img alt="" class="aligncenter size-full wp-image-2911" height="295" src="http://geobabble.files.wordpress.com/2012/10/tilemill_screen.png" title="tilemill_screen" width="640" /></p>
+
+<p>So I set out to see if I could bridge the gap between the two. Two blog posts pointed the way. A while back, <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">Dan Dye blogged about how he had forked mb-util</a> and added support for exporting WeoGeo tilepacks from MBTiles. Also, a co-worker of mine, Eric Mahaffey, had blogged some time ago about <a href="http://www.zekiah.com/index.php?q=blog/2011/08/03/using-arc2earth-tile-caching-across-air-gapped-networks" target="_blank">how to use Arc2Earth to manage tile caches across air-gapped networks</a>. Using these posts for guidance, I was pretty sure I had all the pieces I needed. <!--more--></p>
+
+<p>First, I decided to fork Dan&#8217;s code (I love GitHub) and add support for exporting ArcGIS tiles. Essentially, I followed Dan&#8217;s pattern and added a choice for an ArcGIS schema as a command-line option. My forked version <a href="https://github.com/geobabbler/mbutil" target="_blank">can be found on GitHub</a>.</p>
+
+<p>I then fired up TileMill (0.10.0 for Windows) and created some tiles at zoom levels 4 through 8 using the &#8220;Control Room&#8221; sample that comes with TileMill. I chose this for two reasons: First, I am not very good at cartography and this sample looks attractive and distinct from the generic ArcGIS sample I used. Second, it&#8217;s very well-known to TileMill users so it worked well for this demo. I won&#8217;t go into how I created the tiles as this post is not intended to be a TileMill tutorial.</p>
+
+<p>Once I had exported the tiles to an MBTiles file, I ran the updated mb-util Python utility to export the tiles in an ArcGIS structure. The command-line usage is shown below. One note: I did not generate the &#8220;level&#8221; folders in accordance with ArcGIS convention. If you are familiar with ArcGIS, you know that the level numbers are relative so that, if your service only contains levels 3, 4 , and 5, the will be levels L00, L01, L02 respectively. Instead, the utility names them according to their original TMS levels (L03, L04, L05 in this case). So, you may need to rename your level folders when you rehost to ArcGIS Server but this should entail a maximum of 19 manual edits, which seemed like a reasonable compromise.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2012/10/mbutil_cmd.png"><img alt="" class="aligncenter size-full wp-image-2897" height="311" src="http://geobabble.files.wordpress.com/2012/10/mbutil_cmd.png" title="mb-util usage" width="640" /></a></p>
+
+<p>So mb-util created the &#8220;_alllayers&#8221; folder and its child file system for us. Because I&#8217;m not creating a conf.xml yet, I can create it by hand or use ArcGIS to create some dummy tiles with a configuration. Once that&#8217;s done, we are simply engaged in a file copy  operation (picking up at step 4 of Eric&#8217;s post). For this demo, I created an actual map using one of the ArcGIS samples so that it would be apparent that the operation worked. In practice, I wouldn&#8217;t go to that much trouble up front. The image below shows the map service using the original tiles.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/10/arc_tilemill1.png"><img alt="" class="size-full wp-image-2901" height="370" src="http://geobabble.files.wordpress.com/2012/10/arc_tilemill1.png" title="ArcGIS map service before TileMill tiles" width="640" /></a> <div style="text-align: center;font-size: 14px;">ArcGIS map service as created from the original MXD.</div></div>
+
+
+<p>After I copied the tiles from TileMill into the correct location, I was able to refresh the window and see the boundary between the original tiles and the those from TileMill. Again, this was just for demo purposes. In practice, the whole cache would be from TileMill. The image below shows the updated cache, displayed using the ArcGIS Javascript API.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/10/arc_tilemill2.png"><img alt="" class="size-full wp-image-2902" height="370" src="http://geobabble.files.wordpress.com/2012/10/arc_tilemill2.png" title="ArcGIS map service after TileMill tiles" width="640" /></a> <div style="text-align: center;font-size: 14px;">ArcGIS map service showing tiles from TileMill.</div></div>
+
+
+<p>I apologize for screenshots but my EDN license precludes making my ArcGIS Server public for a live demo.</p>
+
+<p>So, it&#8217;s perfectly possible to create nice basemaps using TileMill for use in ArcGIS server, provided you adhere to two constraints: 1) You use Web Mercator for your spatial reference and 2) You make sure your ArcGIS cache is the &#8220;exploded&#8221; variety.</p>
+
+<p>Why would you do this? It is certainly possible to build great cartographic representations in ArcGIS but those representations are locked away in ArcGIS map documents, styles, layer packages and such; all of which are some proprietary binary format such as persisted COM objects. While this may not be the worst thing in the world, CartoCSS, being a text format, more easily lends itself to configuration control. Organizations that want to maintain configuration control over map templates and such can take advantage of standard tools such as git or SVN to do so. I have found that organizations with strict IT policies are also exactly the same kinds of organizations that to maintain control over content and styling so this is actually a surprisingly important factor.</p>
+
+<p>I&#8217;ll probably play with this more as time and customer demand allow, but it&#8217;s good to know this option is available for providing flexibility with ArcGIS Server.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-03T00:00:00-04:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/arc2earth/'>Arc2Earth</a>, <a class='category' href='/blog/categories/arcgis-server/'>ArcGIS Server</a>, <a class='category' href='/blog/categories/cartocss/'>CartoCSS</a>, <a class='category' href='/blog/categories/mbtiles/'>MBTiles</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/tilemill/'>TileMill</a>, <a class='category' href='/blog/categories/cartography/'>cartography</a>, <a class='category' href='/blog/categories/esri/'>esri</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/open-source/'>open source</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2012/10/03/cutting-tiles-for-arcgis-server-using-tilemill/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2012/10/03/cutting-tiles-for-arcgis-server-using-tilemill/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis/" title="Previous Post: Still Jonesing for zigGIS? Try this OGR Plug-In for ArcGIS.">&laquo; Still Jonesing for zigGIS? Try this OGR Plug-In for ArcGIS.</a>
+      
+      
+        <a class="basic-alignment right" href="/2012/10/09/wilson-center-to-discuss-fcc-national-broadband-map/" title="Next Post: Wilson Center to Discuss FCC National Broadband Map">Wilson Center to Discuss FCC National Broadband Map &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/spatialite-4-0-released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

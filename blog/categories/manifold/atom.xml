@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: manifold | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/manifold/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2012-12-21T13:28:14-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Spatial References in SQL Server 2008 November CTP]]></title>
+    <link href="http://blog.geomusings.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/"/>
+    <updated>2007-11-26T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp</id>
+    <content type="html"><![CDATA[<p>I've been playing with the <a href="http://www.microsoft.com/sql/2008/default.mspx">SQL 2008 November CTP</a> since it was released last week and have been generally impressed but as I have delved into its handling fo spatial references, I have noted some areas of concern. Keeping in mind that it's a CTP, I'm hoping that some aspects may be addressed before release.<!--more--></p>
+
+<p>From Books Online regarding SRIDs:</p>
+
+<blockquote>"A spatial column can contain objects with different <a href="http://www.bostongis.com/?content_name=srid">SRIDs</a>. However, only spatial instances with the same SRID can be used when performing operations with SQL Server spatial data methods on your data."</blockquote>
+
+
+<p> From what I can tell, SQL 2008 currently has no capacity for coordinate transformations. This creates a situation where you can load a single table with features that use different spatial references but have no intrinsic method for transforming them as you access them. This can lead, obviously, to inaccurate maps and/or analysis products. In fact the documentation states that spatial operations should only be performed on instances of spatial data that have the same SRID. Results of operations on spatial data that do not meet this requirement should not be considered valid. Personally, I question the need for and veracity of mixing spatial references within a single table. I think it creates a lot of room for error and places an undue burden on the user or application.</p>
+
+<p>I don't question the fact that spatial operations will not work properly without data being in the same spatial reference. That's pretty routine. What's unorthodox is the ability to store data of differing spatial references in the same table. This feature, along with the lack of an intrinsic ability to transform geometry, can make working with spatial data cumbersome and potentially error-prone.</p>
+
+<p>Those who are experienced with creating and managing GIS data sets will instinctively avoid mixing spatial references but those who are new to working with spatial data (such as those who may be introduced to it through SQL Server 2008) might not understand the risks involved. Therefore, this is something that I hope is changed before the final release of the product. My recommendation is to 1) require a single spatial reference for each table and 2) also provide some coordinate transformation functions in <a href="http://en.wikipedia.org/wiki/Transact-SQL">T-SQL</a>. If the number one were done first, I could make do with external tools for number two but both should really be in there IMHO.</p>
+
+<p>Also from Books Online: <blockquote>"SQL Server supports SRIDs based on the <a href="http://www.epsg.org/Geodetic.html">EPSG</a> standards. A SQL Server-supported SRID for geography instances must be used when performing calculations or using methods with geography spatial data. The SRID must match one of the SRIDs displayed in the sys.spatial_reference_systems catalog view."</blockquote></p>
+
+<p>Which is fine but a query of that view returns only geographic coordinate systems. SQL server takes the unique approach of providing two object types for spatial data: a "geometry" data type for planar data and a "geography" data type for geodetic data. This distinction is made all the more interesting by the fact that SQL2008 apparently has no support for planar or projected coordinate systems. Note the screen capture below depicting an empty result set when trying to query something other than geographic coordinate systems:</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/11/sql2008_nov_ctp_srs.png" title="Only geographic?"><img alt="Only geographic?" src="http://geobabble.files.wordpress.com/2007/11/sql2008_nov_ctp_srs.thumbnail.png" /></a></p>
+
+<p><strong>UPDATE:</strong> <em>This table is meant to support the geography data type, which used to store spherical data and only needs spherical reference systems. Because geography has a more specific purpose, this table ensures that only appropriate spatial references are used with such data.</em></p>
+
+<p>If SQL2008 goes to release this way, I can imagine that it will greatly limit the utility of the product for certain applications (such as parcel mapping and facilities management) that tend to work with data in state plane or a similar type of spatial reference. I hope that the supported spatial references will increase by the time of release, otherwise it may be necessary to load data without a defined spatial reference and then manage that data using a direct-read desktop client such as <a href="http://www.manifold.net/index.shtml">Manifold</a>.</p>
+
+<p>Ultimately, this begs the question of how SQL Server 2008's spatial capability is being positioned. If it's being targeted mainly as a data source for Virtual Earth and other spinny globes, then maybe limiting support to geographic coordinate systems makes sense but this could be a limitation to use in the broader GIS market. For now, I'll wait and see.</p>
+
+<p>I have begun delving into SQL Server 2008's spatial indexing and various spatial operations but don't have enough information/impressions to post so I'll follow up as I get more comfortable.</p>
+]]></content>
+  </entry>
+  
+</feed>

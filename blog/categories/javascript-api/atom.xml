@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: JavaScript API | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/javascript-api/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2012-12-21T13:28:14-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ESRI Javascript API 1.5 Released]]></title>
+    <link href="http://blog.geomusings.com/2009/10/02/esri-javascript-api-15-released/"/>
+    <updated>2009-10-02T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2009/10/02/esri-javascript-api-15-released</id>
+    <content type="html"><![CDATA[<p>ESRI has released version 1.5 of the ArcGIS Server Javascript API. You can see what's new <a href="http://resources.esri.com/help/9.3/arcgisserver/apis/javascript/arcgis/help/jshelp_start.htm#jshelp/new_v15.htm">here</a>.</p>
+
+<p>I am most excited about SSL access but that's just me.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dev Summit - Ahhhh, the APIs (and Security)]]></title>
+    <link href="http://blog.geomusings.com/2008/03/21/dev-summit-ahhhh-the-apis-and-security/"/>
+    <updated>2008-03-21T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/03/21/dev-summit-ahhhh-the-apis-and-security</id>
+    <content type="html"><![CDATA[<p>ArcGIS 9.3 looks really good all the way around. ESRI seems to have really put a lot of work into making this a quality release. Basically, it's all about consolidating the vision of 9.2 while also improving the execution of that vision. To be sure, there are some new capabilities (PostgreSQL support, Javascript API, REST API, etc.) but there has been a huge effort on shoring up the quality of the product. The ESRI developers themselves seem really excited as well. It seems as if they can't wait for the beta to get in our collective hands. But, this being the Dev Summit, the real star of the show was the APIs.</p>
+
+<p>I didn't attend anything on the Java ADF or the Flex API. Neither of those are things I'll be using anytime soon so I didn't check them out but <a href="http://fantomplanet.wordpress.com/">Fantom Planet</a> did attend the Flex API session and seemed duly impressed. So, if you want details on that, you should probably nag him.  ;)</p>
+
+<p>I sat in on a session about the .Net Web ADF. I've already read <a href="http://blog.davebouwman.net/2008/03/20/ArcGISServerNETADFSession.aspx">Dave's post</a> on the same session and his notes read almost exactly like the ones I have in my notebook so, rather than retype my notes (which would essentially duplicate Dave's post), I'll refer you there. BTW, congrats Dave!</p>
+
+<p>The .Net Web ADF definitely seems to have a lot of improvements. The things I'm most excited about are a) all of the web controls being scriptable, b) the client-side JavaScript now being exposed, documented and supported, c) the re-engineering to use ASP.NET AJAX and d) resource-level tiling. ESRI put a lot of focus on reducing the number of server round-trips and reducing the need to execute the full page life-cycle. This will speed things up a lot. All of the items I just listed will have direct, immediate benefits on our Server projects. Oh yeah, using JSON to serialize their objects is cool as well. Additionally, the ADF is designed to use .Net 3.5 but you can toggle back to 2.0 if you need to. I see SilverLight in my future.</p>
+
+<p>I've already talked a little about the REST API. I think that one is going to be huge. It really expands the scope of potential clients for ArcGIS Server services to just about anything. As I said, they even hit services from Ruby and Python during the session. "Everything is a URL" was the big take-away from that session. So, pretty much anything that can call a URL and understand the response can be a client. A lot of my clients have standardized on SOAP web services (didn't get to anything about the SOAP API but I'll catch up on that during the beta) but I plan on leveraging the REST API as much as I can outside of those areas.</p>
+
+<p>The JavaScript API looks pretty good too. Using this, developers will be able to integrate ArcGIS Server services into Virtual Earth and Google Maps and other mashups. <a href="http://mandown.co.nz/events/day-1-building-mashups-using-the-arcgis-javascript-api-s-at-the-esri-developer-summit-2008/">Mandown</a> has an good summary of the session. Most of my customers will not be able to take advantage of ESRI hosting the API but that shouldn't be a huge issue. However, it (along with the SOAP and REST APIs) fit in well with the mobile code policies we have to adhere to.</p>
+
+<p>When I went to the FedUC, Jack articulated a vision of ArcGIS providing advanced GIS analysis to whatever client you wanted to use. The Dev Summit really brought that home in a way that you could see it. The various APIs give lots of options that should fit into any environment.</p>
+
+<p>Lastly, I attended the session on securing .Net web applications. The security model is essentially an extension of what we did at 9.2 but a whole lot easier to administer. They generally follow the ASP.NET model (OS security, Forms, custom provider). That'll make it easier to to get systems accredited. However, with regard to AGS web services, they've made one significant change for the better (IMHO). Security for web services is now managed by the SOM rather than being defined in the web.config. This has one huge advantage in that security is now applied consistently to web services regardless of which API you are using to access the services. This means that whether you use the Java ADF, .NET ADF, REST API, JavaScript API, SOAP API or whatever, web service security will be the same. I'll need to educate some of the security types I deal with on the SOM (and they'll want to red-team it, I'm sure) but I think it'll end up being an easy sell.</p>
+
+<p>So, this'll be an exciting release for developers. I think it could be as significant as when we were all introduced to ArcObjects at 8.0. Now, I've just got to get into the office and set up the beta....</p>
+
+<p>UPDATE: <a href="http://www.spatiallyadjusted.com/2008/03/21/reflection-on-the-2008-esri-developer-summit/">James raises a good point</a> about the demos. They do make it look like you can do really cool stuff with just a little bit of code. It's important to remember that calling the service from the API is just one part. You'll still need to implement your complex logic in the service. Also, more sophisticated behaviors on the client will require more code there. It's important not to get caught up in the sales hype. 9.3 will offer some powerful options but it's important to keep the total level of effort in mind. The new APIs give you more options for developing your applications, but they don't obviate the need to actually write the code.</p>
+]]></content>
+  </entry>
+  
+</feed>

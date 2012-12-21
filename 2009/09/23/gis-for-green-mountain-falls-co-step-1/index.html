@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>GIS for Green Mountain Falls, CO - Step 1 - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="&#8220;The journey of a thousand miles begins with a single step.&#8221; - Lao Tzu One of my colleagues did a presentation at GIS in the Rockies 2009 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2009/09/23/gis-for-green-mountain-falls-co-step-1/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">GIS for Green Mountain Falls, CO - Step 1</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-23T00:00:00-04:00" pubdate data-updated="true">Sep 23<span>rd</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>&#8220;The journey of a thousand miles begins with a single step.&#8221; - Lao Tzu</p>
+
+<p>One of my colleagues did a presentation at GIS in the Rockies 2009 regarding a project we?ve been working for a couple of months, the development of a GIS solution for the town of <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=green+mountain+falls&amp;sll=37.0625,-95.677068&amp;sspn=33.847644,79.013672&amp;ie=UTF8&amp;ll=38.942187,-105.013332&amp;spn=0.064888,0.154324&amp;z=13&amp;iwloc=A">Green Mountain Falls, Colorado</a>. My colleague, Marshall Worthey, is also a resident and trustee of the town. Marshall is an ex-Army topo guy with a background in GIS. About a year ago, he told me about an upcoming project in which an Eagle Scout candidate was to collect the hiking trails around the town with a GPS. This was part of an effort he had undertaken to build a GIS capability that his town of 969 year-round residents could afford and maintain.<!--more--></p>
+
+<p>Marshall had been working with data vendors and surrounding jurisdictions to get all of the data he needed for the various applications he envisioned. The question was how to do it simply and affordably. The concept was pretty straightforward; there would be public maps for recreation and tourism that would be made available via the town?s web site. The data sets for the maps would be made available for download as KML and, eventually, other formats. Other maps, supporting town functions such as emergency response and public works, would also be available to select town users.</p>
+
+<p>This seemed like an intriguing challenge. My company, <a href="http://www.zekiah.com">Zekiah Technologies</a>, is headquartered in the small town of <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=La+Plata,+MD&amp;sll=38.942187,-105.013332&amp;sspn=0.064888,0.154324&amp;ie=UTF8&amp;ll=38.535007,-76.970558&amp;spn=0.130518,0.308647&amp;z=12&amp;iwloc=A">La Plata, Maryland</a>. Green Mountain Falls makes La Plata look like a teeming metropolis. How to do ?GIS on a budget? for a town that has three full-time employees and for which IT consists of a couple of PCs? We took this on as a pro-bono effort to help out the town that now houses our Western office.</p>
+
+<p>At first blush, this looked like a perfect use case for the classic PostGIS/GeoServer/OpenLayers open-source GIS stack. The town?s requirements could easily be met by that stack with room to grow. I got pretty far down the road with a prototype. I spent most of the train ride to and from the <a href="http://geobabble.wordpress.com/2009/04/13/ziggis-tweet-and-greet/">zigGIS meetup</a> working on this effort. The graphic below depicts the full vision for the town. Not only do they want serve up maps and support town operations but they need to interoperate with authorities of surrounding jurisdictions and the state in times of emergency response.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2009/09/gmf_gis.png"><img alt="gmf_gis" class="alignleft size-thumbnail wp-image-679" height="110" src="http://geobabble.files.wordpress.com/2009/09/gmf_gis.png?w=150" title="gmf_gis" width="150" /></a></p>
+
+<p>One issue raised its head as a major roadblock: infrastructure. Green Mountain Falls has no IT that even approaches a server, nor does it have a place to house one. We explored reciprocal arrangements with larger jurisdictions to use existing servers but all had IT policy restrictions on what software they would allow. The town does not have the resources to host a server, administer it and provide reliable connectivity on its own. We realized we needed to start looking at alternative approaches.</p>
+
+<p>Enter <a href="http://www.fortiusone.com/">FortiusOne</a>. <a href="http://www.adamestrada.com">Adam Estrada</a>, another of my Zekiah coworkers, and I had met with <a href="http://highearthorbit.com/">Andrew Turner</a> a couple of times so Adam had the idea of floating this effort by him. We met with Andrew and <a href="http://www.maploser.com/">Kate Chapman</a> in a late July session of <a href="http://en.wiktionary.org/wiki/Transwiki:Geoglobaldomination">#geoglobaldomination</a> to discuss the concept. They immediately understood the issues and the potential value proposition for the town in having a reliable, no-infrastructure solution. We had commited to having the public trail maps online by GIS in the Rockies so we focused on that as the first phase.</p>
+
+<p>Andrew agreed to stand up a private instance of <a href="http://www.fortiusone.com/cloud">GeoIQ</a>, the technology that drives <a href="http://www.geocommons.com">GeoCommons</a>, to meet the need. We had been considering using Drupal to drive the site but Andrew suggested <a href="http://wordpress.org">Wordpress</a>. This made sense as it is essentially a CMS but would be much easier for the town staff to use for posting content. Maps would be served from the Green Mountain Falls instance of <a href="http://maker.geocommons.com/">Maker!</a> and embedded into Wordpress. All would be hosted through GeoIQ. Adam has already blogged about the implementation so I?ll let you <a href="http://www.adamestrada.com/2009/09/22/wordpress-as-a-cms/">read it there</a>. Kate is also planning to blog the specifics of FortiusOne?s efforts. Suffice it to say that Kate?s heavy lifting was instrumental. The site went live in time for Marshall?s presentation and can be found at <a href="http://blog.gmf.geoiq.com/">http://blog.gmf.geoiq.com/</a> until we redirect the town?s domain to it. The map is simple but interactive. A right-click gets you to a KML download. We have a ways to go until the full concept is implemented but the GeoIQ platform seems customizable enough to get us there. FortiusOne is also on board so we have confidence we can get there eventually. The hope is that this approach turns out to be something scalable and viable for towns the size of Green Mountain Falls across the country.</p>
+
+<p>I want to say thanks to Adam, Kate and Andrew for all of their hard work and commitment. It was definitely a team effort.</p>
+
+<p>Early outcome:</p>
+
+<p>In dealing with Andrew Turner and GeoCommons, Marshall seems to have caught the open geodata bug. He is now excited about organizing an OpenStreetMap party to collect the town roads in order to be free of licensing restrictions on the town&#8217;s current data set. He is also reviewing all of the town data holdings to see how open they can be.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-23T00:00:00-04:00" pubdate data-updated="true">Sep 23<span>rd</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/open-source/'>open source</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2009/09/23/gis-for-green-mountain-falls-co-step-1/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2009/09/23/gis-for-green-mountain-falls-co-step-1/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/09/17/amazon-and-the-fountain-of-youth/" title="Previous Post: Amazon and the Fountain of Youth">&laquo; Amazon and the Fountain of Youth</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/10/02/esri-javascript-api-15-released/" title="Next Post: ESRI Javascript API 1.5 Released">ESRI Javascript API 1.5 Released &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/spatialite-4-0-released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

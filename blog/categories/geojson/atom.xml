@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: geojson | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/geojson/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2012-12-21T13:28:14-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
+    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
+    <updated>2012-11-27T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
+    <content type="html"><![CDATA[<p>I'm happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It's been one of the more consistently valuable resources in the community since its inception and it's good that it will continue.</p>
+
+<p>While I'm looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called "venerable" nowadays, but it still does what it does very well.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
+
+<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you're not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It's become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
+
+<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
+
+<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Try this IFTTT Recipe: Log PostGIS Items from Planet Geospatial to Evernote. <a href="https://t.co/z5hOxPqH" title="https://ifttt.com/recipes/67215">ifttt.com/recipes/67215</a></p>&mdash; James Fee (@cageyjames) <a href="https://twitter.com/cageyjames/status/272025049526050816" data-datetime="2012-11-23T17:13:20+00:00">November 23, 2012</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
+
+<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
+    <link href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/"/>
+    <updated>2012-08-24T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api</id>
+    <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
+
+<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
+
+<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. <!--more--></p>
+
+<p>Since the PIM is really a configuration management system for spatial data models, the tools need to support a wide variety of scenarios, including data migration between platforms, versions, approved user-defined implementations, etc. in a manner that's compliant with the data model being managed. As a result, some ETL-like tools are built into the workflows, although ETL is not a primary focus of the PIM.</p>
+
+<p>Since the PIM tools are written in .NET, I built a couple of extension methods to assist with some of the workflows in the existing tools. They enable outbound support for GeoJSON and WKT. The GeoJSON methods work on RowCollection, Row, and ShapeBuffer objects to create FeatureCollection, Feature, and Geometry types respectively. In practice, they'd be used something like this example from a very simple ASP.NET MVC sample application:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">var</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;/App_Data/mvc_samples.gdb&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">Geodatabase</span> <span class="n">gdb</span> <span class="p">=</span> <span class="n">Geodatabase</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+</span><span class='line'><span class="n">Table</span> <span class="n">statesTable</span> <span class="p">=</span> <span class="n">gdb</span><span class="p">.</span><span class="n">OpenTable</span><span class="p">(</span><span class="s">&quot;\us_states&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">RowCollection</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">statesTable</span><span class="p">.</span><span class="n">Search</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="s">&quot;STATE_NAME LIKE &#39;M%&#39;&quot;</span><span class="p">,</span> <span class="n">RowInstance</span><span class="p">.</span><span class="n">Recycle</span><span class="p">);</span>
+</span><span class='line'><span class="kt">var</span> <span class="n">rval</span> <span class="p">=</span> <span class="n">rows</span><span class="p">.</span><span class="n">ToGeoJson</span><span class="p">();</span>
+</span><span class='line'><span class="n">gdb</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+</span><span class='line'><span class="n">Response</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">&quot;application/json&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Content</span><span class="p">(</span><span class="n">rval</span><span class="p">);</span>
+</span><span class='line'><span class="k">return</span> <span class="n">result</span> <span class="k">as</span> <span class="n">ActionResult</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
+
+<p>As I said, I developed these to support workflows in existing applications. If you're looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FOSS4G North America]]></title>
+    <link href="http://blog.geomusings.com/2012/04/12/foss4g-north-america/"/>
+    <updated>2012-04-12T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/04/12/foss4g-north-america</id>
+    <content type="html"><![CDATA[<p>It's rather fitting that the second plenary talk on Wednesday had to do with "firehose" applications since the <a href="http://foss4g-na.org/" target="_blank">FOSS4G North America</a> (FOSS4GNA) conference was something of a firehose in itself. Despite the fact that the event was smaller than the worldwide event in Denver back in October, I came away with the same "full brain" feeling.</p>
+
+<p><img alt="It feels like I never leave this place." src="http://www.visitingdc.com/images/washington-dc-convention-center.jpg" /></p>
+
+<p>Of course, given the recent production release of <a href="http://blog.opengeo.org/2012/04/03/postgis-2-0-released/" target="_blank">PostGIS 2.0</a>, that was kind of the big story for this event. I attended a number of <a href="http://postgis.org/" target="_blank">PostGIS</a>/<a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>-related sessions and came away with lots of new information. I especially enjoyed <a href="http://twitter.com/pwramsey" target="_blank">Paul Ramsey's</a> "what's new" talk on Wednesday. One thing I enjoy about his talks (here and in Denver) is that he's not afraid to throw sample SQL up on the screen. It's one thing to hear about a new feature but it's another thing entirely to see a concrete example. Some may find the idea of raw SQL in a presentation abhorrent but it worked for me. <!--more--></p>
+
+<p>I've already started playing with PostGIS 2.0 but haven't gotten terribly far so these sessions helped a lot. It's already been pretty well vetted by the community during it's various pre-release stages so it seems remarkably stable. With the addition of topology and raster analysis in addition to 3D/4D indexing and new vector functions, PostGIS probably handles the majority of what most users would need for GIS analysis at the database level. I'm excited to dig deeper.</p>
+
+<p>I also attended a few web-mapping themed talks. If there is one word that consistently and repeatedly passed the lips of most of the presenters, it was "<a href="http://geojson.org/" target="_blank">GeoJSON</a>." I've <a href="http://blog.geomusings.com/?s=geojson" target="_blank">blogged about GeoJSON</a> in the past but it really is the oil that makes the modern geo-web run smoothly. The rate of adoption it is receiving rivals only one other <em>de facto</em> standard that I can recall: you may remember something called the shapefile. The fact is that anyone who's been hunting through their file system looking for the "next shapefile" has been looking in the wrong place. It lives behind that nice map in your browser. The shapefile took off because it solved a problem for what was the frontier of GIS in the 1990s; the transition from heavy workstations to desktop mapping. GeoJSON solves the problem of delivering vector spatial data for today's frontier; the transition from the desktop GIS to web mapping. It's that simple. We don't need another file format to solve an old problem that already has a solution.</p>
+
+<p>Of course, there was a lot more. I got introduced to <a href="http://cartodb.com/" target="_blank">CartoDB</a> in Denver, have <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/" target="_blank">experimented with it</a> since then and was able to get an update on its 1.0 release at one of the sessions. It remains a compelling option for spatial data hosting and <a href="http://vizzuality.com/" target="_blank">Vizzuality</a> are actively engaging with the open-source communities that build the tools they use. On the cartography side of things, <a href="http://stamen.com/" target="_blank">Stamen</a> continues to show how beautiful maps can be made with open-source tools. Similarly, <a href="http://mapbox.com/" target="_blank">MapBox</a> showed how they efficiently deliver high-quality maps on the web. For my money, the unsung hero of what MapBox is doing is <a href="http://mapbox.com/mbtiles-spec/utfgrid/" target="_blank">UTFGrid</a>. I hadn't delved into it deeply until I saw the announcement that <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> now supports it. UTFGrid is breathtakingly elegant in its approach to delivering richer content with tiles. I expect that, in a few years, UTFGrid will be a standard part under the hood of any web mapping experience, like tiles and slippy maps are today.</p>
+
+<p>The only consistent criticism I heard was that most of the sessions were "too technical." I can see some validity to this, given that the event was held in Washington, DC and many higher-level government or policy types who may have been seeking to conceptually understand open-source geospatial may have been put off. Commercial vendors have addressed this problem with the establishment of "executive tracks" at their events. That said, if that's the biggest criticism that can be leveled, then FOSS4GNA was a rousing success in my book.</p>
+
+<p>I have resolved that I will take at least one of my kids, if not both, to the next FOSS4G event that I attend. The attitude of the open-source crowd is one that I want to rub off on them. Aside from the energy that is exuded from a gathering such as this, the open-source world is full of people who see a problem and just set out to solve it. I want my kids to be exposed to that kind of initiative and understand the power that can come from harnessing it, even if they never go into a technical field.</p>
+
+<p>My understanding is that FOSS4GNA came together very quickly. Given that, it was a very high-quality conference and the organizers should be commended. Early tongue-in-cheek commentary referred to it as the "<a href="http://opengeo.org/" target="_blank">OpenGeo </a>User Conference." I felt like there was good balance and, when I attended sessions given by OpenGeo staff, I didn't feel like I was beaten over the head with the OpenGeo brand. All-in-all, I found my day-and-a-half at FOSS4GNA to be very beneficial and I'm hoping it becomes an annual event. (<strong>Update</strong>: It looks like next year's FOSS4GNA <a href="https://twitter.com/#!/foss4gna/status/190517270928293888" target="_blank">will be in Minnesota</a>.)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Random Post of Thanks]]></title>
+    <link href="http://blog.geomusings.com/2012/03/13/random-post-of-thanks/"/>
+    <updated>2012-03-13T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/03/13/random-post-of-thanks</id>
+    <content type="html"><![CDATA[<p>Maybe the warm weather has me feeling extra giddy. It seems there is no shortage of ways for me to get <a href="http://geojson.org">GeoJSON</a> and slap vector maps into a browser and I'm feeling extra happy about that today. So, thanks to the authors of GeoJSON for all you've done to help put the "modern" in the modern geoweb.</p>
+
+<p><img alt="" class="aligncenter" height="288" src="http://www.public.navy.mil/surfor/tacron11/PublishingImages/bravo-zulu.jpg" title="Bravo Zulu" width="144" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[f=geojson]]></title>
+    <link href="http://blog.geomusings.com/2011/11/15/fgeojson/"/>
+    <updated>2011-11-15T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/11/15/fgeojson</id>
+    <content type="html"><![CDATA[<p>On November 11, 2011, I gave a lightning talk at the <a href="http://www.meetup.com/DevMeetUpNortheast/events/37184672/">ESRI Dev Meetup in Silver Spring, MD</a>. My talk was titled "If I Were Jack For a Day." Despite the infinite comedic potential of that title, it was a tongue-in-cheek look at some items on my wish list for the <a href="http://en.wikipedia.org/wiki/ArcGIS">ArcGIS</a> platform.</p>
+
+<p>An increasing portion of my consulting work deals with helping users integrate their established ArcGIS infrastructures with other spatial technologies. So my talk was a semi-selfish look at things that would make my life as a consultant and integrator easier.</p>
+
+<p><a href="http://twitter.com/geeknixta">Nick Furness</a> will post the slides but they aren't designed to stand on their own so I thought I'd address them here to provide context. I'll take them one or two per post in no particular order. With that, first up on the docket:</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2245" height="360" src="http://geobabble.files.wordpress.com/2011/11/fgeojson.png" title="f=geojson" width="480" /></p>
+
+<!--more-->
+
+
+<p>I'd love to see <a href="http://geojson.org/">GeoJSON</a> support, where appropriate, in the <a href="http://help.arcgis.com/en/arcgisserver/10.0/apis/rest/index.html">ArcGIS Server REST API</a> (or the <a href="http://www.esri.com/industries/landing-pages/geoservices/geoservices.html">GeoServices REST Specification</a> or <a href="http://www.esri.com/news/arcnews/summer11articles/a-note-about-names.html">whatever it's called</a>). I say "where appropriate" because the scope of the REST API is wide-ranging and only potentially meshes up with GeoJSON in a few areas. (Yes, I voted for this on the <a href="http://ideas.arcgis.com/ideaView?id=0873000000088U9AAI">ArcGIS Ideas</a> site.) One such example is querying a feature layer. Take this query for instance:</p>
+
+<p><a href="http://services.arcgisonline.com/ArcGIS/rest/services/Demographics/USA_1990-2000_Population_Change/MapServer/4/query?where=Name%3D%27Maryland%27&amp;f=json">http://services.arcgisonline.com/ArcGIS/rest/services/Demographics/USA_1990-2000_Population_Change/MapServer/4/query?where=Name%3D%27Maryland%27&amp;f=json</a></p>
+
+<p>I envision the option to specify "f=geojson" and have the result returned as a GeoJSON FeatureCollection. Why? Because it would make it much easier to integrate outputs from ArcGIS Server into applications or APIs that support GeoJSON. At least that's my parochial view of the world. This could be added side-by-side with the current JSON capability so as not to break existing clients.</p>
+
+<p>Frankly, I'd like to see GeoJSON support on the consumption side all up and down the stack. It would be nice if ArcMap could be pointed at a URL that emits GeoJSON and load it into a map as a fully functional layer. Of course, it would be nice if ArcGIS supported direct access to a number of other spatial data sources but that was the topic of another slide which I'll get to in another post.</p>
+
+<p>Now I realize that GeoJSON hasn't been "formally" adopted as a standard but, then again, neither has the shapefile. In terms of adoption, the market has spoken with support across a number of platforms and an increasing number of APIs. In my opinion, GeoJSON has quickly become one of the more widely accepted de facto standards in our industry. (Don't take my word for it, <a href="http://www.google.com/search?q=geojson">ask Google</a>.)</p>
+
+<p>This doesn't offer up too many business drivers for ESRI to do such a thing, aside from greater flexibility and utility for ArcGIS Server as a data source, but as I said before, this is my semi-selfish look at things. GeoJSON support in ArcGIS Server would make my life easier and I'm sure I'm not alone.</p>
+]]></content>
+  </entry>
+  
+</feed>

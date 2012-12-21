@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:26:00-05:00</updated>
+  <updated>2012-12-21T13:28:14-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,5 +12,687 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
+    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
+    <updated>2012-11-27T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
+    <content type="html"><![CDATA[<p>I&#8217;m happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It&#8217;s been one of the more consistently valuable resources in the community since its inception and it&#8217;s good that it will continue.</p>
+
+<p>While I&#8217;m looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called &#8220;venerable&#8221; nowadays, but it still does what it does very well.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
+
+<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you&#8217;re not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It&#8217;s become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
+
+<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
+
+<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
+
+<div class='embed tweet'><blockquote class="twitter-tweet"><p>Try this IFTTT Recipe: Log PostGIS Items from Planet Geospatial to Evernote. <a href="https://t.co/z5hOxPqH" title="https://ifttt.com/recipes/67215">ifttt.com/recipes/67215</a></p>&mdash; James Fee (@cageyjames) <a href="https://twitter.com/cageyjames/status/272025049526050816" data-datetime="2012-11-23T17:13:20+00:00">November 23, 2012</a></blockquote>
+<script src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+
+<p>I usually have three to four such filters running, depending upon topics that I&#8217;m watching. Currently, I&#8217;m grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it&#8217;s like having a DVR for Planet Geospatial.</p>
+
+<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that&#8217;s based on a mature, open, well-documented, and widely adopted standard. As such, there&#8217;s no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It&#8217;s been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
+    <link href="http://blog.geomusings.com/2012/11/26/spatialite-for-android-available/"/>
+    <updated>2012-11-26T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/26/spatialite-for-android-available</id>
+    <content type="html"><![CDATA[<p>On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.</p>
+
+<p>I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.</p>
+
+<p>The message is quoted below:</p>
+
+<blockquote>
+Hi List,
+
+I&#8217;m really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
+
+[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
+
+Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
+
+[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
+
+A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he&#8217;ll surely appreciate ;-)
+
+[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
+
+enjoy, Sandro
+</blockquote>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite 4.0 Released]]></title>
+    <link href="http://blog.geomusings.com/2012/11/26/spatialite-4-0-released/"/>
+    <updated>2012-11-26T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/26/spatialite-4-0-released</id>
+    <content type="html"><![CDATA[<p>It looks like it was a busy weekend for Sandro Furieri and the rest of the <a href="https://www.gaia-gis.it/fossil/libspatialite/index" target="_blank">SpatiaLite</a> team as version 4.0 was announced on Sunday. There are a number of changes, so it&#8217;s best to <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=switching-to-4.0" target="_blank">catch up on them</a> before switching over.</p>
+
+<div style="text-align: center;"><a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a><div style="text-align: center;font-size: 14px;">Not this SpatiaLite</div></div>
+
+
+<p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I&#8217;ll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Biggest News You May Have Missed...]]></title>
+    <link href="http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed/"/>
+    <updated>2012-11-19T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed</id>
+    <content type="html"><![CDATA[<p>In case you missed it, this tweet floated across the Twitters last week:</p>
+
+<div class='embed tweet'><blockquote class="twitter-tweet"><p>Blogged: TileMill Connect - Open Mxd Documents in @<a href="https://twitter.com/mapbox">mapbox</a> TileMill <a href="http://t.co/hDicr4z0" title="http://bit.ly/WbBOKW">bit.ly/WbBOKW</a></p>&mdash; Arc2Earth (@Arc2Earth) <a href="https://twitter.com/Arc2Earth/status/269194049230102528" data-datetime="2012-11-15T21:43:57+00:00">November 15, 2012</a></blockquote>
+<script src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+
+<p>Yes, the team at <a href="http://www.arc2earth.com">Arc2Earth</a> is apparently working on a new feature in <a href="http://www.arc2earth.com/services/sync/">Arc2Earth Sync,</a> called TileMill Connect, that will link <a href="http://www.esri.com">ArcMap</a> MXDs with <a href="http://mapbox.com/tilemill/">TileMill</a>. This will allow users to migrate their ArcMap cartography into TileMill to take advantage of the rich tools there as well as the potential for version control and cut/paste sharing of techniques and best practices enabled by <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>.</p>
+
+<p><a href="http://twitter.com/bFlood">Brian Flood</a> followed that up today with a short video showing it in action.</p>
+
+<div class='embed tweet'><blockquote class="twitter-tweet"><p>quick TileMill Connect demo video showing how it works. <a href="https://twitter.com/search/%23mapbox">#mapbox</a> <a href="https://twitter.com/search/%23arcgis">#arcgis</a> <a href="https://twitter.com/search/%23tilemill">#tilemill</a> <a href="https://twitter.com/search/%23arc2earth">#arc2earth</a> <a href="http://t.co/8WFdqCqH" title="http://bit.ly/QTWqpH">bit.ly/QTWqpH</a></p>&mdash; Arc2Earth (@Arc2Earth) <a href="https://twitter.com/Arc2Earth/status/270631991110692865" data-datetime="2012-11-19T20:57:49+00:00">November 19, 2012</a></blockquote>
+<script src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+
+<p>No word on a timetable for this feature, but I can&#8217;t wait to kick the tires. I am especially intrigued by the pseudo <a href="http://www.postgis.org">PostGIS</a> proxy service that enables connections to ArcGIS data sources.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A GIS Day Map for World Diabetes Day]]></title>
+    <link href="http://blog.geomusings.com/2012/11/14/a-gis-day-map-for-world-diabetes-day/"/>
+    <updated>2012-11-14T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/14/a-gis-day-map-for-world-diabetes-day</id>
+    <content type="html"><![CDATA[<p>Today is World Diabetes Day. It also happens to be GIS Day so I thought a map (not mine) of new diagnoses would be in order:</p>
+
+<div style="text-align: center;"><a href="http://www.idf.org/diabetesatlas/5e/diabetes-in-the-young"><img alt="" height="80%" src="http://www.idf.org/sites/default/files/da5/Map%202.5%20New%20cases%20of%20type%201%20diabetes.jpg" title="New cases of Type 1 diabetes in children, 2011" width="80%" /></a><div style="text-align: center;font-size: 14px;">Source: International Diabetes Federation Diabetes Atlas, Fifth Edition (Click image to visit)</div></div>
+
+
+<br/>
+
+
+<p>To learn more about Type 1 Diabetes, <a href="http://www.jdrf.org/index.cfm?page_id=101982" target="_blank">please visit the JDRF</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Personal Geospatial Workflows]]></title>
+    <link href="http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows/"/>
+    <updated>2012-11-09T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve had a couple of people ask me recently about the geospatial tools I use. Year-over-year, that answer changes but here&#8217;s how I answer that right now:</p>
+
+<p>As a Federal contractor, I spend a lot of time working with the <a href="http://www.esri.com" target="_blank">Esri</a> stack during my work day. A few years ago, I added a few open-source geospatial tools into my tool set and, since then, have also done a respectable amount to consulting work them as well. The balance between the two varies over time, depending on the requirements of individual customers and projects. Lately, commercial customers have seemed much more interested in open-source tools while my government customers are sticking with Esri. Since those observations are based on the the extremely heavy filter of my own recent experience, I&#8217;d be hesitant to draw any larger conclusions from them.</p>
+
+<p><img alt="" height="264" src="http://blog.geomusings.com/images/posts/duct-tape.jpg" title="Duct Tape" width="300" /></p>
+
+<p>I&#8217;ve always believed that proficiency with a wide range of tools makes me a better consultant and integrator, so I am always exploring and trying new things. With those commercial customers, and in my own personal side projects, my recent workflows have gelled around a core set of tools, both commercial and open-source: <!--more--></p>
+
+<p><a href="http://www.postgis.org" target="_blank">PostGIS</a> - I am very comfortable with SQL and tend to use <a href="http://www.postgresql.org" target="_blank">PostgreSQL</a> and PostGIS for a lot of my vector data processing. Lately, this has mainly involved joining up geometries with attributes and doing aggregations and similar things. For example, the vector data in this <a href="http://geobabbler.github.com/mdq62012.html" target="_blank">map of the county-level Maryland Question 6 results</a> was processed in PostGIS. Very simply, I have a baseline table of the counties of Maryland which I will use to create new data sets. In this case, I imported a CSV of the election results, created a view that joined up the data and then selected the view into a new table. This is workflow is much easier with PostGIS 2.x thanks to the <a href="http://blog.opengeo.org/2012/03/06/postgis-2-0-new-features-typmod/" target="_blank">use of typmod</a>.</p>
+
+<p><a href="http://qgis.org" target="_blank">QGIS</a> - In the case of the map mentioned above, the data set is ultimately going to be static so it makes sense to serve it as static content, rather than bringing a heavyweight geospatial server such as <a href="http://www.esri.com/software/arcgis/arcgisserver/" target="_blank">ArcGIS</a> or <a href="http://geoserver.org/display/GEOS/Welcome" target="_blank">GeoServer</a> into the mix. In these cases, I lean toward <a href="http://geojson.org/" target="_blank">GeoJSON</a>. QGIS makes it very easy to export any vector layer out to GeoJSON so it&#8217;s become my go-to tool for that. QGIS also has great analytical tools and I consider it a complete functional match for ArcMap but, having said that, I&#8217;m actually very comfortable with the spatial SQL functions in PostGIS so I end up doing most of my analytical work there.</p>
+
+<p><a href="http://leafletjs.com/" target="_blank">Leaflet</a>/<a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> - Most of the web maps I&#8217;m doing are single-use and pretty straightforward. When that&#8217;s the case, I prefer to use Leaflet as it&#8217;s a pretty lightweight library. That said, I keep OpenLayers in the mix if the GIS-like requirements get a little more complex. OpenLayers does more &#8220;out of the box&#8221; than Leaflet but Leaflet is trimmer so it really depends on the use case.</p>
+
+<p><a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>/<a href="http://mapbox.com/tilemill/" target="_blank">TileMill </a>- Arc2Earth is a commercial extension to ArcGIS and I lean on it to make tiles, although it does a lot more than that. I also use TileMill for this purpose but it really depends on where my cartography resides. There&#8217;s a lot of good cartography locked up in MXDs and Arc2Earth is just a great way to capitalize on that. It&#8217;s also nice that Arc2Earth works in ArcMap, eliminating the need for a license of Server.  If I&#8217;m building my cartography from scratch, which is not really my strong suit, I&#8217;ll lean toward TileMill because it more easily connects directly to PostGIS, which is where my data tends to reside if I have my druthers. Again, it depends on the use case.</p>
+
+<p><a href="http://www.python.org/" target="_blank">Python</a>/Javascript - I&#8217;m doing a lot more work in Python these days. It&#8217;s become the <em>lingua franca</em> of GIS development in my book. Additionally, the capabilities of Javascript for web maps is evolving at a stunning pace. I can&#8217;t see being productive in the long term in the geospatial field without proficiency in these two languages.</p>
+
+<p>So these are the tools that I&#8217;m using most often these days as part of my personal workflows. The stable of tools that I use evolves over time, as should be evident if you peruse this blog. In general, I&#8217;m finding it very easy to be productive with these tools right now.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How long until the ads stop?]]></title>
+    <link href="http://blog.geomusings.com/2012/11/06/how-long-until-the-ads-stop/"/>
+    <updated>2012-11-06T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/06/how-long-until-the-ads-stop</id>
+    <content type="html"><![CDATA[<p>In celebration of this day when the non-stop political ads, robo-calls, junk mail, and social media posts <em>should</em> finally come to an end. I threw together a little map to show the latest time at which polls close in each state. This should represent, state-by-state, the time (EST) at which you can safely go back to answering your phones. Click the image below to go there (the data takes a couple of seconds to load).</p>
+
+<p><a href="http://demo.zekiah.com/polls"><img alt="" class="aligncenter size-full wp-image-2947" height="331" src="http://geobabble.files.wordpress.com/2012/11/pollmap.png" title="pollmap" width="640" /></a></p>
+
+<p>Democracy is a wonderful thing, but it will be nice to have this campaign season behind us.</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/K1vaEweJUUk?color=white&theme=light"></iframe>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Wilson Center to Discuss FCC National Broadband Map]]></title>
+    <link href="http://blog.geomusings.com/2012/10/09/wilson-center-to-discuss-fcc-national-broadband-map/"/>
+    <updated>2012-10-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/10/09/wilson-center-to-discuss-fcc-national-broadband-map</id>
+    <content type="html"><![CDATA[<p>One of the most compelling recent success stories for open-source geospatial tools in the Federal Government has been the <a href="http://www.fcc.gov/" target="_blank">Federal Communications Commission</a> (FCC) <a href="http://broadbandmap.gov/" target="_blank">National Broadband Map</a> initiative. It has been a very visible example of the stability, scalability, flexibility, and power of open-source geospatial tools.</p>
+
+<p>The Woodrow Wilson Center will be hosting <a href="http://www.wilsoncenter.org/event/the-national-broadband-map-case-study-open-innovation-for-national-policy" target="_blank">a case study of National Broadband Map</a> on October 15th, 2012. The event&#8217;s page also includes a link to the full paper (PDF), authored by <a href="http://www.linkedin.com/profile/view?id=113470334" target="_blank">Zachary Bastian</a> of the Wilson Center and <a href="http://www.linkedin.com/profile/view?id=10690378" target="_blank">Michael Byrne</a> of the FCC.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2933" height="285" src="http://geobabble.files.wordpress.com/2012/10/nbm.png" title="nbm" width="640" /></p>
+
+<p>The full paper, in my opinion, is recommended reading for anyone working with geospatial technologies in the government space. While the Broadband Map has rightfully garnered significant attention based upon its success, especially in terms of performance and scalability, the paper does a good job of reminding us that the map is not an end goal in itself, but a step toward the larger policy goal of expanding broadband access. The paper does an excellent job of illustrating how top-level policy goals were broken down into actionable parts that resulted in a concrete product such as the Broadband Map. In so doing, it walks us through the introduction and fostering of an open culture within the FCC that resulted not only in the Broadband Map but also in the development of open APIs and the availability of FCC tools as open-source projects themselves.</p>
+
+<p>In its conclusions, the paper also makes compelling observations about the power of focused policy goals to drive the use of technology standing in stark contrast to generic overarching technical policies, such as the National Spatial Data Infrastructure (NSDI) which are disconnected from specific policy goals and achieve little traction.</p>
+
+<p>If you are interested not only in geospatial technologies, but also the link between policy and technology implementation, and the cultural change that can be brought about by open-source technologies, you should consider attending the event at the Wilson Center on the 15th. While not a universal blueprint, the National Broadband Map makes a compelling case study.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Cutting Tiles for ArcGIS Server Using TileMill]]></title>
+    <link href="http://blog.geomusings.com/2012/10/03/cutting-tiles-for-arcgis-server-using-tilemill/"/>
+    <updated>2012-10-03T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/10/03/cutting-tiles-for-arcgis-server-using-tilemill</id>
+    <content type="html"><![CDATA[<p>There&#8217;s been a lot of talk about <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a> lately, with good cause. TileMill makes it very easy generate beautiful map tiles using the <a href="http://mapnik.org/" target="_blank">Mapnik</a> engine and CartoCSS provides a familiar method to author the cartographic representation of spatial data. <a href="http://mapbrief.com/2012/09/27/gis-cartography-the-latest-best-opportunity-to-bridge-the-chasm/" target="_blank">As Brian Timoney points out</a>, CartoCSS has the added bonus of making best practices shareable via copy-and-paste.</p>
+
+
+
+
+<p>Naturally, the best way to take advantage of TileMill is to export your tiles to <a href="https://github.com/mapbox/mbtiles-spec" target="_blank">MBTiles</a> and use <a href="http://mapbox.com/" target="_blank">MapBox</a> hosting. If that&#8217;s not an option, you can pretty easily self-host with <a href="https://github.com/mapbox/tilestream" target="_blank">TileStream</a>. That said, there are some organizations that, due to larger GIS workflows, IT policies, and a host of other legitimate reasons, need or choose to use <a href="http://www.esri.com" target="_blank">ArcGIS Server</a> to do map hosting. For those organizations, TileMill is still an option to create attractive basemaps, within certain constraints.</p>
+
+
+<p><img alt="" class="aligncenter size-full wp-image-2911" height="295" src="http://geobabble.files.wordpress.com/2012/10/tilemill_screen.png" title="tilemill_screen" width="640" /></p>
+
+<p>So I set out to see if I could bridge the gap between the two. Two blog posts pointed the way. A while back, <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">Dan Dye blogged about how he had forked mb-util</a> and added support for exporting WeoGeo tilepacks from MBTiles. Also, a co-worker of mine, Eric Mahaffey, had blogged some time ago about <a href="http://www.zekiah.com/index.php?q=blog/2011/08/03/using-arc2earth-tile-caching-across-air-gapped-networks" target="_blank">how to use Arc2Earth to manage tile caches across air-gapped networks</a>. Using these posts for guidance, I was pretty sure I had all the pieces I needed. <!--more--></p>
+
+<p>First, I decided to fork Dan&#8217;s code (I love GitHub) and add support for exporting ArcGIS tiles. Essentially, I followed Dan&#8217;s pattern and added a choice for an ArcGIS schema as a command-line option. My forked version <a href="https://github.com/geobabbler/mbutil" target="_blank">can be found on GitHub</a>.</p>
+
+<p>I then fired up TileMill (0.10.0 for Windows) and created some tiles at zoom levels 4 through 8 using the &#8220;Control Room&#8221; sample that comes with TileMill. I chose this for two reasons: First, I am not very good at cartography and this sample looks attractive and distinct from the generic ArcGIS sample I used. Second, it&#8217;s very well-known to TileMill users so it worked well for this demo. I won&#8217;t go into how I created the tiles as this post is not intended to be a TileMill tutorial.</p>
+
+<p>Once I had exported the tiles to an MBTiles file, I ran the updated mb-util Python utility to export the tiles in an ArcGIS structure. The command-line usage is shown below. One note: I did not generate the &#8220;level&#8221; folders in accordance with ArcGIS convention. If you are familiar with ArcGIS, you know that the level numbers are relative so that, if your service only contains levels 3, 4 , and 5, the will be levels L00, L01, L02 respectively. Instead, the utility names them according to their original TMS levels (L03, L04, L05 in this case). So, you may need to rename your level folders when you rehost to ArcGIS Server but this should entail a maximum of 19 manual edits, which seemed like a reasonable compromise.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2012/10/mbutil_cmd.png"><img alt="" class="aligncenter size-full wp-image-2897" height="311" src="http://geobabble.files.wordpress.com/2012/10/mbutil_cmd.png" title="mb-util usage" width="640" /></a></p>
+
+<p>So mb-util created the &#8220;_alllayers&#8221; folder and its child file system for us. Because I&#8217;m not creating a conf.xml yet, I can create it by hand or use ArcGIS to create some dummy tiles with a configuration. Once that&#8217;s done, we are simply engaged in a file copy  operation (picking up at step 4 of Eric&#8217;s post). For this demo, I created an actual map using one of the ArcGIS samples so that it would be apparent that the operation worked. In practice, I wouldn&#8217;t go to that much trouble up front. The image below shows the map service using the original tiles.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/10/arc_tilemill1.png"><img alt="" class="size-full wp-image-2901" height="370" src="http://geobabble.files.wordpress.com/2012/10/arc_tilemill1.png" title="ArcGIS map service before TileMill tiles" width="640" /></a> <div style="text-align: center;font-size: 14px;">ArcGIS map service as created from the original MXD.</div></div>
+
+
+<p>After I copied the tiles from TileMill into the correct location, I was able to refresh the window and see the boundary between the original tiles and the those from TileMill. Again, this was just for demo purposes. In practice, the whole cache would be from TileMill. The image below shows the updated cache, displayed using the ArcGIS Javascript API.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/10/arc_tilemill2.png"><img alt="" class="size-full wp-image-2902" height="370" src="http://geobabble.files.wordpress.com/2012/10/arc_tilemill2.png" title="ArcGIS map service after TileMill tiles" width="640" /></a> <div style="text-align: center;font-size: 14px;">ArcGIS map service showing tiles from TileMill.</div></div>
+
+
+<p>I apologize for screenshots but my EDN license precludes making my ArcGIS Server public for a live demo.</p>
+
+<p>So, it&#8217;s perfectly possible to create nice basemaps using TileMill for use in ArcGIS server, provided you adhere to two constraints: 1) You use Web Mercator for your spatial reference and 2) You make sure your ArcGIS cache is the &#8220;exploded&#8221; variety.</p>
+
+<p>Why would you do this? It is certainly possible to build great cartographic representations in ArcGIS but those representations are locked away in ArcGIS map documents, styles, layer packages and such; all of which are some proprietary binary format such as persisted COM objects. While this may not be the worst thing in the world, CartoCSS, being a text format, more easily lends itself to configuration control. Organizations that want to maintain configuration control over map templates and such can take advantage of standard tools such as git or SVN to do so. I have found that organizations with strict IT policies are also exactly the same kinds of organizations that to maintain control over content and styling so this is actually a surprisingly important factor.</p>
+
+<p>I&#8217;ll probably play with this more as time and customer demand allow, but it&#8217;s good to know this option is available for providing flexibility with ArcGIS Server.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Still Jonesing for zigGIS? Try this OGR Plug-In for ArcGIS.]]></title>
+    <link href="http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis/"/>
+    <updated>2012-09-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis</id>
+    <content type="html"><![CDATA[<p>So I&#8217;ve actually noticed a surprising uptick in traffic related to <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> lately? We also had someone asking about <a href="http://www.st-links.com/Pages/default.aspx" target="_blank">ST-Links</a> on the zigGIS mailing list last week. Clearly, there&#8217;s still a level of interest out there for the problem that zigGIS was designed for.</p>
+
+<p><a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank"><img alt="ArcGIS and SpatiaLite" height="65%" src="https://a248.e.akamai.net/camo.github.com/c1c86347c63522cb0f5f449b7b9df4209923c3ed/687474703a2f2f692e696d6775722e636f6d2f53767a6a702e706e67" width="65%" /></a></p>
+
+<div style="font-size: 70%;"><strong>ArcGIS reading SpatiaLite natively, thanks to OGR and Ragi Burhum</strong></div>
+
+
+<br />
+
+
+<p>Along those lines, <a href="http://twitter.com/rburhum" target="_blank">Ragi Burhum</a> posted an <a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank">OGR Workspace plug-in for ArcGIS</a> up on GitHub. Using OGR is really the magic ticket and the project is available under a BSD license (which Ragi explains very well). The only word to the wise is that pre-built binaries and installers aren&#8217;t available yet so you Windows/<a href="http://www.esri.com" target="_blank">ArcGIS</a> users will need to get your hands dirty.</p>
+
+<p>I haven&#8217;t used it yet but I plan to within the next week or so. Stay tuned for a follow up post.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Carving Up GIS StackExchange]]></title>
+    <link href="http://blog.geomusings.com/2012/09/13/carving-up-gis-stackexchange/"/>
+    <updated>2012-09-13T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/09/13/carving-up-gis-stackexchange</id>
+    <content type="html"><![CDATA[<p>So the data server that I was working with was having issues and, while waiting for the IT staff to resolve things, I decided to browse the <a href="http://gis.stackexchange.com/" target="_blank">GIS StackExchange</a> site. It&#8217;s been online for quite sometime now, though I am only an occasional user. One thing led to another and I found myself playing with the <a href="http://blog.stackoverflow.com/2012/09/stack-exchange-api-v2-1/" target="_blank">StackExchange API</a>, which returns various information for a particular site in a JSON format.</p>
+
+<p><img alt="" class="aligncenter size-large wp-image-2871" height="328" src="http://geobabble.files.wordpress.com/2012/09/gis_se_crop.png?w=1024" title="gis_se_crop" width="1024" /></p>
+
+<p>One of the things that got people excited about the site was that it was neutral territory, not directly controlled by a particular vendor or organization and it remains one of the few places where you can see hyperbole-free discussion of Esri tools right next to that of open-source tools and general GIS concepts. Since it&#8217;s been online for a while now, it has a lot of posts covering many different topics. I had some time on my hands, so I decided to pull the information for the 100 most &#8220;popular&#8221; tags, using the StackExchange API. With JSON in hand, I parsed into a CSV with Python and loaded the data into Excel to take a look.  <!--more--></p>
+
+<p>Since tags are user-generated, they run the gamut. To provide a little bit of standardization, I applied some categories to group the tags. I completely made up the categories but tried to apply them consistently. Not all fell neatly into groups so I made a few judgement calls. For example, I threw tags about the Esri Flex API into &#8220;Esri Tools&#8221; whereas &#8220;Flex&#8221; went into &#8220;Development/Programming.&#8221; Some may quibble but that&#8217;s how I did it. Also, the raw numbers indicate the frequency of each tag. Since posts can have multiple tags, there can be a lot of overlap. For example, an individual post could be about ArcSDE (&#8220;Esri Tools&#8221;) for PostgreSQL (&#8220;General Database&#8221;) using the PostGIS (&#8220;Open-Source Geospatial Tools&#8221;) geometry type. So a single post could span a number of categories. The chart below shows how the top 100 tags fell into those categories.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2863" height="353" src="http://geobabble.files.wordpress.com/2012/09/stackexchange_chart.png" title="stackexchange_chart" width="600" /></p>
+
+<p>I&#8217;m not sure that it provides any particular insights into the geospatial community at this point. A true <del datetime="2012-09-13T22:49:27+00:00">analyst</del> <del datetime="2012-09-13T22:49:27+00:00">statistician</del> data scientist can probably poke numerous holes in it. It would probably be good to revisit this in a year to see how things have changed, if at all. What it does say to me is that the GIS StackExchange site has succeeded in being a fairly neutral forum for discussion of GIS tools and concepts and that its user community has a diverse set of interests. Such a forum was sorely lacking before it came online, so that&#8217;s a win.</p>
+
+<p>For those with a mind for such things, the top tag was &#8220;arcgis&#8221; with 1659 occurrences and the 100th tag was &#8220;export&#8221; with 58. The StackExchange API lets you get a max of 100 tags at a time so I stopped at 100 for two reasons: 1) There was a significant dropoff from 1 to 100 and I didn&#8217;t think the next 100 would add much and 2) I had to assign categories by hand and 100 was as much as I had patience for. The data was downloaded on 13 September 2012 and will quickly become stale. The data that I used <a href="http://dl.dropbox.com/u/6749645/posts/gis_stackexchange.zip">can be downloaded here</a>.</p>
+
+<p>It looks like my server is online again, so back to work&#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mapping GISPs Again With Leaflet.markercluster]]></title>
+    <link href="http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster/"/>
+    <updated>2012-08-31T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster</id>
+    <content type="html"><![CDATA[<p>So I&#8217;ve been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It&#8217;s become my lightweight mapping library of choice. There&#8217;s a lot it doesn&#8217;t do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
+
+<div style="text-align:center;"><a href="http://demo.zekiah.com/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a><div style="text-align:center;font-size: 14px;">Click the image to go to the live demo<br/><br/></div></div>
+
+
+<p>A while back, I stumbled onto the <a href="https://github.com/danzel/Leaflet.markercluster" target="_blank">Leaflet.markercluster</a> project on GitHub, which adds a clustering layer type. I wanted to try it so I revisited my old <a href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/" target="_blank">GISP heat map demo</a> (Silverlight) and decided to rework it. I was happy to finally get a chance to strip out the plug-in, anyway.  <!--more--></p>
+
+<p>This time around, I chose not to bother with the PMP data because it was kind of a pain to process the last time. I downloaded the GISP data from the <a href="http://www.gisci.org/secure/members/directory/results.asp" target="_blank">GISCI site</a> and once again ran it through <a href="http://www.geocommons.com" target="_blank">GeoCommons</a> to geocode it. This time, there were noticeable anomalies, such as positional accuracy problems (Richmond, VA was 25 miles east of where it should have been) and surprising omissions such as a failure to match major cities like Jacksonville, Florida and Phoenix, Arizona. I corrected some of the more egregious problems by hand and dumped the rest. Luckily none of this got in the way of the real goal of testing the clustering library but, if you visit the <a href="http://demo.zekiah.com/clustermap" target="_blank">live demo</a>, any anomalies you may notice are most likely related to the data and not the library.</p>
+
+<p>Once geocoding was complete, I downloaded the CSV and processed it into the JSON structure expected by the marker cluster library. The library is still fairly new, and I am fairly new to using it so I had some problems if I deviated from the sample format. As a result, I stuck to that format and resolved to investigate it more. After that, it was very easy to wire up into a light application, with the clusters thrown on top of some tiles from <a href="http://www.mapbox.com" target="_blank">MapBox</a>. (Thanks to <a href="http://www.geosprocket.com/" target="_blank">Bill Morris</a> for showing me that base map.)</p>
+
+<p>I think I prefer this representation to a heat map as it conveys more information at a glance. I&#8217;m happy to have this library in my toolbox now and am looking forward to seeing it evolve. I recommend checking it out.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
+    <link href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/"/>
+    <updated>2012-08-24T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api</id>
+    <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we&#8217;ve been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
+
+<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
+
+<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. <!--more--></p>
+
+<p>Since the PIM is really a configuration management system for spatial data models, the tools need to support a wide variety of scenarios, including data migration between platforms, versions, approved user-defined implementations, etc. in a manner that&#8217;s compliant with the data model being managed. As a result, some ETL-like tools are built into the workflows, although ETL is not a primary focus of the PIM.</p>
+
+<p>Since the PIM tools are written in .NET, I built a couple of extension methods to assist with some of the workflows in the existing tools. They enable outbound support for GeoJSON and WKT. The GeoJSON methods work on RowCollection, Row, and ShapeBuffer objects to create FeatureCollection, Feature, and Geometry types respectively. In practice, they&#8217;d be used something like this example from a very simple ASP.NET MVC sample application:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">var</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;/App_Data/mvc_samples.gdb&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">Geodatabase</span> <span class="n">gdb</span> <span class="p">=</span> <span class="n">Geodatabase</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+</span><span class='line'><span class="n">Table</span> <span class="n">statesTable</span> <span class="p">=</span> <span class="n">gdb</span><span class="p">.</span><span class="n">OpenTable</span><span class="p">(</span><span class="s">&quot;\\us_states&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">RowCollection</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">statesTable</span><span class="p">.</span><span class="n">Search</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="s">&quot;STATE_NAME LIKE &#39;M%&#39;&quot;</span><span class="p">,</span> <span class="n">RowInstance</span><span class="p">.</span><span class="n">Recycle</span><span class="p">);</span>
+</span><span class='line'><span class="kt">var</span> <span class="n">rval</span> <span class="p">=</span> <span class="n">rows</span><span class="p">.</span><span class="n">ToGeoJson</span><span class="p">();</span>
+</span><span class='line'><span class="n">gdb</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+</span><span class='line'><span class="n">Response</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">&quot;application/json&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Content</span><span class="p">(</span><span class="n">rval</span><span class="p">);</span>
+</span><span class='line'><span class="k">return</span> <span class="n">result</span> <span class="k">as</span> <span class="n">ActionResult</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I&#8217;ll be doing some cleanup on the GeoJSON in the near future and I&#8217;ll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
+
+<p>As I said, I developed these to support workflows in existing applications. If you&#8217;re looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mowers and Maps]]></title>
+    <link href="http://blog.geomusings.com/2012/08/18/mowers-and-maps/"/>
+    <updated>2012-08-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/18/mowers-and-maps</id>
+    <content type="html"><![CDATA[<p>I was mowing the lawn today and trimming with the push mower pictured below. If it looks old, that&#8217;s because it is. I first acquired it in 1978 when it was given to me by neighbors that were moving to an apartment near the city, meaning they no longer needed it. It still starts on the third pull and I&#8217;ve used it every summer since it was given to me.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2823" height="360" src="http://geobabble.files.wordpress.com/2012/08/mower.jpeg" title="They don&#039;t make them like this anymore" width="640" /></p>
+
+<p>As I was mowing, I thought about how old the mower is and how it came to be in my possession. This led me to think about the origin of my fascination with maps. What does one have to do with the other? Allow me to explain.</p>
+
+<p>As you can imagine, I was fairly young when the lawn mower was given to me. I had gotten to know the neighbors up the street by playing with their son. One day, I noticed a large shelf of identical, leather-bound books taking up the entire back wall of a room. I asked what they were and they invited me to browse them. It turned out that my neighbor was the son of a long-time chair of the National Geographic Society. These books were actually bound collections, by year, of every issue of National Geographic from the first issue on.</p>
+
+<p>Over time, I would spend hours poring through these volumes, fascinated by the world as it was documented by National Geographic from 1888 forward. I did not get to read every issue but I was especially drawn to the maps when they were present. I realize now that my identity as a &#8220;map nerd&#8221; took root there.</p>
+
+<p>Coincidentally, 1978 was the year I first started programming. Those two experiences turned out to be major influences on who I became.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Create a WeoGeo Tilepack from ArcGIS Tiles]]></title>
+    <link href="http://blog.geomusings.com/2012/08/14/create-a-weogeo-tilepack-from-arcgis-tiles/"/>
+    <updated>2012-08-14T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/14/create-a-weogeo-tilepack-from-arcgis-tiles</id>
+    <content type="html"><![CDATA[<p>A couple of months ago, <a href="http://twitter.com/dandye" target="_blank">Dan Dye</a> at WeoGeo <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">posted about work he had done</a> to facilitate creating <a href="http://www.weogeo.com" target="_blank">WeoGeo</a> tile packs from <a href="http://mapbox.com/developers/mbtiles/" target="_blank">MBTiles</a> databases. Recently, I had the need to do the same with <a href="http://www.esri.com" target="_blank">ArcGIS</a> tiles. As Dan explained, WeoGeo uses a ZYX structure in their tile packs. This matched up nicely with the Level/Row/Column structure <a href="http://blogs.esri.com/esri/arcgis/2010/08/20/checking-your-local-cache-folders/" target="_blank">used by ArcGIS</a>. WeoGeo supports either WGS84 (EPSG:4326) or Spherical Mercator (EPSG:3857) as spatial references for tile packs. In my case, I used the latter. My preferred way of creating tiles from ArcGIS products is to use <a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>. While Arc2Earth does directly export to the WeoGeo structure, the tiles are watermarked with a WeoGeo logo, which was not needed in this case. Arc2Earth also exports to the ArcGIS structure, so a simple script to convert to the WeoGeo structure is all that was needed.</p>
+
+<p><img alt="Arc2Earth settings to create ArcGIS Tiles" class="aligncenter size-medium wp-image-2815" height="243" src="http://geobabble.files.wordpress.com/2012/08/a2e_ags.png?w=300" title="Arc2Earth settings to create ArcGIS Tiles" width="300" /></p>
+
+<!--more-->
+
+
+<p>So I wrote a Python script to migrate from the ArcGIS structure to the WeoGeo structure. It primarily uses file system operations with a little bit of logic to unroll the hex-based file naming convention used by Esri. That script can be found <a href="https://github.com/geobabbler/ags2weo" target="_blank">here on GitHub</a>. Be sure to check out the README for the current state of the script. The biggest potential gotcha is that it doesn&#8217;t current use the ArcGIS conf.xml file so, if your ArcGIS cache contains non-consecutive zoom levels (0-2 and 4, for example), it will throw this script off. This has to do with the peculiarities in how Esri names the levels (Z) in their format. I&#8217;ll be making this more robust in subsequent versions, along with with some work to provide a more complete workflow.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Favorite QGIS Resources of the Moment]]></title>
+    <link href="http://blog.geomusings.com/2012/07/27/favorite-qgis-resources-of-the-moment/"/>
+    <updated>2012-07-27T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/27/favorite-qgis-resources-of-the-moment</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve been dabbling more with Quantum GIS (<a href="http://qgis.org" target="_blank">QGIS</a>) lately. I&#8217;m not doing anything particularly sophisticated but it&#8217;s a great viewer for some data types (<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a>, <a href="http://geojson.org/" target="_blank">GeoJSON</a>) that aren&#8217;t supported by my commercial desktop GIS so it&#8217;s helping me validate outputs of some applications I&#8217;m writing.</p>
+
+<p><img alt="" src="http://fossies.org/unix/misc/qgis-1.8.0.tar.gz:a/qgis-1.8.0/images/splash/splash.png" /></p>
+
+<p>While I&#8217;ll never be a real cartographer, I am interested in doing a little more. Here are the resources that have been helping me the most lately&#8230;</p>
+
+<!--more-->
+
+
+<p>I&#8217;ll start with three blogs:</p>
+
+<p><a href="http://underdark.wordpress.com/" target="_blank">Anita Graser</a> (<a href="http://twitter.com/underdarkgis" target="_blank">@underdarkgis</a>)</p>
+
+<p><a href="http://woostuff.wordpress.com/" target="_blank">Nathan Woodrow</a> (<a href="http://twitter.com/madmanwoo" target="_blank">@madmanwoo</a>)</p>
+
+<p><a href="http://mapbox.com/blog/" target="_blank">The MapBox Blog</a> (<a href="http://twitter.com/mapbox" target="_blank">@mapbox</a>)</p>
+
+<p>The MapBox blog takes some explaining. It is primarily about how to be productive with MapBox, but some posts deal with using QGIS in your workflows. Those posts have some good information. All of these blogs have been helpful to me over the last couple of months.</p>
+
+<p>Outside of that, I set up a Google Alert for QGIS which feeds me all kinds of things: posts from other blogs, mailing entries, StackExchange questions, and so on. To make that easy, I ran the feed from that alert through <a href="http://ifttt.com/" target="_blank">ifttt.com</a> and have it posting to a Twitter account: (<a href="http://twitter.com/QGISInfo" target="_blank">@QGISInfo</a>). Feel free to check it out. Keep in mind that it&#8217;s based on a Google search so odd results may creep in from time to time. I&#8217;ve been running the alert for a few weeks and it&#8217;s been pretty clean. The Twitter feed is new and will be sparse until a few refresh cycles happen. Think of it as a poor man&#8217;s &#8220;Planet QGIS.&#8221; I hope you find it useful.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using GeoIQ Analytics in .Net Applications]]></title>
+    <link href="http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications/"/>
+    <updated>2012-07-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications</id>
+    <content type="html"><![CDATA[<p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it&#8217;s my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That&#8217;s good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
+
+<p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
+
+<p>The GeoIQ platform offers <a href="http://developer.geoiq.com/api/analysis/" target="_blank">several functions</a> to analyze data sets hosted on a GeoIQ instance or GeoCommons. I have not yet wrapped all of the functions but am working my way through them as I can.</p>
+
+<p>For this post, I will intersect the locations of <a href="http://geocommons.com/overlays/87503" target="_blank">US GISPs as of 1/26/2011</a> with the <a href="http://geocommons.com/overlays/149925" target="_blank">Maryland Zip Code Boundaries</a> to produce a data set containing the locations of GISPs in Maryland, depicted in the map below.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/07/intersect_results.png"><img alt="" class="size-full wp-image-2793" height="340" src="http://geobabble.files.wordpress.com/2012/07/intersect_results.png" title="intersect_results" width="640" /></a><div style="text-align: center; font-size: 14px">Don&#8217;t worry, none of these are me.<br /><br/></div></div>
+
+
+
+
+<!--more-->
+
+
+<p>It is important to understand how analytics on the GeoIQ platform work. The output of any successful operation will be a new data set representing the analysis results. Additionally, due to the fact that some analyses may take a long time, they are run asynchronously so you&#8217;ll need to check back periodically to see if the analysis is complete. That leads to the following very basic workflow:</p>
+
+<ol>
+<li>Initialize analysis</li>
+<li>Periodically check status</li>
+<li>When complete, do something with it</li>
+</ol>
+
+
+<p>So let&#8217;s get started. Since my original commit, I have added a class that contains wrappers for the GeoIQ analysis methods (<a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Analytics.cs" target="_blank">see here</a>). Due to the consistency of the GeoIQ design, they are all very similar and I&#8217;ll probably get around to doing some clean-up refactoring after I get all of the methods wrapped. All of the methods I&#8217;ve wrapped so far return the same JSON response so it was easy to create a simple <a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Data/AnalyticsData.cs" target="_blank">AnalyticsResponse</a> class to deserialize that.</p>
+
+<p>In the calling application, I&#8217;ll set up a couple of module-level objects to help keep track of things:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>        <span class="k">private</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span> <span class="n">_layerTimer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="m">500</span><span class="p">);</span> <span class="c1">//to check status of analysis</span>
+</span><span class='line'>        <span class="k">private</span> <span class="n">AnalyticsResponse</span> <span class="n">_response</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span> <span class="c1">//response object created by analysis</span>
+</span><span class='line'>        <span class="k">private</span> <span class="n">Analytics</span> <span class="n">_analytics</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Analytics</span><span class="p">(</span><span class="s">&quot;http://geocommons.com&quot;</span><span class="p">,</span> <span class="s">&quot;username&quot;</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">);</span> <span class="c1">//instance of wrapper class for GeoIQ analytic methods</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>With these building blocks in place, it&#8217;s fairly easy to execute the basic workflow:</p>
+
+<ol>
+<li>Initialize analysis:</li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//call intersect method</span>
+</span><span class='line'><span class="c1">//layer 87503 = GISPs, layer 149925 = zip codes</span>
+</span><span class='line'><span class="c1">//prefer_1 tells GeoIQ to return records from layer 1 (GISPs in this case)</span>
+</span><span class='line'> <span class="n">_response</span> <span class="p">=</span> <span class="n">_analytics</span><span class="p">.</span><span class="n">Intersect</span><span class="p">(</span><span class="m">87503</span><span class="p">,</span> <span class="m">149925</span><span class="p">,</span> <span class="n">MergeOptions</span><span class="p">.</span><span class="n">prefer_1</span><span class="p">);</span> <span class="c1">//capture response object</span>
+</span><span class='line'> <span class="c1">//start timer to check status</span>
+</span><span class='line'> <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This calls the intersect method of the Analytics object, captures the resulting response object, and starts the timer to check the status of the analysis.</p>
+
+<ol>
+<li>Periodically check status:</li>
+</ol>
+
+
+<p>In this case, I used a simple timer that checks every half second, although you may want to space that out more if you&#8217;re sure your analyses will take a while to run. This shows the timer event handler code:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">void</span> <span class="nf">_layerTimer_Elapsed</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">ElapsedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>     <span class="kt">string</span> <span class="n">status</span> <span class="p">=</span> <span class="n">_analytics</span><span class="p">.</span><span class="n">GetState</span><span class="p">(</span><span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">);</span> <span class="c1">//ID is that of new layer created by analysis</span>
+</span><span class='line'>     <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">==</span> <span class="s">&quot;\&quot;complete\&quot;&quot;</span><span class="p">)</span> <span class="c1">//this means analysis is complete</span>
+</span><span class='line'>     <span class="p">{</span>
+</span><span class='line'>         <span class="c1">//use Invoke to access UI elements from timer thread</span>
+</span><span class='line'>         <span class="k">this</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">new</span> <span class="n">MethodInvoker</span><span class="p">(</span><span class="k">delegate</span>
+</span><span class='line'>         <span class="p">{</span>
+</span><span class='line'>            <span class="c1">//set up link label to enable download of new data as KML</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">&quot;Analysis Complete: Download KML&quot;</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">19</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="s">&quot;http://geocommons.com/overlays/&quot;</span> <span class="p">+</span> <span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="s">&quot;.kml&quot;</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Visible</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'>         <span class="p">}));</span>
+</span><span class='line'>     <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In a nutshell, it checks the status using a wrapper method. If the status is &#8220;complete&#8221;, then a download link is shown. This code makes the KML version available but you could choose a shapefile or any other format supported by GeoIQ.</p>
+
+<ol>
+<li>When complete, do something with it:</li>
+</ol>
+
+
+<p>In this case, I just make it available for download. Once the data set exists, however, it&#8217;s really just a matter of imagination.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">void</span> <span class="nf">lnkDownloadShape_LinkClicked</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">LinkLabelLinkClickedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">//this actually downloads the data and may even fire off Google Earth</span>
+</span><span class='line'>    <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Link</span><span class="p">.</span><span class="n">LinkData</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In a more robust application (meaning not a sample for a blog post), you could put the results into a map or feed them into locally-installed analysis tools for further processing or do just about anything you want that supports your workflow. I&#8217;ve been a fan of the analytical capability of GeoIQ for some time and I hope, whatever the future holds, that these kinds of tools make it into the next generation of products.</p>
+
+<p>The full Windows Forms code for this sample is <a href="https://gist.github.com/3137738" target="_blank">available here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GeoIQ & Esri]]></title>
+    <link href="http://blog.geomusings.com/2012/07/10/geoiq-esri/"/>
+    <updated>2012-07-10T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/10/geoiq-esri</id>
+    <content type="html"><![CDATA[<p>Okay, everybody calm the hell down. Anyone who thinks that the <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">Esri acquisition of GeoIQ</a> is strange hasn&#8217;t been paying attention to two things: 1) the direction that Esri says they want to go and 2) what the GeoIQ platform really is. I would be very surprised if GeoIQ becomes the 2012 version of <a href="http://www.thefreelibrary.com/ESRI+Acquires+Atlas+GIS+and+Atlas+SDK+--+Claritas+and+ESRI+Announce...-a018336428" target="_blank">Atlas GIS</a>. This acquisition/merger makes more sense than may be initially apparent.</p>
+
+<p>[youtube=http://www.youtube.com/watch?v=_eyFiClAzq8]</p>
+
+<p>It&#8217;s no secret that I&#8217;ve worked with <a href="http://www.esri.com" target="_blank">Esri</a> tools for a long time and my recent work with the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform has been well-documented on this blog, including work integrating the two platforms at the API level. Based on what I&#8217;ve seen from both companies, here are thoughts on why I think this move makes a lot of sense:  <!--more--></p>
+
+<p><strong>First, why it makes sense for Esri&#8230;</strong></p>
+
+<p>GeoIQ/<a href="http://www.geocommons.com" target="_blank">GeoCommons</a> is, and has been for a long time, what <a href="http://www.arcgis.com/home/" target="_blank">ArcGIS Online</a> (AGOL) should be and still isn&#8217;t. It was built from the beginning as a hosted platform without any encumbrances of an existing technology/code base. It is stable, staying online throughout many recent incidents, in a way that AGOL can&#8217;t claim. The back-end data storage architecture, developed on a &#8220;NoSQL&#8221; platform and designed by GeoIQ, is already much more scalable than anything coming from a geodatabase legacy.</p>
+
+<p>Esri made their mark in client/server (there&#8217;s an oldie) GIS and have not been able to successfully move past it to this day. You can move ArcGIS to Amazon if you want but it&#8217;s still client/server. If you pull back and think about it, the least logical thing you can do when trying to build a SaaS is to try and port an architecture that was designed for desktops and servers. GeoIQ, on the other hand, never designed for those platforms. Their SaaS was built to be a hosted system, accessible via an API. That approach has enabled them to expand from data storage to cartographics/visualization to analytics smoothly and consistently.</p>
+
+<p>The API is key here. The GeoIQ platform is exposed via a &#8220;RESTish&#8221; <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">HTTP+JSON API</a>. If you examine the API documentation with an eye toward bridging to the Esri <a href="http://www.esri.com/news/releases/10_3qtr/geoservices-rest.html" target="_blank">GeoServices REST Specification</a> (which I have), it doesn&#8217;t take long to get from GeoIQ&#8217;s overlays, maps and analytics to Esri&#8217;s map services, feature services and server extensions. Resource hierarchies are a little different and, of course, JSON syntax is different but none of those are insurmountable hurdles. In fact, it would be no more difficult to make GeoIQ emit Esri JSON than it would be to make the Esri REST API emit <a href="http://www.geojson.org" target="_blank">GeoJSON</a>.</p>
+
+<p>Based on my previous analyses, I don&#8217;t think putting a GeoServices REST implementation on top of GeoIQ would be the most technically challenging thing in the world. And given the existence of the <a href="http://www.opengeospatial.org/projects/groups/gservrestswg" target="_blank">OGC GeoService REST SWG</a>, doing so may eventually get you in line for standards compliance. (I&#8217;ll leave the rest of you to debate the value of that.) But, aside from potential standards compliance, the biggest reason to do so would be to enable all of the existing Esri client tools that already know how to interact with the Esri REST API to be able to talk to the GeoIQ platform.</p>
+
+<p>So let&#8217;s summarize: In a hosted world, the back-end implementation doesn&#8217;t really matter much because client tools talk through an API. If I&#8217;m using HTTP to communicate, I don&#8217;t care if it&#8217;s COM or Java or Ruby or whatever on the back end. That&#8217;s why APIs are valuable and those built to use standards like HTTP are even more so. GeoIQ has an in-place, highly-scalable, spatial storage/visualization/analytics platform that&#8217;s exposed through an HTTP interface. Bolt on another interface, and you have ArcGIS Online. There&#8217;s some work involved but not nearly as much as building the platform from scratch.</p>
+
+<p>So, if Esri is smart, the GeoIQ platform becomes ArcGIS Online. They&#8217;d need to work on improving the tools to pass data between the hosted platform and the client/server platform, and maybe tighter integration with the desktop tools to ease publishing. It would probably be good to beef up symbology in GeoIQ as this is one thing that Esri currently does better, more easily, than GeoIQ. Also the analytical tools in place with GeoIQ are already win over AGOL.</p>
+
+<p><strong>Why it makes sense for GeoIQ&#8230;</strong></p>
+
+<p>So I&#8217;ve done a good bit of work with the GeoIQ platform and APIs. Probably not enough to call myself an expert but enough to feel comfortable. I&#8217;ve worked on a couple of successful implementations, including the <a href="http://blog.geoiq.com/2012/04/27/visualizing-our-changing-climate-with-climascope/" target="_blank">ClimaScope portal recently mentioned on the GeoIQ blog</a> and am currently in the middle of another one. I have found the platform to be impressive, with the potential for a great amount of productivity.</p>
+
+<p>A couple of years ago, I had the good fortune to attend the FortiusOne holiday party (they weren&#8217;t yet called GeoIQ). One thing that struck me about that evening was the dedication and passion that every single employee seemed to have for what they were doing. Everyone was committed to building the best tools they possibly could. I got the sense that if someone were tasked with building a CSV exporter, they would make sure it was the best CSV exporter anyone had ever seen. I came away from that experience a believer.</p>
+
+<p>Over the ensuing time working with the GeoIQ platform, I have noticed small anomalies here and there: documentation that&#8217;s not quite up to date, small bugs, longer response times, etc. These types of issues are not uncommon but are somewhat out of character for an organization with a high level of dedication and enthusiasm.</p>
+
+<p>That said, my role as a business owner has given me an interest in things such as acquisition drivers. What I have come to realize is that the small issues I was observing are not uncommon for a small company that has achieved a certain level of growth but has plateaued. In other words, growing pains. The reasons small companies plateau are varied but getting past a plateau can be difficult and may require additional resources that are difficult to muster internally. This can lead small companies to seek acquisition.</p>
+
+<p>GeoIQ has always been very dedicated to how their technology is applied. They have a noticeable footprint in the DoD world and have had high-profile implementations such as the World Bank, World Wildlife Fund and others on the NGO side of things. Not coincidentally, these are areas in which Esri is active. In short, there has probably always been more in common between Esri and GeoIQ than met the eye. GeoIQ now has access to the resources of a larger company than help mitigate their growing pains and help them more effectively focus on the application areas they care about.</p>
+
+<p>In my opinion, this acquisition not only makes sense, it is somewhat classic. In hindsight, it could even be called obvious. I could go on about this but I won&#8217;t.</p>
+
+<p>Many in our industry, myself included, took a vicarious enjoyment in the David-versus-Goliath interplay between GeoIQ and Esri but now it&#8217;s time for us to get back to work. I think all of the principals involved in this transaction deserve credit for keeping open minds and being able to look past all of that to recognize the potential common benefits of joining forces. I sincerely hope GeoIQ doesn&#8217;t become the next Atlas GIS and I suspect it won&#8217;t.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CartoDB/Leaflet Sample Update]]></title>
+    <link href="http://blog.geomusings.com/2012/07/09/cartodbleaflet-sample-update/"/>
+    <updated>2012-07-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/09/cartodbleaflet-sample-update</id>
+    <content type="html"><![CDATA[<p>A while back, I posted about some experimentation I did with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://cartodb.com/" target="_blank">CartoDB</a> in the wake of FOSS4G in Denver. I recently had the chance to go back and update that sample with some spatial queries. At the time of the original post, CartoDB was still in beta and spatial queries didn&#8217;t seem to work, despite the fact that the back-end was driven by PostGIS.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2737" height="310" src="http://geobabble.files.wordpress.com/2012/07/cartodb_spatial_query.png" title="cartodb_spatial_query" width="640" /></p>
+
+<!--more-->
+
+
+<p>Since then, of course, CartoDB has gone production, as has <a href="http://www.postgis.org" target="_blank">PostGIS</a> 2.0 (up to <a href="http://www.postgis.org/news/20120622/" target="_blank">2.0.1</a> now) so I decided to <a href="http://demo.zekiah.com/propfinder2/" target="_blank">update the sample</a> a little. This time, I added a floodway layer that flows through <a href="http://leonardtown.somd.com/" target="_blank" title="Official Leonardtown home page">Leonardtown</a>, <a href="http://maps.google.com/maps?sugexp=chrome,mod%3D16&amp;q=leonardtown,+md&amp;um=1&amp;ie=UTF-8&amp;hq=&amp;hnear=0x89b768aa0432337d:0x22590e342c11b91b,Leonardtown,+MD&amp;gl=us&amp;sa=X&amp;ei=wRL8T9TIFqno0QGshqC6Bg&amp;ved=0CHwQtgM" target="_blank" title="Leonardtown in Google Maps">Maryland</a>. With a button click, you can identify the buildings that intersect the floodway. I am again using the CartoDB SQL API and GeoJSON to accomplish this. The API call that accomplishes this is:</p>
+
+<p><a href="http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;format=geojson" target="_blank">http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,<br />floodway%20WHERE%20ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)<br />&amp;format=geojson</a></p>
+
+<p>If you pull that apart, you&#8217;ll see a relatively straightforward use of a PostGIS spatial operator in there:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">--</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="n">leonardtown_bldgs</span><span class="p">,</span><span class="n">floodway</span> <span class="k">WHERE</span> <span class="n">ST_Intersects</span><span class="p">(</span><span class="n">floodway</span><span class="p">.</span><span class="n">the_geom</span><span class="p">,</span><span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="n">the_geom</span><span class="p">)</span>
+</span><span class='line'><span class="c1">--</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The Javascript function that executes the query is here:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'>   <span class="kd">function</span> <span class="nx">getFloodBldgs</span><span class="p">(){</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">bldgLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">();</span>
+</span><span class='line'>        <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;featureparse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">color</span><span class="o">:</span>  <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">fill</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mf">0.9</span> <span class="p">});</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span><span class="p">){</span>
+</span><span class='line'>              <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;lt;b&amp;gt;Address:&amp;lt;/b&amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot;&amp;lt;br/&amp;gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span><span class="p">){</span>
+</span><span class='line'>              <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;lt;b&amp;gt;Property Type:&amp;lt;/b&amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span> <span class="o">+</span> <span class="s2">&quot;&amp;lt;br/&amp;gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span><span class="p">){</span>
+</span><span class='line'>              <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;lt;b&amp;gt;Square Footage:&amp;lt;/b&amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span> <span class="o">+</span> <span class="s2">&quot;&amp;lt;br/&amp;gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>          <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>  
+</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span>
+</span><span class='line'>            <span class="s2">&quot;http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20&quot;</span> <span class="o">+</span>
+</span><span class='line'><span class="s2">&quot;ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;amp;format=geojson&amp;amp;callback=?&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="kd">function</span><span class="p">(</span><span class="nx">geojson</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">features</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">addGeoJSON</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">})</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>      
+</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">bldgLayer</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The CartoDB documentation has greatly improved since my last post, including some <a href="http://developers.cartodb.com/examples.html" target="_blank">good developer examples</a>. A little bit of comfort with PostGIS-esque spatial SQL goes a long way with CartoDB. It&#8217;s good to see how the platform is evolving.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Planet PostGIS Online]]></title>
+    <link href="http://blog.geomusings.com/2012/07/07/planet-postgis-online/"/>
+    <updated>2012-07-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/07/planet-postgis-online</id>
+    <content type="html"><![CDATA[<p><a href="http://planet.postgis.net/">Planet PostGIS</a>, an aggregation of <a href="http://postgis.refractions.net/">PostGIS</a>-related blog content is now online. As the name suggests, it is built using the same technology as <a href="http://www.spatiallyadjusted.com">James Fee&#8217;s</a> <a href="http://planetgs.com">Planet Geospatial</a> but is focused on content related to PostGIS.</p>
+
+<p>If you are working with PostGIS, whether as part of an open-source stack or in conjunction with proprietary tools such as ArcGIS, you may want to check out Planet PostGIS.</p>
+
+<p>Thanks to <a href="http://www.linkedin.com/pub/regina-obe/7/5/200">Regina Obe</a> and everyone involved in setting this up.</p>
+]]></content>
+  </entry>
   
 </feed>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: deprecation plan | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/deprecation-plan/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2012-12-21T13:28:14-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ArcGIS 10.0 and 10.1 Deprecation Plan Released]]></title>
+    <link href="http://blog.geomusings.com/2010/08/19/arcgis-100-and-101-deprecation-plan-released/"/>
+    <updated>2010-08-19T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/08/19/arcgis-100-and-101-deprecation-plan-released</id>
+    <content type="html"><![CDATA[<p><a href="http://twitter.com/mikehogan">Mike Hogan</a> tweeted that the Esri deprecation plan for ArcGIS 10.0 and 10.1 is now available. It can be found <a href="http://downloads2.esri.com/support/TechArticles/ArcGIS_10_and__101_Deprecation_Plan.pdf">here</a>. Much of what it contains is not new as Esri has been pretty good about getting information related to 10.x out. Some of the more interesting things (to me) include (comments in parens are mine):</p>
+
+<blockquote>
+
+ArcGIS Server 10.0 is the last release with support for 32-bit operating systems. The next release of ArcGIS Server (10.1) will run natively as a 64-bit application, requiring 64-bit operating systems. (I heard about the native 64-bit move at the Esri UC but I didn't know that included dropping 32-bit. It's not a big deal for me but I can imagine it'll be an impact for many.)
+
+ArcGIS Server 10.0 is the last release supporting publishing non-optimized map documents (MXD files). The next major release will only support publishing optimized maps (MSDs) as that is the best practice for map publishing. (There you have it, no more serving from MXDs after 10.0.)
+
+ArcGIS Server 10.1 will be the last planned release for the ArcGIS Server Web ADFs (Application Developer Framework) for both Microsoft .NET and Java. (We had a small "wake" in San Diego for the ADFs. I won't shed a tear when it's "official.")
+
+ArcGIS Server 10.1 will no longer support local connections (DCOM connections) from Web ADF applications. ArcGIS Server 10.1 will be a web services (REST and SOAP) server only. (This is actually pretty major and the document details the impacts. <strong>If you have any ADF code doing editing and such, read this!</strong>)
+</blockquote>
+
+
+<p>There's a lot of good information in the document, especially pertaining to ArcGIS Server so it's definitely worth a read.</p>
+]]></content>
+  </entry>
+  
+</feed>

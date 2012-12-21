@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Spatial References in SQL Server 2008 November CTP - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="I&#8217;ve been playing with the SQL 2008 November CTP since it was released last week and have been generally impressed but as I have delved into &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Spatial References in SQL Server 2008 November CTP</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;ve been playing with the <a href="http://www.microsoft.com/sql/2008/default.mspx">SQL 2008 November CTP</a> since it was released last week and have been generally impressed but as I have delved into its handling fo spatial references, I have noted some areas of concern. Keeping in mind that it&#8217;s a CTP, I&#8217;m hoping that some aspects may be addressed before release.<!--more--></p>
+
+<p>From Books Online regarding SRIDs:</p>
+
+<blockquote>&#8220;A spatial column can contain objects with different <a href="http://www.bostongis.com/?content_name=srid">SRIDs</a>. However, only spatial instances with the same SRID can be used when performing operations with SQL Server spatial data methods on your data.&#8221;</blockquote>
+
+
+<p> From what I can tell, SQL 2008 currently has no capacity for coordinate transformations. This creates a situation where you can load a single table with features that use different spatial references but have no intrinsic method for transforming them as you access them. This can lead, obviously, to inaccurate maps and/or analysis products. In fact the documentation states that spatial operations should only be performed on instances of spatial data that have the same SRID. Results of operations on spatial data that do not meet this requirement should not be considered valid. Personally, I question the need for and veracity of mixing spatial references within a single table. I think it creates a lot of room for error and places an undue burden on the user or application.</p>
+
+<p>I don&#8217;t question the fact that spatial operations will not work properly without data being in the same spatial reference. That&#8217;s pretty routine. What&#8217;s unorthodox is the ability to store data of differing spatial references in the same table. This feature, along with the lack of an intrinsic ability to transform geometry, can make working with spatial data cumbersome and potentially error-prone.</p>
+
+<p>Those who are experienced with creating and managing GIS data sets will instinctively avoid mixing spatial references but those who are new to working with spatial data (such as those who may be introduced to it through SQL Server 2008) might not understand the risks involved. Therefore, this is something that I hope is changed before the final release of the product. My recommendation is to 1) require a single spatial reference for each table and 2) also provide some coordinate transformation functions in <a href="http://en.wikipedia.org/wiki/Transact-SQL">T-SQL</a>. If the number one were done first, I could make do with external tools for number two but both should really be in there IMHO.</p>
+
+<p>Also from Books Online: <blockquote>&#8220;SQL Server supports SRIDs based on the <a href="http://www.epsg.org/Geodetic.html">EPSG</a> standards. A SQL Server-supported SRID for geography instances must be used when performing calculations or using methods with geography spatial data. The SRID must match one of the SRIDs displayed in the sys.spatial_reference_systems catalog view.&#8221;</blockquote></p>
+
+<p>Which is fine but a query of that view returns only geographic coordinate systems. SQL server takes the unique approach of providing two object types for spatial data: a &#8220;geometry&#8221; data type for planar data and a &#8220;geography&#8221; data type for geodetic data. This distinction is made all the more interesting by the fact that SQL2008 apparently has no support for planar or projected coordinate systems. Note the screen capture below depicting an empty result set when trying to query something other than geographic coordinate systems:</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/11/sql2008_nov_ctp_srs.png" title="Only geographic?"><img alt="Only geographic?" src="http://geobabble.files.wordpress.com/2007/11/sql2008_nov_ctp_srs.thumbnail.png" /></a></p>
+
+<p><strong>UPDATE:</strong> <em>This table is meant to support the geography data type, which used to store spherical data and only needs spherical reference systems. Because geography has a more specific purpose, this table ensures that only appropriate spatial references are used with such data.</em></p>
+
+<p>If SQL2008 goes to release this way, I can imagine that it will greatly limit the utility of the product for certain applications (such as parcel mapping and facilities management) that tend to work with data in state plane or a similar type of spatial reference. I hope that the supported spatial references will increase by the time of release, otherwise it may be necessary to load data without a defined spatial reference and then manage that data using a direct-read desktop client such as <a href="http://www.manifold.net/index.shtml">Manifold</a>.</p>
+
+<p>Ultimately, this begs the question of how SQL Server 2008&#8217;s spatial capability is being positioned. If it&#8217;s being targeted mainly as a data source for Virtual Earth and other spinny globes, then maybe limiting support to geographic coordinate systems makes sense but this could be a limitation to use in the broader GIS market. For now, I&#8217;ll wait and see.</p>
+
+<p>I have begun delving into SQL Server 2008&#8217;s spatial indexing and various spatial operations but don&#8217;t have enough information/impressions to post so I&#8217;ll follow up as I get more comfortable.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/database/'>database</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/manifold/'>manifold</a>, <a class='category' href='/blog/categories/sql-server/'>sql server</a>, <a class='category' href='/blog/categories/sql-server-spatial/'>sql server spatial</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2007/11/20/sharpmap-and-sql-server-2008-spatial/" title="Previous Post: SharpMap and SQL Server 2008 Spatial">&laquo; SharpMap and SQL Server 2008 Spatial</a>
+      
+      
+        <a class="basic-alignment right" href="/2007/11/26/spatial-references-in-sql-server-2008-part-2/" title="Next Post: Spatial References in SQL Server 2008, Part 2">Spatial References in SQL Server 2008, Part 2 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/spatialite-4-0-released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>
