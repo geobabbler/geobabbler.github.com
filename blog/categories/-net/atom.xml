@@ -4,7 +4,7 @@
   <title><![CDATA[Category: .net | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/-net/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:10:12-05:00</updated>
+  <updated>2012-12-21T13:16:47-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
-    <link href="http://blog.geomusings.com/blog/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/"/>
+    <link href="http://blog.geomusings.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/"/>
     <updated>2012-08-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API</id>
+    <id>http://blog.geomusings.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API</id>
     <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
 
 <p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
@@ -56,9 +56,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using GeoIQ Analytics in .Net Applications]]></title>
-    <link href="http://blog.geomusings.com/blog/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/"/>
+    <link href="http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/"/>
     <updated>2012-07-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications</id>
+    <id>http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications</id>
     <content type="html"><![CDATA[<p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it's my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That's good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
 
 <p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
@@ -213,9 +213,9 @@
   
   <entry>
     <title type="html"><![CDATA[GeoIQ API Wrappers for .Net]]></title>
-    <link href="http://blog.geomusings.com/blog/2012/06/11/GeoIQ-API-Wrappers-for-Net/"/>
+    <link href="http://blog.geomusings.com/2012/06/11/GeoIQ-API-Wrappers-for-Net/"/>
     <updated>2012-06-11T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2012/06/11/GeoIQ-API-Wrappers-for-Net</id>
+    <id>http://blog.geomusings.com/2012/06/11/GeoIQ-API-Wrappers-for-Net</id>
     <content type="html"><![CDATA[<p>A while back, I built a small <a href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/" target="_blank">interface between GeoIQ/GeoCommons and ArcGIS Desktop</a>. From there, it became more of a full-fledged <a href="http://developer.geoiq.com/tools/arcgis-toolbar/" target="_blank">toolbar for ArcGIS</a>. During that effort, I began developing some .Net classes to wrap the <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">GeoIQ RESTful API</a>. As we progressed with the toolbar, my colleague <a href="http://www.hugoestrada.net/" target="_blank">Hugo Estrada</a> also contributed to the library.</p>
 
 <p><img alt="" class="aligncenter size-full wp-image-2676" height="145" src="http://geobabble.files.wordpress.com/2012/06/geoiq_dotnet2.png" title="GeoIQ + .Net" width="640" /></p>
@@ -238,9 +238,9 @@
   
   <entry>
     <title type="html"><![CDATA[MapWindow Open-Source Conference Coming Up]]></title>
-    <link href="http://blog.geomusings.com/blog/2012/05/25/MapWindow-Open-Source-Conference-Coming-Up/"/>
+    <link href="http://blog.geomusings.com/2012/05/25/MapWindow-Open-Source-Conference-Coming-Up/"/>
     <updated>2012-05-25T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2012/05/25/MapWindow-Open-Source-Conference-Coming-Up</id>
+    <id>http://blog.geomusings.com/2012/05/25/MapWindow-Open-Source-Conference-Coming-Up</id>
     <content type="html"><![CDATA[<p>Thanks to Twitter, I see that the <a href="http://www.mapwindow.org/conference/2012/" target="_blank">3rd annual MapWindow Open-Source GIS Conference</a> is coming up at the end of June. It is being held in Velp, The Netherlands. I call this conference out because it has a strong, but not exclusive, concentration on open-source GIS tools for the .Net environment, such as <a href="http://dotspatial.codeplex.com/" target="_blank">DotSpatial</a>, <a href="http://sharpmap.codeplex.com/" target="_blank">SharpMap</a>, and <a href="https://code.google.com/p/nettopologysuite/" target="_blank">NTS</a>. Additionally, there will be content on non-.Net tools such as PostGIS, OpenLayers and others. This makes sense as any complete stack usually contains a mix of technologies. <a href="http://postgis.org/" target="_blank">PostGIS</a> is almost the <em>de facto</em> standard back-end for open-source geo stacks and <a href="http://qgis.org/" target="_blank">QGIS</a> is probably the best open-source editor for it so inclusion of such tools is quite necessary.</p>
 
 <p><img alt="MapWindow" src="http://geobabble.files.wordpress.com/2012/05/mapwindow.png?w=245" /></p>
@@ -251,9 +251,9 @@
   
   <entry>
     <title type="html"><![CDATA[A Couple of Updates]]></title>
-    <link href="http://blog.geomusings.com/blog/2010/06/15/A-Couple-of-Updates/"/>
+    <link href="http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates/"/>
     <updated>2010-06-15T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2010/06/15/A-Couple-of-Updates</id>
+    <id>http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates</id>
     <content type="html"><![CDATA[<p>Shortly after my <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">previous post</a>, about browsing and downloading data from <a href="http://www.geocommons.com">GeoCommons</a>, hit the wires, I got quite a few back-channel requests for the code. I sent it out via e-mail to a number of people and then posted it via DropBox. I have finally gotten around to posting it up on Google Code, making things much more manageable. It is now available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>.</p>
 
 <p>I have made a few updates since the original post. Some were administrative but were functional. They are:</p>

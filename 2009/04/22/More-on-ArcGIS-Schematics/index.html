@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>More on ArcGIS Schematics - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="A few weeks ago, I posted about ArcGIS Schematics. That post came at the end of a frustrating day and was more negative in tone than I typically &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2009/04/22/More-on-ArcGIS-Schematics/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">More on ArcGIS Schematics</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-22T00:00:00-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A few weeks ago, <a href="http://geobabble.wordpress.com/2009/03/12/and-now-for-something-completely-different-arcgis-schematics/">I posted</a> about <a href="http://www.esri.com/software/arcgis/extensions/schematics/index.html">ArcGIS Schematics</a>. That post came at the end of a frustrating day and was more negative in tone than I typically prefer. Since that post, I have had periodic exchanges with Rick Anderson, product manager at <a href="http://www.esri.com">ESRI</a>.<!--more--></p>
+
+<p>Our exchanges culminated today with a <a href="http://office.microsoft.com/en-us/livemeeting/default.aspx?ofcresset=1">LiveMeeting</a> session where Rick showed me the changes that are in store for Schematics at 9.4. <em>Of course, he was showing me a pre-alpha version so anything could change or disappear before release.</em> The last few weeks, and today&#8217;s session, have given me more of an appreciation for the product.</p>
+
+<p>Schematics at 9.4 will represent a substantial re-write in order to facilitate better integration with the ArcGIS core. Rick indicated that the driving force behind this was improvements in symbology and labeling and it succeeds in those areas.</p>
+
+<p>The main reason it succeeds is that Schematics diagrams will now be managed as feature classes. Therefore, symbology and labeling is managed using the same tools that you use for any feature class. Beyond this, however, is the fact that most of the core tools will work with Schematics diagrams (selection tools, join tools ,etc.). This level of integration does much to a) increase the utility of Schematics and b) ease the learning curve for ArcGIS users.</p>
+
+<p>The designer tool has been re-christened the &#8220;Schematics Data Set Editor&#8221; and has been re-written in C#. It has a much cleaner look and supports the new approach to diagrams. Many of the functions, such as diagram attributes, seem to be cleaner.</p>
+
+<p>Within ArcMap, diagrams are now composite layers with each class (entity/link) as an individual feature class. This gives you the ability to reorder the layers as you see fit and fine-tune symbology and labeling. Once it is formatted correctly, you can save a layer file and import it into the dataset editor as a template. Additionally that layer file can be applied to other diagrams with the same set of classes and alternate templates can be easily applied as you would using a layer file for anythign else.</p>
+
+<p>Editing will be safer with the introduction of private edit sessions that lock a diagram while you are editing. Rick also explained the API for integrating new algorithms. This has been in place for a few versions and offers a means to extend Schematics for business specific purposes.</p>
+
+<p>Most of the demo was centered on the standard builder, which works with diagrams generated from network feature classes. I have played with the custom query builder, which is the most laborious approach to take. There have been improvements in that area with the introduction of static diagrams that improve the persistence and performance of diagrams generated from the customer builder.</p>
+
+<p>Based on this demo, I will try dig into the application of rules more as a means really tapping into the analysis capabilities of Schematics.</p>
+
+<p>I do appreciate Rick taking the time to show what they&#8217;ve got in store for Schematics at 9.4. It was very educational for me. <em>Obviously, anything can change between now and release time </em>but what I saw today looks very encouraging.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-22T00:00:00-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/esri/'>esri</a>, <a class='category' href='/blog/categories/gis/'>gis</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2009/04/22/More-on-ArcGIS-Schematics/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2009/04/22/More-on-ArcGIS-Schematics/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/04/13/zigGIS-Tweet-and-Greet/" title="Previous Post: zigGIS Tweet and Greet">&laquo; zigGIS Tweet and Greet</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/04/28/zigGIS-Photos/" title="Next Post: zigGIS Photos">zigGIS Photos &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

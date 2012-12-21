@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Arc2Earth | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arc2earth/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:10:12-05:00</updated>
+  <updated>2012-12-21T13:16:47-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Biggest News You May Have Missed...]]></title>
-    <link href="http://blog.geomusings.com/blog/2012/11/19/The-Biggest-News-You-May-Have-Missed/"/>
+    <link href="http://blog.geomusings.com/2012/11/19/The-Biggest-News-You-May-Have-Missed/"/>
     <updated>2012-11-19T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/blog/2012/11/19/The-Biggest-News-You-May-Have-Missed</id>
+    <id>http://blog.geomusings.com/2012/11/19/The-Biggest-News-You-May-Have-Missed</id>
     <content type="html"><![CDATA[<p>In case you missed it, this tweet floated across the Twitters last week:</p>
 
 <p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Blogged: TileMill Connect - Open Mxd Documents in @<a href="https://twitter.com/mapbox">mapbox</a> TileMill <a href="http://t.co/hDicr4z0" title="http://bit.ly/WbBOKW">bit.ly/WbBOKW</a></p>&mdash; Arc2Earth (@Arc2Earth) <a href="https://twitter.com/Arc2Earth/status/269194049230102528" data-datetime="2012-11-15T21:43:57+00:00">November 15, 2012</a></blockquote>
@@ -36,9 +36,9 @@
   
   <entry>
     <title type="html"><![CDATA[Personal Geospatial Workflows]]></title>
-    <link href="http://blog.geomusings.com/blog/2012/11/09/Personal-Geospatial-Workflows/"/>
+    <link href="http://blog.geomusings.com/2012/11/09/Personal-Geospatial-Workflows/"/>
     <updated>2012-11-09T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/blog/2012/11/09/Personal-Geospatial-Workflows</id>
+    <id>http://blog.geomusings.com/2012/11/09/Personal-Geospatial-Workflows</id>
     <content type="html"><![CDATA[<p>I've had a couple of people ask me recently about the geospatial tools I use. Year-over-year, that answer changes but here's how I answer that right now:</p>
 
 <p>As a Federal contractor, I spend a lot of time working with the <a href="http://www.esri.com" target="_blank">Esri</a> stack during my work day. A few years ago, I added a few open-source geospatial tools into my tool set and, since then, have also done a respectable amount to consulting work them as well. The balance between the two varies over time, depending on the requirements of individual customers and projects. Lately, commercial customers have seemed much more interested in open-source tools while my government customers are sticking with Esri. Since those observations are based on the the extremely heavy filter of my own recent experience, I'd be hesitant to draw any larger conclusions from them.</p>
@@ -63,9 +63,9 @@
   
   <entry>
     <title type="html"><![CDATA[Cutting Tiles for ArcGIS Server Using TileMill]]></title>
-    <link href="http://blog.geomusings.com/blog/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill/"/>
+    <link href="http://blog.geomusings.com/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill/"/>
     <updated>2012-10-03T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill</id>
+    <id>http://blog.geomusings.com/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill</id>
     <content type="html"><![CDATA[<p>There's been a lot of talk about <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a> lately, with good cause. TileMill makes it very easy generate beautiful map tiles using the <a href="http://mapnik.org/" target="_blank">Mapnik</a> engine and CartoCSS provides a familiar method to author the cartographic representation of spatial data. <a href="http://mapbrief.com/2012/09/27/gis-cartography-the-latest-best-opportunity-to-bridge-the-chasm/" target="_blank">As Brian Timoney points out</a>, CartoCSS has the added bonus of making best practices shareable via copy-and-paste.</p>
 
 
@@ -108,9 +108,9 @@
   
   <entry>
     <title type="html"><![CDATA[Arc2Earth Focusing On Google Earth Builder]]></title>
-    <link href="http://blog.geomusings.com/blog/2011/08/03/Arc2Earth-Focusing-On-Google-Earth-Builder/"/>
+    <link href="http://blog.geomusings.com/2011/08/03/Arc2Earth-Focusing-On-Google-Earth-Builder/"/>
     <updated>2011-08-03T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2011/08/03/Arc2Earth-Focusing-On-Google-Earth-Builder</id>
+    <id>http://blog.geomusings.com/2011/08/03/Arc2Earth-Focusing-On-Google-Earth-Builder</id>
     <content type="html"><![CDATA[<p><a href="http://www.arc2earth.com">Arc2Earth</a> (disclaimer: <a href="http://www.zekiah.com">my company</a> is an Arc2Earth reseller) has focused a lot on extending their integration with the Google cloud infrastructure. This started with Cloud Services, which provided the ability to push data into Google <a href="http://code.google.com/appengine/">AppEngine</a> and serve it through emulation of the <a href="http://help.arcgis.com/en/arcgisserver/10.0/apis/rest/index.html">Esri REST API</a> (among other options). This was expanded to include live editing of data hosted on AppEngine. More recently, Arc2Earth added support for <a href="http://www.google.com/fusiontables/public/tour/index.html">Google Fusion Tables</a>.</p>
 
 <p><img alt="arc2earth logo" src="http://www.arc2earth.com/wp-content/uploads/2010/10/logo_Arc2Earth_h.png" /></p>
@@ -132,9 +132,9 @@ It runs in the task tray and keeps everything up to date (data, live edits, tile
   
   <entry>
     <title type="html"><![CDATA[My Day At the 2011 FedUC]]></title>
-    <link href="http://blog.geomusings.com/blog/2011/01/21/My-Day-At-the-2011-FedUC/"/>
+    <link href="http://blog.geomusings.com/2011/01/21/My-Day-At-the-2011-FedUC/"/>
     <updated>2011-01-21T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/blog/2011/01/21/My-Day-At-the-2011-FedUC</id>
+    <id>http://blog.geomusings.com/2011/01/21/My-Day-At-the-2011-FedUC</id>
     <content type="html"><![CDATA[<p>For a variety of reasons, I only spent one day at the <a href="http://www.esri.com/events/feduc/index.html">FedUC</a> this year. I chose Thursday because that was the day of the DevGeo session, as well as the National Security Session and a SIG in which I was interested. As a result, I did not see the plenary or any of the big-screen demos. With a few meetings crammed in, my day was a whirlwind. What follows is my view of the FedUC but it is by no means comprehensive. To get a more complete picture, I suggest checking out <a href="http://apb.directionsmag.com/archives/9273-Update-3-Wed-Morning-Plenary-FedUC.html">Adena's</a> <a href="http://apb.directionsmag.com/archives/9275-Update-Wed-Afternoon-Plenary-FedUC.html">updates</a> <a href="http://apb.directionsmag.com/archives/9282-Hottest-Thing-on-FedUC-Floor-Zebra-Imagings-Holograms.html">over</a> at <a href="http://apb.directionsmag.com/archives/9278-FedUC-Session-on-Geospatial-Platform-and-Geodata.gov.html">Directions</a>.</p>
 
 <p><img alt="#FedUC" src="http://www.esri.com/news/graphics/feduc.jpg" /></p>

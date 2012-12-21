@@ -4,7 +4,7 @@
   <title><![CDATA[Category: WKT | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/wkt/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:10:12-05:00</updated>
+  <updated>2012-12-21T13:16:47-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
-    <link href="http://blog.geomusings.com/blog/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/"/>
+    <link href="http://blog.geomusings.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/"/>
     <updated>2012-08-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API</id>
+    <id>http://blog.geomusings.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API</id>
     <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
 
 <p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>

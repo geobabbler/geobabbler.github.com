@@ -4,7 +4,7 @@
   <title><![CDATA[Category: geoserver | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/geoserver/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:10:12-05:00</updated>
+  <updated>2012-12-21T13:16:47-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[OpenGeo Suite - A Milestone]]></title>
-    <link href="http://blog.geomusings.com/blog/2009/06/01/OpenGeo-Suite-A-Milestone/"/>
+    <link href="http://blog.geomusings.com/2009/06/01/OpenGeo-Suite-A-Milestone/"/>
     <updated>2009-06-01T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2009/06/01/OpenGeo-Suite-A-Milestone</id>
+    <id>http://blog.geomusings.com/2009/06/01/OpenGeo-Suite-A-Milestone</id>
     <content type="html"><![CDATA[<p>On May 28th OpenGeo <a href="http://blog.opengeo.org/2009/05/28/opengeo-suite-released/">announced the release of the OpenGeo Suite</a>. They also describe their open pricing structure for support of the suite.</p>
 
 <p>This announcement represents a milestone for open-source geospatial software. If you are of a technical nature and are expecting a detailed discussion of the technical advantages of the OpenGeo Suite, you should probably stop reading now. The OpenGeo Suite is a milestone because it establishes a fair pricing model that addresses what, in my opinion, has been the primary barrier to the adoption of open-source GIS in many enterprises: risk.<!--more--></p>
@@ -54,9 +54,9 @@
   
   <entry>
     <title type="html"><![CDATA[Bringing It All Together...]]></title>
-    <link href="http://blog.geomusings.com/blog/2007/06/26/Bringing-It-All-Together/"/>
+    <link href="http://blog.geomusings.com/2007/06/26/Bringing-It-All-Together/"/>
     <updated>2007-06-26T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2007/06/26/Bringing-It-All-Together</id>
+    <id>http://blog.geomusings.com/2007/06/26/Bringing-It-All-Together</id>
     <content type="html"><![CDATA[<p>These are pretty fun times to be working in GIS. There's an explosion of new technologies across the whole spectrum and integration possibilities are seemingly boundless. Back when I got started, <a href="http://www.esri.com">ESRI</a> and <a href="http://www.intergraph.com">Intergaph</a> were duking it out and others, like <a href="http://www.mapinfo.com">MapInfo</a>, were out there on the periphery also. <a href="http://grass.itc.it/">GRASS</a> was flying the OS banner and there were a few good free tools, such as the various ones put out by <a href="http://en.wikipedia.org/wiki/Sol_Katz">Sol Katz</a> at the <a href="http://www.blm.gov/wo/st/en.html">BLM</a>.</p>
 
 <p>Everything quieted down for a few years but there's been a flowering of new technologies (well-documented elsewhere) over the last couple of years in both the commercial and open-source communities. I am particularly impressed with the pace at which the open-source community has ramped up with tools of strong quality and capability. In addition, the back-and-forth between <a href="http://earth.google.com/">Google</a> and <a href="http://www.microsoft.com/virtualearth/default.mspx">Microsoft</a> has put better tools in the hands of the average consumer. That doesn't come without drawbacks, but I see it as a net positive.</p>
@@ -85,9 +85,9 @@
   
   <entry>
     <title type="html"><![CDATA[My Little Open-Source Stack]]></title>
-    <link href="http://blog.geomusings.com/blog/2007/06/19/My-Little-Open-Source-Stack/"/>
+    <link href="http://blog.geomusings.com/2007/06/19/My-Little-Open-Source-Stack/"/>
     <updated>2007-06-19T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2007/06/19/My-Little-Open-Source-Stack</id>
+    <id>http://blog.geomusings.com/2007/06/19/My-Little-Open-Source-Stack</id>
     <content type="html"><![CDATA[<p>It's been a while since I've posted and things have been busy. Soccer season has ended, the kids have finished school and I've finished up at my client site and moved back to the office. Among the many things I've been working on, I've started building an open-source GIS stack. It's not entirely open-source since it's installed on a Windows server but the purists will have to get over that.</p>
 
 <p>So far, I've got <a href="http://www.postgresql.org/">PostgreSQL</a>/<a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://docs.codehaus.org/display/GEOS/Home">GeoServer 1.5.1</a> installed. I've got GeoServer running as a Windows service and I've loaded a couple of data sets into PostGIS, serving one out through GeoServer for now. I've been able to successfully connect to the <a href="http://www.opengeospatial.org/standards/wms">WMS</a> and <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> remotely using <a href="http://udig.refractions.net/confluence/display/UDIG/Home">uDig</a> as a client. <a href="http://code.google.com/apis/kml/documentation/">KML</a> seems to work fine for the sample data sets that install with GeoServer but my test layer doesn't work correctly. That's not as much of an issue for us right now because we'll probably focus on <a href="http://worldwind.arc.nasa.gov/">World Wind</a> for the spinny globe component. Basically, I'm at the infrastructure-building stage. My next step is to set up <a href="http://www.codeplex.com/SharpMap">SharpMap</a> and start writing some apps.</p>

@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>GeoIQ & Esri - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="Okay, everybody calm the hell down. Anyone who thinks that the Esri acquisition of GeoIQ is strange hasn&#8217;t been paying attention to two things &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2012/07/10/GeoIQ-Esri/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">GeoIQ & Esri</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-10T00:00:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Okay, everybody calm the hell down. Anyone who thinks that the <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">Esri acquisition of GeoIQ</a> is strange hasn&#8217;t been paying attention to two things: 1) the direction that Esri says they want to go and 2) what the GeoIQ platform really is. I would be very surprised if GeoIQ becomes the 2012 version of <a href="http://www.thefreelibrary.com/ESRI+Acquires+Atlas+GIS+and+Atlas+SDK+--+Claritas+and+ESRI+Announce...-a018336428" target="_blank">Atlas GIS</a>. This acquisition/merger makes more sense than may be initially apparent.</p>
+
+<p>[youtube=http://www.youtube.com/watch?v=_eyFiClAzq8]</p>
+
+<p>It&#8217;s no secret that I&#8217;ve worked with <a href="http://www.esri.com" target="_blank">Esri</a> tools for a long time and my recent work with the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform has been well-documented on this blog, including work integrating the two platforms at the API level. Based on what I&#8217;ve seen from both companies, here are thoughts on why I think this move makes a lot of sense:  <!--more--></p>
+
+<p><strong>First, why it makes sense for Esri&#8230;</strong></p>
+
+<p>GeoIQ/<a href="http://www.geocommons.com" target="_blank">GeoCommons</a> is, and has been for a long time, what <a href="http://www.arcgis.com/home/" target="_blank">ArcGIS Online</a> (AGOL) should be and still isn&#8217;t. It was built from the beginning as a hosted platform without any encumbrances of an existing technology/code base. It is stable, staying online throughout many recent incidents, in a way that AGOL can&#8217;t claim. The back-end data storage architecture, developed on a &#8220;NoSQL&#8221; platform and designed by GeoIQ, is already much more scalable than anything coming from a geodatabase legacy.</p>
+
+<p>Esri made their mark in client/server (there&#8217;s an oldie) GIS and have not been able to successfully move past it to this day. You can move ArcGIS to Amazon if you want but it&#8217;s still client/server. If you pull back and think about it, the least logical thing you can do when trying to build a SaaS is to try and port an architecture that was designed for desktops and servers. GeoIQ, on the other hand, never designed for those platforms. Their SaaS was built to be a hosted system, accessible via an API. That approach has enabled them to expand from data storage to cartographics/visualization to analytics smoothly and consistently.</p>
+
+<p>The API is key here. The GeoIQ platform is exposed via a &#8220;RESTish&#8221; <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">HTTP+JSON API</a>. If you examine the API documentation with an eye toward bridging to the Esri <a href="http://www.esri.com/news/releases/10_3qtr/geoservices-rest.html" target="_blank">GeoServices REST Specification</a> (which I have), it doesn&#8217;t take long to get from GeoIQ&#8217;s overlays, maps and analytics to Esri&#8217;s map services, feature services and server extensions. Resource hierarchies are a little different and, of course, JSON syntax is different but none of those are insurmountable hurdles. In fact, it would be no more difficult to make GeoIQ emit Esri JSON than it would be to make the Esri REST API emit <a href="http://www.geojson.org" target="_blank">GeoJSON</a>.</p>
+
+<p>Based on my previous analyses, I don&#8217;t think putting a GeoServices REST implementation on top of GeoIQ would be the most technically challenging thing in the world. And given the existence of the <a href="http://www.opengeospatial.org/projects/groups/gservrestswg" target="_blank">OGC GeoService REST SWG</a>, doing so may eventually get you in line for standards compliance. (I&#8217;ll leave the rest of you to debate the value of that.) But, aside from potential standards compliance, the biggest reason to do so would be to enable all of the existing Esri client tools that already know how to interact with the Esri REST API to be able to talk to the GeoIQ platform.</p>
+
+<p>So let&#8217;s summarize: In a hosted world, the back-end implementation doesn&#8217;t really matter much because client tools talk through an API. If I&#8217;m using HTTP to communicate, I don&#8217;t care if it&#8217;s COM or Java or Ruby or whatever on the back end. That&#8217;s why APIs are valuable and those built to use standards like HTTP are even more so. GeoIQ has an in-place, highly-scalable, spatial storage/visualization/analytics platform that&#8217;s exposed through an HTTP interface. Bolt on another interface, and you have ArcGIS Online. There&#8217;s some work involved but not nearly as much as building the platform from scratch.</p>
+
+<p>So, if Esri is smart, the GeoIQ platform becomes ArcGIS Online. They&#8217;d need to work on improving the tools to pass data between the hosted platform and the client/server platform, and maybe tighter integration with the desktop tools to ease publishing. It would probably be good to beef up symbology in GeoIQ as this is one thing that Esri currently does better, more easily, than GeoIQ. Also the analytical tools in place with GeoIQ are already win over AGOL.</p>
+
+<p><strong>Why it makes sense for GeoIQ&#8230;</strong></p>
+
+<p>So I&#8217;ve done a good bit of work with the GeoIQ platform and APIs. Probably not enough to call myself an expert but enough to feel comfortable. I&#8217;ve worked on a couple of successful implementations, including the <a href="http://blog.geoiq.com/2012/04/27/visualizing-our-changing-climate-with-climascope/" target="_blank">ClimaScope portal recently mentioned on the GeoIQ blog</a> and am currently in the middle of another one. I have found the platform to be impressive, with the potential for a great amount of productivity.</p>
+
+<p>A couple of years ago, I had the good fortune to attend the FortiusOne holiday party (they weren&#8217;t yet called GeoIQ). One thing that struck me about that evening was the dedication and passion that every single employee seemed to have for what they were doing. Everyone was committed to building the best tools they possibly could. I got the sense that if someone were tasked with building a CSV exporter, they would make sure it was the best CSV exporter anyone had ever seen. I came away from that experience a believer.</p>
+
+<p>Over the ensuing time working with the GeoIQ platform, I have noticed small anomalies here and there: documentation that&#8217;s not quite up to date, small bugs, longer response times, etc. These types of issues are not uncommon but are somewhat out of character for an organization with a high level of dedication and enthusiasm.</p>
+
+<p>That said, my role as a business owner has given me an interest in things such as acquisition drivers. What I have come to realize is that the small issues I was observing are not uncommon for a small company that has achieved a certain level of growth but has plateaued. In other words, growing pains. The reasons small companies plateau are varied but getting past a plateau can be difficult and may require additional resources that are difficult to muster internally. This can lead small companies to seek acquisition.</p>
+
+<p>GeoIQ has always been very dedicated to how their technology is applied. They have a noticeable footprint in the DoD world and have had high-profile implementations such as the World Bank, World Wildlife Fund and others on the NGO side of things. Not coincidentally, these are areas in which Esri is active. In short, there has probably always been more in common between Esri and GeoIQ than met the eye. GeoIQ now has access to the resources of a larger company than help mitigate their growing pains and help them more effectively focus on the application areas they care about.</p>
+
+<p>In my opinion, this acquisition not only makes sense, it is somewhat classic. In hindsight, it could even be called obvious. I could go on about this but I won&#8217;t.</p>
+
+<p>Many in our industry, myself included, took a vicarious enjoyment in the David-versus-Goliath interplay between GeoIQ and Esri but now it&#8217;s time for us to get back to work. I think all of the principals involved in this transaction deserve credit for keeping open minds and being able to look past all of that to recognize the potential common benefits of joining forces. I sincerely hope GeoIQ doesn&#8217;t become the next Atlas GIS and I suspect it won&#8217;t.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-10T00:00:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/esri/'>ESRI</a>, <a class='category' href='/blog/categories/geoiq/'>GeoIQ</a>, <a class='category' href='/blog/categories/real-world/'>Real World</a>, <a class='category' href='/blog/categories/big-boy-pants/'>big boy pants</a>, <a class='category' href='/blog/categories/gis/'>gis</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2012/07/10/GeoIQ-Esri/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2012/07/10/GeoIQ-Esri/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2012/07/09/CartoDBLeaflet-Sample-Update/" title="Previous Post: CartoDB/Leaflet Sample Update">&laquo; CartoDB/Leaflet Sample Update</a>
+      
+      
+        <a class="basic-alignment right" href="/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/" title="Next Post: Using GeoIQ Analytics in .Net Applications">Using GeoIQ Analytics in .Net Applications &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

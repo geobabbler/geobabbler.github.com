@@ -1,0 +1,771 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ArcGIS Image Services and Leaflet - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="I&#8217;ve become a big fan of Leaflet for putting maps on the web. It gives me most of what I need without much of what I don&#8217;t and is fairly &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2012/04/17/ArcGIS-Image-Services-and-Leaflet/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ArcGIS Image Services and Leaflet</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-17T00:00:00-04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;ve become a big fan of <a href="http://leaflet.cloudmade.com/">Leaflet</a> for putting maps on the web. It gives me most of what I need without much of what I don&#8217;t and is fairly easily extended, as shown by the <a href="http://geojason.info/leaflet-vector-layers/">impressive work of Jason Sanford</a>.</p>
+
+<p>A while back, <a href="http://twitter.com/dbouwman">Dave Bouwman</a> <a href="http://blog.davebouwman.com/2011/08/04/leaflet-lean-mean-javascript-maps/">blogged about work</a> he and the team at <a href="http://www.dtsagile.com/">DTS Agile</a> had done extending Leaflet to support ArcGIS Server layers. Given that there are a lot of ArcGIS Servers out there, this is a good thing to have. Thanks to section 4(f) of the <a href="http://www.esri.com/legal/pdfs/e-800-termsofuse.pdf">Esri Web Services Terms of Use</a>, it&#8217;s less useful for use with ArcGIS Online, but that&#8217;s probably the topic of another post. <!--more--></p>
+
+<p>I recently had the need to use an <a href="http://help.arcgis.com/en/arcgisserver/10.0/help/arcgis_server_dotnet_help/index.html#//009300000043000000">ArcGIS Server image service</a> with a Leaflet app. Specifically, I was using the USGS <a href="http://isse.cr.usgs.gov/ArcGIS/rest/services/Orthoimagery/USGS_EDC_Ortho_NAIP/ImageServer">NAIP image service</a>. This service is available as a WMS, which works perfectly well with Leaflet, but I needed to take advantage of some of the capabilities of the <a href="http://www.esri.com">Esri</a> service, such being able to set the interpolation method.</p>
+
+<p>The API signature for interacting with an image service is somewhat different from that of a dynamic map service with ArcGIS Server so I took the DTS AgsDynamicLayer class and modified to an AgsImageLayer class. Because the image service does some raster operations on the fly, it can be a little slower than a standard tiled or dynamic service. As a result, I&#8217;d recommend only going this route if you need to allow your users to fiddle with some options. For most production web-mapping applications, you&#8217;ll probably want to stick with tiles.</p>
+
+<p>It seemed kind of silly to fork the <a href="https://github.com/dtsagile/Leaflet">DTS code</a> for one class so I sent it to Dave, who was gracious enough to accept it. Thanks to DTS for their work, which made my life much easier. Since they have day jobs, too, I&#8217;m not sure when it will appear so I thought I&#8217;d post it here as well in case someone may find it useful. Most of the code came over from the DTS class, with modifications I needed to work with image services. With apologies for the length, here it is:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+<span class='line-number'>193</span>
+<span class='line-number'>194</span>
+<span class='line-number'>195</span>
+<span class='line-number'>196</span>
+<span class='line-number'>197</span>
+<span class='line-number'>198</span>
+<span class='line-number'>199</span>
+<span class='line-number'>200</span>
+<span class='line-number'>201</span>
+<span class='line-number'>202</span>
+<span class='line-number'>203</span>
+<span class='line-number'>204</span>
+<span class='line-number'>205</span>
+<span class='line-number'>206</span>
+<span class='line-number'>207</span>
+<span class='line-number'>208</span>
+<span class='line-number'>209</span>
+<span class='line-number'>210</span>
+<span class='line-number'>211</span>
+<span class='line-number'>212</span>
+<span class='line-number'>213</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//Class for interacting with ArcGIS Server image services</span>
+</span><span class='line'><span class="c1">//Bill Dollins - Zekiah Technologies</span>
+</span><span class='line'><span class="c1">//Modified from AgsDynamicLayer.js by DTSAgile</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">L</span><span class="p">.</span><span class="nx">AgsImageLayer</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">includes</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Mixin</span><span class="p">.</span><span class="nx">Events</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">minZoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">maxZoom</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">attribution</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">opacity</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;PNG8&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">bandids</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">compressionquality</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">interpolation</span><span class="o">:</span> <span class="s1">&#39;RSP_NearestNeighbor&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">pixelType</span><span class="o">:</span> <span class="s1">&#39;U8&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nx">unloadInvisibleTiles</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">mobileWebkit</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="cm">/*String*/</span><span class="nx">url</span><span class="p">,</span> <span class="cm">/*Object*/</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_url</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//public properties that modify the map</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">setInterpolation</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">interpolation</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">interpolation</span> <span class="o">=</span> <span class="nx">interpolation</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">getInterpolation</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">setOpacity</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">opacity</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//set it immediately</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="nx">opacity</span><span class="p">;</span>
+</span><span class='line'>            <span class="c1">// stupid webkit hack to force redrawing of tiles</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">webkitTransform</span> <span class="o">+=</span> <span class="s1">&#39; translate(0,0)&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="nx">opacity</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">getOpacity</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">opacity</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">reset</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">update</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'><span class="c1">//        var topLeft = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest()),</span>
+</span><span class='line'><span class="c1">//                bottomRight = this._map.latLngToLayerPoint(this._map.getBounds().getSouthEast()),</span>
+</span><span class='line'><span class="c1">//                size = bottomRight.subtract(topLeft);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//        L.DomUtil.setPosition(this._image, topLeft);</span>
+</span><span class='line'><span class="c1">//        this._image.style.width = size.x + &#39;px&#39;;</span>
+</span><span class='line'><span class="c1">//        this._image.style.height = size.y + &#39;px&#39;;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">updating</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">show</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;visible&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">hide</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">isVisible</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">===</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">onAdd</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_map</span> <span class="o">=</span> <span class="nx">map</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;viewreset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;moveend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_moveEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;zoomend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_zoomEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">onRemove</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">().</span><span class="nx">mapPane</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;viewreset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;moveend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_moveEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;zoomend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_zoomEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">_initImage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">DomUtil</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;leaflet-image-layer&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;hidden&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">opacity</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="c1">//TODO createImage util method to remove duplication        </span>
+</span><span class='line'>        <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">onselectstart</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">falseFn</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">onmousemove</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">falseFn</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">onload</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onImageLoad</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">src</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_getImageUrl</span><span class="p">(),</span>
+</span><span class='line'>            <span class="nx">updating</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">agsLayer</span><span class="o">:</span> <span class="k">this</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">map</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">().</span><span class="nx">mapPane</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">_getImageUrl</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//construct the export image url</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">bnds</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">();</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">sz</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">();</span>
+</span><span class='line'>        <span class="c1">//bboxsr &amp;amp; imagesr params need to be specified like so to avoid alignment problems on some map services - not sure why</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">bbox</span> <span class="o">=</span> <span class="s1">&#39;bbox=&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getSouthEast</span><span class="p">().</span><span class="nx">lng</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getSouthEast</span><span class="p">().</span><span class="nx">lat</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getNorthWest</span><span class="p">().</span><span class="nx">lng</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getNorthWest</span><span class="p">().</span><span class="nx">lat</span> <span class="o">+</span> <span class="s1">&#39;&amp;amp;bboxsr=4326&amp;amp;imageSR=3857&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;size=&#39;</span> <span class="o">+</span> <span class="nx">sz</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">sz</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;format=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">format</span><span class="p">;</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">pixeltype</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;pixelType=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">pixelType</span><span class="p">;</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">interpolation</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;interpolation=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">;</span>
+</span><span class='line'>      <span class="c1">//Some of the following parameters are supported by ArcGIS Server Image Services but not implemented here.</span>
+</span><span class='line'>      <span class="c1">//They have been included as placeholders.</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">nodata</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;noData=&#39;</span><span class="p">;</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">compressionquality</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;compressionQuality=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">compressionquality</span><span class="p">;</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">bandids</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;bandIds=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">bandids</span><span class="p">;</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">mosaicprops</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;mosaicProperties=&#39;</span><span class="p">;</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">viewpointprops</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;viewpointProperties=&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_url</span> <span class="o">+</span> <span class="s1">&#39;/exportImage?&#39;</span> <span class="o">+</span> <span class="nx">bbox</span> <span class="o">+</span> <span class="nx">size</span> <span class="o">+</span> <span class="nx">format</span> <span class="o">+</span> <span class="nx">pixeltype</span> <span class="o">+</span> <span class="nx">nodata</span> <span class="o">+</span> <span class="nx">interpolation</span> <span class="o">+</span> <span class="nx">compressionquality</span> <span class="o">+</span> <span class="nx">bandids</span> <span class="o">+</span> <span class="nx">mosaicprops</span> <span class="o">+</span> <span class="nx">viewpointprops</span> <span class="o">+</span> <span class="s1">&#39;&amp;amp;f=image&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nx">url</span><span class="p">;</span> <span class="c1">// this._url + &#39;/export?&#39; + bbox + size + layers + format + transparent + &#39;&amp;amp;f=image&#39;;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">_updateLayer</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">updating</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="c1">//console.log(&#39;Updating layer NW: &#39; + map.getBounds().getNorthWest());            </span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">updating</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="c1">//update the src based on the new location</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_getImageUrl</span><span class="p">();</span>
+</span><span class='line'>            <span class="c1">//reset the image location on the map</span>
+</span><span class='line'>            <span class="c1">//            //hang the info on the image, we&#39;ll actually update it onload to make sure we don&#39;t reposition it before the new image comes down</span>
+</span><span class='line'>            <span class="c1">//this doesn&#39;t seem to work on mobile</span>
+</span><span class='line'>            <span class="c1">//            this._image.topLeft = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest());</span>
+</span><span class='line'>            <span class="c1">//            var bottomRight = this._map.latLngToLayerPoint(this._map.getBounds().getSouthEast());</span>
+</span><span class='line'>            <span class="c1">//            this._image.size = bottomRight.subtract(this._image.topLeft);</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="kd">var</span> <span class="nx">topLeft</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">latLngToLayerPoint</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">().</span><span class="nx">getNorthWest</span><span class="p">()),</span>
+</span><span class='line'>                <span class="nx">bottomRight</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">latLngToLayerPoint</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">().</span><span class="nx">getSouthEast</span><span class="p">()),</span>
+</span><span class='line'>                <span class="nx">size</span> <span class="o">=</span> <span class="nx">bottomRight</span><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="nx">topLeft</span><span class="p">);</span>
+</span><span class='line'>            <span class="nx">L</span><span class="p">.</span><span class="nx">DomUtil</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">,</span> <span class="nx">topLeft</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">size</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">size</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">_moveEnd</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//console.log(&#39;in _moveEnd : NW: &#39; + map.getBounds().getNorthWest());</span>
+</span><span class='line'>        <span class="c1">//don&#39;t set display:none for moves - makes for smoother panning - no flicker</span>
+</span><span class='line'>        <span class="c1">//oops, that didn&#39;t work on mobile</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">_zoomEnd</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//console.log(&#39;in _moveEnd&#39;);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//        //zoom the image...(animate it?)</span>
+</span><span class='line'>        <span class="c1">//        //L.DomUtil.setPosition(this, this.topLeft);</span>
+</span><span class='line'>        <span class="c1">//        //debugger;</span>
+</span><span class='line'>        <span class="c1">//        //it&#39;s gonna be something like this but it&#39;s not quite right - also will need to get/ calculate the correct factor (using 1.5 below) and change it for zoom out</span>
+</span><span class='line'>        <span class="c1">//        //and we need to properly calculate the new left and top - just hard coded approximate values below</span>
+</span><span class='line'>        <span class="c1">//        this._image.style.left = &#39;-420px&#39;;</span>
+</span><span class='line'>        <span class="c1">//        this._image.style.top = &#39;-228px&#39;;</span>
+</span><span class='line'>        <span class="c1">//        this._image.style.width = this._image.width * 1.5 + &#39;px&#39;;</span>
+</span><span class='line'>        <span class="c1">//        this._image.style.height = this._image.height * 1.5 + &#39;px&#39;;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//for now, we&#39;ll just do this</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">_reset</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">().</span><span class="nx">mapPane</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_initImage</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">_onImageLoad</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//        //reset the image location on the map - doing it this way does not seem to work on mobile</span>
+</span><span class='line'>        <span class="c1">//        L.DomUtil.setPosition(this, this.topLeft);</span>
+</span><span class='line'>        <span class="c1">//        this.style.width = this.size.x + &#39;px&#39;;</span>
+</span><span class='line'>        <span class="c1">//        this.style.height = this.size.y + &#39;px&#39;;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//this is the image</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//make sure it&#39;s visible and reset the updating flag</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;visible&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">updating</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-17T00:00:00-04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/arcgis-online/'>ArcGIS Online</a>, <a class='category' href='/blog/categories/dts-agile/'>DTS Agile</a>, <a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/leaflet/'>Leaflet</a>, <a class='category' href='/blog/categories/arcgis-server/'>arcgis server</a>, <a class='category' href='/blog/categories/esri/'>esri</a>, <a class='category' href='/blog/categories/gis/'>gis</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2012/04/17/ArcGIS-Image-Services-and-Leaflet/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2012/04/17/ArcGIS-Image-Services-and-Leaflet/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2012/04/12/FOSS4G-North-America/" title="Previous Post: FOSS4G North America">&laquo; FOSS4G North America</a>
+      
+      
+        <a class="basic-alignment right" href="/2012/05/09/Give-a-Little-Bit-for-OpenStreetMap/" title="Next Post: Give a Little Bit for OpenStreetMap">Give a Little Bit for OpenStreetMap &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.geomusings.com/2012/04/17/ArcGIS-Image-Services-and-Leaflet/';
+        var disqus_url = 'http://blog.geomusings.com/2012/04/17/ArcGIS-Image-Services-and-Leaflet/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

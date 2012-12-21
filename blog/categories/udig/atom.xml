@@ -4,7 +4,7 @@
   <title><![CDATA[Category: udig | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/udig/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:10:12-05:00</updated>
+  <updated>2012-12-21T13:16:47-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using ArcSDE 9.3 with PostgreSQL, Part 3.5]]></title>
-    <link href="http://blog.geomusings.com/blog/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/"/>
+    <link href="http://blog.geomusings.com/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/"/>
     <updated>2008-08-21T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5</id>
+    <id>http://blog.geomusings.com/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5</id>
     <content type="html"><![CDATA[<p>I thought I was done with the series a while back but I've been getting a steady stream of questions through other channels so I thought I'd wrap up a lot of the common stuff in another post. Most of the inquiries come from people trying to integrate <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> for <a href="http://www.postgresql.org">PostgreSQL</a> with open-source tools in one way or another. Here are a few notes:<!--more--></p>
 
 <ol type="1">
@@ -71,9 +71,9 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
   
   <entry>
     <title type="html"><![CDATA[Using ArcSDE 9.3 with PostgreSQL, Part 3]]></title>
-    <link href="http://blog.geomusings.com/blog/2008/07/01/Using-ArcSDE-9-3-with-PostgreSQL-Part-3/"/>
+    <link href="http://blog.geomusings.com/2008/07/01/Using-ArcSDE-9-3-with-PostgreSQL-Part-3/"/>
     <updated>2008-07-01T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2008/07/01/Using-ArcSDE-9-3-with-PostgreSQL-Part-3</id>
+    <id>http://blog.geomusings.com/2008/07/01/Using-ArcSDE-9-3-with-PostgreSQL-Part-3</id>
     <content type="html"><![CDATA[<p>Well, 9.3 is now shipping so the sun is setting on my time with the release candidate. One update from my first post: I posted the problem I was having with sdelayer -o register not calculate a default extent on the Beta forum and I got a reply that it shouldn't work that way and they would look at it. I'll probably see shortly whether a fix made it in this time or if I have to wait for a service pack.</p>
 
 <p>The last piece I wanted to cover was working with the layer that I loaded in from a shapefile using ArcCatalog. As I indicated before, I used the PG_GEOMETRY keyword to force the use of PostGIS geometry.</p>
@@ -100,9 +100,9 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
   
   <entry>
     <title type="html"><![CDATA[My Little Open-Source Stack]]></title>
-    <link href="http://blog.geomusings.com/blog/2007/06/19/My-Little-Open-Source-Stack/"/>
+    <link href="http://blog.geomusings.com/2007/06/19/My-Little-Open-Source-Stack/"/>
     <updated>2007-06-19T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/blog/2007/06/19/My-Little-Open-Source-Stack</id>
+    <id>http://blog.geomusings.com/2007/06/19/My-Little-Open-Source-Stack</id>
     <content type="html"><![CDATA[<p>It's been a while since I've posted and things have been busy. Soccer season has ended, the kids have finished school and I've finished up at my client site and moved back to the office. Among the many things I've been working on, I've started building an open-source GIS stack. It's not entirely open-source since it's installed on a Windows server but the purists will have to get over that.</p>
 
 <p>So far, I've got <a href="http://www.postgresql.org/">PostgreSQL</a>/<a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://docs.codehaus.org/display/GEOS/Home">GeoServer 1.5.1</a> installed. I've got GeoServer running as a Windows service and I've loaded a couple of data sets into PostGIS, serving one out through GeoServer for now. I've been able to successfully connect to the <a href="http://www.opengeospatial.org/standards/wms">WMS</a> and <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> remotely using <a href="http://udig.refractions.net/confluence/display/UDIG/Home">uDig</a> as a client. <a href="http://code.google.com/apis/kml/documentation/">KML</a> seems to work fine for the sample data sets that install with GeoServer but my test layer doesn't work correctly. That's not as much of an issue for us right now because we'll probably focus on <a href="http://worldwind.arc.nasa.gov/">World Wind</a> for the spinny globe component. Basically, I'm at the infrastructure-building stage. My next step is to set up <a href="http://www.codeplex.com/SharpMap">SharpMap</a> and start writing some apps.</p>
