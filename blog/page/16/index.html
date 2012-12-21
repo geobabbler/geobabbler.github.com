@@ -9,7 +9,8 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="On May 28th OpenGeo announced the release of the OpenGeo Suite. They also describe their open pricing structure for support of the suite. This &hellip;">
+  <meta name="description" content="Alessandro made two announcements today. First SpatiaLite 2.3.1 has been released. Changes include: * including SQLite v.3.6.16
+* including GEOS.3 1. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +73,193 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/06/01/opengeo-suite-a-milestone/">OpenGeo Suite - a Milestone</a></h1>
+      <h1 class="entry-title"><a href="/2009/07/06/SpatialLite-231-and-RasterLite-10-Released/">SpatialLite 2.3.1 and RasterLite 1.0 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-06T00:00:00-04:00" pubdate data-updated="true">Jul 6<span>th</span>, 2009</time>
+        
+         | <a href="/2009/07/06/SpatialLite-231-and-RasterLite-10-Released/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Alessandro made two announcements today. First SpatiaLite 2.3.1 has been released. Changes include:</p>
+
+<blockquote>
+* including SQLite v.3.6.16
+* including GEOS.3 1.1
+* added SQL version functions: spatialite_version(),
+  proj4_version(), geos_version()
+* added SQL functions: IsTiffBlob(), IsWaveletBlob()
+  [RasterLite compatibility]
+* now supporting the &#8216;F&#8217; (float) datatype for DBF
+  [while reading some Shapefile]
+
+bug fixes:
+
+* fixed a stupid initialization bug disabling MbrCache
+* fixed a stupid initialization bug disabling VirtualFDO
+* fixed some EXIF and EXIF-GPS inconsistencies
+* fixed incorrect SRID handling for PointN(), GeometryN() ..
+* fixed a nasty error [causing a crash] while parsing
+  degenerated WKT geometries (single-vertex LINESTRING &#8230;)
+* fixed some ./configure oddities
+  [&#8211;with-proj-include, &#8211;with-geos-include]
+* and many others &#8230;
+</blockquote>
+
+
+<p>Also from Alessandro, RasterLite 1.0:</p>
+
+<blockquote>
+today I released RasterLite, a really simple SpatiaLite-based C API [and related command-line management tools] supporting Raster Data Sources in a SpatiaLite DB.
+
+RasterLite implements TILING and multi-level PYRAMIDS, and take full profit from RTree-based Spatial Indexing.
+
+Individual tiles can be stored at your choice as:
+TIFF     [supporting monochrome CCITT FAX-4 compression]
+PNG      [loseless compression]
+GIF      [loseless compression]
+JPEG     [lossy compression]
+WAVELET  [lossy compression]
+
+As from my preliminary testings, RasterLite is able to handle really huge Raster Data Sources [several GB-sized] in a really efficient and painless way.
+
+You can find a tutorial explaining in depth how to use the following popular publicly available satellite imagery and DEMs:
+- TrueMarble 250m/pixel world coverage
+- ETOPO5 wold coverage
+- SRTM 90m/pixel world coverage
+</blockquote>
+
+
+<p>Information on both can be found at the <a href="http://www.gaia-gis.it/spatialite">SpatiaLite web site</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/06/30/5th-gvSIG-Conference-Announced/">5th gvSIG Conference Announced</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-30T00:00:00-04:00" pubdate data-updated="true">Jun 30<span>th</span>, 2009</time>
+        
+         | <a href="/2009/06/30/5th-gvSIG-Conference-Announced/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I got this announcement in my inbox today regarding <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a>, an open-source GIS desktop <a href="http://www.osgeo.org/gvsig">currently in</a> the <a href="http://www.osgeo.org/">OSGEO</a> <a href="http://www.osgeo.org/incubator">incubator</a>. If you are a gvSIG user, the 5th gvSIG Conference will be held this year in Valencia, Spain. See below for the full text:</p>
+
+<blockquote>
+The 5th Edition of the gvSIG Conference [1], organized by the Regional Ministry of Infrastructure and Transport (CIT), will be held from December 2nd until December 4th at the Feria Valencia Convention and Exhibition Center, and will once again host the eclipseDay.
+
+In these difficult times when collaboration is most important, we cope with the adversities together with the aim of coming out strengthened by them. We continue moving ahead together. This is part of the gvSIG project and through this approach we keep on growing. This is our slogan for the fifth edition of the gvSIG Conference: We keep growing.
+
+The call for papers for the Fifth Edition of the gvSIG conference is now open. As of today communication proposals can be sent to the email address: <a href="mailto:contacto-jornadas-gvsig@gva.es">contacto-jornadas-gvsig@gva.es</a>; they will be evaluated by the scientific committee as to their inclusion in the conference program. There are two types of communication: paper or poster. Information regarding to regulations on communication presentations can be found in the report&#8217;s section [2]. Abstracts will be accepted until September 21st .
+
+Organizations interested in collaborating in the event can find information in the section: How to collaborate? [3]
+
+
+[1] <a href="http://jornadas.gvsig.org/home/view?set_language=en">http://jornadas.gvsig.org/home/view?set_language=en</a>
+[2] <a href="http://jornadas.gvsig.org/reports">http://jornadas.gvsig.org/reports</a>
+[3] <a href="http://jornadas.gvsig.org/how-to-collaborate">http://jornadas.gvsig.org/how-to-collaborate</a>
+</blockquote>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/06/26/Crazy-Times-Coming-Up-For-Air/">Crazy Times - Coming Up for Air</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-26T00:00:00-04:00" pubdate data-updated="true">Jun 26<span>th</span>, 2009</time>
+        
+         | <a href="/2009/06/26/Crazy-Times-Coming-Up-For-Air/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s been an extremely busy few months, as evidenced by the pace (or lack thereof) of blogging. I have been hopping between customer sites, mainly helping with ArcGIS Server implementations. We&#8217;re also re-hosting an ArcIMS site for someone. I expect that to eventually transition as well but we have to get it moved first. I&#8217;m also working a pro-bono implementation of PostGIS/GeoServer/OpenLayers for the town of Green Mountain Falls, Colorado. That&#8217;s been fun. It&#8217;s great to see how a small town can marshall it resources (Boys Scouts with GPS collected trails as an Eagle Scout project) to get things done. The initial implementation will be simple as they are more interested in getting their data out there but then we&#8217;ll circle back around to address public-service-type applications after that.</p>
+
+<p>Significant changes are coming for <a href="http://pub.obtusesoft.com">zigGIS</a>. Abe, Paolo and I have been laying out a roadmap for its way ahead. Look for an announcement soon via <a href="http://twitter.com/zigGIS">zigGIS on Twitter</a>.</p>
+
+<p>I have been having a lot of fun with the REST-based APIs from ESRI (Javascript, Flex, Silverlight/WPF). In particular, I&#8217;ve been happy with how extensible they are in terms of being able to support new data sources.
+<a href="http://openlayers.org/pipermail/users/2009-June/012414.html">OpenLayers 2.8</a> and <a href="http://blog.opengeo.org/2009/06/17/geoexplorer-preview/">GeoExplorer</a> are also on my radar but that radar screen is getting pretty crowded.</p>
+
+<p>All of this with less than a week to go before vacation. Whew!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/06/01/OpenGeo-Suite-A-Milestone/">OpenGeo Suite - a Milestone</a></h1>
     
     
       <p class="meta">
@@ -90,7 +277,7 @@
 
 <time datetime="2009-06-01T00:00:00-04:00" pubdate data-updated="true">Jun 1<span>st</span>, 2009</time>
         
-         | <a href="/2009/06/01/opengeo-suite-a-milestone/#disqus_thread">Comments</a>
+         | <a href="/2009/06/01/OpenGeo-Suite-A-Milestone/#disqus_thread">Comments</a>
         
       </p>
     
@@ -103,7 +290,7 @@
   
   
     <footer>
-      <a rel="full-article" href="/2009/06/01/opengeo-suite-a-milestone/">Read on &rarr;</a>
+      <a rel="full-article" href="/2009/06/01/OpenGeo-Suite-A-Milestone/">Read on &rarr;</a>
     </footer>
   
 
@@ -294,7 +481,7 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/11/spatialite-provider-code-for-sharpmap-09/">SpatiaLite Provider Code for SharpMap 0.9</a></h1>
+      <h1 class="entry-title"><a href="/2009/04/11/SpatiaLite-Provider-Code-for-SharpMap-0-9/">SpatiaLite Provider Code for SharpMap 0.9</a></h1>
     
     
       <p class="meta">
@@ -312,7 +499,7 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
 
 <time datetime="2009-04-11T00:00:00-04:00" pubdate data-updated="true">Apr 11<span>th</span>, 2009</time>
         
-         | <a href="/2009/04/11/spatialite-provider-code-for-sharpmap-09/#disqus_thread">Comments</a>
+         | <a href="/2009/04/11/SpatiaLite-Provider-Code-for-SharpMap-0-9/#disqus_thread">Comments</a>
         
       </p>
     
@@ -323,7 +510,7 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
   
   
     <footer>
-      <a rel="full-article" href="/2009/04/11/spatialite-provider-code-for-sharpmap-09/">Read on &rarr;</a>
+      <a rel="full-article" href="/2009/04/11/SpatiaLite-Provider-Code-for-SharpMap-0-9/">Read on &rarr;</a>
     </footer>
   
 
@@ -335,7 +522,7 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/07/spatialite-2-3-0-released/">SpatiaLite 2.3.0 Released</a></h1>
+      <h1 class="entry-title"><a href="/2009/04/07/SpatiaLite-2-3-0-Released/">SpatiaLite 2.3.0 Released</a></h1>
     
     
       <p class="meta">
@@ -353,7 +540,7 @@ The phase-out of ArcWeb Services will also impact deployed ArcGIS Engine based a
 
 <time datetime="2009-04-07T00:00:00-04:00" pubdate data-updated="true">Apr 7<span>th</span>, 2009</time>
         
-         | <a href="/2009/04/07/spatialite-2-3-0-released/#disqus_thread">Comments</a>
+         | <a href="/2009/04/07/SpatiaLite-2-3-0-Released/#disqus_thread">Comments</a>
         
       </p>
     
@@ -382,133 +569,6 @@ enhanced GUI-tool:
 
 
 <p>If you haven&#8217;t checked out SpatiaLite, you really should. It&#8217;s a very unique and useful tool.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/04/01/April-Fool-Ancient-GIS-Discovered/">April Fool - Ancient GIS Discovered</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-04-01T00:00:00-04:00" pubdate data-updated="true">Apr 1<span>st</span>, 2009</time>
-        
-         | <a href="/2009/04/01/April-Fool-Ancient-GIS-Discovered/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Researchers working at the base of Mount Ararat in Eastern Turkey have discovered the remnants of what appears to an ancient map-based navigation system that is being called the &#8220;world&#8217;s first GIS.&#8221; The presence of the artifact, which has been dubbed &#8220;ArkMap&#8221;, at the base of mountain is seen as further evidence that Ararat was indeed the resting place of Noah&#8217;s Biblical ark.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2009/04/01/April-Fool-Ancient-GIS-Discovered/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/29/GIS-People-on-Twitter/">GIS People on Twitter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-29T00:00:00-04:00" pubdate data-updated="true">Mar 29<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/29/GIS-People-on-Twitter/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>Update: &#8220;The GIS Forum&#8221; mentioned here is no longer online.</strong></p>
-
-<p>If you haven&#8217;t seen Allan Laframboise&#8217;s excellent presentation from the DevSummit on the <a href="http://www.slideshare.net/aGISGuy/geoweb-community-development-how-web-20-are-you">GeoWeb Community</a>, I highly encourage you to check it out. It includes some poll results with very surprising data about the use of social media (or lack thereof) by GIS developers.</p>
-
-<p>One of the resources that he mentions near the end is <a href="http://www.thegisforum.com">the GIS Forum</a>, which has been covered by others. I wanted to take the opportunity to highlight, in the spirit of Allan&#8217;s presentation, the growing list of GIS folks on Twitter that is being compiled on the GIS Forum. It can be found <a href="http://www.thegisforum.com/wikis/socialmedia/twitter-names.aspx">here</a>.</p>
-
-<p>I personally find <a href="http://twitter.com">Twitter</a> to be an invaluable resource. I also find the GIS Forum to be a nice complement to it as a means to support more detailed discussions that may spin off from Twitter interaction. If you&#8217;re just getting started on Twitter (or doing your homework that Allan assigned), I suggest checking out the list to build your community quickly.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/26/SpatiaLite-Support-in-QGIS/">SpatiaLite Support in QGIS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-26T00:00:00-04:00" pubdate data-updated="true">Mar 26<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/26/SpatiaLite-Support-in-QGIS/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Alessandro announced on <a href="http://groups.google.com/group/spatialite-users">SpatiaLite group</a> today that <a href="http://www.qgis.org/">QGIS</a> 1.1 will include a data provider for <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>, the spatial extender for SQLite.</p>
-
-<p>It&#8217;s out there now in the SVN trunk if you&#8217;re so inclined. I am curious how long it will take to cascade through to the <a href="http://wiki.osgeo.org/wiki/OSGeo_Win32_Installer">OSGEO4W</a> build.</p>
-
-<p>If you haven&#8217;t check out SpatiaLite, I highly encourage you to do so. It is powerful and <em>very</em> lightweight.</p>
 </div>
   
   

@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="If you&#8217;ve recently installed ArcGIS 9.3 Service Pack 1, be aware that there is a patch out that fixes an issue with topology validation. You &hellip;">
+  <meta name="description" content="Matt Faulkner has done a nice job of creating what amounts to be a geospatial feed dashboard with Overhead Update. It has quickly become one of the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,141 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/11/25/patch-to-arcgis-9-3-service-pack-1/">Patch to ArcGIS 9.3 Service Pack 1</a></h1>
+      <h1 class="entry-title"><a href="/2009/01/02/Check-Out-Overhead-Update/">Check Out Overhead Update</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-02T00:00:00-05:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2009</time>
+        
+         | <a href="/2009/01/02/Check-Out-Overhead-Update/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Matt Faulkner has done a nice job of creating what amounts to be a geospatial feed dashboard with <a href="http://www.overheadupdate.com">Overhead Update</a>. It has quickly become one of the first places I visit each day. <a href="http://blog.davebouwman.net/2008/12/20/OverheadUpdatecomAllTopForGeospatial.aspx">Dave</a> and <a href="http://blog.gisuser.com/?p=3322">Glenn</a> have already blogged about it but I figure spreading the word a little more can&#8217;t hurt. Also, Matt was kind enough to include me.</p>
+
+<p>I also suggest checking out Matt&#8217;s other site: <a href="http://www.virtualbirdseye.com/">Virtual Bird&#8217;s Eye</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/01/zigGIS-2-0-2-Getting-Closer/">zigGIS 2.0.2 Getting Closer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-01T00:00:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2009</time>
+        
+         | <a href="/2009/01/01/zigGIS-2-0-2-Getting-Closer/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://abegillespie.blogspot.com">Abe</a> announced via <a href="http://twitter.com/zigGIS">Twitter</a> today that <a href="http://pub.obtusesoft.com/">zigGIS</a> 2.0.2 will be available in about a month. This a small but significant release becuase zigGIS will now support the generic PostGIS &#8220;GEOMETRY&#8221; type. Because ArcGIS expects homogenous feaure classes, zigGIS will ask the user to choose a geometry type for the the specified GEOMETRY-typed column. So, if your table has mixed geometry types, you will need to specify one (like polygon for example) and zigGIS will present only records of that type to ArcGIS.</p>
+
+<p>Secondly, zigGIS will no longer expect your primary key to be called &#8220;gid&#8221;. This should reduce the instances where tables need to be modified for use with zigGIS.</p>
+
+<p>In previous releases, a few enterprising users had figured out how to get zigGIS to see views as layers by manually hacking them into the geometry_columns table. This was one way to get around the &#8220;gid&#8221; and GEOMETRY limitations. In 2.0.2, views will be fully supported so that no such hacking will be necessary.</p>
+
+<p>Abe, Paolo and I had a chat session a while back about the zigGIS roadmap and this represents the first step down that road. More information will be forthcoming as we flesh out the details of further changes.</p>
+
+<p><img alt="" class="alignleft" height="270" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" title="zigGIS" width="270" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/12/30/Odds-and-Ends-SpatiaLite-and-Stuff/">Odds and Ends (SpatiaLite and Stuff)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-30T00:00:00-05:00" pubdate data-updated="true">Dec 30<span>th</span>, 2008</time>
+        
+         | <a href="/2008/12/30/Odds-and-Ends-SpatiaLite-and-Stuff/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as well. We established a new presence in Colorado Springs (I&#8217;ll be traveling there at the end of January). Additionally, I&#8217;ve been busy with project work and have recently begun spend part time on a customer site. So, the blog has been squeezed a little.</p>
+
+<p>I am doing more work with <a href="http://www.esri.com/software/arcgis/arcgisserver/">ArcGIS Server 9.3</a> and the Javascript API but probably won&#8217;t have enough to blog about for a few more weeks. Also, at the urging of <a href="http://geopdf.blogspot.com/">Adam Estrada</a>, I have begun dabbling more with <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>. You may remember my post some time ago about integrating <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">SQLite with SharpMap</a>. SpatiaLite is a spatial extension to SQLite and it seems to be very powerful. I am currently re-working my previous code so that I&#8217;ll have a SpatiaLite provider for <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. With the use of the <a href="http://sqlite.phxsoftware.com/">SQLite OLEDB provider</a>, this has gone fairly smoothly.</p>
+
+<p>The thing I really like about it is the portability. You can basically drop a couple of DLLs and go. Additionally, SpatiaLite has strong support for many spatial operations so it can be a fairly robust analysis back-end. These two attributes raise a lot of possibilities for mobile applications. I have done some mobile development work with <a href="http://postgis.refractions.net/">PostGIS</a> (okay, the platforms were fairly heavy but they were in vehicles that rolled around) and it worked well but SpatiaLite might ease some of those &#8220;in the field&#8221; workflows, especially the delivery of relevant basemap information.</p>
+
+<p>With regard to SharpMap, it looks like SpatiaLite provider is under way for 2.0. I am doing my own for 0.9 because it helps me get more comfortable with SpatiaLite. Once I am finished, I&#8217;ll be happy to share my code but you may want to take a look at what&#8217;s being implemented with 2.0. It&#8217;s fairly elegant.</p>
+
+<p>Also of interest, the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Users Google Group</a>.</p>
+
+<p>Update: the code for SharpMap 2.0 is currently located <a href="http://code.google.com/p/sharpmapv2/">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/11/25/Patch-to-ArcGIS-9-3-Service-Pack-1/">Patch to ArcGIS 9.3 Service Pack 1</a></h1>
     
     
       <p class="meta">
@@ -90,7 +224,7 @@
 
 <time datetime="2008-11-25T00:00:00-05:00" pubdate data-updated="true">Nov 25<span>th</span>, 2008</time>
         
-         | <a href="/2008/11/25/patch-to-arcgis-9-3-service-pack-1/#disqus_thread">Comments</a>
+         | <a href="/2008/11/25/Patch-to-ArcGIS-9-3-Service-Pack-1/#disqus_thread">Comments</a>
         
       </p>
     
@@ -243,7 +377,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/09/15/chrome-ie-killer-or-not/">Chrome - IE-Killer? Or Not&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/2008/09/15/Chrome-IE-Killer-Or-not/">Chrome - IE-Killer? Or Not&#8230;</a></h1>
     
     
       <p class="meta">
@@ -261,7 +395,7 @@
 
 <time datetime="2008-09-15T00:00:00-04:00" pubdate data-updated="true">Sep 15<span>th</span>, 2008</time>
         
-         | <a href="/2008/09/15/chrome-ie-killer-or-not/#disqus_thread">Comments</a>
+         | <a href="/2008/09/15/Chrome-IE-Killer-Or-not/#disqus_thread">Comments</a>
         
       </p>
     
@@ -329,7 +463,7 @@ Here at MapWindow GIS (<a href="http://www.mapwindow.org">www.mapwindow.org</a>)
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/08/21/using-arcsde-9-3-with-postgresql-part-3-5/">Using ArcSDE 9.3 With PostgreSQL, Part 3.5</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/">Using ArcSDE 9.3 With PostgreSQL, Part 3.5</a></h1>
     
     
       <p class="meta">
@@ -347,7 +481,7 @@ Here at MapWindow GIS (<a href="http://www.mapwindow.org">www.mapwindow.org</a>)
 
 <time datetime="2008-08-21T00:00:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2008</time>
         
-         | <a href="/2008/08/21/using-arcsde-9-3-with-postgresql-part-3-5/#disqus_thread">Comments</a>
+         | <a href="/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/#disqus_thread">Comments</a>
         
       </p>
     
@@ -358,133 +492,8 @@ Here at MapWindow GIS (<a href="http://www.mapwindow.org">www.mapwindow.org</a>)
   
   
     <footer>
-      <a rel="full-article" href="/2008/08/21/using-arcsde-9-3-with-postgresql-part-3-5/">Read on &rarr;</a>
+      <a rel="full-article" href="/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/">Read on &rarr;</a>
     </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/08/14/silverlight-and-arcgis-server-9-3/">SilverLight and ArcGIS Server 9.3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-14T00:00:00-04:00" pubdate data-updated="true">Aug 14<span>th</span>, 2008</time>
-        
-         | <a href="/2008/08/14/silverlight-and-arcgis-server-9-3/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://alpascual.com/blog/al/archive/2008/08/14/esri-silverlight-control-up-on-the-code-gallery.aspx">Al Pascual has posted</a> about a sample app <del datetime="00">he</del> Richie developed using <a href="http://silverlight.net/">SilverLight 2.0</a>. For those who have been wondering about this (like me), I highly encourage checking this out. The SilverLight <a href="http://labs.live.com/Silverlight+2+Deep+Zoom.aspx">Deep Zoom</a> technology is pretty impressive and it works well in IE, FireFox and Safari (on Windows anyway). See below.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2008/08/silverlight_ie_win.png"><img alt="" class="alignnone size-thumbnail wp-image-277" height="77" src="http://geobabble.files.wordpress.com/2008/08/silverlight_ie_win.png?w=128" width="128" /></a> <a href="http://geobabble.files.wordpress.com/2008/08/silverlight_firefox_win.png"><img alt="" class="alignnone size-thumbnail wp-image-277" height="77" src="http://geobabble.files.wordpress.com/2008/08/silverlight_firefox_win.png?w=128" width="128" /></a> <a href="http://geobabble.files.wordpress.com/2008/08/silverlight_safari_win.png"><img alt="" class="alignnone size-thumbnail wp-image-279" height="77" src="http://geobabble.files.wordpress.com/2008/08/silverlight_safari_win.png?w=128" width="128" /></a></p>
-
-<p>Links to the demos are on Al&#8217;s blog. Source code is available from the code gallery. Good work <del datetime="00">Al</del> Richie!</p>
-
-<p>Update! The first version of this post was incorrect. This application was written by <a href="http://mrrichie.spaces.live.com/blog/cns!DD16C3F34F4D913E!1841.entry">Richie Carmichael</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/08/12/ESRI-UC-Summary/">ESRI UC Summary</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-12T00:00:00-04:00" pubdate data-updated="true">Aug 12<span>th</span>, 2008</time>
-        
-         | <a href="/2008/08/12/ESRI-UC-Summary/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I spent last week in San Diego at the ESRI International User Conference. It was a bit different for me since I was working <a href="http://www.zekiah.com">Zekiah&#8217;s</a> booth most of the time. I did, however, make it out to a SIG and a couple of technical workshops. Additionally, some of our technical staff were there and had feedback on the sessions. What follows is a very high-level summary of my week.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/08/12/ESRI-UC-Summary/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/08/06/a-good-postgis-overview/">A Good PostGIS Overview&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-06T00:00:00-04:00" pubdate data-updated="true">Aug 6<span>th</span>, 2008</time>
-        
-         | <a href="/2008/08/06/a-good-postgis-overview/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Steven Citron-Pousty gave a talk on PostGIS and has helpfully posted his slides <a href="http://www.slideshare.net/scitronpousty/using-post-gis-to-add-some-spatial-flavor-to-your-application">here</a>. It&#8217;s a good introductory overview and provides some good examples of basic spatial SQL in PostGIS.</p>
-
-<p>With ArcGIS Server now supporting PostgreSQL as a back end RDBMS and also supporting the use of PostGIS geometries, a lot of new users may be migrating to the PostgreSQL platform. This presentation is a good overview for anyone picking it up for the first time. Thanks, @TheSteve0!</p>
-</div>
-  
   
 
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Javascript | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T12:00:37-05:00</updated>
+  <updated>2012-12-21T12:27:37-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -517,9 +517,9 @@
   
   <entry>
     <title type="html"><![CDATA[CartoDB + Leaflet = Easy]]></title>
-    <link href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/"/>
+    <link href="http://blog.geomusings.com/2011/10/13/CartoDB-Leaflet-Easy/"/>
     <updated>2011-10-13T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy</id>
+    <id>http://blog.geomusings.com/2011/10/13/CartoDB-Leaflet-Easy</id>
     <content type="html"><![CDATA[<p>One of the biggest sources of buzz at <a href="http://2011.foss4g.org/">FOSS4G</a> was <a href="http://cartodb.com">CartoDB</a>. It is a hosted solution from <a href="http://vizzuality.com/">Vizzuality</a> that uses <a href="http://postgis.org/">PostGIS</a> to allow you to store your spatial data online. I got a beta account a couple of weeks ago but life (i.e. paying work) kept getting in the way but I finally got to play with it recently.</p>
 
 <p>One of the things that intrigued me is that, similar to <a href="http://www.google.com/fusiontables/Home/">Google Fusion Tables</a>, CartoDB exposes a SQL interface through a RESTful API (I'm still not sure if the term "API" applies to REST but it's a convenient shorthand). Essentially, CartoDB exposes PostgreSQL SQL and the spatial SQL extensions of PostGIS. Once your data is loaded, you can query it and return the results as either CartoDB's JSON syntax, KML or <a href="http://geojson.org">GeoJSON</a>.</p>

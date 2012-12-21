@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Or maybe it&#8217;s just this post. It&#8217;s always fun in tools such as ArcGIS Explorer and Google Earth to browse around your local area and &hellip;">
+  <meta name="description" content="Well, 9.3 is now shipping so the sun is setting on my time with the release candidate. One update from my first post: I posted the problem I was &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,150 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/01/Using-ArcSDE-9-3-with-PostgreSQL-Part-3/">Using ArcSDE 9.3 With PostgreSQL, Part 3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-01T00:00:00-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2008</time>
+        
+         | <a href="/2008/07/01/Using-ArcSDE-9-3-with-PostgreSQL-Part-3/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Well, 9.3 is now shipping so the sun is setting on my time with the release candidate. One update from my first post: I posted the problem I was having with sdelayer -o register not calculate a default extent on the Beta forum and I got a reply that it shouldn&#8217;t work that way and they would look at it. I&#8217;ll probably see shortly whether a fix made it in this time or if I have to wait for a service pack.</p>
+
+<p>The last piece I wanted to cover was working with the layer that I loaded in from a shapefile using ArcCatalog. As I indicated before, I used the PG_GEOMETRY keyword to force the use of PostGIS geometry.</p>
+
+<p>I first left the layer as a simple feature. Within ArcGIS everything behaved as would be expected. I could note no difference in behavior versus what I would expect dealing with any other ArcSDE layer. I was also able to add the layer into uDig, but with a little anomalous behavior.</p>
+
+<p>The layer I was working with was a polygon layer. When I loaded the layer into uDig, it displayed as a polygon layer but the uDig TOC showed a line symbol:</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/07/udig_arcsde_layer.png"><img alt="ArcSDE PostgreSQL layers in uDig" class="alignnone size-medium wp-image-205" height="218" src="http://geobabble.files.wordpress.com/2008/07/udig_arcsde_layer.png?w=300" width="300" /></a></p>
+
+<p>Additionally, the fema_regions layer was not editable in uDig. The other layer editable but had the same display issues. To be fair, I had similar behavior with some layers I had loaded into PostGIS from shapefiles using FWTools. In that case, it didn&#8217;t happen with all of the layers I loaded. In this case, I have not experimented with enough data sets to determine if the behavior is consistent or intermittent. I would also need to test whether it&#8217;s the loader, PostGIS or uDig. Time has not been a friend here.</p>
+
+<p>Next, I did some experimentation with versioning. I versioned my milbases layer, created a test version, added a feature and save the edit. As expected, when I connected in uDig, it connected to the DEFAULT version and I did not see my edit. Since this layer was editable in uDig, I added a feature here and refreshed my ArcMap display. In this case, I was able to see the uDig-created feature (in DEFAULT) in both versions (again, as expected).</p>
+
+<p>My previous posts have brought a few questions about raster catalogs and the like. I have been able to load raster data and create raster catalogs. This is not, however, raster data in PostGIS. This is ArcSDE raster data next to PostGIS. PostGIS has no idea the raster data is there (although the raster footprints display in uDig as rectangles).</p>
+
+<p>So, depending on how you implement it, ArcSDE for PostgreSQL can provide interoperability between ArcGIS and an open-source stack. uDig can be leveraged in a pinch to edit data loaded into ArcSDE using the PostGIS geometry type, allowing you to expand to meet demand. Additionally, ESRI has implemented the full geodatabase capability within PostgreSQL, providing a great alternative to shops that was GIS but not necessarily Oracle/DB2/SQL Server.</p>
+
+<p>In future posts, I examine different technology mixes that can be used to build some compelling hybrid stacks.</p>
+
+<p>Now, where&#8217;s my 9.3 shipment?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/01/A-Little-Bit-of-Java/">A Little Bit of Java</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-01T00:00:00-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2008</time>
+        
+         | <a href="/2008/07/01/A-Little-Bit-of-Java/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just wrapped up the second phase of the first significant Java project I&#8217;ve done in a long time. In general, I try to be technology-agnostic but, due mainly to customer demand, I find myself working predominantly in .Net. As a result, I find myself treading water a little bit when I have to work with Java.</p>
+
+<p><img alt="" class="alignnone size-medium wp-image-203" height="300" src="http://geobabble.files.wordpress.com/2008/07/java.png?w=295" width="295" /></p>
+
+<p>I did this last project in NetBeans 6.1 and was generally pleased with it. I was originally an Eclipse fan but have been less and less happy with it with each release. But my real problem is that I need to get more comfortable with the workflow when working with Java and Java tools. This last round of coding was a little more &#8220;cowboy&#8221; than I am typcially comfortable with.</p>
+
+<p>This time around, I was working with ArcIMS (ugh), JSP and a couple of custom servlets. I found NetBeans integration of Tomcat to be pretty seamless, yielding a test/debug experience similar to that you get when developing ASP.NET in VS2005 and VS2008. I see hooks to integrate with SCC systems such as CVS and SVN. We&#8217;re currently using VSS (again, mostly .Net work) but I&#8217;ve been meaning to set up an SVN server. This may give me the little extra push I needed.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/06/25/ArcGIS-9-3-is-Shipping/">ArcGIS 9.3 Is Shipping</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-25T00:00:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2008</time>
+        
+         | <a href="/2008/06/25/ArcGIS-9-3-is-Shipping/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>According to this <a href="http://www.gisuser.com/content/view/14986/">press release</a>, ArcGIS 9.3 started shipping today. ESRI has pretty much stuck to the aggressive schedule that they announced at the Dev Summit.</p>
+
+<p>My experiences thus far with the beta and the release candidate have been pretty positive so it&#8217;ll be good to get the final product.</p>
+
+<p>Who&#8217;s starting the pool on the when the first service pack will be out?  ;)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -284,7 +428,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/06/02/using-arcsde-9-3-with-postgresql-part-2/">Using ArcSDE 9.3 With PostgreSQL, Part 2</a></h1>
+      <h1 class="entry-title"><a href="/2008/06/02/Using-ArcSDE-9-3-with-PostgreSQL-Part-2/">Using ArcSDE 9.3 With PostgreSQL, Part 2</a></h1>
     
     
       <p class="meta">
@@ -302,7 +446,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
 
 <time datetime="2008-06-02T00:00:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2008</time>
         
-         | <a href="/2008/06/02/using-arcsde-9-3-with-postgresql-part-2/#disqus_thread">Comments</a>
+         | <a href="/2008/06/02/Using-ArcSDE-9-3-with-PostgreSQL-Part-2/#disqus_thread">Comments</a>
         
       </p>
     
@@ -315,7 +459,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
   
   
     <footer>
-      <a rel="full-article" href="/2008/06/02/using-arcsde-9-3-with-postgresql-part-2/">Read on &rarr;</a>
+      <a rel="full-article" href="/2008/06/02/Using-ArcSDE-9-3-with-PostgreSQL-Part-2/">Read on &rarr;</a>
     </footer>
   
 
@@ -327,7 +471,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/05/28/using-arcsde-9-3-with-postgresql-part-1/">Using ArcSDE 9.3 With PostgreSQL, Part 1</a></h1>
+      <h1 class="entry-title"><a href="/2008/05/28/Using-ArcSDE-9-3-with-PostgreSQL-Part-1/">Using ArcSDE 9.3 With PostgreSQL, Part 1</a></h1>
     
     
       <p class="meta">
@@ -345,7 +489,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
 
 <time datetime="2008-05-28T00:00:00-04:00" pubdate data-updated="true">May 28<span>th</span>, 2008</time>
         
-         | <a href="/2008/05/28/using-arcsde-9-3-with-postgresql-part-1/#disqus_thread">Comments</a>
+         | <a href="/2008/05/28/Using-ArcSDE-9-3-with-PostgreSQL-Part-1/#disqus_thread">Comments</a>
         
       </p>
     
@@ -358,7 +502,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
   
   
     <footer>
-      <a rel="full-article" href="/2008/05/28/using-arcsde-9-3-with-postgresql-part-1/">Read on &rarr;</a>
+      <a rel="full-article" href="/2008/05/28/Using-ArcSDE-9-3-with-PostgreSQL-Part-1/">Read on &rarr;</a>
     </footer>
   
 
@@ -412,7 +556,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/05/20/ziggis-2-0-to-be-released-on-may-21st/">zigGIS 2.0 to Be Released on May 21st</a></h1>
+      <h1 class="entry-title"><a href="/2008/05/20/zigGIS-2-0-To-Be-Released-on-May-21st/">zigGIS 2.0 to Be Released on May 21st</a></h1>
     
     
       <p class="meta">
@@ -430,7 +574,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
 
 <time datetime="2008-05-20T00:00:00-04:00" pubdate data-updated="true">May 20<span>th</span>, 2008</time>
         
-         | <a href="/2008/05/20/ziggis-2-0-to-be-released-on-may-21st/#disqus_thread">Comments</a>
+         | <a href="/2008/05/20/zigGIS-2-0-To-Be-Released-on-May-21st/#disqus_thread">Comments</a>
         
       </p>
     
@@ -444,134 +588,6 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
 <p>The original plans were to support all 9.x versions of ArcGIS Desktop but the devil has been in the details on that. The initial release will support 9.2 with earlier versions to come shortly thereafter. Testing against the 9.3 RC will occur shortly.</p>
 
 <p>It seems like forever since I first came across this bizarrely-named project but it&#8217;s been exciting to play a part in its growth.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/05/02/ziggis-2-0-beta-closing-release-near/">zigGIS 2.0 Beta Closing, Release Near</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-02T00:00:00-04:00" pubdate data-updated="true">May 2<span>nd</span>, 2008</time>
-        
-         | <a href="/2008/05/02/ziggis-2-0-beta-closing-release-near/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The <a href="http://twitter.com/zigGIS">zigGIS 2.0</a> beta is wrapping up this week. We got some good feedback and Abe was able to fix a few bugs. We&#8217;ll begin focusing on getting the release out. We are shooting for May 20th but that may slip because there&#8217;s a lot to do.</p>
-
-<p><a href="http://postgis.refractions.net">PostGIS</a> editing is working pretty well now and, in general, it&#8217;s much more solid. zigGIS will work with ArcGIS 9.0 through 9.2. I need to test it against the 9.3 beta but that&#8217;ll have to wait a few days. Also, the full capability will work with <a href="http://www.esri.com/software/arcgis/arcview/about/features.html">ArcView</a> (or any other license tier of ArcGIS), so direct read/edit of PostGIS will be open to anyone with ArcGIS.</p>
-
-<p>Also, the <a href="http://obtusesoft.com">Obtuse</a> web site will be standing up so there will be more information.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/05/02/arcgis-9-2-sp5-issue-with-oracle/">ArcGIS 9.2 SP5 Issue With Oracle</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-02T00:00:00-04:00" pubdate data-updated="true">May 2<span>nd</span>, 2008</time>
-        
-         | <a href="/2008/05/02/arcgis-9-2-sp5-issue-with-oracle/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I just got and e-mail about an issue with ArcGIS 9.2 SP5 and Oracle. The knowledge base article is:</p>
-
-<p><a href="http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=34765">http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=34765</a></p>
-
-<p>Happy reading!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/04/30/Coming-Up-For-Air/">Coming Up for Air</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-04-30T00:00:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2008</time>
-        
-         | <a href="/2008/04/30/Coming-Up-For-Air/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Work has a funny way of intruding on blogging. I&#8217;ve been writing a LOT of proposals lately. The funny part is that so have a lot of others that I know. Federal, state, local&#8230;they seem to have gotten their budgets all at the same time. There are worse problems to have.</p>
-
-<p>During this period (which I am calling my &#8220;Word Period&#8221;) I have been watching as <a href="http://abegillespie.blogspot.com">Abe</a> and <a href="http://www.paolocorti.net">Paolo</a> get <a href="http://obtusesoft.com">zigGIS</a> out the door. I was able to confirm that I indeed introduced a bug a couple of versions back. I guess you can&#8217;t win &#8216;em all.</p>
-
-<p>I have been keeping my sanity by slinging a little code here and there. I am hoping to finish up an experimental <a href="http://twitter.com">Twitter</a> client for <a href="http://www.esri.com/software/arcgis/explorer/index.html">ArcGIS Explorer</a>. Mainly, it&#8217;s an exercise to get me familiar with the Twitter and <a href="http://twittervision.com/">Twittervision</a> APIs. Plus, it&#8217;s been a while since I&#8217;ve done anything with AGX. The upcoming builds look exciting so I want to get comfortable with it again.</p>
-
-<p>There&#8217;s light at the end of tunnel on the proposal stuff so I&#8217;m hoping to get a little more technical again here in the next couple of weeks. Until then, I&#8217;ll have to accept the fact that Word, Paint.Net, Acrobat and Twhirl (all work and no play) have pushed Visual Studio and anything GIS related off my recently used list.</p>
 </div>
   
   

@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I&#8217;m still playing around with zigGIS and I have noticed that it doesn&#8217;t seem to play well when I define the spatial reference of a data &hellip;">
+  <meta name="description" content="Update to this post: Another post about zigGIS. I didn&#8217;t really intend this blog to be so dominated by zigGIS but that&#8217;s certainly the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,184 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2006/12/29/zigGIS-and-Spatial-References-Part-2/">zigGIS and Spatial References, Part 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-12-29T00:00:00-05:00" pubdate data-updated="true">Dec 29<span>th</span>, 2006</time>
+        
+         | <a href="/2006/12/29/zigGIS-and-Spatial-References-Part-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Update to <a href="http://geobabble.wordpress.com/2006/12/21/ziggis-and-spatial-references/">this post</a>:</p>
+
+<p>Another post about zigGIS. I didn&#8217;t really intend this blog to be so dominated by zigGIS but that&#8217;s certainly the way it&#8217;s been thus far. Basically, it&#8217;s just really cool and it satisfies my geek nature on a couple of fronts.</p>
+
+<p>After posting about the spatial reference issue before, I couldn&#8217;t resist digging into it. I found a placeholder in the implementation of IFeatureClass.  Abe G. had even left a comment there that he needed to go back and implement it. So I dove in&#8230;</p>
+
+<p>In the IFeatureClass implementation of CPostGisFeatureClass the SpatialReference property was stubbed out to always return and UnknownCoordinateSystem object. The feature class wraps a CLayer object (among others). This is the object I needed to use to get the spatial reference. The loadLayer method of CLayer (in the postgis_connector project) contained the following code:</p>
+
+<pre>
+<span class="kwrd">string</span> sql = CDbHelper.createSelectSql
+(CPostGisConstants.geometryColumnsTable + <span class="str">" as g"</span>,
+<span class="str">"g.*,g.oid,s."</span> + CPostGisConstants.spatialReferenceSrField,
+<span class="str">"left join "</span> + CPostGisConstants.spatialReferenceTable + 
+<span class="str">" as s on g."</span> +
+CPostGisConstants.spatialReferenceIdField + <span class="str">"=s."</span> +
+CPostGisConstants.spatialReferenceIdField,
+<span class="kwrd">where</span>);
+</pre>
+
+
+<p>This code queries the geometry_columns table for all of the metadata I need. So I added the following code to the CLayer class:</p>
+
+<pre>
+<span class="kwrd">private</span> <span class="kwrd">int</span> m_srid = -1;
+<span class="kwrd">public</span> <span class="kwrd">int</span> srid { get { <span class="kwrd">return</span> m_srid; } }
+</pre>
+
+
+<p>I then added this code to the loadLayer method&#8230;</p>
+
+<pre>
+m_srid = (<span class="kwrd">int</span>)((Int32)dr[<span class="str">"srid"</span>]);
+</pre>
+
+
+<p>&#8230;in order to expose the srid for the layer. The variable dr refers to an instance of the CAutoDataReader class defined in the postgis_connector project.</p>
+
+<p>Finally, i added the following code to the init method of the CPostGisFeatureClass class in the postgis_geodatabase project:</p>
+
+<pre>
+<span class="kwrd">if</span> (m_layer.srid != -1)
+{
+    ISpatialReferenceFactory2 srfact = <span class="kwrd">new</span> SpatialReferenceEnvironmentClass();
+    m_spaRef = srfact.CreateSpatialReference(m_layer.srid);
+}
+</pre>
+
+
+<p>With that, the layer properties dialog in ArcMap correctly reports my spatial reference and the geometry that once failed to draw now works fine. I&#8217;ve got some more clean-up to do to the code to add some error-handling and the like. I&#8217;m sure it wouldn&#8217;t take much to crash it right now.</p>
+
+<p>I think the thing I like about zigGIS is that it&#8217;s got something for everyone. ArcObjects geeks will appreciate the implementation of feature classes, cursors and the like. .NET geeks will appreciate nuggets like the CAutoDataReader class which is an implementation of the IDataReader interface. All in all, it&#8217;s a nice piece of work that I find more to like about as I dig deeper.</p>
+
+<p>As I mentioned before, the project has a new home in Google Code and the discussion forum is getting a little more active so maybe zigGIS will gain a little more momentum. That&#8217;s all for now&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2006/12/28/Why-Isnt-ArcGIS-Explorer-Open-Source/">Why Isn&#8217;t ArcGIS Explorer Open Source?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-12-28T00:00:00-05:00" pubdate data-updated="true">Dec 28<span>th</span>, 2006</time>
+        
+         | <a href="/2006/12/28/Why-Isnt-ArcGIS-Explorer-Open-Source/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was tinkering with AGX today, mainly trying to get comfortable with the API. As I was playing with it, this thought crept into my head: Why isn&#8217;t this thing open source? Okay, aside from the fact that it was released by ESRI&#8230;</p>
+
+<p>There are two main reasons that I ponder this: First, it&#8217;s already free. ESRI isn&#8217;t charging for it so it&#8217;s essentially a cost sink for them. ESRI still incurs all of the costs associated with lifecycle maintenance with no direct recovery of those costs. Yes, I know that they are diffused across the revenue streams of the rest of the product line but bear with me. One could make a strong case that by making AGX open-source, ESRI&#8217;s overall costs would go down. Right now, they shoulder 100% of the cost. By opening up the product to a community of developers, that cost would go down. Basically, I don&#8217;t think that a free, closed-source AGX is going give ESRI much traction anywhere so you could call this the &#8220;what-have-they-got-to-lose&#8221; argument.</p>
+
+<p>Secondly, there&#8217;s Google Earth. I will say right now that GE is a superior product to AGX. I won&#8217;t even try to debate otherwise. That said, AGX is pretty good. I know that ESRI has said that AGX is not intended to compete with GE. It&#8217;s targeted at the enterprise environment where it would be the &#8220;spinny globe&#8221; client to their server software. This is precisely the environment where GE starts to cost a good bit of money. By taking AGX open-source, ESRI could accelerate the advancement of the product while reducing costs and have it remain competitive. I think AGX will go over just fine in shops that are already using ESRI&#8217;s software but I don&#8217;t think it&#8217;s compelling enough to expand their market on its own. But, with its ability to consume KML, WMS, ArcIMS and ArcGIS Server as well as with its API; AGX has got a little game. Taking it open-source could potentially open up a whole new community of advocates who would have a little pride of ownership.</p>
+
+<p>There are other smaller reasons to do it as well. ESRI has started dabbling in the open-source world with the <a href="http://gismatters.blogspot.com/2006/10/open-source-gis-52north-and-esri.html">52 North</a> initiative. Opening the source to AGX would certainly demonstrate commitment there. Also, this particular market segment is crowded: GE, AGX, World Wind, Virtual Earth 3D. AGX, as it stands now, adds little to the picture. An open-source AGX would at least add something to the community.</p>
+
+<p>The main downside would be the difficulty in synchronizing the activity of an open-source project with the release schedule of ArcGIS. In addition, ESRI could risk losing control of the product altogether but there are enough models of open-source projects with corporate backing, such as <a href="http://www.eclipse.org">Eclipse</a>, to work from.</p>
+
+<p>So, maybe it makes sense and maybe not. I could probably argue it either way for quite a while. AGX plugs a gap in the ESRI product line that&#8217;s existed for a long time and maybe that&#8217;s good enough for them. It&#8217;s most likely a complete non-starter. But again, it&#8217;s a free product. So, if it&#8217;s free, maybe it should be set free.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2006/12/27/zigGIS-on-Google-Code/">zigGIS on Google Code</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-12-27T00:00:00-05:00" pubdate data-updated="true">Dec 27<span>th</span>, 2006</time>
+        
+         | <a href="/2006/12/27/zigGIS-on-Google-Code/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It seems this is quickly turning into the zigGIS blog. Anyway, it appears that <a href="http://www.paolocorti.net">Paolo Corti</a> has assumed the role of project lead on zigGIS and has moved it to <a href="http://code.google.com/p/ziggis/">Google Code</a>. I&#8217;m excited because I think this is a great project and this should keep it moving forward. There&#8217;s also a group for discussing the project.</p>
+
+<p>Thanks to Abe Gillespie and Paolo for collaborating to keep zigGIS going.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
