@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcgis desktop | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcgis-desktop/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T17:20:03-05:00</updated>
+  <updated>2012-12-21T07:51:53-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -30,7 +30,8 @@
 
 <p>So it gives users the ability to publish, edit and synchronize data they are storing in on-line, hosted environments using the editing tools of ArcMap. The initial beta will only support Google Fusion Tables but support for Google Earth Builder and - this caught my eye right away - <a href="http://cartodb.com">CartoDB</a> are scheduled for after the first of the year.</p>
 
-<p>[caption id="attachment_2322" align="aligncenter" width="500" caption="Arc2Earth Sync stands to give ArcGIS users an assortment of hosted data platforms to choose from."]<img alt="" class="size-full wp-image-2322" height="375" src="http://geobabble.files.wordpress.com/2011/11/assorted_donuts1.jpg" title="Choices, choices..." width="500" />[/caption]</p>
+<div style="text-align:center;"><img alt="" height="375" src="http://geobabble.files.wordpress.com/2011/11/assorted_donuts1.jpg" title="Choices, choices..." width="500" /><div style="text-align:center;font-size: 14px;">Arc2Earth Sync stands to give ArcGIS users an assortment of hosted data platforms to choose from.<br/><br/></div></div>
+
 
 <p>There are a lot of ArcGIS for Desktop users out there and exposing different hosted solutions using workflows and tools with which they are comfortable has the potential to do a lot for user choice and the ability to control one's own data.</p>
 
@@ -142,11 +143,13 @@ MXD2map is actively supported by <a href="http://www.bsh.de/">Bundesamt fuer See
 
 <p>There is one key difference between zigGIS and PgMap that I did not mention above and which is quite powerful. PgMap supports the export of ArcGIS feature classes directly to PostGIS (and vice versa). It also appears to support appending to existing PostGIS tables but I have not tested that yet. I used PgMap to export a feature class from a file geodatabase to my PostGIS database and it went flawlessly.</p>
 
-<p>[caption id="attachment_1933" align="aligncenter" width="531" caption="PgMap export dialog"]<img alt="" class="size-full wp-image-1933" height="507" src="http://geobabble.files.wordpress.com/2011/08/pgmap_export.png" title="Using PgMap to export data to PostGIS" width="531" />[/caption]</p>
+<div style="text-align:center;"><img alt="" height="507" src="http://geobabble.files.wordpress.com/2011/08/pgmap_export.png" title="Using PgMap to export data to PostGIS" width="531" /><div style="text-align:center;font-size: 14px;">PgMap export dialog<br/><br/></div></div>
+
 
 <p>The resulting PostGIS table was displayed perfectly in QGIS, with all of the attributes coming over well. I have not delved in yet to to see what assumptions PgMap makes in terms of data type conversions between the geodatabase and PostgreSQL.</p>
 
-<p>[caption id="attachment_1936" align="aligncenter" width="590" caption="O Canada!"]<img alt="" class="size-full wp-image-1936" height="315" src="http://geobabble.files.wordpress.com/2011/08/pgmap_qgis.png" title="QGIS displaying PostGIS data imported with PgMap" width="590" />[/caption]</p>
+<div style="text-align:center;"><img alt="" height="315" src="http://geobabble.files.wordpress.com/2011/08/pgmap_qgis.png" title="QGIS displaying PostGIS data imported with PgMap" width="590" /><div style="text-align:center;font-size: 14px;">O Canada!<br/><br/></div></div>
+
 
 <p>PgMap also integrates seamlessly with the ArcMap editor toolbar for editing. During my investigations, I noticed that layers are loaded into in-memory workspaces so they are natively supported for editing. Edits are then posted back to PostGIS when saved. This is similar to the approach that zigGIS used and is also similar to the behavior of other tools as well. When I get my license, I will need to test with larger data sets. zigGIS originally used in-memory workspaces but we noticed performance problems when loading large data sets so we switched to scratch workspaces. There are numerous ways to mitigate this but, until I can access full data sets, I can't really test it.</p>
 

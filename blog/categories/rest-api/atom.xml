@@ -4,7 +4,7 @@
   <title><![CDATA[Category: REST API | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/rest-api/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T17:20:03-05:00</updated>
+  <updated>2012-12-21T07:51:53-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -20,7 +20,7 @@
     <id>http://blog.geomusings.com/2011/06/16/GeoServices-REST-Specification-and-OGC</id>
     <content type="html"><![CDATA[<p>So this is what I get for missing the Ignite sessions at WhereCampDC<sup>*</sup>:</p>
 
-<p>http://twitter.com/#!/spara/status/81369354746331136</p>
+<p><div class='embed tweet'>Sorry, you are not authorized to see this status.</div></p>
 
 <p><sup>*</sup>I got to dance with my daughter and help her chase fireflies so I win.</p>
 
@@ -42,7 +42,7 @@ For what it's worth, I like GeoJSON and find it tighter and more focused than th
 <li>It would be interesting to see whether the spec gets implemented across the community. It has been available for months but there hasn't been a wide uptake. The only example I am aware of is <a href="http://www.arc2earth.com/products/cloud/">Arc2Earth's cloud work</a> which <a href="http://ucdemos.appspot.com/a2e/ArcGIS/rest/services/NYC/NYC_Subways/MapServer/">implements it</a> on top of their Google-AppEngine-based services. Maybe OGC adoption would provide the kind of "top cover" that will give developers peace-of-mind. (Note: My company is an Arc2Earth reseller.)
 </li>
 
-[caption id="attachment_1824" align="aligncenter" width="442" caption="Arc2Earth sample in Esri Silverlight demo application"]<img alt="" class="size-full wp-image-1824" height="202" src="http://geobabble.files.wordpress.com/2011/06/a2e_esrisl.png" title="Arc2Earth Cloud Service in Esri Silverlight API" width="442" />[/caption]
+<div style="text-align:center;"><img alt="" height="202" src="http://geobabble.files.wordpress.com/2011/06/a2e_esrisl.png" title="Arc2Earth Cloud Service in Esri Silverlight API" width="442" /><div style="text-align:center;font-size: 14px;">Arc2Earth sample in Esri Silverlight demo application<br/><br/></div></div>
 
 <li>If the <a href="http://www.esri.com/library/whitepapers/pdfs/geoservices-rest-spec.pdf">GeoServices REST Specification</a> (Beware, PDF) is adopted by OGC, it will continue a trend begun with the adoption of KML and GeoRSS in which they formally adopt community and de facto standards that have emerged and been proven in the industry. I think that's a valid approach that can exist alongside their usual standards development process. This case is a little different than those in that it was developed by a single vendor (like KML) and has been released and documented (like KML) but hasn't really been widely implemented outside its initial vendor base prior to consideration (unlike KML). That's a subtle but important difference that bears watching.
 </li>

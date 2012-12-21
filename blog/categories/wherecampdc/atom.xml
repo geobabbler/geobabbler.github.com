@@ -4,7 +4,7 @@
   <title><![CDATA[Category: WhereCampDC | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/wherecampdc/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T17:20:03-05:00</updated>
+  <updated>2012-12-21T07:51:53-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -20,7 +20,7 @@
     <id>http://blog.geomusings.com/2011/06/16/GeoServices-REST-Specification-and-OGC</id>
     <content type="html"><![CDATA[<p>So this is what I get for missing the Ignite sessions at WhereCampDC<sup>*</sup>:</p>
 
-<p>http://twitter.com/#!/spara/status/81369354746331136</p>
+<p><div class='embed tweet'>Sorry, you are not authorized to see this status.</div></p>
 
 <p><sup>*</sup>I got to dance with my daughter and help her chase fireflies so I win.</p>
 
@@ -42,7 +42,7 @@ For what it's worth, I like GeoJSON and find it tighter and more focused than th
 <li>It would be interesting to see whether the spec gets implemented across the community. It has been available for months but there hasn't been a wide uptake. The only example I am aware of is <a href="http://www.arc2earth.com/products/cloud/">Arc2Earth's cloud work</a> which <a href="http://ucdemos.appspot.com/a2e/ArcGIS/rest/services/NYC/NYC_Subways/MapServer/">implements it</a> on top of their Google-AppEngine-based services. Maybe OGC adoption would provide the kind of "top cover" that will give developers peace-of-mind. (Note: My company is an Arc2Earth reseller.)
 </li>
 
-[caption id="attachment_1824" align="aligncenter" width="442" caption="Arc2Earth sample in Esri Silverlight demo application"]<img alt="" class="size-full wp-image-1824" height="202" src="http://geobabble.files.wordpress.com/2011/06/a2e_esrisl.png" title="Arc2Earth Cloud Service in Esri Silverlight API" width="442" />[/caption]
+<div style="text-align:center;"><img alt="" height="202" src="http://geobabble.files.wordpress.com/2011/06/a2e_esrisl.png" title="Arc2Earth Cloud Service in Esri Silverlight API" width="442" /><div style="text-align:center;font-size: 14px;">Arc2Earth sample in Esri Silverlight demo application<br/><br/></div></div>
 
 <li>If the <a href="http://www.esri.com/library/whitepapers/pdfs/geoservices-rest-spec.pdf">GeoServices REST Specification</a> (Beware, PDF) is adopted by OGC, it will continue a trend begun with the adoption of KML and GeoRSS in which they formally adopt community and de facto standards that have emerged and been proven in the industry. I think that's a valid approach that can exist alongside their usual standards development process. This case is a little different than those in that it was developed by a single vendor (like KML) and has been released and documented (like KML) but hasn't really been widely implemented outside its initial vendor base prior to consideration (unlike KML). That's a subtle but important difference that bears watching.
 </li>
@@ -80,7 +80,8 @@ For what it's worth, I like GeoJSON and find it tighter and more focused than th
 
 <p>The "NoGIS" discussion was another one that went a different direction than I expected and left me pleasantly surprised. Sophia Parafina kicked it off by defining NoGIS as a joke intended to get people talking about new tools and techniques centered around big data, time and other factors that have are not addressed well by GIS tools as they have evolved until now. The discussion gelled around the idea of taking a more people-centric view of the uses of spatial technologies (thus the tongue-in-cheek "SoylentGIS" term that popped up in the discussion). I was also happy to hear <a href="http://twitter.com/springmeyer">Dane Springmeyer</a> call for a positive discourse that doesn't divide people into camps or put them on the defensive (even unintentionally). I think he made a great point because there has already been some bristling about the term and that can impede thoughtful discussion. In general, I found the NoGIS discussion to be constructive and free of hyperbole.</p>
 
-<p>[caption id="" align="aligncenter" width="300" caption="GIS is people!"]<img alt="GIS is people!" class="aligncenter" height="221" src="http://www.trekcast.com/wp-content/uploads/2009/06/soylent-green-is-a-great-movie.png" title="GIS is people!" width="300" />[/caption]</p>
+<div style="text-align:center;"><img alt="GIS is people!" height="221" src="http://www.trekcast.com/wp-content/uploads/2009/06/soylent-green-is-a-great-movie.png" title="GIS is people!" width="300" /><div style="text-align:center;font-size: 14px;">GIS is people!<br/><br/></div></div>
+
 
 <p>Andrew Turner offered a thought exercise about being able to tap into the information stream (think social media, news, weather, etc.) about a place, which took the discussion to the challenges of doing such a thing. This is a different spin that is not readily addressable by GIS tools as we have known them. At the same time, the traditional use cases of GIS (land-use planning, cartographic production, etc.) are still necessary and valid. So the discussion wasn't so much about "this instead of that" as about recognizing that the nature of data, how we access it, how we produce it and what we expect from it is changing and that different tools are needed to better address this new relationship with information.</p>
 

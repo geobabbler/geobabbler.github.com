@@ -4,7 +4,7 @@
   <title><![CDATA[Category: WeoGeo | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/weogeo/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-19T17:20:03-05:00</updated>
+  <updated>2012-12-21T07:51:53-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -82,7 +82,8 @@
 
 <p>Zekiah is happy to announce the availability of the first beta release of the new version of WeoGeo Tools for ArcGIS. This release improves an existing capability (browsing Market and libraries), adds a new one (the ability customize and create a data order) and temporarily removes a previous capability (uploading data). But don't worry, uploading will be back very soon! WeoGeo introduced a new set of APIs to support uploading (the previous version used their command-line tool behind the scenes) and also implemented a new tiling scheme for preview images so the upload capability requires a complete re-write but will be better. (We also intend to leverage new the ability of <a href="http://www.arc2earth.com">Arc2Earth</a> to generate WeoGeo tile packs so you may want to check that out.)</p>
 
-<p>[caption id="attachment_1537" align="alignleft" width="590" caption="Browsing WeoGeo Market in ArcGIS Desktop 10"]<a href="http://geobabble.files.wordpress.com/2011/02/weotools10.png"><img alt="" class="size-full wp-image-1537" height="314" src="http://geobabble.files.wordpress.com/2011/02/weotools10.png" title="Browsing WeoGeo Market in ArcGIS Desktop 10" width="590" /></a>[/caption]</p>
+<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2011/02/weotools10.png"><img alt="" height="314" src="http://geobabble.files.wordpress.com/2011/02/weotools10.png" title="Browsing WeoGeo Market in ArcGIS Desktop 10" width="590" /></a><div style="text-align:center;font-size: 14px;">Browsing WeoGeo Market in ArcGIS Desktop 10<br/><br/></div></div>
+
 
 <p>This release is an open beta. There are versions for ArcGIS Desktop 9.3 and 10.0 which currently have the same capabilities; but this will change. You can find information about WeoGeo Tools for ArcGIS (and download it) here: <a href="http://www.zekiah.com/index.php?q=weogeo">http://www.zekiah.com/index.php?q=weogeo</a>. From there, you can download the extension and also view the development roadmap. The user manual is draft and will be fleshed out with more detail with each release. When you view the roadmap, you will see that the capabilities between 9.3 and 10.0 will quickly diverge. We plan to integrate the new upload capability with 10.0 but limit 9.3 to browse and download. The final release (scheduled for mid-June) will be the only one that supports 9.3. From that point forward, we will focus solely on 10.0 and beyond. Please feel free to download the version for your platform. We have also established a <a href="http://zekiah.uservoice.com">feedback site</a> for comments.</p>
 
