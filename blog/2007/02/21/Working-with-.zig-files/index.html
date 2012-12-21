@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Working with .zig files - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="The last couple of days have shown some traffic being driven to my blog from search terms such as &#8220;opening zig file&#8221; so I thought I&#8217 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/blog/2007/02/21/Working-with-.zig-files/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Working With .zig Files</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The last couple of days have shown some traffic being driven to my blog from search terms such as &#8220;opening zig file&#8221; so I thought I&#8217;d offer up a discussion of the format.</p>
+
+<p>Abe Gillespie, the original developer of <a href="http://code.google.com/p/ziggis">zigGIS</a>, developed the zig file as a means of persisting PostGIS connection information used to access a layer and display it in ArcMap. He threw us a blast from the past by choosing the old Windows INI format as the zig file syntax. I admire the choice because, truth be told, I still use that format from time to time. For simple configuration information, it&#8217;s more efficient than XML.<!--more--></p>
+
+<p>The INI is well documented but, as Win16 fades farther into history, it has become an anachronism. There is a reasonably good discussion of the format <a href="http://en.wikipedia.org/wiki/INI_file">here</a>.</p>
+
+<p>I did a lot of work with INI files in VB6. There are about a half million VB6 implementations that wrap the Windows API to manage INI files. <a href="http://www.andreavb.com/tip080005.html">Here&#8217;s one</a>. We use <a href="http://nini.sourceforge.net/">Nini</a> to manage the .zig files from within our .Net code.</p>
+
+<p>Paolo&#8217;s <a href="http://www.paolocorti.net/public/wordpress/index.php/2007/02/14/installing-ziggis-11-for-connecting-arcmap-to-postgis-layers/">latest post</a> about installing zigGIS 1.1 contains a description of the actual content of the .zig file.</p>
+
+<p>If you wanted to programmatically access or change the .zig file, what would you do? First, you could download our source code and see how we use Nini to do it. Secondly, you could use the Windows API. The simplest class I have makes use of just two API calls:</p>
+
+<ul>
+    <li>WritePrivateProfileStringA</li>
+    <li>GetPrivateProfileString</li>
+</ul>
+
+
+<p>Here&#8217;s a good <a href="http://www.developer.com/net/vb/article.php/3287991">link</a> with some VB.NET source code.</p>
+
+<p>The latst release Paolo posted makes zigGIS scriptable from within VBA. Therefore, those of you who will try it that way may find this code useful. It&#8217;s an old VB6 class that I used to use but will work just fine in VBA:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+</pre></td><td class='code'><pre><code class='vbnet'><span class='line'><span class="k">Option</span> <span class="n">Explicit</span>
+</span><span class='line'><span class="k">Private</span> <span class="k">Declare</span> <span class="k">Function</span> <span class="nf">WritePrivateProfileString</span> <span class="n">_</span>
+</span><span class='line'>    <span class="k">Lib</span> <span class="s">&quot;kernel32&quot;</span> <span class="k">Alias</span> <span class="s">&quot;WritePrivateProfileStringA&quot;</span> <span class="n">_</span>
+</span><span class='line'>        <span class="p">(</span><span class="k">ByVal</span> <span class="n">lpApplicationname</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">lpKeyName</span> <span class="ow">As</span> <span class="n">Any</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>            <span class="k">ByVal</span> <span class="n">lsString</span> <span class="ow">As</span> <span class="n">Any</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">lplFilename</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Long</span>
+</span><span class='line'><span class="k">Private</span> <span class="k">Declare</span> <span class="k">Function</span> <span class="nf">GetPrivateProfileInt</span> <span class="k">Lib</span> <span class="n">_</span>
+</span><span class='line'>    <span class="s">&quot;kernel32&quot;</span> <span class="k">Alias</span> <span class="s">&quot;GetPriviteProfileIntA&quot;</span> <span class="p">(</span><span class="k">ByVal</span> <span class="n">lpApplicationname</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>        <span class="k">ByVal</span> <span class="n">lpKeyName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">nDefault</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>            <span class="k">ByVal</span> <span class="n">lpFileName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Long</span>
+</span><span class='line'><span class="k">Private</span> <span class="k">Declare</span> <span class="k">Function</span> <span class="nf">GetPrivateProfileString</span> <span class="k">Lib</span> <span class="s">&quot;kernel32&quot;</span> <span class="k">Alias</span> <span class="n">_</span>
+</span><span class='line'>    <span class="s">&quot;GetPrivateProfileStringA&quot;</span> <span class="p">(</span><span class="k">ByVal</span> <span class="n">lpApplicationname</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>        <span class="k">ByVal</span> <span class="n">lpKeyName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">lpDefault</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>            <span class="k">ByVal</span> <span class="n">lpReturnedString</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">nSize</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">,</span> <span class="n">_</span>
+</span><span class='line'>                <span class="k">ByVal</span> <span class="n">lpFileName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Long</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Private</span> <span class="n">m_strFile</span> <span class="ow">As</span> <span class="kt">String</span> <span class="c">&#39; for file name</span>
+</span><span class='line'><span class="k">Private</span> <span class="n">m_AppName</span> <span class="ow">As</span> <span class="kt">String</span> <span class="c">&#39;</span>
+</span><span class='line'><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Get</span> <span class="n">FileName</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">String</span>
+</span><span class='line'>    <span class="n">FileName</span> <span class="o">=</span> <span class="n">m_strFile</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Property</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Let</span> <span class="n">FileName</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">strFile</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">m_strFile</span> <span class="o">=</span> <span class="n">Trim</span><span class="p">(</span><span class="n">strFile</span><span class="p">)</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Property</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Class_Initialize</span><span class="p">()</span>
+</span><span class='line'>    <span class="n">m_strFile</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'>    <span class="n">m_AppName</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Sub</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Get</span> <span class="n">ApplicationKey</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">String</span>
+</span><span class='line'>    <span class="n">ApplicationKey</span> <span class="o">=</span> <span class="n">m_AppName</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Property</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Let</span> <span class="n">ApplicationKey</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">strAppKey</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">m_AppName</span> <span class="o">=</span> <span class="n">Trim</span><span class="p">(</span><span class="n">strAppKey</span><span class="p">)</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Property</span>
+</span><span class='line'><span class="k">Private</span> <span class="k">Function</span> <span class="nf">fConvert</span><span class="p">(</span><span class="n">str</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">String</span>
+</span><span class='line'><span class="k">Dim</span> <span class="n">i</span> <span class="ow">As</span> <span class="kt">Integer</span>
+</span><span class='line'><span class="k">Dim</span> <span class="n">strOP</span> <span class="ow">As</span> <span class="kt">String</span>
+</span><span class='line'><span class="k">Dim</span> <span class="n">intAsc</span> <span class="ow">As</span> <span class="kt">Integer</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">str</span> <span class="o">=</span> <span class="n">Trim</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">strOP</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">Len</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">intAsc</span> <span class="o">=</span> <span class="n">Asc</span><span class="p">(</span><span class="n">Mid</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span><span class='line'>        <span class="k">If</span> <span class="n">intAsc</span> <span class="o">&amp;</span><span class="n">gt</span><span class="err">;</span> <span class="mi">31</span> <span class="ow">And</span> <span class="n">intAsc</span>  <span class="mi">0</span> <span class="k">Then</span>
+</span><span class='line'>        <span class="n">GetValue</span> <span class="o">=</span> <span class="n">fConvert</span><span class="p">(</span><span class="n">strVal</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">Else</span>
+</span><span class='line'>        <span class="n">GetValue</span> <span class="o">=</span> <span class="s">&quot;Error&quot;</span>
+</span><span class='line'>    <span class="k">End</span> <span class="k">If</span>
+</span><span class='line'><span class="k">End</span> <span class="k">Function</span>
+</span><span class='line'><span class="k">Public</span> <span class="k">Function</span> <span class="nf">SetValue</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">keyName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">strValue</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+</span><span class='line'><span class="k">Dim</span> <span class="n">ret</span> <span class="ow">As</span> <span class="kt">Long</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">ret</span> <span class="o">=</span> <span class="n">WritePrivateProfileString</span><span class="p">(</span><span class="n">m_AppName</span><span class="p">,</span> <span class="n">keyName</span><span class="p">,</span> <span class="n">strValue</span><span class="p">,</span> <span class="n">m_strFile</span><span class="p">)</span>
+</span><span class='line'><span class="k">If</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">Then</span>
+</span><span class='line'>    <span class="n">SetValue</span> <span class="o">=</span> <span class="k">False</span>
+</span><span class='line'>    <span class="k">Exit</span> <span class="k">Function</span>
+</span><span class='line'><span class="nf">End</span> <span class="k">If</span>
+</span><span class='line'><span class="n">SetValue</span> <span class="o">=</span> <span class="k">True</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">End</span> <span class="k">Function</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hopefully, this will help or at least get you going in the right direction.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/open-source/'>open source</a>, <a class='category' href='/blog/categories/ziggis/'>ziggis</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/blog/2007/02/21/Working-with-.zig-files/" data-via="billdollins" data-counturl="http://blog.geomusings.com/blog/2007/02/21/Working-with-.zig-files/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2007/02/16/DDJ-Article-on-MyMap-Javascript-API/" title="Previous Post: DDJ Article on MyMap Javascript API">&laquo; DDJ Article on MyMap Javascript API</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2007/02/24/How-Do-You-Disable-This-Dialog-in-ArcMap/" title="Next Post: How Do You Disable This Dialog in ArcMap?">How Do You Disable This Dialog in ArcMap? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

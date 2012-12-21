@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SQL Server 2008 Spatial - One Month Later - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="So it&#8217;s been about a month since the release of the SQL Server 2008 November CTP. I&#8217;ve been dabbling with it and have made several posts &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/blog/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">SQL Server 2008 Spatial - One Month Later</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-28T00:00:00-05:00" pubdate data-updated="true">Dec 28<span>th</span>, 2007</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>So it&#8217;s been about a month since the release of the SQL Server 2008 November CTP. I&#8217;ve been dabbling with it and have made several posts about it. I still have a lot more digging to do with it but here are my impressions after a month:<!--more--></p>
+
+<ol>
+<li><p>Geography - I was a little dubious about the use of two different spatial data types when I first cracked it open but have gradually begun to come around to this concept. I like the idea of a data type dedicated to spherical data. I&#8217;m sure that&#8217;s in there to meet requirement of Virtual Earth but I can think of a number of uses. Specifically, certain types of signals modeling/simulation and over-the-horizon visibility analysis could benefit from it. I will admit that I haven&#8217;t dug into the geography data type as much as I&#8217;d like to, but I plan to focus more on that after the first of the year.</p></li>
+<li><p>Spatial References - From a GIS perspective, support for spatial references could be seen as a little thin. Oracle, PostGIS and ArcSDE have spoiled me into expecting the database to do it all for me but MSFT seems to be taking a different view here. They&#8217;ve provided the geometry data type and you can specify an SRID but it&#8217;s pretty much left to the application to know what to do with it. Taking the long view, there is an opportunity here for a third-party or open-source solution to provide the capability that the GIS community has come to expect. It&#8217;s not a stretch to imagine something like <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=MsSqlSpatial">MsSqlSpatial</a> modified to use the SQL2008 geometry type. So, I&#8217;ve decided to keep my mind open here.</p></li>
+<li><p><del datetime="2007-12-28T00:12:11+00:00">WKT - The X/Y switching issue is the only thing I&#8217;ve seen so far that really needs to be addressed and changed. I think this will be a can of worms.</del> Microsoft listened. <a href="http://www.sharpgis.net/2007/12/27/TheCommunityWorks.aspx">Morten</a> said it best: the community works!</p></li>
+<li><p>Buzz - No denying it, there was a huge amount of pent-up demand for spatial support in SQL Server. In addition to the commercial support (slightly unprecedented for a CTP, I think), there&#8217;s been quite a bit of activity among independent developers. It&#8217;s important to remember that this is the first CTP in which spatial support has been included (although commercial partners had earlier access) so I would expect things to grow from here.</p></li>
+<li><p>Spatial Indexing - I haven&#8217;t dug into this too deeply except to note that a spatial index does (unsurprisingly) increase performance. I need to benchmark it more (like at all) from this standpoint. I&#8217;m also curious about behavior of spatial indices across table partitions. There were some deficiencies (IMHO) with spatial indices and partitioning with Oracle Spatial so I&#8217;m curious here.</p></li>
+<li><p>Data Loading tools - There aren&#8217;t any included that support spatial data. There is always <a href="http://www.safe.com/">FME</a> but I think there should at least be support for importing from a shapefile (and maybe GML or KML) in the &#8216;SQL Server Import and Export Wizard&#8217; so that you have something to get going with. That may come in a later CTP but there&#8217;s nothing there now.</p></li>
+<li><p>Oh yeah, the rest of SQL Server. Kinda lost in all of the spatial discussion is that SQL 2008 is already pretty solid. As a whole, it&#8217;s close to production quality now.</p></li>
+</ol>
+
+
+<p>In summation, I come away fairly impressed so far. I think that those of us who&#8217;ve been working with GIS (and spatial DB&#8217;s) for a while will definitely need to change our mindsets when working with SQL Server. There are definitely some different viewpoints at work with it. Out of the box, it does less than you may be used to. That&#8217;ll force your DBA&#8217;s to get up to snuff with a lot of new concepts but it&#8217;ll also present an opportunity in the 3rd party market.</p>
+
+<p>So there&#8217;s my two cents so far. This and $4.50 will get you&#8230;</p>
+
+<p><img alt="You'll need it after staying up till 3:00 AM playing with SQL Server 2008" src="http://bigmarketing.files.wordpress.com/2007/05/starbucks_cup.jpg" /></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-28T00:00:00-05:00" pubdate data-updated="true">Dec 28<span>th</span>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/sql-server-spatial/'>sql server spatial</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/blog/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/" data-via="billdollins" data-counturl="http://blog.geomusings.com/blog/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2007/12/21/2008-ESRI-Federal-Users-Conference/" title="Previous Post: 2008 ESRI Federal Users Conference">&laquo; 2008 ESRI Federal Users Conference</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/01/07/SharpMap-on-Apache/" title="Next Post: SharpMap on Apache">SharpMap on Apache &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>

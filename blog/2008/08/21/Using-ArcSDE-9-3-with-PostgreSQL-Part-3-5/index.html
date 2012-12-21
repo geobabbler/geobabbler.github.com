@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Using ArcSDE 9.3 with PostgreSQL, Part 3.5 - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="I thought I was done with the series a while back but I&#8217;ve been getting a steady stream of questions through other channels so I thought I&# &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/blog/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/resources">Resources</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Using ArcSDE 9.3 With PostgreSQL, Part 3.5</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-21T00:00:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I thought I was done with the series a while back but I&#8217;ve been getting a steady stream of questions through other channels so I thought I&#8217;d wrap up a lot of the common stuff in another post. Most of the inquiries come from people trying to integrate <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> for <a href="http://www.postgresql.org">PostgreSQL</a> with open-source tools in one way or another. Here are a few notes:<!--more--></p>
+
+<ol type="1">
+    <li>If you plan to load data into PostgreSQL with ArcCatalog but plan to edit it with tools such as <a href="http://udig.refractions.net/">uDig</a>, <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a> or <a href="http://pub.obtusesoft.com/">zigGIS</a>, then you want to do the following:
+             <ol type="a">
+                  <li>Always load your data with the PG_GEOMETRY configuration keyword. This will cause your spatial objects to be stored in the <a href="http://postgis.refractions.net/">PostGIS</a> format. None of the open-source tools I&#8217;ve used can understand ST_GEOMETRY.</li>
+                  <li>Don&#8217;t version your data. uDig, gvSIG and zigGIS (what I&#8217;ve used) only &#8220;see&#8221; the DEFAULT version anyway. They can&#8217;t take advantage of versioning.</li>
+                  <li>Although ArcCatalog does put an entry in the PostGIS geometry_columns table, it lists the geometry type as GEOMETRY. gvSIG edits this fine but it seems to monkey with uDig a little. It&#8217;s not a bad idea to update this with the actual geometry type. These will be string values such as &#8220;POLYGON&#8221;, &#8220;MULTIPOLYGON&#8221;, etc. You&#8217;ll need to do this if you plan to edit your data with zigGIS from an ArcView desktop.</li>
+                  <li>Related to the previous item. If you were to load data using shp2pgsql or any other method that calls the PostGIS <a href="http://postgis.refractions.net/documentation/manual-1.3/ch06.html#id3059786">AddGeometryColumn</a> function, you would end up with constraints on your table limiting the geometry column to a homogenous geometry type (e.g only polygons) and a homogenous SRID. Loading via ArcCatalog doesn&#8217;t do this (and I&#8217;ve run into other tools that don&#8217;t as well). Quite frankly ArcSDE manages all of that for itself so it doesn&#8217;t need such constraints. Without them, however, you can use other tools and mix your geometry types and SRIDs in the table. It&#8217;s a good idea to add these constraints and I have noticed no ill effects on ArcGIS if you do.</li>
+                   <li>As we discovered with zigGIS, there is a difference between the spatial references that are defined by default on the PostGIS spatial_ref_sys table and the ArcSDE sde_spatial_references table. This makes it possible to load data via ArcCatalog that doesn&#8217;t have a corresponding SRID in the PostGIS table. This would effect your ability to add the previously discussed constraint. It will also throw off open-source tools that look at the spatial_ref_sys table. It&#8217;s a good idea to update spatial_ref_sys to include those from ArcGIS that are not already supported.</li>
+                    <li>ArcCatalog doesn&#8217;t define a primary key on your spatial table. uDig really doesn&#8217;t like this so it&#8217;s best to add a primary key on the objectid column (this has no effect on ArcGIS that I can tell) using the following syntax:
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">myTable</span>
+</span><span class='line'><span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">mytable_pkey</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">objectid</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+gvSIG additionally expects the column with the PK to &#8220;auto-number&#8221; so you may want to experiment with adding a sequence to the column. The syntax I used to do this is:
+
+ 
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">SEQUENCE</span> <span class="n">mytable_gid_seq</span>
+</span><span class='line'><span class="k">INCREMENT</span> <span class="mf">1</span>
+</span><span class='line'><span class="k">MINVALUE</span> <span class="mf">1</span>
+</span><span class='line'><span class="k">MAXVALUE</span> <span class="mf">9223372036854775807</span>
+</span><span class='line'><span class="k">START</span> <span class="mf">408</span>
+</span><span class='line'><span class="k">CACHE</span> <span class="mf">1</span><span class="p">;</span>
+</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">mytable_gid_seq</span> <span class="k">OWNER</span> <span class="k">TO</span> <span class="n">postgres</span><span class="p">;</span>
+</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">myTable</span> <span class="k">ALTER</span> <span class="k">COLUMN</span> <span class="n">objectid</span> <span class="k">SET</span> <span class="k">DEFAULT</span> <span class="n">nextval</span><span class="p">(</span><span class="o">?</span><span class="n">mytable_gid_seq</span><span class="o">?::</span><span class="n">regclass</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+                 
+If you&#8217;re experienced with ArcSDE, you get nervous mucking with the objectid column. I have made both the of the above changes to several data sets and made edits in uDig, gvSIG and ArcMap with no ill effect.</li>
+</ol>
+<li>If you plan to edit/manage your data using ArcGIS but serve it out using an open-source application like GeoServer or MapServer then there are a few considerations:
+            <ol type="a">
+            <li>If you plan to use versioning, then be diligent about posting and reconciling with DEFAULT so that any changes want to have show up will. Of course, this assumes you would just be connecting to the PostGIS data. If you connect through ArcSDE, this <em>may</em> be unnecessary.</li>
+            <li>Again, use the PG_GEOMETRY keyword.</li>
+            <li>The SRID issue discussed in item 1e above <em>may</em> be relevant here as well.</li>
+            </ol>
+</li>
+<li>The implementation of ArcSDE on the PostgreSQL platform is pretty solid. I have been able to do everything I could do on other platforms. So, if you plan to stay in the ESRI environment, go forth an conquer. I think you&#8217;ll be pleased with PostgreSQL. You may want to bone up on PostgreSQL database administration, though.</li>
+
+Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerous technology mixes. It&#8217;s somewhat uncharted territory and it&#8217;s not a bad idea, as with any system integration task, to do a little testing and experimentation before moving on with an implementation.
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-21T00:00:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/arcgis-desktop/'>arcgis desktop</a>, <a class='category' href='/blog/categories/arcsde/'>arcsde</a>, <a class='category' href='/blog/categories/esri/'>esri</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/postgis/'>postgis</a>, <a class='category' href='/blog/categories/postgresql/'>postgresql</a>, <a class='category' href='/blog/categories/udig/'>udig</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/blog/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/" data-via="billdollins" data-counturl="http://blog.geomusings.com/blog/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/08/14/SilverLight-and-ArcGIS-Server-9-3/" title="Previous Post: SilverLight and ArcGIS Server 9.3">&laquo; SilverLight and ArcGIS Server 9.3</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/09/03/MapWindow-Looking-for-Testers-and-Programmers/" title="Next Post: MapWindow Looking for Testers and Programmers">MapWindow Looking for Testers and Programmers &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/geobabbler">@geobabbler</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'geobabbler',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103048542132426664956?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.geomusings.com/blog/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/';
+        var disqus_url = 'http://blog.geomusings.com/blog/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>
