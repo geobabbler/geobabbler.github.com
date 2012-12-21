@@ -4,7 +4,7 @@
   <title><![CDATA[Category: no fixed address | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/no-fixed-address/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T11:21:28-05:00</updated>
+  <updated>2012-12-21T12:00:37-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[How long until the ads stop?]]></title>
-    <link href="http://blog.geomusings.com/2012/11/06/how-long-until-the-ads-stop/"/>
+    <link href="http://blog.geomusings.com/2012/11/06/How-long-until-the-ads-stop/"/>
     <updated>2012-11-06T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/06/how-long-until-the-ads-stop</id>
+    <id>http://blog.geomusings.com/2012/11/06/How-long-until-the-ads-stop</id>
     <content type="html"><![CDATA[<p>In celebration of this day when the non-stop political ads, robo-calls, junk mail, and social media posts <em>should</em> finally come to an end. I threw together a little map to show the latest time at which polls close in each state. This should represent, state-by-state, the time (EST) at which you can safely go back to answering your phones. Click the image below to go there (the data takes a couple of seconds to load).</p>
 
 <p><a href="http://demo.zekiah.com/polls"><img alt="" class="aligncenter size-full wp-image-2947" height="331" src="http://geobabble.files.wordpress.com/2012/11/pollmap.png" title="pollmap" width="640" /></a></p>
@@ -30,9 +30,9 @@
   
   <entry>
     <title type="html"><![CDATA[Still Jonesing for zigGIS? Try this OGR Plug-In for ArcGIS.]]></title>
-    <link href="http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis./"/>
+    <link href="http://blog.geomusings.com/2012/09/18/Still-Jonesing-for-zigGIS-Try-this-OGR-Plug-In-for-ArcGIS/"/>
     <updated>2012-09-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis.</id>
+    <id>http://blog.geomusings.com/2012/09/18/Still-Jonesing-for-zigGIS-Try-this-OGR-Plug-In-for-ArcGIS</id>
     <content type="html"><![CDATA[<p>So I've actually noticed a surprising uptick in traffic related to <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> lately? We also had someone asking about <a href="http://www.st-links.com/Pages/default.aspx" target="_blank">ST-Links</a> on the zigGIS mailing list last week. Clearly, there's still a level of interest out there for the problem that zigGIS was designed for.</p>
 
 <p><a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank"><img alt="ArcGIS and SpatiaLite" height="65%" src="https://a248.e.akamai.net/camo.github.com/c1c86347c63522cb0f5f449b7b9df4209923c3ed/687474703a2f2f692e696d6775722e636f6d2f53767a6a702e706e67" width="65%" /></a></p>
@@ -51,9 +51,9 @@
   
   <entry>
     <title type="html"><![CDATA[Create a WeoGeo Tilepack from ArcGIS Tiles]]></title>
-    <link href="http://blog.geomusings.com/2012/08/14/create-a-weogeo-tilepack-from-arcgis-tiles/"/>
+    <link href="http://blog.geomusings.com/2012/08/14/Create-a-WeoGeo-Tilepack-from-ArcGIS-Tiles/"/>
     <updated>2012-08-14T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/14/create-a-weogeo-tilepack-from-arcgis-tiles</id>
+    <id>http://blog.geomusings.com/2012/08/14/Create-a-WeoGeo-Tilepack-from-ArcGIS-Tiles</id>
     <content type="html"><![CDATA[<p>A couple of months ago, <a href="http://twitter.com/dandye" target="_blank">Dan Dye</a> at WeoGeo <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">posted about work he had done</a> to facilitate creating <a href="http://www.weogeo.com" target="_blank">WeoGeo</a> tile packs from <a href="http://mapbox.com/developers/mbtiles/" target="_blank">MBTiles</a> databases. Recently, I had the need to do the same with <a href="http://www.esri.com" target="_blank">ArcGIS</a> tiles. As Dan explained, WeoGeo uses a ZYX structure in their tile packs. This matched up nicely with the Level/Row/Column structure <a href="http://blogs.esri.com/esri/arcgis/2010/08/20/checking-your-local-cache-folders/" target="_blank">used by ArcGIS</a>. WeoGeo supports either WGS84 (EPSG:4326) or Spherical Mercator (EPSG:3857) as spatial references for tile packs. In my case, I used the latter. My preferred way of creating tiles from ArcGIS products is to use <a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>. While Arc2Earth does directly export to the WeoGeo structure, the tiles are watermarked with a WeoGeo logo, which was not needed in this case. Arc2Earth also exports to the ArcGIS structure, so a simple script to convert to the WeoGeo structure is all that was needed.</p>
 
 <p><img alt="Arc2Earth settings to create ArcGIS Tiles" class="aligncenter size-medium wp-image-2815" height="243" src="http://geobabble.files.wordpress.com/2012/08/a2e_ags.png?w=300" title="Arc2Earth settings to create ArcGIS Tiles" width="300" /></p>
@@ -67,9 +67,9 @@
   
   <entry>
     <title type="html"><![CDATA[Today Is World Diabetes Day]]></title>
-    <link href="http://blog.geomusings.com/2011/11/14/today-is-world-diabetes-day/"/>
+    <link href="http://blog.geomusings.com/2011/11/14/Today-Is-World-Diabetes-Day/"/>
     <updated>2011-11-14T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2011/11/14/today-is-world-diabetes-day</id>
+    <id>http://blog.geomusings.com/2011/11/14/Today-Is-World-Diabetes-Day</id>
     <content type="html"><![CDATA[<p><a href="http://www.idf.org/worlddiabetesday/"><img alt="" class="aligncenter size-full wp-image-2225" height="383" src="http://geobabble.files.wordpress.com/2011/11/wdd.png" title="World Diabetes Day" width="590" /></a></p>
 
 <p><a href="http://www.cdc.gov/diabetes/">Learn More...</a></p>
@@ -78,9 +78,9 @@
   
   <entry>
     <title type="html"><![CDATA[Have Fun In San Diego]]></title>
-    <link href="http://blog.geomusings.com/2011/07/01/have-fun-in-san-diego/"/>
+    <link href="http://blog.geomusings.com/2011/07/01/Have-Fun-In-San-Diego/"/>
     <updated>2011-07-01T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/07/01/have-fun-in-san-diego</id>
+    <id>http://blog.geomusings.com/2011/07/01/Have-Fun-In-San-Diego</id>
     <content type="html"><![CDATA[<p>As everyone gears up for the <a href="http://www.esri.com/events/user-conference/index.html">exodus to San Diego</a>, I wish everyone a good, enjoyable and fruitful time. There's something to be said for the energy of 12,000+ geonerds in one place. As for me, I'll be <a href="http://www.childrenwithdiabetes.com/activities/orlando2011/">here</a>, hanging with a couple hundred of the bravest, most inspiring young people you could ever meet. After that, it's family time and and little R&amp;R.</p>
 
 <p>And be sure to use the <a href="http://uc.dtsagile.com/">Unofficial Esri UC BackChannel</a> by the guys at <a href="http://dtsagile.com/">DTS Agile</a>. It's a great way to enrich your experience.</p>

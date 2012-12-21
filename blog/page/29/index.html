@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="An article in the latest Dr. Dobb&#8217;s caught my eye. It&#8217;s about MyMap; a javascript api that standardizes the calls between Google Maps, &hellip;">
+  <meta name="description" content="UPDATECheck the comments for the resolution to this. 9.2 offers a registry setting and, since I&#8217;m upgrading, I&#8217;ll make use of that. I got &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,98 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/16/ddj-article-on-mymap-javascript-api/">DDJ Article on MyMap Javascript API</a></h1>
+      <h1 class="entry-title"><a href="/2007/02/24/How-Do-You-Disable-This-Dialog-in-ArcMap/">How Do You Disable This Dialog in ArcMap?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-24T00:00:00-05:00" pubdate data-updated="true">Feb 24<span>th</span>, 2007</time>
+        
+         | <a href="/2007/02/24/How-Do-You-Disable-This-Dialog-in-ArcMap/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong><strong>UPDATE</strong></strong><em>Check the comments for the resolution to this. 9.2 offers a registry setting and, since I&#8217;m upgrading, I&#8217;ll make use of that. I got pretty far on my API hack though.</em></p>
+
+<p>My question is twofold: First: Can you stop this dialog from appearing in ArcMap 9.1? Second: If not, does 9.2 give you the option to turn this thing off?</p>
+
+<p><img alt="ArcMap Drawing Errors?Dialog" src="http://geobabble.files.wordpress.com/2007/02/arcmap_draw_error.JPG" /></p>
+
+<p>I have posted a similar query on the ESRI forums but I thought the blogosphere may be able to weigh in on this. This dialog was introduced at 9.1 as a &#8220;feature&#8221; but it&#8217;s not the most developer-friendly thing in the world. A little background:</p>
+
+<p>I have an application running as a Windows service that is receiving data and stuffing it into ArcSDE. I have another app that&#8217;s an ArcMap extension. It refreshed the map on a specified interval and shows the new data as it comes in. There is no syncronization between the two. As you would expect, there are occaionally collisions. The ArcSDE layer may be in load-only mode or something similar. I have a lot of exception-handling in place to trap all of those kinds of things.</p>
+
+<p>This dialog defies all of that. Despite my exception handling, it still pops up and it completely freaks out my users. I would like to turn it off. (I would really like to kill it.) I can&#8217;t find a registry setting or any other such option that allows me to do that so I&#8217;m stumped. Any help would be appreciated and I promise to sing your praises on this blog if you have the solution.</p>
+
+<p>For background: we are using 9.1 (for a number of reasons). We are starting the upgrade planning to go to 9.2. If 9.2 fixes this, then I&#8217;ll stop worrying about it. Any useful info would be very helpful. My next step is some slimy Windows API hack to suppress the damned thing.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/02/21/Working-with-.zig-files/">Working With .zig Files</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The last couple of days have shown some traffic being driven to my blog from search terms such as &#8220;opening zig file&#8221; so I thought I&#8217;d offer up a discussion of the format.</p>
+
+<p>Abe Gillespie, the original developer of <a href="http://code.google.com/p/ziggis">zigGIS</a>, developed the zig file as a means of persisting PostGIS connection information used to access a layer and display it in ArcMap. He threw us a blast from the past by choosing the old Windows INI format as the zig file syntax. I admire the choice because, truth be told, I still use that format from time to time. For simple configuration information, it&#8217;s more efficient than XML.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/02/21/Working-with-.zig-files/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/02/16/DDJ-Article-on-MyMap-Javascript-API/">DDJ Article on MyMap Javascript API</a></h1>
     
     
       <p class="meta">
@@ -90,7 +181,7 @@
 
 <time datetime="2007-02-16T00:00:00-05:00" pubdate data-updated="true">Feb 16<span>th</span>, 2007</time>
         
-         | <a href="/2007/02/16/ddj-article-on-mymap-javascript-api/#disqus_thread">Comments</a>
+         | <a href="/2007/02/16/DDJ-Article-on-MyMap-Javascript-API/#disqus_thread">Comments</a>
         
       </p>
     
@@ -112,7 +203,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/14/ziggis-1.1.0.20768-now-available/">zigGIS 1.1.0.20768 Now Available!</a></h1>
+      <h1 class="entry-title"><a href="/2007/02/14/zigGIS-1.1.0.20768-Now-Available/">zigGIS 1.1.0.20768 Now Available!</a></h1>
     
     
       <p class="meta">
@@ -130,7 +221,7 @@
 
 <time datetime="2007-02-14T00:00:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2007</time>
         
-         | <a href="/2007/02/14/ziggis-1.1.0.20768-now-available/#disqus_thread">Comments</a>
+         | <a href="/2007/02/14/zigGIS-1.1.0.20768-Now-Available/#disqus_thread">Comments</a>
         
       </p>
     
@@ -152,7 +243,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/13/ziggis-update-coming-soon/">zigGIS Update Coming Soon</a></h1>
+      <h1 class="entry-title"><a href="/2007/02/13/zigGIS-Update-Coming-Soon/">zigGIS Update Coming Soon</a></h1>
     
     
       <p class="meta">
@@ -170,7 +261,7 @@
 
 <time datetime="2007-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2007</time>
         
-         | <a href="/2007/02/13/ziggis-update-coming-soon/#disqus_thread">Comments</a>
+         | <a href="/2007/02/13/zigGIS-Update-Coming-Soon/#disqus_thread">Comments</a>
         
       </p>
     
@@ -199,7 +290,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/07/arcgis-next/">ArcGIS.Next (+)</a></h1>
+      <h1 class="entry-title"><a href="/2007/02/07/ArcGIS-Next/">ArcGIS.Next (+)</a></h1>
     
     
       <p class="meta">
@@ -217,7 +308,7 @@
 
 <time datetime="2007-02-07T00:00:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2007</time>
         
-         | <a href="/2007/02/07/arcgis-next/#disqus_thread">Comments</a>
+         | <a href="/2007/02/07/ArcGIS-Next/#disqus_thread">Comments</a>
         
       </p>
     
@@ -245,7 +336,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/02/05/two-roads-diverged-in-a-yellow-wood/">Two Roads Diverged in a Yellow Wood&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/2007/02/05/Two-Roads-Diverged-in-a-Yellow-Wood/">Two Roads Diverged in a Yellow Wood&#8230;</a></h1>
     
     
       <p class="meta">
@@ -263,7 +354,7 @@
 
 <time datetime="2007-02-05T00:00:00-05:00" pubdate data-updated="true">Feb 5<span>th</span>, 2007</time>
         
-         | <a href="/2007/02/05/two-roads-diverged-in-a-yellow-wood/#disqus_thread">Comments</a>
+         | <a href="/2007/02/05/Two-Roads-Diverged-in-a-Yellow-Wood/#disqus_thread">Comments</a>
         
       </p>
     
@@ -295,7 +386,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/25/desktop-we-dont-need-no-stinkin-desktop/">Desktop? We Don&#8217;t Need No Stinkin&#8217; Desktop!</a></h1>
+      <h1 class="entry-title"><a href="/2007/01/25/Desktop-We-Dont-Need-No-Stinkin-Desktop/">Desktop? We Don&#8217;t Need No Stinkin&#8217; Desktop!</a></h1>
     
     
       <p class="meta">
@@ -313,7 +404,7 @@
 
 <time datetime="2007-01-25T00:00:00-05:00" pubdate data-updated="true">Jan 25<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/25/desktop-we-dont-need-no-stinkin-desktop/#disqus_thread">Comments</a>
+         | <a href="/2007/01/25/Desktop-We-Dont-Need-No-Stinkin-Desktop/#disqus_thread">Comments</a>
         
       </p>
     
@@ -337,7 +428,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/18/pfisk-on-autolisp/">Pfisk on AutoLISP</a></h1>
+      <h1 class="entry-title"><a href="/2007/01/18/pfisk-on-AutoLISP/">Pfisk on AutoLISP</a></h1>
     
     
       <p class="meta">
@@ -355,7 +446,7 @@
 
 <time datetime="2007-01-18T00:00:00-05:00" pubdate data-updated="true">Jan 18<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/18/pfisk-on-autolisp/#disqus_thread">Comments</a>
+         | <a href="/2007/01/18/pfisk-on-AutoLISP/#disqus_thread">Comments</a>
         
       </p>
     
@@ -375,7 +466,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/01/16/free-and-closed.-why/">Free and Closed. Why?</a></h1>
+      <h1 class="entry-title"><a href="/2007/01/16/Free-and-Closed.-Why/">Free and Closed. Why?</a></h1>
     
     
       <p class="meta">
@@ -393,7 +484,7 @@
 
 <time datetime="2007-01-16T00:00:00-05:00" pubdate data-updated="true">Jan 16<span>th</span>, 2007</time>
         
-         | <a href="/2007/01/16/free-and-closed.-why/#disqus_thread">Comments</a>
+         | <a href="/2007/01/16/Free-and-Closed.-Why/#disqus_thread">Comments</a>
         
       </p>
     
@@ -420,89 +511,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/14/derived-geometry-redux/">Derived Geometry Redux</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-14T00:00:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2007</time>
-        
-         | <a href="/2007/01/14/derived-geometry-redux/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A long time ago, on a blog-hosting site far far away, there was a blog called ArcDeveloper (not to be confused with <a href="http://www.arcdeveloper.net/">ArcDeveloper.Net</a>, which came later and did more). That was my first blog. It went in a few different directions. I wasn&#8217;t happy with it, so I killed it. There&#8217;s nothing to link to now.</p>
-
-<p>Anyway, one of the posts I did on that blog had to do with creating derived geometry classes in .Net. The basic premise is simple: create a class that inherits from one of the ArcObjects geometry classes and then extend it to fit your needs. My application at the time had to do with writing an ArcGIS client for <a href="http://www.incident.com/cookbook/index.php/Welcome_to_the_CAP_Cookbook">Common Alerting Protocol (CAP)</a> feeds.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/01/14/derived-geometry-redux/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/12/standalone-ie6/">Standalone IE6</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-12T00:00:00-05:00" pubdate data-updated="true">Jan 12<span>th</span>, 2007</time>
-        
-         | <a href="/2007/01/12/standalone-ie6/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Okay, this really has nothing to do with GIS but I wanted to get this info out there. I have a particular piece of software that I use regularly that involves connecting a device to my PC to exchange information. This software does not work with IE7 yet. Since automatic updates doesn&#8217;t really give you any choice in the matter (I love coming down in the morning and finding a new browser), this created a problem for me.</p>
-
-<p>I found the following software that lets you install previous version of IE in standalone mode: <a href="http://tredosoft.com/Multiple_IE">http://tredosoft.com/Multiple_IE</a>. I imagine it may have applicability for testing and such but it also solved my problem.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/30/">&larr; Older</a>
@@ -520,23 +528,23 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-4.0-released/">SpatiaLite 4.0 Released</a>
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed&#8230;</a>
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed&#8230;</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
       </li>
     
   </ul>

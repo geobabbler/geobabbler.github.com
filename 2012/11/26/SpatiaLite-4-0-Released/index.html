@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>QGIS 1.8.0 Released - geoMusings</title>
+  <title>SpatiaLite 4.0 Released - geoMusings</title>
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I caught a tweet by my friend Paolo Corti this morning that QGIS 1.8.0 has been released. qgis 1.8.0 &#8220;Lisboa&#8221; released! goo.gl/eSDYo& &hellip;">
+  <meta name="description" content="It looks like it was a busy weekend for Sandro Furieri and the rest of the SpatiaLite team as version 4.0 was announced on Sunday. There are a number &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.geomusings.com/2012/06/21/qgis-180-released/">
+  <link rel="canonical" href="http://blog.geomusings.com/2012/11/26/SpatiaLite-4-0-Released/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -69,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">QGIS 1.8.0 Released</h1>
+      <h1 class="entry-title">SpatiaLite 4.0 Released</h1>
     
     
       <p class="meta">
@@ -85,7 +85,7 @@
   
 
 
-<time datetime="2012-06-21T00:00:00-04:00" pubdate data-updated="true">Jun 21<span>st</span>, 2012</time>
+<time datetime="2012-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -94,55 +94,12 @@
   </header>
 
 
-<div class="entry-content"><p>I caught a tweet by my friend <a href="http://www.paolocorti.net/" target="_blank">Paolo Corti</a> this morning that <a href="http://qgis.org" target="_blank">QGIS</a> 1.8.0 has been released.</p>
+<div class="entry-content"><p>It looks like it was a busy weekend for Sandro Furieri and the rest of the <a href="https://www.gaia-gis.it/fossil/libspatialite/index" target="_blank">SpatiaLite</a> team as version 4.0 was announced on Sunday. There are a number of changes, so it&#8217;s best to <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=switching-to-4.0" target="_blank">catch up on them</a> before switching over.</p>
 
-<div class='embed tweet'><blockquote class="twitter-tweet"><p>qgis 1.8.0 &#8220;Lisboa&#8221; released! <a href="http://t.co/UZWFzy0m" title="http://goo.gl/eSDYo">goo.gl/eSDYo</a></p>&mdash; Paolo Corti (@capooti) <a href="https://twitter.com/capooti/status/215767511990415360" data-datetime="2012-06-21T11:25:58+00:00">June 21, 2012</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>Upon checking out the full list of new features <a href="http://lists.osgeo.org/pipermail/qgis-developer/2012-June/020685.html" target="_blank">here</a>, a few caught my eye:</p>
-
-<blockquote>
-- QGIS Browser - a stand alone app and a new panel in QGIS. The
-browser lets you easily navigate your file system and connection based
-(PostGIS, WFS etc.) datasets, preview them and drag and drop items
-into the canvas.
-
-- DB Manager - the DB manager is now officially part of QGIS core. You
-can drag layers from the QGIS Browser into DB Manager and it will
-import your layer into your spatial database. Drag and drop tables
-between spatial databases and they will get imported. You can use the
-DB Manager to execute SQL queries against your spatial database and
-then view the spatial output for queries by adding the results to QGIS
-as a query layer.
-
-- MSSQL Spatial Support - you can now connect to your Microsoft SQL
-Server spatial databases using QGIS.
-
-- Support for PostGIS TopoGeometry datatype
-
-- Terrain Analysis Plugin - a new core plugin was added for doing
-terrain analysis - and it can make really good looking coloured relief
-maps.
-
-- Heatmap tool - a new core plugin has been added for generating
-raster heatmaps from point data. You may need to activate this plugin
-using the plugin manager.
-</blockquote>
+<div style="text-align: center;"><a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a><div style="text-align: center;font-size: 14px;">Not this SpatiaLite</div></div>
 
 
-
-
-<!--more-->
-
-
-<p>It looks like a lot of focus has been placed on making it easier to user your data. If you are not familiar with QGIS, it&#8217;s the best open-source desktop GIS out there and stands toe-to-toe with any commercial equivalent. A few years ago, desktop GIS was considered to be something of an Achilles heel for open-source GIS but that hasn&#8217;t been true for a long time. I integrated QGIS into my work a while back and it figures more prominently for me with each release.</p>
-
-<p><img alt="" class="aligncenter size-medium wp-image-2692" height="225" src="http://geobabble.files.wordpress.com/2012/06/smiley-happy-face-yellow.jpg?w=300" title="Smiley-happy-face-yellow" width="300" /></p>
-
-<p>To get a sense of the kind of things you can do with QGIS, check out <a href="http://mapbox.com/blog/binning-alternative-point-maps/" target="_blank">this post</a> on the <a href="http://mapbox.com/" target="_blank">MapBox</a> blog and also check out <a href="http://woostuff.wordpress.com/" target="_blank">Nathan Woodrow&#8217;s blog</a>. In addition, <a href="http://twitter.com/#!/dmgeo" target="_blank">Caitlyn Dempsey&#8217;s</a> recent <a href="http://gislounge.com/where-are-the-gis-jobs-a-look-at-the-gis-job-market-in-the-united-states/" target="_blank">map of GIS job availability</a> was built using QGIS. These links are good examples to show that QGIS is excellent, professional GIS tool.</p>
-
-<p>I think my download just finished&#8230;</p>
+<p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I&#8217;ll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
 </div>
 
 
@@ -165,12 +122,12 @@ using the plugin manager.
   
 
 
-<time datetime="2012-06-21T00:00:00-04:00" pubdate data-updated="true">Jun 21<span>st</span>, 2012</time>
+<time datetime="2012-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/qgis/'>QGIS</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/open-source/'>open source</a>
+    <a class='category' href='/blog/categories/spatialite/'>SpatiaLite</a>, <a class='category' href='/blog/categories/database/'>database</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/open-source/'>open source</a>
   
 </span>
 
@@ -179,7 +136,7 @@ using the plugin manager.
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2012/06/21/qgis-180-released/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2012/06/21/qgis-180-released/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2012/11/26/SpatiaLite-4-0-Released/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2012/11/26/SpatiaLite-4-0-Released/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -192,14 +149,20 @@ using the plugin manager.
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2012/06/21/prince-georges-county-maryland-posts-3-d-planning-model-videos/" title="Previous Post: Prince George's County, Maryland Posts 3-D Planning Model Videos">&laquo; Prince George's County, Maryland Posts 3-D Planning Model Videos</a>
+        <a class="basic-alignment left" href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/" title="Previous Post: The Biggest News You May Have Missed...">&laquo; The Biggest News You May Have Missed...</a>
       
       
-        <a class="basic-alignment right" href="/2012/07/07/planet-postgis-online/" title="Next Post: Planet PostGIS Online">Planet PostGIS Online &raquo;</a>
+        <a class="basic-alignment right" href="/2012/11/26/SpatiaLite-for-Android-Available/" title="Next Post: SpatiaLite for Android Available">SpatiaLite for Android Available &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -210,23 +173,23 @@ using the plugin manager.
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-4.0-released/">SpatiaLite 4.0 Released</a>
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed...</a>
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
       </li>
     
   </ul>
@@ -309,7 +272,10 @@ using the plugin manager.
       var disqus_shortname = 'geomusings';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.geomusings.com/2012/11/26/SpatiaLite-4-0-Released/';
+        var disqus_url = 'http://blog.geomusings.com/2012/11/26/SpatiaLite-4-0-Released/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

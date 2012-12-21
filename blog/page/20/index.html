@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="This came through my inbox. I thought it may be of interest to PostgreSQL/PostGIS/ArcGIS 9.3 users in the Pacific Northwest. Request for proposals: &hellip;">
+  <meta name="description" content="Or maybe it&#8217;s just this post. It&#8217;s always fun in tools such as ArcGIS Explorer and Google Earth to browse around your local area and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,155 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/06/04/oregon-postgresql-conference/">Oregon PostgreSQL Conference</a></h1>
+      <h1 class="entry-title"><a href="/2008/06/25/AGX-Build-480-is-Corny/">AGX Build 480 Is Corny</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-25T00:00:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2008</time>
+        
+         | <a href="/2008/06/25/AGX-Build-480-is-Corny/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Or maybe it&#8217;s just this post.</p>
+
+<p>It&#8217;s always fun in tools such as ArcGIS Explorer and Google Earth to browse around your local area and check out the familiar sites, especially when there is an update. In my case, that means browsing around Southern Maryland. The imagery in build 480 for my area was apparently captured in the fall since corn mazes can be see pretty clearly. Here are the approximate coordinates of a couple:</p>
+
+<p>-76.698488, 38.323529
+-76.720778, 38.411094</p>
+
+<p>The second is of particular interest. I took my daughter to that one in Pre-K. I know this because the owners helpfully carved the words &#8220;Forrest Hall Farm 2005&#8221; into the field. This is all the more interesting since the copyright statement at the corner of the screen would lead you to believe you are looking at 2007 imagery.</p>
+
+<p>This kind of like looking for the errors in movies.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/06/16/DMS-to-Decimal-Degrees-Function-for-PostgreSQL/">DMS to Decimal Degrees Function for PostgreSQL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-16T00:00:00-04:00" pubdate data-updated="true">Jun 16<span>th</span>, 2008</time>
+        
+         | <a href="/2008/06/16/DMS-to-Decimal-Degrees-Function-for-PostgreSQL/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><!--zekiah -->
+
+
+<p>For another project, I had to work with a PostgreSQL table that was storing locations in Degrees/Minutes/Seconds. We had to create an event layer in ArcGIS so they had to be converted to decimal degrees. The server was not using PostGIS and I really had no control over the configuration (although the admins would let us create views or functions to facilitate what we needed). So I wrote a function to accomplish the conversion and allow us to create a view. It was pretty simple (and others may have more elegant approaches) but I figured I&#8217;d post it to save someone else some work in the future. Here&#8217;s the code:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">dms2dd</span><span class="p">(</span>
+</span><span class='line'>       <span class="n">D</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">M</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">S</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">HEMI</span> <span class="nb">character</span> <span class="k">varying</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+</span><span class='line'>   <span class="p">)</span> <span class="k">RETURNS</span> <span class="nb">double precision</span> <span class="k">AS</span> <span class="s">$$</span>
+</span><span class='line'>   <span class="k">DECLARE</span>
+</span><span class='line'>      <span class="n">ret</span> <span class="nb">double precision</span><span class="p">;</span>
+</span><span class='line'>      <span class="n">dir</span> <span class="nb">integer</span><span class="p">;</span>
+</span><span class='line'>   <span class="k">BEGIN</span>
+</span><span class='line'>      <span class="n">dir</span> <span class="o">:=</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">--init to 1 for default positive return</span>
+</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">--init to zero.</span>
+</span><span class='line'>      <span class="c1">--ONLY S or W will trip this. Any other letter or NULL will result in positive return value</span>
+</span><span class='line'>      <span class="k">IF</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span> <span class="k">OR</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;W&#39;</span> <span class="k">THEN</span>
+</span><span class='line'>  <span class="n">dir</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">1</span><span class="p">;</span> <span class="c1">--then southern or western hemisphere</span>
+</span><span class='line'>      <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
+</span><span class='line'>      <span class="c1">--SOME data has negative values in minutes and seconds as well as degrees. Use ABS to standardize all three.</span>
+</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="p">(</span><span class="n">ABS</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">D</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">M</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">S</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span><span class="o">/</span><span class="mf">60</span><span class="p">)))</span><span class="o">/</span><span class="mf">60</span><span class="p">)));</span>
+</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="n">ret</span> <span class="o">*</span> <span class="n">dir</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">RETURN</span> <span class="n">ret</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">END</span><span class="p">;</span>
+</span><span class='line'>  <span class="s">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The function doesn&#8217;t care whether it&#8217;s latitude or longitude. You&#8217;ll also notice that it&#8217;s not doing any bounds checking. That&#8217;s because our table had a constraint limiting the degree values of latitude and longitude to between -90/90 and -180/180 respectively. There&#8217;s still a little room for error on the aggregated value, though. Our table had D, M, S and the hemisphere indicator stored in separate columns. The numeric values were stored as integers.</p>
+
+<p>The usage for my table was:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">SELECT</span> <span class="n">dms2dd</span><span class="p">(</span><span class="n">lat_d</span><span class="p">,</span><span class="n">lat_m</span><span class="p">,</span><span class="n">lat_s</span><span class="p">,</span><span class="n">lat_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">latitude</span><span class="p">,</span>
+</span><span class='line'> <span class="n">lat_d</span><span class="p">,</span> <span class="n">lat_m</span><span class="p">,</span> <span class="n">lat_s</span><span class="p">,</span> <span class="n">lat_hemi</span><span class="p">,</span>
+</span><span class='line'>  <span class="n">dms2dd</span><span class="p">(</span><span class="n">lon_d</span><span class="p">,</span><span class="n">lon_m</span><span class="p">,</span><span class="n">lon_s</span><span class="p">,</span><span class="n">lon_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">longitude</span><span class="p">,</span>
+</span><span class='line'>   <span class="n">lon_d</span><span class="p">,</span> <span class="n">lon_m</span><span class="p">,</span> <span class="n">lon_s</span> <span class="k">as</span> <span class="n">latitude</span> <span class="k">from</span> <span class="n">dms_coords</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Enjoy.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/06/04/Oregon-PostgreSQL-Conference/">Oregon PostgreSQL Conference</a></h1>
     
     
       <p class="meta">
@@ -90,7 +238,7 @@
 
 <time datetime="2008-06-04T00:00:00-04:00" pubdate data-updated="true">Jun 4<span>th</span>, 2008</time>
         
-         | <a href="/2008/06/04/oregon-postgresql-conference/#disqus_thread">Comments</a>
+         | <a href="/2008/06/04/Oregon-PostgreSQL-Conference/#disqus_thread">Comments</a>
         
       </p>
     
@@ -222,7 +370,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/05/26/san-diego-in-august/">San Diego in August</a></h1>
+      <h1 class="entry-title"><a href="/2008/05/26/San-Diego-in-August/">San Diego in August</a></h1>
     
     
       <p class="meta">
@@ -240,7 +388,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
 
 <time datetime="2008-05-26T00:00:00-04:00" pubdate data-updated="true">May 26<span>th</span>, 2008</time>
         
-         | <a href="/2008/05/26/san-diego-in-august/#disqus_thread">Comments</a>
+         | <a href="/2008/05/26/San-Diego-in-August/#disqus_thread">Comments</a>
         
       </p>
     
@@ -392,7 +540,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
       
   <header>
     
-      <h1 class="entry-title"><a href="/2008/04/30/coming-up-for-air/">Coming Up for Air</a></h1>
+      <h1 class="entry-title"><a href="/2008/04/30/Coming-Up-For-Air/">Coming Up for Air</a></h1>
     
     
       <p class="meta">
@@ -410,7 +558,7 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
 
 <time datetime="2008-04-30T00:00:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2008</time>
         
-         | <a href="/2008/04/30/coming-up-for-air/#disqus_thread">Comments</a>
+         | <a href="/2008/04/30/Coming-Up-For-Air/#disqus_thread">Comments</a>
         
       </p>
     
@@ -424,96 +572,6 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
 <p>I have been keeping my sanity by slinging a little code here and there. I am hoping to finish up an experimental <a href="http://twitter.com">Twitter</a> client for <a href="http://www.esri.com/software/arcgis/explorer/index.html">ArcGIS Explorer</a>. Mainly, it&#8217;s an exercise to get me familiar with the Twitter and <a href="http://twittervision.com/">Twittervision</a> APIs. Plus, it&#8217;s been a while since I&#8217;ve done anything with AGX. The upcoming builds look exciting so I want to get comfortable with it again.</p>
 
 <p>There&#8217;s light at the end of tunnel on the proposal stuff so I&#8217;m hoping to get a little more technical again here in the next couple of weeks. Until then, I&#8217;ll have to accept the fact that Word, Paint.Net, Acrobat and Twhirl (all work and no play) have pushed Visual Studio and anything GIS related off my recently used list.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/04/20/ziggis-2-0-in-beta/">zigGIS 2.0 in Beta</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-04-20T00:00:00-04:00" pubdate data-updated="true">Apr 20<span>th</span>, 2008</time>
-        
-         | <a href="/2008/04/20/ziggis-2-0-in-beta/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Those of you following the progress of zigGIS via <a href="http://twitter.com/zigGIS">Twitter</a> may have noticed that zigGIS 2.0 is being released to the beta testers. This version features better handling of spatial references and well as enabling editing of PostGIS data using native ArcMap tools.</p>
-
-<p>There&#8217;s been a lot of code cleanup along the way and Paolo has build a new installer using NSIS. I will being developing the ArcCatalog objects again in the coming weeks, once the core product is stable (which is pretty much is now but it&#8217;s nice to have others to beat on it for a while).</p>
-
-<p>The <a href="http://obtusesoft.com">Obtuse</a> web site should become more informative in the near future but, for now, keep checking here, <a href="http://abegillespie.blogspot.com">here</a> and <a href="http://www.paolocorti.net/public/wordpress/">here</a> or follow along on Twitter.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/04/14/mapobjects-reminiscences/">MapObjects Reminiscences</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-04-14T00:00:00-04:00" pubdate data-updated="true">Apr 14<span>th</span>, 2008</time>
-        
-         | <a href="/2008/04/14/mapobjects-reminiscences/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://gisprog.wordpress.com/2008/04/09/mapobjects-evaluation-version/">GIS Programming relays the fact</a> that the MapObjects Evaluation version is no longer available. <a href="http://geobabble.wordpress.com/2007/07/09/mo-no-mo/">I posted a while back</a> about MO not being supported on Vista. In recent <a href="http://twitter.com">Twitter</a> conversations I have learned that some folks are still running MOIMS apps.</p>
-
-<p>The bottom line is that MapObjects rivals ArcView 3.x as the ESRI product with the most enthusastic fan base. Just mention MO to a GIS developer of a certain age (ahem) and the war stories will start to flow. So, in honor of this latest nail in the coffin, let &#8216;em flow.</p>
-
-<p>Do you still use/support MO? If so, what are you doing with it?</p>
-
-<p>Do you plan to migrate to ArcGIS Engine or will you consider other libraries, like <a href="http://www.codeplex.com/sharpmap">SharpMap</a>?</p>
-
-<p>What was coolest thing you ever did with MO?</p>
-
-<p>For me, it was a modular application that we designed to integrate a bunch of free-standing analysis apps. Some were AV3 extensions, some were done in MapBasic MapX, some were completely proprietary code, some were already in MO. Our customer couldn&#8217;t easily build an integrated analysis product with all of those results. We designed a common GUI and a plug-in COM API so that all of those apps could be migrated into one place but managed according their own lifecycles. We got it working and also built in some collaboration features. We got a couple of releases out before ESRI released ArcGIS with a similar architecture and we decided to go there. It didn&#8217;t upset me too much, I considered it the sincerest form of flattery ;)  .</p>
 </div>
   
   
@@ -538,23 +596,23 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-4.0-released/">SpatiaLite 4.0 Released</a>
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed&#8230;</a>
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed&#8230;</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
       </li>
     
   </ul>

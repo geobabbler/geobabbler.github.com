@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcobjects | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcobjects/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T11:21:28-05:00</updated>
+  <updated>2012-12-21T12:00:37-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[zigGIS Hotfix Available]]></title>
-    <link href="http://blog.geomusings.com/2010/06/18/ziggis-hotfix-available/"/>
+    <link href="http://blog.geomusings.com/2010/06/18/zigGIS-Hotfix-Available/"/>
     <updated>2010-06-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/18/ziggis-hotfix-available</id>
+    <id>http://blog.geomusings.com/2010/06/18/zigGIS-Hotfix-Available</id>
     <content type="html"><![CDATA[<p>Abe announced the availability of hotfix 3 for <a href="http://pub.obtusesoft.com">zigGIS</a> 2.0.5. From the announcement:</p>
 
 <blockquote>Hotfix 3 fixes an issue that prevented point layers from being
@@ -33,9 +33,9 @@ link to the patch.</blockquote>
   
   <entry>
     <title type="html"><![CDATA[A Couple of Updates]]></title>
-    <link href="http://blog.geomusings.com/2010/06/15/a-couple-of-updates/"/>
+    <link href="http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates/"/>
     <updated>2010-06-15T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/15/a-couple-of-updates</id>
+    <id>http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates</id>
     <content type="html"><![CDATA[<p>Shortly after my <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">previous post</a>, about browsing and downloading data from <a href="http://www.geocommons.com">GeoCommons</a>, hit the wires, I got quite a few back-channel requests for the code. I sent it out via e-mail to a number of people and then posted it via DropBox. I have finally gotten around to posting it up on Google Code, making things much more manageable. It is now available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>.</p>
 
 <p>I have made a few updates since the original post. Some were administrative but were functional. They are:</p>
@@ -54,9 +54,9 @@ link to the patch.</blockquote>
   
   <entry>
     <title type="html"><![CDATA[Importing Data From GeoCommons Into ArcMap]]></title>
-    <link href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/"/>
+    <link href="http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/"/>
     <updated>2010-06-02T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap</id>
+    <id>http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap</id>
     <content type="html"><![CDATA[<p><strong>UPDATE:</strong> <em>The code for this post is available at the bottom of the page.</em></p>
 
 <p>I have been doing a lot of development with the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">ESRI Silverlight API</a> recently. One of the requirements of my project is to be able to dynamically add KML data at runtime. The incorporation of <a href="http://code.google.com/apis/kml/documentation/">KML</a> was handled for us through <a href="http://resources.esri.com/arcgisserver/apis/silverlight/index.cfm?fa=codeGalleryDetails&amp;scriptID=16487">one of the ESRI samples</a> on the resource center so we pretty much just had to integrate that code and test against our use cases. For testing, I typically reached out to <a href="http://www.geocommons.com">GeoCommons</a> since any data set available there can be streamed as KML.</p>

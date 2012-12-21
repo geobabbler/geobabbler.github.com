@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Mapping GISPs Again With Leaflet.markercluster - geoMusings</title>
+  <title>QGIS 1.8.0 Released - geoMusings</title>
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="So I&#8217;ve been playing with Leaflet a lot lately. It&#8217;s become my lightweight mapping library of choice. There&#8217;s a lot it doesn&#8217; &hellip;">
+  <meta name="description" content="I caught a tweet by my friend Paolo Corti this morning that QGIS 1.8.0 has been released. qgis 1.8.0 &#8220;Lisboa&#8221; released! goo.gl/eSDYo& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet.markercluster/">
+  <link rel="canonical" href="http://blog.geomusings.com/2012/06/21/QGIS-1-8-0-Released/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -69,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Mapping GISPs Again With Leaflet.markercluster</h1>
+      <h1 class="entry-title">QGIS 1.8.0 Released</h1>
     
     
       <p class="meta">
@@ -85,7 +85,7 @@
   
 
 
-<time datetime="2012-08-31T00:00:00-04:00" pubdate data-updated="true">Aug 31<span>st</span>, 2012</time>
+<time datetime="2012-06-21T00:00:00-04:00" pubdate data-updated="true">Jun 21<span>st</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -94,18 +94,55 @@
   </header>
 
 
-<div class="entry-content"><p>So I&#8217;ve been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It&#8217;s become my lightweight mapping library of choice. There&#8217;s a lot it doesn&#8217;t do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
+<div class="entry-content"><p>I caught a tweet by my friend <a href="http://www.paolocorti.net/" target="_blank">Paolo Corti</a> this morning that <a href="http://qgis.org" target="_blank">QGIS</a> 1.8.0 has been released.</p>
 
-<div style="text-align:center;"><a href="http://demo.zekiah.com/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a><div style="text-align:center;font-size: 14px;">Click the image to go to the live demo<br/><br/></div></div>
+<div class='embed tweet'><blockquote class="twitter-tweet"><p>qgis 1.8.0 &#8220;Lisboa&#8221; released! <a href="http://t.co/UZWFzy0m" title="http://goo.gl/eSDYo">goo.gl/eSDYo</a></p>&mdash; Paolo Corti (@capooti) <a href="https://twitter.com/capooti/status/215767511990415360" data-datetime="2012-06-21T11:25:58+00:00">June 21, 2012</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 
 
-<p>A while back, I stumbled onto the <a href="https://github.com/danzel/Leaflet.markercluster" target="_blank">Leaflet.markercluster</a> project on GitHub, which adds a clustering layer type. I wanted to try it so I revisited my old <a href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/" target="_blank">GISP heat map demo</a> (Silverlight) and decided to rework it. I was happy to finally get a chance to strip out the plug-in, anyway.  <!--more--></p>
+<p>Upon checking out the full list of new features <a href="http://lists.osgeo.org/pipermail/qgis-developer/2012-June/020685.html" target="_blank">here</a>, a few caught my eye:</p>
 
-<p>This time around, I chose not to bother with the PMP data because it was kind of a pain to process the last time. I downloaded the GISP data from the <a href="http://www.gisci.org/secure/members/directory/results.asp" target="_blank">GISCI site</a> and once again ran it through <a href="http://www.geocommons.com" target="_blank">GeoCommons</a> to geocode it. This time, there were noticeable anomalies, such as positional accuracy problems (Richmond, VA was 25 miles east of where it should have been) and surprising omissions such as a failure to match major cities like Jacksonville, Florida and Phoenix, Arizona. I corrected some of the more egregious problems by hand and dumped the rest. Luckily none of this got in the way of the real goal of testing the clustering library but, if you visit the <a href="http://demo.zekiah.com/clustermap" target="_blank">live demo</a>, any anomalies you may notice are most likely related to the data and not the library.</p>
+<blockquote>
+- QGIS Browser - a stand alone app and a new panel in QGIS. The
+browser lets you easily navigate your file system and connection based
+(PostGIS, WFS etc.) datasets, preview them and drag and drop items
+into the canvas.
 
-<p>Once geocoding was complete, I downloaded the CSV and processed it into the JSON structure expected by the marker cluster library. The library is still fairly new, and I am fairly new to using it so I had some problems if I deviated from the sample format. As a result, I stuck to that format and resolved to investigate it more. After that, it was very easy to wire up into a light application, with the clusters thrown on top of some tiles from <a href="http://www.mapbox.com" target="_blank">MapBox</a>. (Thanks to <a href="http://www.geosprocket.com/" target="_blank">Bill Morris</a> for showing me that base map.)</p>
+- DB Manager - the DB manager is now officially part of QGIS core. You
+can drag layers from the QGIS Browser into DB Manager and it will
+import your layer into your spatial database. Drag and drop tables
+between spatial databases and they will get imported. You can use the
+DB Manager to execute SQL queries against your spatial database and
+then view the spatial output for queries by adding the results to QGIS
+as a query layer.
 
-<p>I think I prefer this representation to a heat map as it conveys more information at a glance. I&#8217;m happy to have this library in my toolbox now and am looking forward to seeing it evolve. I recommend checking it out.</p>
+- MSSQL Spatial Support - you can now connect to your Microsoft SQL
+Server spatial databases using QGIS.
+
+- Support for PostGIS TopoGeometry datatype
+
+- Terrain Analysis Plugin - a new core plugin was added for doing
+terrain analysis - and it can make really good looking coloured relief
+maps.
+
+- Heatmap tool - a new core plugin has been added for generating
+raster heatmaps from point data. You may need to activate this plugin
+using the plugin manager.
+</blockquote>
+
+
+
+
+<!--more-->
+
+
+<p>It looks like a lot of focus has been placed on making it easier to user your data. If you are not familiar with QGIS, it&#8217;s the best open-source desktop GIS out there and stands toe-to-toe with any commercial equivalent. A few years ago, desktop GIS was considered to be something of an Achilles heel for open-source GIS but that hasn&#8217;t been true for a long time. I integrated QGIS into my work a while back and it figures more prominently for me with each release.</p>
+
+<p><img alt="" class="aligncenter size-medium wp-image-2692" height="225" src="http://geobabble.files.wordpress.com/2012/06/smiley-happy-face-yellow.jpg?w=300" title="Smiley-happy-face-yellow" width="300" /></p>
+
+<p>To get a sense of the kind of things you can do with QGIS, check out <a href="http://mapbox.com/blog/binning-alternative-point-maps/" target="_blank">this post</a> on the <a href="http://mapbox.com/" target="_blank">MapBox</a> blog and also check out <a href="http://woostuff.wordpress.com/" target="_blank">Nathan Woodrow&#8217;s blog</a>. In addition, <a href="http://twitter.com/#!/dmgeo" target="_blank">Caitlyn Dempsey&#8217;s</a> recent <a href="http://gislounge.com/where-are-the-gis-jobs-a-look-at-the-gis-job-market-in-the-united-states/" target="_blank">map of GIS job availability</a> was built using QGIS. These links are good examples to show that QGIS is excellent, professional GIS tool.</p>
+
+<p>I think my download just finished&#8230;</p>
 </div>
 
 
@@ -128,12 +165,12 @@
   
 
 
-<time datetime="2012-08-31T00:00:00-04:00" pubdate data-updated="true">Aug 31<span>st</span>, 2012</time>
+<time datetime="2012-06-21T00:00:00-04:00" pubdate data-updated="true">Jun 21<span>st</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/geocommons/'>GeoCommons</a>, <a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/leaflet/'>Leaflet</a>, <a class='category' href='/blog/categories/leaflet-markercluster/'>Leaflet.markercluster</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/mapping/'>mapping</a>, <a class='category' href='/blog/categories/web-development/'>web development</a>
+    <a class='category' href='/blog/categories/qgis/'>QGIS</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/open-source/'>open source</a>
   
 </span>
 
@@ -142,7 +179,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet.markercluster/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet.markercluster/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2012/06/21/QGIS-1-8-0-Released/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2012/06/21/QGIS-1-8-0-Released/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -155,10 +192,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/" title="Previous Post: ToGeoJson and ToWKT for the Esri FGDB API">&laquo; ToGeoJson and ToWKT for the Esri FGDB API</a>
+        <a class="basic-alignment left" href="/2012/06/21/Prince-Georges-County-Maryland-Posts-3-D-Planning-Model-Videos/" title="Previous Post: Prince George's County, Maryland Posts 3-D Planning Model Videos">&laquo; Prince George's County, Maryland Posts 3-D Planning Model Videos</a>
       
       
-        <a class="basic-alignment right" href="/2012/09/13/carving-up-gis-stackexchange/" title="Next Post: Carving Up GIS StackExchange">Carving Up GIS StackExchange &raquo;</a>
+        <a class="basic-alignment right" href="/2012/07/07/Planet-PostGIS-Online/" title="Next Post: Planet PostGIS Online">Planet PostGIS Online &raquo;</a>
       
     </p>
   </footer>
@@ -173,23 +210,23 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-4.0-released/">SpatiaLite 4.0 Released</a>
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed...</a>
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed...</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
       </li>
     
   </ul>

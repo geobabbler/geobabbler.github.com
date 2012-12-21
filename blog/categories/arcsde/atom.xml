@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcsde | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcsde/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T11:21:28-05:00</updated>
+  <updated>2012-12-21T12:00:37-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ArcGIS 10 Service Pack 2 Is Available]]></title>
-    <link href="http://blog.geomusings.com/2011/05/20/arcgis-10-service-pack-2-is-available/"/>
+    <link href="http://blog.geomusings.com/2011/05/20/ArcGIS-10-Service-Pack-2-Is-Available/"/>
     <updated>2011-05-20T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/05/20/arcgis-10-service-pack-2-is-available</id>
+    <id>http://blog.geomusings.com/2011/05/20/ArcGIS-10-Service-Pack-2-Is-Available</id>
     <content type="html"><![CDATA[<p>Esri announced late today that Service Pack 2 for ArcGIS 10 is available. It looks like <a href="http://downloads2.esri.com/support/downloads/other_/ArcGIS-10sp2-issues.htm">a fairly sizable list of issues</a> was addressed with this service pack.</p>
 
 <p>Who knows, we could be witnessing history as this could potentially be the last service pack to address ArcIMS. (Well, I can dream, can't I?)</p>
@@ -85,10 +85,21 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SQL Server SIG at the UC]]></title>
-    <link href="http://blog.geomusings.com/2008/08/06/sql-server-sig-at-the-uc/"/>
+    <title type="html"><![CDATA[A Good PostGIS Overview...]]></title>
+    <link href="http://blog.geomusings.com/2008/08/06/a-good-postgis-overview/"/>
     <updated>2008-08-06T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/08/06/sql-server-sig-at-the-uc</id>
+    <id>http://blog.geomusings.com/2008/08/06/a-good-postgis-overview</id>
+    <content type="html"><![CDATA[<p>Steven Citron-Pousty gave a talk on PostGIS and has helpfully posted his slides <a href="http://www.slideshare.net/scitronpousty/using-post-gis-to-add-some-spatial-flavor-to-your-application">here</a>. It's a good introductory overview and provides some good examples of basic spatial SQL in PostGIS.</p>
+
+<p>With ArcGIS Server now supporting PostgreSQL as a back end RDBMS and also supporting the use of PostGIS geometries, a lot of new users may be migrating to the PostgreSQL platform. This presentation is a good overview for anyone picking it up for the first time. Thanks, @TheSteve0!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SQL Server SIG at the UC]]></title>
+    <link href="http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC/"/>
+    <updated>2008-08-06T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC</id>
     <content type="html"><![CDATA[<p>My blogging has been slower this time around because I've been doing a lot of booth duty. This is my thrid conference this year and some of our other staff are getting to go to the sessions. I did, however, go to the SQL Server SIG a little while ago.</p>
 
 <p>Ed Katibah had a few tricks up his sleeve. First off, he dropped the news that, as of 11:00am, SQL Server 2008 is now in RTM. Very soon, the final version will be in our hands. That's great news to everyone who has been working with the CTPs and RCs.</p>
@@ -106,17 +117,6 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
 <p>Ed went on to announce a companion CodePlex site for SQL Server 2008 spatial tools: <a href="http://www.codeplex.com/sqlspatialtools">www.codeplex.com/SqlSpatialTools</a>. There are already some tools that Isaac has posted but Ed said that other tools will include shapefile and KML converters. The site will also be open to contribs from the community. All of the tools currently there were developed using the <a href="http://blogs.msdn.com/isaac/archive/2008/05/30/our-upcoming-builder-api.aspx">Builder API</a> and full source code is available so they serve has great examples of working with the Builder API.</p>
 
 <p>All in all, it was a great talk. Ed's one of the nicest guys ever and he is having a lot of fun with ArcSDE on SQL Server 2008.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Good PostGIS Overview...]]></title>
-    <link href="http://blog.geomusings.com/2008/08/06/a-good-postgis-overview/"/>
-    <updated>2008-08-06T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/08/06/a-good-postgis-overview</id>
-    <content type="html"><![CDATA[<p>Steven Citron-Pousty gave a talk on PostGIS and has helpfully posted his slides <a href="http://www.slideshare.net/scitronpousty/using-post-gis-to-add-some-spatial-flavor-to-your-application">here</a>. It's a good introductory overview and provides some good examples of basic spatial SQL in PostGIS.</p>
-
-<p>With ArcGIS Server now supporting PostgreSQL as a back end RDBMS and also supporting the use of PostGIS geometries, a lot of new users may be migrating to the PostgreSQL platform. This presentation is a good overview for anyone picking it up for the first time. Thanks, @TheSteve0!</p>
 ]]></content>
   </entry>
   

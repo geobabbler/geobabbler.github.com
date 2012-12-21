@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I&#8217;m heading out this morning to the FedUC. Since it&#8217;s in my back yard, I usually hit it every year but, this year, I&#8217;m staying up &hellip;">
+  <meta name="description" content="A while back, I posted this about running SharpMap on Apache. At the time, the ability to run ASP.NET on Apache was mainly a curiosity to me but had &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,115 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/02/17/heading-to-the-2010-esri-federal-user-conference/">Heading to the 2010 ESRI Federal User Conference</a></h1>
+      <h1 class="entry-title"><a href="/2010/03/02/integrating-aspnet-with-drupal-in-the-acquia-stack/">Integrating ASP.NET With Drupal in the Acquia Stack</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-02T00:00:00-05:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2010</time>
+        
+         | <a href="/2010/03/02/integrating-aspnet-with-drupal-in-the-acquia-stack/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A while back, I posted <a href="http://geobabble.wordpress.com/2008/01/07/sharpmap-on-apache/">this</a> about running <a href="http://sharpmap.codeplex.com">SharpMap</a> on <a href="http://www.apache.org/">Apache</a>. At the time, the ability to run ASP.NET on Apache was mainly a curiosity to me but had little practical value. Recently, I had the need to revisit this technique for a project. I used the same <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">post</a> I had used previously as a reference, although the comment by Carlos there was more up-to-date and served me well this time.</p>
+
+<p>This time, we were migrating an old custom-built site to the <a href="http://drupal.org/">Drupal</a> CMS. The old site was a mixture of ASP Classic and ASP.NET. Drupal is a <a href="http://www.php.net/">PHP</a>-based CMS. Due to the deadline for completing the migration, there were two ASP.NET applications that we planned to leave in place. They automated custom workflows and our schedule didn&#8217;t allow for rewriting them. Drupal had been installed as part of the <a href="http://acquia.com/downloads">Acquia stack installer</a> that includes Apache, PHP, Drupal and <a href="http://www.mysql.com/">MySQL</a>.</p>
+
+<p>Following the instructions I had used previously, I integrated mod_aspdotnet in the Apache http.conf. I made the following entries, as instructed (these are sample entries for purposes of this post).</p>
+
+<p> <code>AspNetMount /SampleASP "c:/SampleASP"
+ Alias /SampleASP "c:/SampleASP"</code></p>
+
+<p>These entries mount the ASP.NET application where it sits physically and alias it to a virtual directory in Apache. Having done this before, I was not worried. This time, however, it did not work. After some research, I realized that these directives were in conflict with some mod_rewrite entries that are part of the stack installer. They are:</p>
+
+<p><code>
+  ServerName localhost
+  RewriteEngine On
+  RewriteOptions Inherit
+  RewriteCond %{REQUEST_URI} !/acquia-drupal.<em>
+  RewriteCond %{REQUEST_URI} !/phpmyadmin.</em>
+  RewriteRule ^(/.*)?$ /acquia-drupal$1
+</code></p>
+
+<p>In this case, any URI that does not look like http://${hostname}/acquia-drupal is rewritten to match that format. So my URI of http://${hostname}/SampleASP was being rewritten as http://${hostname}/acquia-drupal/SampleASP which does not exist and promptly fails. The solution to this problem was to modify the AspNetMount and Alias entries above to this:</p>
+
+<p> <code>AspNetMount /acquia-drupal/SampleASP "c:/SampleASP"
+ Alias /acquia-drupal/SampleASP "c:/SampleASP"</code></p>
+
+<p> This redirected properly and the ASP.NET executed. So, the lesson here is that, if you choose to use a stack installer, make sure you understand the customizations that the installer makes to the products it includes.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/02/25/Browsing-WeoGeo-Market-Using-the-ESRI-Silverlight-API/">Browsing WeoGeo Market Using the ESRI Silverlight API</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-25T00:00:00-05:00" pubdate data-updated="true">Feb 25<span>th</span>, 2010</time>
+        
+         | <a href="/2010/02/25/Browsing-WeoGeo-Market-Using-the-ESRI-Silverlight-API/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Updated: </strong> This demo application now running <a href="http://demo.zekiah.com/weosilverlight">here</a>. I will update this demo periodically, as time permits, so keep checking back.</p>
+
+<p>At the <a href="http://www.esri.com/events/feduc/index.html">2010 ESRI Federal User Conference</a>, <a href="http://www.weogeo.com">WeoGeo</a> announced the availability of <a href="http://blogs.weogeo.com/jamesfee/2010/02/16/introducing-weogeo-tools-for-arcgis/">a toolbar for interacting with WeoGeo Market and private libraries from within ArcMap</a>. This, combined with Dan Dye?s <a href="http://blogs.weogeo.com/dandye/2010/01/07/weogeo-api-python-examples-part-1/">series of posts</a> showing how to use the <a href="http://wiki.weogeo.com/index.php/Developer:_API">WeoGeo REST API</a> with Python got me thinking about how easy it would be to integrate with ESRI?s clients for the ArcGIS Server REST API. All of my clients (it seems) are using the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">Silverlight API</a> these days so I am spending a lot of time with it and decided to use it as my testbed.</p>
+
+<p>My goal was simple, I wanted to browse the <a href="http://www.weogeo.com/market">WeoGeo Market</a> for any data sets in the current map extent, be able to select one from a list, and have its preview image display in the proper location on my Silverlight map.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2010/02/25/Browsing-WeoGeo-Market-Using-the-ESRI-Silverlight-API/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/02/17/Heading-to-the-2010-ESRI-Federal-User-Conference/">Heading to the 2010 ESRI Federal User Conference</a></h1>
     
     
       <p class="meta">
@@ -90,7 +198,7 @@
 
 <time datetime="2010-02-17T00:00:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2010</time>
         
-         | <a href="/2010/02/17/heading-to-the-2010-esri-federal-user-conference/#disqus_thread">Comments</a>
+         | <a href="/2010/02/17/Heading-to-the-2010-ESRI-Federal-User-Conference/#disqus_thread">Comments</a>
         
       </p>
     
@@ -116,7 +224,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/02/01/spatialite-provider-now-in-sharpmap-repository/">SpatiaLite Provider Now in SharpMap Repository</a></h1>
+      <h1 class="entry-title"><a href="/2010/02/01/SpatiaLite-Provider-Now-In-SharpMap-Repository/">SpatiaLite Provider Now in SharpMap Repository</a></h1>
     
     
       <p class="meta">
@@ -134,7 +242,7 @@
 
 <time datetime="2010-02-01T00:00:00-05:00" pubdate data-updated="true">Feb 1<span>st</span>, 2010</time>
         
-         | <a href="/2010/02/01/spatialite-provider-now-in-sharpmap-repository/#disqus_thread">Comments</a>
+         | <a href="/2010/02/01/SpatiaLite-Provider-Now-In-SharpMap-Repository/#disqus_thread">Comments</a>
         
       </p>
     
@@ -156,7 +264,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/01/21/gvsig-extensions-available/">gvSIG Extensions Available</a></h1>
+      <h1 class="entry-title"><a href="/2010/01/21/gvSIG-Extensions-Available/">gvSIG Extensions Available</a></h1>
     
     
       <p class="meta">
@@ -174,7 +282,7 @@
 
 <time datetime="2010-01-21T00:00:00-05:00" pubdate data-updated="true">Jan 21<span>st</span>, 2010</time>
         
-         | <a href="/2010/01/21/gvsig-extensions-available/#disqus_thread">Comments</a>
+         | <a href="/2010/01/21/gvSIG-Extensions-Available/#disqus_thread">Comments</a>
         
       </p>
     
@@ -201,7 +309,7 @@
   
   
     <footer>
-      <a rel="full-article" href="/2010/01/21/gvsig-extensions-available/">Read on &rarr;</a>
+      <a rel="full-article" href="/2010/01/21/gvSIG-Extensions-Available/">Read on &rarr;</a>
     </footer>
   
 
@@ -336,7 +444,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/12/23/open-post-will-you-be-attending-the-esri-federal-user-conference/">Open Post - Will You Be Attending the ESRI Federal User Conference?</a></h1>
+      <h1 class="entry-title"><a href="/2009/12/23/Open-Post-Will-you-be-attending-the-ESRI-Federal-User-Conference/">Open Post - Will You Be Attending the ESRI Federal User Conference?</a></h1>
     
     
       <p class="meta">
@@ -354,7 +462,7 @@
 
 <time datetime="2009-12-23T00:00:00-05:00" pubdate data-updated="true">Dec 23<span>rd</span>, 2009</time>
         
-         | <a href="/2009/12/23/open-post-will-you-be-attending-the-esri-federal-user-conference/#disqus_thread">Comments</a>
+         | <a href="/2009/12/23/Open-Post-Will-you-be-attending-the-ESRI-Federal-User-Conference/#disqus_thread">Comments</a>
         
       </p>
     
@@ -380,7 +488,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/11/26/twitter-to-fix-geojson-error/">Twitter to Fix GeoJSON Error</a></h1>
+      <h1 class="entry-title"><a href="/2009/11/26/Twitter-to-Fix-GeoJSON-Error/">Twitter to Fix GeoJSON Error</a></h1>
     
     
       <p class="meta">
@@ -398,7 +506,7 @@
 
 <time datetime="2009-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2009</time>
         
-         | <a href="/2009/11/26/twitter-to-fix-geojson-error/#disqus_thread">Comments</a>
+         | <a href="/2009/11/26/Twitter-to-Fix-GeoJSON-Error/#disqus_thread">Comments</a>
         
       </p>
     
@@ -412,104 +520,6 @@
 <p>It&#8217;s great to see such a quick acknowledgement and response.</p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/11/24/twitter-geojson-error/">Twitter GeoJSON Error</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-24T00:00:00-05:00" pubdate data-updated="true">Nov 24<span>th</span>, 2009</time>
-        
-         | <a href="/2009/11/24/twitter-geojson-error/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://twitter.com/sgillies/statuses/6005237402">Sean Gillies pointed out</a> on Twitter today that the GeoJSON output of coordinates from <a href="http://thenextweb.com/appetite/2009/11/20/twitters-geolocation-api-live-find-tweets-twitters-nearby/">Twitter&#8217;s just-released geolocation capability</a> is wrong. Sean is one of the authors of the spec so, when I saw his tweet, I took notice. According to the <a href="http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses%C2%A0update">Twitter documentation</a>:</p>
-
-<blockquote>
-The XML response uses GeoRSS to encode the latitude and longitude.  encodes as latitude, space, and longitude (see the response below for an example).  For JSON the response uses conventions laid forth in GeoJSON which looks like 
-
-&#8220;geo&#8221;:
-{
-     &#8220;type&#8221;:&#8221;Point&#8221;,
-     &#8220;coordinates&#8221;:[37.78029, -122.39697]
-}
-</blockquote>
-
-
-<p>You will notice that this is in Latitude/Longitude order whereas the <a href="http://geojson.org/geojson-spec.html#appendix-a-geometry-examples">GeoJSON specification clearly states</a> Longitude/Latitude.</p>
-
-<p>This is clearly an error that will throw off any existing software that has been developed to handle GeoJSON. This is somewhat reminiscent of a <a href="http://geobabble.wordpress.com/2007/12/18/sql-server-2008-wkt-xy-switching-illustrated/">similar issue with early versions of SQL Server 2008</a>, with a lot of the same issues applicable here. The main difference this time around being that the GeoJSON spec is much clearer on X/Y ordering than the WKT spec was.</p>
-
-<p>There seem to be a lot of clients already on board with supporting geolocation in Twitter so this could be a potentially large proliferation of this particular GeoJSON error. Twitter should look at correcting this before a lot of data gets out there.</p>
-
-<p>Good catch, Sean. And, yes, <a href="http://sgillies.net/blog/964/more-lessons-of-standardization">it should have been noticed before now</a>. Maybe we should look up from our iDroidBerries more often.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/11/17/using-redmine-for-proposal-management/">Using Redmine for Proposal Management</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-17T00:00:00-05:00" pubdate data-updated="true">Nov 17<span>th</span>, 2009</time>
-        
-         | <a href="/2009/11/17/using-redmine-for-proposal-management/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I work at a technology consulting company that does a lot of software development. A while back, we started using <a href="http://www.redmine.org/">Redmine</a> to manage our software development projects. Redmine is an open-source, web-based project management tool. It provides a lot of capability, is easily customizable without coding, features SCM integration and, since it is built on Ruby on Rails, can be extended using RoR as well. We are still getting comfortable with it but it has been meeting our needs well and has been well-received by our customers.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2009/11/17/using-redmine-for-proposal-management/">Read on &rarr;</a>
-    </footer>
   
 
 
@@ -532,23 +542,23 @@ The XML response uses GeoRSS to encode the latitude and longitude.  encodes as l
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-4.0-released/">SpatiaLite 4.0 Released</a>
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed&#8230;</a>
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed&#8230;</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
       </li>
     
   </ul>

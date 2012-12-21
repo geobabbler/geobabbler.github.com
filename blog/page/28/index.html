@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Well, it&#8217;s been a while since I&#8217;ve posted anything technical. Work has been a little crazy and I&#8217;m not willing to carve into time &hellip;">
+  <meta name="description" content="As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,162 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/04/24/moving-forward-on-a-couple-of-fronts/">Moving Forward on a Couple of Fronts</a></h1>
+      <h1 class="entry-title"><a href="/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/">Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-05-09T00:00:00-04:00" pubdate data-updated="true">May 9<span>th</span>, 2007</time>
+        
+         | <a href="/2007/05/09/Creating-ArcObjects-Spatial-Reference-Objects-From-PostGIS-Spatial-Reference-Definitions/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support for user-defined spatial references. It pretty much boils down to querying the the appropriate SR from the PostGIS spatial_ref_sys table and applying the value of the srtext column to create a spatial reference in ArcObjects.</p>
+
+<p>This approach has a few advantages and disadvantages. First, the advantages. Although both PostGIS and ESRI implement the EPSG spatial reference codes, there is not a one-to-one match between the two. Therefore, you could get an SRID in PostGIS that&#8217;s not supported in ArcGIS. The approach described above should alleviate that, adding stability. Secondly, if you&#8217;ve created a user-defined spatial reference in PostGIS, you should be able to use it in ArcGIS.</p>
+
+<p>The disadvantages are relatively minor. First, all of the spatial references, even those created from standard EPSG SRs will appear to ArcGIS as custom spatial references, mainly because of the differing syntax of the SR string. Also, some unit definitions from PostGIS are not specifically recognized by ArcGIS. For instance &#8220;US survey feet&#8221; is shown as &#8220;unknown&#8221; in ArcGIS. This last one may be more than minor, depending on if it has any effect on distance calculations and the like but I haven&#8217;t gotten around to testing it yet.</p>
+
+<p>So, how about some code? Here&#8217;s a C# routine that I&#8217;m developing for zigGIS (don&#8217;t look, it&#8217;s not there yet). It&#8217;s based on a previous routine that Paolo and I developed. I should note that the Connection and AutoDataReader objects are zigGIS classes that inherit from ADO.NET classes. You should be able to replace them with standard OleDbConnection and DataReader objects and be fine.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>        <span class="k">static</span> <span class="k">public</span> <span class="n">ISpatialReference</span> <span class="nf">setEsriSpatiaReferenceFromSrText</span><span class="p">(</span><span class="kt">int</span> <span class="n">srid</span><span class="p">,</span> <span class="n">Connection</span> <span class="n">conn</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">ISpatialReference</span> <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
+</span><span class='line'>            <span class="kt">string</span> <span class="n">srText</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>            <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">try</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="c1">//Bill: query srtext associated with srid</span>
+</span><span class='line'>                <span class="n">AutoDataReader</span> <span class="n">dr</span> <span class="p">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">doQuery</span><span class="p">(</span><span class="s">&quot;select * from spatial_ref_sys where srid = &quot;</span> <span class="p">+</span> <span class="n">srid</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">dr</span><span class="p">.</span><span class="n">Read</span><span class="p">())</span>
+</span><span class='line'>                <span class="p">{</span>
+</span><span class='line'>                    <span class="n">srText</span> <span class="p">=</span> <span class="n">dr</span><span class="p">[</span><span class="s">&quot;srtext&quot;</span><span class="p">]</span> <span class="p">+</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>                    <span class="n">ISpatialReferenceFactory2</span> <span class="n">srf</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SpatialReferenceEnvironmentClass</span><span class="p">();</span>
+</span><span class='line'>                    <span class="k">if</span> <span class="p">(</span><span class="n">srText</span> <span class="p">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>                    <span class="p">{</span>
+</span><span class='line'>                        <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
+</span><span class='line'>                    <span class="p">}</span>
+</span><span class='line'>                    <span class="k">else</span>
+</span><span class='line'>                    <span class="p">{</span>
+</span><span class='line'>                        <span class="c1">//use srText to construct SR.</span>
+</span><span class='line'>                        <span class="n">srf</span><span class="p">.</span><span class="n">CreateESRISpatialReference</span><span class="p">(</span><span class="n">srText</span><span class="p">,</span> <span class="k">out</span> <span class="n">sr</span><span class="p">,</span> <span class="k">out</span> <span class="n">i</span><span class="p">);</span>
+</span><span class='line'>                    <span class="p">}</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>                <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="k">catch</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="c1">//PostGis srid is not implemented as an Esri Factory Code</span>
+</span><span class='line'>                <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
+</span><span class='line'>                <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/05/08/zigGIS-and-Spatial-References-Part-3/">zigGIS and Spatial References, Part 3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-05-08T00:00:00-04:00" pubdate data-updated="true">May 8<span>th</span>, 2007</time>
+        
+         | <a href="/2007/05/08/zigGIS-and-Spatial-References-Part-3/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post updates <a href="http://geobabble.wordpress.com/2006/12/29/ziggis-and-spatial-references-part-2/">this post</a> and <a href="http://geobabble.wordpress.com/2006/12/21/ziggis-and-spatial-references/">this one</a>.</p>
+
+<p>One of our beloved 5 users ;-), James, pointed out recently that <a href="http://code.google.com/p/ziggis">zigGIS</a> still has issues with user-defined coordinate systems. Alas, this is true. When we implemented support for on-the-fly &#8220;reprojection,&#8221; we limited it to the standard <a href="http://www.epsg.org">EPSG</a> SRIDs supported by both <a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://www.esri.com/software/arcgis/">ArcGIS</a>. This was mainly due to the fact that we were trying to fix a number of things at once.</p>
+
+<p>I have begun to look at building in support for user-defined spatial references. The main difference I see is that the prj syntax is slightly different between PostGIS and ArcGIS. For example the prj strings for SRID 4326 (WGS84) are not the same. They seem to behave correctly but this creates a situation where ArcGIS will recognize all standard SRs as custom is I load them using the PostGIS strings. It&#8217;s not a huge deal, just interesting. However, <a href="http://www.paolocorti.net">Paolo</a> did notice that ESRI and PostGIS data sources with (theoretically) the same SR can have a slight offset when overlaid in ArcMap. So maybe it&#8217;s more than just interesting.</p>
+
+<p>I plan to leave the current code alone and just put in routines to handle custom SRs but maybe I&#8217;ll also play with the standard ones to see if it makes a difference.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/04/24/Moving-Forward-On-A-Couple-of-Fronts/">Moving Forward on a Couple of Fronts</a></h1>
     
     
       <p class="meta">
@@ -90,7 +245,7 @@
 
 <time datetime="2007-04-24T00:00:00-04:00" pubdate data-updated="true">Apr 24<span>th</span>, 2007</time>
         
-         | <a href="/2007/04/24/moving-forward-on-a-couple-of-fronts/#disqus_thread">Comments</a>
+         | <a href="/2007/04/24/Moving-Forward-On-A-Couple-of-Fronts/#disqus_thread">Comments</a>
         
       </p>
     
@@ -249,7 +404,7 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/03/21/ziggis-1-2-is-out/">zigGIS 1.2 Is Out</a></h1>
+      <h1 class="entry-title"><a href="/2007/03/21/zigGIS-1-2-Is-Out/">zigGIS 1.2 Is Out</a></h1>
     
     
       <p class="meta">
@@ -267,7 +422,7 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
 
 <time datetime="2007-03-21T00:00:00-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2007</time>
         
-         | <a href="/2007/03/21/ziggis-1-2-is-out/#disqus_thread">Comments</a>
+         | <a href="/2007/03/21/zigGIS-1-2-Is-Out/#disqus_thread">Comments</a>
         
       </p>
     
@@ -291,7 +446,7 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/03/11/postgis-and-arcgis-9-2/">PostGIS and ArcGIS 9.2</a></h1>
+      <h1 class="entry-title"><a href="/2007/03/11/PostGIS-and-ArcGIS-9-2/">PostGIS and ArcGIS 9.2</a></h1>
     
     
       <p class="meta">
@@ -309,7 +464,7 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
 
 <time datetime="2007-03-11T00:00:00-05:00" pubdate data-updated="true">Mar 11<span>th</span>, 2007</time>
         
-         | <a href="/2007/03/11/postgis-and-arcgis-9-2/#disqus_thread">Comments</a>
+         | <a href="/2007/03/11/PostGIS-and-ArcGIS-9-2/#disqus_thread">Comments</a>
         
       </p>
     
@@ -335,7 +490,7 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/03/09/almost-there-with-9-2/">Almost There With 9.2</a></h1>
+      <h1 class="entry-title"><a href="/2007/03/09/Almost-There-with-9-2/">Almost There With 9.2</a></h1>
     
     
       <p class="meta">
@@ -353,7 +508,7 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
 
 <time datetime="2007-03-09T00:00:00-05:00" pubdate data-updated="true">Mar 9<span>th</span>, 2007</time>
         
-         | <a href="/2007/03/09/almost-there-with-9-2/#disqus_thread">Comments</a>
+         | <a href="/2007/03/09/Almost-There-with-9-2/#disqus_thread">Comments</a>
         
       </p>
     
@@ -375,7 +530,7 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/03/08/finally-upgrading-to-9-2/">Finally Upgrading to 9.2&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/2007/03/08/Finally-Upgrading-to-9-2/">Finally Upgrading to 9.2&#8230;</a></h1>
     
     
       <p class="meta">
@@ -393,7 +548,7 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
 
 <time datetime="2007-03-08T00:00:00-05:00" pubdate data-updated="true">Mar 8<span>th</span>, 2007</time>
         
-         | <a href="/2007/03/08/finally-upgrading-to-9-2/#disqus_thread">Comments</a>
+         | <a href="/2007/03/08/Finally-Upgrading-to-9-2/#disqus_thread">Comments</a>
         
       </p>
     
@@ -403,97 +558,6 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
   <div class="entry-content"><p>I&#8217;m a little behind the curve on this but I&#8217;ve had one customer holding out until recently. Now I can finally take the plunge. Who needs sleep? See you on the other side&#8230;  ;-)</p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/02/24/how-do-you-disable-this-dialog-in-arcmap/">How Do You Disable This Dialog in ArcMap?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-02-24T00:00:00-05:00" pubdate data-updated="true">Feb 24<span>th</span>, 2007</time>
-        
-         | <a href="/2007/02/24/how-do-you-disable-this-dialog-in-arcmap/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong><strong>UPDATE</strong></strong><em>Check the comments for the resolution to this. 9.2 offers a registry setting and, since I&#8217;m upgrading, I&#8217;ll make use of that. I got pretty far on my API hack though.</em></p>
-
-<p>My question is twofold: First: Can you stop this dialog from appearing in ArcMap 9.1? Second: If not, does 9.2 give you the option to turn this thing off?</p>
-
-<p><img alt="ArcMap Drawing Errors?Dialog" src="http://geobabble.files.wordpress.com/2007/02/arcmap_draw_error.JPG" /></p>
-
-<p>I have posted a similar query on the ESRI forums but I thought the blogosphere may be able to weigh in on this. This dialog was introduced at 9.1 as a &#8220;feature&#8221; but it&#8217;s not the most developer-friendly thing in the world. A little background:</p>
-
-<p>I have an application running as a Windows service that is receiving data and stuffing it into ArcSDE. I have another app that&#8217;s an ArcMap extension. It refreshed the map on a specified interval and shows the new data as it comes in. There is no syncronization between the two. As you would expect, there are occaionally collisions. The ArcSDE layer may be in load-only mode or something similar. I have a lot of exception-handling in place to trap all of those kinds of things.</p>
-
-<p>This dialog defies all of that. Despite my exception handling, it still pops up and it completely freaks out my users. I would like to turn it off. (I would really like to kill it.) I can&#8217;t find a registry setting or any other such option that allows me to do that so I&#8217;m stumped. Any help would be appreciated and I promise to sing your praises on this blog if you have the solution.</p>
-
-<p>For background: we are using 9.1 (for a number of reasons). We are starting the upgrade planning to go to 9.2. If 9.2 fixes this, then I&#8217;ll stop worrying about it. Any useful info would be very helpful. My next step is some slimy Windows API hack to suppress the damned thing.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/02/21/working-with-.zig-files/">Working With .zig Files</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The last couple of days have shown some traffic being driven to my blog from search terms such as &#8220;opening zig file&#8221; so I thought I&#8217;d offer up a discussion of the format.</p>
-
-<p>Abe Gillespie, the original developer of <a href="http://code.google.com/p/ziggis">zigGIS</a>, developed the zig file as a means of persisting PostGIS connection information used to access a layer and display it in ArcMap. He threw us a blast from the past by choosing the old Windows INI format as the zig file syntax. I admire the choice because, truth be told, I still use that format from time to time. For simple configuration information, it&#8217;s more efficient than XML.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/02/21/working-with-.zig-files/">Read on &rarr;</a>
-    </footer>
   
 
 
@@ -516,23 +580,23 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-4.0-released/">SpatiaLite 4.0 Released</a>
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed&#8230;</a>
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed&#8230;</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
       </li>
     
   </ul>

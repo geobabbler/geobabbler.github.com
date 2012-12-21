@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I found this article today about using VB9 and WPF to draw thematic maps. It&#8217;s a good walk-through of how to do it. The article admits that the &hellip;">
+  <meta name="description" content="James posted a couple of weeks ago about he Dev Summit. That got me curious, is anyone planning on going to the Federal User Conference in DC? It&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,47 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/18/msdn-article-on-mapping-with-wpf/">MSDN Article on Mapping With WPF</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/21/2008-ESRI-Federal-Users-Conference/">2008 ESRI Federal Users Conference</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-21T00:00:00-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+        
+         | <a href="/2007/12/21/2008-ESRI-Federal-Users-Conference/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>James <a href="http://www.spatiallyadjusted.com/2007/12/03/2008-esri-developer-summit/">posted</a> a couple of weeks ago about he Dev Summit. That got me curious, is anyone planning on going to the <a href="http://www.esri.com/events/feduc/index.html">Federal User Conference</a> in DC? It&#8217;s kind of mini East Coast UC. My company does a lot of federal and defense work so I&#8217;ll be there. It seems to be attracting more people each year in general but especially those from local governments around the region that don&#8217;t have travel budgets for San Diego. Rather ironic since it was originally targeted at federal users.</p>
+
+<p>It&#8217;s actually something of an unusual year in that it looks like I&#8217;ll be at all of the big ESRI conferences this year (FedUC, BP/Dev, International UC).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/SQL-Server-2008-WKT-XY-Switching-Illustrated/">SQL Server 2008 WKT X/Y Switching Illustrated</a></h1>
     
     
       <p class="meta">
@@ -90,7 +130,72 @@
 
 <time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
         
-         | <a href="/2007/12/18/msdn-article-on-mapping-with-wpf/#disqus_thread">Comments</a>
+         | <a href="/2007/12/18/SQL-Server-2008-WKT-XY-Switching-Illustrated/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>UPDATE:</strong> Microsoft has <a href="http://blogs.msdn.com/isaac/archive/2007/12/27/latitude-longitude-ordering.aspx">announced</a> that they will address this issue in an upcoming CTP. They plan to implement longitude-latitude ordering in WKB and WKT for both the geography and geometry types.</p>
+
+<p>In a response to my <a href="http://geobabble.wordpress.com/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/">previous post</a>, <a href="http://www.spatialdatalogic.com/cs/blogs/brian_flood/default.aspx">Brian Flood</a> mentioned the ongoing discussion about <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> and the &#8220;switching&#8221; of X and Y values in <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> strings depending upon which spatial data type, geometry or geography, is being used. The SQL snippet below boils the issue down to a simple example:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="k">g</span> <span class="n">geometry</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="k">g</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="k">g</span><span class="p">.</span><span class="n">STX</span> <span class="k">as</span> <span class="n">geomX</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="n">h</span> <span class="n">geography</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="n">h</span> <span class="o">=</span> <span class="n">geography</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="n">h</span><span class="p">.</span><span class="n">Lat</span> <span class="k">as</span> <span class="n">geogLat</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In both cases, the value returned is 3. As can be seen, the same WKT string is being used in both cases. The main difference is that one example queries the X value of a GEOMETRY object and the other queries the Lat (Latitude, or Y) value of a GEOGRAPHY object. So, depending on the data type, the same ordinal can be X or Y. You can check out the debate on this topic <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2431933&amp;SiteID=1">here</a>. It is a great discussion that covers a lot of ground and I highly recommend checking it out.</p>
+
+<p>For me, the issue is consistency. Regardless of the mindsets of professionals vs. non-professionals or the imprecision of the OGC spec, the bottom line is that the same call behaves differently for two related data types. Admittedly GEOGRAPHY and GEOMETRY do different things. GEOGRAPHY is for geodetic (spherical) data and GEOMETRY is for planar data. This fact, however, has no bearing on how WKT is parsed. The current situation is analagous to having a rounding function that by default rounds up for doubles and rounds down for singles.</p>
+
+<p>At this point, I would normally say pick a method and run with it for both data types but I do have a preference here. I think that WKT should be parsed as X,Y consistently in order to provide better interoperability with a wider variety of client software. The simple fact is that most products out there do X,Y. For instance, I am working with SharpMap and it generates WKT in X,Y order and assumes X,Y order when parsing. Other database platforms such as Oracle, PostGIS and MySQL do the same but it&#8217;s the client software that matters most in this case. I&#8217;m sure that others can chime in with more examples.</p>
+
+<p>I am intrigued by the use of a separate data type to handle geodetic data but the X,Y order of WKT has no bearing here. To my way of thinking, the best approach would be to commit to X,Y order for both GEOMETRY and GEOGRAPHY.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/MSDN-Article-on-Mapping-with-WPF/">MSDN Article on Mapping With WPF</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/18/MSDN-Article-on-Mapping-with-WPF/#disqus_thread">Comments</a>
         
       </p>
     
@@ -114,7 +219,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/">Inserting SQL 2008 Geometry With a SqlCommand</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/">Inserting SQL 2008 Geometry With a SqlCommand</a></h1>
     
     
       <p class="meta">
@@ -132,7 +237,7 @@
 
 <time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
         
-         | <a href="/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/#disqus_thread">Comments</a>
+         | <a href="/2007/12/18/Inserting-SQL-2008-Geometry-With-a-SqlCommand/#disqus_thread">Comments</a>
         
       </p>
     
@@ -200,7 +305,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/08/spatial-references-in-sql-server-2008-part-3/">Spatial References in SQL Server 2008, Part 3</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/">Spatial References in SQL Server 2008, Part 3</a></h1>
     
     
       <p class="meta">
@@ -218,7 +323,7 @@
 
 <time datetime="2007-12-08T00:00:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2007</time>
         
-         | <a href="/2007/12/08/spatial-references-in-sql-server-2008-part-3/#disqus_thread">Comments</a>
+         | <a href="/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/#disqus_thread">Comments</a>
         
       </p>
     
@@ -251,7 +356,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/05/so-neo-geo-is-not-gis-huh/">So Neo-Geo Is Not GIS, Huh?</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh/">So Neo-Geo Is Not GIS, Huh?</a></h1>
     
     
       <p class="meta">
@@ -269,7 +374,7 @@
 
 <time datetime="2007-12-05T00:00:00-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2007</time>
         
-         | <a href="/2007/12/05/so-neo-geo-is-not-gis-huh/#disqus_thread">Comments</a>
+         | <a href="/2007/12/05/So-Neo-Geo-Is-Not-GIS-Huh/#disqus_thread">Comments</a>
         
       </p>
     
@@ -301,7 +406,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/03/a-year-of-geomusings/">A Year of GeoMusings</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/03/A-Year-of-GeoMusings/">A Year of GeoMusings</a></h1>
     
     
       <p class="meta">
@@ -319,7 +424,7 @@
 
 <time datetime="2007-12-03T00:00:00-05:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2007</time>
         
-         | <a href="/2007/12/03/a-year-of-geomusings/#disqus_thread">Comments</a>
+         | <a href="/2007/12/03/A-Year-of-GeoMusings/#disqus_thread">Comments</a>
         
       </p>
     
@@ -332,7 +437,7 @@
   
   
     <footer>
-      <a rel="full-article" href="/2007/12/03/a-year-of-geomusings/">Read on &rarr;</a>
+      <a rel="full-article" href="/2007/12/03/A-Year-of-GeoMusings/">Read on &rarr;</a>
     </footer>
   
 
@@ -344,7 +449,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/12/02/stealing-gps/">Stealing GPS&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/2007/12/02/Stealing-GPS/">Stealing GPS&#8230;</a></h1>
     
     
       <p class="meta">
@@ -362,7 +467,7 @@
 
 <time datetime="2007-12-02T00:00:00-05:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2007</time>
         
-         | <a href="/2007/12/02/stealing-gps/#disqus_thread">Comments</a>
+         | <a href="/2007/12/02/Stealing-GPS/#disqus_thread">Comments</a>
         
       </p>
     
@@ -394,7 +499,7 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/11/28/sql-server-2008-sharpmap-data-provider-code/">SQL Server 2008 SharpMap Data Provider Code</a></h1>
+      <h1 class="entry-title"><a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">SQL Server 2008 SharpMap Data Provider Code</a></h1>
     
     
       <p class="meta">
@@ -412,7 +517,7 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
 
 <time datetime="2007-11-28T00:00:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2007</time>
         
-         | <a href="/2007/11/28/sql-server-2008-sharpmap-data-provider-code/#disqus_thread">Comments</a>
+         | <a href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/#disqus_thread">Comments</a>
         
       </p>
     
@@ -423,7 +528,7 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
   
   
     <footer>
-      <a rel="full-article" href="/2007/11/28/sql-server-2008-sharpmap-data-provider-code/">Read on &rarr;</a>
+      <a rel="full-article" href="/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/">Read on &rarr;</a>
     </footer>
   
 
@@ -435,7 +540,7 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
       
   <header>
     
-      <h1 class="entry-title"><a href="/2007/11/26/spatial-references-in-sql-server-2008-part-2/">Spatial References in SQL Server 2008, Part 2</a></h1>
+      <h1 class="entry-title"><a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/">Spatial References in SQL Server 2008, Part 2</a></h1>
     
     
       <p class="meta">
@@ -453,7 +558,7 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
 
 <time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
         
-         | <a href="/2007/11/26/spatial-references-in-sql-server-2008-part-2/#disqus_thread">Comments</a>
+         | <a href="/2007/11/26/Spatial-References-in-SQL-Server-2008-Part-2/#disqus_thread">Comments</a>
         
       </p>
     
@@ -488,93 +593,6 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/">Spatial References in SQL Server 2008 November CTP</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;ve been playing with the <a href="http://www.microsoft.com/sql/2008/default.mspx">SQL 2008 November CTP</a> since it was released last week and have been generally impressed but as I have delved into its handling fo spatial references, I have noted some areas of concern. Keeping in mind that it&#8217;s a CTP, I&#8217;m hoping that some aspects may be addressed before release.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/20/sharpmap-and-sql-server-2008-spatial/">SharpMap and SQL Server 2008 Spatial</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-20T00:00:00-05:00" pubdate data-updated="true">Nov 20<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/20/sharpmap-and-sql-server-2008-spatial/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I downloaded the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">November CTP</a> yesterday and couldn&#8217;t resist. Today I wrote a <a href="http://www.codeplex.com/SharpMap">SharpMap</a> data provider for it. The black rectangle below represents a sample data set I created. It&#8217;s not as pretty as the Mexico data I used with <a href="http://www.sqlite.org/">SQLite</a> but it&#8217;s beautiful to me. It&#8217;s being displayed in the DemoWinForm app that comes with SharpMap 0.9. I am still working in 0.9 because a project I am on is using it. I&#8217;ll migrate to 2.0 a little later.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.png" title="sharpmap_sql2008.png"><img alt="sharpmap_sql2008.png" src="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.thumbnail.png" /></a></p>
-
-<p>Anyway, <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">I previously sung the praises of SharpMap and its ease of extensibility</a>. The turn-around time needed to write a provider speaks well of SQL 2008 to this point. All of the native SharpMap functions for handling WKB are working fine with the output from SQL 2008. This tells me that Microsoft is doing a good job of implementing OGC specifications.</p>
-
-<p>I am compiling my first impressions about SQL 2008 Spatial and will post them later. Most of them are favorable. It&#8217;s the first public beta of sorts and there are still some things missing (coordinate tranformations for instance) that I hope will come later but it makes a good first impression. Outside of the spatial capability, the platform in general seems stable. It&#8217;s almost production-ready as is.</p>
-
-<p>I will post the code to the provider later. There&#8217;s one piece unrelated to data handling that I need to clean up and then I&#8217;ll most likely post it over on the SharpMap site and see if they&#8217;ll take it. After that, I guess I&#8217;ll build a data loader&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/25/">&larr; Older</a>
@@ -592,23 +610,23 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2012/11/27/put-planet-geospatial-to-work-for-you/">Put Planet Geospatial to Work for You</a>
+        <a href="/2012/11/27/Put-Planet-Geospatial-to-Work-for-You/">Put Planet Geospatial to Work for You</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-for-android-available/">SpatiaLite for Android Available</a>
+        <a href="/2012/11/26/SpatiaLite-for-Android-Available/">SpatiaLite for Android Available</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/26/spatialite-4.0-released/">SpatiaLite 4.0 Released</a>
+        <a href="/2012/11/26/SpatiaLite-4-0-Released/">SpatiaLite 4.0 Released</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/19/the-biggest-news-you-may-have-missed/">The Biggest News You May Have Missed&#8230;</a>
+        <a href="/2012/11/19/The-Biggest-News-You-May-Have-Missed/">The Biggest News You May Have Missed&#8230;</a>
       </li>
     
       <li class="post">
-        <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a>
+        <a href="/2012/11/14/A-GIS-Day-Map-for-World-Diabetes-Day/">A GIS Day Map for World Diabetes Day</a>
       </li>
     
   </ul>

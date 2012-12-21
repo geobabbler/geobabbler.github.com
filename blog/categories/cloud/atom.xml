@@ -4,7 +4,7 @@
   <title><![CDATA[Category: cloud | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/cloud/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T11:21:28-05:00</updated>
+  <updated>2012-12-21T12:00:37-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Arkansas Evaluating Geospatial Cloud Infrastructures]]></title>
-    <link href="http://blog.geomusings.com/2011/04/29/arkansas-evaluating-geospatial-cloud-infrastructures/"/>
+    <link href="http://blog.geomusings.com/2011/04/29/Arkansas-Evaluating-Geospatial-Cloud-Infrastructures/"/>
     <updated>2011-04-29T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/04/29/arkansas-evaluating-geospatial-cloud-infrastructures</id>
+    <id>http://blog.geomusings.com/2011/04/29/Arkansas-Evaluating-Geospatial-Cloud-Infrastructures</id>
     <content type="html"><![CDATA[<p><a href="http://www.zekiah.com">My company</a> has recently begun working on a project for the Arkansas Geographic Information Office (AGIO) to evaluate options for potentially migrating the <a href="http://www.geostor.arkansas.gov/G6/Home.html">GeoStor</a> geospatial infrastructure to a cloud computing environment. If you are unfamiliar with GeoStor, it is the official geospatial platform for the State of Arkansas and is maintained by AGIO. I realize, as does AGIO, that "the cloud" has become a buzzword that has lost any meaningful context. So, for purposes of discussion, we'll go with the NIST draft definition available here: <a href="http://csrc.nist.gov/publications/drafts/800-145/Draft-SP-800-145_cloud-definition.pdf">http://csrc.nist.gov/publications/drafts/800-145/Draft-SP-800-145_cloud-definition.pdf</a>.</p>
 
 <p>For this effort, we are open to considering any service model but we have strict guidance that the only deployment model of interest is the public cloud model.<!--more--></p>
@@ -54,9 +54,9 @@
   
   <entry>
     <title type="html"><![CDATA[Clouds]]></title>
-    <link href="http://blog.geomusings.com/2010/07/26/clouds/"/>
+    <link href="http://blog.geomusings.com/2010/07/26/Clouds/"/>
     <updated>2010-07-26T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/07/26/clouds</id>
+    <id>http://blog.geomusings.com/2010/07/26/Clouds</id>
     <content type="html"><![CDATA[<p>I spent the vast majority of my time at the 2010 ESRI User Conference working the <a href="http://www.zekiah.com">Zekiah</a>/<a href="http://www.arc2earth.com">Arc2Earth </a>booth. That was fun as I got meet/reconnect with a lot of people but I didn't see much of the conference itself. As a result, I haven't really blogged it.</p>
 
 <p><a href="http://www.esri.com">ESRI</a> continued with the "cloud ready" theme that was rolled out at the Federal User Conference but with more details about how they are moving to "the cloud." This generated a lot of buzz amongst many of the attendees from what I could tell. One of the big new features of Arc2Earth v3 (disclaimer: my company is an Arc2Earth reseller) is Cloud Services. As a result, we had a banner in our booth that had the word "cloud" on it, prompting lots of people to stop.<!--more--></p>
@@ -75,9 +75,9 @@
   
   <entry>
     <title type="html"><![CDATA[A Couple of Updates]]></title>
-    <link href="http://blog.geomusings.com/2010/06/15/a-couple-of-updates/"/>
+    <link href="http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates/"/>
     <updated>2010-06-15T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/15/a-couple-of-updates</id>
+    <id>http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates</id>
     <content type="html"><![CDATA[<p>Shortly after my <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">previous post</a>, about browsing and downloading data from <a href="http://www.geocommons.com">GeoCommons</a>, hit the wires, I got quite a few back-channel requests for the code. I sent it out via e-mail to a number of people and then posted it via DropBox. I have finally gotten around to posting it up on Google Code, making things much more manageable. It is now available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>.</p>
 
 <p>I have made a few updates since the original post. Some were administrative but were functional. They are:</p>
@@ -96,9 +96,9 @@
   
   <entry>
     <title type="html"><![CDATA[Importing Data From GeoCommons Into ArcMap]]></title>
-    <link href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/"/>
+    <link href="http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/"/>
     <updated>2010-06-02T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap</id>
+    <id>http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap</id>
     <content type="html"><![CDATA[<p><strong>UPDATE:</strong> <em>The code for this post is available at the bottom of the page.</em></p>
 
 <p>I have been doing a lot of development with the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">ESRI Silverlight API</a> recently. One of the requirements of my project is to be able to dynamically add KML data at runtime. The incorporation of <a href="http://code.google.com/apis/kml/documentation/">KML</a> was handled for us through <a href="http://resources.esri.com/arcgisserver/apis/silverlight/index.cfm?fa=codeGalleryDetails&amp;scriptID=16487">one of the ESRI samples</a> on the resource center so we pretty much just had to integrate that code and test against our use cases. For testing, I typically reached out to <a href="http://www.geocommons.com">GeoCommons</a> since any data set available there can be streamed as KML.</p>

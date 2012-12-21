@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sql server spatial | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/sql-server-spatial/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T11:21:28-05:00</updated>
+  <updated>2012-12-21T12:00:37-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[PgMap Is Now SpatialKit]]></title>
-    <link href="http://blog.geomusings.com/2011/10/25/pgmap-is-now-spatialkit/"/>
+    <link href="http://blog.geomusings.com/2011/10/25/PgMap-Is-Now-SpatialKit/"/>
     <updated>2011-10-25T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/10/25/pgmap-is-now-spatialkit</id>
+    <id>http://blog.geomusings.com/2011/10/25/PgMap-Is-Now-SpatialKit</id>
     <content type="html"><![CDATA[<p><a href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/">I blogged a while back on PgMap</a>, a freeware ArcGIS extension for directly connecting to PostGIS. <a href="http://st-links.com/default.aspx">ST-Links</a>, the makers of PgMap, sent out an e-mail this morning announcing that PgMap and QMap (the equivalent technology for interacting with SQL Server 2008 spatial data) have been combined into a single tool called SpatialKit. This move comes as part of the 3.0 release of the tool.</p>
 
 <p>The same announcement also mentioned a <a href="http://groups.google.com/group/spatialkit?hl=en">Google Group dedicated to SpatialKit</a>. When I took a look at PgMap before, it seemed to be a pretty nice tool so I'm looking forward to digging into this. If you were a previous user of zigGIS, or if you have experimented with ArcSquirrel for SQL Server 2008 access, you may want to check out SpatialKit.</p>
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[SQL Server SIG at the UC]]></title>
-    <link href="http://blog.geomusings.com/2008/08/06/sql-server-sig-at-the-uc/"/>
+    <link href="http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC/"/>
     <updated>2008-08-06T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/08/06/sql-server-sig-at-the-uc</id>
+    <id>http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC</id>
     <content type="html"><![CDATA[<p>My blogging has been slower this time around because I've been doing a lot of booth duty. This is my thrid conference this year and some of our other staff are getting to go to the sessions. I did, however, go to the SQL Server SIG a little while ago.</p>
 
 <p>Ed Katibah had a few tricks up his sleeve. First off, he dropped the news that, as of 11:00am, SQL Server 2008 is now in RTM. Very soon, the final version will be in our hands. That's great news to everyone who has been working with the CTPs and RCs.</p>
@@ -51,18 +51,18 @@
   
   <entry>
     <title type="html"><![CDATA[Upgrading to SQL Server 2008 February CTP]]></title>
-    <link href="http://blog.geomusings.com/2008/02/25/upgrading-to-sql-server-2008-february-ctp/"/>
+    <link href="http://blog.geomusings.com/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP/"/>
     <updated>2008-02-25T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2008/02/25/upgrading-to-sql-server-2008-february-ctp</id>
+    <id>http://blog.geomusings.com/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP</id>
     <content type="html"><![CDATA[<p>There is no direct upgrade yet so you need to remove the November CTP. Apparently, the uninstall doesn't always work well (hey, it's beta). Luckily, <a href="http://dotnettim.spaces.live.com/blog/cns!4B800EB59FAEDC2A!152.entry">Tim's post</a> straightened me out. This worked for me. More accurately, the guidance in Michael's comment worked for me.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[SQL Server 2008 and 2005 Side-By-Side]]></title>
-    <link href="http://blog.geomusings.com/2008/02/01/sql-server-2008-and-2005-side-by-side/"/>
+    <link href="http://blog.geomusings.com/2008/02/01/SQL-Server-2008-and-2005-Side-By-Side/"/>
     <updated>2008-02-01T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2008/02/01/sql-server-2008-and-2005-side-by-side</id>
+    <id>http://blog.geomusings.com/2008/02/01/SQL-Server-2008-and-2005-Side-By-Side</id>
     <content type="html"><![CDATA[<p>Installing the the SQL Server 2008 November CTP side-by-side with SQL Server 2005 is very straightforward. On the previous build of my machine, I had them both running just fine. After my system crash, I began setting things up again. Because I had been working with 2008 before the crash, I installed that first and then got around to 2005 later.</p>
 
 <p>It should have been obvious to me before I did that but installing them in that order seems to break a lot of stuff in 2008. Kinda makes sense. I was a little flustered at having to rebuild in the first place and perhaps rushing things a bit but here it is for the record: If you are installing both of them on a new box, put on 2005 first.</p>
@@ -77,9 +77,9 @@
   
   <entry>
     <title type="html"><![CDATA[SQL Server 2008 Spatial - One Month Later]]></title>
-    <link href="http://blog.geomusings.com/2007/12/28/sql-server-2008-spatial-one-month-later/"/>
+    <link href="http://blog.geomusings.com/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later/"/>
     <updated>2007-12-28T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/12/28/sql-server-2008-spatial-one-month-later</id>
+    <id>http://blog.geomusings.com/2007/12/28/SQL-Server-2008-Spatial-One-Month-Later</id>
     <content type="html"><![CDATA[<p>So it's been about a month since the release of the SQL Server 2008 November CTP. I've been dabbling with it and have made several posts about it. I still have a lot more digging to do with it but here are my impressions after a month:<!--more--></p>
 
 <ol>

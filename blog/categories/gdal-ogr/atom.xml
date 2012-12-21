@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gdal/ogr | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gdal-ogr/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T11:21:28-05:00</updated>
+  <updated>2012-12-21T12:00:37-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A Look at "PostGIS In Action"]]></title>
-    <link href="http://blog.geomusings.com/2010/04/21/a-look-at-postgis-in-action/"/>
+    <link href="http://blog.geomusings.com/2010/04/21/A-Look-at-PostGIS-In-Action/"/>
     <updated>2010-04-21T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/04/21/a-look-at-postgis-in-action</id>
+    <id>http://blog.geomusings.com/2010/04/21/A-Look-at-PostGIS-In-Action</id>
     <content type="html"><![CDATA[<p>Over the past few weeks, I have been reading a copy of the upcoming book by Regina Obe and Leo Hsu titled "<a href="http://manning.com/obe/">PostGIS In Action</a>." Through my work with <a href="http://pub.obtusesoft.com">zigGIS</a> and some of my consulting work with <a href="http://www.zekiah.com">Zekiah</a>, I have been using <a href="http://postgis.refractions.net/">PostGIS</a> with good results for some time now. I have found that it matches or exceeds the capabilities of its commercial counterparts and I can be quite productive with it.</p>
 
 <p><img alt="" src="http://www.manning.com/obe/obe_cover150.jpg" /></p>
@@ -82,9 +82,9 @@
   
   <entry>
     <title type="html"><![CDATA[Exporting ArcObjects Feature Class to PGSQL]]></title>
-    <link href="http://blog.geomusings.com/2007/09/26/exporting-arcobjects-feature-class-to-pgsql/"/>
+    <link href="http://blog.geomusings.com/2007/09/26/Exporting-ArcObjects-Feature-Class-to-PGSQL/"/>
     <updated>2007-09-26T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2007/09/26/exporting-arcobjects-feature-class-to-pgsql</id>
+    <id>http://blog.geomusings.com/2007/09/26/Exporting-ArcObjects-Feature-Class-to-PGSQL</id>
     <content type="html"><![CDATA[<p>The same project that has me working with WPF has me busy on a few fronts. I've been spending the last few days writing a tool to export data out of an <a href="http://support.esri.com/index.cfm?fa=knowledgebase.gisDictionary.search&amp;searchTerm=ArcObjects">ArcObjects</a> feature class and dump it to a pgsql .sql file. <a href="http://www.esri.com/products.html">ArcGIS</a> acts as a serviceable generic data accessor to many vector data types and ArcCatalog provides a decent UI for the user community I'm targeting (also, they already have it). As a result, I've been developing an ArcCatalog command that exports a selected feature class.</p>
 
 <p>As the title of this post suggests, I didn't have a lot of time in which to accomplish this task.</p>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: c# | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/c-/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T11:21:28-05:00</updated>
+  <updated>2012-12-21T12:00:37-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
-    <link href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/"/>
+    <link href="http://blog.geomusings.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API/"/>
     <updated>2012-08-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api</id>
+    <id>http://blog.geomusings.com/2012/08/24/ToGeoJson-and-ToWKT-for-the-Esri-FGDB-API</id>
     <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
 
 <p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
@@ -56,9 +56,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using GeoIQ Analytics in .Net Applications]]></title>
-    <link href="http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications/"/>
+    <link href="http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/"/>
     <updated>2012-07-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications</id>
+    <id>http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications</id>
     <content type="html"><![CDATA[<p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it's my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That's good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
 
 <p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
@@ -213,9 +213,9 @@
   
   <entry>
     <title type="html"><![CDATA[GeoIQ API Wrappers for .Net]]></title>
-    <link href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/"/>
+    <link href="http://blog.geomusings.com/2012/06/11/GeoIQ-API-Wrappers-for-Net/"/>
     <updated>2012-06-11T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net</id>
+    <id>http://blog.geomusings.com/2012/06/11/GeoIQ-API-Wrappers-for-Net</id>
     <content type="html"><![CDATA[<p>A while back, I built a small <a href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/" target="_blank">interface between GeoIQ/GeoCommons and ArcGIS Desktop</a>. From there, it became more of a full-fledged <a href="http://developer.geoiq.com/tools/arcgis-toolbar/" target="_blank">toolbar for ArcGIS</a>. During that effort, I began developing some .Net classes to wrap the <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">GeoIQ RESTful API</a>. As we progressed with the toolbar, my colleague <a href="http://www.hugoestrada.net/" target="_blank">Hugo Estrada</a> also contributed to the library.</p>
 
 <p><img alt="" class="aligncenter size-full wp-image-2676" height="145" src="http://geobabble.files.wordpress.com/2012/06/geoiq_dotnet2.png" title="GeoIQ + .Net" width="640" /></p>
@@ -238,9 +238,9 @@
   
   <entry>
     <title type="html"><![CDATA[Working with the GeoIQ Features API]]></title>
-    <link href="http://blog.geomusings.com/2011/04/07/working-with-the-geoiq-features-api/"/>
+    <link href="http://blog.geomusings.com/2011/04/07/Working-with-the-GeoIQ-Features-API/"/>
     <updated>2011-04-07T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/04/07/working-with-the-geoiq-features-api</id>
+    <id>http://blog.geomusings.com/2011/04/07/Working-with-the-GeoIQ-Features-API</id>
     <content type="html"><![CDATA[<p>I find myself pointing people to GeoCommons for data more often these days. With over <a href="http://blog.geoiq.com/2011/02/28/50000-unique-datasets-on-geocommons-woot/">50,000 data sets</a>, there's a lot there. The people I work with seem to usually be able to find data of value there so I've been putting a little time into <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">making it easier</a> to get data from GeoCommons. As I've mentioned before, many of them are long-standing ESRI users. While they are becoming more aware of alternate tools and data sources, it is still important for them to be able to get data into the ESRI environment where their custom tools reside.</p>
 
 <p>Given the content of my recent posts, it?s no secret that my recent project work has involved the ESRI Silverlight API so I decided extend it to more easily access data from GeoCommons.</p>
@@ -572,9 +572,9 @@
   
   <entry>
     <title type="html"><![CDATA[Simple Annotations With the Esri Silverlight API]]></title>
-    <link href="http://blog.geomusings.com/2010/12/16/simple-annotations-with-the-esri-silverlight-api/"/>
+    <link href="http://blog.geomusings.com/2010/12/16/Simple-Annotations-With-the-Esri-Silverlight-API/"/>
     <updated>2010-12-16T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/12/16/simple-annotations-with-the-esri-silverlight-api</id>
+    <id>http://blog.geomusings.com/2010/12/16/Simple-Annotations-With-the-Esri-Silverlight-API</id>
     <content type="html"><![CDATA[<p>In a previous post, I mentioned that I developed a MeasureString function for use in developing an annotation tool. In this post, I'll go into a little bit more detail about that tool. For purposes of discussion, I extended the interactive graphics sample from the <a href="http://help.arcgis.com/en/webapi/silverlight/samples/start.htm">Esri Silverlight API interactive SDK</a>.</p>
 
 <p>For starters, I added another tool to the sample's tool bar (circled in red below) to provide access to the annotation capability.</p>
