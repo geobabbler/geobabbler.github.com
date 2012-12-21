@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Using ArcSDE 9.3 with PostgreSQL, Part 1 - geoMusings</title>
+  <title>Using ArcSDE 9.3 with PostgreSQL, Part 3 - geoMusings</title>
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="This post may cover some similar ground to that which Dave has been treading but I&#8217;m just trying to document my experiences as they occur. By &hellip;">
+  <meta name="description" content="Well, 9.3 is now shipping so the sun is setting on my time with the release candidate. One update from my first post: I posted the problem I was &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.geomusings.com/2008/05/28/using-arcsde-9-3-with-postgresql-part-1/">
+  <link rel="canonical" href="http://blog.geomusings.com/2008/07/01/using-arcsde-93-with-postgresql-part-3/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -69,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Using ArcSDE 9.3 With PostgreSQL, Part 1</h1>
+      <h1 class="entry-title">Using ArcSDE 9.3 With PostgreSQL, Part 3</h1>
     
     
       <p class="meta">
@@ -85,7 +85,7 @@
   
 
 
-<time datetime="2008-05-28T00:00:00-04:00" pubdate data-updated="true">May 28<span>th</span>, 2008</time>
+<time datetime="2008-07-01T00:00:00-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2008</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -94,30 +94,27 @@
   </header>
 
 
-<div class="entry-content"><p>This post may cover some similar ground to that which <a href="http://blog.davebouwman.net/2008/05/12/PostGISRound2ReadingTheManual.aspx">Dave has been treading</a> but I&#8217;m just trying to document my experiences as they occur.</p>
+<div class="entry-content"><p>Well, 9.3 is now shipping so the sun is setting on my time with the release candidate. One update from my first post: I posted the problem I was having with sdelayer -o register not calculate a default extent on the Beta forum and I got a reply that it shouldn&#8217;t work that way and they would look at it. I&#8217;ll probably see shortly whether a fix made it in this time or if I have to wait for a service pack.</p>
 
-<p>By virtue of my association with <a href="http://www.obtusesoft.com">zigGIS</a>, I&#8217;ve been involved with using <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://postgis.refractions.net">PostGIS</a> in the <a href="http://www.esri.com">ArcGIS</a> envrionment for some time now. One of the primary sources of excitement about 9.3 for me was that <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> would finally support PostgreSQL as an RDBMS platform. ArcSDE has always been positioned as an enterprise platform and has, therefore, been rather expensive. This expense has been compounded by the need to also separately license an RDBMS platform such as Oracle, SQL Server or DB2 in addition to ArcSDE. PostgreSQL helps alleviate some of that cost while also providing very advanced capability.<!--more--></p>
+<p>The last piece I wanted to cover was working with the layer that I loaded in from a shapefile using ArcCatalog. As I indicated before, I used the PG_GEOMETRY keyword to force the use of PostGIS geometry.</p>
 
-<p>PostgreSQL is an outstanding, enterprise-quality RDBMS platform. My hope is that the support by ESRI will raise its profile here in the States to the point that more organizations will realize how well it matches up to its better-known proprietary counterparts.</p>
+<p>I first left the layer as a simple feature. Within ArcGIS everything behaved as would be expected. I could note no difference in behavior versus what I would expect dealing with any other ArcSDE layer. I was also able to add the layer into uDig, but with a little anomalous behavior.</p>
 
-<p>I have been experiementing with the ArcSDE 9.3 for PostgreSQL beta and release candidate. This post will describe what&#8217;s been working for me. Before going on, however, I stongly recommend reading <a href="http://blog.cleverelephant.ca/2008/05/why-use-arcsde.html">Paul Ramsey&#8217;s post</a> debating the need for ArcSDE. The post itself and the Nabble discussion it references are both outstanding discussions that contain many points I agree with. My post will assume that you intend to use ArcSDE with PostgreSQL.</p>
+<p>The layer I was working with was a polygon layer. When I loaded the layer into uDig, it displayed as a polygon layer but the uDig TOC showed a line symbol:</p>
 
-<p>One thing that becomes readily apparent is that the single-database model with direct connect is the way to go with PostgreSQL. If you run the default installation and post-installation, you end up with the typical &#8220;sde&#8221; database with all of the ArcSDE system tables and functions and the like set up as can be seen in this screen clip from PgAdmin. <img alt="" class="alignright size-medium wp-image-186" height="213" src="http://geobabble.files.wordpress.com/2008/05/sde_postgis1.png?w=240" width="240" />
-The post-installer will also give you the option to create a service to use a giomgr process. If you choose to do this, you will end up with the usual ArcSDE service using esri_sde on port 5151. This is where the design of PostgreSQL comes into play. PostgreSQL uses both databases and schemas. Schemas are contained within a database. Schemas are roughly equivalent to databases in SQL Server (I said roughly). PostgreSQL does not allow cross-database referencing so it&#8217;s important not to get caught up in &#8220;SQL Server thinking&#8221; when considering databases. This screen capture shows what I mean (I tried registering a PostGIS layer in the arcsde_test1 database using the esri_sde service which connects to the sde database).</p>
+<p><a href="http://geobabble.files.wordpress.com/2008/07/udig_arcsde_layer.png"><img alt="ArcSDE PostgreSQL layers in uDig" class="alignnone size-medium wp-image-205" height="218" src="http://geobabble.files.wordpress.com/2008/07/udig_arcsde_layer.png?w=300" width="300" /></a></p>
 
-<p><a href="http://geobabble.files.wordpress.com/2008/05/sde_postgis2.png"><img alt="" class="alignnone size-medium wp-image-187" height="151" src="http://geobabble.files.wordpress.com/2008/05/sde_postgis2.png?w=300" width="300" /></a></p>
+<p>Additionally, the fema_regions layer was not editable in uDig. The other layer editable but had the same display issues. To be fair, I had similar behavior with some layers I had loaded into PostGIS from shapefiles using FWTools. In that case, it didn&#8217;t happen with all of the layers I loaded. In this case, I have not experimented with enough data sets to determine if the behavior is consistent or intermittent. I would also need to test whether it&#8217;s the loader, PostGIS or uDig. Time has not been a friend here.</p>
 
-<p>What this means in terms of ArcSDE is that the old multiple-database model (one &#8220;sde&#8221; database and multiple user databases with spatial data) doesn&#8217;t really work here. With SQL Server, you could use the esri_sde giomgr process to access spatial data in any database on the server. In PostgreSQL, it gives you access to data in multiple schemas in one database. If you want to store data in another database, you need to run the post-installer to set up the ArcSDE objects in that database and let it create another service listening on a different port. You can see how this could get cumbersome.</p>
+<p>Next, I did some experimentation with versioning. I versioned my milbases layer, created a test version, added a feature and save the edit. As expected, when I connected in uDig, it connected to the DEFAULT version and I did not see my edit. Since this layer was editable in uDig, I added a feature here and refreshed my ArcMap display. In this case, I was able to see the uDig-created feature (in DEFAULT) in both versions (again, as expected).</p>
 
-<p>So, really, it&#8217;s just time to give up the giomgr process and just use direct connect or do all of your spatial work in one database. My preference is for direct connect (which has been the ESRI-recommended approach for a while now, anyway). In this case, you still use the post-installer to set up the ArcSDE objects in your database but you don&#8217;t create the service. You&#8217;ll then use a direct connect string to access your data (sde:postgresql:localhost for example), specifying your database.</p>
+<p>My previous posts have brought a few questions about raster catalogs and the like. I have been able to load raster data and create raster catalogs. This is not, however, raster data in PostGIS. This is ArcSDE raster data next to PostGIS. PostGIS has no idea the raster data is there (although the raster footprints display in uDig as rectangles).</p>
 
-<p>This means you&#8217;ll have the ArcSDE objects installed in each database you want to use with ArcSDE. This approach not unlike what you need to to with PostGIS. In fact, if you want to use PostGIS geometries with ArcSDE, you will need to install both PostGIS and ArcSDE in your database. In this case you need to create the database first using the PostGIS template database and then install the ArcSDE objects into the database. ArcSDE always installs in its own schema so its pretty well segmented from everything else.</p>
+<p>So, depending on how you implement it, ArcSDE for PostgreSQL can provide interoperability between ArcGIS and an open-source stack. uDig can be leveraged in a pinch to edit data loaded into ArcSDE using the PostGIS geometry type, allowing you to expand to meet demand. Additionally, ESRI has implemented the full geodatabase capability within PostgreSQL, providing a great alternative to shops that was GIS but not necessarily Oracle/DB2/SQL Server.</p>
 
-<p>I tried setting up a PostGIS/ArcSDE template database to simplify things but it simply didn&#8217;t work. For the ArcSDE objects to be properly configured, you have to use the post-installer. This is something that ESRI may want to take a look at in the future since using a template database in quite convenient and sort of the standard approach in PostgreSQL.</p>
+<p>In future posts, I examine different technology mixes that can be used to build some compelling hybrid stacks.</p>
 
-<p>So now I have a couple of databases configured with the ArcSDE and PostGIS objects. Although I will eventually get around to testing ST_GEOMETRY, my real interest is in seeing what I can do with the PostGIS data type. In my next post, I&#8217;ll take a couple of different paths to get data into PostgreSQL/PostGIS/ArcSDE and see what types of things I can do.</p>
-
-<p>To be continued&#8230;</p>
+<p>Now, where&#8217;s my 9.3 shipment?</p>
 </div>
 
 
@@ -140,12 +137,12 @@ The post-installer will also give you the option to create a service to use a gi
   
 
 
-<time datetime="2008-05-28T00:00:00-04:00" pubdate data-updated="true">May 28<span>th</span>, 2008</time>
+<time datetime="2008-07-01T00:00:00-04:00" pubdate data-updated="true">Jul 1<span>st</span>, 2008</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/arcsde/'>arcsde</a>, <a class='category' href='/blog/categories/esri/'>esri</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/postgis/'>postgis</a>, <a class='category' href='/blog/categories/postgresql/'>postgresql</a>
+    <a class='category' href='/blog/categories/arcgis-desktop/'>arcgis desktop</a>, <a class='category' href='/blog/categories/esri/'>esri</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/postgis/'>postgis</a>, <a class='category' href='/blog/categories/postgresql/'>postgresql</a>, <a class='category' href='/blog/categories/udig/'>udig</a>
   
 </span>
 
@@ -154,7 +151,7 @@ The post-installer will also give you the option to create a service to use a gi
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2008/05/28/using-arcsde-9-3-with-postgresql-part-1/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2008/05/28/using-arcsde-9-3-with-postgresql-part-1/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2008/07/01/using-arcsde-93-with-postgresql-part-3/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2008/07/01/using-arcsde-93-with-postgresql-part-3/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -167,14 +164,20 @@ The post-installer will also give you the option to create a service to use a gi
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2008/05/26/san-diego-in-august/" title="Previous Post: San Diego in August">&laquo; San Diego in August</a>
+        <a class="basic-alignment left" href="/2008/07/01/a-little-bit-of-java/" title="Previous Post: A Little Bit of Java">&laquo; A Little Bit of Java</a>
       
       
-        <a class="basic-alignment right" href="/2008/06/02/using-arcsde-9-3-with-postgresql-part-2/" title="Next Post: Using ArcSDE 9.3 with PostgreSQL, Part 2">Using ArcSDE 9.3 with PostgreSQL, Part 2 &raquo;</a>
+        <a class="basic-alignment right" href="/2008/07/22/ziggis-and-arcgis-93/" title="Next Post: zigGIS and ArcGIS 9.3">zigGIS and ArcGIS 9.3 &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -284,7 +287,10 @@ The post-installer will also give you the option to create a service to use a gi
       var disqus_shortname = 'geomusings';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.geomusings.com/2008/07/01/using-arcsde-93-with-postgresql-part-3/';
+        var disqus_url = 'http://blog.geomusings.com/2008/07/01/using-arcsde-93-with-postgresql-part-3/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
