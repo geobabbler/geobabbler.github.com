@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Oracle Spatial | geoMusings]]></title>
-  <link href="http://blog.geomusings.com/blog/categories/oracle-spatial/atom.xml" rel="self"/>
-  <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:03:01-05:00</updated>
-  <id>http://blog.geomusings.com/</id>
+  <link href="http://blog.geomusings.com/blog/blog/categories/oracle-spatial/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/blog/"/>
+  <updated>2012-12-21T13:06:22-05:00</updated>
+  <id>http://blog.geomusings.com/blog/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Configuration Management for Geospatial Data Models]]></title>
-    <link href="http://blog.geomusings.com/2012/03/27/Configuration-Management-for-Geospatial-Data-Models/"/>
+    <link href="http://blog.geomusings.com/blog/2012/03/27/Configuration-Management-for-Geospatial-Data-Models/"/>
     <updated>2012-03-27T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/03/27/Configuration-Management-for-Geospatial-Data-Models</id>
+    <id>http://blog.geomusings.com/blog/2012/03/27/Configuration-Management-for-Geospatial-Data-Models</id>
     <content type="html"><![CDATA[<p>I wanted to take a opportunity to do something I don't often do, and draw attention to a series of posts that's going on over on <a href="http://www.zekiah.com/index.php?q=blog">my company's blog</a>. About a year ago, my company, <a href="http://www.zekiah.com">Zekiah Technologies</a> joined forces with Upper 90 Systems. Upper 90 was probably best known for their work building tools that supported the Spatial Data Standard for Facilities, Infrastructure, and Environment (SDSFIE), which is a data model that is used by the US DOD to standardize the representation of GIS data for the purpose of performing facilities management on military installations.</p>
 
 <p><a href="http://www.acq.osd.mil/ie/bei/disdi/factsheet_sdsfie.pdf" target="_blank">SDSFIE</a> (PDF) has existed for some time, with several versions of the standard being rolled out to its diverse user community. Through that process, we've learned a thing or two about configuration management of widely-implemented geospatial data models. This understanding has been turned into a series of tools designed to help with the issues surround lifecycle management of a data model (as opposed to physical databases themselves). <!--more--></p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: google maps | geoMusings]]></title>
-  <link href="http://blog.geomusings.com/blog/categories/google-maps/atom.xml" rel="self"/>
-  <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:03:01-05:00</updated>
-  <id>http://blog.geomusings.com/</id>
+  <link href="http://blog.geomusings.com/blog/blog/categories/google-maps/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/blog/"/>
+  <updated>2012-12-21T13:06:22-05:00</updated>
+  <id>http://blog.geomusings.com/blog/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Arc2Earth Supports ArcGIS Server Tile Caches]]></title>
-    <link href="http://blog.geomusings.com/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches/"/>
+    <link href="http://blog.geomusings.com/blog/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches/"/>
     <updated>2010-08-02T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches</id>
+    <id>http://blog.geomusings.com/blog/2010/08/02/Arc2Earth-Supports-ArcGIS-Server-Tile-Caches</id>
     <content type="html"><![CDATA[<p>I just got an e-mail announcement from <a href="http://www.arc2earth.com">Arc2Earth</a> (disclaimer: my <a href="http://www.zekiah.com">company</a> is a reseller) regarding some updates to version 3 that have come out since the ESRI UC. One of the updates that catches my attention is:</p>
 
 <blockquote>
@@ -38,9 +38,9 @@
   
   <entry>
     <title type="html"><![CDATA[StatCounter Recent Visitor Map]]></title>
-    <link href="http://blog.geomusings.com/2007/09/11/StatCounter-Recent-Visitor-Map/"/>
+    <link href="http://blog.geomusings.com/blog/2007/09/11/StatCounter-Recent-Visitor-Map/"/>
     <updated>2007-09-11T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2007/09/11/StatCounter-Recent-Visitor-Map</id>
+    <id>http://blog.geomusings.com/blog/2007/09/11/StatCounter-Recent-Visitor-Map</id>
     <content type="html"><![CDATA[<p>This probably old news but I'm pretty impressed by it. I'm referring to the recent visitor map on <a href="http://www.statcounter.com">StatCounter.com</a>. We do a lot of web development <a href="http://www.zekiah.com">where I work</a> (both GIS and not) and I like to keep an eye on tools that may be useful in that area. StatCounter provides a free service that keeps track of who's visiting a site. It can track IP, referring links, etc. It's pretty standard stuff but their reporting tools are nice so I thought I'd check it out.</p>
 
 <p>Anyway, one feature they have that I didn't know about when I signed up is a "recent visitor map" that places push-pins on Google Maps to identify where your visitors are coming from. Clearly it's using some form of GeoIP and it's not exact (no, I can't find your house with it unless you live at your ISP). I instrumented my blog and it shows a good spread from all over the world. StatCounter has a javascript version and a version based on a <a href="http://en.wikipedia.org/wiki/Web_bug">web bug</a>. Both can be mapped but the javascript version gives you more information, including things like referring links. My blog is hosted on <a href="http://wordpress.com">Wordpress.com</a> which doesn't allow me to embed script tags in posts or widgets (ahem) but I instrumented another site with the javascript version and it works well. A screen capture of the map is below:</p>

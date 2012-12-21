@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: arcobjects | geoMusings]]></title>
-  <link href="http://blog.geomusings.com/blog/categories/arcobjects/atom.xml" rel="self"/>
-  <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:03:01-05:00</updated>
-  <id>http://blog.geomusings.com/</id>
+  <link href="http://blog.geomusings.com/blog/blog/categories/arcobjects/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/blog/"/>
+  <updated>2012-12-21T13:06:22-05:00</updated>
+  <id>http://blog.geomusings.com/blog/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[zigGIS Hotfix Available]]></title>
-    <link href="http://blog.geomusings.com/2010/06/18/zigGIS-Hotfix-Available/"/>
+    <link href="http://blog.geomusings.com/blog/2010/06/18/zigGIS-Hotfix-Available/"/>
     <updated>2010-06-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/18/zigGIS-Hotfix-Available</id>
+    <id>http://blog.geomusings.com/blog/2010/06/18/zigGIS-Hotfix-Available</id>
     <content type="html"><![CDATA[<p>Abe announced the availability of hotfix 3 for <a href="http://pub.obtusesoft.com">zigGIS</a> 2.0.5. From the announcement:</p>
 
 <blockquote>Hotfix 3 fixes an issue that prevented point layers from being
@@ -33,9 +33,9 @@ link to the patch.</blockquote>
   
   <entry>
     <title type="html"><![CDATA[A Couple of Updates]]></title>
-    <link href="http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates/"/>
+    <link href="http://blog.geomusings.com/blog/2010/06/15/A-Couple-of-Updates/"/>
     <updated>2010-06-15T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/15/A-Couple-of-Updates</id>
+    <id>http://blog.geomusings.com/blog/2010/06/15/A-Couple-of-Updates</id>
     <content type="html"><![CDATA[<p>Shortly after my <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">previous post</a>, about browsing and downloading data from <a href="http://www.geocommons.com">GeoCommons</a>, hit the wires, I got quite a few back-channel requests for the code. I sent it out via e-mail to a number of people and then posted it via DropBox. I have finally gotten around to posting it up on Google Code, making things much more manageable. It is now available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>.</p>
 
 <p>I have made a few updates since the original post. Some were administrative but were functional. They are:</p>
@@ -54,9 +54,9 @@ link to the patch.</blockquote>
   
   <entry>
     <title type="html"><![CDATA[Importing Data From GeoCommons Into ArcMap]]></title>
-    <link href="http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/"/>
+    <link href="http://blog.geomusings.com/blog/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap/"/>
     <updated>2010-06-02T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap</id>
+    <id>http://blog.geomusings.com/blog/2010/06/02/Importing-Data-From-GeoCommons-Into-ArcMap</id>
     <content type="html"><![CDATA[<p><strong>UPDATE:</strong> <em>The code for this post is available at the bottom of the page.</em></p>
 
 <p>I have been doing a lot of development with the <a href="http://resources.esri.com/arcgisserver/apis/silverlight/">ESRI Silverlight API</a> recently. One of the requirements of my project is to be able to dynamically add KML data at runtime. The incorporation of <a href="http://code.google.com/apis/kml/documentation/">KML</a> was handled for us through <a href="http://resources.esri.com/arcgisserver/apis/silverlight/index.cfm?fa=codeGalleryDetails&amp;scriptID=16487">one of the ESRI samples</a> on the resource center so we pretty much just had to integrate that code and test against our use cases. For testing, I typically reached out to <a href="http://www.geocommons.com">GeoCommons</a> since any data set available there can be streamed as KML.</p>
@@ -448,9 +448,9 @@ link to the patch.</blockquote>
   
   <entry>
     <title type="html"><![CDATA[First Thoughts on ArcGIS 10.0]]></title>
-    <link href="http://blog.geomusings.com/2010/01/13/First-Thoughts-on-ArcGIS-100/"/>
+    <link href="http://blog.geomusings.com/blog/2010/01/13/First-Thoughts-on-ArcGIS-100/"/>
     <updated>2010-01-13T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2010/01/13/First-Thoughts-on-ArcGIS-100</id>
+    <id>http://blog.geomusings.com/blog/2010/01/13/First-Thoughts-on-ArcGIS-100</id>
     <content type="html"><![CDATA[<p>The <a href="http://www.esri.com/news/podcasts/audio/speaker/dangermond_arcgis10.mp3">announcement</a> that ArcGIS 9.4 is being re-christened as 10.0 leaves me feeling somewhat bemused. I have seen the new version of Desktop and it is nice and will finally update the current Office-97-feeling UI. The <a href="http://www.esri.com/software/arcgis/whats-new/whats-coming.html">list of changes coming in 10.0</a> (published so far) is impressive but I haven?t seen any discussion of the changes coming to the ArcGIS architecture, which is of greater interest to me as a developer and integrator. Given the past history of ArcGIS, calling this release 10.0, in my mind, implies a significant architectural shift. ArcGIS 8 was a clear departure from the previous releases of ARC/INFO. Indeed, it not only came with a new version but introduced the name ?ArcGIS.?<!--more--></p>
 
 <p>ArcGIS 9 represented a less-radical, but significant architectural update. By restructuring the underlying ArcObjects components of ArcGIS, ESRI enabled the introduction of ArcGIS Server and ArcGIS Engine and began to unify their desktop, web and mobile offerings. ArcGIS 8 would not have been able to support this.</p>
@@ -465,9 +465,9 @@ link to the patch.</blockquote>
   
   <entry>
     <title type="html"><![CDATA[zigGIS 2.0.2 Getting Closer]]></title>
-    <link href="http://blog.geomusings.com/2009/01/01/zigGIS-2-0-2-Getting-Closer/"/>
+    <link href="http://blog.geomusings.com/blog/2009/01/01/zigGIS-2-0-2-Getting-Closer/"/>
     <updated>2009-01-01T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2009/01/01/zigGIS-2-0-2-Getting-Closer</id>
+    <id>http://blog.geomusings.com/blog/2009/01/01/zigGIS-2-0-2-Getting-Closer</id>
     <content type="html"><![CDATA[<p><a href="http://abegillespie.blogspot.com">Abe</a> announced via <a href="http://twitter.com/zigGIS">Twitter</a> today that <a href="http://pub.obtusesoft.com/">zigGIS</a> 2.0.2 will be available in about a month. This a small but significant release becuase zigGIS will now support the generic PostGIS "GEOMETRY" type. Because ArcGIS expects homogenous feaure classes, zigGIS will ask the user to choose a geometry type for the the specified GEOMETRY-typed column. So, if your table has mixed geometry types, you will need to specify one (like polygon for example) and zigGIS will present only records of that type to ArcGIS.</p>
 
 <p>Secondly, zigGIS will no longer expect your primary key to be called "gid". This should reduce the instances where tables need to be modified for use with zigGIS.</p>

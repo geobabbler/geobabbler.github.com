@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: arcsde | geoMusings]]></title>
-  <link href="http://blog.geomusings.com/blog/categories/arcsde/atom.xml" rel="self"/>
-  <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:03:01-05:00</updated>
-  <id>http://blog.geomusings.com/</id>
+  <link href="http://blog.geomusings.com/blog/blog/categories/arcsde/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/blog/"/>
+  <updated>2012-12-21T13:06:22-05:00</updated>
+  <id>http://blog.geomusings.com/blog/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ArcGIS 10 Service Pack 2 Is Available]]></title>
-    <link href="http://blog.geomusings.com/2011/05/20/ArcGIS-10-Service-Pack-2-Is-Available/"/>
+    <link href="http://blog.geomusings.com/blog/2011/05/20/ArcGIS-10-Service-Pack-2-Is-Available/"/>
     <updated>2011-05-20T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/05/20/ArcGIS-10-Service-Pack-2-Is-Available</id>
+    <id>http://blog.geomusings.com/blog/2011/05/20/ArcGIS-10-Service-Pack-2-Is-Available</id>
     <content type="html"><![CDATA[<p>Esri announced late today that Service Pack 2 for ArcGIS 10 is available. It looks like <a href="http://downloads2.esri.com/support/downloads/other_/ArcGIS-10sp2-issues.htm">a fairly sizable list of issues</a> was addressed with this service pack.</p>
 
 <p>Who knows, we could be witnessing history as this could potentially be the last service pack to address ArcIMS. (Well, I can dream, can't I?)</p>
@@ -30,9 +30,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using ArcSDE 9.3 with PostgreSQL, Part 3.5]]></title>
-    <link href="http://blog.geomusings.com/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/"/>
+    <link href="http://blog.geomusings.com/blog/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5/"/>
     <updated>2008-08-21T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5</id>
+    <id>http://blog.geomusings.com/blog/2008/08/21/Using-ArcSDE-9-3-with-PostgreSQL-Part-3-5</id>
     <content type="html"><![CDATA[<p>I thought I was done with the series a while back but I've been getting a steady stream of questions through other channels so I thought I'd wrap up a lot of the common stuff in another post. Most of the inquiries come from people trying to integrate <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> for <a href="http://www.postgresql.org">PostgreSQL</a> with open-source tools in one way or another. Here are a few notes:<!--more--></p>
 
 <ol type="1">
@@ -86,9 +86,9 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
   
   <entry>
     <title type="html"><![CDATA[SQL Server SIG at the UC]]></title>
-    <link href="http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC/"/>
+    <link href="http://blog.geomusings.com/blog/2008/08/06/SQL-Server-SIG-at-the-UC/"/>
     <updated>2008-08-06T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC</id>
+    <id>http://blog.geomusings.com/blog/2008/08/06/SQL-Server-SIG-at-the-UC</id>
     <content type="html"><![CDATA[<p>My blogging has been slower this time around because I've been doing a lot of booth duty. This is my thrid conference this year and some of our other staff are getting to go to the sessions. I did, however, go to the SQL Server SIG a little while ago.</p>
 
 <p>Ed Katibah had a few tricks up his sleeve. First off, he dropped the news that, as of 11:00am, SQL Server 2008 is now in RTM. Very soon, the final version will be in our hands. That's great news to everyone who has been working with the CTPs and RCs.</p>
@@ -111,9 +111,9 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
   
   <entry>
     <title type="html"><![CDATA[A Good PostGIS Overview...]]></title>
-    <link href="http://blog.geomusings.com/2008/08/06/A-Good-PostGIS-Overview/"/>
+    <link href="http://blog.geomusings.com/blog/2008/08/06/A-Good-PostGIS-Overview/"/>
     <updated>2008-08-06T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/08/06/A-Good-PostGIS-Overview</id>
+    <id>http://blog.geomusings.com/blog/2008/08/06/A-Good-PostGIS-Overview</id>
     <content type="html"><![CDATA[<p>Steven Citron-Pousty gave a talk on PostGIS and has helpfully posted his slides <a href="http://www.slideshare.net/scitronpousty/using-post-gis-to-add-some-spatial-flavor-to-your-application">here</a>. It's a good introductory overview and provides some good examples of basic spatial SQL in PostGIS.</p>
 
 <p>With ArcGIS Server now supporting PostgreSQL as a back end RDBMS and also supporting the use of PostGIS geometries, a lot of new users may be migrating to the PostgreSQL platform. This presentation is a good overview for anyone picking it up for the first time. Thanks, @TheSteve0!</p>
@@ -122,9 +122,9 @@ Ultimately, support for PostgreSQL by ArcGIS opens up the possibility of numerou
   
   <entry>
     <title type="html"><![CDATA[ArcSDE Geocoding Services Deprecated at 9.3]]></title>
-    <link href="http://blog.geomusings.com/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9-3/"/>
+    <link href="http://blog.geomusings.com/blog/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9-3/"/>
     <updated>2008-08-01T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9-3</id>
+    <id>http://blog.geomusings.com/blog/2008/08/01/ArcSDE-Geocoding-Services-Deprecated-at-9-3</id>
     <content type="html"><![CDATA[<p>This isn't a huge surprise but <a href="http://support.esri.com/index.cfm?fa=knowledgebase.documentation.viewDoc&amp;PID=66&amp;MetaID=1430">this announcement</a> made it official a couple of days ago.</p>
 
 <p>Basically, you'll need to use ArcGIS Server's server-side geocoding because the next release of ArcSDE won't include it. The PDF attached to the announcement gives more detail. I know we had moved away from ArcSDE geocoding some time ago because it didn't hold up to the load we were putting on it. We used Oracle Spatial instead.</p>

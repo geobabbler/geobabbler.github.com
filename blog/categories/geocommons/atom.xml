@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: GeoCommons | geoMusings]]></title>
-  <link href="http://blog.geomusings.com/blog/categories/geocommons/atom.xml" rel="self"/>
-  <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:03:01-05:00</updated>
-  <id>http://blog.geomusings.com/</id>
+  <link href="http://blog.geomusings.com/blog/blog/categories/geocommons/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/blog/"/>
+  <updated>2012-12-21T13:06:22-05:00</updated>
+  <id>http://blog.geomusings.com/blog/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Mapping GISPs Again With Leaflet.markercluster]]></title>
-    <link href="http://blog.geomusings.com/2012/08/31/Mapping-GISPs-Again-With-Leaflet-markercluster/"/>
+    <link href="http://blog.geomusings.com/blog/2012/08/31/Mapping-GISPs-Again-With-Leaflet-markercluster/"/>
     <updated>2012-08-31T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/31/Mapping-GISPs-Again-With-Leaflet-markercluster</id>
+    <id>http://blog.geomusings.com/blog/2012/08/31/Mapping-GISPs-Again-With-Leaflet-markercluster</id>
     <content type="html"><![CDATA[<p>So I've been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It's become my lightweight mapping library of choice. There's a lot it doesn't do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
 
 <div style="text-align:center;"><a href="http://demo.zekiah.com/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a><div style="text-align:center;font-size: 14px;">Click the image to go to the live demo<br/><br/></div></div>
@@ -35,9 +35,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using GeoIQ Analytics in .Net Applications]]></title>
-    <link href="http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/"/>
+    <link href="http://blog.geomusings.com/blog/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications/"/>
     <updated>2012-07-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications</id>
+    <id>http://blog.geomusings.com/blog/2012/07/18/Using-GeoIQ-Analytics-in-Net-Applications</id>
     <content type="html"><![CDATA[<p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it's my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That's good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
 
 <p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
@@ -192,9 +192,9 @@
   
   <entry>
     <title type="html"><![CDATA[GeoIQ API Wrappers for .Net]]></title>
-    <link href="http://blog.geomusings.com/2012/06/11/GeoIQ-API-Wrappers-for-Net/"/>
+    <link href="http://blog.geomusings.com/blog/2012/06/11/GeoIQ-API-Wrappers-for-Net/"/>
     <updated>2012-06-11T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/06/11/GeoIQ-API-Wrappers-for-Net</id>
+    <id>http://blog.geomusings.com/blog/2012/06/11/GeoIQ-API-Wrappers-for-Net</id>
     <content type="html"><![CDATA[<p>A while back, I built a small <a href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/" target="_blank">interface between GeoIQ/GeoCommons and ArcGIS Desktop</a>. From there, it became more of a full-fledged <a href="http://developer.geoiq.com/tools/arcgis-toolbar/" target="_blank">toolbar for ArcGIS</a>. During that effort, I began developing some .Net classes to wrap the <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">GeoIQ RESTful API</a>. As we progressed with the toolbar, my colleague <a href="http://www.hugoestrada.net/" target="_blank">Hugo Estrada</a> also contributed to the library.</p>
 
 <p><img alt="" class="aligncenter size-full wp-image-2676" height="145" src="http://geobabble.files.wordpress.com/2012/06/geoiq_dotnet2.png" title="GeoIQ + .Net" width="640" /></p>
@@ -217,9 +217,9 @@
   
   <entry>
     <title type="html"><![CDATA[2011 TIGER Boundary Files in SpatiaLite Format]]></title>
-    <link href="http://blog.geomusings.com/2012/04/02/2011-TIGER-Boundary-Files-in-SpatiaLite-Format/"/>
+    <link href="http://blog.geomusings.com/blog/2012/04/02/2011-TIGER-Boundary-Files-in-SpatiaLite-Format/"/>
     <updated>2012-04-02T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/04/02/2011-TIGER-Boundary-Files-in-SpatiaLite-Format</id>
+    <id>http://blog.geomusings.com/blog/2012/04/02/2011-TIGER-Boundary-Files-in-SpatiaLite-Format</id>
     <content type="html"><![CDATA[<p>Over on the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Google Group</a>, <a href="http://www.stineconsulting.com/">Stine Consulting</a> announced the availability of <a href="http://www.stineconsulting.com/GIS%20Resources.php">2011 TIGER Boundary files</a> in <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a> format.</p>
 
 <p>Despite initial enthusiasm, mainstream uptake of SpatiaLite has been slow but I think that's about to change. Large organizations, such as the US Army, are showing a much more serious interest in SpatiaLite as they expand their use of mobile and hand-held platforms.</p>
@@ -230,9 +230,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using Dynamic Non-Spatial Data In GeoCommons]]></title>
-    <link href="http://blog.geomusings.com/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons/"/>
+    <link href="http://blog.geomusings.com/blog/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons/"/>
     <updated>2011-09-07T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons</id>
+    <id>http://blog.geomusings.com/blog/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons</id>
     <content type="html"><![CDATA[<p>In <a href="http://blog.geomusings.com/2011/08/30/prying-data-open/">my previous post</a>, I described how I used a Python script to scrape power outage information from a local web site and convert it into an RSS feed. In this post, I'll show how I used GeoCommons to visualize the changing information over time.</p>
 
 <p>The process starts by creating a data set in GeoCommmons based on a URL link to the feed created in the previous post. The general process for doing that can be found <a href="http://geocommons.com/help/User_Manual#Add-a-URL-Link-from-the-web">here</a> in the GeoCommons documentation.</p>

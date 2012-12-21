@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Python | geoMusings]]></title>
-  <link href="http://blog.geomusings.com/blog/categories/python/atom.xml" rel="self"/>
-  <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:03:01-05:00</updated>
-  <id>http://blog.geomusings.com/</id>
+  <link href="http://blog.geomusings.com/blog/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/blog/"/>
+  <updated>2012-12-21T13:06:22-05:00</updated>
+  <id>http://blog.geomusings.com/blog/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
     
@@ -15,14 +15,14 @@
   
   <entry>
     <title type="html"><![CDATA[Personal Geospatial Workflows]]></title>
-    <link href="http://blog.geomusings.com/2012/11/09/Personal-Geospatial-Workflows/"/>
+    <link href="http://blog.geomusings.com/blog/2012/11/09/Personal-Geospatial-Workflows/"/>
     <updated>2012-11-09T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/09/Personal-Geospatial-Workflows</id>
+    <id>http://blog.geomusings.com/blog/2012/11/09/Personal-Geospatial-Workflows</id>
     <content type="html"><![CDATA[<p>I've had a couple of people ask me recently about the geospatial tools I use. Year-over-year, that answer changes but here's how I answer that right now:</p>
 
 <p>As a Federal contractor, I spend a lot of time working with the <a href="http://www.esri.com" target="_blank">Esri</a> stack during my work day. A few years ago, I added a few open-source geospatial tools into my tool set and, since then, have also done a respectable amount to consulting work them as well. The balance between the two varies over time, depending on the requirements of individual customers and projects. Lately, commercial customers have seemed much more interested in open-source tools while my government customers are sticking with Esri. Since those observations are based on the the extremely heavy filter of my own recent experience, I'd be hesitant to draw any larger conclusions from them.</p>
 
-<p><img alt="" height="264" src="http://blog.geomusings.com/images/posts/duct-tape.jpg" title="Duct Tape" width="300" /></p>
+<p><img alt="" height="264" src="http://blog.geomusings.com/blog/images/posts/duct-tape.jpg" title="Duct Tape" width="300" /></p>
 
 <p>I've always believed that proficiency with a wide range of tools makes me a better consultant and integrator, so I am always exploring and trying new things. With those commercial customers, and in my own personal side projects, my recent workflows have gelled around a core set of tools, both commercial and open-source: <!--more--></p>
 
@@ -42,9 +42,9 @@
   
   <entry>
     <title type="html"><![CDATA[Cutting Tiles for ArcGIS Server Using TileMill]]></title>
-    <link href="http://blog.geomusings.com/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill/"/>
+    <link href="http://blog.geomusings.com/blog/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill/"/>
     <updated>2012-10-03T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill</id>
+    <id>http://blog.geomusings.com/blog/2012/10/03/Cutting-Tiles-for-ArcGIS-Server-Using-TileMill</id>
     <content type="html"><![CDATA[<p>There's been a lot of talk about <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a> lately, with good cause. TileMill makes it very easy generate beautiful map tiles using the <a href="http://mapnik.org/" target="_blank">Mapnik</a> engine and CartoCSS provides a familiar method to author the cartographic representation of spatial data. <a href="http://mapbrief.com/2012/09/27/gis-cartography-the-latest-best-opportunity-to-bridge-the-chasm/" target="_blank">As Brian Timoney points out</a>, CartoCSS has the added bonus of making best practices shareable via copy-and-paste.</p>
 
 
@@ -87,9 +87,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using Dynamic Non-Spatial Data In GeoCommons]]></title>
-    <link href="http://blog.geomusings.com/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons/"/>
+    <link href="http://blog.geomusings.com/blog/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons/"/>
     <updated>2011-09-07T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons</id>
+    <id>http://blog.geomusings.com/blog/2011/09/07/Using-Dynamic-Non-Spatial-Data-In-GeoCommons</id>
     <content type="html"><![CDATA[<p>In <a href="http://blog.geomusings.com/2011/08/30/prying-data-open/">my previous post</a>, I described how I used a Python script to scrape power outage information from a local web site and convert it into an RSS feed. In this post, I'll show how I used GeoCommons to visualize the changing information over time.</p>
 
 <p>The process starts by creating a data set in GeoCommmons based on a URL link to the feed created in the previous post. The general process for doing that can be found <a href="http://geocommons.com/help/User_Manual#Add-a-URL-Link-from-the-web">here</a> in the GeoCommons documentation.</p>
@@ -146,9 +146,9 @@
   
   <entry>
     <title type="html"><![CDATA[Prying Data Open]]></title>
-    <link href="http://blog.geomusings.com/2011/08/30/Prying-Data-Open/"/>
+    <link href="http://blog.geomusings.com/blog/2011/08/30/Prying-Data-Open/"/>
     <updated>2011-08-30T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/08/30/Prying-Data-Open</id>
+    <id>http://blog.geomusings.com/blog/2011/08/30/Prying-Data-Open</id>
     <content type="html"><![CDATA[<p>In the aftermath of Hurricane Irene, I was trying to get information from my <a href="http://www.smeco.coop">local electric cooperative</a> about outages. There were many (including my neighborhood) and I wanted to see the scale of the problem. It turns out, they have a page with a map that shows current outages by zip code.</p>
 
 <div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png"><img alt="" class="size-medium wp-image-2018" height="202" src="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png?w=300" title="smeco_outage" width="300" /></a><div style="text-align: center; font-size: 14px">Old school outage map<br /></div></div>
@@ -263,9 +263,9 @@
   
   <entry>
     <title type="html"><![CDATA[Triggered Notifications Using PostGIS]]></title>
-    <link href="http://blog.geomusings.com/2011/08/01/Triggered-Notifications-Using-PostGIS/"/>
+    <link href="http://blog.geomusings.com/blog/2011/08/01/Triggered-Notifications-Using-PostGIS/"/>
     <updated>2011-08-01T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/08/01/Triggered-Notifications-Using-PostGIS</id>
+    <id>http://blog.geomusings.com/blog/2011/08/01/Triggered-Notifications-Using-PostGIS</id>
     <content type="html"><![CDATA[<p>My project work the last few months has kept me away from a lot of my favorite open-source tools and I was starting to get hives. Specifically, it had been a while since I had worked with <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://postgis.refractions.net">PostGIS</a> and I was missing the experience, so I dreamed up something to do.</p>
 
 <p><img alt="" class="aligncenter size-full wp-image-1898" height="307" src="http://geobabble.files.wordpress.com/2011/08/elephant.png" title="Elephant" width="461" /></p>

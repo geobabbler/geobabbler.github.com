@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: sql server | geoMusings]]></title>
-  <link href="http://blog.geomusings.com/blog/categories/sql-server/atom.xml" rel="self"/>
-  <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-21T13:03:01-05:00</updated>
-  <id>http://blog.geomusings.com/</id>
+  <link href="http://blog.geomusings.com/blog/blog/categories/sql-server/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/blog/"/>
+  <updated>2012-12-21T13:06:22-05:00</updated>
+  <id>http://blog.geomusings.com/blog/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[SQL Server SIG at the UC]]></title>
-    <link href="http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC/"/>
+    <link href="http://blog.geomusings.com/blog/2008/08/06/SQL-Server-SIG-at-the-UC/"/>
     <updated>2008-08-06T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2008/08/06/SQL-Server-SIG-at-the-UC</id>
+    <id>http://blog.geomusings.com/blog/2008/08/06/SQL-Server-SIG-at-the-UC</id>
     <content type="html"><![CDATA[<p>My blogging has been slower this time around because I've been doing a lot of booth duty. This is my thrid conference this year and some of our other staff are getting to go to the sessions. I did, however, go to the SQL Server SIG a little while ago.</p>
 
 <p>Ed Katibah had a few tricks up his sleeve. First off, he dropped the news that, as of 11:00am, SQL Server 2008 is now in RTM. Very soon, the final version will be in our hands. That's great news to everyone who has been working with the CTPs and RCs.</p>
@@ -40,18 +40,18 @@
   
   <entry>
     <title type="html"><![CDATA[Upgrading to SQL Server 2008 February CTP]]></title>
-    <link href="http://blog.geomusings.com/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP/"/>
+    <link href="http://blog.geomusings.com/blog/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP/"/>
     <updated>2008-02-25T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP</id>
+    <id>http://blog.geomusings.com/blog/2008/02/25/Upgrading-to-SQL-Server-2008-February-CTP</id>
     <content type="html"><![CDATA[<p>There is no direct upgrade yet so you need to remove the November CTP. Apparently, the uninstall doesn't always work well (hey, it's beta). Luckily, <a href="http://dotnettim.spaces.live.com/blog/cns!4B800EB59FAEDC2A!152.entry">Tim's post</a> straightened me out. This worked for me. More accurately, the guidance in Michael's comment worked for me.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[SQL Server 2008 and 2005 Side-By-Side]]></title>
-    <link href="http://blog.geomusings.com/2008/02/01/SQL-Server-2008-and-2005-Side-By-Side/"/>
+    <link href="http://blog.geomusings.com/blog/2008/02/01/SQL-Server-2008-and-2005-Side-By-Side/"/>
     <updated>2008-02-01T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2008/02/01/SQL-Server-2008-and-2005-Side-By-Side</id>
+    <id>http://blog.geomusings.com/blog/2008/02/01/SQL-Server-2008-and-2005-Side-By-Side</id>
     <content type="html"><![CDATA[<p>Installing the the SQL Server 2008 November CTP side-by-side with SQL Server 2005 is very straightforward. On the previous build of my machine, I had them both running just fine. After my system crash, I began setting things up again. Because I had been working with 2008 before the crash, I installed that first and then got around to 2005 later.</p>
 
 <p>It should have been obvious to me before I did that but installing them in that order seems to break a lot of stuff in 2008. Kinda makes sense. I was a little flustered at having to rebuild in the first place and perhaps rushing things a bit but here it is for the record: If you are installing both of them on a new box, put on 2005 first.</p>
@@ -66,9 +66,9 @@
   
   <entry>
     <title type="html"><![CDATA[Spatial References in SQL Server 2008, Part 3]]></title>
-    <link href="http://blog.geomusings.com/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/"/>
+    <link href="http://blog.geomusings.com/blog/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3/"/>
     <updated>2007-12-08T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3</id>
+    <id>http://blog.geomusings.com/blog/2007/12/08/Spatial-References-in-SQL-Server-2008-Part-3</id>
     <content type="html"><![CDATA[<p>A little clarification is in order:</p>
 
 <p>SQL Server 2008 Books Online makes the following statement about SRIDs:</p>
@@ -88,9 +88,9 @@
   
   <entry>
     <title type="html"><![CDATA[SQL Server 2008 SharpMap Data Provider Code]]></title>
-    <link href="http://blog.geomusings.com/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/"/>
+    <link href="http://blog.geomusings.com/blog/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code/"/>
     <updated>2007-11-28T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code</id>
+    <id>http://blog.geomusings.com/blog/2007/11/28/SQL-Server-2008-SharpMap-Data-Provider-Code</id>
     <content type="html"><![CDATA[<p>As promised, I have uploaded the data provider code I <a href="http://geobabble.wordpress.com/2007/11/20/sharpmap-and-sql-server-2008-spatial/">mentioned earlier</a> to the <a href="http://www.codeplex.com/SharpMap">SharpMap</a> site. It's written in C#. I took the existing Oracle provider, stripped out the Oracle SQL and put in T-SQL. There are a couple of things I'm still trying to chase down but it's basically done at this point. I know they're busy trying to finish up SharpMap 2.0 so I don't know how long it'll take to become available. Just in case, here's the code:<!--more--></p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
