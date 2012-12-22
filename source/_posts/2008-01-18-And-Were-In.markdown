@@ -2,6 +2,7 @@
 layout: blog
 title: And We're In
 post_author: bdollins
+comments: true
 categories:
 - esri
 - FedUC

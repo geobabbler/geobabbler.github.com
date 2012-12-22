@@ -2,6 +2,7 @@
 layout: blog
 title: Interesting Washington Post Article...
 post_author: bdollins
+comments: true
 categories:
 - articles
 - gis

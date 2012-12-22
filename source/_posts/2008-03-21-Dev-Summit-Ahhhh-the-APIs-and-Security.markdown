@@ -2,6 +2,7 @@
 layout: blog
 title: Dev Summit - Ahhhh, the APIs (and Security)
 post_author: bdollins
+comments: true
 categories:
 - arcgis server
 - Developer Summit

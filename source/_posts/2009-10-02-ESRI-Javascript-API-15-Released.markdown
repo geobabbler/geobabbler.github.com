@@ -2,6 +2,7 @@
 layout: blog
 title: ESRI Javascript API 1.5 Released
 post_author: bdollins
+comments: true
 categories:
 - arcgis server
 - esri

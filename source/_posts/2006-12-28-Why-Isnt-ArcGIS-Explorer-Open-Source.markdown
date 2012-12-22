@@ -2,6 +2,7 @@
 layout: blog
 title: Why Isn't ArcGIS Explorer Open Source?
 post_author: bdollins
+comments: true
 categories:
 - arcgis explorer
 - esri

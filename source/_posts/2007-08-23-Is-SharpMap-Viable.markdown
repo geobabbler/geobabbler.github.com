@@ -2,6 +2,7 @@
 layout: blog
 title: Is SharpMap Viable?
 post_author: bdollins
+comments: true
 categories:
 - .net
 - gis

@@ -2,6 +2,7 @@
 layout: blog
 title: Lyrical Revisionism
 post_author: bdollins
+comments: true
 categories:
 - where did that come from?
 ---

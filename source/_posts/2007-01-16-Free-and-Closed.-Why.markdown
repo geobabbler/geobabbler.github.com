@@ -2,6 +2,7 @@
 layout: blog
 title: Free and Closed. Why?
 post_author: bdollins
+comments: true
 categories:
 - arcgis explorer
 - google earth

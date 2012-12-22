@@ -2,6 +2,7 @@
 layout: blog
 title: Twitter to Fix GeoJSON Error
 post_author: bdollins
+comments: true
 categories:
 - FTW
 - geojson

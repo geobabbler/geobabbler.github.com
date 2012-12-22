@@ -2,6 +2,7 @@
 layout: blog
 title: How Do You Disable This Dialog in ArcMap?
 post_author: bdollins
+comments: true
 categories:
 - arcgis desktop
 - arcobjects

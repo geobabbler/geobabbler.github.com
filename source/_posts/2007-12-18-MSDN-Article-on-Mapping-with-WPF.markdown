@@ -2,6 +2,7 @@
 layout: blog
 title: MSDN Article on Mapping with WPF
 post_author: bdollins
+comments: true
 categories:
 - .net
 - articles

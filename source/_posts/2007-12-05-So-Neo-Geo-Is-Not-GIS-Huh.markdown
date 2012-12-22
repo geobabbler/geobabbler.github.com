@@ -2,6 +2,7 @@
 layout: blog
 title: So Neo-Geo Is Not GIS, Huh?
 post_author: bdollins
+comments: true
 categories:
 - gis
 - soapbox

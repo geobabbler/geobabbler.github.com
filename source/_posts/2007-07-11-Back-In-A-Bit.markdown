@@ -2,6 +2,7 @@
 layout: blog
 title: Back In A Bit
 post_author: bdollins
+comments: true
 categories:
 - where did that come from?
 ---

@@ -2,6 +2,7 @@
 layout: blog
 title: Good Article on Optimizing Open-Source Software
 post_author: bdollins
+comments: true
 categories:
 - articles
 - ddj

@@ -2,6 +2,7 @@
 layout: blog
 title: Twitter Shows Blitz
 post_author: bdollins
+comments: true
 categories:
 - social media
 - twitter

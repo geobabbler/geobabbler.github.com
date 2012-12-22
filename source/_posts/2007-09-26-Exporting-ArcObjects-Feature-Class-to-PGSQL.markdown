@@ -2,6 +2,7 @@
 layout: blog
 title: Exporting ArcObjects Feature Class to PGSQL
 post_author: bdollins
+comments: true
 categories:
 - arcobjects
 - c#

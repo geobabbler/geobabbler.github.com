@@ -2,6 +2,7 @@
 layout: blog
 title: ArcGIS.Next (+)
 post_author: bdollins
+comments: true
 categories:
 - arcobjects
 - esri

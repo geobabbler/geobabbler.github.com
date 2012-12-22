@@ -2,6 +2,7 @@
 layout: blog
 title: Bravo Zulu...
 post_author: bdollins
+comments: true
 categories:
 - esri
 - gis

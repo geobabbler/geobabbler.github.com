@@ -2,6 +2,7 @@
 layout: blog
 title: The Death of ESRI...
 post_author: bdollins
+comments: true
 categories:
 - esri
 - gis

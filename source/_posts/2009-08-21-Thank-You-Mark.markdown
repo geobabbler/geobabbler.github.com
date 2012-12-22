@@ -2,6 +2,7 @@
 layout: blog
 title: Thank You, Mark
 post_author: bdollins
+comments: true
 categories:
 - no fixed address
 ---

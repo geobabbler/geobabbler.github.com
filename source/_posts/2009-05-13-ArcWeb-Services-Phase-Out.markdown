@@ -2,6 +2,7 @@
 layout: blog
 title: ArcWeb Services Phase-Out
 post_author: bdollins
+comments: true
 categories:
 - ArcWeb Services
 - esri

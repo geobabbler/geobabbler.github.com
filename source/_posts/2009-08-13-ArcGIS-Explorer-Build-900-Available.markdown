@@ -2,6 +2,7 @@
 layout: blog
 title: ArcGIS Explorer Build 900 Available
 post_author: bdollins
+comments: true
 categories:
 - arcgis explorer
 - esri

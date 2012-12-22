@@ -2,6 +2,7 @@
 layout: blog
 title: What Is This "GIS" Of Which You Speak?
 post_author: bdollins
+comments: true
 categories:
 - gis
 - soapbox

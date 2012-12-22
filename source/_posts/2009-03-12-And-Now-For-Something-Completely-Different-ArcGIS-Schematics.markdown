@@ -2,6 +2,7 @@
 layout: blog
 title: And Now For Something Completely Different - ArcGIS Schematics
 post_author: bdollins
+comments: true
 categories:
 - arcgis desktop
 - ArcGIS Schematics

@@ -2,6 +2,7 @@
 layout: blog
 title: Looking Ahead to the 2009 ESRI Federal User Conference
 post_author: bdollins
+comments: true
 categories:
 - esri
 - Federal Government

@@ -2,6 +2,7 @@
 layout: blog
 title: Microsoft Certifying Open-Source
 post_author: bdollins
+comments: true
 categories:
 - microsoft
 - open source

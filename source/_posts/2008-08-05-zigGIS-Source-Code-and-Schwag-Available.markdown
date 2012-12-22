@@ -2,6 +2,7 @@
 layout: blog
 title: zigGIS Source Code and Schwag Available
 post_author: bdollins
+comments: true
 categories:
 - gis
 - postgis

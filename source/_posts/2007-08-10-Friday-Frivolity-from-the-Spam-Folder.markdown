@@ -2,6 +2,7 @@
 layout: blog
 title: Friday Frivolity from the Spam Folder
 post_author: bdollins
+comments: true
 categories:
 - where did that come from?
 ---

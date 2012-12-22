@@ -2,6 +2,7 @@
 layout: blog
 title: zigGIS and Spatial References, Part 2
 post_author: bdollins
+comments: true
 categories:
 - arcobjects
 - postgis

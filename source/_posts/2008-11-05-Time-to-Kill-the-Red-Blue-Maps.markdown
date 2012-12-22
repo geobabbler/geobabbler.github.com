@@ -2,6 +2,7 @@
 layout: blog
 title: Time to Kill the Red-Blue Maps
 post_author: bdollins
+comments: true
 categories:
 - elections
 - maps

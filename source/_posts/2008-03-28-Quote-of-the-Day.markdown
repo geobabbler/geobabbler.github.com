@@ -2,6 +2,7 @@
 layout: blog
 title: Quote of the Day...
 post_author: bdollins
+comments: true
 categories:
 - gis
 - software development

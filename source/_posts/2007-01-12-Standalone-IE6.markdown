@@ -2,6 +2,7 @@
 layout: blog
 title: Standalone IE6
 post_author: bdollins
+comments: true
 categories:
 - microsoft
 - web development

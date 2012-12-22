@@ -2,6 +2,7 @@
 layout: blog
 title: GIS People on Twitter
 post_author: bdollins
+comments: true
 categories:
 - the gis forum
 - twitter

@@ -2,6 +2,7 @@
 layout: blog
 title: San Diego in August
 post_author: bdollins
+comments: true
 categories:
 - esri
 - ESRI International User Conference

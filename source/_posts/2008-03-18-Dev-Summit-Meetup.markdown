@@ -2,6 +2,7 @@
 layout: blog
 title: Dev Summit Meetup
 post_author: bdollins
+comments: true
 categories:
 - Developer Summit
 - esri

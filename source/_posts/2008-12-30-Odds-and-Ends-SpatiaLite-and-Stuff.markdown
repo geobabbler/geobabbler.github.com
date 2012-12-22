@@ -2,6 +2,7 @@
 layout: blog
 title: Odds and Ends (SpatiaLite and Stuff)
 post_author: bdollins
+comments: true
 categories:
 - arcgis server
 - c#

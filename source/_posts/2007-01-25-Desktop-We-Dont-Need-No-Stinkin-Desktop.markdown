@@ -2,6 +2,7 @@
 layout: blog
 title: Desktop? We Don't Need No Stinkin' Desktop!
 post_author: bdollins
+comments: true
 categories:
 - arcgis desktop
 - arcgis engine

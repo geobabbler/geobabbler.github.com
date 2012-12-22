@@ -2,6 +2,7 @@
 layout: post
 title: The Biggest News You May Have Missed...
 post_author: bdollins
+comments: true
 categories:
 - Arc2Earth
 - CartoCSS

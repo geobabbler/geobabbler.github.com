@@ -2,6 +2,7 @@
 layout: blog
 title: IRasterLayer Export Gotcha in 9.2
 post_author: bdollins
+comments: true
 categories:
 - arcobjects
 ---

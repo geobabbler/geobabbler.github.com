@@ -2,6 +2,7 @@
 layout: blog
 title: Wilson Center to Discuss FCC National Broadband Map
 post_author: bdollins
+comments: true
 categories:
 - FCC
 - Federal Government

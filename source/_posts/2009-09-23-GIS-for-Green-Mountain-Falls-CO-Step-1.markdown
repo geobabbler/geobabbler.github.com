@@ -2,6 +2,7 @@
 layout: blog
 title: GIS for Green Mountain Falls, CO - Step 1
 post_author: bdollins
+comments: true
 categories:
 - gis
 - open source

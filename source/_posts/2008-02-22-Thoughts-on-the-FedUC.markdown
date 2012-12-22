@@ -2,6 +2,7 @@
 layout: blog
 title: Thoughts on the FedUC
 post_author: bdollins
+comments: true
 categories:
 - esri
 - FedUC

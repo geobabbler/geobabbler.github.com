@@ -2,6 +2,7 @@
 layout: blog
 title: SpatialLite 2.3.1 and RasterLite 1.0 Released
 post_author: bdollins
+comments: true
 categories:
 - gis
 ---

@@ -2,6 +2,7 @@
 layout: blog
 title: 5th gvSIG Conference Announced
 post_author: bdollins
+comments: true
 categories:
 - gis
 - gvSIG

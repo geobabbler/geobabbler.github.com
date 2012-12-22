@@ -1,0 +1,22 @@
+---
+layout: blog
+title: DevGeo Session at the Esri FedUC
+post_author: bdollins
+comments: true
+categories:
+- DevGeo
+- esri
+- FedUC
+- gis
+- software development
+---
+
+We are approximately a month away from the <a href="http://www.esri.com/events/feduc/index.html">Esri Federal User Conference</a>. It is probably the largest geospatially-themed event in the DC/Maryland/Virginia area each year and has gotten bigger each year. I have documented this conference in the past and have pointed out that, despite its name, there is a lot of information that can be of value for state/local and other non-Federal users of Esri products. Given constrained travel budgets, it?s a good option for people who may not be able to make it to San Diego.
+
+This year, Esri has added something new to the FedUC. It was somewhat innocuously <a href="http://twitter.com/#!/JimBarry/status/13301630267039745">tweeted by Jim Barry</a> last week but is, in my opinion, a significant addition. If you check the agenda, you will now see that Thursday, January 20 now includes an <a href="http://www.esri.com/events/feduc/agenda/dev-geo.html">all-day DevGeo session</a>. This is a follow-on event to the <a href="http://www.esri.com/events/devgeo/index.html">inaugural DevGeo session</a> put on in Silicon Valley in November.
+
+<!--more-->
+
+Esri has stepped up its direct engagement with developers recently, most notably through the excellent <a href="http://www.esri.com/events/dev-meetup/index.html">Dev Meetup series</a>. Those sessions have been driven primarily by users and, as a result, have had a surprisingly wide range of topics (Windows authentication and PostgreSQL in Illinois, <a href="http://geocommons.com">GeoCommons</a> integration in DC, etc.). The nature of development on the Esri platform is changing rapidly. Gone are the days when ArcObjects was the bread-and-butter of Esri development. I have done a lot of ArcObjects development (and am still doing some) but it is now possible to develop robust applications on the Esri platform without ever writing a line of ArcObjects code. The change has been more gradual than the shift from AML and Avenue to ArcObjects was but is no less significant.
+
+As a result, events like DevGeo are important for staying current on the latest APIs and tools for the Esri platform. The addition of this event to the FedUC provides an opportunity for developers in the region to jump start their familiarity with these tools. It extends the value of the FedUC and was a good move by Esri to add it to the agenda.

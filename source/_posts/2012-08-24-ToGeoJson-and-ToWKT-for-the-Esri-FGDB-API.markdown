@@ -2,6 +2,7 @@
 layout: blog
 title: ToGeoJson and ToWKT for the Esri FGDB API
 post_author: bdollins
+comments: true
 categories:
 - .net
 - c#

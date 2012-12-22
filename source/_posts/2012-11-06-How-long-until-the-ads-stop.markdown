@@ -2,6 +2,7 @@
 layout: blog
 title: How long until the ads stop?
 post_author: bdollins
+comments: true
 categories:
 - elections
 - frabjous

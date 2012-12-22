@@ -2,6 +2,7 @@
 layout: blog
 title: Bringing It All Together...
 post_author: bdollins
+comments: true
 categories:
 - arcgis desktop
 - arcobjects

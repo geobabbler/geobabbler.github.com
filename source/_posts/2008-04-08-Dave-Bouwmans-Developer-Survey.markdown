@@ -2,6 +2,7 @@
 layout: blog
 title: Dave Bouwman's Developer Survey
 post_author: bdollins
+comments: true
 categories:
 - gis
 - software development

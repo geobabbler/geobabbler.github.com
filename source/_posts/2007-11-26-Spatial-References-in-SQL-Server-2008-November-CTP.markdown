@@ -2,6 +2,7 @@
 layout: blog
 title: Spatial References in SQL Server 2008 November CTP
 post_author: bdollins
+comments: true
 categories:
 - database
 - gis

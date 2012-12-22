@@ -2,6 +2,7 @@
 layout: blog
 title: Simple Annotations With the Esri Silverlight API
 post_author: bdollins
+comments: true
 categories:
 - c#
 - esri

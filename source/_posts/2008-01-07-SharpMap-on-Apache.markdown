@@ -2,6 +2,7 @@
 layout: blog
 title: SharpMap on Apache
 post_author: bdollins
+comments: true
 categories:
 - .net
 - apache

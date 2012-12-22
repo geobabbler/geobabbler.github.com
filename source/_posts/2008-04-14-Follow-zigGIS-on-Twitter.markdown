@@ -2,6 +2,7 @@
 layout: blog
 title: Follow zigGIS on Twitter
 post_author: bdollins
+comments: true
 categories:
 - gis
 - ziggis

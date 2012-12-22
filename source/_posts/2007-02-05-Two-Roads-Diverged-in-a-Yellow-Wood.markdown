@@ -2,6 +2,7 @@
 layout: blog
 title: Two Roads Diverged in a Yellow Wood...
 post_author: bdollins
+comments: true
 categories:
 - esri
 - gis

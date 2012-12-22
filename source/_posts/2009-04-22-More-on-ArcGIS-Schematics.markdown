@@ -2,6 +2,7 @@
 layout: blog
 title: More on ArcGIS Schematics
 post_author: bdollins
+comments: true
 categories:
 - esri
 - gis

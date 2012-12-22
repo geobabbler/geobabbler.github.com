@@ -2,6 +2,7 @@
 layout: blog
 title: Navteq MapReporter
 post_author: bdollins
+comments: true
 categories:
 - gis
 - navteq

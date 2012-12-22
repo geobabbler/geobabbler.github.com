@@ -2,6 +2,7 @@
 layout: blog
 title: 2008 ESRI Federal Users Conference
 post_author: bdollins
+comments: true
 categories:
 - esri
 - FedUC

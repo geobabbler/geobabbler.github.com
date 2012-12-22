@@ -2,6 +2,7 @@
 layout: blog
 title: Moving Forward On A Couple of Fronts
 post_author: bdollins
+comments: true
 categories:
 - arcgis desktop
 - arcobjects

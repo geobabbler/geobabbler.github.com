@@ -2,6 +2,7 @@
 layout: blog
 title: Foursquare - Teetering On the Edge of YASN
 post_author: bdollins
+comments: true
 categories:
 - facebook
 - foursquare

@@ -2,6 +2,7 @@
 layout: blog
 title: A One-Touch (Almost) Data Loader With FWTools and PostGIS
 post_author: bdollins
+comments: true
 categories:
 - fwtools
 - gdal/ogr

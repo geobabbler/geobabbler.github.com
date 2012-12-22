@@ -2,6 +2,7 @@
 layout: blog
 title: Inserting SQL 2008 Geometry With a SqlCommand
 post_author: bdollins
+comments: true
 categories:
 - c#
 - gis

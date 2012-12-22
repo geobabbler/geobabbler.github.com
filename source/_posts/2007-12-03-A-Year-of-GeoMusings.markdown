@@ -2,6 +2,7 @@
 layout: blog
 title: A Year of GeoMusings
 post_author: bdollins
+comments: true
 categories:
 - esri
 - gis

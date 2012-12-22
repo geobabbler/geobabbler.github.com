@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Working with .zig files
-comments: false
+comments: true
 post_author: bdollins
 categories:
 - gis

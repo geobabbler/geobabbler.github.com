@@ -2,6 +2,7 @@
 layout: blog
 title: ESRI Silverlight API MapIt Samples Available
 post_author: bdollins
+comments: true
 categories:
 - arcgis server
 - esri

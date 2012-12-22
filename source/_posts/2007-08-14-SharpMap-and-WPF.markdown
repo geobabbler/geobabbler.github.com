@@ -2,6 +2,7 @@
 layout: blog
 title: SharpMap and WPF
 post_author: bdollins
+comments: true
 categories:
 - gis
 - mapobjects

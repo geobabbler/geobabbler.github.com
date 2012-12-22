@@ -2,6 +2,7 @@
 layout: blog
 title: zigGIS Photos
 post_author: bdollins
+comments: true
 categories:
 - gis
 - ziggis

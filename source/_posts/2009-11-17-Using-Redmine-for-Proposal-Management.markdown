@@ -2,6 +2,7 @@
 layout: blog
 title: Using Redmine for Proposal Management
 post_author: bdollins
+comments: true
 categories:
 - consulting
 - open source

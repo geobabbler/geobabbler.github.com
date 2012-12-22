@@ -2,6 +2,7 @@
 layout: blog
 title: Cutting Tiles for ArcGIS Server Using TileMill
 post_author: bdollins
+comments: true
 categories:
 - Arc2Earth
 - ArcGIS Server

@@ -2,6 +2,7 @@
 layout: blog
 title: Whither zigGIS?
 post_author: bdollins
+comments: true
 categories:
 - gis
 - open source

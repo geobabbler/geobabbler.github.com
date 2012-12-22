@@ -2,6 +2,7 @@
 layout: blog
 title: zigGIS Tweet and Greet
 post_author: bdollins
+comments: true
 categories:
 - beer
 - gis

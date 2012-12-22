@@ -2,6 +2,7 @@
 layout: blog
 title: MapWindow Looking for Testers and Programmers
 post_author: bdollins
+comments: true
 categories:
 - gis
 - LinkedIn

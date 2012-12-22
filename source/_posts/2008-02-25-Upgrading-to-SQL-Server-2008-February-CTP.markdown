@@ -2,6 +2,7 @@
 layout: blog
 title: Upgrading to SQL Server 2008 February CTP
 post_author: bdollins
+comments: true
 categories:
 - database
 - sql server

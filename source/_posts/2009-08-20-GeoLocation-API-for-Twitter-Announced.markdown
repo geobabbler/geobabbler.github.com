@@ -2,6 +2,7 @@
 layout: blog
 title: GeoLocation API for Twitter Announced
 post_author: bdollins
+comments: true
 categories:
 - geojson
 - georss

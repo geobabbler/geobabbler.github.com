@@ -2,6 +2,7 @@
 layout: blog
 title: SharpMap and SQL Server 2008 Spatial
 post_author: bdollins
+comments: true
 categories:
 - database
 - gis

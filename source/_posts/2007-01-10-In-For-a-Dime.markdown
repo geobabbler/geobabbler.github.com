@@ -2,6 +2,7 @@
 layout: blog
 title: In For a Dime...
 post_author: bdollins
+comments: true
 categories:
 - postgis
 - postgresql

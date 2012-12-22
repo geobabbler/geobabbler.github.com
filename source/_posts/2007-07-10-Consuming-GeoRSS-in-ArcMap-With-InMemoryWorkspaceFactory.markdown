@@ -2,6 +2,7 @@
 layout: blog
 title: Consuming GeoRSS in ArcMap With InMemoryWorkspaceFactory
 post_author: bdollins
+comments: true
 categories:
 - arcgis desktop
 - arcobjects

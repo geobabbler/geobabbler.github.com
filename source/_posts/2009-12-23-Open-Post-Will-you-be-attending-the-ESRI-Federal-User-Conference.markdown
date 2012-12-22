@@ -2,6 +2,7 @@
 layout: blog
 title: Open Post - Will you be attending the ESRI Federal User Conference?
 post_author: bdollins
+comments: true
 categories:
 - esri
 - FedUC

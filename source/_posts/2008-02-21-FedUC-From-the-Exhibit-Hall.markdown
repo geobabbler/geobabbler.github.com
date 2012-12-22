@@ -2,6 +2,7 @@
 layout: blog
 title: FedUC - From the Exhibit Hall
 post_author: bdollins
+comments: true
 categories:
 - esri
 - FedUC

@@ -2,6 +2,7 @@
 layout: blog
 title: Crazy Times - Coming Up For Air
 post_author: bdollins
+comments: true
 categories:
 - arcgis server
 - arcims

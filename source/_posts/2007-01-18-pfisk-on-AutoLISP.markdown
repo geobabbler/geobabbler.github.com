@@ -2,6 +2,7 @@
 layout: blog
 title: pfisk on AutoLISP
 post_author: bdollins
+comments: true
 categories:
 - gis
 ---

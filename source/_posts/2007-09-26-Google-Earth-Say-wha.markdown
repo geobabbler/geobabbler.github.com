@@ -2,6 +2,7 @@
 layout: blog
 title: Google Earth - Say wha...?
 post_author: bdollins
+comments: true
 categories:
 - gis
 - google earth

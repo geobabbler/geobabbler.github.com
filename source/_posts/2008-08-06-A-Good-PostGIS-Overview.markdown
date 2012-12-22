@@ -2,6 +2,7 @@
 layout: blog
 title: A Good PostGIS Overview...
 post_author: bdollins
+comments: true
 categories:
 - arcgis server
 - arcsde

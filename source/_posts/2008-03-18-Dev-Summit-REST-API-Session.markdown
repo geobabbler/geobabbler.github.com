@@ -2,6 +2,7 @@
 layout: blog
 title: Dev Summit REST API Session
 post_author: bdollins
+comments: true
 categories:
 - Developer Summit
 - esri

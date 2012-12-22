@@ -2,6 +2,7 @@
 layout: blog
 title: DDJ Article on MyMap Javascript API
 post_author: bdollins
+comments: true
 categories:
 - articles
 - ddj

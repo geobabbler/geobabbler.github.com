@@ -2,6 +2,7 @@
 layout: blog
 title: A Little Bit of Java
 post_author: bdollins
+comments: true
 categories:
 - arcims
 - esri

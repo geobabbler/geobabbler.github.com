@@ -2,6 +2,7 @@
 layout: blog
 title: zigGIS Update Coming Soon
 post_author: bdollins
+comments: true
 categories:
 - arcobjects
 - gis

@@ -2,6 +2,7 @@
 layout: blog
 title: ArcSDE - Time For a Change
 post_author: bdollins
+comments: true
 categories:
 - arcgis server
 - arcobjects

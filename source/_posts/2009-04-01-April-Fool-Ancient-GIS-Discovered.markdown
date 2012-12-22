@@ -2,6 +2,7 @@
 layout: blog
 title: April Fool - Ancient GIS Discovered
 post_author: bdollins
+comments: true
 categories:
 - gis
 - where did that come from?

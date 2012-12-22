@@ -2,6 +2,7 @@
 layout: blog
 title: Looking for a Few Good Developers
 post_author: bdollins
+comments: true
 categories:
 - employment
 - esri

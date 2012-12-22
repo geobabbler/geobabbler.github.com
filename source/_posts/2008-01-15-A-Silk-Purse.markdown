@@ -2,6 +2,7 @@
 layout: blog
 title: A Silk Purse...
 post_author: bdollins
+comments: true
 categories:
 - general
 - gis

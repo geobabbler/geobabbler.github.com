@@ -2,6 +2,7 @@
 layout: blog
 title: Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions
 post_author: bdollins
+comments: true
 categories:
 - arcobjects
 - esri

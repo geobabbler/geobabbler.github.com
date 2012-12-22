@@ -2,6 +2,7 @@
 layout: blog
 title: Amazon and the Fountain of Youth
 post_author: bdollins
+comments: true
 categories:
 - Amazon
 - software development

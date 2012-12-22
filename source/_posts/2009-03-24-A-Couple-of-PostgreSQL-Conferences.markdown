@@ -2,6 +2,7 @@
 layout: blog
 title: A Couple of PostgreSQL Conferences
 post_author: bdollins
+comments: true
 categories:
 - open source
 - postgis

@@ -2,6 +2,7 @@
 layout: blog
 title: My Little Open-Source Stack
 post_author: bdollins
+comments: true
 categories:
 - geoserver
 - gis

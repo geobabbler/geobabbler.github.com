@@ -2,6 +2,7 @@
 layout: blog
 title: Chrome - IE-Killer? Or not...
 post_author: bdollins
+comments: true
 categories:
 - arcgis desktop
 - browsers

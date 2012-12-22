@@ -2,6 +2,7 @@
 layout: blog
 title: Getting Ready for BP/Dev
 post_author: bdollins
+comments: true
 categories:
 - esri
 - ESRI Business Parter Conference

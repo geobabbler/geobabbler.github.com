@@ -2,6 +2,7 @@
 layout: blog
 title: Nearest Book
 post_author: bdollins
+comments: true
 categories:
 - meme
 - nearest book

@@ -2,6 +2,7 @@
 layout: blog
 title: Extending SharpMap with SQLite
 post_author: bdollins
+comments: true
 categories:
 - gis
 - open source

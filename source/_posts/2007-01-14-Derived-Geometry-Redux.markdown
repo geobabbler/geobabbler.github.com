@@ -2,6 +2,7 @@
 layout: blog
 title: Derived Geometry Redux
 post_author: bdollins
+comments: true
 categories:
 - .net
 - arcobjects

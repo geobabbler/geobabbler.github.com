@@ -2,6 +2,7 @@
 layout: blog
 title: OpenGeo Suite - A Milestone
 post_author: bdollins
+comments: true
 categories:
 - GeoExt
 - geoserver

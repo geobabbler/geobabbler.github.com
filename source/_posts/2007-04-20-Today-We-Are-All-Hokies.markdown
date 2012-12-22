@@ -2,6 +2,7 @@
 layout: blog
 title: Today We Are All Hokies...
 post_author: bdollins
+comments: true
 categories:
 - where did that come from?
 ---

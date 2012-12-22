@@ -2,6 +2,7 @@
 layout: blog
 title: ESRI 2008 Fed UC Vibe
 post_author: bdollins
+comments: true
 categories:
 - esri
 - FedUC

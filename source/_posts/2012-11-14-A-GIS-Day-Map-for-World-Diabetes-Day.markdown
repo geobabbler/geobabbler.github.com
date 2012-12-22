@@ -2,6 +2,7 @@
 layout: blog
 title: A GIS Day Map for World Diabetes Day
 post_author: bdollins
+comments: true
 categories:
 - diabetes
 - GIS

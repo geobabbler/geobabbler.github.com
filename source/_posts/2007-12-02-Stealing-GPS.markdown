@@ -2,6 +2,7 @@
 layout: blog
 title: Stealing GPS...
 post_author: bdollins
+comments: true
 categories:
 - articles
 - gis

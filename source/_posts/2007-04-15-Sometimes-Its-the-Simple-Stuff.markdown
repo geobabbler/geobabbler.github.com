@@ -2,6 +2,7 @@
 layout: blog
 title: Sometimes It's the Simple Stuff...
 post_author: bdollins
+comments: true
 categories:
 - gis
 - microsoft

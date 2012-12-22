@@ -2,6 +2,7 @@
 layout: blog
 title: zigGIS Updates
 post_author: bdollins
+comments: true
 categories:
 - arcgis desktop
 - esri

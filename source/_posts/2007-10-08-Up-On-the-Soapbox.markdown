@@ -2,6 +2,7 @@
 layout: blog
 title: Up On the Soapbox
 post_author: bdollins
+comments: true
 categories:
 - gis
 - soapbox

@@ -2,6 +2,7 @@
 layout: blog
 title: Happy New Year and a Continued Merry Christmas
 post_author: bdollins
+comments: true
 categories:
 - where did that come from?
 ---

@@ -2,6 +2,7 @@
 layout: blog
 title: ZigGIS Beta
 post_author: bdollins
+comments: true
 categories:
 - gis
 - ziggis

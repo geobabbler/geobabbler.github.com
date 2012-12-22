@@ -2,6 +2,7 @@
 layout: blog
 title: Getting Started With a Python Wrapper For the WeoGeo API
 post_author: bdollins
+comments: true
 categories:
 - gis
 - programming

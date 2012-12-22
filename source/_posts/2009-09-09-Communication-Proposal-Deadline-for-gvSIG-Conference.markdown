@@ -2,6 +2,7 @@
 layout: blog
 title: Communication Proposal Deadline for gvSIG Conference
 post_author: bdollins
+comments: true
 categories:
 - conference
 - gis

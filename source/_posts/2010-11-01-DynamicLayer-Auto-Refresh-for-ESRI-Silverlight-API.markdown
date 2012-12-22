@@ -2,6 +2,7 @@
 layout: blog
 title: DynamicLayer Auto-Refresh for ESRI Silverlight API
 post_author: bdollins
+comments: true
 categories:
 - arcgis server
 - behaviors

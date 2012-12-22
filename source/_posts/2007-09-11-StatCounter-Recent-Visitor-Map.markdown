@@ -2,6 +2,7 @@
 layout: blog
 title: StatCounter Recent Visitor Map
 post_author: bdollins
+comments: true
 categories:
 - gis
 - google maps

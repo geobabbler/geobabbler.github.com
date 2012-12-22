@@ -2,6 +2,7 @@
 layout: blog
 title: Way Ahead for zigGIS
 post_author: bdollins
+comments: true
 categories:
 - arcgis desktop
 - arcobjects

@@ -2,6 +2,7 @@
 layout: blog
 title: Does Vendor Lock-In Increase Health-Care Costs?
 post_author: bdollins
+comments: true
 categories:
 - diabetes
 - soapbox

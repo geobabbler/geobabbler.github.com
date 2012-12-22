@@ -2,6 +2,7 @@
 layout: blog
 title: PostgreSQL Support in ArcGIS
 post_author: bdollins
+comments: true
 categories:
 - arcgis server
 - arcsde

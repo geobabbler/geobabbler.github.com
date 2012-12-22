@@ -2,6 +2,7 @@
 layout: blog
 title: ESRI FedUC 2009 - One Man's Limited Perspective
 post_author: bdollins
+comments: true
 categories:
 - esri
 - FedUC

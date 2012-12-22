@@ -2,6 +2,7 @@
 layout: blog
 title: zigGIS on Google Code
 post_author: bdollins
+comments: true
 categories:
 - arcobjects
 - postgis

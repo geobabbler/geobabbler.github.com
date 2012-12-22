@@ -2,6 +2,7 @@
 layout: blog
 title: SQL Server 2008 and 2005 Side-By-Side
 post_author: bdollins
+comments: true
 categories:
 - sql server
 - sql server spatial

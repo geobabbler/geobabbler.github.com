@@ -2,6 +2,7 @@
 layout: blog
 title: SpatiaLite Support in QGIS
 post_author: bdollins
+comments: true
 categories:
 - gis
 - open source

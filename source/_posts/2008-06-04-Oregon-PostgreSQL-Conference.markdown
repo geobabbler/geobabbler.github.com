@@ -2,6 +2,7 @@
 layout: blog
 title: Oregon PostgreSQL Conference
 post_author: bdollins
+comments: true
 categories:
 - gis
 - postgis

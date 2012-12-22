@@ -2,6 +2,7 @@
 layout: blog
 title: AGX Build 480 is Corny
 post_author: bdollins
+comments: true
 categories:
 - arcgis explorer
 - esri

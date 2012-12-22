@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Put Planet Geospatial to Work for You
+alias: [/2012/11/27/put-planet-geospatial-to-work-for-you]
 post_author: bdollins
 categories:
 - CartoCSS

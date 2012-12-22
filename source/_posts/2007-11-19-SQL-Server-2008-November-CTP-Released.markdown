@@ -2,6 +2,7 @@
 layout: blog
 title: SQL Server 2008 November CTP Released
 post_author: bdollins
+comments: true
 categories:
 - database
 - gis

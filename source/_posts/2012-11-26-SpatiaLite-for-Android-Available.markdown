@@ -2,6 +2,7 @@
 layout: post
 title: SpatiaLite for Android Available
 post_author: bdollins
+comments: true
 categories:
 - AGC
 - Android

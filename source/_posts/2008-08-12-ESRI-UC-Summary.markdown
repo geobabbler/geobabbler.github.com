@@ -2,6 +2,7 @@
 layout: blog
 title: ESRI UC Summary
 post_author: bdollins
+comments: true
 categories:
 - esri
 - gis

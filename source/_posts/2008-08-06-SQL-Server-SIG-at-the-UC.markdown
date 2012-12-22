@@ -2,6 +2,7 @@
 layout: blog
 title: SQL Server SIG at the UC
 post_author: bdollins
+comments: true
 categories:
 - arcsde
 - esri

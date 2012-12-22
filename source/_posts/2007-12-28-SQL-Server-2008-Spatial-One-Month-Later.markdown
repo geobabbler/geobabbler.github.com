@@ -2,6 +2,7 @@
 layout: blog
 title: SQL Server 2008 Spatial - One Month Later
 post_author: bdollins
+comments: true
 categories:
 - gis
 - sql server spatial

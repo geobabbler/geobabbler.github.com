@@ -2,6 +2,7 @@
 layout: blog
 title: Monday Frivolity - My Latest Project Plan
 post_author: bdollins
+comments: true
 categories:
 - humor
 - project planning

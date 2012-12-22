@@ -2,6 +2,7 @@
 layout: blog
 title: Carving Up GIS StackExchange
 post_author: bdollins
+comments: true
 categories:
 - diversion
 - gis

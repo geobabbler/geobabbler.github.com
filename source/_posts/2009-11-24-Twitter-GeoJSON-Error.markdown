@@ -2,6 +2,7 @@
 layout: blog
 title: Twitter GeoJSON Error
 post_author: bdollins
+comments: true
 categories:
 - geojson
 - geolocation

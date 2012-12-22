@@ -2,6 +2,7 @@
 layout: blog
 title: Check Out Overhead Update
 post_author: bdollins
+comments: true
 categories:
 - feeds
 - gis

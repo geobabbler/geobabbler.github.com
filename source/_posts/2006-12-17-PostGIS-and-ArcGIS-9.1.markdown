@@ -2,6 +2,7 @@
 layout: blog
 title: PostGIS and ArcGIS 9.1
 post_author: bdollins
+comments: true
 categories:
 - arcobjects
 - esri
