@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-24T14:45:03-05:00</updated>
+  <updated>2012-12-27T09:00:05-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Center for Spatial Law and Policy Announces Geospatial Data Licensing Workshop]]></title>
+    <link href="http://blog.geomusings.com/2012/12/27/center-for-spatial-law-and-policy-announces-geospatial-data-licensing-workshop/"/>
+    <updated>2012-12-27T08:50:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/12/27/center-for-spatial-law-and-policy-announces-geospatial-data-licensing-workshop</id>
+    <content type="html"><![CDATA[<p>Kevin Pomfret announced this morning that the <a href="http://www.spatiallaw.com/">Center for Spatial Law and Policy</a> will be hosting a workshop on geospatial data licensing.</p>
+
+<div class='embed tweet'><blockquote class="twitter-tweet"><p>Centre for Spatial Law and Policy to host a Geospatial Data Licensing Workshop <a href="http://t.co/rYFXysrK" title="http://tinyurl.com/d6e6mgm">tinyurl.com/d6e6mgm</a></p>&mdash; SpatialLaw&amp;Policy (@kpomfret) <a href="https://twitter.com/kpomfret/status/284292999792447489" data-datetime="2012-12-27T13:41:47+00:00">December 27, 2012</a></blockquote>
+<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+
+<p>Data licensing has always been an important issue but seems to be <a href="http://www.spatiallyadjusted.com/2012/12/26/this-isnt-the-road-network-you-are-looking-for/">moving to the forefront</a> as demand for quality spatial data grows. This workshop could prove to be timely. It is being held on 24 January 2013 in Tysons Corner, VA. Details can be found on the <a href="http://spatiallaw.blogspot.com/2012/12/geospatial-data-licensing-workshop.html">Spatial Law and Policy blog</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[geoMusings Has Moved - Please Update Your Links]]></title>
@@ -600,104 +615,6 @@ enjoy, Sandro
 <p>In my opinion, this acquisition not only makes sense, it is somewhat classic. In hindsight, it could even be called obvious. I could go on about this but I won&#8217;t.</p>
 
 <p>Many in our industry, myself included, took a vicarious enjoyment in the David-versus-Goliath interplay between GeoIQ and Esri but now it&#8217;s time for us to get back to work. I think all of the principals involved in this transaction deserve credit for keeping open minds and being able to look past all of that to recognize the potential common benefits of joining forces. I sincerely hope GeoIQ doesn&#8217;t become the next Atlas GIS and I suspect it won&#8217;t.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[CartoDB/Leaflet Sample Update]]></title>
-    <link href="http://blog.geomusings.com/2012/07/09/cartodbleaflet-sample-update/"/>
-    <updated>2012-07-09T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/09/cartodbleaflet-sample-update</id>
-    <content type="html"><![CDATA[<p>A while back, I posted about some experimentation I did with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://cartodb.com/" target="_blank">CartoDB</a> in the wake of FOSS4G in Denver. I recently had the chance to go back and update that sample with some spatial queries. At the time of the original post, CartoDB was still in beta and spatial queries didn&#8217;t seem to work, despite the fact that the back-end was driven by PostGIS.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2737" height="310" src="http://geobabble.files.wordpress.com/2012/07/cartodb_spatial_query.png" title="cartodb_spatial_query" width="640" /></p>
-
-<!--more-->
-
-
-<p>Since then, of course, CartoDB has gone production, as has <a href="http://www.postgis.org" target="_blank">PostGIS</a> 2.0 (up to <a href="http://www.postgis.org/news/20120622/" target="_blank">2.0.1</a> now) so I decided to <a href="http://demo.zekiah.com/propfinder2/" target="_blank">update the sample</a> a little. This time, I added a floodway layer that flows through <a href="http://leonardtown.somd.com/" target="_blank" title="Official Leonardtown home page">Leonardtown</a>, <a href="http://maps.google.com/maps?sugexp=chrome,mod%3D16&amp;q=leonardtown,+md&amp;um=1&amp;ie=UTF-8&amp;hq=&amp;hnear=0x89b768aa0432337d:0x22590e342c11b91b,Leonardtown,+MD&amp;gl=us&amp;sa=X&amp;ei=wRL8T9TIFqno0QGshqC6Bg&amp;ved=0CHwQtgM" target="_blank" title="Leonardtown in Google Maps">Maryland</a>. With a button click, you can identify the buildings that intersect the floodway. I am again using the CartoDB SQL API and GeoJSON to accomplish this. The API call that accomplishes this is:</p>
-
-<p><a href="http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;format=geojson" target="_blank">http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,<br />floodway%20WHERE%20ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)<br />&amp;format=geojson</a></p>
-
-<p>If you pull that apart, you&#8217;ll see a relatively straightforward use of a PostGIS spatial operator in there:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">--</span>
-</span><span class='line'><span class="k">SELECT</span> <span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="n">leonardtown_bldgs</span><span class="p">,</span><span class="n">floodway</span> <span class="k">WHERE</span> <span class="n">ST_Intersects</span><span class="p">(</span><span class="n">floodway</span><span class="p">.</span><span class="n">the_geom</span><span class="p">,</span><span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="n">the_geom</span><span class="p">)</span>
-</span><span class='line'><span class="c1">--</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The Javascript function that executes the query is here:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'>   <span class="kd">function</span> <span class="nx">getFloodBldgs</span><span class="p">(){</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">bldgLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">();</span>
-</span><span class='line'>        <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;featureparse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">color</span><span class="o">:</span>  <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">fill</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mf">0.9</span> <span class="p">});</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span><span class="p">){</span>
-</span><span class='line'>              <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;lt;b&amp;gt;Address:&amp;lt;/b&amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot;&amp;lt;br/&amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span><span class="p">){</span>
-</span><span class='line'>              <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;lt;b&amp;gt;Property Type:&amp;lt;/b&amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span> <span class="o">+</span> <span class="s2">&quot;&amp;lt;br/&amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span><span class="p">){</span>
-</span><span class='line'>              <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;lt;b&amp;gt;Square Footage:&amp;lt;/b&amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span> <span class="o">+</span> <span class="s2">&quot;&amp;lt;br/&amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>          <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="p">});</span>
-</span><span class='line'>  
-</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span>
-</span><span class='line'>            <span class="s2">&quot;http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20&quot;</span> <span class="o">+</span>
-</span><span class='line'><span class="s2">&quot;ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;amp;format=geojson&amp;amp;callback=?&quot;</span><span class="p">,</span>
-</span><span class='line'>            <span class="kd">function</span><span class="p">(</span><span class="nx">geojson</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">features</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">addGeoJSON</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
-</span><span class='line'>            <span class="p">})</span>
-</span><span class='line'>        <span class="p">});</span>
-</span><span class='line'>      
-</span><span class='line'>        <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">bldgLayer</span><span class="p">);</span>
-</span><span class='line'>  <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The CartoDB documentation has greatly improved since my last post, including some <a href="http://developers.cartodb.com/examples.html" target="_blank">good developer examples</a>. A little bit of comfort with PostGIS-esque spatial SQL goes a long way with CartoDB. It&#8217;s good to see how the platform is evolving.</p>
 ]]></content>
   </entry>
   
