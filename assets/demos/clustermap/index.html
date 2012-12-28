@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cluster Map of US GISPs</title>
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.ie.css" /><![endif]-->
+	<script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="screen.css" />
+	<link rel="stylesheet" href="stylesheet.css" />
+
+	<link rel="stylesheet" href="dist/MarkerCluster.css" />
+	<link rel="stylesheet" href="dist/MarkerCluster.Default.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="dist/MarkerCluster.Default.ie.css" /><![endif]-->
+	<script src="dist/leaflet.markercluster-src.js"></script>
+
+	<script src="gisp2.js"></script>
+
+		<style type="text/css" media="screen">
+		h1.fontface {font: 50px/58px 'LeagueGothicRegular', Arial, sans-serif;letter-spacing: 0;color:#F0F0F0}
+		h2.h2style {font: 30px/38px 'LeagueGothicRegular', Arial, sans-serif;letter-spacing: 0;color:#F0F0F0}
+		p.style1 {font: 18px/27px 'LeagueGothicRegular', Arial, sans-serif;color:#F0F0F0}
+		a:visited { text-decoration: line-through; color:#F0F0F0}
+		#container {
+			width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+
+
+</head>
+<body bgcolor="#0D0C0A">
+	<h1 class="fontface">US GISPs as of 21 August 2012</h1>
+	<div id="map"></div>
+
+	<script type="text/javascript">
+		var map = new L.Map('map');
+		var mapboxTiles = new L.TileLayer(
+			"http://{s}.tiles.mapbox.com/v3/landplanner.map-ssj7bhnx/{z}/{x}/{y}.png",
+			{
+				attribution: 'APIs by <a href="http://mapbox.com">MapBox</a> and <a href="https://github.com/danzel/Leaflet.markercluster">danzel</a>',
+				maxZoom: 19
+			}
+		);
+		map.setView(new L.LatLng(38.913611 , -77.013222), 7).addLayer(mapboxTiles);
+		//var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
+		//	cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade, Points via GISCI',
+		//	cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 17, attribution: cloudmadeAttribution}),
+		//	latlng = new L.LatLng(38.913611 , -77.013222);
+		//var map = new L.Map('map', {center: latlng, zoom: 7, layers: [cloudmade]});
+
+		var markers = new L.MarkerClusterGroup();
+
+		for (var i = 0; i < gispPoints.length; i++) {
+			var a = gispPoints[i];
+			var title = a[2];
+			var marker = new L.Marker(new L.LatLng(a[0], a[1]), { title: title });
+			marker.bindPopup(title);
+			markers.addLayer(marker);
+		}
+
+		map.addLayer(markers);
+
+	</script>
+
+	<h2 class="h2style">About the data</h2>
+    <p class="style1">The data was downloaded from the <a href="http://www.gisci.org/secure/members/directory/results.asp" target="_blank">GISCI certification registry</a> on August 30, 2012 as a Microsoft Excel spreadsheet. The data was
+    processed to remove all names or any other identifying information, leaving only city, state and certification date. The records were then culled
+    down to United States records only. The processed data was saved as a CSV and uploaded to GeoCommons for geocoding.<br />
+    </p>
+    <h2 class="h2style">About the application</h2>
+    <p class="style1">The map on this page uses the <a href="http://leaflet.cloudmade.com/" target="_blank">Cloudmade's Leaflet Javascript library.</a> The cluster mapping uses the <a href="https://github.com/danzel/Leaflet.markercluster">Leaflet.markercluster</a> library by Dave Leaver and the tiles come from <a href="http://mapbox.com/">MapBox</a>.
+
+   <!-- Start of StatCounter Code -->
+	<script type="text/javascript">
+	var sc_project=6594139;
+	var sc_invisible=1;
+	var sc_security="b69a9df8";
+	</script>
+
+	<script type="text/javascript"
+	src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+	class="statcounter"><a title="tumblr visit counter"
+	href="http://statcounter.com/tumblr/" target="_blank"><img
+	class="statcounter"
+	src="http://c.statcounter.com/6594139/0/b69a9df8/1/"
+	alt="tumblr visit counter" ></a></div></noscript>
+<!-- End of StatCounter Code -->
+</body>
+</html>
