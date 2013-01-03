@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SpatiaLite | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/spatialite/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2012-12-30T16:32:09-05:00</updated>
+  <updated>2013-01-03T08:58:20-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite 4.1.0 Beta Preview Available]]></title>
+    <link href="http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available/"/>
+    <updated>2013-01-03T08:34:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available</id>
+    <content type="html"><![CDATA[<p>On the <a href="https://groups.google.com/forum/?fromgroups#!forum/spatialite-users">SpatiaLite Google Group</a> this morning, Sandro Furieri announced the availability of a beta preview of SpatiaLite 4.1.0. The primary focus of this preview is to get early comment on new capabilities supporting the storage, validation, and query of XML documents.</p>
+
+<p>More information about this update <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=XmlBlob+and+VirtualXPath">can be found here</a>. Says Sandro:</p>
+
+<blockquote>
+The main goals of these recently introduced enhancements are:<br/>
+- storing XML Documents directly within the DBMS <br/>
+- supporting XML validation<br/>
+- supporting plain SQL queries on behalf of XML Documents <br/>
+  via canonical XPath expressions<br/>
+<br/>
+Implementing directly into the Spatial DBMS a common core of 
+XML-oriented features surely is an interesting and useful option,
+just considering that ISO- and INSPIRE-Metadata or SLD/SE Styles 
+are fully based on XML.
+</blockquote>
+
+
+<p>Although I find myself working more with <a href="http://geojson.org">GeoJSON</a> and <a href="http://developmentseed.org/blog/2011/feb/09/introducing-carto-css-map-styling-language/">CartoCSS</a> these days, I think support for XML is a good step for SpatiaLite. There are some very mature use cases based on XML, as Sandro points out. While <a href="http://www.opengeospatial.org/standards/sld">SLD</a> is not my favorite, this may keep it on my radar. Also, it would be interesting to see how this new capability would possibly affect the evolution of the <a href="http://www.opengeospatial.org/projects/groups/geopackageswg">OGC GeoPackage draft specification</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
@@ -118,19 +145,6 @@ enjoy, Sandro
 <p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
 
 <p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2011 TIGER Boundary Files in SpatiaLite Format]]></title>
-    <link href="http://blog.geomusings.com/2012/04/02/2011-tiger-boundary-files-in-spatialite-format/"/>
-    <updated>2012-04-02T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/04/02/2011-tiger-boundary-files-in-spatialite-format</id>
-    <content type="html"><![CDATA[<p>Over on the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Google Group</a>, <a href="http://www.stineconsulting.com/">Stine Consulting</a> announced the availability of <a href="http://www.stineconsulting.com/GIS%20Resources.php">2011 TIGER Boundary files</a> in <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a> format.</p>
-
-<p>Despite initial enthusiasm, mainstream uptake of SpatiaLite has been slow but I think that's about to change. Large organizations, such as the US Army, are showing a much more serious interest in SpatiaLite as they expand their use of mobile and hand-held platforms.</p>
-
-<p>I expect that increased availability of data in native SpatiaLite databases will also help adoption. So if you need US boundaries data, check out this offering from Stine Consulting. And, if you're looking for more data for use in SpatiaLite, don't forget that you can download any dataset available on <a href="http://www.geocommons.com">GeoCommons</a> as a SpatiaLite database.</p>
 ]]></content>
   </entry>
   
