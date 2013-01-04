@@ -18,7 +18,7 @@ categories:
 
 There was a time only a few years ago when, if you lived in the DC/MD/VA area, planning your geo-conference schedule for the year went something like this: Register for the ESRI FedUC and then start booking plane tickets for everything else. That is no longer the case with more events occurring in the area. Here's a round-up of a few events that are on my 2012 schedule so far:
 
-[caption id="attachment_2448" align="aligncenter" width="495" caption="You can never have too many of these..."]<img alt="" class="size-full wp-image-2448" height="536" src="http://geobabble.files.wordpress.com/2012/02/foss4g_lanyard_small.png" title="foss4g_lanyard_small" width="495" />[/caption]
+<div style="text-align:center;"><img alt="" height="536" src="http://geobabble.files.wordpress.com/2012/02/foss4g_lanyard_small.png" title="foss4g_lanyard_small" width="495" /><div style="text-align:center;font-size: 14px;">You can never have too many of these...<br/><br/></div></div>
 
 <a href="http://www.esri.com/events/fedcon/index.html">ESRI Federal GIS Conference</a> (formerly known as the Federal User Conference): 22 - 24 February. This is probably one of the longest-running and largest events in the area. This year features another <a href="http://www.esri.com/events/fedcon/agenda/dev-geo.html">DevGeo</a> session, focusing on developing applications with the various ESRI tools. Last year was the first time it was done at a FedUC and the room was packed all day. This conference is obviously an ESRI show but the last few years have included unofficial, after-hours gatherings of people working with a wide range of geospatial tools. Even if you are not an ESRI user, there may be something going on in the vicinity that would be worthwhile. <!--more-->
 
