@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-04T14:52:30-05:00</updated>
+  <updated>2013-01-08T15:56:12-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Getting Ready for JS.geo]]></title>
+    <link href="http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo/"/>
+    <updated>2013-01-08T15:50:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo</id>
+    <content type="html"><![CDATA[<p>I&#8217;m looking forward to next week&#8217;s <a href="http://geojs.eventbrite.com/">JS.geo</a> event in Denver. It is a small event, spearheaded by <a href="http://twitter.com/cwhelm">Chris Helm</a> of <a href="http://www.esri.com">Esri</a>, that focuses on the use of Javascript in geospatial applications. Although I have been more vocal in my <a href="http://blog.geomusings.com/blog/categories/python/">recent explorations with Python</a>, I&#8217;ve probably done as much, if not more, work with Javascript over the past 18 months.</p>
+
+<div style="text-align:center;"><img src="http://mapbrief.com/wp-content/uploads/2012/11/no_plugin.jpg" /></div>
+
+
+<p>The pace of innovation with Javascript in the geospatial are has been staggering. It seems like only a short time ago that the options for working with geospatial applications were <a href="http://openlayers.org/">OpenLayers</a> and the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/">Esri Javascript API</a>. The rapid advent of tools such as <a href="http://www.geoext.org/">GeoExt</a>, <a href="http://leafletjs.com/">Leaflet</a>, and many others has really lead to a explosion of capability. Of course, the recent buzz has been about <a href="http://d3js.org/">D3</a>, which tackles a wide rangle of data visualization problems, including geo. D3 is of particular interest because it is tackling the issue of projection in the browser, freeing applications from the dominance of Web Mercator.</p>
+
+<p>Of course, it&#8217;s not been all about the browser, either as <a href="http://nodejs.org/">Node.js</a> has made abundantly clear. One of the most effective desktop applications for cartographic design, <a href="http://mapbox.com/tilemill/">TileMill</a>, is built with Node, among other tools.</p>
+
+<p>The maturity of Javascript as a tool for geospatial development is such that I am at the point that, if it weren&#8217;t for government customers that are <a href="http://mapbrief.com/2011/10/13/web-mapping-continues-to-pay-for-the-sins-of-internet-explorer/">still standardized on Internet Explorer 8</a> or older, a plug-in-based environment would not be my first choice for a new application.</p>
+
+<p>As for the JS.geo event itself, I am intrigued by its small, focused nature. It doesn&#8217;t seem to be as informal as an unconference but may be easier to digest than the typical geo event. It will also be great to catch up with the Front Range crowd.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SpatiaLite 4.1.0 Beta Preview Available]]></title>
@@ -459,145 +479,6 @@ enjoy, Sandro
 <p>The MapBox blog takes some explaining. It is primarily about how to be productive with MapBox, but some posts deal with using QGIS in your workflows. Those posts have some good information. All of these blogs have been helpful to me over the last couple of months.</p>
 
 <p>Outside of that, I set up a Google Alert for QGIS which feeds me all kinds of things: posts from other blogs, mailing entries, StackExchange questions, and so on. To make that easy, I ran the feed from that alert through <a href="http://ifttt.com/" target="_blank">ifttt.com</a> and have it posting to a Twitter account: (<a href="http://twitter.com/QGISInfo" target="_blank">@QGISInfo</a>). Feel free to check it out. Keep in mind that it&#8217;s based on a Google search so odd results may creep in from time to time. I&#8217;ve been running the alert for a few weeks and it&#8217;s been pretty clean. The Twitter feed is new and will be sparse until a few refresh cycles happen. Think of it as a poor man&#8217;s &#8220;Planet QGIS.&#8221; I hope you find it useful.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using GeoIQ Analytics in .Net Applications]]></title>
-    <link href="http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications/"/>
-    <updated>2012-07-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications</id>
-    <content type="html"><![CDATA[<p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it&#8217;s my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That&#8217;s good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
-
-<p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
-
-<p>The GeoIQ platform offers <a href="http://developer.geoiq.com/api/analysis/" target="_blank">several functions</a> to analyze data sets hosted on a GeoIQ instance or GeoCommons. I have not yet wrapped all of the functions but am working my way through them as I can.</p>
-
-<p>For this post, I will intersect the locations of <a href="http://geocommons.com/overlays/87503" target="_blank">US GISPs as of 1/26/2011</a> with the <a href="http://geocommons.com/overlays/149925" target="_blank">Maryland Zip Code Boundaries</a> to produce a data set containing the locations of GISPs in Maryland, depicted in the map below.</p>
-
-<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/07/intersect_results.png"><img alt="" class="size-full wp-image-2793" height="340" src="http://geobabble.files.wordpress.com/2012/07/intersect_results.png" title="intersect_results" width="640" /></a><div style="text-align: center; font-size: 14px">Don&#8217;t worry, none of these are me.<br /><br/></div></div>
-
-
-
-
-<!--more-->
-
-
-<p>It is important to understand how analytics on the GeoIQ platform work. The output of any successful operation will be a new data set representing the analysis results. Additionally, due to the fact that some analyses may take a long time, they are run asynchronously so you&#8217;ll need to check back periodically to see if the analysis is complete. That leads to the following very basic workflow:</p>
-
-<ol>
-<li>Initialize analysis</li>
-<li>Periodically check status</li>
-<li>When complete, do something with it</li>
-</ol>
-
-
-<p>So let&#8217;s get started. Since my original commit, I have added a class that contains wrappers for the GeoIQ analysis methods (<a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Analytics.cs" target="_blank">see here</a>). Due to the consistency of the GeoIQ design, they are all very similar and I&#8217;ll probably get around to doing some clean-up refactoring after I get all of the methods wrapped. All of the methods I&#8217;ve wrapped so far return the same JSON response so it was easy to create a simple <a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Data/AnalyticsData.cs" target="_blank">AnalyticsResponse</a> class to deserialize that.</p>
-
-<p>In the calling application, I&#8217;ll set up a couple of module-level objects to help keep track of things:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'>        <span class="k">private</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span> <span class="n">_layerTimer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="m">500</span><span class="p">);</span> <span class="c1">//to check status of analysis</span>
-</span><span class='line'>        <span class="k">private</span> <span class="n">AnalyticsResponse</span> <span class="n">_response</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span> <span class="c1">//response object created by analysis</span>
-</span><span class='line'>        <span class="k">private</span> <span class="n">Analytics</span> <span class="n">_analytics</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Analytics</span><span class="p">(</span><span class="s">&quot;http://geocommons.com&quot;</span><span class="p">,</span> <span class="s">&quot;username&quot;</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">);</span> <span class="c1">//instance of wrapper class for GeoIQ analytic methods</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>With these building blocks in place, it&#8217;s fairly easy to execute the basic workflow:</p>
-
-<ol>
-<li>Initialize analysis:</li>
-</ol>
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//call intersect method</span>
-</span><span class='line'><span class="c1">//layer 87503 = GISPs, layer 149925 = zip codes</span>
-</span><span class='line'><span class="c1">//prefer_1 tells GeoIQ to return records from layer 1 (GISPs in this case)</span>
-</span><span class='line'> <span class="n">_response</span> <span class="p">=</span> <span class="n">_analytics</span><span class="p">.</span><span class="n">Intersect</span><span class="p">(</span><span class="m">87503</span><span class="p">,</span> <span class="m">149925</span><span class="p">,</span> <span class="n">MergeOptions</span><span class="p">.</span><span class="n">prefer_1</span><span class="p">);</span> <span class="c1">//capture response object</span>
-</span><span class='line'> <span class="c1">//start timer to check status</span>
-</span><span class='line'> <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This calls the intersect method of the Analytics object, captures the resulting response object, and starts the timer to check the status of the analysis.</p>
-
-<ol>
-<li>Periodically check status:</li>
-</ol>
-
-
-<p>In this case, I used a simple timer that checks every half second, although you may want to space that out more if you&#8217;re sure your analyses will take a while to run. This shows the timer event handler code:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">void</span> <span class="nf">_layerTimer_Elapsed</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">ElapsedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>     <span class="kt">string</span> <span class="n">status</span> <span class="p">=</span> <span class="n">_analytics</span><span class="p">.</span><span class="n">GetState</span><span class="p">(</span><span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">);</span> <span class="c1">//ID is that of new layer created by analysis</span>
-</span><span class='line'>     <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">==</span> <span class="s">&quot;\&quot;complete\&quot;&quot;</span><span class="p">)</span> <span class="c1">//this means analysis is complete</span>
-</span><span class='line'>     <span class="p">{</span>
-</span><span class='line'>         <span class="c1">//use Invoke to access UI elements from timer thread</span>
-</span><span class='line'>         <span class="k">this</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">new</span> <span class="n">MethodInvoker</span><span class="p">(</span><span class="k">delegate</span>
-</span><span class='line'>         <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//set up link label to enable download of new data as KML</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">&quot;Analysis Complete: Download KML&quot;</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">19</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="s">&quot;http://geocommons.com/overlays/&quot;</span> <span class="p">+</span> <span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="s">&quot;.kml&quot;</span><span class="p">);</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Visible</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
-</span><span class='line'>         <span class="p">}));</span>
-</span><span class='line'>     <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>In a nutshell, it checks the status using a wrapper method. If the status is &#8220;complete&#8221;, then a download link is shown. This code makes the KML version available but you could choose a shapefile or any other format supported by GeoIQ.</p>
-
-<ol>
-<li>When complete, do something with it:</li>
-</ol>
-
-
-<p>In this case, I just make it available for download. Once the data set exists, however, it&#8217;s really just a matter of imagination.</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">void</span> <span class="nf">lnkDownloadShape_LinkClicked</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">LinkLabelLinkClickedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">//this actually downloads the data and may even fire off Google Earth</span>
-</span><span class='line'>    <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Link</span><span class="p">.</span><span class="n">LinkData</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>In a more robust application (meaning not a sample for a blog post), you could put the results into a map or feed them into locally-installed analysis tools for further processing or do just about anything you want that supports your workflow. I&#8217;ve been a fan of the analytical capability of GeoIQ for some time and I hope, whatever the future holds, that these kinds of tools make it into the next generation of products.</p>
-
-<p>The full Windows Forms code for this sample is <a href="https://gist.github.com/3137738" target="_blank">available here</a>.</p>
 ]]></content>
   </entry>
   

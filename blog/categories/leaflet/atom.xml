@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Leaflet | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/leaflet/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-04T14:52:30-05:00</updated>
+  <updated>2013-01-08T15:58:08-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -24,7 +24,7 @@
 
 <p>Democracy is a wonderful thing, but it will be nice to have this campaign season behind us.</p>
 
-<p><iframe width="560" height="420" src="http://www.youtube.com/embed/K1vaEweJUUk?color=white&theme=light"></iframe></p>
+<p>{% youtube K1vaEweJUUk %}</p>
 ]]></content>
   </entry>
   
@@ -66,99 +66,53 @@
 
 <p>If you pull that apart, you'll see a relatively straightforward use of a PostGIS spatial operator in there:</p>
 
-<h2><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="k">SELECT</span> <span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="n">leonardtown_bldgs</span><span class="p">,</span><span class="n">floodway</span> <span class="k">WHERE</span> <span class="n">ST_Intersects</span><span class="p">(</span><span class="n">floodway</span><span class="p">.</span><span class="n">the_geom</span><span class="p">,</span><span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="n">the_geom</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<h2>{% codeblock lang:sql %}</h2>
+
+<h2>SELECT leonardtown_bldgs.* FROM leonardtown_bldgs,floodway WHERE ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)</h2>
+
+<p>{% endcodeblock %}</p>
 
 <p>The Javascript function that executes the query is here:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">getFloodBldgs</span><span class="p">(){</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">bldgLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">();</span>
-</span><span class='line'>    <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;featureparse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">color</span><span class="o">:</span>  <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">fill</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mf">0.9</span> <span class="p">});</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Address:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Property Type:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Square Footage:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="p">{</span>
-</span><span class='line'>        <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span>
-</span><span class='line'>        <span class="s2">&quot;http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20&quot;</span> <span class="o">+</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="s2">&quot;ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;amp;format=geojson&amp;amp;callback=?&quot;</span><span class="p">,</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>        <span class="kd">function</span><span class="p">(</span><span class="nx">geojson</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">features</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">addGeoJSON</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">})</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">bldgLayer</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:js %}</p>
+
+<pre><code>function getFloodBldgs(){
+    var bldgLayer = new L.GeoJSON();
+    bldgLayer.on('featureparse', function(e) {
+      e.layer.setStyle({ color:  '#FFFFB2', weight: 1, fill: true, fillColor: '#FFFFB2', fillOpacity: 0.9 });
+      var label = "";
+      if (e.properties &amp;amp;&amp;amp; e.properties.address){
+            label += "&amp;lt;b&amp;gt;Address:&amp;lt;/b&amp;gt;: " + e.properties.address + "&amp;lt;br/&amp;gt;";
+      }
+      if (e.properties &amp;amp;&amp;amp; e.properties.structure_){
+            label += "&amp;lt;b&amp;gt;Property Type:&amp;lt;/b&amp;gt;: " + e.properties.structure_ + "&amp;lt;br/&amp;gt;";
+      }
+      if (e.properties &amp;amp;&amp;amp; e.properties.shape_area){
+            label += "&amp;lt;b&amp;gt;Square Footage:&amp;lt;/b&amp;gt;: " + e.properties.shape_area + "&amp;lt;br/&amp;gt;";
+      }
+      if (label != "")
+      {
+        e.layer.bindPopup(label);
+      }
+    });
+
+    $.getJSON(
+        "http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20" + 
+</code></pre>
+
+<p>"ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;format=geojson&amp;callback=?",</p>
+
+<pre><code>        function(geojson) {
+        $.each(geojson.features, function(i, feature) {
+          bldgLayer.addGeoJSON(feature);
+        })
+    });
+
+    map.addLayer(bldgLayer);
+}
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>The CartoDB documentation has greatly improved since my last post, including some <a href="http://developers.cartodb.com/examples.html" target="_blank">good developer examples</a>. A little bit of comfort with PostGIS-esque spatial SQL goes a long way with CartoDB. It's good to see how the platform is evolving.</p>
 ]]></content>
@@ -200,443 +154,226 @@
 
 <p>It seemed kind of silly to fork the <a href="https://github.com/dtsagile/Leaflet">DTS code</a> for one class so I sent it to Dave, who was gracious enough to accept it. Thanks to DTS for their work, which made my life much easier. Since they have day jobs, too, I'm not sure when it will appear so I thought I'd post it here as well in case someone may find it useful. Most of the code came over from the DTS class, with modifications I needed to work with image services. With apologies for the length, here it is:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-<span class='line-number'>108</span>
-<span class='line-number'>109</span>
-<span class='line-number'>110</span>
-<span class='line-number'>111</span>
-<span class='line-number'>112</span>
-<span class='line-number'>113</span>
-<span class='line-number'>114</span>
-<span class='line-number'>115</span>
-<span class='line-number'>116</span>
-<span class='line-number'>117</span>
-<span class='line-number'>118</span>
-<span class='line-number'>119</span>
-<span class='line-number'>120</span>
-<span class='line-number'>121</span>
-<span class='line-number'>122</span>
-<span class='line-number'>123</span>
-<span class='line-number'>124</span>
-<span class='line-number'>125</span>
-<span class='line-number'>126</span>
-<span class='line-number'>127</span>
-<span class='line-number'>128</span>
-<span class='line-number'>129</span>
-<span class='line-number'>130</span>
-<span class='line-number'>131</span>
-<span class='line-number'>132</span>
-<span class='line-number'>133</span>
-<span class='line-number'>134</span>
-<span class='line-number'>135</span>
-<span class='line-number'>136</span>
-<span class='line-number'>137</span>
-<span class='line-number'>138</span>
-<span class='line-number'>139</span>
-<span class='line-number'>140</span>
-<span class='line-number'>141</span>
-<span class='line-number'>142</span>
-<span class='line-number'>143</span>
-<span class='line-number'>144</span>
-<span class='line-number'>145</span>
-<span class='line-number'>146</span>
-<span class='line-number'>147</span>
-<span class='line-number'>148</span>
-<span class='line-number'>149</span>
-<span class='line-number'>150</span>
-<span class='line-number'>151</span>
-<span class='line-number'>152</span>
-<span class='line-number'>153</span>
-<span class='line-number'>154</span>
-<span class='line-number'>155</span>
-<span class='line-number'>156</span>
-<span class='line-number'>157</span>
-<span class='line-number'>158</span>
-<span class='line-number'>159</span>
-<span class='line-number'>160</span>
-<span class='line-number'>161</span>
-<span class='line-number'>162</span>
-<span class='line-number'>163</span>
-<span class='line-number'>164</span>
-<span class='line-number'>165</span>
-<span class='line-number'>166</span>
-<span class='line-number'>167</span>
-<span class='line-number'>168</span>
-<span class='line-number'>169</span>
-<span class='line-number'>170</span>
-<span class='line-number'>171</span>
-<span class='line-number'>172</span>
-<span class='line-number'>173</span>
-<span class='line-number'>174</span>
-<span class='line-number'>175</span>
-<span class='line-number'>176</span>
-<span class='line-number'>177</span>
-<span class='line-number'>178</span>
-<span class='line-number'>179</span>
-<span class='line-number'>180</span>
-<span class='line-number'>181</span>
-<span class='line-number'>182</span>
-<span class='line-number'>183</span>
-<span class='line-number'>184</span>
-<span class='line-number'>185</span>
-<span class='line-number'>186</span>
-<span class='line-number'>187</span>
-<span class='line-number'>188</span>
-<span class='line-number'>189</span>
-<span class='line-number'>190</span>
-<span class='line-number'>191</span>
-<span class='line-number'>192</span>
-<span class='line-number'>193</span>
-<span class='line-number'>194</span>
-<span class='line-number'>195</span>
-<span class='line-number'>196</span>
-<span class='line-number'>197</span>
-<span class='line-number'>198</span>
-<span class='line-number'>199</span>
-<span class='line-number'>200</span>
-<span class='line-number'>201</span>
-<span class='line-number'>202</span>
-<span class='line-number'>203</span>
-<span class='line-number'>204</span>
-<span class='line-number'>205</span>
-<span class='line-number'>206</span>
-<span class='line-number'>207</span>
-<span class='line-number'>208</span>
-<span class='line-number'>209</span>
-<span class='line-number'>210</span>
-<span class='line-number'>211</span>
-<span class='line-number'>212</span>
-<span class='line-number'>213</span>
-<span class='line-number'>214</span>
-<span class='line-number'>215</span>
-<span class='line-number'>216</span>
-<span class='line-number'>217</span>
-<span class='line-number'>218</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//Class for interacting with ArcGIS Server image services</span>
-</span><span class='line'><span class="c1">//Bill Dollins - Zekiah Technologies</span>
-</span><span class='line'><span class="c1">//Modified from AgsDynamicLayer.js by DTSAgile&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">L</span><span class="p">.</span><span class="nx">AgsImageLayer</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">includes</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Mixin</span><span class="p">.</span><span class="nx">Events</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">minZoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">maxZoom</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">attribution</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">opacity</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;PNG8&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">bandids</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">compressionquality</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">interpolation</span><span class="o">:</span> <span class="s1">&#39;RSP_NearestNeighbor&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">pixelType</span><span class="o">:</span> <span class="s1">&#39;U8&#39;</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">unloadInvisibleTiles</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">mobileWebkit</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="cm">/*String*/</span><span class="nx">url</span><span class="p">,</span> <span class="cm">/*Object*/</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_url</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">//public properties that modify the map</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">setInterpolation</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">interpolation</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">interpolation</span> <span class="o">=</span> <span class="nx">interpolation</span><span class="p">;</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">getInterpolation</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">;</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">setOpacity</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">opacity</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">//set it immediately</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="nx">opacity</span><span class="p">;</span>
-</span><span class='line'>        <span class="c1">// stupid webkit hack to force redrawing of tiles</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">webkitTransform</span> <span class="o">+=</span> <span class="s1">&#39; translate(0,0)&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="nx">opacity</span><span class="p">;</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">getOpacity</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">opacity</span><span class="p">;</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">reset</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">();</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">update</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//        var topLeft = this.&lt;em&gt;map.latLngToLayerPoint(this.&lt;/em&gt;map.getBounds().getNorthWest()),</span>
-</span><span class='line'><span class="c1">//                bottomRight = this.&lt;em&gt;map.latLngToLayerPoint(this.&lt;/em&gt;map.getBounds().getSouthEast()),</span>
-</span><span class='line'><span class="c1">//                size = bottomRight.subtract(topLeft);&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//        L.DomUtil.setPosition(this.&lt;em&gt;image, topLeft);</span>
-</span><span class='line'><span class="c1">//        this.&lt;/em&gt;image.style.width = size.x + &#39;px&#39;;</span>
-</span><span class='line'><span class="c1">//        this._image.style.height = size.y + &#39;px&#39;;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">updating</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">show</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;visible&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">hide</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">isVisible</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">===</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">onAdd</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_map</span> <span class="o">=</span> <span class="nx">map</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;viewreset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;moveend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_moveEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;zoomend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_zoomEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">onRemove</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">().</span><span class="nx">mapPane</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;viewreset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_reset</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;moveend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_moveEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;zoomend&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_zoomEnd</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">_initImage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">DomUtil</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;leaflet-image-layer&#39;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;hidden&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">opacity</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="c1">//TODO createImage util method to remove duplication        </span>
-</span><span class='line'>    <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">,</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">onselectstart</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">falseFn</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">onmousemove</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">falseFn</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">onload</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onImageLoad</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">src</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_getImageUrl</span><span class="p">(),</span>
-</span><span class='line'>        <span class="nx">updating</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">agsLayer</span><span class="o">:</span> <span class="k">this</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">map</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">().</span><span class="nx">mapPane</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">);</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">_getImageUrl</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">//construct the export image url</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">bnds</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">();</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">sz</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">();</span>
-</span><span class='line'>    <span class="c1">//bboxsr &amp;amp;amp; imagesr params need to be specified like so to avoid alignment problems on some map services - not sure why</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">bbox</span> <span class="o">=</span> <span class="s1">&#39;bbox=&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getSouthEast</span><span class="p">().</span><span class="nx">lng</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getSouthEast</span><span class="p">().</span><span class="nx">lat</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getNorthWest</span><span class="p">().</span><span class="nx">lng</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">bnds</span><span class="p">.</span><span class="nx">getNorthWest</span><span class="p">().</span><span class="nx">lat</span> <span class="o">+</span> <span class="s1">&#39;&amp;amp;amp;bboxsr=4326&amp;amp;amp;imageSR=3857&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;amp;size=&#39;</span> <span class="o">+</span> <span class="nx">sz</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;%2C&#39;</span> <span class="o">+</span> <span class="nx">sz</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;amp;format=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">format</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">pixeltype</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;amp;pixelType=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">pixelType</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">interpolation</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;amp;interpolation=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">;</span>
-</span><span class='line'>    <span class="c1">//Some of the following parameters are supported by ArcGIS Server Image Services but not implemented here.</span>
-</span><span class='line'>    <span class="c1">//They have been included as placeholders.</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">nodata</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;amp;noData=&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">compressionquality</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;amp;compressionQuality=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">compressionquality</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">bandids</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;amp;bandIds=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">bandids</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">mosaicprops</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;amp;mosaicProperties=&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">viewpointprops</span> <span class="o">=</span> <span class="s1">&#39;&amp;amp;amp;viewpointProperties=&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_url</span> <span class="o">+</span> <span class="s1">&#39;/exportImage?&#39;</span> <span class="o">+</span> <span class="nx">bbox</span> <span class="o">+</span> <span class="nx">size</span> <span class="o">+</span> <span class="nx">format</span> <span class="o">+</span> <span class="nx">pixeltype</span> <span class="o">+</span> <span class="nx">nodata</span> <span class="o">+</span> <span class="nx">interpolation</span> <span class="o">+</span> <span class="nx">compressionquality</span> <span class="o">+</span> <span class="nx">bandids</span> <span class="o">+</span> <span class="nx">mosaicprops</span> <span class="o">+</span> <span class="nx">viewpointprops</span> <span class="o">+</span> <span class="s1">&#39;&amp;amp;amp;f=image&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nx">url</span><span class="p">;</span> <span class="c1">// this._url + &#39;/export?&#39; + bbox + size + layers + format + transparent + &#39;&amp;amp;amp;f=image&#39;;</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">_updateLayer</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">updating</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//console.log(&#39;Updating layer NW: &#39; + map.getBounds().getNorthWest());            </span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">updating</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">//update the src based on the new location</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_getImageUrl</span><span class="p">();</span>
-</span><span class='line'>        <span class="c1">//reset the image location on the map</span>
-</span><span class='line'>        <span class="c1">//            //hang the info on the image, we&#39;ll actually update it onload to make sure we don&#39;t reposition it before the new image comes down</span>
-</span><span class='line'>        <span class="c1">//this doesn&#39;t seem to work on mobile</span>
-</span><span class='line'>        <span class="c1">//            this._image.topLeft = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest());</span>
-</span><span class='line'>        <span class="c1">//            var bottomRight = this._map.latLngToLayerPoint(this._map.getBounds().getSouthEast());</span>
-</span><span class='line'>        <span class="c1">//            this._image.size = bottomRight.subtract(this._image.topLeft);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">topLeft</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">latLngToLayerPoint</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">().</span><span class="nx">getNorthWest</span><span class="p">()),</span>
-</span><span class='line'>            <span class="nx">bottomRight</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">latLngToLayerPoint</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">().</span><span class="nx">getSouthEast</span><span class="p">()),</span>
-</span><span class='line'>            <span class="nx">size</span> <span class="o">=</span> <span class="nx">bottomRight</span><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="nx">topLeft</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">L</span><span class="p">.</span><span class="nx">DomUtil</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">,</span> <span class="nx">topLeft</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">size</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">size</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">_moveEnd</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">//console.log(&#39;in _moveEnd : NW: &#39; + map.getBounds().getNorthWest());</span>
-</span><span class='line'>    <span class="c1">//don&#39;t set display:none for moves - makes for smoother panning - no flicker</span>
-</span><span class='line'>    <span class="c1">//oops, that didn&#39;t work on mobile</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">_zoomEnd</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">//console.log(&#39;in _moveEnd&#39;);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//        //zoom the image...(animate it?)</span>
-</span><span class='line'>    <span class="c1">//        //L.DomUtil.setPosition(this, this.topLeft);</span>
-</span><span class='line'>    <span class="c1">//        //debugger;</span>
-</span><span class='line'>    <span class="c1">//        //it&#39;s gonna be something like this but it&#39;s not quite right - also will need to get/ calculate the correct factor (using 1.5 below) and change it for zoom out</span>
-</span><span class='line'>    <span class="c1">//        //and we need to properly calculate the new left and top - just hard coded approximate values below</span>
-</span><span class='line'>    <span class="c1">//        this._image.style.left = &#39;-420px&#39;;</span>
-</span><span class='line'>    <span class="c1">//        this._image.style.top = &#39;-228px&#39;;</span>
-</span><span class='line'>    <span class="c1">//        this._image.style.width = this._image.width * 1.5 + &#39;px&#39;;</span>
-</span><span class='line'>    <span class="c1">//        this._image.style.height = this._image.height * 1.5 + &#39;px&#39;;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//for now, we&#39;ll just do this</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">_reset</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_map</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">().</span><span class="nx">mapPane</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_image</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_initImage</span><span class="p">();</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">_updateLayer</span><span class="p">();</span>
-</span><span class='line'><span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">_onImageLoad</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">//        //reset the image location on the map - doing it this way does not seem to work on mobile</span>
-</span><span class='line'>    <span class="c1">//        L.DomUtil.setPosition(this, this.topLeft);</span>
-</span><span class='line'>    <span class="c1">//        this.style.width = this.size.x + &#39;px&#39;;</span>
-</span><span class='line'>    <span class="c1">//        this.style.height = this.size.y + &#39;px&#39;;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//this is the image</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//make sure it&#39;s visible and reset the updating flag</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;visible&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">updating</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:js %}
+//Class for interacting with ArcGIS Server image services
+//Bill Dollins - Zekiah Technologies
+//Modified from AgsDynamicLayer.js by DTSAgile</p>
+
+<p>L.AgsImageLayer = L.Class.extend({</p>
+
+<pre><code>includes: L.Mixin.Events,
+
+options: {
+    minZoom: 0,
+    maxZoom: 18,
+    attribution: '',
+    opacity: 1,
+    format: 'PNG8',
+    bandids: '',
+    compressionquality: 0,
+    interpolation: 'RSP_NearestNeighbor',
+    pixelType: 'U8',
+
+    unloadInvisibleTiles: L.Browser.mobileWebkit
+},
+
+initialize: function (/*String*/url, /*Object*/options) {
+    L.Util.setOptions(this, options);
+    this._url = url;
+},
+
+//public properties that modify the map
+
+setInterpolation: function (interpolation) {
+    this.options.interpolation = interpolation;
+},
+
+getInterpolation: function () {
+    return this.options.interpolation;
+},
+
+setOpacity: function (opacity) {
+    //set it immediately
+    if (this._image) {
+        this._image.style.opacity = opacity;
+        // stupid webkit hack to force redrawing of tiles
+        this._image.style.webkitTransform += ' translate(0,0)';
+    }
+    this.options.opacity = opacity;
+},
+
+getOpacity: function () {
+    return this.options.opacity;
+},
+
+reset: function () {
+    this._reset();
+},
+
+update: function () {
+</code></pre>
+
+<p>//        var topLeft = this.<em>map.latLngToLayerPoint(this.</em>map.getBounds().getNorthWest()),
+//                bottomRight = this.<em>map.latLngToLayerPoint(this.</em>map.getBounds().getSouthEast()),
+//                size = bottomRight.subtract(topLeft);</p>
+
+<p>//        L.DomUtil.setPosition(this.<em>image, topLeft);
+//        this.</em>image.style.width = size.x + 'px';
+//        this._image.style.height = size.y + 'px';</p>
+
+<pre><code>    this._image.updating = false;
+    this._updateLayer();
+},
+
+show: function () {
+    this._image.style.display = 'block';
+    this._image.style.visibility = 'visible';
+},
+
+hide: function () {
+    this._image.style.display = 'none';
+},
+
+isVisible: function () {
+    return this._image.style.display === 'block';
+},
+
+onAdd: function (map) {
+    this._map = map;
+
+    this._reset();
+
+    map.on('viewreset', this._reset, this);
+    map.on('moveend', this._moveEnd, this);
+    map.on('zoomend', this._zoomEnd, this);
+},
+
+onRemove: function (map) {
+    map.getPanes().mapPane.removeChild(this._image);
+    map.off('viewreset', this._reset, this);
+    map.off('moveend', this._moveEnd, this);
+    map.off('zoomend', this._zoomEnd, this);
+},
+
+_initImage: function () {
+    this._image = L.DomUtil.create('img', 'leaflet-image-layer');
+
+    this._image.style.visibility = 'hidden';
+    this._image.style.opacity = this.options.opacity;
+    this._image.style.display = 'block';
+    //TODO createImage util method to remove duplication        
+    L.Util.extend(this._image, {
+        onselectstart: L.Util.falseFn,
+        onmousemove: L.Util.falseFn,
+        onload: this._onImageLoad,
+        src: this._getImageUrl(),
+        updating: false,
+        agsLayer: this,
+        map: this._map
+    });
+    this._map.getPanes().mapPane.appendChild(this._image);
+},
+
+_getImageUrl: function () {
+    //construct the export image url
+    var bnds = this._map.getBounds();
+    var sz = this._map.getSize();
+    //bboxsr &amp;amp; imagesr params need to be specified like so to avoid alignment problems on some map services - not sure why
+    var bbox = 'bbox=' + bnds.getSouthEast().lng + '%2C' + bnds.getSouthEast().lat + '%2C' + bnds.getNorthWest().lng + '%2C' + bnds.getNorthWest().lat + '&amp;amp;bboxsr=4326&amp;amp;imageSR=3857';
+    var size = '&amp;amp;size=' + sz.x + '%2C' + sz.y;
+    var format = '&amp;amp;format=' + this.options.format;
+    var pixeltype = '&amp;amp;pixelType=' + this.options.pixelType;
+    var interpolation = '&amp;amp;interpolation=' + this.options.interpolation;
+    //Some of the following parameters are supported by ArcGIS Server Image Services but not implemented here.
+    //They have been included as placeholders.
+    var nodata = '&amp;amp;noData=';
+    var compressionquality = '&amp;amp;compressionQuality=' + this.options.compressionquality;
+    var bandids = '&amp;amp;bandIds=' + this.options.bandids;
+    var mosaicprops = '&amp;amp;mosaicProperties=';
+    var viewpointprops = '&amp;amp;viewpointProperties=';
+    var url = this._url + '/exportImage?' + bbox + size + format + pixeltype + nodata + interpolation + compressionquality + bandids + mosaicprops + viewpointprops + '&amp;amp;f=image';
+    return url; // this._url + '/export?' + bbox + size + layers + format + transparent + '&amp;amp;f=image';
+},
+
+_updateLayer: function () {
+    if (!this._image.updating) {
+        //console.log('Updating layer NW: ' + map.getBounds().getNorthWest());            
+        this._image.updating = true;
+
+        //update the src based on the new location
+        this._image.src = this._getImageUrl();
+        //reset the image location on the map
+        //            //hang the info on the image, we'll actually update it onload to make sure we don't reposition it before the new image comes down
+        //this doesn't seem to work on mobile
+        //            this._image.topLeft = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest());
+        //            var bottomRight = this._map.latLngToLayerPoint(this._map.getBounds().getSouthEast());
+        //            this._image.size = bottomRight.subtract(this._image.topLeft);
+
+        var topLeft = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest()),
+            bottomRight = this._map.latLngToLayerPoint(this._map.getBounds().getSouthEast()),
+            size = bottomRight.subtract(topLeft);
+        L.DomUtil.setPosition(this._image, topLeft);
+        this._image.style.width = size.x + 'px';
+        this._image.style.height = size.y + 'px';
+    }
+},
+
+_moveEnd: function () {
+    //console.log('in _moveEnd : NW: ' + map.getBounds().getNorthWest());
+    //don't set display:none for moves - makes for smoother panning - no flicker
+    //oops, that didn't work on mobile
+
+
+    this._image.style.display = 'none';
+    this._updateLayer();
+},
+
+_zoomEnd: function () {
+    //console.log('in _moveEnd');
+
+    //        //zoom the image...(animate it?)
+    //        //L.DomUtil.setPosition(this, this.topLeft);
+    //        //debugger;
+    //        //it's gonna be something like this but it's not quite right - also will need to get/ calculate the correct factor (using 1.5 below) and change it for zoom out
+    //        //and we need to properly calculate the new left and top - just hard coded approximate values below
+    //        this._image.style.left = '-420px';
+    //        this._image.style.top = '-228px';
+    //        this._image.style.width = this._image.width * 1.5 + 'px';
+    //        this._image.style.height = this._image.height * 1.5 + 'px';
+
+
+    //for now, we'll just do this
+    this._image.style.display = 'none';
+    this._updateLayer();
+},
+
+_reset: function () {
+    if (this._image) {
+        this._map.getPanes().mapPane.removeChild(this._image);
+    }
+    this._initImage();
+    this._updateLayer();
+},
+
+_onImageLoad: function () {
+    //        //reset the image location on the map - doing it this way does not seem to work on mobile
+    //        L.DomUtil.setPosition(this, this.topLeft);
+    //        this.style.width = this.size.x + 'px';
+    //        this.style.height = this.size.y + 'px';
+
+
+    //this is the image
+
+    //make sure it's visible and reset the updating flag
+    this.style.visibility = 'visible';
+    this.style.display = 'block';
+
+    this.updating = false;
+}
+</code></pre>
+
+<p>});
+{% endcodeblock %}</p>
 ]]></content>
   </entry>
   
