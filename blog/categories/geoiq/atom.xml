@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GeoIQ | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/geoiq/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-08T15:58:08-05:00</updated>
+  <updated>2013-01-08T16:02:43-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -47,14 +47,23 @@
 
 <p>In the calling application, I'll set up a couple of module-level objects to help keep track of things:</p>
 
-<p>{% codeblock lang:csharp %}</p>
-
-<pre><code>    private System.Timers.Timer _layerTimer = new System.Timers.Timer(500); //to check status of analysis
-    private AnalyticsResponse _response = null; //response object created by analysis
-    private Analytics _analytics = new Analytics("http://geocommons.com", "username", "password"); //instance of wrapper class for GeoIQ analytic methods
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span> <span class="n">_layerTimer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="m">500</span><span class="p">);</span> <span class="c1">//to check status of analysis</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">AnalyticsResponse</span> <span class="n">_response</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span> <span class="c1">//response object created by analysis</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">Analytics</span> <span class="n">_analytics</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Analytics</span><span class="p">(</span><span class="s">&quot;http://geocommons.com&quot;</span><span class="p">,</span> <span class="s">&quot;username&quot;</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">);</span> <span class="c1">//instance of wrapper class for GeoIQ analytic methods</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>With these building blocks in place, it's fairly easy to execute the basic workflow:</p>
 
@@ -63,14 +72,19 @@
 </ol>
 
 
-<p>{% codeblock lang:csharp %}
-//call intersect method
-//layer 87503 = GISPs, layer 149925 = zip codes
-//prefer_1 tells GeoIQ to return records from layer 1 (GISPs in this case)
- <em>response = </em>analytics.Intersect(87503, 149925, MergeOptions.prefer_1); //capture response object
- //start timer to check status
- this._layerTimer.Enabled = true;
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//call intersect method</span>
+</span><span class='line'><span class="c1">//layer 87503 = GISPs, layer 149925 = zip codes</span>
+</span><span class='line'><span class="c1">//prefer_1 tells GeoIQ to return records from layer 1 (GISPs in this case)</span>
+</span><span class='line'> <span class="p">&lt;</span><span class="n">em</span><span class="p">&gt;</span><span class="n">response</span> <span class="p">=</span> <span class="p">&lt;/</span><span class="n">em</span><span class="p">&gt;</span><span class="n">analytics</span><span class="p">.</span><span class="n">Intersect</span><span class="p">(</span><span class="m">87503</span><span class="p">,</span> <span class="m">149925</span><span class="p">,</span> <span class="n">MergeOptions</span><span class="p">.</span><span class="n">prefer_1</span><span class="p">);</span> <span class="c1">//capture response object</span>
+</span><span class='line'> <span class="c1">//start timer to check status</span>
+</span><span class='line'> <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>This calls the intersect method of the Analytics object, captures the resulting response object, and starts the timer to check the status of the analysis.</p>
 
@@ -81,28 +95,47 @@
 
 <p>In this case, I used a simple timer that checks every half second, although you may want to space that out more if you're sure your analyses will take a while to run. This shows the timer event handler code:</p>
 
-<p>{% codeblock lang:csharp %}
-void _layerTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-{</p>
-
-<pre><code> string status = _analytics.GetState(_response.ID); //ID is that of new layer created by analysis
- if (status.ToLower() == "\"complete\"") //this means analysis is complete
- {
-     //use Invoke to access UI elements from timer thread
-     this.Invoke(new MethodInvoker(delegate
-     {
-        //set up link label to enable download of new data as KML
-        this.lnkDownloadShape.Text = "Analysis Complete: Download KML";
-        this.lnkDownloadShape.Links.Clear();
-        this.lnkDownloadShape.Links.Add(19, 18, "http://geocommons.com/overlays/" + _response.ID.ToString() + ".kml");
-        this.lnkDownloadShape.Visible = true;
-        this._layerTimer.Enabled = false;
-     }));
- }
-</code></pre>
-
-<p>}
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">void</span> <span class="nf">_layerTimer_Elapsed</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">ElapsedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span> <span class="kt">string</span> <span class="n">status</span> <span class="p">=</span> <span class="n">_analytics</span><span class="p">.</span><span class="n">GetState</span><span class="p">(</span><span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">);</span> <span class="c1">//ID is that of new layer created by analysis</span>
+</span><span class='line'> <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">==</span> <span class="s">&quot;\&quot;complete\&quot;&quot;</span><span class="p">)</span> <span class="c1">//this means analysis is complete</span>
+</span><span class='line'> <span class="p">{</span>
+</span><span class='line'>     <span class="c1">//use Invoke to access UI elements from timer thread</span>
+</span><span class='line'>     <span class="k">this</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">new</span> <span class="n">MethodInvoker</span><span class="p">(</span><span class="k">delegate</span>
+</span><span class='line'>     <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//set up link label to enable download of new data as KML</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">&quot;Analysis Complete: Download KML&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">19</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="s">&quot;http://geocommons.com/overlays/&quot;</span> <span class="p">+</span> <span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="s">&quot;.kml&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Visible</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'>     <span class="p">}));</span>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>In a nutshell, it checks the status using a wrapper method. If the status is "complete", then a download link is shown. This code makes the KML version available but you could choose a shapefile or any other format supported by GeoIQ.</p>
 
@@ -113,16 +146,23 @@ void _layerTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
 
 <p>In this case, I just make it available for download. Once the data set exists, however, it's really just a matter of imagination.</p>
 
-<p>{% codeblock lang:csharp %}
-private void lnkDownloadShape_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-{</p>
-
-<pre><code>//this actually downloads the data and may even fire off Google Earth
-System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
-</code></pre>
-
-<p>}
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">void</span> <span class="nf">lnkDownloadShape_LinkClicked</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">LinkLabelLinkClickedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="c1">//this actually downloads the data and may even fire off Google Earth</span>
+</span><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Link</span><span class="p">.</span><span class="n">LinkData</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>In a more robust application (meaning not a sample for a blog post), you could put the results into a map or feed them into locally-installed analysis tools for further processing or do just about anything you want that supports your workflow. I've been a fan of the analytical capability of GeoIQ for some time and I hope, whatever the future holds, that these kinds of tools make it into the next generation of products.</p>
 
@@ -137,7 +177,7 @@ System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
     <id>http://blog.geomusings.com/2012/07/10/geoiq-esri</id>
     <content type="html"><![CDATA[<p>Okay, everybody calm the hell down. Anyone who thinks that the <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">Esri acquisition of GeoIQ</a> is strange hasn't been paying attention to two things: 1) the direction that Esri says they want to go and 2) what the GeoIQ platform really is. I would be very surprised if GeoIQ becomes the 2012 version of <a href="http://www.thefreelibrary.com/ESRI+Acquires+Atlas+GIS+and+Atlas+SDK+--+Claritas+and+ESRI+Announce...-a018336428" target="_blank">Atlas GIS</a>. This acquisition/merger makes more sense than may be initially apparent.</p>
 
-<p>{% youtube _eyFiClAzq8 %}</p>
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/_eyFiClAzq8?color=white&theme=light"></iframe></p>
 
 <p>It's no secret that I've worked with <a href="http://www.esri.com" target="_blank">Esri</a> tools for a long time and my recent work with the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform has been well-documented on this blog, including work integrating the two platforms at the API level. Based on what I've seen from both companies, here are thoughts on why I think this move makes a lot of sense:  <!--more--></p>
 
@@ -232,12 +272,15 @@ System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
 
 <p>On the server, I wrote a four-line batch file to act as a driver for the whole process. This batch file is what is called by a scheduled task in Windows.</p>
 
-<p>{% codeblock lang:powershell %}
-del <em>.xml
-del </em>.pickle
-python SmecoFeedObj.py
-python fetchlatest.py
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">del</span> <span class="p">&lt;</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">xml</span>
+</span><span class='line'><span class="n">del</span> <span class="p">&lt;/</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">pickle</span>
+</span><span class='line'><span class="n">python</span> <span class="n">SmecoFeedObj</span><span class="p">.</span><span class="n">py</span>
+</span><span class='line'><span class="n">python</span> <span class="n">fetchlatest</span><span class="p">.</span><span class="n">py</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>As you can see, the batch is very simple. It deletes the old files, scrapes the latest version and writes new files (SmecoFeedObj.py) and then updates the GeoCommons data set (fetchlatest.py).</p>
 
@@ -276,53 +319,101 @@ python fetchlatest.py
 
 <p>I have really come to like <a href="http://json.codeplex.com/">JSON.Net</a> by James Newton-King for handling JSON in my .Net code. It is open-source (MIT License) and I've grown comfortable with its LINQ to JSON features. Working with the native GeoIQ JSON, the code to build a list of graphic objects is pretty straightforward:</p>
 
-<p>{% codeblock lang:csharp %}</p>
-
-<pre><code>   /// &amp;lt;summary&amp;gt;
-    /// Iterates array of JSON objects and builds ESRI Graphics
-    /// &amp;lt;/summary&amp;gt;
-    /// &amp;lt;param name="featArray"&amp;gt;Array of JSON strings parsed from the original
-    /// returned from GeoIQ&amp;lt;/param&amp;gt;
-    /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt;
-    private void UnrollFeaturesEvent(JArray featArray)
-    {
-        var jEnum = featArray.AsJEnumerable();
-        foreach (JToken token in jEnum)
-        {
-            try
-            {
-                string s = token.ToString();
-                JObject feat = JObject.Parse(s);
-                Graphic graphic = new Graphic();
-                foreach (JProperty prop in feat.Properties())
-                {
-                    var name = prop.Name;
-                    if (name.ToLower() == GEOM_TOKEN) //handle feature geometry
-                    {
-                        var geom = GeometryFromWKB.Parse((string)prop.Value); //get geometry from hex-encoded WKB
-                        geom.SpatialReference = new SpatialReference() { WKID = 4326 }; //GeoIQ returns geometries in WGS84
-                        if (_useMercator) //do we want to use web mercator?
-                        {
-                            //_wm is an instance of ESRI.ArcGIS.Client.Projection.WebMercator
-                            geom = _wm.FromGeographic(geom);
-                        }
-                        graphic.Geometry = geom;
-                    }
-                    else //we're dealing with an attribute
-                    {
-                        object val = prop.Value == null ? "" : prop.Value;
-                        graphic.Attributes.Add(prop.Name, val);
-                    }
-                }
-                if (this.AddGraphic != null)
-                    AddGraphic(graphic);
-            }
-            catch { }
-        }
-     }
-</code></pre>
-
-<p>{% endcodeblock %}
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>   <span class="c1">/// &amp;amp;lt;summary&amp;amp;gt;</span>
+</span><span class='line'>    <span class="c1">/// Iterates array of JSON objects and builds ESRI Graphics</span>
+</span><span class='line'>    <span class="c1">/// &amp;amp;lt;/summary&amp;amp;gt;</span>
+</span><span class='line'>    <span class="c1">/// &amp;amp;lt;param name=&quot;featArray&quot;&amp;amp;gt;Array of JSON strings parsed from the original</span>
+</span><span class='line'>    <span class="c1">/// returned from GeoIQ&amp;amp;lt;/param&amp;amp;gt;</span>
+</span><span class='line'>    <span class="c1">/// &amp;amp;lt;returns&amp;amp;gt;&amp;amp;lt;/returns&amp;amp;gt;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="k">void</span> <span class="nf">UnrollFeaturesEvent</span><span class="p">(</span><span class="n">JArray</span> <span class="n">featArray</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="kt">var</span> <span class="n">jEnum</span> <span class="p">=</span> <span class="n">featArray</span><span class="p">.</span><span class="n">AsJEnumerable</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">foreach</span> <span class="p">(</span><span class="n">JToken</span> <span class="n">token</span> <span class="k">in</span> <span class="n">jEnum</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="k">try</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="n">token</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+</span><span class='line'>                <span class="n">JObject</span> <span class="n">feat</span> <span class="p">=</span> <span class="n">JObject</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span><span class='line'>                <span class="n">Graphic</span> <span class="n">graphic</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Graphic</span><span class="p">();</span>
+</span><span class='line'>                <span class="k">foreach</span> <span class="p">(</span><span class="n">JProperty</span> <span class="n">prop</span> <span class="k">in</span> <span class="n">feat</span><span class="p">.</span><span class="n">Properties</span><span class="p">())</span>
+</span><span class='line'>                <span class="p">{</span>
+</span><span class='line'>                    <span class="kt">var</span> <span class="n">name</span> <span class="p">=</span> <span class="n">prop</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+</span><span class='line'>                    <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">==</span> <span class="n">GEOM_TOKEN</span><span class="p">)</span> <span class="c1">//handle feature geometry</span>
+</span><span class='line'>                    <span class="p">{</span>
+</span><span class='line'>                        <span class="kt">var</span> <span class="n">geom</span> <span class="p">=</span> <span class="n">GeometryFromWKB</span><span class="p">.</span><span class="n">Parse</span><span class="p">((</span><span class="kt">string</span><span class="p">)</span><span class="n">prop</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span> <span class="c1">//get geometry from hex-encoded WKB</span>
+</span><span class='line'>                        <span class="n">geom</span><span class="p">.</span><span class="n">SpatialReference</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SpatialReference</span><span class="p">()</span> <span class="p">{</span> <span class="n">WKID</span> <span class="p">=</span> <span class="m">4326</span> <span class="p">};</span> <span class="c1">//GeoIQ returns geometries in WGS84</span>
+</span><span class='line'>                        <span class="k">if</span> <span class="p">(</span><span class="n">_useMercator</span><span class="p">)</span> <span class="c1">//do we want to use web mercator?</span>
+</span><span class='line'>                        <span class="p">{</span>
+</span><span class='line'>                            <span class="c1">//_wm is an instance of ESRI.ArcGIS.Client.Projection.WebMercator</span>
+</span><span class='line'>                            <span class="n">geom</span> <span class="p">=</span> <span class="n">_wm</span><span class="p">.</span><span class="n">FromGeographic</span><span class="p">(</span><span class="n">geom</span><span class="p">);</span>
+</span><span class='line'>                        <span class="p">}</span>
+</span><span class='line'>                        <span class="n">graphic</span><span class="p">.</span><span class="n">Geometry</span> <span class="p">=</span> <span class="n">geom</span><span class="p">;</span>
+</span><span class='line'>                    <span class="p">}</span>
+</span><span class='line'>                    <span class="k">else</span> <span class="c1">//we&#39;re dealing with an attribute</span>
+</span><span class='line'>                    <span class="p">{</span>
+</span><span class='line'>                        <span class="kt">object</span> <span class="n">val</span> <span class="p">=</span> <span class="n">prop</span><span class="p">.</span><span class="n">Value</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="s">&quot;&quot;</span> <span class="p">:</span> <span class="n">prop</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+</span><span class='line'>                        <span class="n">graphic</span><span class="p">.</span><span class="n">Attributes</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">prop</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span><span class='line'>                    <span class="p">}</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">AddGraphic</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>                    <span class="n">AddGraphic</span><span class="p">(</span><span class="n">graphic</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="k">catch</span> <span class="p">{</span> <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>     <span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <em>Listing 1: Unrolling JSON Features from GeoCommons</em></p>
 
 <p>You'll notice the call to GeometryFromWKB.Parse above. The GeoIQ JSON returns geometries as hex-encoded WKB. To handle this, I modified GeometryFromWKB class from <a href="http://sharpmap.codeplex.com">SharpMap</a> to return an ESRI Silverlight API geometry. Yes, this means I managed to fuse two of <a href="http://sharpgis.net/">Morten's</a> creations together here in some small way.  :)</p>
@@ -331,70 +422,127 @@ python fetchlatest.py
 
 <p>So now that we can handle the JSON coming back from GeoIQ, we need to request it. The GeoIQ Features API defines a number of parameters that can be submitted to refine the set of features that is returned. For this pass, I am only implementing lat, lon, radius, units, bbox, intersect and limit. I am also not handling the use of geometries other than points for buffering right now. I set up all of these parameters as dependency properties. That code is rather repetitive but here is an example of how I wrapped one of them:</p>
 
-<p>{% codeblock lang:csharp %}</p>
-
-<pre><code>    // Using a DependencyProperty as the backing store for Limit.
-    public static readonly DependencyProperty LimitProperty =
-        DependencyProperty.Register("Limit", typeof(int), typeof(GeoCommonsGraphicsLayer), new PropertyMetadata(0));
-
-
-    public int Limit
-    {
-        get { return (int)GetValue(LimitProperty); }
-        set { SetValue(LimitProperty, value); }
-    }
-</code></pre>
-
-<p>{% endcodeblock %}
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="c1">// Using a DependencyProperty as the backing store for Limit.</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">DependencyProperty</span> <span class="n">LimitProperty</span> <span class="p">=</span>
+</span><span class='line'>        <span class="n">DependencyProperty</span><span class="p">.</span><span class="n">Register</span><span class="p">(</span><span class="s">&quot;Limit&quot;</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">GeoCommonsGraphicsLayer</span><span class="p">),</span> <span class="k">new</span> <span class="n">PropertyMetadata</span><span class="p">(</span><span class="m">0</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">int</span> <span class="n">Limit</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">GetValue</span><span class="p">(</span><span class="n">LimitProperty</span><span class="p">);</span> <span class="p">}</span>
+</span><span class='line'>        <span class="k">set</span> <span class="p">{</span> <span class="n">SetValue</span><span class="p">(</span><span class="n">LimitProperty</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span> <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <em>Listing 2: Dependency property wrapping the "limit" parameter</em></p>
 
 <p>The URI format for calling the Features API is describe in the GeoIQ documentation. From that document here is one example: <em>http://geocommons.com/datasets/22146/features.json?lat=38.8&amp;lon=-78.9&amp;radius=2&amp;intersect=full</em></p>
 
 <p>From here, it?s just a matter of building a valid URI to call using the WebClient (or HttpWebRequest if you prefer) so I start with a template string something like this: <em>http://geocommons.com/datasets/{0}/features.json?</em>, where ?{0}? is a placeholder for the GeoCommons overlay ID. I then build out the query string parameters by rolling up any properties that have been set. Note: for query parameters that have a fixed set of values, I used enumerations that I extend with attributes using the technique described at <a href="http://stackoverflow.com/questions/424366/c-string-enums">http://stackoverflow.com/questions/424366/c-string-enums</a> so that I could get the valid parameter values while presenting more human-readable enumerations. This probably isn?t necessary, but I?ve grown fond of the approach. Here's an example:</p>
 
-<p>{% codeblock lang:csharp %}</p>
-
-<pre><code>public enum UnitsValues
-{
-    [StringValue("km")]
-    Kilometers = 1,
-    [StringValue("m")]
-    Meters = 2,
-    [StringValue("ft")]
-    Feet = 3,
-    [StringValue("mi")]
-    Miles = 4,
-    [StringValue("degrees")]
-    Degrees = 5
-}
-</code></pre>
-
-<p>{% endcodeblock %}
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">enum</span> <span class="n">UnitsValues</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="na">    [StringValue(&quot;km&quot;)]</span>
+</span><span class='line'>    <span class="n">Kilometers</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span>
+</span><span class='line'><span class="na">    [StringValue(&quot;m&quot;)]</span>
+</span><span class='line'>    <span class="n">Meters</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span>
+</span><span class='line'><span class="na">    [StringValue(&quot;ft&quot;)]</span>
+</span><span class='line'>    <span class="n">Feet</span> <span class="p">=</span> <span class="m">3</span><span class="p">,</span>
+</span><span class='line'><span class="na">    [StringValue(&quot;mi&quot;)]</span>
+</span><span class='line'>    <span class="n">Miles</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span>
+</span><span class='line'><span class="na">    [StringValue(&quot;degrees&quot;)]</span>
+</span><span class='line'>    <span class="n">Degrees</span> <span class="p">=</span> <span class="m">5</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <em>Listing 3: Example of enumeration using StringValue attributes</em></p>
 
 <p>Once we make the call, we handle the reponse like so:</p>
 
-<p>{% codeblock lang:csharp %}</p>
-
-<pre><code>    void request_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
-    {
-        if (e.Error == null)
-        {
-            this.Graphics.Clear();
-            string json = e.Result;
-            var jsonHelper = new Zekiah.Helpers.GeoIqJson();
-            jsonHelper.AddGraphic += new AddGraphicHandler(jsonHelper_AddGraphic);
-            jsonHelper.GetFeatureGraphicsEvent(json, this.UseWebMercator);
-        }
-    }
-
-    void jsonHelper_AddGraphic(Graphic graphic)
-    {
-        this.Graphics.Add(graphic); //'this' is the current instance of GeoCommonsGraphicsLayer
-    }
-</code></pre>
-
-<p>{% endcodeblock %}
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">void</span> <span class="n">request_DownloadStringCompleted</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">DownloadStringCompletedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Error</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">Graphics</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+</span><span class='line'>            <span class="kt">string</span> <span class="n">json</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Result</span><span class="p">;</span>
+</span><span class='line'>            <span class="kt">var</span> <span class="n">jsonHelper</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Zekiah</span><span class="p">.</span><span class="n">Helpers</span><span class="p">.</span><span class="n">GeoIqJson</span><span class="p">();</span>
+</span><span class='line'>            <span class="n">jsonHelper</span><span class="p">.</span><span class="n">AddGraphic</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">AddGraphicHandler</span><span class="p">(</span><span class="n">jsonHelper_AddGraphic</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">jsonHelper</span><span class="p">.</span><span class="n">GetFeatureGraphicsEvent</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">UseWebMercator</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">void</span> <span class="nf">jsonHelper_AddGraphic</span><span class="p">(</span><span class="n">Graphic</span> <span class="n">graphic</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">Graphics</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">graphic</span><span class="p">);</span> <span class="c1">//&#39;this&#39; is the current instance of GeoCommonsGraphicsLayer</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <em>Listing 4: Populating the layer with the ESRI graphic objects</em></p>
 
 <p>The code back up in Listing 1 fires an event every time a graphic is created. This saved me at least one iteration through the list of graphics and sped up loading somewhat. It was most noticeable on large GeoCommons overlays.</p>
@@ -405,44 +553,76 @@ python fetchlatest.py
 
 <p>From XAML:</p>
 
-<p>{% codeblock lang:xml %}
- &lt;esri:Map x:Name="Map" Background="White"&gt;</p>
-
-<pre><code>&amp;lt;esri:ArcGISTiledMapServiceLayer ID="BaseLayer" 
-   Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" /&amp;gt;
-&amp;lt;ztLayers:GeoCommonsGraphicsLayer ID="Pipelines" ProxyUrl="../ProxyHandler.ashx?" Limit="0" Radius="100" Units="Kilometers" OverlayID="68949" UseWebMercator="True" Visible="True" &amp;gt;
-    &amp;lt;ztLayers:GeoCommonsGraphicsLayer.Renderer&amp;gt;
-       &amp;lt;esri:SimpleRenderer&amp;gt;
-            &amp;lt;esri:SimpleLineSymbol Color="Black" Width="1" Style="Solid" /&amp;gt;
-       &amp;lt;/esri:SimpleRenderer&amp;gt;
-    &amp;lt;/ztLayers:GeoCommonsGraphicsLayer.Renderer&amp;gt;
-    &amp;lt;ztLayers:GeoCommonsGraphicsLayer.QueryPoint&amp;gt;
-        &amp;lt;esri:MapPoint X="-92.1" Y="34.5"&amp;gt;
-            &amp;lt;esri:MapPoint.SpatialReference&amp;gt;
-                &amp;lt;esri:SpatialReference WKID="4326" /&amp;gt;
-            &amp;lt;/esri:MapPoint.SpatialReference&amp;gt;
-        &amp;lt;/esri:MapPoint&amp;gt;
-    &amp;lt;/ztLayers:GeoCommonsGraphicsLayer.QueryPoint&amp;gt;
-&amp;lt;/ztLayers:GeoCommonsGraphicsLayer&amp;gt;
-</code></pre>
-
-<p> &lt;/esri:Map&gt;
-{% endcodeblock %}
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'> <span class="ni">&amp;lt;</span>esri:Map x:Name=&quot;Map&quot; Background=&quot;White&quot;<span class="ni">&amp;gt;</span><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;amp;</span>lt;esri:ArcGISTiledMapServiceLayer ID=&quot;BaseLayer&quot;
+</span><span class='line'>   Url=&quot;http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer&quot; /<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'><span class="ni">&amp;amp;</span>lt;ztLayers:GeoCommonsGraphicsLayer ID=&quot;Pipelines&quot; ProxyUrl=&quot;../ProxyHandler.ashx?&quot; Limit=&quot;0&quot; Radius=&quot;100&quot; Units=&quot;Kilometers&quot; OverlayID=&quot;68949&quot; UseWebMercator=&quot;True&quot; Visible=&quot;True&quot; <span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>    <span class="ni">&amp;amp;</span>lt;ztLayers:GeoCommonsGraphicsLayer.Renderer<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>       <span class="ni">&amp;amp;</span>lt;esri:SimpleRenderer<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>            <span class="ni">&amp;amp;</span>lt;esri:SimpleLineSymbol Color=&quot;Black&quot; Width=&quot;1&quot; Style=&quot;Solid&quot; /<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>       <span class="ni">&amp;amp;</span>lt;/esri:SimpleRenderer<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>    <span class="ni">&amp;amp;</span>lt;/ztLayers:GeoCommonsGraphicsLayer.Renderer<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>    <span class="ni">&amp;amp;</span>lt;ztLayers:GeoCommonsGraphicsLayer.QueryPoint<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>        <span class="ni">&amp;amp;</span>lt;esri:MapPoint X=&quot;-92.1&quot; Y=&quot;34.5&quot;<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>            <span class="ni">&amp;amp;</span>lt;esri:MapPoint.SpatialReference<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>                <span class="ni">&amp;amp;</span>lt;esri:SpatialReference WKID=&quot;4326&quot; /<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>            <span class="ni">&amp;amp;</span>lt;/esri:MapPoint.SpatialReference<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>        <span class="ni">&amp;amp;</span>lt;/esri:MapPoint<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'>    <span class="ni">&amp;amp;</span>lt;/ztLayers:GeoCommonsGraphicsLayer.QueryPoint<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'><span class="ni">&amp;amp;</span>lt;/ztLayers:GeoCommonsGraphicsLayer<span class="ni">&amp;amp;</span>gt;
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span> <span class="ni">&amp;lt;</span>/esri:Map<span class="ni">&amp;gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <em>Listing 5: Adding a GeoCommons layer in XAML</em></p>
 
 <p>Or in code:</p>
 
-<p>{% codeblock lang:csharp %}</p>
-
-<pre><code>        GeoCommonsGraphicsLayer polygonLayer = new GeoCommonsGraphicsLayer();
-        polygonLayer.Renderer = new SimpleRenderer() { Symbol = GetPolygonSymbol() };
-        polygonLayer.ProxyUrl = "../ProxyHandler.ashx?";
-        polygonLayer.OverlayID = 68967;
-        polygonLayer.UseWebMercator = true; //I may refactor this to check the map's SRID
-        this.Map.Layers.Add(polygonLayer);
-</code></pre>
-
-<p>{% endcodeblock %}
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">GeoCommonsGraphicsLayer</span> <span class="n">polygonLayer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GeoCommonsGraphicsLayer</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">polygonLayer</span><span class="p">.</span><span class="n">Renderer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SimpleRenderer</span><span class="p">()</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">GetPolygonSymbol</span><span class="p">()</span> <span class="p">};</span>
+</span><span class='line'>        <span class="n">polygonLayer</span><span class="p">.</span><span class="n">ProxyUrl</span> <span class="p">=</span> <span class="s">&quot;../ProxyHandler.ashx?&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">polygonLayer</span><span class="p">.</span><span class="n">OverlayID</span> <span class="p">=</span> <span class="m">68967</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">polygonLayer</span><span class="p">.</span><span class="n">UseWebMercator</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span> <span class="c1">//I may refactor this to check the map&#39;s SRID</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">Map</span><span class="p">.</span><span class="n">Layers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">polygonLayer</span><span class="p">);</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <em>Listing 6: Adding a GeoCommons layer in code</em></p>
 
 <p>These two examples access data provided to GeoCommons by the State of Arkansas as described by Learon Dalby <a href="http://www.gisuser.com/content/view/23022/222/">here</a>. In XAML, we are accessing the railroad lines that intersect a 100KM buffer around the supplied point. In the second, we are loading all of the state senate district boundaries.</p>
