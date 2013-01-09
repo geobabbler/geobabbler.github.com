@@ -4,7 +4,7 @@
   <title><![CDATA[Category: geospatial | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/geospatial/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-08T16:02:43-05:00</updated>
+  <updated>2013-01-09T08:57:42-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Comment Period Open for GeoPackage Specification Draft]]></title>
+    <link href="http://blog.geomusings.com/2013/01/09/comment-period-open-for-geopackage-specification-draft/"/>
+    <updated>2013-01-09T06:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/09/comment-period-open-for-geopackage-specification-draft</id>
+    <content type="html"><![CDATA[<p>The Open Geospatial Consortium (OGC) has <a href="http://www.opengeospatial.org/pressroom/pressreleases/1756">published a draft GeoPackage specification for comment</a>. The GeoPackage specification attempts to create a non-proprietary means for packaging and exchanging all geospatial data in all its forms (vector, raster, and tiles). A couple of things that jump out at me:</p>
+
+<ul>
+<li>It calls out <a href="https://sqlite.org/">SQLite</a> as the reference implementation of a GeoPackage container</li>
+<li>It calls out <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a> 4 as the reference implementation of a vector feature store</li>
+<li>It does not call out a reference implementation for rasters or tiles</li>
+<li>It does not mention exchange of cartography.</li>
+</ul>
+
+
+<!--more-->
+
+
+<p>Although the draft references the <a href="http://mapbox.com/developers/mbtiles/">MBTiles</a> specification and uses it as an example of a pure SQL method of storing tiles, it does not call out MBTiles as the chosen storage approach nor does it mention MBTiles as a reference implementation. The draft should not be read as "SpatiaLite + MBTiles."</p>
+
+<div style="text-align:center;"><a href="http://www.publicdomainpictures.net/view-image.php?image=9097&picture=empty-cardboard-boxes"><img src="http://blog.geomusings.com/images/posts/boxes.png" /></a></div>
+
+
+<p>I think, in 2013, anything that attempts to do what GeoPackage sets out to do should have some provision for cartography. I would prefer CSS-like approach (such as <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>) and will say so when I submit comments but I would suspect that future discussion of cartography, if any, will probably start with SLD. For now, tiles can fill the gap.</p>
+
+<p>So comments are open, give it a look and tell OGC what you think.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Getting Ready for JS.geo]]></title>
@@ -23,7 +52,7 @@
 <div style="text-align:center;"><img src="http://mapbrief.com/wp-content/uploads/2012/11/no_plugin.jpg" /></div>
 
 
-<p>The pace of innovation with Javascript in the geospatial area has been staggering. It seems like only a short time ago that the options for working with geospatial applications were <a href="http://openlayers.org/">OpenLayers</a> and the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/">Esri Javascript API</a>. The rapid advent of tools such as <a href="http://www.geoext.org/">GeoExt</a>, <a href="http://leafletjs.com/">Leaflet</a>, and many others has really lead to a explosion of capability. Of course, the recent buzz has been about <a href="http://d3js.org/">D3</a>, which tackles a wide rangle of data visualization problems, including geo. D3 is of particular interest because it is tackling the issue of projection in the browser, freeing applications from the dominance of Web Mercator.</p>
+<p>The pace of innovation with Javascript in the geospatial area has been staggering. It seems like only a short time ago that the options for working with geospatial applications were <a href="http://openlayers.org/">OpenLayers</a> and the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/">Esri Javascript API</a>. The rapid advent of tools such as <a href="http://www.geoext.org/">GeoExt</a>, <a href="http://leafletjs.com/">Leaflet</a>, and many others has really lead to a explosion of capability. Of course, the recent buzz has been about <a href="http://d3js.org/">D3</a>, which tackles a wide range of data visualization problems, including geo. D3 is of particular interest because it is tackling the issue of projection in the browser, freeing applications from the dominance of Web Mercator.</p>
 
 <p>Of course, it's not been all about the browser, either as <a href="http://nodejs.org/">Node.js</a> has made abundantly clear. One of the most effective desktop applications for cartographic design, <a href="http://mapbox.com/tilemill/">TileMill</a>, is built with Node, among other tools.</p>
 

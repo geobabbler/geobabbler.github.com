@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SpatiaLite | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/spatialite/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-08T16:02:43-05:00</updated>
+  <updated>2013-01-09T08:57:42-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Comment Period Open for GeoPackage Specification Draft]]></title>
+    <link href="http://blog.geomusings.com/2013/01/09/comment-period-open-for-geopackage-specification-draft/"/>
+    <updated>2013-01-09T06:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/09/comment-period-open-for-geopackage-specification-draft</id>
+    <content type="html"><![CDATA[<p>The Open Geospatial Consortium (OGC) has <a href="http://www.opengeospatial.org/pressroom/pressreleases/1756">published a draft GeoPackage specification for comment</a>. The GeoPackage specification attempts to create a non-proprietary means for packaging and exchanging all geospatial data in all its forms (vector, raster, and tiles). A couple of things that jump out at me:</p>
+
+<ul>
+<li>It calls out <a href="https://sqlite.org/">SQLite</a> as the reference implementation of a GeoPackage container</li>
+<li>It calls out <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a> 4 as the reference implementation of a vector feature store</li>
+<li>It does not call out a reference implementation for rasters or tiles</li>
+<li>It does not mention exchange of cartography.</li>
+</ul>
+
+
+<!--more-->
+
+
+<p>Although the draft references the <a href="http://mapbox.com/developers/mbtiles/">MBTiles</a> specification and uses it as an example of a pure SQL method of storing tiles, it does not call out MBTiles as the chosen storage approach nor does it mention MBTiles as a reference implementation. The draft should not be read as "SpatiaLite + MBTiles."</p>
+
+<div style="text-align:center;"><a href="http://www.publicdomainpictures.net/view-image.php?image=9097&picture=empty-cardboard-boxes"><img src="http://blog.geomusings.com/images/posts/boxes.png" /></a></div>
+
+
+<p>I think, in 2013, anything that attempts to do what GeoPackage sets out to do should have some provision for cartography. I would prefer CSS-like approach (such as <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>) and will say so when I submit comments but I would suspect that future discussion of cartography, if any, will probably start with SLD. For now, tiles can fill the gap.</p>
+
+<p>So comments are open, give it a look and tell OGC what you think.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SpatiaLite 4.1.0 Beta Preview Available]]></title>
@@ -124,27 +153,6 @@ enjoy, Sandro
 <p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
 
 <p>As I said, I developed these to support workflows in existing applications. If you're looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Breaking Radio Silence]]></title>
-    <link href="http://blog.geomusings.com/2012/06/07/breaking-radio-silence/"/>
-    <updated>2012-06-07T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/06/07/breaking-radio-silence</id>
-    <content type="html"><![CDATA[<p>Things have been kind of quiet on the blog lately due to things being busy at work. I call that a good problem to have. Since the beginning of the year, I've written a a lot of proposals for a mixture of potential customers. Interestingly, I'm seeing a lot more call for "GIS Analyst" work. One trend I've noticed, at least in the Federal sector, is that the time between proposal due dates and award announcements seems to be lengthening. That may be an indication of the ongoing flux in funding and organizations try to figure out how to fund their requirements. It will be interesting to see how it shakes out. Of course, it's good that the opportunities are there in the first place.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2012/06/microphone.jpg"><img alt="" class="aligncenter size-full wp-image-2664" height="413" src="http://geobabble.files.wordpress.com/2012/06/microphone.jpg" title="microphone" width="413" /></a></p>
-
-<p>One the technical side of things, I've been involved in a smattering of things that's made it hard to roll up one good post. I'm pretty heavily involved in the PIM efforts that my colleague, Barry Schimpf, <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">has been blogging about</a> over on the <a href="http://www.zekiah.com" target="_blank">Zekiah</a> blog. <!--more--> Historically, the PIM data structures have been housed in Microsoft SQL Server, but we've been working on porting it to other platforms to provide options to end users. We've done an initial port to <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> but we've been spending most of our time on a <a href="http://www.sqlite.org/" target="_blank">SQLite</a>/<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> version. This has taken two forms. First is the port of the PIM structure itself to SQLite to make it easier to provide some of the PIM services such as profiling, version-to-version migrations, dataset generation, and validation in remote, field-based settings. Second is the generation/validation of physical implementations in SpatiaLite. This is being done for a customer who is expecting to do field data collection using SpatiaLite and these services will be helpful in enhancing data quality at the point of collection. Additionally, the SpatiaLite aspect of this work has had me living within <a href="http://qgis.org/" target="_blank">QGIS</a> lately.</p>
-
-<p>Another thing I've been experimenting with is the use of <a href="http://nodejs.org/" target="_blank">Node.js</a> for real-time data processing. Our long-standing work in the situational awareness realm has had us working with real-time data feeds for a long time. I'm interested in the possibility of using Node to tackle some of the feed collection tasks. I've used an event-driven approach for such tasks in the past so that aspect of Node is quite familiar to me but the use of Javascript, its ease of deployment and potential scalability are intriguing to me. I'm coming late to the party with Node, primarily due to my rustiness with Javascript, but I'm liking what I'm seeing so far.</p>
-
-<p>Beyond those major things, I've had the opportunity to start working with <a href="http://postgis.org/" target="_blank">PostGIS</a> 2.0 and play more with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://mapbox.com/" target="_blank">MapBox</a>. On the development side of things, these efforts have had be jumping back and forth a lot between C#, Javascript and a little bit of Python, as well as between Windows and Linux, depending on the task.</p>
-
-<p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
-
-<p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
 ]]></content>
   </entry>
   
