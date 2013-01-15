@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-09T08:57:42-05:00</updated>
+  <updated>2013-01-15T09:59:23-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[js.geo Day One]]></title>
+    <link href="http://blog.geomusings.com/2013/01/14/js-dot-geo-day-one/"/>
+    <updated>2013-01-14T18:04:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/14/js-dot-geo-day-one</id>
+    <content type="html"><![CDATA[<p>Yesterday, I attended the <a href="http://geojs.eventbrite.com/">JS.geo</a> conference at the Colorado University Denver campus. It looked like about 100 or so came out for the event. I was able to catch up with <a href="http://twitter.com/cwhelm">Chris Helm</a> and <a href="http://twitter.com/briantimoney">Brian Timoney</a> the night before and they told me the event took off faster than they had originally expected. I think this speaks to two things: 1) the level of interest in Javascript as a solution for geospatial applications and 2) the fast pace of innovation in the Javascript community that has a lot of people looking for ways to stay abreast of the latest developments.</p>
+
+<p>What follows is an overview based on some of the notes I took. I wasn&#8217;t always writing as I sometimes just stopped to listen and I&#8217;ll probably follow up with more details later.</p>
+
+<div style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></div>
+
+
+<p>Data reduction was strong current running under the day. With the rise of newer libraries that enable more sophisticated capabilities in the browser, there is increased recognition of the need to reduce the amount of data passing over the wire. For geometry, <a href="https://github.com/mbostock/topojson">TopoJSON</a> is getting a lot of attention here. It delivers topologically correct data which reduces data by removing redundant geometry such coincident arcs between polygons and such. The output reminds me of an old <a href="http://www.gdal.org/ogr/drv_avcbin.html">ARC/INFO coverage</a> and is providing stunning results in reducing the size of geometries when compared to <a href="http://geojson.org">GeoJSON</a> or Esri JSON. <a href="http://twitter.com/andrewxhill">Andrew Hill</a> of <a href="http://vizzuality.com">Vizzuality</a> mentioned that <a href="http://cartodb.com">CartoDB</a> currently has support for TopoJSON in staging. He also discussed strategies they use to reduce the size of feature and attribute data. This &#8220;data cubing&#8221; strategy turns out to similar to approaches that are commonplace in the financial industry. This serves as a reminder to look around and see what others are doing to solve similar problems.</p>
+
+<!--more-->
+
+
+<p>One a related note, the reduction of application code being delivered to the browser is also a focus. This was probably best illustrated by <a href="http://twitter.com/mattpriour">Matt Priour&#8217;s</a> talk on <a href="http://openlayers.org">OpenLayers</a>. The fact that there are now three builds (full, mobile, light) as well as a focus on being more modular in version 3. <a href="http://twitter.com/pmbatty">Peter Batty</a>, in his demo of <a href="http://www.ubisense.net/en/">Ubisense</a>, made a good case for intelligent balance between server-side and client-side processing to achieve good performance.</p>
+
+<p><a href="https://www.khronos.org/webgl/">WebGL</a> got a lot of attention from a number of speakers, with <a href="http://twitter.com/brendankenny">Brendan Kenny</a> of Google showing work he has done, including a Javascript port of GLUTessellation. Jeremy Bartley of Esri gave a lightning talk about <a href="http://www.esri.com/software/cityengine">CityEngine</a>, which is based on WebGL. WebGL is widely seen as the open solution to graphics performance that may finally kill the need for plug-ins. In side discussions, Jeremy talked about how WebGL will figure more into the previously discussed data reduction problem. The reality is that both servers and clients are getting much better at handling large data sets but the same can&#8217;t necessarily be said for the wires that connect them.</p>
+
+<p>GeoJSON continues to get a lot of love. It continues to be, in my opinion, the motor oil for the engine that is web mapping. It will be interesting see how the separation of concerns between GeoJSON and TopoJSON evolves, but I think GeoJSON will continue to be an important syntax.</p>
+
+<p>While the majority of the discussion focused on browsers, <a href="http://nodejs.org/">Node.js</a> got significant attention. <a href="http://twitter.com/willwhitedc">Will White</a> of <a href="http://mapbox.com">MapBox</a> gave a good talk about the evolution of Node and the advantages of its non-blocking I/O model. One statistic he gave was surprising: he said 6 of the top 12 contributors on GitHub are Node contributors. That speaks loudly to the rapid evolution of Node as well as the interest in Javascript. Will put out a call to the geospatial community to build out the geospatial capabilities of Node. Later in the day, we saw a good lightning talk that showed Node processing real-time data and feeding a number of D3 visualizations.</p>
+
+<p>While Matt Priour and <a href="https://twitter.com/atogle">Aaron Ogle</a> opened with great talks on OpenLayers and <a href="http://leafletjs.com/">Leaflet</a>, respectively, the clear star of the client-side show was <a href="http://d3js.org/">D3</a> (although Aaron&#8217;s walkshed analysis in Leaflet was cool). There were lots of great visualizations (as well as nods to TopoJSON). While the D3&#8217;s support for projections is getting a lot of attention from geospatial developers, I am more interested in its holistic approach to data visualization. In D3, geo is one way to look at data, but not the central way. Because of this, D3 provides an integrated capability to have multiple data visualizations in an application without overloading with a ton of libraries.</p>
+
+<p>I am already well past tl;dr on this post and I have to catch a plane. Many of the URL talks were great but I&#8217;ll follow up with some more details. All-in-all, I think the event was quite a success and I&#8217;m glad I came.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Comment Period Open for GeoPackage Specification Draft]]></title>
@@ -464,22 +495,6 @@ enjoy, Sandro
 <p>Over time, I would spend hours poring through these volumes, fascinated by the world as it was documented by National Geographic from 1888 forward. I did not get to read every issue but I was especially drawn to the maps when they were present. I realize now that my identity as a &#8220;map nerd&#8221; took root there.</p>
 
 <p>Coincidentally, 1978 was the year I first started programming. Those two experiences turned out to be major influences on who I became.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Create a WeoGeo Tilepack from ArcGIS Tiles]]></title>
-    <link href="http://blog.geomusings.com/2012/08/14/create-a-weogeo-tilepack-from-arcgis-tiles/"/>
-    <updated>2012-08-14T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/14/create-a-weogeo-tilepack-from-arcgis-tiles</id>
-    <content type="html"><![CDATA[<p>A couple of months ago, <a href="http://twitter.com/dandye" target="_blank">Dan Dye</a> at WeoGeo <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">posted about work he had done</a> to facilitate creating <a href="http://www.weogeo.com" target="_blank">WeoGeo</a> tile packs from <a href="http://mapbox.com/developers/mbtiles/" target="_blank">MBTiles</a> databases. Recently, I had the need to do the same with <a href="http://www.esri.com" target="_blank">ArcGIS</a> tiles. As Dan explained, WeoGeo uses a ZYX structure in their tile packs. This matched up nicely with the Level/Row/Column structure <a href="http://blogs.esri.com/esri/arcgis/2010/08/20/checking-your-local-cache-folders/" target="_blank">used by ArcGIS</a>. WeoGeo supports either WGS84 (EPSG:4326) or Spherical Mercator (EPSG:3857) as spatial references for tile packs. In my case, I used the latter. My preferred way of creating tiles from ArcGIS products is to use <a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>. While Arc2Earth does directly export to the WeoGeo structure, the tiles are watermarked with a WeoGeo logo, which was not needed in this case. Arc2Earth also exports to the ArcGIS structure, so a simple script to convert to the WeoGeo structure is all that was needed.</p>
-
-<p><img alt="Arc2Earth settings to create ArcGIS Tiles" class="aligncenter size-medium wp-image-2815" height="243" src="http://geobabble.files.wordpress.com/2012/08/a2e_ags.png?w=300" title="Arc2Earth settings to create ArcGIS Tiles" width="300" /></p>
-
-<!--more-->
-
-
-<p>So I wrote a Python script to migrate from the ArcGIS structure to the WeoGeo structure. It primarily uses file system operations with a little bit of logic to unroll the hex-based file naming convention used by Esri. That script can be found <a href="https://github.com/geobabbler/ags2weo" target="_blank">here on GitHub</a>. Be sure to check out the README for the current state of the script. The biggest potential gotcha is that it doesn&#8217;t current use the ArcGIS conf.xml file so, if your ArcGIS cache contains non-consecutive zoom levels (0-2 and 4, for example), it will throw this script off. This has to do with the peculiarities in how Esri names the levels (Z) in their format. I&#8217;ll be making this more robust in subsequent versions, along with with some work to provide a more complete workflow.</p>
 ]]></content>
   </entry>
   

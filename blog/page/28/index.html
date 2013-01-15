@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Just back from vacation :-( and as a way of easing back into things, I have been tinkering with my WCF project that&#8217;s been sitting while the &hellip;">
+  <meta name="description" content="Anyone who has browsed this blog enough has probably figured out that I am a fan of Doctor Dobb&#8217;s Journal. This month&#8217;s issue inaugurates &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/07/23/new-ddj-column-on-concurrency/">New DDJ Column on Concurrency</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-23T00:00:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2007</time>
+        
+         | <a href="/2007/07/23/new-ddj-column-on-concurrency/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Anyone who has browsed this blog enough has probably figured out that I am a fan of <a href="http://www.ddj.com">Doctor Dobb&#8217;s Journal</a>. This month&#8217;s issue inaugurates <a href="http://www.ddj.com/dept/architect/200001985">a new column by Herb Sutter</a> dealing with concurrency. In my opinion, the confluence of mult-processor/multi-core systems with a greater emphasis on server-based GIS makes concurrency a huge issue for the GIS community.</p>
+
+<p>The most obvious example of where concurrency can be of benefit is ArcGIS Server. The entire ArcObjects library is exposed in such a way that complex geospatial operations can be published as services. Many such operations can benefit from concurrency, especially as they are executed in a multi-user, server-based context.</p>
+
+<p>I am of the opinion that the current 9.x architecture of AGS (with COM under the hood) is not optimally suited for such an approach but it will be interesting to see how <a href="http://www.esri.com">ESRI</a> addresses concurrency as 10.0 evolves. I also view the current AGS as a step along a path rather than an intended end state. Of course, there are other technologies out there. I merely hold up AGS as an obvious and visible example of a product that can benefit from being built with concurrency in mind. Of course, it&#8217;s up to us as software developers to correctly build our apps as well.</p>
+
+<p>That said, I highly recommend this column. The inaugural installment rightly kicks off from a conceptual standpoint but I suspect we&#8217;ll be in the weeds soon enough.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -669,50 +713,6 @@ See you again in a couple of weeks. Feel free to have a look around. Help yourse
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/05/08/ziggis-and-spatial-references-part-3/">zigGIS and Spatial References, Part 3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-05-08T00:00:00-04:00" pubdate data-updated="true">May 8<span>th</span>, 2007</time>
-        
-         | <a href="/2007/05/08/ziggis-and-spatial-references-part-3/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post updates <a href="http://geobabble.wordpress.com/2006/12/29/ziggis-and-spatial-references-part-2/">this post</a> and <a href="http://geobabble.wordpress.com/2006/12/21/ziggis-and-spatial-references/">this one</a>.</p>
-
-<p>One of our beloved 5 users ;-), James, pointed out recently that <a href="http://code.google.com/p/ziggis">zigGIS</a> still has issues with user-defined coordinate systems. Alas, this is true. When we implemented support for on-the-fly &#8220;reprojection,&#8221; we limited it to the standard <a href="http://www.epsg.org">EPSG</a> SRIDs supported by both <a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://www.esri.com/software/arcgis/">ArcGIS</a>. This was mainly due to the fact that we were trying to fix a number of things at once.</p>
-
-<p>I have begun to look at building in support for user-defined spatial references. The main difference I see is that the prj syntax is slightly different between PostGIS and ArcGIS. For example the prj strings for SRID 4326 (WGS84) are not the same. They seem to behave correctly but this creates a situation where ArcGIS will recognize all standard SRs as custom is I load them using the PostGIS strings. It&#8217;s not a huge deal, just interesting. However, <a href="http://www.paolocorti.net">Paolo</a> did notice that ESRI and PostGIS data sources with (theoretically) the same SR can have a slight offset when overlaid in ArcMap. So maybe it&#8217;s more than just interesting.</p>
-
-<p>I plan to leave the current code alone and just put in routines to handle custom SRs but maybe I&#8217;ll also play with the standard ones to see if it makes a difference.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/29/">&larr; Older</a>
@@ -730,15 +730,15 @@ See you again in a couple of weeks. Feel free to have a look around. Help yourse
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/01/14/js-dot-geo-day-one/">js.geo Day One</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/01/09/comment-period-open-for-geopackage-specification-draft/">Comment Period Open for GeoPackage Specification Draft</a>
       </li>
     
       <li class="post">
         <a href="/2013/01/08/getting-ready-for-js-dot-geo/">Getting Ready for JS.geo</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/01/03/spatialite-4-dot-1-0-beta-available/">SpatiaLite 4.1.0 Beta Preview Available</a>
       </li>
     
   </ul>
