@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: postgis | geoMusings]]></title>
+  <title><![CDATA[Category: PostGIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/postgis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-15T10:02:40-05:00</updated>
+  <updated>2013-01-19T23:58:50-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,152 +14,112 @@
 
   
   <entry>
-    <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
-    <link href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/"/>
-    <updated>2012-08-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api</id>
-    <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
+    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
+    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
+    <updated>2012-11-27T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
+    <content type="html"><![CDATA[<p>I'm happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It's been one of the more consistently valuable resources in the community since its inception and it's good that it will continue.</p>
 
-<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
+<p>While I'm looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called "venerable" nowadays, but it still does what it does very well.</p>
 
-<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. <!--more--></p>
+<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
 
-<p>Since the PIM is really a configuration management system for spatial data models, the tools need to support a wide variety of scenarios, including data migration between platforms, versions, approved user-defined implementations, etc. in a manner that's compliant with the data model being managed. As a result, some ETL-like tools are built into the workflows, although ETL is not a primary focus of the PIM.</p>
+<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you're not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It's become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
 
-<p>Since the PIM tools are written in .NET, I built a couple of extension methods to assist with some of the workflows in the existing tools. They enable outbound support for GeoJSON and WKT. The GeoJSON methods work on RowCollection, Row, and ShapeBuffer objects to create FeatureCollection, Feature, and Geometry types respectively. In practice, they'd be used something like this example from a very simple ASP.NET MVC sample application:</p>
+<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
 
-<p>{% codeblock lang:csharp %}
-var path = Server.MapPath("/App_Data/mvc_samples.gdb");
-Geodatabase gdb = Geodatabase.Open(path);
-Table statesTable = gdb.OpenTable("\us_states");
-RowCollection rows = statesTable.Search("*", "STATE_NAME LIKE 'M%'", RowInstance.Recycle);
-var rval = rows.ToGeoJson();
-gdb.Close();
-Response.ContentType = "application/json";
-object result = this.Content(rval);
-return result as ActionResult;
-{% endcodeblock %}</p>
+<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
 
-<p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Try this IFTTT Recipe: Log PostGIS Items from Planet Geospatial to Evernote. <a href="https://t.co/z5hOxPqH" title="https://ifttt.com/recipes/67215">ifttt.com/recipes/67215</a></p>&mdash; James Fee (@cageyjames) <a href="https://twitter.com/cageyjames/status/272025049526050816" data-datetime="2012-11-23T17:13:20+00:00">November 23, 2012</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
 
-<p>As I said, I developed these to support workflows in existing applications. If you're looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
+<p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
+
+<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[CartoDB/Leaflet Sample Update]]></title>
-    <link href="http://blog.geomusings.com/2012/07/09/cartodbleaflet-sample-update/"/>
-    <updated>2012-07-09T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/09/cartodbleaflet-sample-update</id>
-    <content type="html"><![CDATA[<p>A while back, I posted about some experimentation I did with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://cartodb.com/" target="_blank">CartoDB</a> in the wake of FOSS4G in Denver. I recently had the chance to go back and update that sample with some spatial queries. At the time of the original post, CartoDB was still in beta and spatial queries didn't seem to work, despite the fact that the back-end was driven by PostGIS.</p>
+    <title type="html"><![CDATA[The Biggest News You May Have Missed...]]></title>
+    <link href="http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed/"/>
+    <updated>2012-11-19T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed</id>
+    <content type="html"><![CDATA[<p>In case you missed it, this tweet floated across the Twitters last week:</p>
 
-<p><img alt="" class="aligncenter size-full wp-image-2737" height="310" src="http://geobabble.files.wordpress.com/2012/07/cartodb_spatial_query.png" title="cartodb_spatial_query" width="640" /></p>
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Blogged: TileMill Connect - Open Mxd Documents in @<a href="https://twitter.com/mapbox">mapbox</a> TileMill <a href="http://t.co/hDicr4z0" title="http://bit.ly/WbBOKW">bit.ly/WbBOKW</a></p>&mdash; Arc2Earth (@Arc2Earth) <a href="https://twitter.com/Arc2Earth/status/269194049230102528" data-datetime="2012-11-15T21:43:57+00:00">November 15, 2012</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
 
-<!--more-->
+<p>Yes, the team at <a href="http://www.arc2earth.com">Arc2Earth</a> is apparently working on a new feature in <a href="http://www.arc2earth.com/services/sync/">Arc2Earth Sync,</a> called TileMill Connect, that will link <a href="http://www.esri.com">ArcMap</a> MXDs with <a href="http://mapbox.com/tilemill/">TileMill</a>. This will allow users to migrate their ArcMap cartography into TileMill to take advantage of the rich tools there as well as the potential for version control and cut/paste sharing of techniques and best practices enabled by <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>.</p>
 
+<p><a href="http://twitter.com/bFlood">Brian Flood</a> followed that up today with a short video showing it in action.</p>
 
-<p>Since then, of course, CartoDB has gone production, as has <a href="http://www.postgis.org" target="_blank">PostGIS</a> 2.0 (up to <a href="http://www.postgis.org/news/20120622/" target="_blank">2.0.1</a> now) so I decided to <a href="http://demo.zekiah.com/propfinder2/" target="_blank">update the sample</a> a little. This time, I added a floodway layer that flows through <a href="http://leonardtown.somd.com/" target="_blank" title="Official Leonardtown home page">Leonardtown</a>, <a href="http://maps.google.com/maps?sugexp=chrome,mod%3D16&amp;q=leonardtown,+md&amp;um=1&amp;ie=UTF-8&amp;hq=&amp;hnear=0x89b768aa0432337d:0x22590e342c11b91b,Leonardtown,+MD&amp;gl=us&amp;sa=X&amp;ei=wRL8T9TIFqno0QGshqC6Bg&amp;ved=0CHwQtgM" target="_blank" title="Leonardtown in Google Maps">Maryland</a>. With a button click, you can identify the buildings that intersect the floodway. I am again using the CartoDB SQL API and GeoJSON to accomplish this. The API call that accomplishes this is:</p>
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>quick TileMill Connect demo video showing how it works. <a href="https://twitter.com/search/%23mapbox">#mapbox</a> <a href="https://twitter.com/search/%23arcgis">#arcgis</a> <a href="https://twitter.com/search/%23tilemill">#tilemill</a> <a href="https://twitter.com/search/%23arc2earth">#arc2earth</a> <a href="http://t.co/8WFdqCqH" title="http://bit.ly/QTWqpH">bit.ly/QTWqpH</a></p>&mdash; Arc2Earth (@Arc2Earth) <a href="https://twitter.com/Arc2Earth/status/270631991110692865" data-datetime="2012-11-19T20:57:49+00:00">November 19, 2012</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
 
-<p><a href="http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;format=geojson" target="_blank">http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,<br />floodway%20WHERE%20ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)<br />&amp;format=geojson</a></p>
-
-<p>If you pull that apart, you'll see a relatively straightforward use of a PostGIS spatial operator in there:</p>
-
-<h2>{% codeblock lang:sql %}</h2>
-
-<h2>SELECT leonardtown_bldgs.* FROM leonardtown_bldgs,floodway WHERE ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)</h2>
-
-<p>{% endcodeblock %}</p>
-
-<p>The Javascript function that executes the query is here:</p>
-
-<p>{% codeblock lang:js %}</p>
-
-<pre><code>function getFloodBldgs(){
-    var bldgLayer = new L.GeoJSON();
-    bldgLayer.on('featureparse', function(e) {
-      e.layer.setStyle({ color:  '#FFFFB2', weight: 1, fill: true, fillColor: '#FFFFB2', fillOpacity: 0.9 });
-      var label = "";
-      if (e.properties &amp;amp;&amp;amp; e.properties.address){
-            label += "&amp;lt;b&amp;gt;Address:&amp;lt;/b&amp;gt;: " + e.properties.address + "&amp;lt;br/&amp;gt;";
-      }
-      if (e.properties &amp;amp;&amp;amp; e.properties.structure_){
-            label += "&amp;lt;b&amp;gt;Property Type:&amp;lt;/b&amp;gt;: " + e.properties.structure_ + "&amp;lt;br/&amp;gt;";
-      }
-      if (e.properties &amp;amp;&amp;amp; e.properties.shape_area){
-            label += "&amp;lt;b&amp;gt;Square Footage:&amp;lt;/b&amp;gt;: " + e.properties.shape_area + "&amp;lt;br/&amp;gt;";
-      }
-      if (label != "")
-      {
-        e.layer.bindPopup(label);
-      }
-    });
-
-    $.getJSON(
-        "http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20" + 
-</code></pre>
-
-<p>"ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;format=geojson&amp;callback=?",</p>
-
-<pre><code>        function(geojson) {
-        $.each(geojson.features, function(i, feature) {
-          bldgLayer.addGeoJSON(feature);
-        })
-    });
-
-    map.addLayer(bldgLayer);
-}
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>The CartoDB documentation has greatly improved since my last post, including some <a href="http://developers.cartodb.com/examples.html" target="_blank">good developer examples</a>. A little bit of comfort with PostGIS-esque spatial SQL goes a long way with CartoDB. It's good to see how the platform is evolving.</p>
+<p>No word on a timetable for this feature, but I can't wait to kick the tires. I am especially intrigued by the pseudo <a href="http://www.postgis.org">PostGIS</a> proxy service that enables connections to ArcGIS data sources.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Planet PostGIS Online]]></title>
-    <link href="http://blog.geomusings.com/2012/07/07/planet-postgis-online/"/>
-    <updated>2012-07-07T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/07/planet-postgis-online</id>
-    <content type="html"><![CDATA[<p><a href="http://planet.postgis.net/">Planet PostGIS</a>, an aggregation of <a href="http://postgis.refractions.net/">PostGIS</a>-related blog content is now online. As the name suggests, it is built using the same technology as <a href="http://www.spatiallyadjusted.com">James Fee's</a> <a href="http://planetgs.com">Planet Geospatial</a> but is focused on content related to PostGIS.</p>
+    <title type="html"><![CDATA[Personal Geospatial Workflows]]></title>
+    <link href="http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows/"/>
+    <updated>2012-11-09T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows</id>
+    <content type="html"><![CDATA[<p>I've had a couple of people ask me recently about the geospatial tools I use. Year-over-year, that answer changes but here's how I answer that right now:</p>
 
-<p>If you are working with PostGIS, whether as part of an open-source stack or in conjunction with proprietary tools such as ArcGIS, you may want to check out Planet PostGIS.</p>
+<p>As a Federal contractor, I spend a lot of time working with the <a href="http://www.esri.com" target="_blank">Esri</a> stack during my work day. A few years ago, I added a few open-source geospatial tools into my tool set and, since then, have also done a respectable amount to consulting work them as well. The balance between the two varies over time, depending on the requirements of individual customers and projects. Lately, commercial customers have seemed much more interested in open-source tools while my government customers are sticking with Esri. Since those observations are based on the the extremely heavy filter of my own recent experience, I'd be hesitant to draw any larger conclusions from them.</p>
 
-<p>Thanks to <a href="http://www.linkedin.com/pub/regina-obe/7/5/200">Regina Obe</a> and everyone involved in setting this up.</p>
+<p><img alt="" height="264" src="http://blog.geomusings.com/images/posts/duct-tape.jpg" title="Duct Tape" width="300" /></p>
+
+<p>I've always believed that proficiency with a wide range of tools makes me a better consultant and integrator, so I am always exploring and trying new things. With those commercial customers, and in my own personal side projects, my recent workflows have gelled around a core set of tools, both commercial and open-source: <!--more--></p>
+
+<p><a href="http://www.postgis.org" target="_blank">PostGIS</a> - I am very comfortable with SQL and tend to use <a href="http://www.postgresql.org" target="_blank">PostgreSQL</a> and PostGIS for a lot of my vector data processing. Lately, this has mainly involved joining up geometries with attributes and doing aggregations and similar things. For example, the vector data in this <a href="http://geobabbler.github.com/mdq62012.html" target="_blank">map of the county-level Maryland Question 6 results</a> was processed in PostGIS. Very simply, I have a baseline table of the counties of Maryland which I will use to create new data sets. In this case, I imported a CSV of the election results, created a view that joined up the data and then selected the view into a new table. This is workflow is much easier with PostGIS 2.x thanks to the <a href="http://blog.opengeo.org/2012/03/06/postgis-2-0-new-features-typmod/" target="_blank">use of typmod</a>.</p>
+
+<p><a href="http://qgis.org" target="_blank">QGIS</a> - In the case of the map mentioned above, the data set is ultimately going to be static so it makes sense to serve it as static content, rather than bringing a heavyweight geospatial server such as <a href="http://www.esri.com/software/arcgis/arcgisserver/" target="_blank">ArcGIS</a> or <a href="http://geoserver.org/display/GEOS/Welcome" target="_blank">GeoServer</a> into the mix. In these cases, I lean toward <a href="http://geojson.org/" target="_blank">GeoJSON</a>. QGIS makes it very easy to export any vector layer out to GeoJSON so it's become my go-to tool for that. QGIS also has great analytical tools and I consider it a complete functional match for ArcMap but, having said that, I'm actually very comfortable with the spatial SQL functions in PostGIS so I end up doing most of my analytical work there.</p>
+
+<p><a href="http://leafletjs.com/" target="_blank">Leaflet</a>/<a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> - Most of the web maps I'm doing are single-use and pretty straightforward. When that's the case, I prefer to use Leaflet as it's a pretty lightweight library. That said, I keep OpenLayers in the mix if the GIS-like requirements get a little more complex. OpenLayers does more "out of the box" than Leaflet but Leaflet is trimmer so it really depends on the use case.</p>
+
+<p><a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>/<a href="http://mapbox.com/tilemill/" target="_blank">TileMill </a>- Arc2Earth is a commercial extension to ArcGIS and I lean on it to make tiles, although it does a lot more than that. I also use TileMill for this purpose but it really depends on where my cartography resides. There's a lot of good cartography locked up in MXDs and Arc2Earth is just a great way to capitalize on that. It's also nice that Arc2Earth works in ArcMap, eliminating the need for a license of Server.  If I'm building my cartography from scratch, which is not really my strong suit, I'll lean toward TileMill because it more easily connects directly to PostGIS, which is where my data tends to reside if I have my druthers. Again, it depends on the use case.</p>
+
+<p><a href="http://www.python.org/" target="_blank">Python</a>/Javascript - I'm doing a lot more work in Python these days. It's become the <em>lingua franca</em> of GIS development in my book. Additionally, the capabilities of Javascript for web maps is evolving at a stunning pace. I can't see being productive in the long term in the geospatial field without proficiency in these two languages.</p>
+
+<p>So these are the tools that I'm using most often these days as part of my personal workflows. The stable of tools that I use evolves over time, as should be evident if you peruse this blog. In general, I'm finding it very easy to be productive with these tools right now.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Breaking Radio Silence]]></title>
-    <link href="http://blog.geomusings.com/2012/06/07/breaking-radio-silence/"/>
-    <updated>2012-06-07T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/06/07/breaking-radio-silence</id>
-    <content type="html"><![CDATA[<p>Things have been kind of quiet on the blog lately due to things being busy at work. I call that a good problem to have. Since the beginning of the year, I've written a a lot of proposals for a mixture of potential customers. Interestingly, I'm seeing a lot more call for "GIS Analyst" work. One trend I've noticed, at least in the Federal sector, is that the time between proposal due dates and award announcements seems to be lengthening. That may be an indication of the ongoing flux in funding and organizations try to figure out how to fund their requirements. It will be interesting to see how it shakes out. Of course, it's good that the opportunities are there in the first place.</p>
+    <title type="html"><![CDATA[How long until the ads stop?]]></title>
+    <link href="http://blog.geomusings.com/2012/11/06/how-long-until-the-ads-stop/"/>
+    <updated>2012-11-06T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/06/how-long-until-the-ads-stop</id>
+    <content type="html"><![CDATA[<p>In celebration of this day when the non-stop political ads, robo-calls, junk mail, and social media posts <em>should</em> finally come to an end. I threw together a little map to show the latest time at which polls close in each state. This should represent, state-by-state, the time (EST) at which you can safely go back to answering your phones. Click the image below to go there (the data takes a couple of seconds to load).</p>
 
-<p><a href="http://geobabble.files.wordpress.com/2012/06/microphone.jpg"><img alt="" class="aligncenter size-full wp-image-2664" height="413" src="http://geobabble.files.wordpress.com/2012/06/microphone.jpg" title="microphone" width="413" /></a></p>
+<p><a href="http://demo.zekiah.com/polls"><img alt="" class="aligncenter size-full wp-image-2947" height="331" src="http://geobabble.files.wordpress.com/2012/11/pollmap.png" title="pollmap" width="640" /></a></p>
 
-<p>One the technical side of things, I've been involved in a smattering of things that's made it hard to roll up one good post. I'm pretty heavily involved in the PIM efforts that my colleague, Barry Schimpf, <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">has been blogging about</a> over on the <a href="http://www.zekiah.com" target="_blank">Zekiah</a> blog. <!--more--> Historically, the PIM data structures have been housed in Microsoft SQL Server, but we've been working on porting it to other platforms to provide options to end users. We've done an initial port to <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> but we've been spending most of our time on a <a href="http://www.sqlite.org/" target="_blank">SQLite</a>/<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> version. This has taken two forms. First is the port of the PIM structure itself to SQLite to make it easier to provide some of the PIM services such as profiling, version-to-version migrations, dataset generation, and validation in remote, field-based settings. Second is the generation/validation of physical implementations in SpatiaLite. This is being done for a customer who is expecting to do field data collection using SpatiaLite and these services will be helpful in enhancing data quality at the point of collection. Additionally, the SpatiaLite aspect of this work has had me living within <a href="http://qgis.org/" target="_blank">QGIS</a> lately.</p>
+<p>Democracy is a wonderful thing, but it will be nice to have this campaign season behind us.</p>
 
-<p>Another thing I've been experimenting with is the use of <a href="http://nodejs.org/" target="_blank">Node.js</a> for real-time data processing. Our long-standing work in the situational awareness realm has had us working with real-time data feeds for a long time. I'm interested in the possibility of using Node to tackle some of the feed collection tasks. I've used an event-driven approach for such tasks in the past so that aspect of Node is quite familiar to me but the use of Javascript, its ease of deployment and potential scalability are intriguing to me. I'm coming late to the party with Node, primarily due to my rustiness with Javascript, but I'm liking what I'm seeing so far.</p>
-
-<p>Beyond those major things, I've had the opportunity to start working with <a href="http://postgis.org/" target="_blank">PostGIS</a> 2.0 and play more with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://mapbox.com/" target="_blank">MapBox</a>. On the development side of things, these efforts have had be jumping back and forth a lot between C#, Javascript and a little bit of Python, as well as between Windows and Linux, depending on the task.</p>
-
-<p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
-
-<p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/K1vaEweJUUk?color=white&theme=light"></iframe></p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[MapWindow Open-Source Conference Coming Up]]></title>
-    <link href="http://blog.geomusings.com/2012/05/25/mapwindow-open-source-conference-coming-up/"/>
-    <updated>2012-05-25T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/05/25/mapwindow-open-source-conference-coming-up</id>
-    <content type="html"><![CDATA[<p>Thanks to Twitter, I see that the <a href="http://www.mapwindow.org/conference/2012/" target="_blank">3rd annual MapWindow Open-Source GIS Conference</a> is coming up at the end of June. It is being held in Velp, The Netherlands. I call this conference out because it has a strong, but not exclusive, concentration on open-source GIS tools for the .Net environment, such as <a href="http://dotspatial.codeplex.com/" target="_blank">DotSpatial</a>, <a href="http://sharpmap.codeplex.com/" target="_blank">SharpMap</a>, and <a href="https://code.google.com/p/nettopologysuite/" target="_blank">NTS</a>. Additionally, there will be content on non-.Net tools such as PostGIS, OpenLayers and others. This makes sense as any complete stack usually contains a mix of technologies. <a href="http://postgis.org/" target="_blank">PostGIS</a> is almost the <em>de facto</em> standard back-end for open-source geo stacks and <a href="http://qgis.org/" target="_blank">QGIS</a> is probably the best open-source editor for it so inclusion of such tools is quite necessary.</p>
+    <title type="html"><![CDATA[Still Jonesing for zigGIS? Try this OGR Plug-In for ArcGIS.]]></title>
+    <link href="http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis/"/>
+    <updated>2012-09-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis</id>
+    <content type="html"><![CDATA[<p>So I've actually noticed a surprising uptick in traffic related to <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> lately? We also had someone asking about <a href="http://www.st-links.com/Pages/default.aspx" target="_blank">ST-Links</a> on the zigGIS mailing list last week. Clearly, there's still a level of interest out there for the problem that zigGIS was designed for.</p>
 
-<p><img alt="MapWindow" src="http://geobabble.files.wordpress.com/2012/05/mapwindow.png?w=245" /></p>
+<p><a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank"><img alt="ArcGIS and SpatiaLite" height="65%" src="https://a248.e.akamai.net/camo.github.com/c1c86347c63522cb0f5f449b7b9df4209923c3ed/687474703a2f2f692e696d6775722e636f6d2f53767a6a702e706e67" width="65%" /></a></p>
 
-<p>For a number of reasons, I can't attend but I'll be watching the live stream with interest. It's location in Europe makes a lot of sense. I've always noticed that my early posts on SharpMap get a large portion of traffic from Europe and a majority of the user base of <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> was European so I suspect there is a lot of demand there for open-source tools built on .Net. This conference could be a good one-stop shop if you are interested in such tools.</p>
+<div style="font-size: 70%;"><strong>ArcGIS reading SpatiaLite natively, thanks to OGR and Ragi Burhum</strong></div>
+
+
+<br />
+
+
+<p>Along those lines, <a href="http://twitter.com/rburhum" target="_blank">Ragi Burhum</a> posted an <a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank">OGR Workspace plug-in for ArcGIS</a> up on GitHub. Using OGR is really the magic ticket and the project is available under a BSD license (which Ragi explains very well). The only word to the wise is that pre-built binaries and installers aren't available yet so you Windows/<a href="http://www.esri.com" target="_blank">ArcGIS</a> users will need to get your hands dirty.</p>
+
+<p>I haven't used it yet but I plan to within the next week or so. Stay tuned for a follow up post.</p>
 ]]></content>
   </entry>
   

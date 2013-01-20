@@ -4,7 +4,7 @@
   <title><![CDATA[Category: georss | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/georss/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-15T10:02:40-05:00</updated>
+  <updated>2013-01-19T23:58:50-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -47,12 +47,15 @@
 
 <p>On the server, I wrote a four-line batch file to act as a driver for the whole process. This batch file is what is called by a scheduled task in Windows.</p>
 
-<p>{% codeblock lang:powershell %}
-del <em>.xml
-del </em>.pickle
-python SmecoFeedObj.py
-python fetchlatest.py
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">del</span> <span class="p">&lt;</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">xml</span>
+</span><span class='line'><span class="n">del</span> <span class="p">&lt;/</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">pickle</span>
+</span><span class='line'><span class="n">python</span> <span class="n">SmecoFeedObj</span><span class="p">.</span><span class="n">py</span>
+</span><span class='line'><span class="n">python</span> <span class="n">fetchlatest</span><span class="p">.</span><span class="n">py</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>As you can see, the batch is very simple. It deletes the old files, scrapes the latest version and writes new files (SmecoFeedObj.py) and then updates the GeoCommons data set (fetchlatest.py).</p>
 
@@ -117,136 +120,256 @@ python fetchlatest.py
 
 <p>I wrote this in C# as a set of tools for ArcMap 9.2. The first thing I did was create a static reference to a single InMemoryWorkspaceFactory. It's a singleton anyway but this approach forces me to use a single entry point.</p>
 
-<p>{% codeblock lang:csharp %}
-public static void initInMemoryWorkspaceFactory()
-{</p>
-
-<pre><code>// Create an InMemory workspace factory.
-InMemoryWorkspaceFactory workspaceFactory = new InMemoryWorkspaceFactoryClass();
-
-// Create an InMemory geodatabase.
-IWorkspaceName workspaceName = workspaceFactory.Create("", "GeoRssWorkspace", null, 0);
-
-// Cast for IName.
-IName name = (IName)workspaceName;
-
-//Open a reference to the in-memory workspace through the name object.
-IWorkspace inmemWor = (IWorkspace)name.Open();
-m_memFeatWorkspace = (IFeatureWorkspace)inmemWor;
-</code></pre>
-
-<p>}
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">initInMemoryWorkspaceFactory</span><span class="p">()</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="c1">// Create an InMemory workspace factory.</span>
+</span><span class='line'><span class="n">InMemoryWorkspaceFactory</span> <span class="n">workspaceFactory</span> <span class="p">=</span> <span class="k">new</span> <span class="n">InMemoryWorkspaceFactoryClass</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Create an InMemory geodatabase.</span>
+</span><span class='line'><span class="n">IWorkspaceName</span> <span class="n">workspaceName</span> <span class="p">=</span> <span class="n">workspaceFactory</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;GeoRssWorkspace&quot;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Cast for IName.</span>
+</span><span class='line'><span class="n">IName</span> <span class="n">name</span> <span class="p">=</span> <span class="p">(</span><span class="n">IName</span><span class="p">)</span><span class="n">workspaceName</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Open a reference to the in-memory workspace through the name object.</span>
+</span><span class='line'><span class="n">IWorkspace</span> <span class="n">inmemWor</span> <span class="p">=</span> <span class="p">(</span><span class="n">IWorkspace</span><span class="p">)</span><span class="n">name</span><span class="p">.</span><span class="n">Open</span><span class="p">();</span>
+</span><span class='line'><span class="n">m_memFeatWorkspace</span> <span class="p">=</span> <span class="p">(</span><span class="n">IFeatureWorkspace</span><span class="p">)</span><span class="n">inmemWor</span><span class="p">;</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Next, I created a custom FeatureLayer class called GeoRssFeatureLayer. It inherits from the ArcObjects FeatureLayer class and implements a custom interface called IGeoRssFeatureLayer. Using inheritance makes it easy to pass an instance around within ArcObjects and have it behave properly. Here's a snippet with the interface and class declaration:
-{% codeblock lang:csharp %}
-public interface IGeoRssFeatureLayer
-{</p>
-
-<pre><code>string Uri { get; set;}
-void Refresh();
-</code></pre>
-
-<p>}</p>
-
-<p>[Guid("a675765b-30d0-4294-ad98-28579c9f8994")]
-[ClassInterface(ClassInterfaceType.None)]
-[ProgId("ztGeoRss.GeoRssFeatureLayer")]
-public class GeoRssFeatureLayer : ESRI.ArcGIS.Carto.FeatureLayerClass, IGeoRssFeatureLayer</p>
-
-<pre><code>private string m_uri = string.Empty; 
-private IFeatureClass m_fc = null; 
-public GeoRssFeatureLayer(string uri) 
-{ 
-    m_uri = uri; 
-    this.Refresh(); 
-}
-</code></pre>
-
-<p>{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">interface</span> <span class="n">IGeoRssFeatureLayer</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="kt">string</span> <span class="n">Uri</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span>
+</span><span class='line'><span class="k">void</span> <span class="nf">Refresh</span><span class="p">();</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;[</span><span class="n">Guid</span><span class="p">(</span><span class="s">&quot;a675765b-30d0-4294-ad98-28579c9f8994&quot;</span><span class="p">)]</span>
+</span><span class='line'><span class="na">[ClassInterface(ClassInterfaceType.None)]</span>
+</span><span class='line'><span class="na">[ProgId(&quot;ztGeoRss.GeoRssFeatureLayer&quot;)]</span>
+</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">GeoRssFeatureLayer</span> <span class="p">:</span> <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Carto</span><span class="p">.</span><span class="n">FeatureLayerClass</span><span class="p">,</span> <span class="n">IGeoRssFeatureLayer</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">private</span> <span class="kt">string</span> <span class="n">m_uri</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+</span><span class='line'><span class="k">private</span> <span class="n">IFeatureClass</span> <span class="n">m_fc</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span><span class='line'><span class="k">public</span> <span class="nf">GeoRssFeatureLayer</span><span class="p">(</span><span class="kt">string</span> <span class="n">uri</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">m_uri</span> <span class="p">=</span> <span class="n">uri</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="n">Refresh</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 I also added a constructor so I could pass in the URI directly. The IGeoRssFeatureLayer.Refresh method does most of the heavy lifting with some help from the loadFeatures method and a few statics in the Ambient class (it's a pretty name that gets the point across without conflicting with reserved words like "Environment"):
-{% codeblock lang:csharp %}
-public void Refresh()
-{</p>
-
-<pre><code>if (m_fc != null)
-{
-    Marshal.ReleaseComObject(m_fc);
-}
-m_fc = null; 
-ISpatialReferenceFactory srf = new SpatialReferenceEnvironmentClass(); 
-ISpatialReference sr = srf.CreateGeographicCoordinateSystem((int)esriSRGeoCSType.esriSRGeoCS_WGS1984); 
-sr.SetDomain(-180, 180, -90, 90); 
-IGeometryDefEdit gde = (IGeometryDefEdit)new GeometryDefClass(); 
-gde.SpatialReference_2 = sr; 
-gde.GeometryType_2 = esriGeometryType.esriGeometryPoint; 
-gde.GridCount_2 = 1; 
-gde.set_GridSize(0, 1000); 
-IFieldsEdit fe = (IFieldsEdit)new FieldsClass(); 
-fe.AddField(Ambient.makeField("OBJECTID", esriFieldType.esriFieldTypeOID, 0, null)); 
-fe.AddField(Ambient.makeField("SHAPE", esriFieldType.esriFieldTypeGeometry, 0, (IGeometryDef)gde)); 
-fe.AddField(Ambient.makeField("Title", esriFieldType.esriFieldTypeString, 100, null)); 
-fe.AddField(Ambient.makeField("Description", esriFieldType.esriFieldTypeString, 300, null)); 
-fe.AddField(Ambient.makeField("Link", esriFieldType.esriFieldTypeString, 100, null)); 
-fe.AddField(Ambient.makeField("Author", esriFieldType.esriFieldTypeString, 100, null)); 
-fe.AddField(Ambient.makeField("Comments", esriFieldType.esriFieldTypeString, 300, null)); 
-fe.AddField(Ambient.makeField("PubDate", esriFieldType.esriFieldTypeString, 50, null)); 
-fe.AddField(Ambient.makeField("Guid", esriFieldType.esriFieldTypeString, 50, null)); 
-IFeatureWorkspace fws = Ambient.GeoRssWorkspace; 
-m_fc = fws.CreateFeatureClass(System.Guid.NewGuid().ToString(), (IFields)fe, null, null, esriFeatureType.esriFTSimple, "Shape", ""); 
-loadFeatures(); 
-base.FeatureClass = m_fc; 
-</code></pre>
-
-<p>}</p>
-
-<p>private void loadFeatures()
-{</p>
-
-<pre><code>RssFeed f = RssReader.GetFeed(m_uri);
-base.Name = f.Title;
-if (f.Items.Count &amp;gt; 0)
-{
-    //Cast for an IWorkspaceEdit        
-    IWorkspaceEdit workspaceEdit = (IWorkspaceEdit)Ambient.GeoRssWorkspace;
-    //Start an edit session and operation        
-    workspaceEdit.StartEditing(true);        
-    workspaceEdit.StartEditOperation();                
-    //Create the Feature Buffer        
-    IFeatureBuffer featureBuffer = m_fc.CreateFeatureBuffer();        
-    //Create insert Feature Cursor using buffering = true.        
-    IFeatureCursor featureCursor = m_fc.Insert(true);
-    IPoint pt = new PointClass();
-    int i;
-    for (i = 0; (i &amp;lt;= (f.Items.Count - 1)); i++)
-    {
-        RssItem itm = f.Items[i];
-        pt.X = Convert.ToDouble(itm.Longitude);
-        pt.Y = Convert.ToDouble(itm.Latitude);
-        featureBuffer.Shape = pt;
-        featureBuffer.set_Value(2, itm.Title);
-        featureBuffer.set_Value(3, itm.Description);
-        featureBuffer.set_Value(4, itm.Link);
-        featureBuffer.set_Value(5, itm.Author);
-        featureBuffer.set_Value(6, itm.Comments);
-        featureBuffer.set_Value(7, itm.Pubdate);
-        featureBuffer.set_Value(8, itm.Guid);
-        object oid = featureCursor.InsertFeature(featureBuffer);
-    }                
-    //Flush the feature cursor to the database        
-    //Calling flush allows you to handle any errors at a known time rather then on the cursor destruction.        
-    featureCursor.Flush();
-    //Stop editing        
-    workspaceEdit.StopEditOperation();        
-    workspaceEdit.StopEditing(true);
-    //Release the Cursor        
-    System.Runtime.InteropServices.Marshal.ReleaseComObject(featureCursor);
-}
-</code></pre>
-
-<p>}
-}
-{% endcodeblock %}</p>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">void</span> <span class="nf">Refresh</span><span class="p">()</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">if</span> <span class="p">(</span><span class="n">m_fc</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">Marshal</span><span class="p">.</span><span class="n">ReleaseComObject</span><span class="p">(</span><span class="n">m_fc</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="n">m_fc</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span><span class='line'><span class="n">ISpatialReferenceFactory</span> <span class="n">srf</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SpatialReferenceEnvironmentClass</span><span class="p">();</span>
+</span><span class='line'><span class="n">ISpatialReference</span> <span class="n">sr</span> <span class="p">=</span> <span class="n">srf</span><span class="p">.</span><span class="n">CreateGeographicCoordinateSystem</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">esriSRGeoCSType</span><span class="p">.</span><span class="n">esriSRGeoCS_WGS1984</span><span class="p">);</span>
+</span><span class='line'><span class="n">sr</span><span class="p">.</span><span class="n">SetDomain</span><span class="p">(-</span><span class="m">180</span><span class="p">,</span> <span class="m">180</span><span class="p">,</span> <span class="p">-</span><span class="m">90</span><span class="p">,</span> <span class="m">90</span><span class="p">);</span>
+</span><span class='line'><span class="n">IGeometryDefEdit</span> <span class="n">gde</span> <span class="p">=</span> <span class="p">(</span><span class="n">IGeometryDefEdit</span><span class="p">)</span><span class="k">new</span> <span class="n">GeometryDefClass</span><span class="p">();</span>
+</span><span class='line'><span class="n">gde</span><span class="p">.</span><span class="n">SpatialReference_2</span> <span class="p">=</span> <span class="n">sr</span><span class="p">;</span>
+</span><span class='line'><span class="n">gde</span><span class="p">.</span><span class="n">GeometryType_2</span> <span class="p">=</span> <span class="n">esriGeometryType</span><span class="p">.</span><span class="n">esriGeometryPoint</span><span class="p">;</span>
+</span><span class='line'><span class="n">gde</span><span class="p">.</span><span class="n">GridCount_2</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+</span><span class='line'><span class="n">gde</span><span class="p">.</span><span class="n">set_GridSize</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1000</span><span class="p">);</span>
+</span><span class='line'><span class="n">IFieldsEdit</span> <span class="n">fe</span> <span class="p">=</span> <span class="p">(</span><span class="n">IFieldsEdit</span><span class="p">)</span><span class="k">new</span> <span class="n">FieldsClass</span><span class="p">();</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;OBJECTID&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeOID</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;SHAPE&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeGeometry</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="p">(</span><span class="n">IGeometryDef</span><span class="p">)</span><span class="n">gde</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Title&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Description&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">300</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Link&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Author&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Comments&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">300</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;PubDate&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">fe</span><span class="p">.</span><span class="n">AddField</span><span class="p">(</span><span class="n">Ambient</span><span class="p">.</span><span class="n">makeField</span><span class="p">(</span><span class="s">&quot;Guid&quot;</span><span class="p">,</span> <span class="n">esriFieldType</span><span class="p">.</span><span class="n">esriFieldTypeString</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="k">null</span><span class="p">));</span>
+</span><span class='line'><span class="n">IFeatureWorkspace</span> <span class="n">fws</span> <span class="p">=</span> <span class="n">Ambient</span><span class="p">.</span><span class="n">GeoRssWorkspace</span><span class="p">;</span>
+</span><span class='line'><span class="n">m_fc</span> <span class="p">=</span> <span class="n">fws</span><span class="p">.</span><span class="n">CreateFeatureClass</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Guid</span><span class="p">.</span><span class="n">NewGuid</span><span class="p">().</span><span class="n">ToString</span><span class="p">(),</span> <span class="p">(</span><span class="n">IFields</span><span class="p">)</span><span class="n">fe</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="n">esriFeatureType</span><span class="p">.</span><span class="n">esriFTSimple</span><span class="p">,</span> <span class="s">&quot;Shape&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">loadFeatures</span><span class="p">();</span>
+</span><span class='line'><span class="k">base</span><span class="p">.</span><span class="n">FeatureClass</span> <span class="p">=</span> <span class="n">m_fc</span><span class="p">;</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="k">private</span> <span class="k">void</span> <span class="n">loadFeatures</span><span class="p">()</span>
+</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="n">RssFeed</span> <span class="n">f</span> <span class="p">=</span> <span class="n">RssReader</span><span class="p">.</span><span class="n">GetFeed</span><span class="p">(</span><span class="n">m_uri</span><span class="p">);</span>
+</span><span class='line'><span class="k">base</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">f</span><span class="p">.</span><span class="n">Title</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Count</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">//Cast for an IWorkspaceEdit        </span>
+</span><span class='line'>    <span class="n">IWorkspaceEdit</span> <span class="n">workspaceEdit</span> <span class="p">=</span> <span class="p">(</span><span class="n">IWorkspaceEdit</span><span class="p">)</span><span class="n">Ambient</span><span class="p">.</span><span class="n">GeoRssWorkspace</span><span class="p">;</span>
+</span><span class='line'>    <span class="c1">//Start an edit session and operation        </span>
+</span><span class='line'>    <span class="n">workspaceEdit</span><span class="p">.</span><span class="n">StartEditing</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">workspaceEdit</span><span class="p">.</span><span class="n">StartEditOperation</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">//Create the Feature Buffer        </span>
+</span><span class='line'>    <span class="n">IFeatureBuffer</span> <span class="n">featureBuffer</span> <span class="p">=</span> <span class="n">m_fc</span><span class="p">.</span><span class="n">CreateFeatureBuffer</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">//Create insert Feature Cursor using buffering = true.        </span>
+</span><span class='line'>    <span class="n">IFeatureCursor</span> <span class="n">featureCursor</span> <span class="p">=</span> <span class="n">m_fc</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">IPoint</span> <span class="n">pt</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PointClass</span><span class="p">();</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="p">(</span><span class="n">i</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;=</span> <span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Count</span> <span class="p">-</span> <span class="m">1</span><span class="p">));</span> <span class="n">i</span><span class="p">++)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">RssItem</span> <span class="n">itm</span> <span class="p">=</span> <span class="n">f</span><span class="p">.</span><span class="n">Items</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>        <span class="n">pt</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToDouble</span><span class="p">(</span><span class="n">itm</span><span class="p">.</span><span class="n">Longitude</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">pt</span><span class="p">.</span><span class="n">Y</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToDouble</span><span class="p">(</span><span class="n">itm</span><span class="p">.</span><span class="n">Latitude</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">Shape</span> <span class="p">=</span> <span class="n">pt</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Description</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Link</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Author</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">6</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Comments</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">7</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Pubdate</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">featureBuffer</span><span class="p">.</span><span class="n">set_Value</span><span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="n">itm</span><span class="p">.</span><span class="n">Guid</span><span class="p">);</span>
+</span><span class='line'>        <span class="kt">object</span> <span class="n">oid</span> <span class="p">=</span> <span class="n">featureCursor</span><span class="p">.</span><span class="n">InsertFeature</span><span class="p">(</span><span class="n">featureBuffer</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="c1">//Flush the feature cursor to the database        </span>
+</span><span class='line'>    <span class="c1">//Calling flush allows you to handle any errors at a known time rather then on the cursor destruction.        </span>
+</span><span class='line'>    <span class="n">featureCursor</span><span class="p">.</span><span class="n">Flush</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">//Stop editing        </span>
+</span><span class='line'>    <span class="n">workspaceEdit</span><span class="p">.</span><span class="n">StopEditOperation</span><span class="p">();</span>
+</span><span class='line'>    <span class="n">workspaceEdit</span><span class="p">.</span><span class="n">StopEditing</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">//Release the Cursor        </span>
+</span><span class='line'>    <span class="n">System</span><span class="p">.</span><span class="n">Runtime</span><span class="p">.</span><span class="n">InteropServices</span><span class="p">.</span><span class="n">Marshal</span><span class="p">.</span><span class="n">ReleaseComObject</span><span class="p">(</span><span class="n">featureCursor</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>That pretty much does most of the real work. I have an ArcObjects command that actually instantiates the layer and adds it to ArcMap and there are a few helper functions as well. I snagged a good bit of other people's code to be able to turn around a prototype quickly so credit where credit is due:</p>
 

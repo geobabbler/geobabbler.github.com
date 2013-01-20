@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gis | geoMusings]]></title>
+  <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-15T10:02:40-05:00</updated>
+  <updated>2013-01-19T23:58:50-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,119 +14,99 @@
 
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite 4.1.0 Beta Preview Available]]></title>
-    <link href="http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available/"/>
-    <updated>2013-01-03T08:34:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available</id>
-    <content type="html"><![CDATA[<p>On the <a href="https://groups.google.com/forum/?fromgroups#!forum/spatialite-users">SpatiaLite Google Group</a> this morning, Sandro Furieri announced the availability of a beta preview of SpatiaLite 4.1.0. The primary focus of this preview is to get early comment on new capabilities supporting the storage, validation, and query of XML documents.</p>
+    <title type="html"><![CDATA[js.geo Day One]]></title>
+    <link href="http://blog.geomusings.com/2013/01/14/js-dot-geo-day-one/"/>
+    <updated>2013-01-14T18:04:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/14/js-dot-geo-day-one</id>
+    <content type="html"><![CDATA[<p>Yesterday, I attended the <a href="http://geojs.eventbrite.com/">JS.geo</a> conference at the Colorado University Denver campus. It looked like about 100 or so came out for the event. I was able to catch up with <a href="http://twitter.com/cwhelm">Chris Helm</a> and <a href="http://twitter.com/briantimoney">Brian Timoney</a> the night before and they told me the event took off faster than they had originally expected. I think this speaks to two things: 1) the level of interest in Javascript as a solution for geospatial applications and 2) the fast pace of innovation in the Javascript community that has a lot of people looking for ways to stay abreast of the latest developments.</p>
 
-<p>More information about this update <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=XmlBlob+and+VirtualXPath">can be found here</a>. Says Sandro:</p>
+<p>What follows is an overview based on some of the notes I took. I wasn't always writing as I sometimes just stopped to listen and I'll probably follow up with more details later.</p>
 
-<blockquote>
-The main goals of these recently introduced enhancements are:<br/>
-- storing XML Documents directly within the DBMS <br/>
-- supporting XML validation<br/>
-- supporting plain SQL queries on behalf of XML Documents <br/>
-  via canonical XPath expressions<br/>
+<div style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></div>
+
+
+<p>Data reduction was strong current running under the day. With the rise of newer libraries that enable more sophisticated capabilities in the browser, there is increased recognition of the need to reduce the amount of data passing over the wire. For geometry, <a href="https://github.com/mbostock/topojson">TopoJSON</a> is getting a lot of attention here. It delivers topologically correct data which reduces data by removing redundant geometry such coincident arcs between polygons and such. The output reminds me of an old <a href="http://www.gdal.org/ogr/drv_avcbin.html">ARC/INFO coverage</a> and is providing stunning results in reducing the size of geometries when compared to <a href="http://geojson.org">GeoJSON</a> or Esri JSON. <a href="http://twitter.com/andrewxhill">Andrew Hill</a> of <a href="http://vizzuality.com">Vizzuality</a> mentioned that <a href="http://cartodb.com">CartoDB</a> currently has support for TopoJSON in staging. He also discussed strategies they use to reduce the size of feature and attribute data. This "data cubing" strategy turns out to similar to approaches that are commonplace in the financial industry. This serves as a reminder to look around and see what others are doing to solve similar problems.</p>
+
+<!--more-->
+
+
+<p>One a related note, the reduction of application code being delivered to the browser is also a focus. This was probably best illustrated by <a href="http://twitter.com/mattpriour">Matt Priour's</a> talk on <a href="http://openlayers.org">OpenLayers</a>. The fact that there are now three builds (full, mobile, light) as well as a focus on being more modular in version 3. <a href="http://twitter.com/pmbatty">Peter Batty</a>, in his demo of <a href="http://www.ubisense.net/en/">Ubisense</a>, made a good case for intelligent balance between server-side and client-side processing to achieve good performance.</p>
+
+<p><a href="https://www.khronos.org/webgl/">WebGL</a> got a lot of attention from a number of speakers, with <a href="http://twitter.com/brendankenny">Brendan Kenny</a> of Google showing work he has done, including a Javascript port of GLUTessellation. Jeremy Bartley of Esri gave a lightning talk about <a href="http://www.esri.com/software/cityengine">CityEngine</a>, which is based on WebGL. WebGL is widely seen as the open solution to graphics performance that may finally kill the need for plug-ins. In side discussions, Jeremy talked about how WebGL will figure more into the previously discussed data reduction problem. The reality is that both servers and clients are getting much better at handling large data sets but the same can't necessarily be said for the wires that connect them.</p>
+
+<p>GeoJSON continues to get a lot of love. It continues to be, in my opinion, the motor oil for the engine that is web mapping. It will be interesting see how the separation of concerns between GeoJSON and TopoJSON evolves, but I think GeoJSON will continue to be an important syntax.</p>
+
+<p>While the majority of the discussion focused on browsers, <a href="http://nodejs.org/">Node.js</a> got significant attention. <a href="http://twitter.com/willwhitedc">Will White</a> of <a href="http://mapbox.com">MapBox</a> gave a good talk about the evolution of Node and the advantages of its non-blocking I/O model. One statistic he gave was surprising: he said 6 of the top 12 contributors on GitHub are Node contributors. That speaks loudly to the rapid evolution of Node as well as the interest in Javascript. Will put out a call to the geospatial community to build out the geospatial capabilities of Node. Later in the day, we saw a good lightning talk that showed Node processing real-time data and feeding a number of D3 visualizations.</p>
+
+<p>While Matt Priour and <a href="https://twitter.com/atogle">Aaron Ogle</a> opened with great talks on OpenLayers and <a href="http://leafletjs.com/">Leaflet</a>, respectively, the clear star of the client-side show was <a href="http://d3js.org/">D3</a> (although Aaron's walkshed analysis in Leaflet was cool). There were lots of great visualizations (as well as nods to TopoJSON). While the D3's support for projections is getting a lot of attention from geospatial developers, I am more interested in its holistic approach to data visualization. In D3, geo is one way to look at data, but not the central way. Because of this, D3 provides an integrated capability to have multiple data visualizations in an application without overloading with a ton of libraries.</p>
+
+<p>I am already well past tl;dr on this post and I have to catch a plane. Many of the URL talks were great but I'll follow up with some more details. All-in-all, I think the event was quite a success and I'm glad I came.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Comment Period Open for GeoPackage Specification Draft]]></title>
+    <link href="http://blog.geomusings.com/2013/01/09/comment-period-open-for-geopackage-specification-draft/"/>
+    <updated>2013-01-09T06:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/09/comment-period-open-for-geopackage-specification-draft</id>
+    <content type="html"><![CDATA[<p>The Open Geospatial Consortium (OGC) has <a href="http://www.opengeospatial.org/pressroom/pressreleases/1756">published a draft GeoPackage specification for comment</a>. The GeoPackage specification attempts to create a non-proprietary means for packaging and exchanging all geospatial data in all its forms (vector, raster, and tiles). A couple of things that jump out at me:</p>
+
+<ul>
+<li>It calls out <a href="https://sqlite.org/">SQLite</a> as the reference implementation of a GeoPackage container</li>
+<li>It calls out <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a> 4 as the reference implementation of a vector feature store</li>
+<li>It does not call out a reference implementation for rasters or tiles</li>
+<li>It does not mention exchange of cartography.</li>
+</ul>
+
+
+<!--more-->
+
+
+<p>Although the draft references the <a href="http://mapbox.com/developers/mbtiles/">MBTiles</a> specification and uses it as an example of a pure SQL method of storing tiles, it does not call out MBTiles as the chosen storage approach nor does it mention MBTiles as a reference implementation. The draft should not be read as "SpatiaLite + MBTiles."</p>
+
+<div style="text-align:center;"><a href="http://www.publicdomainpictures.net/view-image.php?image=9097&picture=empty-cardboard-boxes"><img src="http://blog.geomusings.com/images/posts/boxes.png" /></a></div>
+
+
+<p>I think, in 2013, anything that attempts to do what GeoPackage sets out to do should have some provision for cartography. I would prefer CSS-like approach (such as <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>) and will say so when I submit comments but I would suspect that future discussion of cartography, if any, will probably start with SLD. For now, tiles can fill the gap.</p>
+
+<p>So comments are open, give it a look and tell OGC what you think.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Getting Ready for JS.geo]]></title>
+    <link href="http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo/"/>
+    <updated>2013-01-08T15:50:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo</id>
+    <content type="html"><![CDATA[<p>I'm looking forward to next week's <a href="http://geojs.eventbrite.com/">JS.geo</a> event in Denver. It is a small event, spearheaded by <a href="http://twitter.com/cwhelm">Chris Helm</a> of <a href="http://www.esri.com">Esri</a>, that focuses on the use of Javascript in geospatial applications. Although I have been more vocal in my <a href="http://blog.geomusings.com/blog/categories/python/">recent explorations with Python</a>, I've probably done as much, if not more, work with Javascript over the past 18 months.</p>
+
+<div style="text-align:center;"><img src="http://mapbrief.com/wp-content/uploads/2012/11/no_plugin.jpg" /></div>
+
+
+<p>The pace of innovation with Javascript in the geospatial area has been staggering. It seems like only a short time ago that the options for working with geospatial applications were <a href="http://openlayers.org/">OpenLayers</a> and the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/">Esri Javascript API</a>. The rapid advent of tools such as <a href="http://www.geoext.org/">GeoExt</a>, <a href="http://leafletjs.com/">Leaflet</a>, and many others has really lead to a explosion of capability. Of course, the recent buzz has been about <a href="http://d3js.org/">D3</a>, which tackles a wide range of data visualization problems, including geo. D3 is of particular interest because it is tackling the issue of projection in the browser, freeing applications from the dominance of Web Mercator.</p>
+
+<p>Of course, it's not been all about the browser, either as <a href="http://nodejs.org/">Node.js</a> has made abundantly clear. One of the most effective desktop applications for cartographic design, <a href="http://mapbox.com/tilemill/">TileMill</a>, is built with Node, among other tools.</p>
+
+<p>The maturity of Javascript as a tool for geospatial development is such that I am at the point that, if it weren't for government customers that are <a href="http://mapbrief.com/2011/10/13/web-mapping-continues-to-pay-for-the-sins-of-internet-explorer/">still standardized on Internet Explorer 8</a> or older, a plug-in-based environment would not be my first choice for a new application.</p>
+
+<p>As for the JS.geo event itself, I am intrigued by its small, focused nature. It doesn't seem to be as informal as an unconference but may be easier to digest than the typical geo event. It will also be great to catch up with the Front Range crowd.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A GIS Day Map for World Diabetes Day]]></title>
+    <link href="http://blog.geomusings.com/2012/11/14/a-gis-day-map-for-world-diabetes-day/"/>
+    <updated>2012-11-14T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/14/a-gis-day-map-for-world-diabetes-day</id>
+    <content type="html"><![CDATA[<p>Today is World Diabetes Day. It also happens to be GIS Day so I thought a map (not mine) of new diagnoses would be in order:</p>
+
+<div style="text-align: center;"><a href="http://www.idf.org/diabetesatlas/5e/diabetes-in-the-young"><img alt="" height="80%" src="http://www.idf.org/sites/default/files/da5/Map%202.5%20New%20cases%20of%20type%201%20diabetes.jpg" title="New cases of Type 1 diabetes in children, 2011" width="80%" /></a><div style="text-align: center;font-size: 14px;">Source: International Diabetes Federation Diabetes Atlas, Fifth Edition (Click image to visit)</div></div>
+
+
 <br/>
-Implementing directly into the Spatial DBMS a common core of 
-XML-oriented features surely is an interesting and useful option,
-just considering that ISO- and INSPIRE-Metadata or SLD/SE Styles 
-are fully based on XML.
-</blockquote>
 
 
-<p>Although I find myself working more with <a href="http://geojson.org">GeoJSON</a> and <a href="http://developmentseed.org/blog/2011/feb/09/introducing-carto-css-map-styling-language/">CartoCSS</a> these days, I think support for XML is a good step for SpatiaLite. There are some very mature use cases based on XML, as Sandro points out. While <a href="http://www.opengeospatial.org/standards/sld">SLD</a> is not my favorite, this may keep it on my radar. Also, it would be interesting to see how this new capability would possibly affect the evolution of the <a href="http://www.opengeospatial.org/projects/groups/geopackageswg">OGC GeoPackage draft specification</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
-    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
-    <updated>2012-11-27T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
-    <content type="html"><![CDATA[<p>I'm happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It's been one of the more consistently valuable resources in the community since its inception and it's good that it will continue.</p>
-
-<p>While I'm looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called "venerable" nowadays, but it still does what it does very well.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
-
-<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you're not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It's become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
-
-<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
-
-<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
-
-<p>{% tweet http://twitter.com/cageyjames/statuses/272025049526050816 %}</p>
-
-<p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
-
-<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
-    <link href="http://blog.geomusings.com/2012/11/26/spatialite-for-android-available/"/>
-    <updated>2012-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/26/spatialite-for-android-available</id>
-    <content type="html"><![CDATA[<p>On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.</p>
-
-<p>I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.</p>
-
-<p>The message is quoted below:</p>
-
-<blockquote>
-Hi List,
-
-I'm really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
-
-[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
-
-Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
-
-[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
-
-A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he'll surely appreciate ;-)
-
-[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
-
-enjoy, Sandro
-</blockquote>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SpatiaLite 4.0 Released]]></title>
-    <link href="http://blog.geomusings.com/2012/11/26/spatialite-4-0-released/"/>
-    <updated>2012-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/26/spatialite-4-0-released</id>
-    <content type="html"><![CDATA[<p>It looks like it was a busy weekend for Sandro Furieri and the rest of the <a href="https://www.gaia-gis.it/fossil/libspatialite/index" target="_blank">SpatiaLite</a> team as version 4.0 was announced on Sunday. There are a number of changes, so it's best to <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=switching-to-4.0" target="_blank">catch up on them</a> before switching over.</p>
-
-<div style="text-align: center;"><a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a><div style="text-align: center;font-size: 14px;">Not this SpatiaLite</div></div>
-
-
-<p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I'll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The Biggest News You May Have Missed...]]></title>
-    <link href="http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed/"/>
-    <updated>2012-11-19T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed</id>
-    <content type="html"><![CDATA[<p>In case you missed it, this tweet floated across the Twitters last week:</p>
-
-<p>{% tweet http://twitter.com/Arc2Earth/status/269194049230102528 %}</p>
-
-<p>Yes, the team at <a href="http://www.arc2earth.com">Arc2Earth</a> is apparently working on a new feature in <a href="http://www.arc2earth.com/services/sync/">Arc2Earth Sync,</a> called TileMill Connect, that will link <a href="http://www.esri.com">ArcMap</a> MXDs with <a href="http://mapbox.com/tilemill/">TileMill</a>. This will allow users to migrate their ArcMap cartography into TileMill to take advantage of the rich tools there as well as the potential for version control and cut/paste sharing of techniques and best practices enabled by <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>.</p>
-
-<p><a href="http://twitter.com/bFlood">Brian Flood</a> followed that up today with a short video showing it in action.</p>
-
-<p>{% tweet http://twitter.com/Arc2Earth/status/270631991110692865 %}</p>
-
-<p>No word on a timetable for this feature, but I can't wait to kick the tires. I am especially intrigued by the pseudo <a href="http://www.postgis.org">PostGIS</a> proxy service that enables connections to ArcGIS data sources.</p>
+<p>To learn more about Type 1 Diabetes, <a href="http://www.jdrf.org/index.cfm?page_id=101982" target="_blank">please visit the JDRF</a>.</p>
 ]]></content>
   </entry>
   
