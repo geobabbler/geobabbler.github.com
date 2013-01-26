@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GeoCommons | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/geocommons/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-22T14:55:48-05:00</updated>
+  <updated>2013-01-26T15:36:36-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -67,23 +67,14 @@
 
 <p>In the calling application, I'll set up a couple of module-level objects to help keep track of things:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span> <span class="n">_layerTimer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="m">500</span><span class="p">);</span> <span class="c1">//to check status of analysis</span>
-</span><span class='line'>    <span class="k">private</span> <span class="n">AnalyticsResponse</span> <span class="n">_response</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span> <span class="c1">//response object created by analysis</span>
-</span><span class='line'>    <span class="k">private</span> <span class="n">Analytics</span> <span class="n">_analytics</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Analytics</span><span class="p">(</span><span class="s">&quot;http://geocommons.com&quot;</span><span class="p">,</span> <span class="s">&quot;username&quot;</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">);</span> <span class="c1">//instance of wrapper class for GeoIQ analytic methods</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>    private System.Timers.Timer _layerTimer = new System.Timers.Timer(500); //to check status of analysis
+    private AnalyticsResponse _response = null; //response object created by analysis
+    private Analytics _analytics = new Analytics("http://geocommons.com", "username", "password"); //instance of wrapper class for GeoIQ analytic methods
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>With these building blocks in place, it's fairly easy to execute the basic workflow:</p>
 
@@ -92,19 +83,14 @@
 </ol>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//call intersect method</span>
-</span><span class='line'><span class="c1">//layer 87503 = GISPs, layer 149925 = zip codes</span>
-</span><span class='line'><span class="c1">//prefer_1 tells GeoIQ to return records from layer 1 (GISPs in this case)</span>
-</span><span class='line'> <span class="p">&lt;</span><span class="n">em</span><span class="p">&gt;</span><span class="n">response</span> <span class="p">=</span> <span class="p">&lt;/</span><span class="n">em</span><span class="p">&gt;</span><span class="n">analytics</span><span class="p">.</span><span class="n">Intersect</span><span class="p">(</span><span class="m">87503</span><span class="p">,</span> <span class="m">149925</span><span class="p">,</span> <span class="n">MergeOptions</span><span class="p">.</span><span class="n">prefer_1</span><span class="p">);</span> <span class="c1">//capture response object</span>
-</span><span class='line'> <span class="c1">//start timer to check status</span>
-</span><span class='line'> <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}
+//call intersect method
+//layer 87503 = GISPs, layer 149925 = zip codes
+//prefer_1 tells GeoIQ to return records from layer 1 (GISPs in this case)
+ <em>response = </em>analytics.Intersect(87503, 149925, MergeOptions.prefer_1); //capture response object
+ //start timer to check status
+ this._layerTimer.Enabled = true;
+{% endcodeblock %}</p>
 
 <p>This calls the intersect method of the Analytics object, captures the resulting response object, and starts the timer to check the status of the analysis.</p>
 
@@ -115,47 +101,28 @@
 
 <p>In this case, I used a simple timer that checks every half second, although you may want to space that out more if you're sure your analyses will take a while to run. This shows the timer event handler code:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">void</span> <span class="nf">_layerTimer_Elapsed</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">ElapsedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span> <span class="kt">string</span> <span class="n">status</span> <span class="p">=</span> <span class="n">_analytics</span><span class="p">.</span><span class="n">GetState</span><span class="p">(</span><span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">);</span> <span class="c1">//ID is that of new layer created by analysis</span>
-</span><span class='line'> <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">==</span> <span class="s">&quot;\&quot;complete\&quot;&quot;</span><span class="p">)</span> <span class="c1">//this means analysis is complete</span>
-</span><span class='line'> <span class="p">{</span>
-</span><span class='line'>     <span class="c1">//use Invoke to access UI elements from timer thread</span>
-</span><span class='line'>     <span class="k">this</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">new</span> <span class="n">MethodInvoker</span><span class="p">(</span><span class="k">delegate</span>
-</span><span class='line'>     <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//set up link label to enable download of new data as KML</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">&quot;Analysis Complete: Download KML&quot;</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Links</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">19</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="s">&quot;http://geocommons.com/overlays/&quot;</span> <span class="p">+</span> <span class="n">_response</span><span class="p">.</span><span class="n">ID</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="s">&quot;.kml&quot;</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">lnkDownloadShape</span><span class="p">.</span><span class="n">Visible</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">_layerTimer</span><span class="p">.</span><span class="n">Enabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
-</span><span class='line'>     <span class="p">}));</span>
-</span><span class='line'> <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}
+void _layerTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+{</p>
+
+<pre><code> string status = _analytics.GetState(_response.ID); //ID is that of new layer created by analysis
+ if (status.ToLower() == "\"complete\"") //this means analysis is complete
+ {
+     //use Invoke to access UI elements from timer thread
+     this.Invoke(new MethodInvoker(delegate
+     {
+        //set up link label to enable download of new data as KML
+        this.lnkDownloadShape.Text = "Analysis Complete: Download KML";
+        this.lnkDownloadShape.Links.Clear();
+        this.lnkDownloadShape.Links.Add(19, 18, "http://geocommons.com/overlays/" + _response.ID.ToString() + ".kml");
+        this.lnkDownloadShape.Visible = true;
+        this._layerTimer.Enabled = false;
+     }));
+ }
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>In a nutshell, it checks the status using a wrapper method. If the status is "complete", then a download link is shown. This code makes the KML version available but you could choose a shapefile or any other format supported by GeoIQ.</p>
 
@@ -166,23 +133,16 @@
 
 <p>In this case, I just make it available for download. Once the data set exists, however, it's really just a matter of imagination.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">void</span> <span class="nf">lnkDownloadShape_LinkClicked</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">LinkLabelLinkClickedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'><span class="p">{&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="c1">//this actually downloads the data and may even fire off Google Earth</span>
-</span><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Link</span><span class="p">.</span><span class="n">LinkData</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}
+private void lnkDownloadShape_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+{</p>
+
+<pre><code>//this actually downloads the data and may even fire off Google Earth
+System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>In a more robust application (meaning not a sample for a blog post), you could put the results into a map or feed them into locally-installed analysis tools for further processing or do just about anything you want that supports your workflow. I've been a fan of the analytical capability of GeoIQ for some time and I hope, whatever the future holds, that these kinds of tools make it into the next generation of products.</p>
 
@@ -262,15 +222,12 @@
 
 <p>On the server, I wrote a four-line batch file to act as a driver for the whole process. This batch file is what is called by a scheduled task in Windows.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">del</span> <span class="p">&lt;</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">xml</span>
-</span><span class='line'><span class="n">del</span> <span class="p">&lt;/</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">pickle</span>
-</span><span class='line'><span class="n">python</span> <span class="n">SmecoFeedObj</span><span class="p">.</span><span class="n">py</span>
-</span><span class='line'><span class="n">python</span> <span class="n">fetchlatest</span><span class="p">.</span><span class="n">py</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:powershell %}
+del <em>.xml
+del </em>.pickle
+python SmecoFeedObj.py
+python fetchlatest.py
+{% endcodeblock %}</p>
 
 <p>As you can see, the batch is very simple. It deletes the old files, scrapes the latest version and writes new files (SmecoFeedObj.py) and then updates the GeoCommons data set (fetchlatest.py).</p>
 

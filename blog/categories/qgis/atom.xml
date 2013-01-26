@@ -4,7 +4,7 @@
   <title><![CDATA[Category: QGIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/qgis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-22T14:55:48-05:00</updated>
+  <updated>2013-01-26T15:36:36-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -90,7 +90,7 @@
 
 <p>Democracy is a wonderful thing, but it will be nice to have this campaign season behind us.</p>
 
-<p><iframe width="560" height="420" src="http://www.youtube.com/embed/K1vaEweJUUk?color=white&theme=light"></iframe></p>
+<p>{% youtube K1vaEweJUUk %}</p>
 ]]></content>
   </entry>
   
@@ -129,8 +129,7 @@
     <id>http://blog.geomusings.com/2012/06/21/qgis-1-8-0-released</id>
     <content type="html"><![CDATA[<p>I caught a tweet by my friend <a href="http://www.paolocorti.net/" target="_blank">Paolo Corti</a> this morning that <a href="http://qgis.org" target="_blank">QGIS</a> 1.8.0 has been released.</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>qgis 1.8.0 "Lisboa" released! <a href="http://t.co/UZWFzy0m" title="http://goo.gl/eSDYo">goo.gl/eSDYo</a></p>&mdash; Paolo Corti (@capooti) <a href="https://twitter.com/capooti/status/215767511990415360" data-datetime="2012-06-21T11:25:58+00:00">June 21, 2012</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/capooti/status/215767511990415360 %}</p>
 
 <p>Upon checking out the full list of new features <a href="http://lists.osgeo.org/pipermail/qgis-developer/2012-June/020685.html" target="_blank">here</a>, a few caught my eye:</p>
 
