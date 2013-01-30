@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-01-27T16:15:32-05:00</updated>
+  <updated>2013-01-30T16:28:10-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Yes, You Need to Code]]></title>
+    <link href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/"/>
+    <updated>2013-01-30T14:26:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/30/yes-you-need-to-code</id>
+    <content type="html"><![CDATA[<p>Over the past year, I&#8217;ve been involved in searching for GIS analysts a number of times. As a result, I&#8217;ve noticed a few patterns:</p>
+
+<ol>
+<li>There are a lot of analysts out there looking for jobs. Every time I run an ad, I get at least 100 resumes from people of various levels of experience and education.</li>
+<li>The vast majority of those that I call to pre-screen have not done any meaningful coding of any kind. This includes Python, which has been shipping with ArcGIS for several versions now.</li>
+<li>Of those that do have some coding experience, many do not show it on their resumes. I find this particularly interesting as I can&#8217;t imagine why a person would choose not to list all relevant skills or experience.</li>
+</ol>
+
+
+<p>I am very publicly on the record that I think some form of coding skill is essential for any GIS analyst entering the workforce today. My reasoning here is fairly straightforward.</p>
+
+<ol>
+<li>The &#8220;IS&#8221; in &#8220;GIS&#8221; stands for &#8220;information system.&#8221; This means &#8220;computers.&#8221; Actually, according to one of my professors in the late &#8217;80s, an information system doesn&#8217;t technically have to involve computers but this is 2013 and even brewing a cup of coffee involves a computer.</li>
+<li>The &#8220;G&#8221; in &#8220;GIS&#8221; stands for &#8220;geography.&#8221; (Don&#8217;t worry, the revelations will keep coming.) Geography is intensely mathematical. I suppose, in the interest of accuracy, I should state that some segments of geography are less mathematical than others but I think it&#8217;s safe to say that the elements of the science that are addressed by GIS involve a lot of math. Take, for instance, coordinate reference systems. That one small but important part of geography can separate the wheat from the chaff quickly.</li>
+<li>Computers use code to do math.</li>
+</ol>
+
+
+<p>Modern GIS software is complicated and comes with a lot of capability by default. Just look at the default UI for ArcMap or QGIS and you&#8217;ll see a lot of tools at your fingertips. In other words, there are a lot of buttons to push. This is fine but I&#8217;d wager that these software tools expose less than 10% of their full capability through their default interfaces.</p>
+
+<!--more-->
+
+
+<p>The reason for that is that there are simply too many use cases in geography to design into a piece of software by default. That is why these tools, and most other GIS software, ship with APIs. (&#8220;Ship&#8221; is a loose concept with open-source but please grant me license.) These APIs expose the full capability of the software so that users may customize it to their needs. That means coding. For both <a href="http://www.esri.com">ArcGIS</a> and <a href="http://qgis.org">QGIS</a>, that can mean Python but there are lots of other choices as well.</p>
+
+<div style="text-align:center;">
+<img src="http://blog.geomusings.com/images/posts/globalmaptiles.png" />
+</div>
+
+
+<br/><br/>
+
+
+<p>If you choose to get by with just using the GUI tools, you are doing yourself two disservices:</p>
+
+<ol>
+<li>You are placing yourself at the mercy of others who can code to get around to building the customizations you need.</li>
+<li>You are allowing your skills to erode by not using a significant amount of capability.</li>
+</ol>
+
+
+<p>So you need to code to some extent. You need to in order to automate complicated tasks you do regularly, or read in data that&#8217;s in some oddball format, or use some capability of your GIS-du-jour that isn&#8217;t exposed out of the box, or to make that web map sing, or for any of a number of other reasons. Luckily, you have a wealth of information at your fingertips. It is called open-source geospatial software. I can already hear the protests: You learned on ArcGIS in school. You are comfortable with ArcGIS and you like it. Fine, keep using it.</p>
+
+<p>But while you&#8217;re using ArcGIS, also check out the source code for open-source libraries like <a href="https://github.com/sgillies/shapely">Shapely</a> or <a href="http://trac.osgeo.org/geos/">GEOS</a> or <a href="http://www.gdal.org/">GDAL</a> or other commonly used (even under the hood of ArcGIS) tools. You learned the math in school. You toughed out these concepts and you understand them. Now look at the compiled knowledge of a lot of smart programmers to see how the concepts are concretely implemented in code. The process will, at a minimum, make you a better ArcGIS user because you&#8217;ll understand what&#8217;s going on under the hood. The truth is, even if ArcGIS isn&#8217;t directly using one of those open-source libraries, it&#8217;s probably using an ESRI-developed implementation of a standard algorithm. It&#8217;s similar enough that you&#8217;ll be able to understand the behavior and that will help you better bind your own customizations to their closed-source API.</p>
+
+<p>I say this because it worked for me. I am a programmer by training and passion. I heard the phrase &#8220;GIS&#8221; once, in passing, during a lecture in college. Yet, my first job was in the GIS field. Needless to say, I had a lot of learning to do. Most of it came at the hands of some very patient geographers. The first tools I was exposed to were the proprietary tools of MapInfo and ESRI (with a smattering of Intergraph). I was able to soak in what the geographers were telling me and bang against those APIs to build some useful tools but the light bulb really came on for me when I began reading the source code of open-source projects. There, laid out before me, was what the software was <em>really</em> doing.</p>
+
+<p>Today, I work with a mixture of open-source and proprietary tools but the majority of my paying work is still in the Esri realm. My exposure to open-source has, however, made me better with it because it has deepened my understanding.</p>
+
+<p>Not everyone can be a professional software developer as it takes a certain mindset to do it all of the time. But, in the GIS market of 2013, everyone needs to have some understanding of some kind of coding, whether <a href="http://python.org/">Python</a> or <a href="http://www.r-project.org/">R</a> or <a href="http://d3js.org/">Javascript</a> or something else.</p>
+
+<p>One other side note: Over the past year, I have also advertised for software developers with results that are opposite of what I see with analysts. There are very few applicants and many that I see have been out of work for a while, have no GIS background and spent a lot of years working with older tools. These are &#8220;blue bird&#8221; applicants hoping to catch on. In short, there is a gulf between the high demand for GIS-literate programmers and the miniscule supply. Having the ability to code, and showing it on your resume, can be what separates you from the pack of 100 other analysts applying for the same position.</p>
+
+<p>So, yes, you need to code.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Checking out the GDAL/OGR Plugin for ArcGIS]]></title>
@@ -473,48 +535,6 @@ enjoy, Sandro
 <p>Once geocoding was complete, I downloaded the CSV and processed it into the JSON structure expected by the marker cluster library. The library is still fairly new, and I am fairly new to using it so I had some problems if I deviated from the sample format. As a result, I stuck to that format and resolved to investigate it more. After that, it was very easy to wire up into a light application, with the clusters thrown on top of some tiles from <a href="http://www.mapbox.com" target="_blank">MapBox</a>. (Thanks to <a href="http://www.geosprocket.com/" target="_blank">Bill Morris</a> for showing me that base map.)</p>
 
 <p>I think I prefer this representation to a heat map as it conveys more information at a glance. I&#8217;m happy to have this library in my toolbox now and am looking forward to seeing it evolve. I recommend checking it out.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
-    <link href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/"/>
-    <updated>2012-08-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api</id>
-    <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we&#8217;ve been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
-
-<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
-
-<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. <!--more--></p>
-
-<p>Since the PIM is really a configuration management system for spatial data models, the tools need to support a wide variety of scenarios, including data migration between platforms, versions, approved user-defined implementations, etc. in a manner that&#8217;s compliant with the data model being managed. As a result, some ETL-like tools are built into the workflows, although ETL is not a primary focus of the PIM.</p>
-
-<p>Since the PIM tools are written in .NET, I built a couple of extension methods to assist with some of the workflows in the existing tools. They enable outbound support for GeoJSON and WKT. The GeoJSON methods work on RowCollection, Row, and ShapeBuffer objects to create FeatureCollection, Feature, and Geometry types respectively. In practice, they&#8217;d be used something like this example from a very simple ASP.NET MVC sample application:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">var</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;/App_Data/mvc_samples.gdb&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">Geodatabase</span> <span class="n">gdb</span> <span class="p">=</span> <span class="n">Geodatabase</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
-</span><span class='line'><span class="n">Table</span> <span class="n">statesTable</span> <span class="p">=</span> <span class="n">gdb</span><span class="p">.</span><span class="n">OpenTable</span><span class="p">(</span><span class="s">&quot;\\us_states&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">RowCollection</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">statesTable</span><span class="p">.</span><span class="n">Search</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="s">&quot;STATE_NAME LIKE &#39;M%&#39;&quot;</span><span class="p">,</span> <span class="n">RowInstance</span><span class="p">.</span><span class="n">Recycle</span><span class="p">);</span>
-</span><span class='line'><span class="kt">var</span> <span class="n">rval</span> <span class="p">=</span> <span class="n">rows</span><span class="p">.</span><span class="n">ToGeoJson</span><span class="p">();</span>
-</span><span class='line'><span class="n">gdb</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
-</span><span class='line'><span class="n">Response</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">&quot;application/json&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Content</span><span class="p">(</span><span class="n">rval</span><span class="p">);</span>
-</span><span class='line'><span class="k">return</span> <span class="n">result</span> <span class="k">as</span> <span class="n">ActionResult</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I&#8217;ll be doing some cleanup on the GeoJSON in the near future and I&#8217;ll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
-
-<p>As I said, I developed these to support workflows in existing applications. If you&#8217;re looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
 ]]></content>
   </entry>
   

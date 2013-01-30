@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="It looks like PostgreSQL Conference, US is putting on a couple of conferences in April. The first, East 2009, is at Drexel University in Philadelphia &hellip;">
+  <meta name="description" content="Alessandro announced on SpatiaLite group today that QGIS 1.1 will include a data provider for SpatiaLite, the spatial extender for SQLite. It&#8217;s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/03/26/spatialite-support-in-qgis/">SpatiaLite Support in QGIS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-26T00:00:00-04:00" pubdate data-updated="true">Mar 26<span>th</span>, 2009</time>
+        
+         | <a href="/2009/03/26/spatialite-support-in-qgis/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Alessandro announced on <a href="http://groups.google.com/group/spatialite-users">SpatiaLite group</a> today that <a href="http://www.qgis.org/">QGIS</a> 1.1 will include a data provider for <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>, the spatial extender for SQLite.</p>
+
+<p>It&#8217;s out there now in the SVN trunk if you&#8217;re so inclined. I am curious how long it will take to cascade through to the <a href="http://wiki.osgeo.org/wiki/OSGeo_Win32_Installer">OSGEO4W</a> build.</p>
+
+<p>If you haven&#8217;t check out SpatiaLite, I highly encourage you to do so. It is powerful and <em>very</em> lightweight.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -444,54 +486,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/12/30/odds-and-ends-spatialite-and-stuff/">Odds and Ends (SpatiaLite and Stuff)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-30T00:00:00-05:00" pubdate data-updated="true">Dec 30<span>th</span>, 2008</time>
-        
-         | <a href="/2008/12/30/odds-and-ends-spatialite-and-stuff/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as well. We established a new presence in Colorado Springs (I&#8217;ll be traveling there at the end of January). Additionally, I&#8217;ve been busy with project work and have recently begun spend part time on a customer site. So, the blog has been squeezed a little.</p>
-
-<p>I am doing more work with <a href="http://www.esri.com/software/arcgis/arcgisserver/">ArcGIS Server 9.3</a> and the Javascript API but probably won&#8217;t have enough to blog about for a few more weeks. Also, at the urging of <a href="http://geopdf.blogspot.com/">Adam Estrada</a>, I have begun dabbling more with <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>. You may remember my post some time ago about integrating <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">SQLite with SharpMap</a>. SpatiaLite is a spatial extension to SQLite and it seems to be very powerful. I am currently re-working my previous code so that I&#8217;ll have a SpatiaLite provider for <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. With the use of the <a href="http://sqlite.phxsoftware.com/">SQLite OLEDB provider</a>, this has gone fairly smoothly.</p>
-
-<p>The thing I really like about it is the portability. You can basically drop a couple of DLLs and go. Additionally, SpatiaLite has strong support for many spatial operations so it can be a fairly robust analysis back-end. These two attributes raise a lot of possibilities for mobile applications. I have done some mobile development work with <a href="http://postgis.refractions.net/">PostGIS</a> (okay, the platforms were fairly heavy but they were in vehicles that rolled around) and it worked well but SpatiaLite might ease some of those &#8220;in the field&#8221; workflows, especially the delivery of relevant basemap information.</p>
-
-<p>With regard to SharpMap, it looks like SpatiaLite provider is under way for 2.0. I am doing my own for 0.9 because it helps me get more comfortable with SpatiaLite. Once I am finished, I&#8217;ll be happy to share my code but you may want to take a look at what&#8217;s being implemented with 2.0. It&#8217;s fairly elegant.</p>
-
-<p>Also of interest, the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Users Google Group</a>.</p>
-
-<p>Update: the code for SharpMap 2.0 is currently located <a href="http://code.google.com/p/sharpmapv2/">here</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/19/">&larr; Older</a>
@@ -522,15 +516,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/01/30/yes-you-need-to-code/">Yes, You Need to Code</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis/">Checking out the GDAL/OGR Plugin for ArcGIS</a>
       </li>
     
       <li class="post">
         <a href="/2013/01/14/js-dot-geo-day-one/">js.geo Day One</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/01/09/comment-period-open-for-geopackage-specification-draft/">Comment Period Open for GeoPackage Specification Draft</a>
       </li>
     
   </ul>
