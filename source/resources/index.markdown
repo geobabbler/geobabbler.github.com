@@ -20,8 +20,8 @@ These are links to some resources I commonly use. Many are referenced elsewhere 
 
 <strong>PostgreSQL/PostGIS:</strong><br/>
 <a href="http://www.postgresql.org/">PostgreSQL</a> - Powerful open-source RDBMS<br/>
-<a href="http://postgis.refractions.net">PostGIS</a> - Spatial data support for PostgreSQL<br/>
-<a href="http://www.manning.com/obe/">PostGIS In Action</a> - A great book about PostGIS
+<a href="http://postgis.net">PostGIS</a> - Spatial data support for PostgreSQL<br/>
+<a href="http://www.postgis.us">PostGIS In Action</a> - A great book about PostGIS
 
 <strong>ESRI Stuff:</strong><br/>
 <a href="http://resources.esri.com">ESRI Resource Center (9.x)</a><br/>
