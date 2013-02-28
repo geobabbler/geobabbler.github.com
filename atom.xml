@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-02-13T06:50:29-05:00</updated>
+  <updated>2013-02-28T06:40:24-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Arc2Earth: Choose Your 'Cloud']]></title>
+    <link href="http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud/"/>
+    <updated>2013-02-28T06:22:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud</id>
+    <content type="html"><![CDATA[<p>For various reasons, I can&#8217;t attend today&#8217;s inaugural <a href="http://fedgeoday.com/">FedGeoDay</a> at the Woolly Mammoth Theatre in Washington, DC, though I&#8217;ll be watching the hashtag with great interest. Jack Flood of <a href="http://www.arc2earth.com/">Arc2Earth</a>, however, has already posted his slides to SlideShare:</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16811994" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/jflood3/fedgeodays-022013" title="Fedgeodays 022013" target="_blank">Fedgeodays 022013</a> </strong> from <strong><a href="http://www.slideshare.net/jflood3" target="_blank">Jack Flood</a></strong> </div></p>
+
+<!--more-->
+
+
+<p>While neither <a href="http://www.esri.com">ArcMap</a> nor Arc2Earth are open-source themselves, Jack points out that Arc2Earth acts as a bridge between ArcMap and several geospatial hosting platforms that are built on open-source technology but, also just as important, are successful at making data more openly available. These platforms include <a href="http://cartodb.com/">CartoDB</a> and <a href="http://mapbox.com/">MapBox</a>, among many others.</p>
+
+<p>Many people use, and prerfer, ArcMap has their desktop cartography and analysis tool. I view Arc2Earth as an enabling technology that allows users to continue to be productive with ArcMap while also allowing them to retain control of they direct their GIS investments in terms of publishing and hosting their maps and data.</p>
+
+<p>Disclaimer: <a href="http://www.zekiah.com">My company</a> is an Arc2Earth reseller.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Yes, You Need to Code]]></title>
@@ -515,26 +538,6 @@ enjoy, Sandro
 <p>For those with a mind for such things, the top tag was &#8220;arcgis&#8221; with 1659 occurrences and the 100th tag was &#8220;export&#8221; with 58. The StackExchange API lets you get a max of 100 tags at a time so I stopped at 100 for two reasons: 1) There was a significant dropoff from 1 to 100 and I didn&#8217;t think the next 100 would add much and 2) I had to assign categories by hand and 100 was as much as I had patience for. The data was downloaded on 13 September 2012 and will quickly become stale. The data that I used <a href="http://dl.dropbox.com/u/6749645/posts/gis_stackexchange.zip">can be downloaded here</a>.</p>
 
 <p>It looks like my server is online again, so back to work&#8230;</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mapping GISPs Again With Leaflet.markercluster]]></title>
-    <link href="http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster/"/>
-    <updated>2012-08-31T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster</id>
-    <content type="html"><![CDATA[<p>So I&#8217;ve been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It&#8217;s become my lightweight mapping library of choice. There&#8217;s a lot it doesn&#8217;t do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
-
-<div style="text-align:center;"><a href="http://blog.geomusings.com/assets/demos/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a><div style="text-align:center;font-size: 14px;">Click the image to go to the live demo<br/><br/></div></div>
-
-
-<p>A while back, I stumbled onto the <a href="https://github.com/danzel/Leaflet.markercluster" target="_blank">Leaflet.markercluster</a> project on GitHub, which adds a clustering layer type. I wanted to try it so I revisited my old <a href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/" target="_blank">GISP heat map demo</a> (Silverlight) and decided to rework it. I was happy to finally get a chance to strip out the plug-in, anyway.  <!--more--></p>
-
-<p>This time around, I chose not to bother with the PMP data because it was kind of a pain to process the last time. I downloaded the GISP data from the <a href="http://www.gisci.org/secure/members/directory/results.asp" target="_blank">GISCI site</a> and once again ran it through <a href="http://www.geocommons.com" target="_blank">GeoCommons</a> to geocode it. This time, there were noticeable anomalies, such as positional accuracy problems (Richmond, VA was 25 miles east of where it should have been) and surprising omissions such as a failure to match major cities like Jacksonville, Florida and Phoenix, Arizona. I corrected some of the more egregious problems by hand and dumped the rest. Luckily none of this got in the way of the real goal of testing the clustering library but, if you visit the <a href="http://demo.zekiah.com/clustermap" target="_blank">live demo</a>, any anomalies you may notice are most likely related to the data and not the library.</p>
-
-<p>Once geocoding was complete, I downloaded the CSV and processed it into the JSON structure expected by the marker cluster library. The library is still fairly new, and I am fairly new to using it so I had some problems if I deviated from the sample format. As a result, I stuck to that format and resolved to investigate it more. After that, it was very easy to wire up into a light application, with the clusters thrown on top of some tiles from <a href="http://www.mapbox.com" target="_blank">MapBox</a>. (Thanks to <a href="http://www.geosprocket.com/" target="_blank">Bill Morris</a> for showing me that base map.)</p>
-
-<p>I think I prefer this representation to a heat map as it conveys more information at a glance. I&#8217;m happy to have this library in my toolbox now and am looking forward to seeing it evolve. I recommend checking it out.</p>
 ]]></content>
   </entry>
   
