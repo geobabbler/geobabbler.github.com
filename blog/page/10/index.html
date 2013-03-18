@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I read Learon Dalby&#8217;s latest GISuser.com expert column (disclosure: I am a contributor there also) with great interest since it addresses an &hellip;">
+  <meta name="description" content="I find myself pointing people to GeoCommons for data more often these days. With over 50,000 data sets, there&#8217;s a lot there. The people I work &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/04/07/working-with-the-geoiq-features-api/">Working With the GeoIQ Features API</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-07T00:00:00-04:00" pubdate data-updated="true">Apr 7<span>th</span>, 2011</time>
+        
+         | <a href="/2011/04/07/working-with-the-geoiq-features-api/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I find myself pointing people to GeoCommons for data more often these days. With over <a href="http://blog.geoiq.com/2011/02/28/50000-unique-datasets-on-geocommons-woot/">50,000 data sets</a>, there&#8217;s a lot there. The people I work with seem to usually be able to find data of value there so I&#8217;ve been putting a little time into <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">making it easier</a> to get data from GeoCommons. As I&#8217;ve mentioned before, many of them are long-standing ESRI users. While they are becoming more aware of alternate tools and data sources, it is still important for them to be able to get data into the ESRI environment where their custom tools reside.</p>
+
+<p>Given the content of my recent posts, it?s no secret that my recent project work has involved the ESRI Silverlight API so I decided extend it to more easily access data from GeoCommons.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2011/04/dogs_and_cats.png"><img alt="" class="aligncenter size-full wp-image-1670" height="281" src="http://geobabble.files.wordpress.com/2011/04/dogs_and_cats.png" title="Dogs and cats living together" width="500" /></a></p>
+
+<p>Recently, <a href="http://www.geoiq.com">GeoIQ</a> pubished an update to their RESTful API that includes a &#8221;<a href="http://developer.geoiq.com/api/rest-api/#Features-API">Features API</a>,&#8221; which gives you a little more direct access to the features in a GeoIQ data set (GeoIQ is the platform upon which GeoCommons is built). Previously, if I needed to access data from GeoCommons in the ESRI Silverlight API, I would just access it as KML using the native <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client.Toolkit.DataSources~ESRI.ArcGIS.Client.Toolkit.DataSources.KmlLayer.html">KmlLayer class</a>. The GeoIQ Features API, however, offers more fine-grained control over how much data we return in the form of various query parameters. Currently, the API only returns JSON (GeoIQ&#8217;s own syntax or GeoJSON) so it was time to do something different.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2011/04/07/working-with-the-geoiq-features-api/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -470,56 +519,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/01/13/looking-for-something-to-do-in-march-april/">Looking for Something to Do in March April?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-13T00:00:00-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2011</time>
-        
-         | <a href="/2011/01/13/looking-for-something-to-do-in-march-april/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The second annual <a href="http://www.somdgc.org/Homepage.aspx">Southern Maryland GiveCamp</a> will be held on <del datetime="2011-01-23T00:42:57+00:00">March 25</del> April 1, 2011. Once again, it will occur on the campus of <a href="http://www.smcm.edu/">St. Mary&#8217;s College of Maryland</a>. One of a number of GiveCamps that occur around the country, this one will <a href="http://www.somdgc.org/NonProfits/GiveCamp_2011.aspx">benefit several non-profits</a> of all stripes in the Southern Maryland area.</p>
-
-<p><img alt="Maryland's original State House in St. Mary's City" src="http://www.smcm.edu/studentevents/_assets/images/state_house_lawn.jpg" /></p>
-
-<p>The concept behind GiveCamp is simple and elegant: &#8220;GiveCamp is a weekend-long event where software developers, designers, and database administrators donate their time to create custom software for non-profit organizations.&#8221;</p>
-
-<p>Last year&#8217;s event drew volunteers from up and down the East Coast. The organizers are still looking for volunteers for this year&#8217;s event. As a lifelong resident of Southern Maryland, I&#8217;d like to encourage my colleagues in the software development community, especially in the greater DC area, to consider coming down in March to <a href="http://somdgc.org/Volunteers.aspx">lend a hand</a>.</p>
-
-<p>Having spoken to a few people that participated last year, I understand that requirements ranged from simple to rather challenging. Regardless of the complexity of a requirement to those of us who develop software professionally, the value of a working web site or database or other such thing to a small organization with limited resources cannot be overstated.</p>
-
-<p>And if Southern Maryland is a bit far for you but you like the concept, there <a href="http://somdgc.org/AboutUs/WhoWeAre/OtherGiveCamps.aspx">may be a GiveCamp in your area</a>.</p>
-
-<p>Thanks to <a href="http://somdgc.org/AboutUs/WhoWeAre/PlanningCommittee.aspx">Jim Pendarvis and the rest of the planning committee</a> for putting this together.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -568,15 +567,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/03/18/off-to-tugis/">Off to TUGIS</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/">A #LazyWeb Compendium of Python Resources for Beginners</a>
       </li>
     
       <li class="post">
         <a href="/2013/02/28/arc2earth-choose-your-cloud/">Arc2Earth: Choose Your &#8216;Cloud&#8217;</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/01/30/yes-you-need-to-code/">Yes, You Need to Code</a>
       </li>
     
   </ul>

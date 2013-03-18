@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-03-18T05:06:52-04:00</updated>
+  <updated>2013-03-18T13:37:51-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Off to TUGIS]]></title>
+    <link href="http://blog.geomusings.com/2013/03/18/off-to-tugis/"/>
+    <updated>2013-03-18T12:40:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/18/off-to-tugis</id>
+    <content type="html"><![CDATA[<p>Tomorrow, I&#8217;ll be heading up to the <a href="http://www.towson.edu/tugis/">Towson University GIS (TUGIS) conference</a> with 500 or so of my closest Maryland geo-friends. It has been restructured into a one-day event and the program seems to be very content-rich as a result. I am particularly happy to see more open-source content this year. There&#8217;s an intro session featuring <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.postgis.org">PostGIS</a>, <a href="http://qgis.org">QGIS</a>, and <a href="http://geoserver.org">GeoServer</a> presented by <a href="http://www.salisbury.edu/">Salisbury State University</a>. Salisbury was once known as a bastion of <a href="http://www.manifold.net/">Manifold</a> so they&#8217;ve got a long history of thinking outside the Arc. Additionally, there is a session (by Towson University) discussing the use of <a href="http://www.gdal.org">GDAL</a>, <a href="http://www.gdal.org/ogr/">OGR</a>, and <a href="https://github.com/sgillies/shapely">Shapely</a> in the development of a spatial service.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/mdflag.png" alt="Brian Timoney's favorite state flag" title="Brian Timoney's favorite state flag" /></p>
+
+<p>One thing I like about regional GIS conferences like this is that they tend to focus more on solutions to real-world problems instead of the latest technological bells and whistles. I spend so much of my time with my head in Federal requirements that it&#8217;s nice do a reset and get different perspectives on how geospatial technologies are used. I am particulary interested to hear the keynote from <a href="http://twitter.com/learondalby">Learon Dalby</a> of <a href="http://www.sanborn.com/">Sanborn</a> and formerly of the <a href="http://www.gis.state.ar.us/">Arkansas GIO office</a>. I had the pleasure of working with Learon and the AGIO team on a project a couple of years ago and am impressed with what they accomplished.</p>
+
+<p>I appreciate the new format of TUGIS as a one-day event is much easier to fit into the schedule. I&#8217;m looking forward to it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A #LazyWeb Compendium of Python Resources for Beginners]]></title>
@@ -531,27 +546,6 @@ enjoy, Sandro
 <p>Why would you do this? It is certainly possible to build great cartographic representations in ArcGIS but those representations are locked away in ArcGIS map documents, styles, layer packages and such; all of which are some proprietary binary format such as persisted COM objects. While this may not be the worst thing in the world, CartoCSS, being a text format, more easily lends itself to configuration control. Organizations that want to maintain configuration control over map templates and such can take advantage of standard tools such as git or SVN to do so. I have found that organizations with strict IT policies are also exactly the same kinds of organizations that to maintain control over content and styling so this is actually a surprisingly important factor.</p>
 
 <p>I&#8217;ll probably play with this more as time and customer demand allow, but it&#8217;s good to know this option is available for providing flexibility with ArcGIS Server.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Still Jonesing for zigGIS? Try this OGR Plug-In for ArcGIS.]]></title>
-    <link href="http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis/"/>
-    <updated>2012-09-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis</id>
-    <content type="html"><![CDATA[<p>So I&#8217;ve actually noticed a surprising uptick in traffic related to <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> lately? We also had someone asking about <a href="http://www.st-links.com/Pages/default.aspx" target="_blank">ST-Links</a> on the zigGIS mailing list last week. Clearly, there&#8217;s still a level of interest out there for the problem that zigGIS was designed for.</p>
-
-<p><a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank"><img alt="ArcGIS and SpatiaLite" height="65%" src="https://a248.e.akamai.net/camo.github.com/c1c86347c63522cb0f5f449b7b9df4209923c3ed/687474703a2f2f692e696d6775722e636f6d2f53767a6a702e706e67" width="65%" /></a></p>
-
-<div style="font-size: 70%;"><strong>ArcGIS reading SpatiaLite natively, thanks to OGR and Ragi Burhum</strong></div>
-
-
-<br />
-
-
-<p>Along those lines, <a href="http://twitter.com/rburhum" target="_blank">Ragi Burhum</a> posted an <a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank">OGR Workspace plug-in for ArcGIS</a> up on GitHub. Using OGR is really the magic ticket and the project is available under a BSD license (which Ragi explains very well). The only word to the wise is that pre-built binaries and installers aren&#8217;t available yet so you Windows/<a href="http://www.esri.com" target="_blank">ArcGIS</a> users will need to get your hands dirty.</p>
-
-<p>I haven&#8217;t used it yet but I plan to within the next week or so. Stay tuned for a follow up post.</p>
 ]]></content>
   </entry>
   
