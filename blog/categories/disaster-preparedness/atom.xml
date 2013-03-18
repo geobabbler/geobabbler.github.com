@@ -4,7 +4,7 @@
   <title><![CDATA[Category: disaster preparedness | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/disaster-preparedness/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-03-17T21:45:06-04:00</updated>
+  <updated>2013-03-18T05:06:52-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -42,49 +42,91 @@
 
 <p>As promised, here's the Python code should anyone find it useful:</p>
 
-<p>{% codeblock lang:python %}
-from BeautifulSoup import BeautifulSoup
-import re
-import urllib2
-from PyRSS2Gen import RSSItem, Guid
-import ScrapeNFeed</p>
-
-<p>class SmecoFeed(ScrapeNFeed.ScrapedFeed):</p>
-
-<pre><code>    def HTML2RSS(self, headers, body):
-            soup = BeautifulSoup(body)
-            table = soup.findAll('table')[3]
-            rows = table.findAll('tr')
-            items = []
-            for index in range(len(rows) - 1):
-                    row = rows[index]
-                    cols = row.findAll('td')
-                    if len(cols) &amp;gt; 0:
-                        zip = cols[0].string
-                        zip = zip.replace('&amp;amp;nbsp;', '')
-                        tot = cols[1].string
-                        tot = tot.replace('&amp;amp;nbsp;', '')
-                        #This link is not real. It will simply take you to the homepage.
-                        lnk = 'http://www.smeco.coop#' + zip
-                        items.append(RSSItem(title=zip,description=tot,link=lnk))
-                        #print zip
-                        #print tot
-                        #cols = row.findAll('td')
-                        #for col in cols:
-                        #    print col.string
-            self.addRSSItems(items)
-</code></pre>
-
-<p>SmecoFeed.load("Current SMECO outages (as scraped by Zekiah Technologies)",</p>
-
-<pre><code>             'http://outage.smeco.coop',
-             "Current SMECO power outages by ZIP code",
-             'smeco_outage.xml', 
-     'smeco_outage.pickle',
-             managingEditor='bill@zekiah.com (Bill Dollins)')
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyRSS2Gen</span> <span class="kn">import</span> <span class="n">RSSItem</span><span class="p">,</span> <span class="n">Guid</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">ScrapeNFeed</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nc">SmecoFeed</span><span class="p">(</span><span class="n">ScrapeNFeed</span><span class="o">.</span><span class="n">ScrapedFeed</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="k">def</span> <span class="nf">HTML2RSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+</span><span class='line'>            <span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class='line'>            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span><span class='line'>                    <span class="n">row</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</span><span class='line'>                    <span class="n">cols</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)</span>
+</span><span class='line'>                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
+</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="nb">zip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
+</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span><span class='line'>                        <span class="c">#This link is not real. It will simply take you to the homepage.</span>
+</span><span class='line'>                        <span class="n">lnk</span> <span class="o">=</span> <span class="s">&#39;http://www.smeco.coop#&#39;</span> <span class="o">+</span> <span class="nb">zip</span>
+</span><span class='line'>                        <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RSSItem</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">zip</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="n">tot</span><span class="p">,</span><span class="n">link</span><span class="o">=</span><span class="n">lnk</span><span class="p">))</span>
+</span><span class='line'>                        <span class="c">#print zip</span>
+</span><span class='line'>                        <span class="c">#print tot</span>
+</span><span class='line'>                        <span class="c">#cols = row.findAll(&#39;td&#39;)</span>
+</span><span class='line'>                        <span class="c">#for col in cols:</span>
+</span><span class='line'>                        <span class="c">#    print col.string</span>
+</span><span class='line'>            <span class="bp">self</span><span class="o">.</span><span class="n">addRSSItems</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">SmecoFeed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;Current SMECO outages (as scraped by Zekiah Technologies)&quot;</span><span class="p">,</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>             <span class="s">&#39;http://outage.smeco.coop&#39;</span><span class="p">,</span>
+</span><span class='line'>             <span class="s">&quot;Current SMECO power outages by ZIP code&quot;</span><span class="p">,</span>
+</span><span class='line'>             <span class="s">&#39;smeco_outage.xml&#39;</span><span class="p">,</span>
+</span><span class='line'>     <span class="s">&#39;smeco_outage.pickle&#39;</span><span class="p">,</span>
+</span><span class='line'>             <span class="n">managingEditor</span><span class="o">=</span><span class="s">&#39;bill@zekiah.com (Bill Dollins)&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   
