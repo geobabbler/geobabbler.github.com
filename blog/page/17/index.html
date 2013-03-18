@@ -9,7 +9,8 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I got this announcement in my inbox today regarding gvSIG, an open-source GIS desktop currently in the OSGEO incubator. If you are a gvSIG user, the &hellip;">
+  <meta name="description" content="Alessandro made two announcements today. First SpatiaLite 2.3.1 has been released. Changes include: * including SQLite v.3.6.16
+* including GEOS.3 1. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +69,93 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/07/06/spatiallite-231-and-rasterlite-10-released/">SpatialLite 2.3.1 and RasterLite 1.0 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-06T00:00:00-04:00" pubdate data-updated="true">Jul 6<span>th</span>, 2009</time>
+        
+         | <a href="/2009/07/06/spatiallite-231-and-rasterlite-10-released/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Alessandro made two announcements today. First SpatiaLite 2.3.1 has been released. Changes include:</p>
+
+<blockquote>
+* including SQLite v.3.6.16
+* including GEOS.3 1.1
+* added SQL version functions: spatialite_version(),
+  proj4_version(), geos_version()
+* added SQL functions: IsTiffBlob(), IsWaveletBlob()
+  [RasterLite compatibility]
+* now supporting the &#8216;F&#8217; (float) datatype for DBF
+  [while reading some Shapefile]
+
+bug fixes:
+
+* fixed a stupid initialization bug disabling MbrCache
+* fixed a stupid initialization bug disabling VirtualFDO
+* fixed some EXIF and EXIF-GPS inconsistencies
+* fixed incorrect SRID handling for PointN(), GeometryN() ..
+* fixed a nasty error [causing a crash] while parsing
+  degenerated WKT geometries (single-vertex LINESTRING &#8230;)
+* fixed some ./configure oddities
+  [&#8211;with-proj-include, &#8211;with-geos-include]
+* and many others &#8230;
+</blockquote>
+
+
+<p>Also from Alessandro, RasterLite 1.0:</p>
+
+<blockquote>
+today I released RasterLite, a really simple SpatiaLite-based C API [and related command-line management tools] supporting Raster Data Sources in a SpatiaLite DB.
+
+RasterLite implements TILING and multi-level PYRAMIDS, and take full profit from RTree-based Spatial Indexing.
+
+Individual tiles can be stored at your choice as:
+TIFF     [supporting monochrome CCITT FAX-4 compression]
+PNG      [loseless compression]
+GIF      [loseless compression]
+JPEG     [lossy compression]
+WAVELET  [lossy compression]
+
+As from my preliminary testings, RasterLite is able to handle really huge Raster Data Sources [several GB-sized] in a really efficient and painless way.
+
+You can find a tutorial explaining in depth how to use the following popular publicly available satellite imagery and DEMs:
+- TrueMarble 250m/pixel world coverage
+- ETOPO5 wold coverage
+- SRTM 90m/pixel world coverage
+</blockquote>
+
+
+<p>Information on both can be found at the <a href="http://www.gaia-gis.it/spatialite">SpatiaLite web site</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -490,47 +578,6 @@ enhanced GUI-tool:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/04/01/april-fool-ancient-gis-discovered/">April Fool - Ancient GIS Discovered</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-04-01T00:00:00-04:00" pubdate data-updated="true">Apr 1<span>st</span>, 2009</time>
-        
-         | <a href="/2009/04/01/april-fool-ancient-gis-discovered/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Researchers working at the base of Mount Ararat in Eastern Turkey have discovered the remnants of what appears to an ancient map-based navigation system that is being called the &#8220;world&#8217;s first GIS.&#8221; The presence of the artifact, which has been dubbed &#8220;ArkMap&#8221;, at the base of mountain is seen as further evidence that Ararat was indeed the resting place of Noah&#8217;s Biblical ark.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2009/04/01/april-fool-ancient-gis-discovered/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -579,15 +626,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/">A #LazyWeb Compendium of Python Resources for Beginners</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/02/28/arc2earth-choose-your-cloud/">Arc2Earth: Choose Your &#8216;Cloud&#8217;</a>
       </li>
     
       <li class="post">
         <a href="/2013/01/30/yes-you-need-to-code/">Yes, You Need to Code</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis/">Checking out the GDAL/OGR Plugin for ArcGIS</a>
       </li>
     
   </ul>
@@ -616,6 +663,10 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   This weblog does not represent the thoughts, intentions, plans or strategies of my employer. It is solely my opinion and probably incorrect.
   </p>
 </section>
+<section>
+<img src="/images/geomusings.png" width="64" height="64" alt="View my Twitter profile">
+</section>
+
 
   
 </aside>

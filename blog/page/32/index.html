@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I was tinkering with AGX today, mainly trying to get comfortable with the API. As I was playing with it, this thought crept into my head: Why isn&# &hellip;">
+  <meta name="description" content="Update to this post: Another post about zigGIS. I didn&#8217;t really intend this blog to be so dominated by zigGIS but that&#8217;s certainly the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,96 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2006/12/29/ziggis-and-spatial-references-part-2/">zigGIS and Spatial References, Part 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-12-29T00:00:00-05:00" pubdate data-updated="true">Dec 29<span>th</span>, 2006</time>
+        
+         | <a href="/2006/12/29/ziggis-and-spatial-references-part-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Update to <a href="http://geobabble.wordpress.com/2006/12/21/ziggis-and-spatial-references/">this post</a>:</p>
+
+<p>Another post about zigGIS. I didn&#8217;t really intend this blog to be so dominated by zigGIS but that&#8217;s certainly the way it&#8217;s been thus far. Basically, it&#8217;s just really cool and it satisfies my geek nature on a couple of fronts.</p>
+
+<p>After posting about the spatial reference issue before, I couldn&#8217;t resist digging into it. I found a placeholder in the implementation of IFeatureClass.  Abe G. had even left a comment there that he needed to go back and implement it. So I dove in&#8230;</p>
+
+<p>In the IFeatureClass implementation of CPostGisFeatureClass the SpatialReference property was stubbed out to always return and UnknownCoordinateSystem object. The feature class wraps a CLayer object (among others). This is the object I needed to use to get the spatial reference. The loadLayer method of CLayer (in the postgis_connector project) contained the following code:</p>
+
+<pre>
+<span class="kwrd">string</span> sql = CDbHelper.createSelectSql
+(CPostGisConstants.geometryColumnsTable + <span class="str">" as g"</span>,
+<span class="str">"g.*,g.oid,s."</span> + CPostGisConstants.spatialReferenceSrField,
+<span class="str">"left join "</span> + CPostGisConstants.spatialReferenceTable + 
+<span class="str">" as s on g."</span> +
+CPostGisConstants.spatialReferenceIdField + <span class="str">"=s."</span> +
+CPostGisConstants.spatialReferenceIdField,
+<span class="kwrd">where</span>);
+</pre>
+
+
+<p>This code queries the geometry_columns table for all of the metadata I need. So I added the following code to the CLayer class:</p>
+
+<pre>
+<span class="kwrd">private</span> <span class="kwrd">int</span> m_srid = -1;
+<span class="kwrd">public</span> <span class="kwrd">int</span> srid { get { <span class="kwrd">return</span> m_srid; } }
+</pre>
+
+
+<p>I then added this code to the loadLayer method&#8230;</p>
+
+<pre>
+m_srid = (<span class="kwrd">int</span>)((Int32)dr[<span class="str">"srid"</span>]);
+</pre>
+
+
+<p>&#8230;in order to expose the srid for the layer. The variable dr refers to an instance of the CAutoDataReader class defined in the postgis_connector project.</p>
+
+<p>Finally, i added the following code to the init method of the CPostGisFeatureClass class in the postgis_geodatabase project:</p>
+
+<pre>
+<span class="kwrd">if</span> (m_layer.srid != -1)
+{
+    ISpatialReferenceFactory2 srfact = <span class="kwrd">new</span> SpatialReferenceEnvironmentClass();
+    m_spaRef = srfact.CreateSpatialReference(m_layer.srid);
+}
+</pre>
+
+
+<p>With that, the layer properties dialog in ArcMap correctly reports my spatial reference and the geometry that once failed to draw now works fine. I&#8217;ve got some more clean-up to do to the code to add some error-handling and the like. I&#8217;m sure it wouldn&#8217;t take much to crash it right now.</p>
+
+<p>I think the thing I like about zigGIS is that it&#8217;s got something for everyone. ArcObjects geeks will appreciate the implementation of feature classes, cursors and the like. .NET geeks will appreciate nuggets like the CAutoDataReader class which is an implementation of the IDataReader interface. All in all, it&#8217;s a nice piece of work that I find more to like about as I dig deeper.</p>
+
+<p>As I mentioned before, the project has a new home in Google Code and the discussion forum is getting a little more active so maybe zigGIS will gain a little more momentum. That&#8217;s all for now&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -393,15 +483,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/">A #LazyWeb Compendium of Python Resources for Beginners</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/02/28/arc2earth-choose-your-cloud/">Arc2Earth: Choose Your &#8216;Cloud&#8217;</a>
       </li>
     
       <li class="post">
         <a href="/2013/01/30/yes-you-need-to-code/">Yes, You Need to Code</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis/">Checking out the GDAL/OGR Plugin for ArcGIS</a>
       </li>
     
   </ul>
@@ -430,6 +520,10 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   This weblog does not represent the thoughts, intentions, plans or strategies of my employer. It is solely my opinion and probably incorrect.
   </p>
 </section>
+<section>
+<img src="/images/geomusings.png" width="64" height="64" alt="View my Twitter profile">
+</section>
+
 
   
 </aside>

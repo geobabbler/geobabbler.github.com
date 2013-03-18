@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OpenLayers | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/openlayers/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-02-28T07:05:56-05:00</updated>
+  <updated>2013-03-17T21:45:06-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -130,9 +130,9 @@
 
 <p>On each successive pass, I increased the number of polygons and the client side slowed down down accordingly. Somewhere around 300 polygons, it ground to a halt. I put an alert box in before this call in the client-side javascript:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">vector_layer</span><span class="p">.</span><span class="nx">addFeatures</span><span class="p">(</span><span class="nx">geojson_format</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">gj</span><span class="p">));</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:js %}
+vector_layer.addFeatures(geojson_format.read(gj));
+{% endcodeblock %}</p>
 
 <p>That alert always displays very quickly so there seems to be something inefficient about the geojson_format.read call. <del datetime="00">I?d dig into that more but I upgraded to FireFox 3, which has my FireBug broken (grrrrr).</del> I?ll look into that more later (I have the additional problem of being javascript-challenged). Anyway, OpenLayers was more of a visualization tool for the SharpMap effort so I?m less concerned with that issue at the moment.</p>
 

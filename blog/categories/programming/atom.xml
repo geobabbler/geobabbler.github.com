@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: programming | geoMusings]]></title>
+  <title><![CDATA[Category: Programming | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-02-28T07:05:56-05:00</updated>
+  <updated>2013-03-17T21:45:06-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,315 +14,37 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Mowers and Maps]]></title>
-    <link href="http://blog.geomusings.com/2012/08/18/mowers-and-maps/"/>
-    <updated>2012-08-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/18/mowers-and-maps</id>
-    <content type="html"><![CDATA[<p>I was mowing the lawn today and trimming with the push mower pictured below. If it looks old, that's because it is. I first acquired it in 1978 when it was given to me by neighbors that were moving to an apartment near the city, meaning they no longer needed it. It still starts on the third pull and I've used it every summer since it was given to me.</p>
+    <title type="html"><![CDATA[A #LazyWeb Compendium of Python Resources for Beginners]]></title>
+    <link href="http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/"/>
+    <updated>2013-03-17T15:19:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners</id>
+    <content type="html"><![CDATA[<p>A friend who is in the midst of a career change and moving into the GIS world asked me for some pointers to resources for getting started with Python. I threw the question out to Twitter (with a similar variation also posted to Google+):</p>
 
-<p><img alt="" class="aligncenter size-full wp-image-2823" height="360" src="http://geobabble.files.wordpress.com/2012/08/mower.jpeg" title="They don&#039;t make them like this anymore" width="640" /></p>
+<p>{% tweet http://twitter.com/billdollins/status/313263420923338753 %}</p>
 
-<p>As I was mowing, I thought about how old the mower is and how it came to be in my possession. This led me to think about the origin of my fascination with maps. What does one have to do with the other? Allow me to explain.</p>
-
-<p>As you can imagine, I was fairly young when the lawn mower was given to me. I had gotten to know the neighbors up the street by playing with their son. One day, I noticed a large shelf of identical, leather-bound books taking up the entire back wall of a room. I asked what they were and they invited me to browse them. It turned out that my neighbor was the son of a long-time chair of the National Geographic Society. These books were actually bound collections, by year, of every issue of National Geographic from the first issue on.</p>
-
-<p>Over time, I would spend hours poring through these volumes, fascinated by the world as it was documented by National Geographic from 1888 forward. I did not get to read every issue but I was especially drawn to the maps when they were present. I realize now that my identity as a "map nerd" took root there.</p>
-
-<p>Coincidentally, 1978 was the year I first started programming. Those two experiences turned out to be major influences on who I became.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GeoIQ API Wrappers for .Net]]></title>
-    <link href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/"/>
-    <updated>2012-06-11T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net</id>
-    <content type="html"><![CDATA[<p>A while back, I built a small <a href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/" target="_blank">interface between GeoIQ/GeoCommons and ArcGIS Desktop</a>. From there, it became more of a full-fledged <a href="http://developer.geoiq.com/tools/arcgis-toolbar/" target="_blank">toolbar for ArcGIS</a>. During that effort, I began developing some .Net classes to wrap the <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">GeoIQ RESTful API</a>. As we progressed with the toolbar, my colleague <a href="http://www.hugoestrada.net/" target="_blank">Hugo Estrada</a> also contributed to the library.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2676" height="145" src="http://geobabble.files.wordpress.com/2012/06/geoiq_dotnet2.png" title="GeoIQ + .Net" width="640" /></p>
-
-<p>The original intent was to wrap the entire API but it turns out that we were undertaking this in the middle of GeoIQ's upgrade to version 2.0. In the intervening time, we got some projects implementing the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform for end users (such as the <a href="http://blog.geoiq.com/2012/04/27/visualizing-our-changing-climate-with-climascope/" target="_blank">Climascope portal</a> that Andrew Turner recently blogged about). <!--more--></p>
-
-<p>While all of this was going on, I would occasionally blog about some of the work we were doing and, thanks to various search engines, I've gotten a few inquiries about interfacing with GeoIQ within .Net applications. Apparently, GeoIQ has also had a few such inquiries.</p>
-
-<p>Because of this interest, I have decided to post the wrapper library as it currently stands to GitHub. It can be found here: <a href="https://github.com/geobabbler/GeoIQ4Net">https://github.com/geobabbler/GeoIQ4Net</a></p>
-
-<p>It is very much a work in progress. We have been able to extend it on a project-by-project basis to touch those parts of the API that we have needed to use. For example, you may notice that the wrapper for the GeoIQ Maps API is a little thin. It implements only what we needed to use during a project time crunch. You may also notice the lack of docs. Those will be coming soon, I promise.</p>
-
-<p>We have successfully used this library to develop desktop tools, command-line tools, <a href="http://www.silverlight.net/" target="_blank">Silverlight</a> applications and ASP.NET applications (old ASP.NET forms as well as MVC). Additionally, I have successfully compiled the library on Linux using <a href="http://www.mono-project.com/Main_Page" target="_blank">Mono</a> with no modifications. Most of the original methods have synchronous and asynchronous versions to support both Silverlight and ASP.NET applications, some of the later ones are still lacking asynchronous equivalents.</p>
-
-<p>I have my own road map of things that I'd like to implement to make the library more complete but, given the rising interest in integrating GeoIQ with .Net, I thought it best to put the code out now. Most of the initial development was funded by GeoIQ with the intent of releasing it as open-source. This step finally fulfills that vision. Please feel free to fork, improve, patch or contribute as you see fit and check back for updates. If you have questions, feel free to contact me directly (contact information is on the About page of this blog) until such time as I can post some docs.</p>
-
-<p>A couple of technical notes: The library is written in C#. There project files for the .Net Framework 3.5 and 4.0. This was done to meet the needs of ArcGIS 9.3 and Microsoft Office 2010, respectively. The library was been successfully used with private, hosted GeoIQ instances as well as <a href="http://www.geocommons.com" target="_blank">GeoCommons</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[CartoDB + Leaflet = Easy]]></title>
-    <link href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/"/>
-    <updated>2011-10-13T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy</id>
-    <content type="html"><![CDATA[<p>One of the biggest sources of buzz at <a href="http://2011.foss4g.org/">FOSS4G</a> was <a href="http://cartodb.com">CartoDB</a>. It is a hosted solution from <a href="http://vizzuality.com/">Vizzuality</a> that uses <a href="http://postgis.org/">PostGIS</a> to allow you to store your spatial data online. I got a beta account a couple of weeks ago but life (i.e. paying work) kept getting in the way but I finally got to play with it recently.</p>
-
-<p>One of the things that intrigued me is that, similar to <a href="http://www.google.com/fusiontables/Home/">Google Fusion Tables</a>, CartoDB exposes a SQL interface through a RESTful API (I'm still not sure if the term "API" applies to REST but it's a convenient shorthand). Essentially, CartoDB exposes PostgreSQL SQL and the spatial SQL extensions of PostGIS. Once your data is loaded, you can query it and return the results as either CartoDB's JSON syntax, KML or <a href="http://geojson.org">GeoJSON</a>.</p>
-
-<p>With this information, I set out to build a simple application to query property data and display the results on a map in a browser. In addition to CartoDB, I elected to use the <a href="http://leaflet.cloudmade.com/">Leaflet</a> Javascript library to accomplish the mapping (although I also experimented with OpenLayers). Displaying and styling GeoJSON in Leaflet is very straightforward and this task gave me and excuse to get a little more comfortable with it.</p>
+<p>I got a couple of requests to summarize any information I received, which seemed reasonable. I got quite a few responses and here are some links:</p>
 
 <!--more-->
 
 
-<p>For starters, I downloaded building footprints for St. Mary's County, Maryland (freely available <a href="http://www.stmarysmd.com/gis/">here</a>). The footprints themselves are countywide so I also downloaded the boundary for Leonardtown, Maryland and used <a href="http://qgis.org/">QGIS</a> to clip out just those buildings that fell within the town boundary. Once my data was prepped, I uploaded it into CartoDB.</p>
+<p><a href="http://learnpythonthehardway.org/">Learn Python the Hard Way</a> - This one got the most mentions<br/>
+<a href="http://inventwithpython.com/">Invent With Python</a><br/>
+<a href="http://www.greenteapress.com/">Green Tea Press</a><br/>
+<a href="http://newcoder.io/">New Coder</a><br/>
+<a href="http://www.codecademy.com/tracks/python">Codecademy</a><br/>
+<a href="https://www.khanacademy.org/science/computer-science">Khan Academy</a><br/>
+<a href="http://www.diveintopython.net/">Dive Into Python</a> - Note: I heard positive and negative on this one.<br/>
+<a href="http://www.realpython.com/e-book/">Real Python</a><br/>
+<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/index.htm">MIT Introduction to Computer Science and Programming</a><br/>
+<a href="https://www.udacity.com/course/cs101">Udacity</a></p>
 
-<div style="text-align: center;"><img alt="" class="size-full wp-image-2134" height="359" src="http://geobabble.files.wordpress.com/2011/10/cartodb_upload.png" title="cartodb_upload" width="590" /><div style="text-align: center; font-size: 14px">The CartoDB uploader is very easy to use.<br /></div></div>
+<p>I can't claim to have checked out all of them, but I consider the recommendations to have come from trusted sources. So, if you're <a href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/">looking to expand your GIS expertise by adding some Python knowledge</a>, these may be a good place to start. Not all of them are free-of-charge since that wasn't one of my friend's requirements.</p>
 
+<p>Additionally, Dan Dye informs me that the PyBulls Python interest group at the University of South Florida will take up this question and post a document with a list of resources on GitHub. Be sure to keep an eye on <a href="https://github.com/pybulls/">https://github.com/pybulls/</a> . Thank you!</p>
 
-<p>Once the data is uploaded and made public, it is as easy as a URL to pull down the GeoJSON (or even KML). Click here:</p>
+<p>Many thanks to <a href="http://twitter.com/hugoestr">Hugo Estrada</a>, <a href="http://twitter.com/DonMeltz">Don Meltz</a>, <a href="http://twitter.com/IndyGIS">Aaron Burgess</a>, <a href="http://twitter.com/JCSanford">Jason Sanford</a>, <a href="http://twitter.com/dandye">Dan Dye</a>, <a href="http://twitter.com/swfoundry">Christopher Moore</a>, <a href="http://twitter.com/scw">Shaun Walbridge</a>, <a href="https://plus.google.com/u/0/102903916051293271489/posts">Wes Herche</a>, and <a href="https://plus.google.com/u/0/110136604428694315510/posts">Jorge Sanz</a>.</p>
 
-<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson</a></p>
-
-<p>You'll notice that some SQL is embedded in the URL. Finding the commercial properties in the data set is as simple as adding a WHERE clause:</p>
-
-<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20'Commercial'&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20'Commercial'&amp;format=geojson</a></p>
-
-<p>This became the basis of my sample application. I decided to do a simple property finder that allows a user to find buildings by property type and square footage. As I mentioned, it's very easy to use GeoJSON with Leaflet. Here is the Javascript function that fetches the buildings from CartoDB and adds them to the map. It uses jQuery to do the actual fetch and then processes the result, adding the features into a Leaflet GeoJSON layer.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">getBuildings</span><span class="p">()</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">bldgLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">();</span>
-</span><span class='line'>    <span class="c1">//here we also parse the attributes for the popups on the map</span>
-</span><span class='line'>    <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;featureparse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">color</span><span class="o">:</span>  <span class="s1">&#39;#BDBDBD&#39;</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">fill</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;#EF6548&#39;</span><span class="p">,</span> <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mf">0.85</span> <span class="p">});</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Address:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Property Type:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Square Footage:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="p">{</span>
-</span><span class='line'>        <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span>
-</span><span class='line'>        <span class="s2">&quot;http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;amp;amp;format=geojson&amp;amp;amp;callback=?&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="kd">function</span><span class="p">(</span><span class="nx">geojson</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">features</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">addGeoJSON</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">})</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">bldgLayer</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p><del datetime="2011-10-14T14:44:58+00:00">If you look closely, you'll notice the use of a proxy handler to get past the same origin restriction. This handler is written in .Net. I had been using a Python proxy but urllib2 was indicating header errors in the return from CartoDB so I fell back to this one. I'll dig into that more later.</del> (Thanks to <a href="http://twitter.com/jatorre">Javier de la Torre</a> for straightening me out with the use of a callback.) The above routine is basically the template for all the work in the app. Aside from the basemap tiles, the app loads the town boundary and the buildings from CartoDB. A similar funtion drives the query function, building and passing a WHERE clause to CartoDB. The image below shows the interface with query results in blue. The popups are performed by Leaflet.</p>
-
-<div style="text-align: center;"><img alt="" class="size-full wp-image-2139" height="300" src="http://geobabble.files.wordpress.com/2011/10/propfinder.png" title="propfinder" width="590" /><div style="text-align: center; font-size: 14px">Selected buildings are shown in blue with popups to display the property details<br /></div></div>
-
-
-<p>All told, this app took about 3 or so hours to build and deploy. This version doesn't actually make use of any spatial SQL yet but I'll add that soon. The live demo can be found here: <a href="http://demo.zekiah.com/propfinder/">http://demo.zekiah.com/propfinder/</a> (give the buildings a few seconds to load). It seems to work well in Firefox and Chrome and is functional, although clunky, in IE9. I haven't tried Safari or earlier versions of IE.</p>
-
-<p>CartoDB is still in beta but already seems solid and is definitely powerful. As a hosted solution, there are associated costs but that's to be expected. I'll keep playing with it but it's already impressive.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[FOSS4G Quick Hits]]></title>
-    <link href="http://blog.geomusings.com/2011/09/19/foss4g-quick-hits/"/>
-    <updated>2011-09-19T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/09/19/foss4g-quick-hits</id>
-    <content type="html"><![CDATA[<p>I had the distinct pleasure of attending my first <a href="http://2011.foss4g.org">FOSS4G conference in Denver</a> last week. Having not attended one previously, I can only rely on the opinions of others that this has been the best FOSS4G yet. For me, this was best geospatial conference I have attended. I'll probably blog in more detail about some of the things I saw but here are my high-level observations:</p>
-
-<div style="text-align:center;"><img alt="" height="266" src="http://geobabble.files.wordpress.com/2011/09/rotary_sign3.jpg" title="rotary_sign3" width="300" /><div style="text-align:center;font-size: 14px;">It&#039;s time to refresh your thinking about open-source geospatial tools.<br/><br/></div></div>
-
-
-
-
-<!--more-->
-
-
-<ol>
-<li><p><a href="http://www.qgis.org/">QGIS</a> - I didn't attend many QGIS sessions but I didn't need to. It had everyone talking in hallways during breaks. Remember a few years ago when the desktop was the weak link with open-source GIS? Forget about that.</p></li>
-<li><p><a href="http://www.vizzuality.com/">Vizzuality</a> is doing great things to deploy usable mapping applications on the web with open-source tools. Every session   they led was standing-room only, with good reason.</p></li>
-<li><p><a href="http://vizzuality.com/cartoset">CartoSet</a> and <a href="https://cartodb.com/">CartoDB</a> - from the aforementioned Vizzuality. These open-source tools are designed to help speed the front-end and back-end development of a web application respectively. These are at the top of my list of things to check out.</p></li>
-<li><p>One of the key characteristics of most of the open-source tools discussed in sessions I attended is that they originally grew out of the need to solve a problem. They were not just built on spec, hoping someone would find them useful. As a result, these tools tend to already be proven within the problem set for which they were built.</p></li>
-<li><p><a href="http://postgis.refractions.net/">PostGIS</a> - If open-source geospatial is a flowering field, then PostGIS is the water that hydrates it. The amount of tools that support it is staggering (including CartoDB). The importance of a robust, open-source, spatial data store cannot be overstated and the role PostGIS plays as a foundation technology is pivotal. As for PostGIS 2.0, Michael Weisman sums it up best here:</p></li>
-</ol>
-
-
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>My second takeaway from <a href="https://twitter.com/search/%23foss4g">#foss4g</a>: PostGIS 2's tagline should be "You no longer have an excuse to use anything else."</p>&mdash; Michael Weisman (@mweisman) <a href="https://twitter.com/mweisman/status/115163092207403010" data-datetime="2011-09-17T20:39:55+00:00">September 17, 2011</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
-
-<ol>
-<li>Javascript mapping libraries - <a href="http://openlayers.org/">there</a> are <a href="http://leaflet.cloudmade.com/">now</a> more <a href="http://2011.foss4g.org/sessions/geomap-%E2%80%93-new-open-source-javascript-mapping-api">ways</a> to <a href="http://polymaps.org/">get</a> an <a href="http://mapstraction.com/">interactive</a> map <a href="http://www.tile5.org/">into</a> a browser than I can keep track of. Those based on Javascript and/or HTML5 are proliferating like wildfire. The "I" in "RIA" now stands for "intranet".</li>
-</ol>
-
-
-<p>I'm still organizing my notes and thoughts about what I saw at FOSS4G. It's impossible to describe the richness of the information that was available. The only real downtime I had was that which I sought for myself. I'll follow up these quick observations in the near future as I begin to dig into the new tools I was exposed to.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Prying Data Open]]></title>
-    <link href="http://blog.geomusings.com/2011/08/30/prying-data-open/"/>
-    <updated>2011-08-30T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/08/30/prying-data-open</id>
-    <content type="html"><![CDATA[<p>In the aftermath of Hurricane Irene, I was trying to get information from my <a href="http://www.smeco.coop">local electric cooperative</a> about outages. There were many (including my neighborhood) and I wanted to see the scale of the problem. It turns out, they have a page with a map that shows current outages by zip code.</p>
-
-<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png"><img alt="" class="size-medium wp-image-2018" height="202" src="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png?w=300" title="smeco_outage" width="300" /></a><div style="text-align: center; font-size: 14px">Old school outage map<br /></div></div>
-
-
-<p>It's pretty old-school as far as web maps go but it gets the job done. Their day job is making electricity, not web maps, so I won't critique it too much. One thing I did notice is that the map seems to be dynamically generated (as do the tables on the page) from some inaccessible data source. I search and tried to find some kind of feed, to no avail.</p>
-
-<!--more-->
-
-
-<p>The data on this page is ideal for an RSS feed which could be consumed by any of the local news portals, online mapping sites, and other outlets that may be used by the public. Yet, there is no feed. Here is an example of useful information locked away behind an uninformed design decision. The organization has already made the decision to publish this information so using RSS or social media would not expose anything more than what is already being released.</p>
-
-<p>It makes me wonder about the scale of this problem. How much more information is being produced in relatively inaccessible forms by otherwise well-intentioned organizations? In this case, the information is being produced as an HTML page, so we can always scrape and republish the information, which is exactly what I did. The resulting feed can be found here:</p>
-
-<p><a href="http://demo.zekiah.com/smecofeed/smeco_outage.xml">http://demo.zekiah.com/smecofeed/smeco_outage.xml</a></p>
-
-<p>The feed is simple: the ZIP code is in the item title and the number households affected is in the item description (by itself with no other decoration). Since ZIP codes are fairly standard, it makes it easy to consume the feed and do other things with it, such as <a href="http://geocommons.com/maps/97440">map it on GeoCommons</a>. This map may seem redundant but now the data can be layered with other data sets such as shelter locations, ice distribution centers and the like, making it more useful.</p>
-
-<p>To produce this feed I used Python. <a href="http://blog.davebouwman.com/">Dave Bouwman</a> pointed me to <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> and I also made use of the <a href="http://www.crummy.com/software/ScrapeNFeed/">ScrapeNFeed</a> library (which makes use of <a href="http://www.dalkescientific.com/Python/PyRSS2Gen.html">PyRSS2Gen</a>). I have it set up on a cron job to update every two hours and dump a new XML file. I decided this was preferable to doing a direct link back to the page because I'm unsure how robust their server is. I am posting my code below in the event that someone else needs to do this. This type of approach is very fragile. You'll see from the code that it's very dependent upon the structure of the source HTML. So, if the page structure changes, the feed will break. This is obviously not ideal so it's best to view it as a band-aid.</p>
-
-<p>I suspect that there's a lot of this kind of thing going on. Where you find it, it's best to engage with the organization to help make it better and that's my next step here. There's been a lot of talk about open data in our industry for a while, along with a lot of activity. Situations like this make me realize the scale of the work yet to be done. It will take a lot of effort to open up data all the way down the line and, perhaps, even more effort to help organizations understand why it is beneficial to do so in the first place. But it's work that needs to be done.</p>
-
-<p>As promised, here's the Python code should anyone find it useful:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">PyRSS2Gen</span> <span class="kn">import</span> <span class="n">RSSItem</span><span class="p">,</span> <span class="n">Guid</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">ScrapeNFeed</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nc">SmecoFeed</span><span class="p">(</span><span class="n">ScrapeNFeed</span><span class="o">.</span><span class="n">ScrapedFeed</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="k">def</span> <span class="nf">HTML2RSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
-</span><span class='line'>            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
-</span><span class='line'>            <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-</span><span class='line'>            <span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">)</span>
-</span><span class='line'>            <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span class='line'>            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-</span><span class='line'>                    <span class="n">row</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-</span><span class='line'>                    <span class="n">cols</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)</span>
-</span><span class='line'>                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span><span class="p">:</span>
-</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
-</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="nb">zip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
-</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-</span><span class='line'>                        <span class="c">#This link is not real. It will simply take you to the homepage.</span>
-</span><span class='line'>                        <span class="n">lnk</span> <span class="o">=</span> <span class="s">&#39;http://www.smeco.coop#&#39;</span> <span class="o">+</span> <span class="nb">zip</span>
-</span><span class='line'>                        <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RSSItem</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">zip</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="n">tot</span><span class="p">,</span><span class="n">link</span><span class="o">=</span><span class="n">lnk</span><span class="p">))</span>
-</span><span class='line'>                        <span class="c">#print zip</span>
-</span><span class='line'>                        <span class="c">#print tot</span>
-</span><span class='line'>                        <span class="c">#cols = row.findAll(&#39;td&#39;)</span>
-</span><span class='line'>                        <span class="c">#for col in cols:</span>
-</span><span class='line'>                        <span class="c">#    print col.string</span>
-</span><span class='line'>            <span class="bp">self</span><span class="o">.</span><span class="n">addRSSItems</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">SmecoFeed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;Current SMECO outages (as scraped by Zekiah Technologies)&quot;</span><span class="p">,</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>             <span class="s">&#39;http://outage.smeco.coop&#39;</span><span class="p">,</span>
-</span><span class='line'>             <span class="s">&quot;Current SMECO power outages by ZIP code&quot;</span><span class="p">,</span>
-</span><span class='line'>             <span class="s">&#39;smeco_outage.xml&#39;</span><span class="p">,</span>
-</span><span class='line'>     <span class="s">&#39;smeco_outage.pickle&#39;</span><span class="p">,</span>
-</span><span class='line'>             <span class="n">managingEditor</span><span class="o">=</span><span class="s">&#39;bill@zekiah.com (Bill Dollins)&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>If you have any other good online resources for getting started with Python, feel free to leave them in the comments.</p>
 ]]></content>
   </entry>
   

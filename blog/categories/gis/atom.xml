@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-02-28T07:05:56-05:00</updated>
+  <updated>2013-03-17T21:45:06-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A #LazyWeb Compendium of Python Resources for Beginners]]></title>
+    <link href="http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/"/>
+    <updated>2013-03-17T15:19:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners</id>
+    <content type="html"><![CDATA[<p>A friend who is in the midst of a career change and moving into the GIS world asked me for some pointers to resources for getting started with Python. I threw the question out to Twitter (with a similar variation also posted to Google+):</p>
+
+<p>{% tweet http://twitter.com/billdollins/status/313263420923338753 %}</p>
+
+<p>I got a couple of requests to summarize any information I received, which seemed reasonable. I got quite a few responses and here are some links:</p>
+
+<!--more-->
+
+
+<p><a href="http://learnpythonthehardway.org/">Learn Python the Hard Way</a> - This one got the most mentions<br/>
+<a href="http://inventwithpython.com/">Invent With Python</a><br/>
+<a href="http://www.greenteapress.com/">Green Tea Press</a><br/>
+<a href="http://newcoder.io/">New Coder</a><br/>
+<a href="http://www.codecademy.com/tracks/python">Codecademy</a><br/>
+<a href="https://www.khanacademy.org/science/computer-science">Khan Academy</a><br/>
+<a href="http://www.diveintopython.net/">Dive Into Python</a> - Note: I heard positive and negative on this one.<br/>
+<a href="http://www.realpython.com/e-book/">Real Python</a><br/>
+<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/index.htm">MIT Introduction to Computer Science and Programming</a><br/>
+<a href="https://www.udacity.com/course/cs101">Udacity</a></p>
+
+<p>I can't claim to have checked out all of them, but I consider the recommendations to have come from trusted sources. So, if you're <a href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/">looking to expand your GIS expertise by adding some Python knowledge</a>, these may be a good place to start. Not all of them are free-of-charge since that wasn't one of my friend's requirements.</p>
+
+<p>Additionally, Dan Dye informs me that the PyBulls Python interest group at the University of South Florida will take up this question and post a document with a list of resources on GitHub. Be sure to keep an eye on <a href="https://github.com/pybulls/">https://github.com/pybulls/</a> . Thank you!</p>
+
+<p>Many thanks to <a href="http://twitter.com/hugoestr">Hugo Estrada</a>, <a href="http://twitter.com/DonMeltz">Don Meltz</a>, <a href="http://twitter.com/IndyGIS">Aaron Burgess</a>, <a href="http://twitter.com/JCSanford">Jason Sanford</a>, <a href="http://twitter.com/dandye">Dan Dye</a>, <a href="http://twitter.com/swfoundry">Christopher Moore</a>, <a href="http://twitter.com/scw">Shaun Walbridge</a>, <a href="https://plus.google.com/u/0/102903916051293271489/posts">Wes Herche</a>, and <a href="https://plus.google.com/u/0/110136604428694315510/posts">Jorge Sanz</a>.</p>
+
+<p>If you have any other good online resources for getting started with Python, feel free to leave them in the comments.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Arc2Earth: Choose Your 'Cloud']]></title>
@@ -155,26 +190,6 @@
 <p>I think, in 2013, anything that attempts to do what GeoPackage sets out to do should have some provision for cartography. I would prefer CSS-like approach (such as <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>) and will say so when I submit comments but I would suspect that future discussion of cartography, if any, will probably start with SLD. For now, tiles can fill the gap.</p>
 
 <p>So comments are open, give it a look and tell OGC what you think.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Getting Ready for JS.geo]]></title>
-    <link href="http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo/"/>
-    <updated>2013-01-08T15:50:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo</id>
-    <content type="html"><![CDATA[<p>I'm looking forward to next week's <a href="http://geojs.eventbrite.com/">JS.geo</a> event in Denver. It is a small event, spearheaded by <a href="http://twitter.com/cwhelm">Chris Helm</a> of <a href="http://www.esri.com">Esri</a>, that focuses on the use of Javascript in geospatial applications. Although I have been more vocal in my <a href="http://blog.geomusings.com/blog/categories/python/">recent explorations with Python</a>, I've probably done as much, if not more, work with Javascript over the past 18 months.</p>
-
-<div style="text-align:center;"><img src="http://mapbrief.com/wp-content/uploads/2012/11/no_plugin.jpg" /></div>
-
-
-<p>The pace of innovation with Javascript in the geospatial area has been staggering. It seems like only a short time ago that the options for working with geospatial applications were <a href="http://openlayers.org/">OpenLayers</a> and the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/">Esri Javascript API</a>. The rapid advent of tools such as <a href="http://www.geoext.org/">GeoExt</a>, <a href="http://leafletjs.com/">Leaflet</a>, and many others has really lead to a explosion of capability. Of course, the recent buzz has been about <a href="http://d3js.org/">D3</a>, which tackles a wide range of data visualization problems, including geo. D3 is of particular interest because it is tackling the issue of projection in the browser, freeing applications from the dominance of Web Mercator.</p>
-
-<p>Of course, it's not been all about the browser, either as <a href="http://nodejs.org/">Node.js</a> has made abundantly clear. One of the most effective desktop applications for cartographic design, <a href="http://mapbox.com/tilemill/">TileMill</a>, is built with Node, among other tools.</p>
-
-<p>The maturity of Javascript as a tool for geospatial development is such that I am at the point that, if it weren't for government customers that are <a href="http://mapbrief.com/2011/10/13/web-mapping-continues-to-pay-for-the-sins-of-internet-explorer/">still standardized on Internet Explorer 8</a> or older, a plug-in-based environment would not be my first choice for a new application.</p>
-
-<p>As for the JS.geo event itself, I am intrigued by its small, focused nature. It doesn't seem to be as informal as an unconference but may be easier to digest than the typical geo event. It will also be great to catch up with the Front Range crowd.</p>
 ]]></content>
   </entry>
   
