@@ -4,7 +4,7 @@
   <title><![CDATA[Category: QGIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/qgis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-03-20T12:52:05-04:00</updated>
+  <updated>2013-03-20T13:16:26-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Best Thing I Saw at TUGIS 2013]]></title>
+    <link href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/"/>
+    <updated>2013-03-20T12:17:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013</id>
+    <content type="html"><![CDATA[<p>I spent the day yesterday at <a href="http://www.towson.edu/">Towson University</a> attending the <a href="http://www.towson.edu/tugis/">TUGIS 2013</a> conference. The new one-day format was a firehose that showcased the diversity of geospatial work occurring across the State of Maryland. The keynote by <a href="http://www.linkedin.com/profile/view?id=44978536">Learon Dalby</a> was well-received and the content of the conference was generally substantive. While the day was a sprint, there was one workshop that really caught my attention more so than I would have thought from its title.</p>
+
+<p>The photo below shows 40 participants of an "Introduction to Free and Open Source GIS Software" workshop getting hands-on experience with <a href="http://www.qgis.org">QGIS</a> and <a href="http://www.postgis.org">PostGIS</a> by working through prepared but realistic scenarios. These scenarios included doing multi-user editing and performing spatial analysis to assess the effects of a potential toxic release over a small town.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/tugis2013_workshop.jpg" /></p>
+
+<p>The workshop was put together by <a href="http://faculty.salisbury.edu/~ajlembo/">Dr. Arthur Lembo</a> of <a href="http://www.salisbury.edu/">Salisbury University</a> and conducted by him and a team of his students, who not only led portions of the workshop but were also stationed around the room to provide guidance to participants. The scenarios were prepared in printed workbooks that the participants were free to take with them, along with information about how to download the tools. All-in-all, I thought the workshop was very well-designed and presented a thorough overview of the capabilities of these two tools.</p>
+
+<!--more-->
+
+
+<p>To be sure, the workshop was not all unicorns and rainbows. There were typical glitches such as file system and database permission issues that required on-the-fly adjustments, which Dr. Lembo and his students handled well. Some participants were clearly stumped at points while others were making good headway with the examples.</p>
+
+<p>Many of the participants probably remain committed <a href="http://www.esri.com">ArcGIS</a> users after the workshop while others may very well dig in and more thoroughly explore QGIS and PostGIS, but that's really beside the point. Regardless of what the individual participants decide to do with the information from the workshop, all left with hands-on exposure to the tools that was presented in a manner that was free of hyperbole, FUD, or market-speak. They now have more first-hand information with which to make their own educated decisions as to how they want to proceed with their geospatial technology choices; and that, in my opinion, may have been the most valuable outcome of the workshop.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Checking out the GDAL/OGR Plugin for ArcGIS]]></title>
@@ -119,62 +141,6 @@
 <p>The MapBox blog takes some explaining. It is primarily about how to be productive with MapBox, but some posts deal with using QGIS in your workflows. Those posts have some good information. All of these blogs have been helpful to me over the last couple of months.</p>
 
 <p>Outside of that, I set up a Google Alert for QGIS which feeds me all kinds of things: posts from other blogs, mailing entries, StackExchange questions, and so on. To make that easy, I ran the feed from that alert through <a href="http://ifttt.com/" target="_blank">ifttt.com</a> and have it posting to a Twitter account: (<a href="http://twitter.com/QGISInfo" target="_blank">@QGISInfo</a>). Feel free to check it out. Keep in mind that it's based on a Google search so odd results may creep in from time to time. I've been running the alert for a few weeks and it's been pretty clean. The Twitter feed is new and will be sparse until a few refresh cycles happen. Think of it as a poor man's "Planet QGIS." I hope you find it useful.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[QGIS 1.8.0 Released]]></title>
-    <link href="http://blog.geomusings.com/2012/06/21/qgis-1-8-0-released/"/>
-    <updated>2012-06-21T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/06/21/qgis-1-8-0-released</id>
-    <content type="html"><![CDATA[<p>I caught a tweet by my friend <a href="http://www.paolocorti.net/" target="_blank">Paolo Corti</a> this morning that <a href="http://qgis.org" target="_blank">QGIS</a> 1.8.0 has been released.</p>
-
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>qgis 1.8.0 "Lisboa" released! <a href="http://t.co/UZWFzy0m" title="http://goo.gl/eSDYo">goo.gl/eSDYo</a></p>&mdash; Paolo Corti (@capooti) <a href="https://twitter.com/capooti/status/215767511990415360" data-datetime="2012-06-21T11:25:58+00:00">June 21, 2012</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
-
-<p>Upon checking out the full list of new features <a href="http://lists.osgeo.org/pipermail/qgis-developer/2012-June/020685.html" target="_blank">here</a>, a few caught my eye:</p>
-
-<blockquote>
-- QGIS Browser - a stand alone app and a new panel in QGIS. The
-browser lets you easily navigate your file system and connection based
-(PostGIS, WFS etc.) datasets, preview them and drag and drop items
-into the canvas.
-
-- DB Manager - the DB manager is now officially part of QGIS core. You
-can drag layers from the QGIS Browser into DB Manager and it will
-import your layer into your spatial database. Drag and drop tables
-between spatial databases and they will get imported. You can use the
-DB Manager to execute SQL queries against your spatial database and
-then view the spatial output for queries by adding the results to QGIS
-as a query layer.
-
-- MSSQL Spatial Support - you can now connect to your Microsoft SQL
-Server spatial databases using QGIS.
-
-- Support for PostGIS TopoGeometry datatype
-
-- Terrain Analysis Plugin - a new core plugin was added for doing
-terrain analysis - and it can make really good looking coloured relief
-maps.
-
-- Heatmap tool - a new core plugin has been added for generating
-raster heatmaps from point data. You may need to activate this plugin
-using the plugin manager.
-</blockquote>
-
-
-
-
-<!--more-->
-
-
-<p>It looks like a lot of focus has been placed on making it easier to user your data. If you are not familiar with QGIS, it's the best open-source desktop GIS out there and stands toe-to-toe with any commercial equivalent. A few years ago, desktop GIS was considered to be something of an Achilles heel for open-source GIS but that hasn't been true for a long time. I integrated QGIS into my work a while back and it figures more prominently for me with each release.</p>
-
-<p><img alt="" class="aligncenter size-medium wp-image-2692" height="225" src="http://geobabble.files.wordpress.com/2012/06/smiley-happy-face-yellow.jpg?w=300" title="Smiley-happy-face-yellow" width="300" /></p>
-
-<p>To get a sense of the kind of things you can do with QGIS, check out <a href="http://mapbox.com/blog/binning-alternative-point-maps/" target="_blank">this post</a> on the <a href="http://mapbox.com/" target="_blank">MapBox</a> blog and also check out <a href="http://woostuff.wordpress.com/" target="_blank">Nathan Woodrow's blog</a>. In addition, <a href="http://twitter.com/#!/dmgeo" target="_blank">Caitlyn Dempsey's</a> recent <a href="http://gislounge.com/where-are-the-gis-jobs-a-look-at-the-gis-job-market-in-the-united-states/" target="_blank">map of GIS job availability</a> was built using QGIS. These links are good examples to show that QGIS is excellent, professional GIS tool.</p>
-
-<p>I think my download just finished...</p>
 ]]></content>
   </entry>
   
