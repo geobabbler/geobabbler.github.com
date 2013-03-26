@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Well, salvaging the brightest outlook I can from the aforementioned hard drive crash, it does present me with an opportunity to &#8220;trim the fat&# &hellip;">
+  <meta name="description" content="Well, our abstract was accepted for the ESRI Federal User Conference. I say &#8220;our&#8221; because I am co-authoring with my friend/customer/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/01/18/and-were-in/">And We&#8217;re In</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-18T00:00:00-05:00" pubdate data-updated="true">Jan 18<span>th</span>, 2008</time>
+        
+         | <a href="/2008/01/18/and-were-in/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Well, our abstract was accepted for the ESRI <a href="http://www.esri.com/events/feduc/index.html">Federal User Conference</a>. I say &#8220;our&#8221; because I am co-authoring with my friend/customer/former co-worker Dan Getman at <a href="http://www.ornl.gov/sci/gist/">Oak Ridge National Laboratory</a>. We&#8217;ll be presenting some work we&#8217;ve (Dan, me and a couple of other really good developers) done together on the <a href="http://www.sensornet.gov/">SensorNet</a> effort.</p>
+
+<p>I don&#8217;t want to spill the beans here but we&#8217;ll be presenting as part of the &#8220;Why Standards Matter&#8221; track. It&#8217;s been a fun project and we&#8217;ve gotten to do some cool integration. So, if you&#8217;re going to be at the FedUC, come on by and throw some vegetables at me (but try not to hit Dan, he&#8217;s a nice guy). ;)</p>
+
+<p><img alt="Don't throw Bob. He's cool." src="http://content.answers.com/main/content/wp/en/6/6c/Bob.gif" /></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -515,57 +557,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/12/08/spatial-references-in-sql-server-2008-part-3/">Spatial References in SQL Server 2008, Part 3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-12-08T00:00:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2007</time>
-        
-         | <a href="/2007/12/08/spatial-references-in-sql-server-2008-part-3/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A little clarification is in order:</p>
-
-<p>SQL Server 2008 Books Online makes the following statement about SRIDs:</p>
-
-<blockquote>
-&#8220;A SQL Server-supported SRID for geography instances must be used when performing calculations or using methods with geography spatial data. The SRID must match one of the SRIDs displayed in the sys.spatial_reference_systems catalog view.&#8221;
-</blockquote>
-
-
-<p>As previously noted, SQL 2008 supports two spatial data types: geometry and geography. As can be seen, the above statement only applies to the geography data type. If you are using geometry, the SRID can be set to anything (I have done so). It would probably be a best practice to stick to <a href="http://www.epsg.org/">EPSG</a>-defined SRIDs but this does open up the possibility of user-defined spatial references similar to <a href="http://postgis.refractions.net">PostGIS</a>. <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2505683&amp;SiteID=1">In a discussion with Isaac on the MSDN forum</a>, he clarified that they plan to leave such things to the discretion of the database designers/users for implementation. As can be seen in the discussion, it seems they may also write up some best practices but it seems many things such as constraints to limit SRIDs and geometry types will be left to users/developers/DBAs to implement.</p>
-
-<p>So, as a result of the discussion, I think I have a better understanding of <a href="http://www.microsoft.com">MSFT</a>&#8217;s intent and how to proceed with SQL 2008. It will be interesting to adjust my way of thinking from what I have come to expect from other products.</p>
-
-<p>Also, other discussions on the forum seem to indicate that this release will not have any coordinate transformation functions so those of us planning to use and develop with SQL 2008 should probably get comfortable with something like <a href="http://www.codeplex.com/ProjNET">Proj.Net</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/26/">&larr; Older</a>
@@ -614,15 +605,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/03/25/loose-ends/">Light Housekeeping</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">The Best Thing I Saw at TUGIS 2013</a>
       </li>
     
       <li class="post">
         <a href="/2013/03/18/off-to-tugis/">Off to TUGIS</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/">A #LazyWeb Compendium of Python Resources for Beginners</a>
       </li>
     
   </ul>
