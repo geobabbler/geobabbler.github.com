@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="It is time again for my annual plug for the ESRI Federal User Conference (FedUC). Last year, I blogged as much as could. It&#8217;s no secret that I &hellip;">
+  <meta name="description" content="When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,47 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/27/using-postgresql-views-in-ziggis-2.0.2/">Using PostgreSQL Views in zigGIS 2.0.2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-27T00:00:00-05:00" pubdate data-updated="true">Jan 27<span>th</span>, 2009</time>
+        
+         | <a href="/2009/01/27/using-postgresql-views-in-ziggis-2.0.2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database platforms. The way zigGIS was originally constructed, it used the PostGIS geometry_columns table to discover available spatial tables. This has worked well but we came to realize that there are numerous workflows that can be employed to create spatial tables in PostGIS and many of these don&#8217;t necessarily register in the geometry_columns table. For example, you can use a standard CREATE TABLE to create a table that includes a geometry column. In this case, the table will not be registered but will still be a valid spatial table. The same can be said for views.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2009/01/27/using-postgresql-views-in-ziggis-2.0.2/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -457,47 +498,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/09/25/writing-geojson-from-sharpmap-part-1/">Writing GeoJSON From SharpMap, Part 1</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-09-25T00:00:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2008</time>
-        
-         | <a href="/2008/09/25/writing-geojson-from-sharpmap-part-1/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In between proposals, white papers and the like, I?ve been able to do a little coding to keep myself sane. Recently, I have been playing with <a href="http://www.codeplex.com/sharpmap">SharpMap</a>, <a href="http://wiki.geojson.org/Main_Page">GeoJSON</a> and <a href="http://openlayers.org">OpenLayers</a>. But not necessarily in that order. Originally, I was looking over the GeoJSON spec to get more of a feel for it and decided that it would be fun (I know) to write an exporter for SharpMap. There is already a converter to write SharpMap geometries as WKT so I went ahead and built another one to convert to GeoJSON. In order to test it, I decided to use OpenLayers.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/09/25/writing-geojson-from-sharpmap-part-1/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/20/">&larr; Older</a>
@@ -546,15 +546,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/03/27/early-bird-registration-for-foss4gna-closes-soon/">Early Bird Registration for FOSS4G-NA Closes Soon</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/03/25/loose-ends/">Light Housekeeping</a>
       </li>
     
       <li class="post">
         <a href="/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">The Best Thing I Saw at TUGIS 2013</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/03/18/off-to-tugis/">Off to TUGIS</a>
       </li>
     
   </ul>

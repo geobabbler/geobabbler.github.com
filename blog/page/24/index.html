@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I went to the meetup last night. I had already spent part of the day with James and fantomplanet. In addition, I got to meet Dave Bouwman, Chris &hellip;">
+  <meta name="description" content="I just sat through the first REST API session at the Dev Summit. They had it in a pretty big room and it was packed. There is a lot of interest in it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/03/18/dev-summit-rest-api-session/">Dev Summit REST API Session</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-18T00:00:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2008</time>
+        
+         | <a href="/2008/03/18/dev-summit-rest-api-session/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just sat through the first REST API session at the Dev Summit. They had it in a pretty big room and it was packed. There is a lot of interest in it here. Generally, you can walk up to just about any random person and they&#8217;ll say they want to learn more about the REST API. The other web APIs (JavaScript, SOAP, etc.) are also generating a lot of interest.</p>
+
+<p>To sum up the REST API in one word: impressive. ESRI is definitely on the right track here. I think this API could end up overshadowing the others over time. After sitting through the session, I have my doubts about whether the API holds up to the strictest definition of REST but I came away unconcerned by that. The simplicity and the power of this API cannot be understated.</p>
+
+<p>All resources (requests, layers, services, etc.) are represented as URLs. This provides the ability to very simply call powerful geoprocessing and analysis services running in ArcGIS Server. The API also supports a myraid of output formats. They demonstrated using Google Earth, Google Maps and Virtual Earth as clients. Also shown was the use of Python and Ruby scripts to call AGS services through the REST API as well as Yahoo Pipes. The output formats specifically discussed were HTML (default), (geo)JSON, KML/KMZ, image, layer (for use by ArcMap clients), NMF (for AGX), Google Maps and Virtual Earth. There&#8217;s enough there to pretty much do what you need.</p>
+
+<p>Before anyone asks, no they did not specifically mention OpenLayers nor was it shown but there were numerous examples of GeoJSON output. Based on what I saw, I think it would trivial to integrate with OpenLayers.</p>
+
+<p>The REST API makes diligent use of caching in order to optimize performance. One aspect I was interested in was security. During the plenary, it was mentioned that AGS security can be managed using industry standards such as LDAP and others. While this is not specific to the REST API, it is worth noting that, once security settings are defined, they automatically apply across all of AGS&#8217;s supported web interfaces. This will be a huge thing for many of my customers. In addition, security is role-based and can be applied to folders or individual services.</p>
+
+<p>From a developer standpoint, 9.3 could end up being the most important release of ArcGIS in a long time. The JavaScript, SOAP and REST APIs will open up development to a lot of new developers. I think that these APIs will be critical to achieving the goal for ArcGIS articulated at the FedUC for AGS to be the geospatial analysis engine that can feed the visualization client of your choice.</p>
+
+<p>A couple of other minor notes: AGS 9.3 introduces a geometry service that&#8217;s not bound to any specific data but exposes geometric opertations to clients. Currently, the REST API only supports simple geometries so parametric types such as arcs and circles are converted to densified lines or polygons.</p>
+
+<p>This was an impressive session. It looks like ESRI is putting a lot of effort into getting the REST API as right as they can this first time out. This session made me eager to get home and get the 9.3 beta running.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -462,52 +514,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/01/sql-server-2008-and-2005-side-by-side/">SQL Server 2008 and 2005 Side-By-Side</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-01T00:00:00-05:00" pubdate data-updated="true">Feb 1<span>st</span>, 2008</time>
-        
-         | <a href="/2008/02/01/sql-server-2008-and-2005-side-by-side/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Installing the the SQL Server 2008 November CTP side-by-side with SQL Server 2005 is very straightforward. On the previous build of my machine, I had them both running just fine. After my system crash, I began setting things up again. Because I had been working with 2008 before the crash, I installed that first and then got around to 2005 later.</p>
-
-<p>It should have been obvious to me before I did that but installing them in that order seems to break a lot of stuff in 2008. Kinda makes sense. I was a little flustered at having to rebuild in the first place and perhaps rushing things a bit but here it is for the record: If you are installing both of them on a new box, put on 2005 first.</p>
-
-<p>Generally the database engine worked well. Most of the issues I had came up in the management studio. After installing 2005, many of the dialogs and property pages in the Katmai management studio would no longer display. Attempting to invoke them usually resulted in a &#8220;class not registered&#8221; exception.</p>
-
-<p>In order to fix that, I had to remove and then re-install 2008. Before doing that, I detached my databases and then re-attached them after I was done. Everything works fine now.</p>
-
-<p>This probably says more about me than it does SQL Server ;) but I thought I&#8217;d share.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/25/">&larr; Older</a>
@@ -556,15 +562,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/03/27/early-bird-registration-for-foss4gna-closes-soon/">Early Bird Registration for FOSS4G-NA Closes Soon</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/03/25/loose-ends/">Light Housekeeping</a>
       </li>
     
       <li class="post">
         <a href="/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">The Best Thing I Saw at TUGIS 2013</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/03/18/off-to-tugis/">Off to TUGIS</a>
       </li>
     
   </ul>

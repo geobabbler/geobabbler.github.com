@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-03-25T22:30:00-04:00</updated>
+  <updated>2013-03-27T14:00:10-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Early Bird Registration for FOSS4G-NA Closes Soon]]></title>
+    <link href="http://blog.geomusings.com/2013/03/27/early-bird-registration-for-foss4gna-closes-soon/"/>
+    <updated>2013-03-27T13:29:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/27/early-bird-registration-for-foss4gna-closes-soon</id>
+    <content type="html"><![CDATA[<p><a href="https://twitter.com/bitnerd">David Bitner</a> sent out a reminder that Early Bird reagistration for the <a href="http://foss4g-na.org/">FOSS4G North America</a> conference closes on 1 April 2013. After that, the price goes up by $50 US. You can register <a href="http://foss4gna.eventbrite.com/">online at EventBrite</a>.</p>
+
+<p style="text-align:center;"> <img src="http://upload.wikimedia.org/wikipedia/commons/3/30/20060131_earthworm_hits_dirt.jpg" width="400" height="266"/></p>
+
+<p>The <a href="http://foss4g-na.org/wp-content/uploads/2013/03/PreliminaryProgram.pdf">preliminary program</a> (PDF) for this year's event looks exceptional, building upon and potentially exceeding the outstanding quality of FOSS4G-NA 2012. I'll be sorry to miss the conference this year but will be looking forward to its social media exhaust.</p>
+
+<p><sub><sup>Image by s shepherd schizoform on flickr <a href="http://creativecommons.org/licenses/by/2.0">CC-BY-2.0</a>, via Wikimedia Commons</sup></sub></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Light Housekeeping]]></title>
@@ -74,8 +89,7 @@
     <id>http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners</id>
     <content type="html"><![CDATA[<p>A friend who is in the midst of a career change and moving into the GIS world asked me for some pointers to resources for getting started with Python. I threw the question out to Twitter (with a similar variation also posted to Google+):</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Can anyone recommend any good online Python training sources for beginners? Asking for a friend in the midst of a career change.</p>&mdash; Bill Dollins (@billdollins) <a href="https://twitter.com/billdollins/status/313263420923338753">March 17, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/billdollins/status/313263420923338753 %}</p>
 
 <p>I got a couple of requests to summarize any information I received, which seemed reasonable. I got quite a few responses and here are some links:</p>
 
@@ -100,29 +114,6 @@
 <p>Many thanks to <a href="http://twitter.com/hugoestr">Hugo Estrada</a>, <a href="http://twitter.com/DonMeltz">Don Meltz</a>, <a href="http://twitter.com/IndyGIS">Aaron Burgess</a>, <a href="http://twitter.com/JCSanford">Jason Sanford</a>, <a href="http://twitter.com/dandye">Dan Dye</a>, <a href="http://twitter.com/swfoundry">Christopher Moore</a>, <a href="http://twitter.com/scw">Shaun Walbridge</a>, <a href="http://twitter.com/jmwdesign">Jason Wheatley</a>, <a href="https://plus.google.com/u/0/102903916051293271489/posts">Wes Herche</a>, and <a href="https://plus.google.com/u/0/110136604428694315510/posts">Jorge Sanz</a>.</p>
 
 <p>If you have any other good online resources for getting started with Python, feel free to leave them in the comments.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Arc2Earth: Choose Your 'Cloud']]></title>
-    <link href="http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud/"/>
-    <updated>2013-02-28T06:22:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud</id>
-    <content type="html"><![CDATA[<p>For various reasons, I can't attend today's inaugural <a href="http://fedgeoday.com/">FedGeoDay</a> at the Woolly Mammoth Theatre in Washington, DC, though I'll be watching the hashtag with great interest. Jack Flood of <a href="http://www.arc2earth.com/">Arc2Earth</a>, however, has already posted his slides to SlideShare:</p>
-
-<iframe src="http://www.slideshare.net/slideshow/embed_code/16811994" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
-
-
-<p> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/jflood3/fedgeodays-022013" title="Fedgeodays 022013" target="_blank">Fedgeodays 022013</a> </strong> from <strong><a href="http://www.slideshare.net/jflood3" target="_blank">Jack Flood</a></strong> </div></p>
-
-<!--more-->
-
-
-<p>While neither <a href="http://www.esri.com">ArcMap</a> nor Arc2Earth are open-source themselves, Jack points out that Arc2Earth acts as a bridge between ArcMap and several geospatial hosting platforms that are built on open-source technology but, also just as important, are successful at making data more openly available. These platforms include <a href="http://cartodb.com/">CartoDB</a> and <a href="http://mapbox.com/">MapBox</a>, among many others.</p>
-
-<p>Many people use, and prefer, ArcMap has their desktop cartography and analysis tool. I view Arc2Earth as an enabling technology that allows users to continue to be productive with ArcMap while also allowing them to retain control of how they direct their GIS investments in terms of publishing and hosting their maps and data.</p>
-
-<p>Disclaimer: <a href="http://www.zekiah.com">My company</a> is an Arc2Earth reseller.</p>
 ]]></content>
   </entry>
   
