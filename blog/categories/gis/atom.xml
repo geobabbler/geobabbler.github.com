@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-03-27T14:00:10-04:00</updated>
+  <updated>2013-03-28T08:22:22-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SharpMap 1.0 RC1 Released]]></title>
+    <link href="http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released/"/>
+    <updated>2013-03-28T06:10:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released</id>
+    <content type="html"><![CDATA[<p>Over on Google+, <a href="https://plus.google.com/u/0/117900686009614580552/posts">Diego Guidi</a> let me know that the <a href="http://sharpmap.codeplex.com/releases/view/104098">SharpMap 1.0 Release Candidate has been released</a>. There was a time when I worked with, <a href="https://www.google.com/search?q=site%3Ablog.geomusings.com&amp;q=sharpmap">and wrote about</a>, SharpMap a lot. During that entire time, the stable version of SharpMap sat at some version number that started with "0.9". The release of a 1.0 candidate is a signal that the project is moving forward.</p>
+
+<p style="text-align:center;"> <img src="http://www.zekiah.com/sites/default/files/images/SharpMapSQL2008.preview.png" /></p>
+
+<p>This is important because there are still an awful lot of .Net developers out there, especially in government shops that made a big Microsoft push in terms of infrastructure and training years ago. Of course, many of those shops are also committed to Esri technologies but SharpMap, while being a fully-functioning mapping/GIS library, also provides easy access to data sources not natively supported by Esri. Additionally, it is very easy to extend to support new or custom data sources and strightforward to <a href="http://www.zekiah.com/index.php?q=node/146">get SharpMap to play nicely in traditionally Esri-centric environments</a>.</p>
+
+<!--more-->
+
+
+<p>At <a href="http://www.zekiah.com">my company</a> we've used SharpMap for just that for one of our key Navy customers. By building custom SharpMap data sources, we've been able to encapsulate business logic in Oracle, including the use of Oracle <a href="http://www.slideshare.net/shawty_ds/what-is-spatial-sql">Spatial SQL</a> to execute spatial analysis processes and deliver the results back to an Esri web client that is also interacting with ArcGIS Server for many standard functions. SharpMap enabled us to expose this logic through an HTTP+JSON interface while bypassing geodatabases, server object extensions, and other such cruft.</p>
+
+<p>In recent years, other open-source .Net projects such as <a href="https://dotspatial.codeplex.com/">DotSpatial</a> have gained traction and that's good. The .Net environment remains in widespread use so it is useful to have open-source geospatial options for that platform. I'm happy to see SharpMap remaining an option in that space.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Early Bird Registration for FOSS4G-NA Closes Soon]]></title>
@@ -79,41 +99,6 @@
 <p>One thing I like about regional GIS conferences like this is that they tend to focus more on solutions to real-world problems instead of the latest technological bells and whistles. I spend so much of my time with my head in Federal requirements that it's nice do a reset and get different perspectives on how geospatial technologies are used. I am particularly interested to hear the keynote from <a href="http://twitter.com/learondalby">Learon Dalby</a> of <a href="http://www.sanborn.com/">Sanborn</a> and formerly of the <a href="http://www.gis.state.ar.us/">Arkansas GIO office</a>. I had the pleasure of working with Learon and the AGIO team on a project a couple of years ago and am impressed with what they accomplished.</p>
 
 <p>I appreciate the new format of TUGIS as a one-day event is much easier to fit into the schedule. I'm looking forward to it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A #LazyWeb Compendium of Python Resources for Beginners]]></title>
-    <link href="http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/"/>
-    <updated>2013-03-17T15:19:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners</id>
-    <content type="html"><![CDATA[<p>A friend who is in the midst of a career change and moving into the GIS world asked me for some pointers to resources for getting started with Python. I threw the question out to Twitter (with a similar variation also posted to Google+):</p>
-
-<p>{% tweet http://twitter.com/billdollins/status/313263420923338753 %}</p>
-
-<p>I got a couple of requests to summarize any information I received, which seemed reasonable. I got quite a few responses and here are some links:</p>
-
-<!--more-->
-
-
-<p><a href="http://learnpythonthehardway.org/">Learn Python the Hard Way</a> - This one got the most mentions<br/>
-<a href="http://inventwithpython.com/">Invent With Python</a><br/>
-<a href="http://www.greenteapress.com/">Green Tea Press</a><br/>
-<a href="http://newcoder.io/">New Coder</a><br/>
-<a href="http://www.codecademy.com/tracks/python">Codecademy</a><br/>
-<a href="https://www.khanacademy.org/science/computer-science">Khan Academy</a><br/>
-<a href="http://www.diveintopython.net/">Dive Into Python</a> - Note: I heard positive and negative on this one.<br/>
-<a href="http://www.realpython.com/e-book/">Real Python</a><br/>
-<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/index.htm">MIT Introduction to Computer Science and Programming</a><br/>
-<a href="https://www.udacity.com/course/cs101">Udacity</a></p>
-
-<p>I can't claim to have checked out all of them, but I consider the recommendations to have come from trusted sources. So, if you're <a href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/">looking to expand your GIS expertise by adding some Python knowledge</a>, these may be a good place to start. Not all of them are free-of-charge since that wasn't one of my friend's requirements.</p>
-
-<p>Additionally, Dan Dye informs me that the PyBulls Python interest group at the University of South Florida will take up this question and post a document with a list of resources on GitHub. Be sure to keep an eye on <a href="https://github.com/pybulls/">https://github.com/pybulls/</a> . Thank you!</p>
-
-<p>Many thanks to <a href="http://twitter.com/hugoestr">Hugo Estrada</a>, <a href="http://twitter.com/DonMeltz">Don Meltz</a>, <a href="http://twitter.com/IndyGIS">Aaron Burgess</a>, <a href="http://twitter.com/JCSanford">Jason Sanford</a>, <a href="http://twitter.com/dandye">Dan Dye</a>, <a href="http://twitter.com/swfoundry">Christopher Moore</a>, <a href="http://twitter.com/scw">Shaun Walbridge</a>, <a href="http://twitter.com/jmwdesign">Jason Wheatley</a>, <a href="https://plus.google.com/u/0/102903916051293271489/posts">Wes Herche</a>, and <a href="https://plus.google.com/u/0/110136604428694315510/posts">Jorge Sanz</a>.</p>
-
-<p>If you have any other good online resources for getting started with Python, feel free to leave them in the comments.</p>
 ]]></content>
   </entry>
   

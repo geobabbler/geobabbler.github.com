@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-03-27T13:58:10-04:00</updated>
+  <updated>2013-03-28T08:20:48-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SharpMap 1.0 RC1 Released]]></title>
+    <link href="http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released/"/>
+    <updated>2013-03-28T06:10:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released</id>
+    <content type="html"><![CDATA[<p>Over on Google+, <a href="https://plus.google.com/u/0/117900686009614580552/posts">Diego Guidi</a> let me know that the <a href="http://sharpmap.codeplex.com/releases/view/104098">SharpMap 1.0 Release Candidate has been released</a>. There was a time when I worked with, <a href="https://www.google.com/search?q=site%3Ablog.geomusings.com&amp;q=sharpmap">and wrote about</a>, SharpMap a lot. During that entire time, the stable version of SharpMap sat at some version number that started with &#8220;0.9&#8221;. The release of a 1.0 candidate is a signal that the project is moving forward.</p>
+
+<p style="text-align:center;"> <img src="http://www.zekiah.com/sites/default/files/images/SharpMapSQL2008.preview.png" /></p>
+
+<p>This is important because there are still an awful lot of .Net developers out there, especially in government shops that made a big Microsoft push in terms of infrastructure and training years ago. Of course, many of those shops are also committed to Esri technologies but SharpMap, while being a fully-functioning mapping/GIS library, also provides easy access to data sources not natively supported by Esri. Additionally, it is very easy to extend to support new or custom data sources and strightforward to <a href="http://www.zekiah.com/index.php?q=node/146">get SharpMap to play nicely in traditionally Esri-centric environments</a>.</p>
+
+<!--more-->
+
+
+<p>At <a href="http://www.zekiah.com">my company</a> we&#8217;ve used SharpMap for just that for one of our key Navy customers. By building custom SharpMap data sources, we&#8217;ve been able to encapsulate business logic in Oracle, including the use of Oracle <a href="http://www.slideshare.net/shawty_ds/what-is-spatial-sql">Spatial SQL</a> to execute spatial analysis processes and deliver the results back to an Esri web client that is also interacting with ArcGIS Server for many standard functions. SharpMap enabled us to expose this logic through an HTTP+JSON interface while bypassing geodatabases, server object extensions, and other such cruft.</p>
+
+<p>In recent years, other open-source .Net projects such as <a href="https://dotspatial.codeplex.com/">DotSpatial</a> have gained traction and that&#8217;s good. The .Net environment remains in widespread use so it is useful to have open-source geospatial options for that platform. I&#8217;m happy to see SharpMap remaining an option in that space.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Early Bird Registration for FOSS4G-NA Closes Soon]]></title>
@@ -493,33 +513,6 @@ enjoy, Sandro
 
 
 <p>To learn more about Type 1 Diabetes, <a href="http://www.jdrf.org/index.cfm?page_id=101982" target="_blank">please visit the JDRF</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Personal Geospatial Workflows]]></title>
-    <link href="http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows/"/>
-    <updated>2012-11-09T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows</id>
-    <content type="html"><![CDATA[<p>I&#8217;ve had a couple of people ask me recently about the geospatial tools I use. Year-over-year, that answer changes but here&#8217;s how I answer that right now:</p>
-
-<p>As a Federal contractor, I spend a lot of time working with the <a href="http://www.esri.com" target="_blank">Esri</a> stack during my work day. A few years ago, I added a few open-source geospatial tools into my tool set and, since then, have also done a respectable amount to consulting work them as well. The balance between the two varies over time, depending on the requirements of individual customers and projects. Lately, commercial customers have seemed much more interested in open-source tools while my government customers are sticking with Esri. Since those observations are based on the the extremely heavy filter of my own recent experience, I&#8217;d be hesitant to draw any larger conclusions from them.</p>
-
-<p><img alt="" height="264" src="http://blog.geomusings.com/images/posts/duct-tape.jpg" title="Duct Tape" width="300" /></p>
-
-<p>I&#8217;ve always believed that proficiency with a wide range of tools makes me a better consultant and integrator, so I am always exploring and trying new things. With those commercial customers, and in my own personal side projects, my recent workflows have gelled around a core set of tools, both commercial and open-source: <!--more--></p>
-
-<p><a href="http://www.postgis.org" target="_blank">PostGIS</a> - I am very comfortable with SQL and tend to use <a href="http://www.postgresql.org" target="_blank">PostgreSQL</a> and PostGIS for a lot of my vector data processing. Lately, this has mainly involved joining up geometries with attributes and doing aggregations and similar things. For example, the vector data in this <a href="http://geobabbler.github.com/mdq62012.html" target="_blank">map of the county-level Maryland Question 6 results</a> was processed in PostGIS. Very simply, I have a baseline table of the counties of Maryland which I will use to create new data sets. In this case, I imported a CSV of the election results, created a view that joined up the data and then selected the view into a new table. This is workflow is much easier with PostGIS 2.x thanks to the <a href="http://blog.opengeo.org/2012/03/06/postgis-2-0-new-features-typmod/" target="_blank">use of typmod</a>.</p>
-
-<p><a href="http://qgis.org" target="_blank">QGIS</a> - In the case of the map mentioned above, the data set is ultimately going to be static so it makes sense to serve it as static content, rather than bringing a heavyweight geospatial server such as <a href="http://www.esri.com/software/arcgis/arcgisserver/" target="_blank">ArcGIS</a> or <a href="http://geoserver.org/display/GEOS/Welcome" target="_blank">GeoServer</a> into the mix. In these cases, I lean toward <a href="http://geojson.org/" target="_blank">GeoJSON</a>. QGIS makes it very easy to export any vector layer out to GeoJSON so it&#8217;s become my go-to tool for that. QGIS also has great analytical tools and I consider it a complete functional match for ArcMap but, having said that, I&#8217;m actually very comfortable with the spatial SQL functions in PostGIS so I end up doing most of my analytical work there.</p>
-
-<p><a href="http://leafletjs.com/" target="_blank">Leaflet</a>/<a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> - Most of the web maps I&#8217;m doing are single-use and pretty straightforward. When that&#8217;s the case, I prefer to use Leaflet as it&#8217;s a pretty lightweight library. That said, I keep OpenLayers in the mix if the GIS-like requirements get a little more complex. OpenLayers does more &#8220;out of the box&#8221; than Leaflet but Leaflet is trimmer so it really depends on the use case.</p>
-
-<p><a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>/<a href="http://mapbox.com/tilemill/" target="_blank">TileMill </a>- Arc2Earth is a commercial extension to ArcGIS and I lean on it to make tiles, although it does a lot more than that. I also use TileMill for this purpose but it really depends on where my cartography resides. There&#8217;s a lot of good cartography locked up in MXDs and Arc2Earth is just a great way to capitalize on that. It&#8217;s also nice that Arc2Earth works in ArcMap, eliminating the need for a license of Server.  If I&#8217;m building my cartography from scratch, which is not really my strong suit, I&#8217;ll lean toward TileMill because it more easily connects directly to PostGIS, which is where my data tends to reside if I have my druthers. Again, it depends on the use case.</p>
-
-<p><a href="http://www.python.org/" target="_blank">Python</a>/Javascript - I&#8217;m doing a lot more work in Python these days. It&#8217;s become the <em>lingua franca</em> of GIS development in my book. Additionally, the capabilities of Javascript for web maps is evolving at a stunning pace. I can&#8217;t see being productive in the long term in the geospatial field without proficiency in these two languages.</p>
-
-<p>So these are the tools that I&#8217;m using most often these days as part of my personal workflows. The stable of tools that I use evolves over time, as should be evident if you peruse this blog. In general, I&#8217;m finding it very easy to be productive with these tools right now.</p>
 ]]></content>
   </entry>
   
