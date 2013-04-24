@@ -4,7 +4,7 @@
   <title><![CDATA[Category: soapbox | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/soapbox/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-04-20T10:01:02-04:00</updated>
+  <updated>2013-04-24T14:50:50-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[When Is a GeoPortal Not a GeoPortal?]]></title>
+    <link href="http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal/"/>
+    <updated>2013-04-24T13:40:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal</id>
+    <content type="html"><![CDATA[<p>When it's really a desktop application.</p>
+
+<p>Over the past few weeks, I have been reading with conflicted agreement the posts of <a href="http://mapbrief.com/2013/02/21/the-waiting-is-the-hardest-part-why-map-portals-dont-work-part-v/">Brian Timoney</a> and <a href="http://geosprocket.blogspot.com/2013/04/toward-ideal-geoportal.html">Bill Morris</a> about the nature of geo-portals and what they should or should not be and do. I say that I am in conflicted agreement not because I take any issue with anything they have said. Their posts represent what should be considered best practices in terms of building web mapping applications. In Brian's posts, the counter-examples he highlights represent some of the worst practices to be avoided.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/arcmap_browser.png" /></p>
+
+<p>My conflict arises from the fact that, while I agree with the ideas that Brian and Bill put forward, I find myself working against them in my current work. In my <a href="http://www.spatiallyadjusted.com/2013/04/10/hangouts-with-james-fee-developer-i-hardly-knew-her/">hangout with James Fee</a> a couple of weeks ago, I mentioned that I am working again (albeit temporarily) in the world of Silverlight. I am supporting a very large, complex Silverlight application that, as one of many functions, includes a mapping module that runs counter to almost every best practice espoused by Brian and Bill. And I am adding to it.</p>
+
+<!--more-->
+
+
+<p>The main difference with this application is that it will never be a public-facing internet application. It is intended to be deployed to a limited user base in an intranet/extranet environment. One of the overarching goals is to deliver sophisticated analytical tools and a desktop-like experience to the user community. So why not simply deliver a desktop application, or a series of extensions to ArcGIS, or both?</p>
+
+<p>The answer to that is simply "enterprise IT policy." This particular organization works under an IT policy framework that makes it nearly impossible to deploy custom desktop applications. This is not a unique situation as restrictive IT policies exist in many large organizations, especially Federal agencies. Some of that policy exists in the name of security, which is a laudable goal, but good developers with clear policy requirements, working in collaboration with IA staff, can secure an application regardless of how it is deployed. A larger driver is reduction of configuration management costs. It is simply expensive to identify specific users, ensure their systems meet proper specifications, deliver desktop tools to them, and sustain those tools over time. This, of course, has been one of advantages of web applications from the outset.  So "stuffing the desktop into the browser" looks like an attractive path and it is for development that must meet requirements within a budget and a schedule. Anything that reduces the friction of dealing with IT policy is a win.</p>
+
+<p>This is all well and good within the confines of one's own intranet. What happens behind the firewall stays behind the firewall...except for when it doesn't. Poor application design is poor application design regardless of which side of the firewall on which it sits. When draconian IT policy enshrines the adoption of something-less-than-best practices, we all lose. Groupthink begins to set in and developers that spend their time building plugin-based, should-be-desktop applications on the intranet for a targeted audience of GIS users can begin to lose perspective on what makes a suitable interface for the general user. Eventually, those intranet practices will begin to be exposed on public-facing applications because many developers will continue to do what they have learned (and have been encouraged) to do.</p>
+
+<p>Any enterprise that is sufficiently large enough to have instituted a heavy IT policy is probably engaged in some level of software development and/or customization. That policy should be flexible enough to enable users and developers to choose the right tool and/or architecture for the job, rather than turning one particular architecture (HTTP in this case) into a one-size-fits-all channel for inappropriately designed tools and practices.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Yes, You Need to Code]]></title>
@@ -157,123 +183,49 @@ If you are willing and able to write a letter of recommendation, your contributi
 
 <p>As promised, here's the Python code should anyone find it useful:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">PyRSS2Gen</span> <span class="kn">import</span> <span class="n">RSSItem</span><span class="p">,</span> <span class="n">Guid</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">ScrapeNFeed</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nc">SmecoFeed</span><span class="p">(</span><span class="n">ScrapeNFeed</span><span class="o">.</span><span class="n">ScrapedFeed</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="k">def</span> <span class="nf">HTML2RSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
-</span><span class='line'>            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
-</span><span class='line'>            <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-</span><span class='line'>            <span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">)</span>
-</span><span class='line'>            <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span class='line'>            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-</span><span class='line'>                    <span class="n">row</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-</span><span class='line'>                    <span class="n">cols</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)</span>
-</span><span class='line'>                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span><span class="p">:</span>
-</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
-</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="nb">zip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
-</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-</span><span class='line'>                        <span class="c">#This link is not real. It will simply take you to the homepage.</span>
-</span><span class='line'>                        <span class="n">lnk</span> <span class="o">=</span> <span class="s">&#39;http://www.smeco.coop#&#39;</span> <span class="o">+</span> <span class="nb">zip</span>
-</span><span class='line'>                        <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RSSItem</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">zip</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="n">tot</span><span class="p">,</span><span class="n">link</span><span class="o">=</span><span class="n">lnk</span><span class="p">))</span>
-</span><span class='line'>                        <span class="c">#print zip</span>
-</span><span class='line'>                        <span class="c">#print tot</span>
-</span><span class='line'>                        <span class="c">#cols = row.findAll(&#39;td&#39;)</span>
-</span><span class='line'>                        <span class="c">#for col in cols:</span>
-</span><span class='line'>                        <span class="c">#    print col.string</span>
-</span><span class='line'>            <span class="bp">self</span><span class="o">.</span><span class="n">addRSSItems</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">SmecoFeed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;Current SMECO outages (as scraped by Zekiah Technologies)&quot;</span><span class="p">,</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>             <span class="s">&#39;http://outage.smeco.coop&#39;</span><span class="p">,</span>
-</span><span class='line'>             <span class="s">&quot;Current SMECO power outages by ZIP code&quot;</span><span class="p">,</span>
-</span><span class='line'>             <span class="s">&#39;smeco_outage.xml&#39;</span><span class="p">,</span>
-</span><span class='line'>     <span class="s">&#39;smeco_outage.pickle&#39;</span><span class="p">,</span>
-</span><span class='line'>             <span class="n">managingEditor</span><span class="o">=</span><span class="s">&#39;bill@zekiah.com (Bill Dollins)&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Critical Infrastructure?]]></title>
-    <link href="http://blog.geomusings.com/2011/08/24/critical-infrastructure/"/>
-    <updated>2011-08-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/08/24/critical-infrastructure</id>
-    <content type="html"><![CDATA[<p>A couple of weeks ago, I took some gentle razzing from some quarters for admitting I still have a land line:</p>
+<p>{% codeblock lang:python %}
+from BeautifulSoup import BeautifulSoup
+import re
+import urllib2
+from PyRSS2Gen import RSSItem, Guid
+import ScrapeNFeed</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>As actual voice communication devices, mobile phones still suck. This why I still have a land line. <a href="https://twitter.com/search/%23oldtechthatworks">#oldtechthatworks</a></p>&mdash; Bill Dollins (@billdollins) <a href="https://twitter.com/billdollins/status/102403900207935488" data-datetime="2011-08-13T15:39:27+00:00">August 13, 2011</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>class SmecoFeed(ScrapeNFeed.ScrapedFeed):</p>
 
-<p>This tweet was the result of yet another dropped call, which is annoying, but the unreliability of cellular networks can be more than just annoying, especially given the fact that they are now the primary communications medium for many people.</p>
+<pre><code>    def HTML2RSS(self, headers, body):
+            soup = BeautifulSoup(body)
+            table = soup.findAll('table')[3]
+            rows = table.findAll('tr')
+            items = []
+            for index in range(len(rows) - 1):
+                    row = rows[index]
+                    cols = row.findAll('td')
+                    if len(cols) &amp;gt; 0:
+                        zip = cols[0].string
+                        zip = zip.replace('&amp;amp;nbsp;', '')
+                        tot = cols[1].string
+                        tot = tot.replace('&amp;amp;nbsp;', '')
+                        #This link is not real. It will simply take you to the homepage.
+                        lnk = 'http://www.smeco.coop#' + zip
+                        items.append(RSSItem(title=zip,description=tot,link=lnk))
+                        #print zip
+                        #print tot
+                        #cols = row.findAll('td')
+                        #for col in cols:
+                        #    print col.string
+            self.addRSSItems(items)
+</code></pre>
 
-<p>Almost ten years ago, on September 11, 2001, I was being evacuated from the building I was in and was trying reach my wife via cell phone. I heard a few garbled words about my parents and our dog before the line went dead. The mobile phone network was down for quite a while and my old analog cell phone was a paperweight during that time. We met up at my parents house later and she had our son and dog with her.</p>
+<p>SmecoFeed.load("Current SMECO outages (as scraped by Zekiah Technologies)",</p>
 
-<p>I went on to spend the next several years closely involved with <a href="http://en.wikipedia.org/wiki/Critical_infrastructure">critical infrastructure</a> protection efforts and, specifically, the application of geospatial tools to those efforts. A lot of time, effort and money has been invested to make sure infrastructure works better in such situations.</p>
+<pre><code>             'http://outage.smeco.coop',
+             "Current SMECO power outages by ZIP code",
+             'smeco_outage.xml', 
+     'smeco_outage.pickle',
+             managingEditor='bill@zekiah.com (Bill Dollins)')
+</code></pre>
 
-<!--more-->
-
-
-<p>Flash forward to yesterday's <a href="http://earthquake.usgs.gov/earthquakes/recenteqsus/Quakes/se082311a.php">earthquake in Virginia</a>. As the earthquake hit, we went outside. I pulled out my cell phone to call my wife and got nothing. Simultaneously, everyone in the parking lot with me started noting that they couldn't get a call through. Ten years later and I was standing at square one, holding a paperweight. I could, however, use my data plan to get to <a href="http://twitter.com">Twitter</a> and <a href="http://www.facebook.com">Facebook</a>. I don't for a moment imagine that data services are more stable. Instead, I suspect that the fact that I could use data services is more of an indication of how few people actually use smartphones or data plans.</p>
-
-<p>The earthquake was relatively mild (although such distinctions are different in the East for a number of reasons) and I went back inside after 10 minutes, where I was able to communicate with my family and others via Facebook, Twitter and, yes, land line. It was an hour before I could make a call on my mobile (I have Verizon but AT&amp;T users were also having trouble). So, until there are significant changes, this will remain a fixture in my house:</p>
-
-<div style="text-align:center;"><img alt="" height="239" src="http://geobabble.files.wordpress.com/2011/08/rotary_phone2.jpg?w=300" title="Rotary Phone" width="300" /><div style="text-align:center;font-size: 14px;">My personal critical infrastructure<br/><br/></div></div>
-
-
-<p>This sits in our office at home and may be older than I am. It has provided communication through <a href="http://en.wikipedia.org/wiki/September_11_attacks">attacks</a>, <a href="http://en.wikipedia.org/wiki/Hurricane_Isabel">hurricanes</a>, <a href="http://www.erh.noaa.gov/lwx/Historic_Events/apr28-2002/laplata.htm">tornadoes</a> and, now, an earthquake and it works when there is no power.</p>
-
-<p>I am certain that government and emergency responders had access to the communications they required but it's amazing to think that the most reliable forms of communication available to citizens at large may be two free social media networks that didn't exist ten years ago and a form of technology that's over a century old.</p>
+<p>{% endcodeblock %}</p>
 ]]></content>
   </entry>
   

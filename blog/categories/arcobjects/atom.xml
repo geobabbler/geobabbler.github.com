@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arcobjects | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcobjects/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-04-20T10:01:02-04:00</updated>
+  <updated>2013-04-24T14:50:50-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -82,159 +82,86 @@ link to the patch.</blockquote>
 
 <p>The workflow is fairly simple. Enter a "search term" in the text box (exactly as you would in the Finder web interface), select a "limit" (default is 20) and then click "execute" to run your search. The following is the code behind the "execute" button:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">IEnvelope</span> <span class="n">bounds</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">_mxd</span><span class="p">.</span><span class="n">ActiveView</span><span class="p">.</span><span class="n">Extent</span><span class="p">;</span> <span class="c1">//current map extent</span>
-</span><span class='line'>        <span class="n">bounds</span><span class="p">.</span><span class="n">Project</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">getWGS84</span><span class="p">());</span> <span class="c1">//convert to WGS84 for use in query</span>
-</span><span class='line'>        <span class="n">ExecuteSearch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">txtKeyword</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">comboBox1</span><span class="p">.</span><span class="n">SelectedItem</span><span class="p">.</span><span class="n">ToString</span><span class="p">()),</span> <span class="n">bounds</span><span class="p">.</span><span class="n">YMax</span><span class="p">,</span> <span class="n">bounds</span><span class="p">.</span><span class="n">YMin</span><span class="p">,</span> <span class="n">bounds</span><span class="p">.</span><span class="n">XMax</span><span class="p">,</span> <span class="n">bounds</span><span class="p">.</span><span class="n">XMin</span><span class="p">);</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>        IEnvelope bounds = this._mxd.ActiveView.Extent; //current map extent
+        bounds.Project(this.getWGS84()); //convert to WGS84 for use in query
+        ExecuteSearch(this.txtKeyword.Text, Convert.ToInt32(this.comboBox1.SelectedItem.ToString()), bounds.YMax, bounds.YMin, bounds.XMax, bounds.XMin);
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>And the ExecuteSearch method that does the work:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">WebClient</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebClient</span><span class="p">();</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;http://finder.geocommons.com/search.atom?query={0}&amp;amp;amp;limit={1}&amp;amp;amp;bbox={2},{3},{4},{5}&quot;</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">limit</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">west</span><span class="p">,</span> <span class="n">south</span><span class="p">,</span> <span class="n">east</span><span class="p">,</span> <span class="n">north</span><span class="p">);</span> <span class="c1">//format the URI</span>
-</span><span class='line'>        <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringCompleted</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">DownloadStringCompletedEventHandler</span><span class="p">(</span><span class="n">request_DownloadStringCompleted</span><span class="p">);</span> <span class="c1">//attach handler for async call</span>
-</span><span class='line'>        <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringAsync</span><span class="p">(</span><span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">url</span><span class="p">));</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>        WebClient request = new WebClient();
+        string url = String.Format("http://finder.geocommons.com/search.atom?query={0}&amp;amp;limit={1}&amp;amp;bbox={2},{3},{4},{5}", term, limit.ToString(), west, south, east, north); //format the URI
+        request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(request_DownloadStringCompleted); //attach handler for async call
+        request.DownloadStringAsync(new Uri(url)); 
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>These two pieces of code format the URI and make the call to the GeoCommons API. As you can see, it automatically uses the current map extent to bound the query. GeoCommons expects the bounding box to be in WGS84 so I convert the extent before building the URI. The "getWGS84" method is an ArcObjects helper function that I wrote years ago and reuse extensively.</p>
 
 <p>The next part of the workflow is to parse the search results and display them in the "results" list box. To support that, I created the following (very simple) class:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">public</span> <span class="k">class</span> <span class="nc">OverlayInfo</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">shapelink</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">kmllink</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">infolink</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>public class OverlayInfo
+{
+    public string title { get; set; }
+    public string shapelink { get; set; }
+    public string kmllink { get; set; }
+    public string infolink { get; set; }
+}
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>Basically, I'll create an instance of OverlayInfo for each search result and add it to the results list, using the "title" property as the display member. I could have set up a data contract to bind these directly to the atom entries (and I may still do that) but, for the limited information I am handling at the moment, it was simpler to parse the atom using LINQ to XML. That work is done in the DownloadStringCompleted event handler here:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Error</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Result</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">XElement</span> <span class="n">root</span> <span class="p">=</span> <span class="n">XElement</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">n</span> <span class="p">=</span> <span class="n">root</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">LocalName</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">XNamespace</span> <span class="n">atom</span> <span class="p">=</span> <span class="s">&quot;http://www.w3.org/2005/Atom&quot;</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">IEnumerable</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">XElement</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="n">entries</span> <span class="p">=</span> <span class="n">root</span><span class="p">.</span><span class="n">Elements</span><span class="p">(</span><span class="n">atom</span> <span class="p">+</span> <span class="s">&quot;entry&quot;</span><span class="p">);</span> <span class="c1">//get the entry elements</span>
-</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="n">XElement</span> <span class="n">entry</span> <span class="k">in</span> <span class="n">entries</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="n">XElement</span> <span class="n">title</span> <span class="p">=</span> <span class="n">entry</span><span class="p">.</span><span class="n">Elements</span><span class="p">(</span><span class="n">atom</span> <span class="p">+</span> <span class="s">&quot;title&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">();</span> <span class="c1">//query the entry title</span>
-</span><span class='line'>                <span class="n">IEnumerable</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">XElement</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="n">links</span> <span class="p">=</span>
-</span><span class='line'>                <span class="p">(</span><span class="k">from</span> <span class="n">el</span> <span class="k">in</span> <span class="n">entry</span><span class="p">.</span><span class="n">Elements</span><span class="p">(</span><span class="n">atom</span> <span class="p">+</span> <span class="s">&quot;link&quot;</span><span class="p">)</span>
-</span><span class='line'>                 <span class="k">where</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="n">el</span><span class="p">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">)</span> <span class="p">==</span> <span class="s">&quot;application/vnd.google-earth.kml+xml&quot;</span>
-</span><span class='line'>                 <span class="k">select</span> <span class="n">el</span><span class="p">).</span><span class="n">Take</span><span class="p">(</span><span class="m">1</span><span class="p">);</span> <span class="c1">//query the link to the KML resource</span>
-</span><span class='line'>
-</span><span class='line'>                <span class="n">XElement</span> <span class="n">link</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">links</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="n">link</span> <span class="p">=</span> <span class="n">links</span><span class="p">.</span><span class="n">First</span><span class="p">();</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">link</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="kt">string</span> <span class="n">kml</span> <span class="p">=</span> <span class="n">links</span><span class="p">.</span><span class="n">Attributes</span><span class="p">(</span><span class="s">&quot;href&quot;</span><span class="p">).</span><span class="n">First</span><span class="p">().</span><span class="n">Value</span><span class="p">;</span>
-</span><span class='line'>                    <span class="kt">string</span> <span class="n">shp</span> <span class="p">=</span> <span class="n">kml</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;kml&quot;</span><span class="p">,</span> <span class="s">&quot;zip&quot;</span><span class="p">);</span> <span class="c1">//coerce to zip (shapefile) link</span>
-</span><span class='line'>                    <span class="kt">string</span> <span class="n">info</span> <span class="p">=</span> <span class="n">kml</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;.kml&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span> <span class="c1">//coerce to general information link</span>
-</span><span class='line'>                    <span class="n">OverlayInfo</span> <span class="n">overlay</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OverlayInfo</span> <span class="p">{</span> <span class="n">title</span> <span class="p">=</span> <span class="n">title</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">shapelink</span> <span class="p">=</span> <span class="n">shp</span><span class="p">,</span> <span class="n">kmllink</span> <span class="p">=</span> <span class="n">kml</span><span class="p">,</span> <span class="n">infolink</span> <span class="p">=</span> <span class="n">info</span> <span class="p">};</span> <span class="c1">//create instance of OverlayInfo</span>
-</span><span class='line'>                    <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">overlay</span><span class="p">);</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">else</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Error</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>        if (e.Error == null)
+        {
+            this.lstResults.Items.Clear();
+            string s = e.Result;
+            XElement root = XElement.Parse(s);
+            string n = root.Name.LocalName;
+            XNamespace atom = "http://www.w3.org/2005/Atom";
+            IEnumerable&amp;lt;XElement&amp;gt; entries = root.Elements(atom + "entry"); //get the entry elements
+            foreach (XElement entry in entries)
+            {
+                XElement title = entry.Elements(atom + "title").First(); //query the entry title
+                IEnumerable&amp;lt;XElement&amp;gt; links =
+                (from el in entry.Elements(atom + "link")
+                 where (string)el.Attribute("type") == "application/vnd.google-earth.kml+xml"
+                 select el).Take(1); //query the link to the KML resource
+
+                XElement link = null;
+                if (links.Count() &amp;gt; 0)
+                {
+                    link = links.First();
+                }
+                if (link != null)
+                {
+                    string kml = links.Attributes("href").First().Value;
+                    string shp = kml.Replace("kml", "zip"); //coerce to zip (shapefile) link
+                    string info = kml.Replace(".kml", ""); //coerce to general information link
+                    OverlayInfo overlay = new OverlayInfo { title = title.Value, shapelink = shp, kmllink = kml, infolink = info }; //create instance of OverlayInfo
+                    this.lstResults.Items.Add(overlay);
+                }
+            }
+        }
+        else
+        {
+            MessageBox.Show(e.Error.ToString());
+        }
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>I use LINQ to query the entries out of the feed, iterate them, create an instance of OverlayInfo for each entry and add it to the list box. LINQ is nice for data structures that are known at runtime and I like it better than XPath for querying XML documents (although it's touchier about namespaces).</p>
 
@@ -242,199 +169,104 @@ link to the patch.</blockquote>
 
 <p>You will recall that we attached the links to the KML and shapefile data to the OverlayInfo object for each result when we added it to the list so working with it is as simple as this:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="n">OverlayInfo</span> <span class="n">overlay</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">SelectedItem</span> <span class="k">as</span> <span class="n">OverlayInfo</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">overlay</span><span class="p">.</span><span class="n">kmllink</span><span class="p">);</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>        OverlayInfo overlay = this.lstResults.SelectedItem as OverlayInfo;
+        System.Diagnostics.Process.Start(overlay.kmllink);
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>For this pass, the code simply does a shell execute using the KML link so what this actually does is cause the link to be opened in the default browser which should then prompt you to open the data in Google Earth (or whatever your default KML handler is). In the near future, I will update this to go to GE directly but this worked for now.</p>
 
 <p>The "download" button actually downloads the data and adds it to ArcMap automatically. Handling this is a little more complicated because GeoCommons delivers the shapefile data in a zip file so it needs to be uncompressed first. For handling zip files, I used the open-source <a href="http://dotnetzip.codeplex.com/">DotNetZip</a> to handle the zip files. Here's the bulk of the heavy lifting for handling the shapefiles:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="k">void</span> <span class="n">download_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//TODO: move all of this out of the event handler</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetTempPath</span><span class="p">();</span> <span class="c1">//find user&#39;s temp folder</span>
-</span><span class='line'>        <span class="n">OverlayInfo</span> <span class="n">overlay</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">lstResults</span><span class="p">.</span><span class="n">SelectedItem</span> <span class="k">as</span> <span class="n">OverlayInfo</span><span class="p">;</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">file</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetFileName</span><span class="p">(</span><span class="n">overlay</span><span class="p">.</span><span class="n">shapelink</span><span class="p">);</span>
-</span><span class='line'>        <span class="c1">//build all of the necessary file info</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">filebase</span> <span class="p">=</span> <span class="n">file</span><span class="p">.</span><span class="n">ToLower</span><span class="p">().</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;.zip&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">outfolder</span> <span class="p">=</span> <span class="n">tmp</span> <span class="p">+</span> <span class="n">filebase</span><span class="p">;</span> <span class="c1">//output location</span>
-</span><span class='line'>        <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Directory</span><span class="p">.</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="n">outfolder</span><span class="p">);</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">outpath</span> <span class="p">=</span> <span class="n">tmp</span> <span class="p">+</span> <span class="n">filebase</span> <span class="p">+</span> <span class="s">&quot;\\&quot;</span> <span class="p">+</span> <span class="n">file</span><span class="p">;</span>
-</span><span class='line'>        <span class="c1">//download the data</span>
-</span><span class='line'>        <span class="n">WebRequest</span> <span class="n">req</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">overlay</span><span class="p">.</span><span class="n">shapelink</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">WebResponse</span> <span class="n">resp</span> <span class="p">=</span> <span class="n">req</span><span class="p">.</span><span class="n">GetResponse</span><span class="p">();</span>
-</span><span class='line'>        <span class="n">Stream</span> <span class="n">strm</span> <span class="p">=</span> <span class="n">resp</span><span class="p">.</span><span class="n">GetResponseStream</span><span class="p">();</span>
-</span><span class='line'>        <span class="n">SaveStreamToFile</span><span class="p">(</span><span class="n">outpath</span><span class="p">,</span> <span class="n">strm</span><span class="p">);</span>
-</span><span class='line'>        <span class="c1">//unzip the data, getting the name of the .shp file</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">shapefile</span> <span class="p">=</span> <span class="n">Utils</span><span class="p">.</span><span class="n">ExtractFiles</span><span class="p">(</span><span class="n">outpath</span><span class="p">,</span> <span class="n">outfolder</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">resp</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
-</span><span class='line'>        <span class="c1">//there may have been an error or no actual shapefile</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">shapefile</span> <span class="p">!=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">workspace</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetDirectoryName</span><span class="p">(</span><span class="n">shapefile</span><span class="p">);</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">dataset</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetFileName</span><span class="p">(</span><span class="n">shapefile</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">dataset</span> <span class="p">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">ToLower</span><span class="p">().</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;.shp&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">AddShapefile</span><span class="p">(</span><span class="n">workspace</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">overlay</span><span class="p">.</span><span class="n">title</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">private</span> <span class="k">void</span> <span class="nf">SaveStreamToFile</span><span class="p">(</span><span class="kt">string</span> <span class="n">fileFullPath</span><span class="p">,</span> <span class="n">Stream</span> <span class="n">stream</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">using</span><span class="p">(</span><span class="n">Stream</span> <span class="n">fs</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">fileFullPath</span><span class="p">,</span> <span class="n">FileMode</span><span class="p">.</span><span class="n">Create</span><span class="p">)</span> <span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="kt">byte</span> <span class="p">[]</span><span class="n">buf</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">1000</span><span class="p">];</span>
-</span><span class='line'>                <span class="kt">int</span> <span class="n">iRead</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
-</span><span class='line'>                <span class="k">do</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="n">iRead</span> <span class="p">=</span> <span class="n">stream</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">buf</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
-</span><span class='line'>                    <span class="k">if</span> <span class="p">(</span><span class="n">iRead</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
-</span><span class='line'>                        <span class="n">fs</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">iRead</span><span class="p">);</span>
-</span><span class='line'>                <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">iRead</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">);</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//TODO: examine and throw</span>
-</span><span class='line'>            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">private</span> <span class="k">void</span> <span class="nf">AddShapefile</span><span class="p">(</span><span class="kt">string</span> <span class="n">folder</span><span class="p">,</span> <span class="kt">string</span> <span class="n">dataset</span><span class="p">,</span> <span class="kt">string</span> <span class="n">description</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">IWorkspaceFactory</span> <span class="n">wkspcfact</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ShapefileWorkspaceFactoryClass</span><span class="p">()</span> <span class="k">as</span> <span class="n">IWorkspaceFactory</span><span class="p">;</span>
-</span><span class='line'>            <span class="c1">//System.IO.Path.</span>
-</span><span class='line'>            <span class="n">IFeatureWorkspace</span> <span class="n">wkspc</span> <span class="p">=</span> <span class="n">wkspcfact</span><span class="p">.</span><span class="n">OpenFromFile</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">IFeatureWorkspace</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">IFeatureLayer</span> <span class="n">lyr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FeatureLayerClass</span><span class="p">()</span> <span class="k">as</span> <span class="n">IFeatureLayer</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">IFeatureClass</span> <span class="n">fc</span> <span class="p">=</span> <span class="n">wkspc</span><span class="p">.</span><span class="n">OpenFeatureClass</span><span class="p">(</span><span class="n">dataset</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">IGeoDataset</span> <span class="n">gds</span> <span class="p">=</span> <span class="n">fc</span> <span class="k">as</span> <span class="n">IGeoDataset</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">IGeoDatasetSchemaEdit</span> <span class="n">edit</span> <span class="p">=</span> <span class="n">gds</span> <span class="k">as</span> <span class="n">IGeoDatasetSchemaEdit</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">edit</span><span class="p">.</span><span class="n">CanAlterSpatialReference</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="c1">//GeoCommons does not deliver a .prj file with</span>
-</span><span class='line'>                <span class="c1">//shapefiles. This sets the spatial reference</span>
-</span><span class='line'>                <span class="n">edit</span><span class="p">.</span><span class="n">AlterSpatialReference</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">getWGS84</span><span class="p">());</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="n">lyr</span><span class="p">.</span><span class="n">FeatureClass</span> <span class="p">=</span> <span class="n">fc</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">lyr</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">description</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">lyr</span><span class="p">.</span><span class="n">SpatialReference</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">getWGS84</span><span class="p">();</span>
-</span><span class='line'>            <span class="n">_mxd</span><span class="p">.</span><span class="n">FocusMap</span><span class="p">.</span><span class="n">AddLayer</span><span class="p">(</span><span class="n">lyr</span><span class="p">);</span> <span class="c1">//_mxd is the current document open in ArcMap</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//TODO: put in better user notification</span>
-</span><span class='line'>            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>    private void download_Click(object sender, EventArgs e)
+    {
+        //TODO: move all of this out of the event handler
+        string tmp = System.IO.Path.GetTempPath(); //find user's temp folder
+        OverlayInfo overlay = this.lstResults.SelectedItem as OverlayInfo;
+        string file = System.IO.Path.GetFileName(overlay.shapelink);
+        //build all of the necessary file info
+        string filebase = file.ToLower().Replace(".zip", "");
+        string outfolder = tmp + filebase; //output location
+        System.IO.Directory.CreateDirectory(outfolder);
+        string outpath = tmp + filebase + "\\" + file;
+        //download the data
+        WebRequest req = WebRequest.Create(overlay.shapelink);
+        WebResponse resp = req.GetResponse();
+        Stream strm = resp.GetResponseStream();
+        SaveStreamToFile(outpath, strm);
+        //unzip the data, getting the name of the .shp file
+        string shapefile = Utils.ExtractFiles(outpath, outfolder, false); 
+        resp.Close();
+        //there may have been an error or no actual shapefile
+        if (shapefile != "")
+        {
+            string workspace = System.IO.Path.GetDirectoryName(shapefile);
+            string dataset = System.IO.Path.GetFileName(shapefile);
+            dataset = dataset.ToLower().Replace(".shp", "");
+            AddShapefile(workspace, dataset, overlay.title);
+        }
+
+    }
+
+    private void SaveStreamToFile(string fileFullPath, Stream stream)
+    {
+        try
+        {
+            using(Stream fs = File.Open(fileFullPath, FileMode.Create) )
+            {
+                byte []buf = new byte[1000];
+                int iRead = 0;
+                do
+                {
+                    iRead = stream.Read(buf, 0, buf.Length);
+                    if (iRead &amp;gt; 0)
+                        fs.Write(buf, 0, iRead);
+                } while (iRead &amp;gt; 0);
+            }                
+        }
+        catch (Exception ex)
+        {
+            //TODO: examine and throw
+            MessageBox.Show(ex.ToString());
+        }
+    }
+
+    private void AddShapefile(string folder, string dataset, string description)
+    {
+        try
+        {
+            IWorkspaceFactory wkspcfact = new ShapefileWorkspaceFactoryClass() as IWorkspaceFactory;
+            //System.IO.Path.
+            IFeatureWorkspace wkspc = wkspcfact.OpenFromFile(folder, 0) as IFeatureWorkspace;
+            IFeatureLayer lyr = new FeatureLayerClass() as IFeatureLayer;
+            IFeatureClass fc = wkspc.OpenFeatureClass(dataset);
+            IGeoDataset gds = fc as IGeoDataset;
+            IGeoDatasetSchemaEdit edit = gds as IGeoDatasetSchemaEdit;
+            if (edit.CanAlterSpatialReference)
+            {
+                //GeoCommons does not deliver a .prj file with
+                //shapefiles. This sets the spatial reference
+                edit.AlterSpatialReference(this.getWGS84());
+            }
+            lyr.FeatureClass = fc;
+            lyr.Name = description;
+            lyr.SpatialReference = this.getWGS84();
+            _mxd.FocusMap.AddLayer(lyr); //_mxd is the current document open in ArcMap
+        }
+        catch (Exception ex)
+        {
+            //TODO: put in better user notification
+            MessageBox.Show(ex.ToString());
+        }
+    }
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>Below is a screen capture of all of this in action (click to enlarge). I zoomed into the Gulf of Mexico region and searched on the term "oil." As can be seen I selected the "Projected Oil Trajectory - Forecast 052610" data set and added it to ArcMap. I manually applied the color ramp after the download.</p>
 
