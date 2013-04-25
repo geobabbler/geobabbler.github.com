@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: diversion | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/diversion/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2013-04-25T14:48:58-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Carving Up GIS StackExchange]]></title>
+    <link href="http://blog.geomusings.com/2012/09/13/carving-up-gis-stackexchange/"/>
+    <updated>2012-09-13T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/09/13/carving-up-gis-stackexchange</id>
+    <content type="html"><![CDATA[<p>So the data server that I was working with was having issues and, while waiting for the IT staff to resolve things, I decided to browse the <a href="http://gis.stackexchange.com/" target="_blank">GIS StackExchange</a> site. It's been online for quite sometime now, though I am only an occasional user. One thing led to another and I found myself playing with the <a href="http://blog.stackoverflow.com/2012/09/stack-exchange-api-v2-1/" target="_blank">StackExchange API</a>, which returns various information for a particular site in a JSON format.</p>
+
+<p><img alt="" class="aligncenter size-large wp-image-2871" height="328" src="http://geobabble.files.wordpress.com/2012/09/gis_se_crop.png?w=1024" title="gis_se_crop" width="1024" /></p>
+
+<p>One of the things that got people excited about the site was that it was neutral territory, not directly controlled by a particular vendor or organization and it remains one of the few places where you can see hyperbole-free discussion of Esri tools right next to that of open-source tools and general GIS concepts. Since it's been online for a while now, it has a lot of posts covering many different topics. I had some time on my hands, so I decided to pull the information for the 100 most "popular" tags, using the StackExchange API. With JSON in hand, I parsed into a CSV with Python and loaded the data into Excel to take a look.  <!--more--></p>
+
+<p>Since tags are user-generated, they run the gamut. To provide a little bit of standardization, I applied some categories to group the tags. I completely made up the categories but tried to apply them consistently. Not all fell neatly into groups so I made a few judgement calls. For example, I threw tags about the Esri Flex API into "Esri Tools" whereas "Flex" went into "Development/Programming." Some may quibble but that's how I did it. Also, the raw numbers indicate the frequency of each tag. Since posts can have multiple tags, there can be a lot of overlap. For example, an individual post could be about ArcSDE ("Esri Tools") for PostgreSQL ("General Database") using the PostGIS ("Open-Source Geospatial Tools") geometry type. So a single post could span a number of categories. The chart below shows how the top 100 tags fell into those categories.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2863" height="353" src="http://geobabble.files.wordpress.com/2012/09/stackexchange_chart.png" title="stackexchange_chart" width="600" /></p>
+
+<p>I'm not sure that it provides any particular insights into the geospatial community at this point. A true <del datetime="2012-09-13T22:49:27+00:00">analyst</del> <del datetime="2012-09-13T22:49:27+00:00">statistician</del> data scientist can probably poke numerous holes in it. It would probably be good to revisit this in a year to see how things have changed, if at all. What it does say to me is that the GIS StackExchange site has succeeded in being a fairly neutral forum for discussion of GIS tools and concepts and that its user community has a diverse set of interests. Such a forum was sorely lacking before it came online, so that's a win.</p>
+
+<p>For those with a mind for such things, the top tag was "arcgis" with 1659 occurrences and the 100th tag was "export" with 58. The StackExchange API lets you get a max of 100 tags at a time so I stopped at 100 for two reasons: 1) There was a significant dropoff from 1 to 100 and I didn't think the next 100 would add much and 2) I had to assign categories by hand and 100 was as much as I had patience for. The data was downloaded on 13 September 2012 and will quickly become stale. The data that I used <a href="http://dl.dropbox.com/u/6749645/posts/gis_stackexchange.zip">can be downloaded here</a>.</p>
+
+<p>It looks like my server is online again, so back to work...</p>
+]]></content>
+  </entry>
+  
+</feed>

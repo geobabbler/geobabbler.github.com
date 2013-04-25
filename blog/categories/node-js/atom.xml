@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: node.js | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/node-js/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2013-04-25T14:48:58-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Simple Tile Viewer]]></title>
+    <link href="http://blog.geomusings.com/2013/04/25/simple-tile-viewer/"/>
+    <updated>2013-04-25T14:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/04/25/simple-tile-viewer</id>
+    <content type="html"><![CDATA[<p>We do a lot of tiles for various customers at <a href="http://www.zekiah.com">Zekiah</a>. Tiling is as much art as science and sometimes things go wrong so we have a range of utilities that we use to perform various kids of QA. Because the caches can be large, we usually want to perform a visual QA on the static tiles before pushing them up to wherever they are going to live full-time.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/cacheviewer2.png" /></p>
+
+<p>In order to facilitate that, I wrote a very simple tile viewer using <a href="http://nodejs.org/">Node.js</a> and <a href="http://leafletjs.com/">Leaflet</a>. It uses a config file to get everything it needs to operate so we just make our changes there. This application currently only works with Web Mercator tiles but I'm working on adding support for WGS84. It also doesn't work with 'compact' tiles from ArcGIS Server. It obviously requires Node, and it also requires an <a href="https://npmjs.org/">NPM</a> install of the 'open' module to facilitate opening the browser.</p>
+
+<p>Anything else you need to know is in the readme. I hope you find it useful. It can be <a href="https://github.com/geobabbler/cacheview">downloaded here</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
