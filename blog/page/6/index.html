@@ -688,17 +688,18 @@ alt="web counter"></a></div></noscript>
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
 </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script type="text/javascript">
+		// $.support.cors = true;
         var request = $.ajax({
-            type: "POST",
-            url: "http://54.214.24.130/api/visits",
-            data: { "": 2 },
+            type: "GET",
+            url: "http://54.214.24.130/api/visits/2"
         });
 
     request.done(function (response, textStatus, jqXHR) {
-        // log a message to the console
+    //     log a message to the console
         console.log("Visit to geoMusings logged by MapStats");
     });
 </script>
