@@ -352,6 +352,7 @@ alt="web counter"></a></div></noscript>
 		$.support.cors = true;
         var request = $.ajax({
             type: "GET",
+			dataType: "jsonp",
             url: "http://54.214.24.130/api/visits/2"
         });
 
