@@ -717,12 +717,10 @@ alt="web counter"></a></div></noscript>
 		//$.support.cors = true;
         var request = $.ajax({
             type: "GET",
-			crossDomain: true == !(document.all),
+			dataType: "jsonp",
+			jsonpCallback: 'jsonCallback',
             url: "http://54.214.24.130/api/visits/2"
         });
-
-		//			dataType: "jsonp",
-		//	jsonpCallback: 'jsonCallback',
 
     //request.done(function (response, textStatus, jqXHR) {
     //     log a message to the console
