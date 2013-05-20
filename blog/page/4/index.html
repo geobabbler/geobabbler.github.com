@@ -747,17 +747,26 @@ alt="web counter"></a></div></noscript>
 </script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script type="text/javascript">
-		$.support.cors = true;
+		//$.support.cors = true;
         var request = $.ajax({
             type: "GET",
 			dataType: "jsonp",
+			jsonpCallback: 'jsonCallback',
             url: "http://54.214.24.130/api/visits/2"
         });
 
-    request.done(function (response, textStatus, jqXHR) {
+    //request.done(function (response, textStatus, jqXHR) {
     //     log a message to the console
-        console.log("Visit to geoMusings logged by MapStats");
-    });
+     //   console.log("Visit to geoMusings logged by MapStats");
+    //});
+	
+	req.success(function() {
+		console.log('Visit to geoMusings logged by MapStats');
+	});
+
+	req.error(function() {
+		console.log('Oh noes!');
+	});
 </script>
 
 
