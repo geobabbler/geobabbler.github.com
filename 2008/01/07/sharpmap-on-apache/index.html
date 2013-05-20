@@ -355,8 +355,10 @@ alt="web counter"></a></div></noscript>
 		//$.support.cors = true;
         var request = $.ajax({
             type: "GET",
-			dataType: "jsonp",
+			async: false,
 			jsonpCallback: 'jsonCallback',
+			contentType: 'application/json',
+			dataType: "jsonp",
             url: "http://54.214.24.130/api/visits/2"
         });
 
