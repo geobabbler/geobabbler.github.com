@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: GIS | geoMusings]]></title>
+  <title><![CDATA[Category: gis | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-05-20T14:40:32-04:00</updated>
+  <updated>2013-05-23T06:19:55-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,95 +14,119 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Simple Tile Viewer]]></title>
-    <link href="http://blog.geomusings.com/2013/04/25/simple-tile-viewer/"/>
-    <updated>2013-04-25T14:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/04/25/simple-tile-viewer</id>
-    <content type="html"><![CDATA[<p>We do a lot of tiles for various customers at <a href="http://www.zekiah.com">Zekiah</a>. Tiling is as much art as science and sometimes things go wrong so we have a range of utilities that we use to perform various kids of QA. Because the caches can be large, we usually want to perform a visual QA on the static tiles before pushing them up to wherever they are going to live full-time.</p>
+    <title type="html"><![CDATA[SpatiaLite 4.1.0 Beta Preview Available]]></title>
+    <link href="http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available/"/>
+    <updated>2013-01-03T08:34:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available</id>
+    <content type="html"><![CDATA[<p>On the <a href="https://groups.google.com/forum/?fromgroups#!forum/spatialite-users">SpatiaLite Google Group</a> this morning, Sandro Furieri announced the availability of a beta preview of SpatiaLite 4.1.0. The primary focus of this preview is to get early comment on new capabilities supporting the storage, validation, and query of XML documents.</p>
 
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/cacheviewer2.png" /></p>
+<p>More information about this update <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=XmlBlob+and+VirtualXPath">can be found here</a>. Says Sandro:</p>
 
-<p>In order to facilitate that, I wrote a very simple tile viewer using <a href="http://nodejs.org/">Node.js</a> and <a href="http://leafletjs.com/">Leaflet</a>. It uses a config file to get everything it needs to operate so we just make our changes there. This application currently only works with Web Mercator tiles but I'm working on adding support for WGS84. It also doesn't work with 'compact' tiles from ArcGIS Server. It obviously requires Node, and it also requires an <a href="https://npmjs.org/">NPM</a> install of the 'open' module to facilitate opening the browser.</p>
+<blockquote>
+The main goals of these recently introduced enhancements are:<br/>
+- storing XML Documents directly within the DBMS <br/>
+- supporting XML validation<br/>
+- supporting plain SQL queries on behalf of XML Documents <br/>
+  via canonical XPath expressions<br/>
+<br/>
+Implementing directly into the Spatial DBMS a common core of 
+XML-oriented features surely is an interesting and useful option,
+just considering that ISO- and INSPIRE-Metadata or SLD/SE Styles 
+are fully based on XML.
+</blockquote>
 
-<p>Anything else you need to know is in the readme. I hope you find it useful. It can be <a href="https://github.com/geobabbler/cacheview">downloaded here</a>.</p>
+
+<p>Although I find myself working more with <a href="http://geojson.org">GeoJSON</a> and <a href="http://developmentseed.org/blog/2011/feb/09/introducing-carto-css-map-styling-language/">CartoCSS</a> these days, I think support for XML is a good step for SpatiaLite. There are some very mature use cases based on XML, as Sandro points out. While <a href="http://www.opengeospatial.org/standards/sld">SLD</a> is not my favorite, this may keep it on my radar. Also, it would be interesting to see how this new capability would possibly affect the evolution of the <a href="http://www.opengeospatial.org/projects/groups/geopackageswg">OGC GeoPackage draft specification</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[When Is a GeoPortal Not a GeoPortal?]]></title>
-    <link href="http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal/"/>
-    <updated>2013-04-24T13:40:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal</id>
-    <content type="html"><![CDATA[<p>When it's really a desktop application.</p>
+    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
+    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
+    <updated>2012-11-27T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
+    <content type="html"><![CDATA[<p>I'm happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It's been one of the more consistently valuable resources in the community since its inception and it's good that it will continue.</p>
 
-<p>Over the past few weeks, I have been reading with conflicted agreement the posts of <a href="http://mapbrief.com/2013/02/21/the-waiting-is-the-hardest-part-why-map-portals-dont-work-part-v/">Brian Timoney</a> and <a href="http://geosprocket.blogspot.com/2013/04/toward-ideal-geoportal.html">Bill Morris</a> about the nature of geo-portals and what they should or should not be and do. I say that I am in conflicted agreement not because I take any issue with anything they have said. Their posts represent what should be considered best practices in terms of building web mapping applications. In Brian's posts, the counter-examples he highlights represent some of the worst practices to be avoided.</p>
+<p>While I'm looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called "venerable" nowadays, but it still does what it does very well.</p>
 
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/arcmap_browser.png" /></p>
+<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
 
-<p>My conflict arises from the fact that, while I agree with the ideas that Brian and Bill put forward, I find myself working against them in my current work. In my <a href="http://www.spatiallyadjusted.com/2013/04/10/hangouts-with-james-fee-developer-i-hardly-knew-her/">hangout with James Fee</a> a couple of weeks ago, I mentioned that I am working again (albeit temporarily) in the world of Silverlight. I am supporting a very large, complex Silverlight application that, as one of many functions, includes a mapping module that runs counter to almost every best practice espoused by Brian and Bill. And I am adding to it.</p>
+<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you're not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It's become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
 
-<!--more-->
+<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
 
+<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
 
-<p>The main difference with this application is that it will never be a public-facing internet application. It is intended to be deployed to a limited user base in an intranet/extranet environment. One of the overarching goals is to deliver sophisticated analytical tools and a desktop-like experience to the user community. So why not simply deliver a desktop application, or a series of extensions to ArcGIS, or both?</p>
+<p>{% tweet http://twitter.com/cageyjames/statuses/272025049526050816 %}</p>
 
-<p>The answer to that is simply "enterprise IT policy." This particular organization works under an IT policy framework that makes it nearly impossible to deploy custom desktop applications. This is not a unique situation as restrictive IT policies exist in many large organizations, especially Federal agencies. Some of that policy exists in the name of security, which is a laudable goal, but good developers with clear policy requirements, working in collaboration with IA staff, can secure an application regardless of how it is deployed. A larger driver is reduction of configuration management costs. It is simply expensive to identify specific users, ensure their systems meet proper specifications, deliver desktop tools to them, and sustain those tools over time. This, of course, has been one of advantages of web applications from the outset.  So "stuffing the desktop into the browser" looks like an attractive path and it is for development that must meet requirements within a budget and a schedule. Anything that reduces the friction of dealing with IT policy is a win.</p>
+<p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
 
-<p>This is all well and good within the confines of one's own intranet. What happens behind the firewall stays behind the firewall...except for when it doesn't. Poor application design is poor application design regardless of which side of the firewall on which it sits. When draconian IT policy enshrines the adoption of something-less-than-best practices, we all lose. Groupthink begins to set in and developers that spend their time building plugin-based, should-be-desktop applications on the intranet for a targeted audience of GIS users can begin to lose perspective on what makes a suitable interface for the general user. Eventually, those intranet practices will begin to be exposed on public-facing applications because many developers will continue to do what they have learned (and have been encouraged) to do.</p>
-
-<p>Any enterprise that is sufficiently large enough to have instituted a heavy IT policy is probably engaged in some level of software development and/or customization. That policy should be flexible enough to enable users and developers to choose the right tool and/or architecture for the job, rather than turning one particular architecture (HTTP in this case) into a one-size-fits-all channel for inappropriately designed tools and practices.</p>
+<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SharpMap 1.0 RC1 Released]]></title>
-    <link href="http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released/"/>
-    <updated>2013-03-28T06:10:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released</id>
-    <content type="html"><![CDATA[<p>Over on Google+, <a href="https://plus.google.com/u/0/117900686009614580552/posts">Diego Guidi</a> let me know that the <a href="http://sharpmap.codeplex.com/releases/view/104098">SharpMap 1.0 Release Candidate has been released</a>. There was a time when I worked with, <a href="https://www.google.com/search?q=site%3Ablog.geomusings.com&amp;q=sharpmap">and wrote about</a>, SharpMap a lot. During that entire time, the stable version of SharpMap sat at some version number that started with "0.9". The release of a 1.0 candidate is a signal that the project is moving forward.</p>
+    <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
+    <link href="http://blog.geomusings.com/2012/11/26/spatialite-for-android-available/"/>
+    <updated>2012-11-26T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/26/spatialite-for-android-available</id>
+    <content type="html"><![CDATA[<p>On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.</p>
 
-<p style="text-align:center;"> <img src="http://www.zekiah.com/sites/default/files/images/SharpMapSQL2008.preview.png" /></p>
+<p>I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.</p>
 
-<p>This is important because there are still an awful lot of .Net developers out there, especially in government shops that made a big Microsoft push in terms of infrastructure and training years ago. Of course, many of those shops are also committed to Esri technologies but SharpMap, while being a fully-functioning mapping/GIS library, also provides easy access to data sources not natively supported by Esri. Additionally, it is very easy to extend to support new or custom data sources and strightforward to <a href="http://www.zekiah.com/index.php?q=node/146">get SharpMap to play nicely in traditionally Esri-centric environments</a>.</p>
+<p>The message is quoted below:</p>
 
-<!--more-->
+<blockquote>
+Hi List,
 
+I'm really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
 
-<p>At <a href="http://www.zekiah.com">my company</a> we've used SharpMap for just that for one of our key Navy customers. By building custom SharpMap data sources, we've been able to encapsulate business logic in Oracle, including the use of Oracle <a href="http://www.slideshare.net/shawty_ds/what-is-spatial-sql">Spatial SQL</a> to execute spatial analysis processes and deliver the results back to an Esri web client that is also interacting with ArcGIS Server for many standard functions. SharpMap enabled us to expose this logic through an HTTP+JSON interface while bypassing geodatabases, server object extensions, and other such cruft.</p>
+[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
 
-<p>In recent years, other open-source .Net projects such as <a href="https://dotspatial.codeplex.com/">DotSpatial</a> have gained traction and that's good. The .Net environment remains in widespread use so it is useful to have open-source geospatial options for that platform. I'm happy to see SharpMap remaining an option in that space.</p>
+Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
+
+[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
+
+A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he'll surely appreciate ;-)
+
+[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
+
+enjoy, Sandro
+</blockquote>
+
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Early Bird Registration for FOSS4G-NA Closes Soon]]></title>
-    <link href="http://blog.geomusings.com/2013/03/27/early-bird-registration-for-foss4gna-closes-soon/"/>
-    <updated>2013-03-27T13:29:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/27/early-bird-registration-for-foss4gna-closes-soon</id>
-    <content type="html"><![CDATA[<p><a href="https://twitter.com/bitnerd">David Bitner</a> sent out a reminder that Early Bird reagistration for the <a href="http://foss4g-na.org/">FOSS4G North America</a> conference closes on 1 April 2013. After that, the price goes up by $50 US. You can register <a href="http://foss4gna.eventbrite.com/">online at EventBrite</a>.</p>
+    <title type="html"><![CDATA[SpatiaLite 4.0 Released]]></title>
+    <link href="http://blog.geomusings.com/2012/11/26/spatialite-4-0-released/"/>
+    <updated>2012-11-26T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/26/spatialite-4-0-released</id>
+    <content type="html"><![CDATA[<p>It looks like it was a busy weekend for Sandro Furieri and the rest of the <a href="https://www.gaia-gis.it/fossil/libspatialite/index" target="_blank">SpatiaLite</a> team as version 4.0 was announced on Sunday. There are a number of changes, so it's best to <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=switching-to-4.0" target="_blank">catch up on them</a> before switching over.</p>
 
-<p style="text-align:center;"> <img src="http://upload.wikimedia.org/wikipedia/commons/3/30/20060131_earthworm_hits_dirt.jpg" width="400" height="266"/></p>
+<div style="text-align: center;"><a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a><div style="text-align: center;font-size: 14px;">Not this SpatiaLite</div></div>
 
-<p>The <a href="http://foss4g-na.org/wp-content/uploads/2013/03/PreliminaryProgram.pdf">preliminary program</a> (PDF) for this year's event looks exceptional, building upon and potentially exceeding the outstanding quality of FOSS4G-NA 2012. I'll be sorry to miss the conference this year but will be looking forward to its social media exhaust.</p>
 
-<p><sub><sup>Image by s shepherd schizoform on flickr <a href="http://creativecommons.org/licenses/by/2.0">CC-BY-2.0</a>, via Wikimedia Commons</sup></sub></p>
+<p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I'll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Light Housekeeping]]></title>
-    <link href="http://blog.geomusings.com/2013/03/25/loose-ends/"/>
-    <updated>2013-03-25T21:35:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/25/loose-ends</id>
-    <content type="html"><![CDATA[<p>Just a quick note to tidy up some loose ends related to recent posts...</p>
+    <title type="html"><![CDATA[The Biggest News You May Have Missed...]]></title>
+    <link href="http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed/"/>
+    <updated>2012-11-19T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed</id>
+    <content type="html"><![CDATA[<p>In case you missed it, this tweet floated across the Twitters last week:</p>
 
-<p>First, regarding the post "<a href="http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/">A #LazyWeb Compendium of Python Resources for Beginners</a>," the University of South Florida PyBulls Python interest group, as promised, compiled a list of Python resources and posted it <a href="https://github.com/PyBulls/learning-resources">on their GitHub page</a>. Thanks to them for their quick response.</p>
+<p>{% tweet http://twitter.com/Arc2Earth/status/269194049230102528 %}</p>
 
-<p style="text-align:center;"> <img src="http://img.ehowcdn.com/article-new/ehow/images/a06/kv/li/proper-cutting-down-tree-chainsaw-800x800.jpg" /></p>
+<p>Yes, the team at <a href="http://www.arc2earth.com">Arc2Earth</a> is apparently working on a new feature in <a href="http://www.arc2earth.com/services/sync/">Arc2Earth Sync,</a> called TileMill Connect, that will link <a href="http://www.esri.com">ArcMap</a> MXDs with <a href="http://mapbox.com/tilemill/">TileMill</a>. This will allow users to migrate their ArcMap cartography into TileMill to take advantage of the rich tools there as well as the potential for version control and cut/paste sharing of techniques and best practices enabled by <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>.</p>
 
-<p>Second, following up on the post "<a href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">The Best Thing I Saw at TUGIS 2013</a>," the data and workbooks for Dr. Arthur Lembo's introduction to open-source GIS have been made available. The data <a href="https://github.com/esrgc/qgistraining">can be found on GitHub</a> and the workbooks can be found on the <a href="http://www.esrgc.org/training/">Eastern Shore Regional GIS Cooperative web site</a>. Many thanks for contributing these resources.</p>
+<p><a href="http://twitter.com/bFlood">Brian Flood</a> followed that up today with a short video showing it in action.</p>
 
-<p>These items are embedded in the comments for their respective posts but I thought it would be useful to call them out more prominently.</p>
+<p>{% tweet http://twitter.com/Arc2Earth/status/270631991110692865 %}</p>
+
+<p>No word on a timetable for this feature, but I can't wait to kick the tires. I am especially intrigued by the pseudo <a href="http://www.postgis.org">PostGIS</a> proxy service that enables connections to ArcGIS data sources.</p>
 ]]></content>
   </entry>
   

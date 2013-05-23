@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support &hellip;">
+  <meta name="description" content="It&#8217;s been a while since I&#8217;ve posted and things have been busy. Soccer season has ended, the kids have finished school and I&#8217;ve &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/06/19/my-little-open-source-stack/">My Little Open-Source Stack</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-19T00:00:00-04:00" pubdate data-updated="true">Jun 19<span>th</span>, 2007</time>
+        
+         | <a href="/2007/06/19/my-little-open-source-stack/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s been a while since I&#8217;ve posted and things have been busy. Soccer season has ended, the kids have finished school and I&#8217;ve finished up at my client site and moved back to the office. Among the many things I&#8217;ve been working on, I&#8217;ve started building an open-source GIS stack. It&#8217;s not entirely open-source since it&#8217;s installed on a Windows server but the purists will have to get over that.</p>
+
+<p>So far, I&#8217;ve got <a href="http://www.postgresql.org/">PostgreSQL</a>/<a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://docs.codehaus.org/display/GEOS/Home">GeoServer 1.5.1</a> installed. I&#8217;ve got GeoServer running as a Windows service and I&#8217;ve loaded a couple of data sets into PostGIS, serving one out through GeoServer for now. I&#8217;ve been able to successfully connect to the <a href="http://www.opengeospatial.org/standards/wms">WMS</a> and <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> remotely using <a href="http://udig.refractions.net/confluence/display/UDIG/Home">uDig</a> as a client. <a href="http://code.google.com/apis/kml/documentation/">KML</a> seems to work fine for the sample data sets that install with GeoServer but my test layer doesn&#8217;t work correctly. That&#8217;s not as much of an issue for us right now because we&#8217;ll probably focus on <a href="http://worldwind.arc.nasa.gov/">World Wind</a> for the spinny globe component. Basically, I&#8217;m at the infrastructure-building stage. My next step is to set up <a href="http://www.codeplex.com/SharpMap">SharpMap</a> and start writing some apps.</p>
+
+<p>The only hiccup I&#8217;ve had so far dealt with getting GeoServer to run as a service. Every time I logged out, the service would stop (not a great feature in a service). It turns out that I had the DLL and JARs for the <a href="http://wrapper.tanukisoftware.org/doc/english/introduction.html">Java Service Wrapper</a> in the wrong place. Now it works fine.</p>
+
+<p>So far, I&#8217;m impressed with how smoothly it&#8217;s going. We&#8217;ll see how long that keeps up once I start slinging code. ;)</p>
+
+<p><img alt="The road less traveled?" src="http://geobabble.files.wordpress.com/2007/06/road.jpg" /></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -527,44 +573,6 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/03/08/finally-upgrading-to-9-2/">Finally Upgrading to 9.2&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-03-08T00:00:00-05:00" pubdate data-updated="true">Mar 8<span>th</span>, 2007</time>
-        
-         | <a href="/2007/03/08/finally-upgrading-to-9-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;m a little behind the curve on this but I&#8217;ve had one customer holding out until recently. Now I can finally take the plunge. Who needs sleep? See you on the other side&#8230;  ;-)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/31/">&larr; Older</a>
@@ -613,15 +621,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/05/23/open-source-gis-bootcamp-at-salisbury-university/">Open-Source GIS Bootcamp at Salisbury University</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/04/25/simple-tile-viewer/">Simple Tile Viewer</a>
       </li>
     
       <li class="post">
         <a href="/2013/04/24/when-is-a-geoportal-not-a-geoportal/">When Is a GeoPortal Not a GeoPortal?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/03/28/sharpmap-1-dot-0-rc1-released/">SharpMap 1.0 RC1 Released</a>
       </li>
     
   </ul>

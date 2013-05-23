@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="If you&#8217;ve recently installed ArcGIS 9.3 Service Pack 1, be aware that there is a patch out that fixes an issue with topology validation. You &hellip;">
+  <meta name="description" content="It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/12/30/odds-and-ends-spatialite-and-stuff/">Odds and Ends (SpatiaLite and Stuff)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-30T00:00:00-05:00" pubdate data-updated="true">Dec 30<span>th</span>, 2008</time>
+        
+         | <a href="/2008/12/30/odds-and-ends-spatialite-and-stuff/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as well. We established a new presence in Colorado Springs (I&#8217;ll be traveling there at the end of January). Additionally, I&#8217;ve been busy with project work and have recently begun spend part time on a customer site. So, the blog has been squeezed a little.</p>
+
+<p>I am doing more work with <a href="http://www.esri.com/software/arcgis/arcgisserver/">ArcGIS Server 9.3</a> and the Javascript API but probably won&#8217;t have enough to blog about for a few more weeks. Also, at the urging of <a href="http://geopdf.blogspot.com/">Adam Estrada</a>, I have begun dabbling more with <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>. You may remember my post some time ago about integrating <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">SQLite with SharpMap</a>. SpatiaLite is a spatial extension to SQLite and it seems to be very powerful. I am currently re-working my previous code so that I&#8217;ll have a SpatiaLite provider for <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. With the use of the <a href="http://sqlite.phxsoftware.com/">SQLite OLEDB provider</a>, this has gone fairly smoothly.</p>
+
+<p>The thing I really like about it is the portability. You can basically drop a couple of DLLs and go. Additionally, SpatiaLite has strong support for many spatial operations so it can be a fairly robust analysis back-end. These two attributes raise a lot of possibilities for mobile applications. I have done some mobile development work with <a href="http://postgis.refractions.net/">PostGIS</a> (okay, the platforms were fairly heavy but they were in vehicles that rolled around) and it worked well but SpatiaLite might ease some of those &#8220;in the field&#8221; workflows, especially the delivery of relevant basemap information.</p>
+
+<p>With regard to SharpMap, it looks like SpatiaLite provider is under way for 2.0. I am doing my own for 0.9 because it helps me get more comfortable with SpatiaLite. Once I am finished, I&#8217;ll be happy to share my code but you may want to take a look at what&#8217;s being implemented with 2.0. It&#8217;s fairly elegant.</p>
+
+<p>Also of interest, the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Users Google Group</a>.</p>
+
+<p>Update: the code for SharpMap 2.0 is currently located <a href="http://code.google.com/p/sharpmapv2/">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -452,60 +500,6 @@ Here at MapWindow GIS (<a href="http://www.mapwindow.org">www.mapwindow.org</a>)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/08/06/sql-server-sig-at-the-uc/">SQL Server SIG at the UC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-06T00:00:00-04:00" pubdate data-updated="true">Aug 6<span>th</span>, 2008</time>
-        
-         | <a href="/2008/08/06/sql-server-sig-at-the-uc/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>My blogging has been slower this time around because I&#8217;ve been doing a lot of booth duty. This is my thrid conference this year and some of our other staff are getting to go to the sessions. I did, however, go to the SQL Server SIG a little while ago.</p>
-
-<p>Ed Katibah had a few tricks up his sleeve. First off, he dropped the news that, as of 11:00am, SQL Server 2008 is now in RTM. Very soon, the final version will be in our hands. That&#8217;s great news to everyone who has been working with the CTPs and RCs.</p>
-
-<p>Ed had few other nuggets. He described the stress-testing that SQL 2008 has undergone. In short, there has been about 375,000 hours of stress testing run against SQL 2008 so we should be able to expect it to be solid. Additionally, Microsoft has already been running on SQL 2008 for &#8220;a few months.&#8221; To me, this is all great news that makes me feel even more confident about the product (which already had my confidence). When I first installed the November CTP, I felt that much of the platform was already production-ready but more testing and use can&#8217;t have hurt.</p>
-
-<p>Ed went on to describe the two spatial types and reationale for doing that. That discussion is well documented and I fall in the &#8220;it&#8217;s a good thing category&#8221; mainly because of previous work with applications that had over-the-horizon requirements.</p>
-
-<p>Ed gave props to Paul Ramsey during his talk when explaining the XY switching debate. It was great to see that kind of respect on display.</p>
-
-<p>Some nuts and bolts: SQL 2008 limits spatial objects to about 250 million vertices. This greatly exceeds Ed&#8217;s largest test case, which is a high-res vector data set of the world&#8217;s oceans. Polygons are limited to about 65,000 holes. I think those limits leave a lot of wiggle room. He also discussed the significance of coordinate ordering for the geography data type. Basically, it&#8217;s counter-clockwise for outer rings and clockwise for inner rings. This is consistent with implementations in Informix, DB2 and Oracle (those are what he mentioned). He did mention that this was an industry consensus but there was no official specification on this matter. Ed also mentioned it may be a topic of future discussion for OGC.</p>
-
-<p>Ed also demonstrated the spatial results window in the SQL management Studio. This is a really nice tool that lets you visualize the results of your spatial SQL inside the management studio. As a developer, that will be a huge help because I won&#8217;t have to do a test run to see if I got the query right. Ed just saved me a bunch of time!</p>
-
-<p>Ed went on to announce a companion CodePlex site for SQL Server 2008 spatial tools: <a href="http://www.codeplex.com/sqlspatialtools">www.codeplex.com/SqlSpatialTools</a>. There are already some tools that Isaac has posted but Ed said that other tools will include shapefile and KML converters. The site will also be open to contribs from the community. All of the tools currently there were developed using the <a href="http://blogs.msdn.com/isaac/archive/2008/05/30/our-upcoming-builder-api.aspx">Builder API</a> and full source code is available so they serve has great examples of working with the Builder API.</p>
-
-<p>All in all, it was a great talk. Ed&#8217;s one of the nicest guys ever and he is having a lot of fun with ArcSDE on SQL Server 2008.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/21/">&larr; Older</a>
@@ -554,15 +548,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/05/23/open-source-gis-bootcamp-at-salisbury-university/">Open-Source GIS Bootcamp at Salisbury University</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/04/25/simple-tile-viewer/">Simple Tile Viewer</a>
       </li>
     
       <li class="post">
         <a href="/2013/04/24/when-is-a-geoportal-not-a-geoportal/">When Is a GeoPortal Not a GeoPortal?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/03/28/sharpmap-1-dot-0-rc1-released/">SharpMap 1.0 RC1 Released</a>
       </li>
     
   </ul>
