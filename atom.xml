@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-05-23T12:20:01-04:00</updated>
+  <updated>2013-05-30T12:24:36-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OGC Abandons the Web]]></title>
+    <link href="http://blog.geomusings.com/2013/05/30/ogc-abandons-the-web/"/>
+    <updated>2013-05-30T10:52:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/05/30/ogc-abandons-the-web</id>
+    <content type="html"><![CDATA[<p>Those are my words, not theirs.</p>
+
+<p>It came to light today that <a href="http://www.opengeospatial.org/">OGC</a> has decided to <a href="http://lists.osgeo.org/pipermail/discuss/2013-May/011789.html">withdraw the GeoServices REST Specification</a>, also known as the &#8220;ESRI REST API,&#8221; as a proposed standard. I will not take up the relative merits of the specification or the implications of OGC potentially adopting an industry-developed specification that has so much implied workflow embedded in it. With this decision, three facts remain unaltered:</p>
+
+<ol>
+<li>The ESRI REST API will continue forward as a widely-used de facto standard in the form of ArcGIS Server installs and other emulations, such as that in <a href="http://www.arc2earth.com/">Arc2Earth</a>.</li>
+<li>GeoJSON will continue forward as a widely-used de facto standard in the form of numerous open-source implementations.</li>
+<li>OGC still has no JSON syntax.</li>
+</ol>
+
+
+<p>Yes, twelve years after the <a href="https://en.wikipedia.org/wiki/JSON#History">birth of JSON</a>, five years after the <a href="http://webhelp.esri.com/arcgisserver/9.3/java/index.htm#whats_new_93.htm">release of the ESRI REST API and its embedded JSON syntax</a>, and five years after the <a href="http://geojson.org/geojson-spec.html">release of GeoJSON 1.0</a>, OGC is still has no entry in the JSON space. Between Esri and GeoJSON, the utility of JSON in web mapping applications has been roundly proven. In the ESRI arena, find me anyone who willingly uses the SOAP API these days while the adoption of support for GeoJSON across the open-source GIS world speaks volumes. The industry has voted with its feet and its code as to what it prefers.</p>
+
+<p>There&#8217;s probably a lively discussion to be had about where JSON should fit into OGC&#8217;s priorities. What is clear, however, is that Javascript and JSON are driving the web at large and the web-mapping space in the geospatial market. With no official stance of any kind in this area, it becomes increasingly difficult to take OGC seriously in matters of the modern web.</p>
+
+<p>Howard Butler had a great point a while back when discussing the potential adoption of the GeoServices REST Specification:</p>
+
+<div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/JeffHarrison">@JeffHarrison</a> I think it would be great for OGC to ratify GeoServices. It would cement their irrelevance to current and future developers.</p>&mdash; Howard Butler (@howardbutler) <a href="https://twitter.com/howardbutler/statuses/331405667837542401">May 6, 2013</a></blockquote>
+<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+
+<p>The irony here is that the withdrawal of the specification accomplishes the same thing. I won&#8217;t go so far as to say OGC has no clue or doesn&#8217;t care but, in the perception-is-reality department, they look pretty out-of-touch these days. Is this a problem with process? Maybe. Is it a problem with message? Definitely. The message I&#8217;ve gotten from this whole episode is that we can keep doing what we&#8217;ve been doing with our web mapping applications because OGC has nothing for us.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Open-Source GIS Bootcamp at Salisbury University]]></title>
@@ -481,38 +511,6 @@ are fully based on XML.
 <p>I usually have three to four such filters running, depending upon topics that I&#8217;m watching. Currently, I&#8217;m grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it&#8217;s like having a DVR for Planet Geospatial.</p>
 
 <p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that&#8217;s based on a mature, open, well-documented, and widely adopted standard. As such, there&#8217;s no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It&#8217;s been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
-    <link href="http://blog.geomusings.com/2012/11/26/spatialite-for-android-available/"/>
-    <updated>2012-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/26/spatialite-for-android-available</id>
-    <content type="html"><![CDATA[<p>On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.</p>
-
-<p>I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.</p>
-
-<p>The message is quoted below:</p>
-
-<blockquote>
-Hi List,
-
-I&#8217;m really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
-
-[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
-
-Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
-
-[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
-
-A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he&#8217;ll surely appreciate ;-)
-
-[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
-
-enjoy, Sandro
-</blockquote>
-
 ]]></content>
   </entry>
   
