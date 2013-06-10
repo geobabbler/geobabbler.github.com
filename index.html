@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Those are my words, not theirs. It came to light today that OGC has decided to withdraw the GeoServices REST Specification, also known as the &#8220; &hellip;">
+  <meta name="description" content="A while back, I posted about my desire to see GeoJSON supported as an output format from ArcGIS Server. I found myself needing that capability so I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,53 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/06/10/geojson-from-arcgis-server/">GeoJSON From ArcGIS Server</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-10T09:54:00-04:00" pubdate data-updated="true">Jun 10<span>th</span>, 2013</time>
+        
+         | <a href="/2013/06/10/geojson-from-arcgis-server/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A while back, I posted about <a href="http://blog.geomusings.com/2011/11/15/fgeojson/">my desire to see GeoJSON supported as an output format from ArcGIS Server</a>. I found myself needing that capability so I recently completed, <a href="https://github.com/geobabbler/AGSOpenFormats">and posted to GitHub</a>, a first cut at a server object extension (SOE) for ArcGIS Server 10.1 that enables output of <a href="http://geojson.org/">GeoJSON</a> via an HTTP GET.</p>
+
+<p>Using the SOE is fairly straightforward. If you download the code and build it (ensuring you have installed the ArcObjects SDK for .Net), you can simply move the project outputs to your target machine and use the ArcGIS Server manager to install the SOE. Once you log into the manager application, click &#8220;Site&#8221; at the top of the page and then &#8220;Extensions&#8221; on the left. Click &#8220;Add Extension&#8221; and browse to the .soe file. You should end up seeing something like this:</p>
+
+<p style="text-align:center;"> <img src="/images/posts/geojsonserver1.png" /></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/06/10/geojson-from-arcgis-server/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -493,55 +540,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/">A #LazyWeb Compendium of Python Resources for Beginners</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-17T15:19:00-04:00" pubdate data-updated="true">Mar 17<span>th</span>, 2013</time>
-        
-         | <a href="/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A friend who is in the midst of a career change and moving into the GIS world asked me for some pointers to resources for getting started with Python. I threw the question out to Twitter (with a similar variation also posted to Google+):</p>
-
-<div class='embed tweet'><blockquote class="twitter-tweet"><p>Can anyone recommend any good online Python training sources for beginners? Asking for a friend in the midst of a career change.</p>&mdash; Bill Dollins (@billdollins) <a href="https://twitter.com/billdollins/status/313263420923338753">March 17, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>I got a couple of requests to summarize any information I received, which seemed reasonable. I got quite a few responses and here are some links:</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -588,15 +586,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/06/10/geojson-from-arcgis-server/">GeoJSON from ArcGIS Server</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/05/30/ogc-abandons-the-web/">OGC Abandons the Web</a>
       </li>
     
       <li class="post">
         <a href="/2013/05/23/open-source-gis-bootcamp-at-salisbury-university/">Open-Source GIS Bootcamp at Salisbury University</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/04/25/simple-tile-viewer/">Simple Tile Viewer</a>
       </li>
     
   </ul>
