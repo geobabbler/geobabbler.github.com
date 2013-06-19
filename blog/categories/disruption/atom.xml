@@ -4,7 +4,7 @@
   <title><![CDATA[Category: disruption | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/disruption/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-06-19T14:49:16-04:00</updated>
+  <updated>2013-06-19T18:46:16-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -39,7 +39,7 @@
 </ul>
 
 
-<p>This is not a new capability; if you've had GeoJSON in a repo, you've always been able to do this. That said, if you're checking out GitHub or GeoJSON for the first time as a result of the new mapping capability, this is something you may want to try. I have had a page up for a while showing the <a href="http://blog.geomusings.com/assets/demos/mdq6/">county-by-bounty breakdown of Maryland's marriage equality question from the 2012 election</a> that uses this approach to load the data into a <a href="http://leafletjs.com/">Leaflet</a> map from GitHub and style it.</p>
+<p>This is not a new capability; if you've had GeoJSON in a repo, you've always been able to do this. That said, if you're checking out GitHub or GeoJSON for the first time as a result of the new mapping capability, this is something you may want to try. I have had a page up for a while showing the <a href="http://blog.geomusings.com/assets/demos/mdq6/">county-by-bounty breakdown of Maryland's marriage equality question from the 2012 election</a> that uses this approach to load the data into a <a href="http://leafletjs.com/">Leaflet</a> map from GitHub and style it. (Incidentally, the tiles in the map are also hosted on GitHub.)</p>
 
 <ul>
 <li>Stream the data into your desktop.</li>
@@ -56,13 +56,18 @@
 
 <p>Additionally, the <a href="https://github.com/RBURHUM/arcgis-ogr/">GDAL/OGR plug-in for ArcGIS</a> by <a href="http://www.amigocloud.com/homepage/index.html">AmigoCloud</a> provides a way to get GeoJSON into ArcMap, though you may need to download the data first.</p>
 
-<p>Those are three quick ways to capitalize on GeoJSON data in GitHub now. So what next?</p>
+<p>UPDATE: Dane Springmeyer pointed out that TileMill supports remote URLs as well.</p>
 
-<p>I stated earlier that I think the GitHub announcement was one of the most significant developments in years. I think it is best explained by <a href="http://feomike.github.io/post/thoughts-on-disruption.html">feoMike in his recent post</a>. As he points out, GitHub has made it easy to communicate spatial information in a way that is fully consistent with the web. Now that simple mapping is now available to a large community of developers, it will be interesting to see where they take it. feoMike offered up a few early examples in his post. It's worth a read.</p>
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/geomusingsblog">@geomusingsblog</a> <a href="https://twitter.com/billdollins">@billdollins</a> - very cool, had no idea QGIS supported remote urls. TileMill does also: <a href="http://t.co/o3wxv2VkEv">http://t.co/o3wxv2VkEv</a></p>&mdash; Dane Springmeyer (@springmeyer) <a href="https://twitter.com/springmeyer/statuses/347483526171594753">June 19, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>Those are three (or so) quick ways to capitalize on GeoJSON data in GitHub now. So what next?</p>
+
+<p>I stated earlier that I think the GitHub announcement was one of the most significant developments in years. I think it is best explained by <a href="http://feomike.github.io/post/thoughts-on-disruption.html">feoMike in his recent post</a>. As he points out, GitHub has made it easy to communicate spatial information in a way that is fully consistent with the web. Now that simple mapping is available to a large community of developers, it will be interesting to see where they take it. feoMike offered up a few early examples in his post. It's worth a read.</p>
 
 <p>The GitHub move is great for GeoJSON as a format. I've said in the past that the search for the next shapefile ends with GeoJSON. If the web is this generation's dominant computing platform (it is), then GeoJSON provides a simple, elegant solution for geographic data transport in a manner that the shapefile did for the desktop. Support by GitHub is one more example of the community voting with its code as to what it prefers.</p>
 
-<p>I also said it was a great first step, but limited. The mapping capability is understandably limited, though the documentation shows how you can customize styling somewhat. There is also a point at which the data seems to become too big to render (in either the map or in raw form). Bill Morris has identified this limit to be in the ballpark of 4.5MB, which can be easy to hit with GeoJSON.</p>
+<p>I also said it was a great first step, but limited. The mapping capability is understandably basic, though the documentation shows how you can customize styling somewhat. There is also a point at which the data seems to become too big to render (in either the map or in raw form). Bill Morris has identified this limit to be in the ballpark of 4.5MB, which can be easy to hit with GeoJSON.</p>
 
 <p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/byrne_tweets">@byrne_tweets</a> <a href="https://twitter.com/BenBalter">@BenBalter</a> <a href="https://twitter.com/ericg">@ericg</a> <a href="https://twitter.com/ajturner">@ajturner</a> +1 for a solid number on max renderable filesize. 4.5MB is pushing it: <a href="https://t.co/cNTbA5Djqw">https://t.co/cNTbA5Djqw</a></p>&mdash; Bill Morris (@vtcraghead) <a href="https://twitter.com/vtcraghead/statuses/346825523521019904">June 18, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
