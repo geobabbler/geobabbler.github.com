@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Updating my earlier post: I completed my upgrade to 9.2 yesterday with the installation of the last service pack. The first thing I did was upgrade &hellip;">
+  <meta name="description" content="Congratulations to Paolo for getting zigGIS 1.2 out the door. He&#8217;s put a lot of work into fixing problems with selections and renderers and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/03/21/ziggis-1-2-is-out/">zigGIS 1.2 Is Out</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-03-21T00:00:00-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2007</time>
+        
+         | <a href="/2007/03/21/ziggis-1-2-is-out/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Congratulations to <a href="http://www.paolocorti.net/public/wordpress/index.php/2007/03/21/ziggis-12-released">Paolo</a> for getting <a href="http://code.google.com/p/ziggis">zigGIS</a> 1.2 out the door. He&#8217;s put a lot of work into fixing problems with selections and renderers and making it a much more usable tool.</p>
+
+<p>His post contains a list of features implemented at this version and it&#8217;s really a huge step forward. I am focusing on developing catalog objects but my recent upgrade to 9.2 has me doing regression testing on a lot of my code for my clients. Paolo deserves credit for really taking the bull by the horns for this release.</p>
+
+<p>Those of you who are looking at the feature list for 9.3 and seeing PostgreSQL support should come on over. It&#8217;s already here. ;-)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -457,56 +499,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/02/05/two-roads-diverged-in-a-yellow-wood/">Two Roads Diverged in a Yellow Wood&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-02-05T00:00:00-05:00" pubdate data-updated="true">Feb 5<span>th</span>, 2007</time>
-        
-         | <a href="/2007/02/05/two-roads-diverged-in-a-yellow-wood/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>With apologies to the great Robert Frost.</p>
-
-<p>I&#8217;ll admit that over the last few months I&#8217;ve become something of an open-source convert. I&#8217;ve been in the consulting business for about 15 years now and I&#8217;ve made through the &#8220;holy wars&#8221; relatively unscathed (Microsoft/Linux, IE/Netscape/Firefox, Oracle/Everyone else, ad nauseum). I&#8217;ve said it before that it&#8217;s not religion, it&#8217;s technology. I&#8217;ve gotten to this particular point in my career with two basic philosophies intact: 1) Nothing big works and 2) I can do whatever you need to do on whatever platform you want with whatever tools you give me; it&#8217;s just a matter of &#8220;how.&#8221;</p>
-
-<p>Most of my GIS consulting work over the years has been with ESRI technologies and it&#8217;s served me and my customers well. In general, it works and, more importantly, I know how it works. But over the last couple of years, there has been a disturbing trend with the technology: it&#8217;s gotten more complex (nothing big works) and more expensive. When my Federal customers start to balk, I know there&#8217;s a problem. In addition, there&#8217;s ESRI itself. It is still a privately held company with an owner that&#8217;s not getting any younger. Lacking any evidence of a transition plan that maps out how the next 10 to 15 years will go, I&#8217;ve begun doing the only responsible thing for my company and my customers: hedging my bets.</p>
-
-<p>Given that most of ESRI&#8217;s serious commercial competition imploded years ago (don&#8217;t try to debate that with your single-digit-market-share tool of choice), I began paying more attention to open-source products. The approach I&#8217;ve taken is to try to piece together an open-source architecture that I would feel as comfortable recommending to a customer as the ESRI architecture. My focus has begun to gel around a core few: <a href="http://docs.codehaus.org/display/GEOS/Home">GeoServer</a>, <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=SharpMap">SharpMap</a>, <a href="http://www.postgresql.org/">PostgreSQL</a>/<a href="http://postgis.refractions.net/">PostGIS </a>and <a href="http://qgis.org/">QGIS</a>. Also key for me is that any client technology must be able to take advantage of Oracle Spatial. It&#8217;s not open-source, but it&#8217;s everywhere.</p>
-
-<p>Being a programmer from the ArcObjects/ArcSDE mold, the ones I&#8217;ve been having the most fun with are SharpMap and PostGIS. As I&#8217;ve posted before, I even joined the <a href="http://code.google.com/p/ziggis/">zigGIS</a> project to enable connectivity between PostGIS and ArcGIS. That&#8217;s been the most fun I&#8217;ve had in a long time. Probably the weakest link so far is the lack of a really good desktop tool that I could put in front of one of my analysts and say &#8220;make a map that looks as good as the ones you make in ArcMap.&#8221; QGIS is on the right track but still pretty far from the station. My analysts, thus far, won&#8217;t give it a second look.</p>
-
-<p>So how has all of this made me a convert? It&#8217;s come down to the simple convenience of open-source. I&#8217;m still doing a lot of experimenting. Some of my existing customers are really interested in implementing open-source but can&#8217;t quite make the switch yet. So I was playing around with a very simple tool I was trying to build using SharpMap and I just couldn&#8217;t get it to work. I figured I had to be doing something wrong so I opened up SharpMap&#8217;s source code and examined the class I was using, realized my mistake, and moved on. The power and simplicity of that act, compared to the years of hacking against ArcObjects bugs and documentation, was breathtaking. It&#8217;s raised the bar significantly in terms of my expectations of software.</p>
-
-<p>Now to step back from the edge a little: It&#8217;s not religion. Most of my customers use, and are committed to, ESRI technology. I&#8217;ve had a good working relationship with the company and the people in it. Also, quite frankly, many open-source tools are very immature and unstable. But, as ESRI shifts their focus more to the enterprise market, there will be an increasing number of small of mid-sized users getting into the geospatial game for the first time who will feel priced out. For my part, it would be irresponsible not to be prepared to address their needs with an alternate set of technologies. It will be interesting to see which becomes the road less traveled.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/32/">&larr; Older</a>
@@ -555,15 +547,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/06/18/geojson-on-github-now-what/">GeoJSON on GitHub: Now What?</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/06/10/geojson-from-arcgis-server/">GeoJSON from ArcGIS Server</a>
       </li>
     
       <li class="post">
         <a href="/2013/05/30/ogc-abandons-the-web/">OGC Abandons the Web</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/05/23/open-source-gis-bootcamp-at-salisbury-university/">Open-Source GIS Bootcamp at Salisbury University</a>
       </li>
     
   </ul>

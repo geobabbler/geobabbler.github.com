@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-06-19T06:55:53-04:00</updated>
+  <updated>2013-06-19T14:19:25-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,69 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GeoJSON on GitHub: Now What?]]></title>
+    <link href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/"/>
+    <updated>2013-06-18T16:04:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what</id>
+    <content type="html"><![CDATA[<p>So <a href="http://github.com">GitHub</a> <a href="https://github.com/blog/1528-there-s-a-map-for-that">announced</a> that you can now automatically view any <a href="http://geojson.org">GeoJSON</a> files that may be in a repository inside an interactive map driven by <a href="http://www.mapbox.com/">MapBox</a> technology. This simple enhancement to GitHub is probably one of the most significant developments in the geospatial industry in years. I&#8217;ll explain a little later in this post. It&#8217;s also important to view this new capability as a great, but limited, first step. I&#8217;ll discuss that a little later as well.</p>
+
+<p>While it&#8217;s cool to click on a link and just see a map, it doesn&#8217;t take long to wonder about how you can use this capability beyond viewing data in GitHub. What follows are three ways to capitalize on GeoJSON in GitHub. Not all are directly related to the new mapping capability, and two have been possible for a long time. That said, the GitHub announcement may draw interest from users who have not previously considered either GitHub or GeoJSON, so I hope these approaches will be useful.</p>
+
+<ul>
+<li>Embed the GitHub map.</li>
+</ul>
+
+
+<p>If you click on a GeoJSON file and view the new map in GitHub, a quick view of the page source will show that this map is embedded in an IFRAME object. This approach can be used to embed the GitHub map in any page. It&#8217;s a great way to quickly publish a data set while also providing access to download the raw data.</p>
+
+<p style="text-align:center;"><iframe width="600" height="400"  src="https://render.github.com/view/geojson/?url=https%3A%2F%2Fraw.github.com%2Fgeobabbler%2Fgeodata%2Fmaster%2Fgeojson%2Fleonardtown_bldgs.geojson" >Viewer requires iframe.</iframe></p>
+
+<!--more-->
+
+
+<ul>
+<li>Stream the data into your own web map.</li>
+</ul>
+
+
+<p>This is not a new capability; if you&#8217;ve had GeoJSON in a repo, you&#8217;ve always been able to do this. That said, if you&#8217;re checking out GitHub or GeoJSON for the first time as a result of the new mapping capability, this is something you may want to try. I have had a page up for a while showing the <a href="http://blog.geomusings.com/assets/demos/mdq6/">county-by-bounty breakdown of Maryland&#8217;s marriage equality question from the 2012 election</a> that uses this approach to load the data into a <a href="http://leafletjs.com/">Leaflet</a> map from GitHub and style it.</p>
+
+<ul>
+<li>Stream the data into your desktop.</li>
+</ul>
+
+
+<p>A third option is to stream the GeoJSON data directly into desktop GIS software such as QGIS for further analysis. In QGIS, simply need to add a vector, specifying &#8220;Protocol&#8221; and entering the URL to your GitHub-hosted GeoJSON file. Make sure you use the &#8220;raw&#8221; URL that looks something like this: https://raw.github.com/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson .</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/add_geojson_layer.png" /></p>
+
+<p>After a few seconds (or more depending on the file size), it should load into QGIS like this:</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/qgis_github_geojson.png" /></p>
+
+<p>Additionally, the <a href="https://github.com/RBURHUM/arcgis-ogr/">GDAL/OGR plug-in for ArcGIS</a> by <a href="http://www.amigocloud.com/homepage/index.html">AmigoCloud</a> provides a way to get GeoJSON into ArcMap, though you may need to download the data first.</p>
+
+<p>Those are three quick ways to capitalize on GeoJSON data in GitHub now. So what next?</p>
+
+<p>I stated earlier that I think the GitHub announcement was one of the most significant developments in years. I think it is best explained by <a href="http://feomike.github.io/post/thoughts-on-disruption.html">feoMike in his recent post</a>. As he points out, GitHub has made it easy to communicate spatial information in a way that is fully consistent with the web. Now that simple mapping is now available to a large community of developers, it will be interesting to see where they take it. feoMike offered up a few early examples in his post. It&#8217;s worth a read.</p>
+
+<p>The GitHub move is great for GeoJSON as a format. I&#8217;ve said in the past that the search for the next shapefile ends with GeoJSON. If the web is this generation&#8217;s dominant computing platform (it is), then GeoJSON provides a simple, elegant solution for geographic data transport in a manner that the shapefile did for the desktop. Support by GitHub is one more example of the community voting with its code as to what it prefers.</p>
+
+<p>I also said it was a great first step, but limited. The mapping capability is understandably limited, though the documentation shows how you can customize styling somewhat. There is also a point at which the data seems to become too big to render (in either the map or in raw form). Bill Morris has identified this limit to be in the ballpark of 4.5MB, which can be easy to hit with GeoJSON.</p>
+
+<div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/byrne_tweets">@byrne_tweets</a> <a href="https://twitter.com/BenBalter">@BenBalter</a> <a href="https://twitter.com/ericg">@ericg</a> <a href="https://twitter.com/ajturner">@ajturner</a> +1 for a solid number on max renderable filesize. 4.5MB is pushing it: <a href="https://t.co/cNTbA5Djqw">https://t.co/cNTbA5Djqw</a></p>&mdash; Bill Morris (@vtcraghead) <a href="https://twitter.com/vtcraghead/statuses/346825523521019904">June 18, 2013</a></blockquote>
+<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+
+<p>So this means that enterprises won&#8217;t dumping terabytes of vectors to GeoJSON and loading them into GitHub. That&#8217;s a good thing in my book. It is, however, an acceptable solution for small data sets and quick turn-around data sharing. As with all things, you have to go in with the right set of expectations.</p>
+
+<p>The thing I&#8217;m probably least worried about is how this affects <a href="http://www.esri.com">Esri</a>. Without any specific inside knowledge of Esri&#8217;s plans, I suspect some form of official support for GeoJSON isn&#8217;t far off. There are too many people inside Esri who get GeoJSON for it not to happen. If anything, the GitHub announcement may provide a bit of a push by providing a potentially rich source of data sets to consume. The real question is what form the support will take. In any event, Esri provides enough APIs to enable us to develop our own support for GeoJSON if we need it.</p>
+
+<p>The addition of GeoJSON mapping to GitHub is a very small change in the scheme of that platform, but such small changes can sometimes lead to big shifts. It has been possible for a long time to use GitHub to host geospatial data for applications. The main benefit of this latest change, in my opinion, is its potential to get people thinking about the platform in a different way. With such a visible (and visual) change on a platform targeted at developers, I hope that it will motivate that community to begin experimenting with how far it can be pushed. If a hosted platform with an already-baked-in workflow for change management and version control begins to be viewed as a viable home for spatial data, it has the potential to change how the geospatial community thinks about how it does business.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GeoJSON from ArcGIS Server]]></title>
@@ -522,24 +585,6 @@ are fully based on XML.
 
 
 <p>Data licensing has always been an important issue but seems to be <a href="http://www.spatiallyadjusted.com/2012/12/26/this-isnt-the-road-network-you-are-looking-for/">moving to the forefront</a> as demand for quality spatial data grows. This workshop could prove to be timely. It is being held on 24 January 2013 in Tysons Corner, VA. Details can be found on the <a href="http://spatiallaw.blogspot.com/2012/12/geospatial-data-licensing-workshop.html">Spatial Law and Policy blog</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[geoMusings Has Moved - Please Update Your Links]]></title>
-    <link href="http://blog.geomusings.com/2012/12/24/geomusings-has-moved-please-update-your-links/"/>
-    <updated>2012-12-24T10:27:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/12/24/geomusings-has-moved-please-update-your-links</id>
-    <content type="html"><![CDATA[<p>At long last, I have finally completed the transition of this blog from Wordpress (hosted on wordpress.com) to <a href="http://octopress.org/">Octopress</a> (hosted for now on Github Pages). As I indicated <a href="http://blog.geomusings.com/2011/05/06/this-blog-has-a-new-address/">sometime back</a>, I have been planning this for a while. The move is now complete and, although the old site will remain up for the foreseeable future, no new content will be posted there.</p>
-
-<p>Links to the old &#8220;geobabble.wordpress.com&#8221; URL will no longer automatically forward to &#8220;blog.geomusings.com&#8221;. Those links will go to the old Wordpress site, rather than the new location. While this may not be the worst thing in the world, I highly recommend updating any links you may have to point to this URL. I have taken pains to ensure that links using &#8220;blog.geomusings.com&#8221; redirect correctly but there may be some hiccups. If you notice issues with links to older posts, please feel free to contact me using the information on my &#8220;About&#8221; page and I&#8217;ll try to help resolve it.</p>
-
-<!--more-->
-
-
-<p>Wordpress.com had perfectly justifiable restrictions on what you could do with a blog (no embedded Javascript, for instance). Over time, I began to feel those limitations more and more. I had originally just planned to move to a self-hosted Wordpress site but I began to reconsider that earlier this year. A <a href="http://spatiallyadjusted.com">couple</a> of <a href="http://geojason.info/">blogs</a> I follow were running on Octopress/<a href="http://jekyllrb.com/">Jekyll</a> and I was impressed with the performance of the static content. Additionally, I decided I wanted to use a platform that could help stretch me as a programmer. I was not particularly interested in becoming more proficient at PHP (Wordpress) but I was interested in getting more comfortable with Ruby (Octopress/Jekyll), as well as Javascript and CSS.</p>
-
-<p>There were other considerations but I won&#8217;t belabour the point. Thanks for your continued support and please update any links that you may still have pointing to the old &#8220;geobabble&#8221; URL.</p>
 ]]></content>
   </entry>
   
