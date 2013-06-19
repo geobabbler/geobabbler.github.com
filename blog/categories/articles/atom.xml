@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: articles | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/articles/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2013-06-19T06:48:18-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MSDN Article on Mapping with WPF]]></title>
+    <link href="http://blog.geomusings.com/2007/12/18/msdn-article-on-mapping-with-wpf/"/>
+    <updated>2007-12-18T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2007/12/18/msdn-article-on-mapping-with-wpf</id>
+    <content type="html"><![CDATA[<p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It's a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn't be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
+
+<p>I've been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven't had a chance to extract what I've done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it's shaping up in SharpMap 2.0.</p>
+
+<p>So, if you're looking for an example of how to render spatial data in WPF, this is a good one.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stealing GPS...]]></title>
+    <link href="http://blog.geomusings.com/2007/12/02/stealing-gps/"/>
+    <updated>2007-12-02T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2007/12/02/stealing-gps</id>
+    <content type="html"><![CDATA[<p>The following was reported on the local news in Washington, DC:</p>
+
+<blockquote>
+<em>WRC-TV
+updated 7:37 p.m. ET, Mon., Nov. 26, 2007
+BETHESDA, Md. - On two nights earlier this month, several cars were broken into in Bethesda, police said. The break-ins occurred overnight Nov. 7 to Nov. 8 and overnight Nov. 11 to Nov. 12, police said. Between the two nights, a total of 49 cars were broken into. 
+
+The culprits stole global positioning systems.</em>
+</blockquote>
+
+
+<p>You have to wonder about the logic of stealing something that locates itself...
+Here's the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://www.msnbc.msn.com/id/21979301/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DDJ on "The Return of the Desktop"]]></title>
+    <link href="http://blog.geomusings.com/2007/08/15/ddj-on-the-return-of-the-desktop/"/>
+    <updated>2007-08-15T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2007/08/15/ddj-on-the-return-of-the-desktop</id>
+    <content type="html"><![CDATA[<p>Okay, I swear I'm not on the DDJ payroll, but <a href="http://www.ddj.com/web-development/201202675">this article</a> caught my eye immediately. <a href="http://www.swaine.com/">Michael Swaine</a> has been on a roll lately but I think this one just drips with significance for the GIS community.</p>
+
+<p>Over the past 10 years, as everyone has run screaming from the desktop, I've been a little mystified as to why it was considered a good thing to reduce a <a href="http://www.computerpoweruser.com/Editorial/article.asp?article=articles/archive/c0612/28c12/28c12.asp&amp;guid=">CPU more powerful than everything NASA had in 1969</a> to a mere vehicle for a browser. The browser-based model reduced our computers to really cool-looking equivalents of a <a href="http://en.wikipedia.org/wiki/VT220">VT220</a> so it's nice to see that the market is starting to gain back a little sanity.</p>
+
+<!--more-->
+
+
+<p>I will readily admit that the browser model has its advantages. Application deployment is a snap compared to what it takes to ensuring desktops are in synch. Anyone who's had to deal with <a href="http://www.nmciinfo.usmc.mil/nmci2/nmci.nsf/HomePage?openform">NMCI</a> will vouch for that. In addition, there's the matter of targeting the desktop OS. That can be a pain for a desktop app (Windows/UNIX/Linux?, Flavor of Linux?, 32bit or 64bit?, ugh). That hasn't changed much over the years. I remember running ArcView under <a href="http://en.wikipedia.org/wiki/Win32s">Win32s</a> on <a href="http://en.wikipedia.org/wiki/Windows_3.1x">Windows 3.11</a> also testing <a href="http://www.macrovision.com/products/installation/installshield.htm">Installshield</a> builds against WinNT 4, Win2K and Win9x for <a href="http://www.esri.com/software/mapobjects/index.html">MapObjects</a> apps. So, yeah, the web app model is definitely attractive. However, the trend has also led to the need for really big bandwidth, multi-socket/multi-core servers and a loss of control at the desktop for the user. If the developer of the server app/service didn't think of it and the sysadmin of the server doesn't want you to have it, you're kind of outta luck. Also, Moore's Law has been giving us faster, better CPUs but we've been asking them to do less and less.</p>
+
+<p>The article gives a few examples of products that are making use of local resources instead merely relying on the server for everything. In the article, things like <a href="http://dojotoolkit.org/">Dojo</a>, <a href="http://gears.google.com/">Gears</a> and <a href="http://silverlight.net/">Silverlight</a> are discussed. We're already seeing some of this trend in our market with the advent of the various virtual globes (<a href="http://earth.google.com/">Google Earth</a>, <a href="http://worldwind.arc.nasa.gov/">NASA World Wind</a>, <a href="http://www.esri.com/software/arcgis/explorer/index.html">ArcGIS Explorer</a>, etc.). These apps tap into very data-rich servers or services but use local resources for tasks such as tile caching. I think GIS is an ideal place to push the boundaries of this model due to the resource-intensive nature of some geospatial processes.</p>
+
+<p>This is an area where, with a little work, the <a href="http://www.esri.com">ESRI</a> product line could shine. With <a href="http://www.esri.com/software/arcgis/about/desktop_gis.html">ArcGIS Desktop</a>, <a href="http://www.esri.com/software/arcgis/arcgisengine/index.html">Engine</a> and <a href="http://www.esri.com/software/arcgis/arcgisserver/">Server</a>, the same objects can potentially reside on the server as well as the desktop. It would be interesting to see these objects be able to communicate together in such a way as distribute processing load between themselves. Of course, any of the technologies mentioned in the article could serve as a basis to do a similar thing with non-ESRI technologies or for users with only a browser. Not that such an approach would be easy or trivial, but it would certainly be worthwhile.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Interesting Washington Post Article...]]></title>
+    <link href="http://blog.geomusings.com/2007/08/02/interesting-washington-post-article/"/>
+    <updated>2007-08-02T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2007/08/02/interesting-washington-post-article</id>
+    <content type="html"><![CDATA[<p>For those of you familiar with what Northern Virginia is like now, the following article may be of interest:</p>
+
+<p><a href="http://www.washingtonpost.com/wp-dyn/content/article/2007/08/01/AR2007080102407.html">http://www.washingtonpost.com/wp-dyn/content/article/2007/08/01/AR2007080102407.html</a></p>
+
+<p>It's about how archaeologists are using some recently discovered aerial photos of Fairfax County from 1937 to analyze change over the decades.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New DDJ Column on Concurrency]]></title>
+    <link href="http://blog.geomusings.com/2007/07/23/new-ddj-column-on-concurrency/"/>
+    <updated>2007-07-23T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2007/07/23/new-ddj-column-on-concurrency</id>
+    <content type="html"><![CDATA[<p>Anyone who has browsed this blog enough has probably figured out that I am a fan of <a href="http://www.ddj.com">Doctor Dobb's Journal</a>. This month's issue inaugurates <a href="http://www.ddj.com/dept/architect/200001985">a new column by Herb Sutter</a> dealing with concurrency. In my opinion, the confluence of mult-processor/multi-core systems with a greater emphasis on server-based GIS makes concurrency a huge issue for the GIS community.</p>
+
+<p>The most obvious example of where concurrency can be of benefit is ArcGIS Server. The entire ArcObjects library is exposed in such a way that complex geospatial operations can be published as services. Many such operations can benefit from concurrency, especially as they are executed in a multi-user, server-based context.</p>
+
+<p>I am of the opinion that the current 9.x architecture of AGS (with COM under the hood) is not optimally suited for such an approach but it will be interesting to see how <a href="http://www.esri.com">ESRI</a> addresses concurrency as 10.0 evolves. I also view the current AGS as a step along a path rather than an intended end state. Of course, there are other technologies out there. I merely hold up AGS as an obvious and visible example of a product that can benefit from being built with concurrency in mind. Of course, it's up to us as software developers to correctly build our apps as well.</p>
+
+<p>That said, I highly recommend this column. The inaugural installment rightly kicks off from a conceptual standpoint but I suspect we'll be in the weeds soon enough.</p>
+]]></content>
+  </entry>
+  
+</feed>

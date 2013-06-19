@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Open Data | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/open-data/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2013-06-19T06:48:18-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Prying Data Open]]></title>
+    <link href="http://blog.geomusings.com/2011/08/30/prying-data-open/"/>
+    <updated>2011-08-30T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/30/prying-data-open</id>
+    <content type="html"><![CDATA[<p>In the aftermath of Hurricane Irene, I was trying to get information from my <a href="http://www.smeco.coop">local electric cooperative</a> about outages. There were many (including my neighborhood) and I wanted to see the scale of the problem. It turns out, they have a page with a map that shows current outages by zip code.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png"><img alt="" class="size-medium wp-image-2018" height="202" src="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png?w=300" title="smeco_outage" width="300" /></a><div style="text-align: center; font-size: 14px">Old school outage map<br /></div></div>
+
+
+<p>It's pretty old-school as far as web maps go but it gets the job done. Their day job is making electricity, not web maps, so I won't critique it too much. One thing I did notice is that the map seems to be dynamically generated (as do the tables on the page) from some inaccessible data source. I search and tried to find some kind of feed, to no avail.</p>
+
+<!--more-->
+
+
+<p>The data on this page is ideal for an RSS feed which could be consumed by any of the local news portals, online mapping sites, and other outlets that may be used by the public. Yet, there is no feed. Here is an example of useful information locked away behind an uninformed design decision. The organization has already made the decision to publish this information so using RSS or social media would not expose anything more than what is already being released.</p>
+
+<p>It makes me wonder about the scale of this problem. How much more information is being produced in relatively inaccessible forms by otherwise well-intentioned organizations? In this case, the information is being produced as an HTML page, so we can always scrape and republish the information, which is exactly what I did. The resulting feed can be found here:</p>
+
+<p><a href="http://demo.zekiah.com/smecofeed/smeco_outage.xml">http://demo.zekiah.com/smecofeed/smeco_outage.xml</a></p>
+
+<p>The feed is simple: the ZIP code is in the item title and the number households affected is in the item description (by itself with no other decoration). Since ZIP codes are fairly standard, it makes it easy to consume the feed and do other things with it, such as <a href="http://geocommons.com/maps/97440">map it on GeoCommons</a>. This map may seem redundant but now the data can be layered with other data sets such as shelter locations, ice distribution centers and the like, making it more useful.</p>
+
+<p>To produce this feed I used Python. <a href="http://blog.davebouwman.com/">Dave Bouwman</a> pointed me to <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> and I also made use of the <a href="http://www.crummy.com/software/ScrapeNFeed/">ScrapeNFeed</a> library (which makes use of <a href="http://www.dalkescientific.com/Python/PyRSS2Gen.html">PyRSS2Gen</a>). I have it set up on a cron job to update every two hours and dump a new XML file. I decided this was preferable to doing a direct link back to the page because I'm unsure how robust their server is. I am posting my code below in the event that someone else needs to do this. This type of approach is very fragile. You'll see from the code that it's very dependent upon the structure of the source HTML. So, if the page structure changes, the feed will break. This is obviously not ideal so it's best to view it as a band-aid.</p>
+
+<p>I suspect that there's a lot of this kind of thing going on. Where you find it, it's best to engage with the organization to help make it better and that's my next step here. There's been a lot of talk about open data in our industry for a while, along with a lot of activity. Situations like this make me realize the scale of the work yet to be done. It will take a lot of effort to open up data all the way down the line and, perhaps, even more effort to help organizations understand why it is beneficial to do so in the first place. But it's work that needs to be done.</p>
+
+<p>As promised, here's the Python code should anyone find it useful:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyRSS2Gen</span> <span class="kn">import</span> <span class="n">RSSItem</span><span class="p">,</span> <span class="n">Guid</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">ScrapeNFeed</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nc">SmecoFeed</span><span class="p">(</span><span class="n">ScrapeNFeed</span><span class="o">.</span><span class="n">ScrapedFeed</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="k">def</span> <span class="nf">HTML2RSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+</span><span class='line'>            <span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class='line'>            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span><span class='line'>                    <span class="n">row</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</span><span class='line'>                    <span class="n">cols</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)</span>
+</span><span class='line'>                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
+</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="nb">zip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
+</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span><span class='line'>                        <span class="c">#This link is not real. It will simply take you to the homepage.</span>
+</span><span class='line'>                        <span class="n">lnk</span> <span class="o">=</span> <span class="s">&#39;http://www.smeco.coop#&#39;</span> <span class="o">+</span> <span class="nb">zip</span>
+</span><span class='line'>                        <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RSSItem</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">zip</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="n">tot</span><span class="p">,</span><span class="n">link</span><span class="o">=</span><span class="n">lnk</span><span class="p">))</span>
+</span><span class='line'>                        <span class="c">#print zip</span>
+</span><span class='line'>                        <span class="c">#print tot</span>
+</span><span class='line'>                        <span class="c">#cols = row.findAll(&#39;td&#39;)</span>
+</span><span class='line'>                        <span class="c">#for col in cols:</span>
+</span><span class='line'>                        <span class="c">#    print col.string</span>
+</span><span class='line'>            <span class="bp">self</span><span class="o">.</span><span class="n">addRSSItems</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">SmecoFeed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;Current SMECO outages (as scraped by Zekiah Technologies)&quot;</span><span class="p">,</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>             <span class="s">&#39;http://outage.smeco.coop&#39;</span><span class="p">,</span>
+</span><span class='line'>             <span class="s">&quot;Current SMECO power outages by ZIP code&quot;</span><span class="p">,</span>
+</span><span class='line'>             <span class="s">&#39;smeco_outage.xml&#39;</span><span class="p">,</span>
+</span><span class='line'>     <span class="s">&#39;smeco_outage.pickle&#39;</span><span class="p">,</span>
+</span><span class='line'>             <span class="n">managingEditor</span><span class="o">=</span><span class="s">&#39;bill@zekiah.com (Bill Dollins)&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>

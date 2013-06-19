@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: .Net | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/-net/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2013-06-19T06:48:18-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SharpMap 1.0 RC1 Released]]></title>
+    <link href="http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released/"/>
+    <updated>2013-03-28T06:10:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released</id>
+    <content type="html"><![CDATA[<p>Over on Google+, <a href="https://plus.google.com/u/0/117900686009614580552/posts">Diego Guidi</a> let me know that the <a href="http://sharpmap.codeplex.com/releases/view/104098">SharpMap 1.0 Release Candidate has been released</a>. There was a time when I worked with, <a href="https://www.google.com/search?q=site%3Ablog.geomusings.com&amp;q=sharpmap">and wrote about</a>, SharpMap a lot. During that entire time, the stable version of SharpMap sat at some version number that started with "0.9". The release of a 1.0 candidate is a signal that the project is moving forward.</p>
+
+<p style="text-align:center;"> <img src="http://www.zekiah.com/sites/default/files/images/SharpMapSQL2008.preview.png" /></p>
+
+<p>This is important because there are still an awful lot of .Net developers out there, especially in government shops that made a big Microsoft push in terms of infrastructure and training years ago. Of course, many of those shops are also committed to Esri technologies but SharpMap, while being a fully-functioning mapping/GIS library, also provides easy access to data sources not natively supported by Esri. Additionally, it is very easy to extend to support new or custom data sources and strightforward to <a href="http://www.zekiah.com/index.php?q=node/146">get SharpMap to play nicely in traditionally Esri-centric environments</a>.</p>
+
+<!--more-->
+
+
+<p>At <a href="http://www.zekiah.com">my company</a> we've used SharpMap for just that for one of our key Navy customers. By building custom SharpMap data sources, we've been able to encapsulate business logic in Oracle, including the use of Oracle <a href="http://www.slideshare.net/shawty_ds/what-is-spatial-sql">Spatial SQL</a> to execute spatial analysis processes and deliver the results back to an Esri web client that is also interacting with ArcGIS Server for many standard functions. SharpMap enabled us to expose this logic through an HTTP+JSON interface while bypassing geodatabases, server object extensions, and other such cruft.</p>
+
+<p>In recent years, other open-source .Net projects such as <a href="https://dotspatial.codeplex.com/">DotSpatial</a> have gained traction and that's good. The .Net environment remains in widespread use so it is useful to have open-source geospatial options for that platform. I'm happy to see SharpMap remaining an option in that space.</p>
+]]></content>
+  </entry>
+  
+</feed>

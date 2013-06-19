@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: system integration | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/system-integration/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2013-06-19T06:48:18-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mapping GISP and PMP Certifications with GeoCommons and the ESRI Silverlight API]]></title>
+    <link href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/"/>
+    <updated>2011-02-02T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api</id>
+    <content type="html"><![CDATA[<p>Note: The application described in this post is running <a href="http://demo.zekiah.com/heatmap">here</a>. It requires Silverlight 4.</p>
+
+<p>I was perusing my <a href="http://www.linkedin.com">LinkedIn</a> connections and noticed that quite a few had <a href="http://en.wikipedia.org/wiki/Project_Management_Professional">PMP</a> certifications. I also noticed that most of those who did seemed to be in the Washington, DC area. Of course, given that I live in that region, my sample could be a bit skewed but then I started <a href="http://twitter.com/#!/billdollins/status/30277725008699392">thinking out loud</a> (via Twitter):</p>
+
+<blockquote>I would love to see a heat map showing concentrations of PMPs. I bet the DC area would be white-hot. I suspect others not so much.</blockquote>
+
+
+<p>Naturally, I could not let this sit. How hard could it be? It turns out it wasn't that hard so I decided to throw a small app together to look at the data. In the process of working out an approach, I decided to also look at <a href="http://www.gisci.org/certification_program_description.aspx">GISP</a> certifications because the data set is smaller and is available as one download from the <a href="http://www.gisci.org/">GISCI</a>. Here's a blow-by-blow:</p>
+
+<!--more-->
+
+
+<p><strong>Preparing the data</strong></p>
+
+<p>Both the GISCI and <a href="http://www.pmi.org">PMI</a> maintain registries of current certification holders. In the case of the GISCI, the registry is available as a single download, if needed, so I grabbed the current list of certified GISPs (as of January 26, 2011). I only cared about location and date (which I'll make use of in the future) so I stripped out all of the names. Then I deleted all of the non-US records (to keep my geocoding easy). That left me with city, state and date. To geocode the data, I uploaded it to <a href="http://www.geocommons.com">GeoCommons</a>. I have <a href="http://geobabble.wordpress.com/2010/10/06/geocoding-with-geocommons/">blogged about this capability previously</a> but this was a larger data set (and only required matching cities). The processing took about 20 seconds and only missed about 75 records out of about about 4500 records. The majority of the missed locations were APO/FPO addresses so I just removed those records. Once that was done, I left the data up on GeoCommons where <a href="http://geocommons.com/overlays/87503">it's still available</a>.</p>
+
+<p>For the PMP data the basic process was the same but getting the data was a little trickier. The PMI doesn't offer a single download so I had to use their query tool to query US records my the first letter of the last name. The query tool returns a maximum of 1000 records so I ended up with about 24,000 records ("Q", "X" and "Z" don't have 1000 records). I pieced this together in Excel, stripped out the names and ended up with the same information I had for the GISP data. In this case, the data set is not complete but I felt like it probably was still representative of the geographic dispersion of certification holders so I went forward.</p>
+
+<p>The PMP data set was too large to upload and geocode on GeoCommons (which caps geocoding at 5000 records). Fortunately, Kate and <a href="http://www.fortiusone.com">FortiusOne</a> was gracious enough to geocode it for me (I wanted to use the same geocoder for both data sets). After a little cleanup, <a href="http://geocommons.com/overlays/87707">I posted that one to GeoCommons as well</a>.</p>
+
+<p><strong>Mapping the data</strong></p>
+
+<p>I wanted to use a heat map to show the data (for no particular reason). There are numerous ways to accomplish this but I chose to use the <a href="http://help.arcgis.com/en/webapi/silverlight/index.html">ESRI ArcGIS API for Silverlight</a>. I made this choice primarily because a lot of my project work right now involves it so the tools are at my fingertips. Also, it has a HeatMapLayer class which I had not had a chance to try yet.</p>
+
+<p>So I set up a simple mapping application and, at runtime, I load the data from GeoCommons and populate each heat map layer with the points from the appropriate data set. In this case I loaded the data as CSV (which is one of the data options on GeoCommons) by making the appropriate call to the GeoCommons API. I chose CSV because I only needed the latitude and longitude of each location and CSV was actually the least wordy transmission mode. I parsed the data using the <a href="http://kbcsv.codeplex.com/">KBCsv</a> parser available on CodePlex. I could have also loaded the data as GeoJSON and used <a href="http://json.codeplex.com/">JSON.Net</a> or Vish's outstanding <a href="http://viswaug.wordpress.com/2008/05/11/geojsonnet-a-net-library-to-produce-geojson-output/">GeoJSON.Net</a> library but CSV suited my needs in this case. Here is a screen shot showing the GISP data.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2011/02/gisp_heatmap1.png"><img alt="" class="alignleft size-full wp-image-1484" height="242" src="http://geobabble.files.wordpress.com/2011/02/gisp_heatmap1.png" title="GISP Heat Map" width="590" /></a></p>
+
+<p><strong>Reading the data</strong></p>
+
+<p>So, did the data confirm the suspicion from my original tweet? Yes. The ESRI API calculates heat map intensity based upon the data that is visible in the current map extent. When you zoom out to the whole nation, you can clearly see that the highest concentration of both certifications, by far, is in the Washington, DC area. If you zoom in more and pan around, the mapping adjusts itself so you can get a better representation of other areas by zooming in to them (and away from DC). You can also adjust the display with the intensity tool to bring out some local variations.</p>
+
+<p>What doesn't come across well is relative scale. There are a lot more PMPs than GISPs but that doesn't show well in this presentation. That's why I chose to put a toggle on the map because there's very little value in seeing the two data sets overlaid.</p>
+
+<p>All told, it took about two hours to get the core of the application in place and maybe about another hour to tidy things up. With GeoCommons, it literally took longer to prep the data than to geocode it and the native heat mapping capability of the ESRI Silverlight API was extremely easy to use. The Silverlight implementation shuts out most mobile users and anyone on Linux (Moonlight is not yet Silverlight 4 compatible) so, for those reasons, I'll continue to explore more standards-based approaches but this combination of tools certainly helped me answer my question quickly.</p>
+
+<p>This application is currently being served up live at <a href="http://demo.zekiah.com/heatmap">demo.zekiah.com/heatmap</a></p>
+]]></content>
+  </entry>
+  
+</feed>

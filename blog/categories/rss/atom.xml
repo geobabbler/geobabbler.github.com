@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: RSS | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/rss/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2013-06-19T06:48:18-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
+    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
+    <updated>2012-11-27T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
+    <content type="html"><![CDATA[<p>I'm happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It's been one of the more consistently valuable resources in the community since its inception and it's good that it will continue.</p>
+
+<p>While I'm looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called "venerable" nowadays, but it still does what it does very well.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
+
+<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you're not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It's become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
+
+<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
+
+<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Try this IFTTT Recipe: Log PostGIS Items from Planet Geospatial to Evernote. <a href="https://t.co/z5hOxPqH" title="https://ifttt.com/recipes/67215">ifttt.com/recipes/67215</a></p>&mdash; James Fee (@cageyjames) <a href="https://twitter.com/cageyjames/status/272025049526050816" data-datetime="2012-11-23T17:13:20+00:00">November 23, 2012</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
+
+<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Dynamic Non-Spatial Data In GeoCommons]]></title>
+    <link href="http://blog.geomusings.com/2011/09/07/using-dynamic-non-spatial-data-in-geocommons/"/>
+    <updated>2011-09-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/09/07/using-dynamic-non-spatial-data-in-geocommons</id>
+    <content type="html"><![CDATA[<p>In <a href="http://blog.geomusings.com/2011/08/30/prying-data-open/">my previous post</a>, I described how I used a Python script to scrape power outage information from a local web site and convert it into an RSS feed. In this post, I'll show how I used GeoCommons to visualize the changing information over time.</p>
+
+<p>The process starts by creating a data set in GeoCommmons based on a URL link to the feed created in the previous post. The general process for doing that can be found <a href="http://geocommons.com/help/User_Manual#Add-a-URL-Link-from-the-web">here</a> in the GeoCommons documentation.</p>
+
+<!--more-->
+
+
+<p>My feed is not a GeoRSS feed so it has no location data of its own for GeoCommons to work with. During the upload process, I reached this screen, which starts the process of helping to attach location to my data.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2037" height="388" src="http://geobabble.files.wordpress.com/2011/09/geocommons4.png" title="Geolocating data in GeoCommons" width="590" /></p>
+
+<p>The feed summarizes power outage by ZIP code so I chose "Join with a boundary dataset" so that I could join it with ZIP code boundaries I had previously uploaded.</p>
+
+<p>I selected the attribute in my feed (title) that was to be used to join with a corresponding attribute in the boundary data set (Zip) as shown below.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2038" height="345" src="http://geobabble.files.wordpress.com/2011/09/geocommons6.png" title="GeoCommons6" width="590" /></p>
+
+<p>You'll notice that the success message indicates three features were matched. This is true for this version of the feed because ZIP codes with zero power outages are not reported. The join, however, updates itself as the feed updates so more or less polygons may appear in the current version, depending upon feed content.</p>
+
+<p>After reviewing my data and providing some basic metadata, GeoCommons performed the join and my data set was ready to go.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2041" height="443" src="http://geobabble.files.wordpress.com/2011/09/geocommons9.png" title="Completed data set" width="554" /></p>
+
+<p>In the image above, you'll notice a link labeled "fetch latest." That link, which is formatted as "http://geocommons.com/overlays/{overlayid}/fetch," can be used to manually get the latest version of the feed, which is stored by GeoCommons. Essentially, GeoCommons stores the state of each feature in the data set as the feed is fetched so you build a "version history" your data. As long as you have a date/time attribute, you can use GeoCommons to visualize the changes over time.</p>
+
+<p>In addition to the Python code from previous post, I also used a variant on the script found at <a href="http://www.voidspace.org.uk/python/articles/authentication.shtml">http://www.voidspace.org.uk/python/articles/authentication.shtml</a>. The fetching capability requires authentication so I modified the script to call the "fetch" URL using my GeoCommons user name and password. The script may be overkill but work perfectly without any changes.</p>
+
+<p>On the server, I wrote a four-line batch file to act as a driver for the whole process. This batch file is what is called by a scheduled task in Windows.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">del</span> <span class="p">&lt;</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">xml</span>
+</span><span class='line'><span class="n">del</span> <span class="p">&lt;/</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">pickle</span>
+</span><span class='line'><span class="n">python</span> <span class="n">SmecoFeedObj</span><span class="p">.</span><span class="n">py</span>
+</span><span class='line'><span class="n">python</span> <span class="n">fetchlatest</span><span class="p">.</span><span class="n">py</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>As you can see, the batch is very simple. It deletes the old files, scrapes the latest version and writes new files (SmecoFeedObj.py) and then updates the GeoCommons data set (fetchlatest.py).</p>
+
+<p>The server is a Windows server so I set up a scheduled task (How to: <a href="http://support.microsoft.com/kb/308569">XP</a>, <a href="http://windows.microsoft.com/en-US/windows-vista/Schedule-a-task">Vista</a>, <a href="http://windows.microsoft.com/en-US/windows7/schedule-a-task">Windows 7</a>, <a href="http://technet.microsoft.com/en-us/library/cc738106(WS.10).aspx">Server 2003</a>, <a href="http://technet.microsoft.com/en-us/library/cc725745.aspx">Server 2008</a>). I set my task up to run once an hour so the latest data is scraped and pushed to GeoCommons hourly.</p>
+
+<p>With the data set now created and being updated, it can be used to make maps in GeoCommons to visualize the changing data. I created two maps to demonstrate this. <a href="http://geocommons.com/maps/97820">The first</a>, using a filter, allows a user to filter the feed data to a time window of their choosing and map just the outage data for that time window.</p>
+
+<p>The <a href="http://geocommons.com/maps/97820">second map</a>, shown below, uses GeoCommons animation capability to allow a user to "play through" the data based upon the publication date/time. A user can either drag the time slider manually or let it play automatically. They can also adjust the width of the slider to narrow/widen the time window. I've been told by GeoIQ that animation is under active improvement so I'm interested to see how it evolves. This was my first attempt at using it with my own data so I'm sure I'm not using it optimally. That said, I'm impressed with how easy it was to set up a time-based animation.</p>
+
+<div style="text-align: center"><a href="http://geocommons.com/maps/97820"><img alt="" class="size-full wp-image-2043" height="278" src="http://geobabble.files.wordpress.com/2011/09/geocommons10.png" title="GeoCommons map animating power outage data" width="590" /></a><div style="text-align: center;font-size: 14px;">GeoCommons map animating power outage data<br/></div></div>
+
+
+<p>All-in-all, it took me about 4 hours to go from data embedded in an HTML page to a working map animation. That really speaks to the power of the tools available today, from programming languages like Python and open standards like RSS to online tools like GeoCommons, as well as a host of others I didn't use for this work. It is becoming easier all the time to integrate and use spatial tools to exploit data from traditionally non-spatial sources and share the results widely. As traditional "GIS" fades into the background, the resulting fusion of more standard technologies is opening a wider world of possibilities.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Prying Data Open]]></title>
+    <link href="http://blog.geomusings.com/2011/08/30/prying-data-open/"/>
+    <updated>2011-08-30T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/30/prying-data-open</id>
+    <content type="html"><![CDATA[<p>In the aftermath of Hurricane Irene, I was trying to get information from my <a href="http://www.smeco.coop">local electric cooperative</a> about outages. There were many (including my neighborhood) and I wanted to see the scale of the problem. It turns out, they have a page with a map that shows current outages by zip code.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png"><img alt="" class="size-medium wp-image-2018" height="202" src="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png?w=300" title="smeco_outage" width="300" /></a><div style="text-align: center; font-size: 14px">Old school outage map<br /></div></div>
+
+
+<p>It's pretty old-school as far as web maps go but it gets the job done. Their day job is making electricity, not web maps, so I won't critique it too much. One thing I did notice is that the map seems to be dynamically generated (as do the tables on the page) from some inaccessible data source. I search and tried to find some kind of feed, to no avail.</p>
+
+<!--more-->
+
+
+<p>The data on this page is ideal for an RSS feed which could be consumed by any of the local news portals, online mapping sites, and other outlets that may be used by the public. Yet, there is no feed. Here is an example of useful information locked away behind an uninformed design decision. The organization has already made the decision to publish this information so using RSS or social media would not expose anything more than what is already being released.</p>
+
+<p>It makes me wonder about the scale of this problem. How much more information is being produced in relatively inaccessible forms by otherwise well-intentioned organizations? In this case, the information is being produced as an HTML page, so we can always scrape and republish the information, which is exactly what I did. The resulting feed can be found here:</p>
+
+<p><a href="http://demo.zekiah.com/smecofeed/smeco_outage.xml">http://demo.zekiah.com/smecofeed/smeco_outage.xml</a></p>
+
+<p>The feed is simple: the ZIP code is in the item title and the number households affected is in the item description (by itself with no other decoration). Since ZIP codes are fairly standard, it makes it easy to consume the feed and do other things with it, such as <a href="http://geocommons.com/maps/97440">map it on GeoCommons</a>. This map may seem redundant but now the data can be layered with other data sets such as shelter locations, ice distribution centers and the like, making it more useful.</p>
+
+<p>To produce this feed I used Python. <a href="http://blog.davebouwman.com/">Dave Bouwman</a> pointed me to <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> and I also made use of the <a href="http://www.crummy.com/software/ScrapeNFeed/">ScrapeNFeed</a> library (which makes use of <a href="http://www.dalkescientific.com/Python/PyRSS2Gen.html">PyRSS2Gen</a>). I have it set up on a cron job to update every two hours and dump a new XML file. I decided this was preferable to doing a direct link back to the page because I'm unsure how robust their server is. I am posting my code below in the event that someone else needs to do this. This type of approach is very fragile. You'll see from the code that it's very dependent upon the structure of the source HTML. So, if the page structure changes, the feed will break. This is obviously not ideal so it's best to view it as a band-aid.</p>
+
+<p>I suspect that there's a lot of this kind of thing going on. Where you find it, it's best to engage with the organization to help make it better and that's my next step here. There's been a lot of talk about open data in our industry for a while, along with a lot of activity. Situations like this make me realize the scale of the work yet to be done. It will take a lot of effort to open up data all the way down the line and, perhaps, even more effort to help organizations understand why it is beneficial to do so in the first place. But it's work that needs to be done.</p>
+
+<p>As promised, here's the Python code should anyone find it useful:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyRSS2Gen</span> <span class="kn">import</span> <span class="n">RSSItem</span><span class="p">,</span> <span class="n">Guid</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">ScrapeNFeed</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nc">SmecoFeed</span><span class="p">(</span><span class="n">ScrapeNFeed</span><span class="o">.</span><span class="n">ScrapedFeed</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="k">def</span> <span class="nf">HTML2RSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+</span><span class='line'>            <span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class='line'>            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span><span class='line'>                    <span class="n">row</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</span><span class='line'>                    <span class="n">cols</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)</span>
+</span><span class='line'>                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
+</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="nb">zip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
+</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span><span class='line'>                        <span class="c">#This link is not real. It will simply take you to the homepage.</span>
+</span><span class='line'>                        <span class="n">lnk</span> <span class="o">=</span> <span class="s">&#39;http://www.smeco.coop#&#39;</span> <span class="o">+</span> <span class="nb">zip</span>
+</span><span class='line'>                        <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RSSItem</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">zip</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="n">tot</span><span class="p">,</span><span class="n">link</span><span class="o">=</span><span class="n">lnk</span><span class="p">))</span>
+</span><span class='line'>                        <span class="c">#print zip</span>
+</span><span class='line'>                        <span class="c">#print tot</span>
+</span><span class='line'>                        <span class="c">#cols = row.findAll(&#39;td&#39;)</span>
+</span><span class='line'>                        <span class="c">#for col in cols:</span>
+</span><span class='line'>                        <span class="c">#    print col.string</span>
+</span><span class='line'>            <span class="bp">self</span><span class="o">.</span><span class="n">addRSSItems</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">SmecoFeed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;Current SMECO outages (as scraped by Zekiah Technologies)&quot;</span><span class="p">,</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>             <span class="s">&#39;http://outage.smeco.coop&#39;</span><span class="p">,</span>
+</span><span class='line'>             <span class="s">&quot;Current SMECO power outages by ZIP code&quot;</span><span class="p">,</span>
+</span><span class='line'>             <span class="s">&#39;smeco_outage.xml&#39;</span><span class="p">,</span>
+</span><span class='line'>     <span class="s">&#39;smeco_outage.pickle&#39;</span><span class="p">,</span>
+</span><span class='line'>             <span class="n">managingEditor</span><span class="o">=</span><span class="s">&#39;bill@zekiah.com (Bill Dollins)&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>

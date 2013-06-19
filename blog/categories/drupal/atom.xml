@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: drupal | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/drupal/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2013-06-19T06:48:18-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[FCC Open-Sources MapBox Module for Drupal]]></title>
+    <link href="http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal/"/>
+    <updated>2012-03-20T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal</id>
+    <content type="html"><![CDATA[<p>See the FCC announcement <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">here</a>.</p>
+
+<p><a href="http://mapbox.com" target="_blank">MapBox</a> has been winning a lot of high-profile converts lately, such as <a href="http://mapbox.com/blog/foursquare-switches-mapbox-streets-openstreetmap/" target="_blank">Foursquare</a>. In my opinion, it's one of the more perfect web mapping solutions, commercial or open-source, to come along in a while. The combination of cartographic engine (<a href="http://mapnik.org/" target="_blank">Mapnik</a>), tile generation (<a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a>) and storage (<a href="http://mapbox.com/mbtiles-spec/" target="_blank">MBTiles</a>) make MapBox one of the most elegant ways to serve beautiful maps currently available. <!--more--></p>
+
+<p>The Federal Communications Commission (FCC) has been using MapBox to make a number of <a href="http://www.fcc.gov/maps" target="_blank">compelling maps</a> available to the public. Additonally, the FCC's site has been built on the open-source content management system <a href="http://drupal.org/" target="_blank">Drupal</a>. Today, the <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">FCC announced</a> that they are making the source code to their MapBox module for Drupal, SlashMap, <a href="http://drupal.org/project/slashmaps" target="_blank">available</a>. This should provide a straightforward way to integrate MapBox maps with a Drupal site.</p>
+
+<p>The FCC has been very active in using open-source tools for their work and it's great to see them giving back to the community in this manner. It's a phenomenon that I think we'll see a lot more of from all levels of government as understanding of and comfort with open-source models increases.</p>
+
+<p>So, if you are a Drupal user, you may want to check out SlashMaps as a way to integrate some very nice web maps. Kudos to <a href="http://twitter.com/byrne_tweets" target="_blank">Michael Byrne</a> and his team at the FCC for taking this step.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Check Out the NREL Renewable Energy Applications]]></title>
+    <link href="http://blog.geomusings.com/2012/01/16/check-out-the-nrel-renewable-energy-applications/"/>
+    <updated>2012-01-16T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/01/16/check-out-the-nrel-renewable-energy-applications</id>
+    <content type="html"><![CDATA[<p>Among the items in the category of "<a href="http://blog.geomusings.com/2012/01/03/sharpening-the-saw/" target="_blank">what I care about</a>" are renewable energy and open-source geospatial tools. So I was happy to rediscover the <a href="http://maps.nrel.gov/" target="_blank">various online tools</a> by the <a href="http://www.nrel.gov/" target="_blank">National Renewable Energy Laboratory</a> in Golden, Colorado. Many of the tools have been available for some time but the <a href="http://www.nrel.gov/news/press/2012/1681.html">recent announcement</a> of the <a href="http://maps.nrel.gov/re_atlas" target="_blank">RE Atlas</a> application brought me back to them. <!--more--></p>
+
+<p>RE Atlas is described as:</p>
+
+<blockquote>The Renewable Energy Atlas is an interactive mapping tool to allow users to explore base level renewable energy resource datasets. The intention is to provide a broad overview of available data and provide appropriate links to allow users to explore the data in greater detail.</blockquote>
+
+
+<p>I have also been browsing around the <a href="http://maps.nrel.gov/prospector">Solar Energy Prospector</a>, described as:</p>
+
+<blockquote>The Prospector is a mapping tool developed for the Solar Power industry. This tool is designed to help developers site large-scale solar plants by providing easy access to solar resource datasets and other data relevant to utility-scale solar power projects.</blockquote>
+
+
+<p>The front ends of these tools are built using open-source tools (<a href="http://openlayers.org/">OpenLayers</a>, <a href="http://drupal.org/">Drupal</a>, others). The interfaces provide a lot of capability, including query and download of underlying data. I like that the tools focus on making renewable energy data available to industry and private citizens for decision-making since uptake and investment by the private sector will be needed for renewable energy to gain lasting traction. These tools provide a good example of the potential for collaboration between government and industry to tackle challenging problems.</p>
+
+<p>So, if you're looking for data related to renewable energy, these tools might be a good place to start.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Integrating ASP.NET with Drupal in the Acquia Stack]]></title>
+    <link href="http://blog.geomusings.com/2010/03/02/integrating-aspnet-with-drupal-in-the-acquia-stack/"/>
+    <updated>2010-03-02T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2010/03/02/integrating-aspnet-with-drupal-in-the-acquia-stack</id>
+    <content type="html"><![CDATA[<p>A while back, I posted <a href="http://geobabble.wordpress.com/2008/01/07/sharpmap-on-apache/">this</a> about running <a href="http://sharpmap.codeplex.com">SharpMap</a> on <a href="http://www.apache.org/">Apache</a>. At the time, the ability to run ASP.NET on Apache was mainly a curiosity to me but had little practical value. Recently, I had the need to revisit this technique for a project. I used the same <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">post</a> I had used previously as a reference, although the comment by Carlos there was more up-to-date and served me well this time.</p>
+
+<p>This time, we were migrating an old custom-built site to the <a href="http://drupal.org/">Drupal</a> CMS. The old site was a mixture of ASP Classic and ASP.NET. Drupal is a <a href="http://www.php.net/">PHP</a>-based CMS. Due to the deadline for completing the migration, there were two ASP.NET applications that we planned to leave in place. They automated custom workflows and our schedule didn't allow for rewriting them. Drupal had been installed as part of the <a href="http://acquia.com/downloads">Acquia stack installer</a> that includes Apache, PHP, Drupal and <a href="http://www.mysql.com/">MySQL</a>.</p>
+
+<p>Following the instructions I had used previously, I integrated mod_aspdotnet in the Apache http.conf. I made the following entries, as instructed (these are sample entries for purposes of this post).</p>
+
+<p> <code>AspNetMount /SampleASP "c:/SampleASP"
+ Alias /SampleASP "c:/SampleASP"</code></p>
+
+<p>These entries mount the ASP.NET application where it sits physically and alias it to a virtual directory in Apache. Having done this before, I was not worried. This time, however, it did not work. After some research, I realized that these directives were in conflict with some mod_rewrite entries that are part of the stack installer. They are:</p>
+
+<p><code>
+  ServerName localhost
+  RewriteEngine On
+  RewriteOptions Inherit
+  RewriteCond %{REQUEST_URI} !/acquia-drupal.<em>
+  RewriteCond %{REQUEST_URI} !/phpmyadmin.</em>
+  RewriteRule ^(/.*)?$ /acquia-drupal$1
+</code></p>
+
+<p>In this case, any URI that does not look like http://${hostname}/acquia-drupal is rewritten to match that format. So my URI of http://${hostname}/SampleASP was being rewritten as http://${hostname}/acquia-drupal/SampleASP which does not exist and promptly fails. The solution to this problem was to modify the AspNetMount and Alias entries above to this:</p>
+
+<p> <code>AspNetMount /acquia-drupal/SampleASP "c:/SampleASP"
+ Alias /acquia-drupal/SampleASP "c:/SampleASP"</code></p>
+
+<p> This redirected properly and the ASP.NET executed. So, the lesson here is that, if you choose to use a stack installer, make sure you understand the customizations that the installer makes to the products it includes.</p>
+]]></content>
+  </entry>
+  
+</feed>
