@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-06-19T23:44:32-04:00</updated>
+  <updated>2013-06-20T18:20:36-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -24,9 +24,9 @@
 
 <h3>Embed the GitHub map.</h3>
 
-<p>If you click on a GeoJSON file and view the new map in GitHub, a quick view of the page source will show that this map is embedded in an IFRAME object. This approach can be used to embed the GitHub map in any page. It&#8217;s a great way to quickly publish a data set while also providing access to download the raw data.</p>
+<p><del>If you click on a GeoJSON file and view the new map in GitHub, a quick view of the page source will show that this map is embedded in an IFRAME object.</del> GitHub provides a <a href="https://help.github.com/articles/mapping-geojson-files-on-github#embedding-your-map-elsewhere">simple embedding method</a> to display the GitHub map in any page. (Thanks to <a href="https://github.com/benbalter">Ben Balter</a> for this update.) It&#8217;s a great way to quickly publish a data set while also providing access to download the raw data.</p>
 
-<p style="text-align:center;"><iframe width="600" height="400"  src="https://render.github.com/view/geojson/?url=https%3A%2F%2Fraw.github.com%2Fgeobabbler%2Fgeodata%2Fmaster%2Fgeojson%2Fleonardtown_bldgs.geojson" >Viewer requires iframe.</iframe></p>
+<p style="text-align:center;"><script src="https://embed.github.com/view/geojson/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson"></script></p>
 
 <!--more-->
 
