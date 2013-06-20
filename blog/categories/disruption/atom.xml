@@ -4,7 +4,7 @@
   <title><![CDATA[Category: disruption | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/disruption/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-06-19T18:46:16-04:00</updated>
+  <updated>2013-06-19T23:44:32-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -22,10 +22,7 @@
 
 <p>While it's cool to click on a link and just see a map, it doesn't take long to wonder about how you can use this capability beyond viewing data in GitHub. What follows are three ways to capitalize on GeoJSON in GitHub. Not all are directly related to the new mapping capability, and two have been possible for a long time. That said, the GitHub announcement may draw interest from users who have not previously considered either GitHub or GeoJSON, so I hope these approaches will be useful.</p>
 
-<ul>
-<li>Embed the GitHub map.</li>
-</ul>
-
+<h3>Embed the GitHub map.</h3>
 
 <p>If you click on a GeoJSON file and view the new map in GitHub, a quick view of the page source will show that this map is embedded in an IFRAME object. This approach can be used to embed the GitHub map in any page. It's a great way to quickly publish a data set while also providing access to download the raw data.</p>
 
@@ -34,17 +31,11 @@
 <!--more-->
 
 
-<ul>
-<li>Stream the data into your own web map.</li>
-</ul>
-
+<h3>Stream the data into your own web map.</h3>
 
 <p>This is not a new capability; if you've had GeoJSON in a repo, you've always been able to do this. That said, if you're checking out GitHub or GeoJSON for the first time as a result of the new mapping capability, this is something you may want to try. I have had a page up for a while showing the <a href="http://blog.geomusings.com/assets/demos/mdq6/">county-by-bounty breakdown of Maryland's marriage equality question from the 2012 election</a> that uses this approach to load the data into a <a href="http://leafletjs.com/">Leaflet</a> map from GitHub and style it. (Incidentally, the tiles in the map are also hosted on GitHub.)</p>
 
-<ul>
-<li>Stream the data into your desktop.</li>
-</ul>
-
+<h3>Stream the data into your desktop.</h3>
 
 <p>A third option is to stream the GeoJSON data directly into desktop GIS software such as QGIS for further analysis. In QGIS, simply need to add a vector, specifying "Protocol" and entering the URL to your GitHub-hosted GeoJSON file. Make sure you use the "raw" URL that looks something like this: https://raw.github.com/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson .</p>
 
