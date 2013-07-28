@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ESRI | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/esri/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-07-19T00:34:16-04:00</updated>
+  <updated>2013-07-28T11:55:39-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[DevOps for Geospatial Data]]></title>
+    <link href="http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data/"/>
+    <updated>2013-07-28T10:54:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data</id>
+    <content type="html"><![CDATA[<p>There has been a bit of buzz the past couple of weeks over the <a href="https://github.com/blog/1541-geojson-rendering-improvements">ability of GitHub to render GeoJSON and TopoJSON files</a> automatically using  and embedded <a href="http://leafletjs.com/">Leaflet</a> map and <a href="http://www.mapbox.com/">MapBox</a> technology. This buzz is quite justified as it presents an easy way to simply publish and visualize vector data sets. In the weeks since the initial announcement, the community has begun exploring the limits of GitHub's capability. Probably the two biggest limiting factors are individual file size limits and API rate limits. Some, including myself, are exploring strategies for maximizing the ability to store, disseminate, and visualize data within these confines. For the near term, <a href="https://github.com/">GitHub</a> will probably not be the place to store terabytes of data or act as the CDN for a high-volume mapping application. That is perfectly fine and there is still a great deal of value to be found within GitHub's current generous constraints.</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geodata-git.png" /></p>
+
+<p>One aspect of GitHub (really, its underlying <a href="http://git-scm.com/">git</a> engine) that is of great interest to me is the ability to perform version control and configuration management on data itself. With GitHub, that currently takes the form of text-based formats such as JSON but it's a start. In my experience supporting various customers over the years, configuration management of data has been a common gap in information operations. The most common, and inadequate, approach to this problem has been through the use of metadata. Almost two decades of viewing out-of-date, incomplete, and inaccurate metadata has given the lie to this approach. Metadata represents a separate maintenance workflow for which many organizations simply do not dedicate resources. Data-set-level metadata is also inadequate for volatile data sets in which individual records are updated frequently.</p>
+
+<!--more-->
+
+
+<p>I have worked with many organizations that had excellent DevOps processes for managing and deploying application code that simply had no corresponding processes for the data that the code was utilizing. We are long past time for addressing the importance of configuration management for data itself.</p>
+
+<p>That is not to say there have not been approaches to addressing this issue. Since version 8.0, <a href="http://www.esri.com">Esri</a> has had a means of <a href="http://www.esri.com/software/arcgis/geodatabase/multi-user-functionality">versioning enterprise geodatabases</a> that are stored in an RDBMS. This approach does have the ability to track feature-level changes and manages their inclusion in the master version of the data set. Quite frankly, I've never loved the Esri approach to versioning. I think it gives too much responsibility to middleware when it should be the database's sole responsibility to keep itself intact. Also, I have always felt the workflow is a bit too proscribed and takes too much business process decision ability from the data owner. That said, it has been the only real game in town for a long time so I have implemented it many times.</p>
+
+<p><a href="http://www.openstreetmap.org/">OpenStreetMap</a> (OSM) has also been a success story for tracking feature-level version history. Its approach has successfully managed millions of edits to a worldwide database so its utility is certainly proven. Organizations that need to maintain their own data behind their firewalls cannot really make use of OSM itself but the OSM approach is solid.</p>
+
+<p><a href="http://www.zekiah.com">At my own company</a>, we have been working with customers to implement <a href="http://blog.geomusings.com/2012/03/27/configuration-management-for-geospatial-data-models/">configuration management of data models</a> (logical and physical) but we are not really addressing CM of the data managed by those models. Even so, working at the model/schema level has still helped our customers improve their data management workflows by being able to identify versions of data models supported by deployed applications and helping to migrate between versions as needed.</p>
+
+<p>The recent move by GitHub to support visualization of spatial data files actually introduces no new capability in terms of configuration management of data files. Users have always had the ability to store and manage JSON, text, XML and other formats in GitHub and git. My hope is that the visualization capability, and the inevitable exploration it will generate, will shine more light on the issue of data configuration management. In my opinion, this is the most powerful aspect the platform brings.</p>
+
+<p>I'm also encouraged by <a href="http://opengeo.org/">OpenGeo's</a> <a href="https://github.com/opengeo/GeoGit">GeoGit</a> initiative. I have not personally experimented with it yet so I will not speculate on the specifics of its implementation, but I am happy to see OpenGeo recognizing the need for a more open approach to feature-level version control. Since, however, it will be open-source, my hope is that proprietary GIS vendors, or their supporting integrators, will eventually support it as well.</p>
+
+<p>Ultimately, I am happy to see both GitHub and OpenGeo addressing this issue. Although their approaches are different, they offer, in addition to the Esri approach, choices for organizations in terms of workflow. Many data managers, whether for legal, strategic, or other reasons, recognize the importance of maintaining version history of geospatial data records. It is important for everything from parcel mapping to critical infrastructure protection and many other use cases. Historically, there have been very few tools available to address this problem effectively but I am hoping that is starting to change.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GeoJSON from ArcGIS Server]]></title>
@@ -61,8 +91,7 @@
 
 <p>In a semi-related note, it looks like Marten Hogeweg of Esri is working on integrating GeoJSON support into Esri's portal server project, so users of that tool may want to hold on for that.</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>So... looking at adding <a href="https://twitter.com/search?q=%23geojson&amp;src=hash">#geojson</a> to <a href="https://twitter.com/search?q=%23esri&amp;src=hash">#esri</a> <a href="https://twitter.com/search?q=%23opensource&amp;src=hash">#opensource</a> <a href="https://twitter.com/search?q=%23geoportal&amp;src=hash">#geoportal</a> server. What do I see... There&#39;s multiple flavors of it? <a href="https://twitter.com/search?q=%23whatsupwiththat&amp;src=hash">#whatsupwiththat</a></p>&mdash; Marten Hogeweg (@martenhogeweg) <a href="https://twitter.com/martenhogeweg/statuses/343190756271464448">June 8, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/martenhogeweg/status/343190756271464448 %}</p>
 
 <p>I'm looking forward to checking out Marten's work and am glad to see Esri taking greater notice of GeoJSON.</p>
 ]]></content>
@@ -90,8 +119,7 @@
 
 <p>Howard Butler had a great point a while back when discussing the potential adoption of the GeoServices REST Specification:</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/JeffHarrison">@JeffHarrison</a> I think it would be great for OGC to ratify GeoServices. It would cement their irrelevance to current and future developers.</p>&mdash; Howard Butler (@howardbutler) <a href="https://twitter.com/howardbutler/statuses/331405667837542401">May 6, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/howardbutler/status/331405667837542401 %}</p>
 
 <p>The irony here is that the withdrawal of the specification accomplishes the same thing. I won't go so far as to say OGC has no clue or doesn't care but, in the perception-is-reality department, they look pretty out-of-touch these days. Is this a problem with process? Maybe. Is it a problem with message? Definitely. The message I've gotten from this whole episode is that we can keep doing what we've been doing with our web mapping applications because OGC has nothing for us.</p>
 ]]></content>
@@ -127,7 +155,7 @@
     <id>http://blog.geomusings.com/2012/07/10/geoiq-esri</id>
     <content type="html"><![CDATA[<p>Okay, everybody calm the hell down. Anyone who thinks that the <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">Esri acquisition of GeoIQ</a> is strange hasn't been paying attention to two things: 1) the direction that Esri says they want to go and 2) what the GeoIQ platform really is. I would be very surprised if GeoIQ becomes the 2012 version of <a href="http://www.thefreelibrary.com/ESRI+Acquires+Atlas+GIS+and+Atlas+SDK+--+Claritas+and+ESRI+Announce...-a018336428" target="_blank">Atlas GIS</a>. This acquisition/merger makes more sense than may be initially apparent.</p>
 
-<p><iframe width="560" height="420" src="http://www.youtube.com/embed/_eyFiClAzq8?color=white&theme=light"></iframe></p>
+<p>{% youtube _eyFiClAzq8 %}</p>
 
 <p>It's no secret that I've worked with <a href="http://www.esri.com" target="_blank">Esri</a> tools for a long time and my recent work with the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform has been well-documented on this blog, including work integrating the two platforms at the API level. Based on what I've seen from both companies, here are thoughts on why I think this move makes a lot of sense:  <!--more--></p>
 
@@ -160,26 +188,6 @@
 <p>In my opinion, this acquisition not only makes sense, it is somewhat classic. In hindsight, it could even be called obvious. I could go on about this but I won't.</p>
 
 <p>Many in our industry, myself included, took a vicarious enjoyment in the David-versus-Goliath interplay between GeoIQ and Esri but now it's time for us to get back to work. I think all of the principals involved in this transaction deserve credit for keeping open minds and being able to look past all of that to recognize the potential common benefits of joining forces. I sincerely hope GeoIQ doesn't become the next Atlas GIS and I suspect it won't.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[AGIO Puts the Data First]]></title>
-    <link href="http://blog.geomusings.com/2011/03/24/agio-puts-the-data-first/"/>
-    <updated>2011-03-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/03/24/agio-puts-the-data-first</id>
-    <content type="html"><![CDATA[<p>I read <a href="http://www.gisuser.com/content/view/23022/222/">Learon Dalby's latest GISuser.com expert column</a> (disclosure: I am a contributor there also) with great interest since it addresses an issue with which I have worked closely over the years: availability of GIS data in a time of crisis. Over the years, the proliferation of "operating pictures" (you're not in style unless you have your own <a href="http://www.mitre.org/work/tech_papers/tech_papers_07/07_0093/">UDOP</a>) and other systems has obscured the fact that the data is really what matters. Certain segments of the community, especially those more focused on man-made disasters rather than the natural variety, have gotten very good at putting multiple layers of technology, services, security, policy, etc. between GIS data and the people who need it. <!--more--></p>
-
-<p>The problem with with all of this is that these systems tend to be very fragile under stress (exactly the kinds of stress that one can expect during an actual crisis). To mitigate that, we add scalability, complexity and cost to build out large, highly-available systems to serve out a small amount of data.</p>
-
-<div style="text-align:center;"><img alt="" height="278" src="http://geobabble.files.wordpress.com/2011/03/buffet.png" title="Is it this easy to get to your GIS data?" width="416" /><div style="text-align:center;font-size: 14px;">Is it this easy to get to your GIS data?<br/><br/></div></div>
-
-
-<p>As Learon and Arkansas demonstrate, there is another approach and it is simply making GIS data as open and <em>directly</em> available as possible. This isn't always sexy (Shapefiles via FTP?!?!) but can be effective. Additionally, it touches upon <a href="http://geobabble.wordpress.com/2010/09/16/be-the-crowd/">an issue I raised last year</a>. Some of the best GIS data in existence is that which is created and maintained at the local government level (one might even call it "authoritative"), but that data is not always available. Arkansas is very realistic when they say that people most likely won't look to their GIS servers first and so they try to push that data to the places people will go to look (<a href="http://maps.google.com">Google</a>, <a href="http://www.bing.com/maps/">Bing</a>, <a href="http://geocommons.com/search?model=&amp;query=AGIO">GeoCommons</a>, <a href="http://www.esri.com">Esri</a>, <a href="http://www.mapquest.com/">MapQuest</a>) in formats that are the most universally accessible (shapefiles, KML, ATOM).</p>
-
-<p>This is a low-level, and somewhat low-tech, form of data sharing and interoperability but, in a time of extended economic stress, Arkansas' GIS data is available and up-to-date. They have made the hurdles to get that data as low as possible and, in so doing, have raised the bar higher when judging data openness and availability.</p>
-
-<p>Put that in your COP and view it.</p>
 ]]></content>
   </entry>
   

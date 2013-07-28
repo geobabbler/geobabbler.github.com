@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-07-19T00:34:16-04:00</updated>
+  <updated>2013-07-28T11:55:39-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[DevOps for Geospatial Data]]></title>
+    <link href="http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data/"/>
+    <updated>2013-07-28T10:54:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data</id>
+    <content type="html"><![CDATA[<p>There has been a bit of buzz the past couple of weeks over the <a href="https://github.com/blog/1541-geojson-rendering-improvements">ability of GitHub to render GeoJSON and TopoJSON files</a> automatically using  and embedded <a href="http://leafletjs.com/">Leaflet</a> map and <a href="http://www.mapbox.com/">MapBox</a> technology. This buzz is quite justified as it presents an easy way to simply publish and visualize vector data sets. In the weeks since the initial announcement, the community has begun exploring the limits of GitHub's capability. Probably the two biggest limiting factors are individual file size limits and API rate limits. Some, including myself, are exploring strategies for maximizing the ability to store, disseminate, and visualize data within these confines. For the near term, <a href="https://github.com/">GitHub</a> will probably not be the place to store terabytes of data or act as the CDN for a high-volume mapping application. That is perfectly fine and there is still a great deal of value to be found within GitHub's current generous constraints.</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geodata-git.png" /></p>
+
+<p>One aspect of GitHub (really, its underlying <a href="http://git-scm.com/">git</a> engine) that is of great interest to me is the ability to perform version control and configuration management on data itself. With GitHub, that currently takes the form of text-based formats such as JSON but it's a start. In my experience supporting various customers over the years, configuration management of data has been a common gap in information operations. The most common, and inadequate, approach to this problem has been through the use of metadata. Almost two decades of viewing out-of-date, incomplete, and inaccurate metadata has given the lie to this approach. Metadata represents a separate maintenance workflow for which many organizations simply do not dedicate resources. Data-set-level metadata is also inadequate for volatile data sets in which individual records are updated frequently.</p>
+
+<!--more-->
+
+
+<p>I have worked with many organizations that had excellent DevOps processes for managing and deploying application code that simply had no corresponding processes for the data that the code was utilizing. We are long past time for addressing the importance of configuration management for data itself.</p>
+
+<p>That is not to say there have not been approaches to addressing this issue. Since version 8.0, <a href="http://www.esri.com">Esri</a> has had a means of <a href="http://www.esri.com/software/arcgis/geodatabase/multi-user-functionality">versioning enterprise geodatabases</a> that are stored in an RDBMS. This approach does have the ability to track feature-level changes and manages their inclusion in the master version of the data set. Quite frankly, I've never loved the Esri approach to versioning. I think it gives too much responsibility to middleware when it should be the database's sole responsibility to keep itself intact. Also, I have always felt the workflow is a bit too proscribed and takes too much business process decision ability from the data owner. That said, it has been the only real game in town for a long time so I have implemented it many times.</p>
+
+<p><a href="http://www.openstreetmap.org/">OpenStreetMap</a> (OSM) has also been a success story for tracking feature-level version history. Its approach has successfully managed millions of edits to a worldwide database so its utility is certainly proven. Organizations that need to maintain their own data behind their firewalls cannot really make use of OSM itself but the OSM approach is solid.</p>
+
+<p><a href="http://www.zekiah.com">At my own company</a>, we have been working with customers to implement <a href="http://blog.geomusings.com/2012/03/27/configuration-management-for-geospatial-data-models/">configuration management of data models</a> (logical and physical) but we are not really addressing CM of the data managed by those models. Even so, working at the model/schema level has still helped our customers improve their data management workflows by being able to identify versions of data models supported by deployed applications and helping to migrate between versions as needed.</p>
+
+<p>The recent move by GitHub to support visualization of spatial data files actually introduces no new capability in terms of configuration management of data files. Users have always had the ability to store and manage JSON, text, XML and other formats in GitHub and git. My hope is that the visualization capability, and the inevitable exploration it will generate, will shine more light on the issue of data configuration management. In my opinion, this is the most powerful aspect the platform brings.</p>
+
+<p>I'm also encouraged by <a href="http://opengeo.org/">OpenGeo's</a> <a href="https://github.com/opengeo/GeoGit">GeoGit</a> initiative. I have not personally experimented with it yet so I will not speculate on the specifics of its implementation, but I am happy to see OpenGeo recognizing the need for a more open approach to feature-level version control. Since, however, it will be open-source, my hope is that proprietary GIS vendors, or their supporting integrators, will eventually support it as well.</p>
+
+<p>Ultimately, I am happy to see both GitHub and OpenGeo addressing this issue. Although their approaches are different, they offer, in addition to the Esri approach, choices for organizations in terms of workflow. Many data managers, whether for legal, strategic, or other reasons, recognize the importance of maintaining version history of geospatial data records. It is important for everything from parcel mapping to critical infrastructure protection and many other use cases. Historically, there have been very few tools available to address this problem effectively but I am hoping that is starting to change.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Focus]]></title>
@@ -38,7 +68,7 @@
 <p>All of the geospatial tools in the marketplace, regardless of provenance, serve to facilitate solutions to a myriad of real-world problems. And those problems are the point. As a consultant in the geospatial industry, my job is to help my customers find the tools that best solve their problems and help implement them. My responsibility is to keep an open mind about all of the tools that are available.</p>
 
 <div style="text-align: center;">
-<iframe width="560" height="420" src="http://www.youtube.com/embed/A8W8GGdD6pc?color=white&theme=light"></iframe>
+{% youtube A8W8GGdD6pc %}
 (May be considered NSFW by some)
 </div>
 
@@ -90,8 +120,7 @@
 
 <p>UPDATE: Dane Springmeyer pointed out that TileMill supports remote URLs as well.</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/geomusingsblog">@geomusingsblog</a> <a href="https://twitter.com/billdollins">@billdollins</a> - very cool, had no idea QGIS supported remote urls. TileMill does also: <a href="http://t.co/o3wxv2VkEv">http://t.co/o3wxv2VkEv</a></p>&mdash; Dane Springmeyer (@springmeyer) <a href="https://twitter.com/springmeyer/statuses/347483526171594753">June 19, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet https://twitter.com/springmeyer/status/347483526171594753 %}</p>
 
 <p>Those are three (or so) quick ways to capitalize on GeoJSON data in GitHub now. So what next?</p>
 
@@ -101,8 +130,7 @@
 
 <p>I also said it was a great first step, but limited. The mapping capability is understandably basic, though the documentation shows how you can customize styling somewhat. There is also a point at which the data seems to become too big to render (in either the map or in raw form). Bill Morris has identified this limit to be in the ballpark of 4.5MB, which can be easy to hit with GeoJSON.</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/byrne_tweets">@byrne_tweets</a> <a href="https://twitter.com/BenBalter">@BenBalter</a> <a href="https://twitter.com/ericg">@ericg</a> <a href="https://twitter.com/ajturner">@ajturner</a> +1 for a solid number on max renderable filesize. 4.5MB is pushing it: <a href="https://t.co/cNTbA5Djqw">https://t.co/cNTbA5Djqw</a></p>&mdash; Bill Morris (@vtcraghead) <a href="https://twitter.com/vtcraghead/statuses/346825523521019904">June 18, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/vtcraghead/status/346825523521019904 %}</p>
 
 <p>So this means that enterprises won't be dumping terabytes of vectors to GeoJSON and loading them into GitHub. That's a good thing in my book. It is, however, an acceptable solution for small data sets and quick turn-around data sharing. As with all things, you have to go in with the right set of expectations.</p>
 
@@ -160,8 +188,7 @@
 
 <p>In a semi-related note, it looks like Marten Hogeweg of Esri is working on integrating GeoJSON support into Esri's portal server project, so users of that tool may want to hold on for that.</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>So... looking at adding <a href="https://twitter.com/search?q=%23geojson&amp;src=hash">#geojson</a> to <a href="https://twitter.com/search?q=%23esri&amp;src=hash">#esri</a> <a href="https://twitter.com/search?q=%23opensource&amp;src=hash">#opensource</a> <a href="https://twitter.com/search?q=%23geoportal&amp;src=hash">#geoportal</a> server. What do I see... There&#39;s multiple flavors of it? <a href="https://twitter.com/search?q=%23whatsupwiththat&amp;src=hash">#whatsupwiththat</a></p>&mdash; Marten Hogeweg (@martenhogeweg) <a href="https://twitter.com/martenhogeweg/statuses/343190756271464448">June 8, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/martenhogeweg/status/343190756271464448 %}</p>
 
 <p>I'm looking forward to checking out Marten's work and am glad to see Esri taking greater notice of GeoJSON.</p>
 ]]></content>
@@ -189,23 +216,9 @@
 
 <p>Howard Butler had a great point a while back when discussing the potential adoption of the GeoServices REST Specification:</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/JeffHarrison">@JeffHarrison</a> I think it would be great for OGC to ratify GeoServices. It would cement their irrelevance to current and future developers.</p>&mdash; Howard Butler (@howardbutler) <a href="https://twitter.com/howardbutler/statuses/331405667837542401">May 6, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/howardbutler/status/331405667837542401 %}</p>
 
 <p>The irony here is that the withdrawal of the specification accomplishes the same thing. I won't go so far as to say OGC has no clue or doesn't care but, in the perception-is-reality department, they look pretty out-of-touch these days. Is this a problem with process? Maybe. Is it a problem with message? Definitely. The message I've gotten from this whole episode is that we can keep doing what we've been doing with our web mapping applications because OGC has nothing for us.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Open-Source GIS Bootcamp at Salisbury University]]></title>
-    <link href="http://blog.geomusings.com/2013/05/23/open-source-gis-bootcamp-at-salisbury-university/"/>
-    <updated>2013-05-23T05:33:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/05/23/open-source-gis-bootcamp-at-salisbury-university</id>
-    <content type="html"><![CDATA[<p><a href="http://www.linkedin.com/groupItem?view=&amp;srchtype=discussedNews&amp;gid=3300945&amp;item=242507385&amp;type=member&amp;trk=eml-anet_dig-b-pop_ttl-hdp&amp;ut=12tcrQvogVeRM1">Thanks to LinkedIn</a>, I saw that Dr. Art Lembo of Salisbury (Maryland) University is leading an "Open Source/Enterprise GIS Summer Bootcamp" at the university from June 3 - 7, 2013. All of the salient details, including contact information, <a href="http://www.esrgc.org/bootcamp/SUBootCamp.pdf">can be found here</a> (PDF).</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/river.jpg" /></p>
-
-<p>Having seen Dr. Lembo and his team in action <a href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">for an afternoon at TUGIS</a>, I think this will be a good way for those who have been wanting to take the leap with open-source GIS tools to get some hands-on experience with core tools like <a href="http://qgis.org/">QGIS</a> and <a href="http://postgis.net/">PostGIS</a>. It's also a great time of year to be on Maryland's Eastern Shore. The LinkedIn discussion says there are still spaces available but the date is coming up soon so you'll want to move quickly if you're interested.</p>
 ]]></content>
   </entry>
   
