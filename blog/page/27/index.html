@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="A little clarification is in order: SQL Server 2008 Books Online makes the following statement about SRIDs: &#8220;A SQL Server-supported SRID for &hellip;">
+  <meta name="description" content="Update (7/1/2011): I wrote this post early in the SQL 2008 CTP. I no longer use the method described here. If you found this post via StackOverflow &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,92 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/">Inserting SQL 2008 Geometry With a SqlCommand</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Update (7/1/2011):</strong> I wrote this post early in the SQL 2008 CTP. I no longer use the method described here. If you found this post via StackOverflow or some other Q&amp;A site, I highly recommend this post by Vish as a more efficient way of doing things: <a href="http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/">http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/</a></p>
+
+<p>I&#8217;m in the process of using <a href="http://codeplex.com/SharpMap">SharpMap</a> to write a utility to load spatial data into my <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> instance. A couple of the SharpMap data providers have a static method to load data from a shapefile (really any other SharpMap data provider, but I digress). The method creates a table and uses an ADO.Net command object (<a href="http://msdn2.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx">SqlCommand</a> in this case) load individual records into the table. I started using the existing <a href="http://www.codeplex.com/SharpMap/SourceControl/FileView.aspx?itemId=30508&amp;changeSetId=28971">MsSql provider</a> as a template, which load the geometry&#8217;s WKB into an image column.</p>
+
+<p>The problem with SQL 2008 comes in when you add a parameter to the command. You must specify the data type of the parameter by passing it a <a href="http://msdn2.microsoft.com/en-us/library/system.data.sqldbtype.aspx">SqlDbType</a> enumeration. Currently, there is no enumeration that corresponds to geometry (or geography for that matter). My first attempt was to leave the parameter defined as the type SqlDbType.VarBinary and set the value as such:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">VarBinary</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsBinary</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case, feature.Geometry is of type SharpMap.Geometries.Geometry and AsBinary returns the <a href="http://dev.mysql.com/doc/refman/5.0/en/gis-wkb-format.html">WKB</a> representation of the shape. This code failed when attempting to execute the command, throwing an exception indicating that the table column (type geometry) was not a valid binary data type.</p>
+
+<p>So I next tried defining the data type of the parameter as SqlDbType.Udt (user-defined type) and setting the UdtTypeName property to &#8220;geometry&#8221;. This failed also.</p>
+
+<p>On a whim (I wish I could say it was something more scientific than a desire to leave no stone unturned), I then tried working with text and set it up this way:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">NVarChar</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsText</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case, AsText returns the <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> representation of the shape. This worked! I have not dug into the details of why it worked but it seems the underlying spatial objects in SQL 2008 have some built-in default behaviours that coerce WKT. I am now loading data via a WinForms app with the aid of SharpMap. So, if you&#8217;re trying to update geometry from within your code, the above example is what worked for me.</p>
+
+<p>I&#8217;ll probably post the code to the data loader a little bit later after I incorporate SRID and geometry type constraints and the like.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -489,52 +575,6 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/15/navteq-mapreporter/">Navteq MapReporter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-15T00:00:00-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/15/navteq-mapreporter/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was attending a working group meeting yesterday and learned of Navteq&#8217;s <a href="http://mapreporter.com">MapReporter</a> site. It is a system they have implemented to allow users to report data errors to Navteq. The interface seems very intuitive. It even does a good job of picking locations from partial addresses. The image below shows that map interface:</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.png" title="Navteq MapReporter map interface"><img alt="Navteq MapReporter map interface" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.thumbnail.png" /></a></p>
-
-<p>Once in, there is a standard form so that you can report the nature of the data error. Here is a screen shot (the address in the map above is not the same one I used in the form, which is why it&#8217;s blurred here):</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.png" title="Navteq MapReporter entry from"><img alt="Navteq MapReporter entry from" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.thumbnail.png" /></a></p>
-
-<p>I was able to pretty quickly report an error. One nice feature is that the system gives you a tracking number so you can check the status of your issue. You can submit a report as a guest or you can create an account. I have not created an account yet to see what that does for you because the page that allows you to create an account (supplying your personal info) does not use SSL (although the login page for those who have accounts does). They may want to fix that. Otherwise, it seems like a nice tool and a good way to keep the database up to date.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/28/">&larr; Older</a>
@@ -583,15 +623,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/08/07/spatialite-and-arcgis-10-dot-2/">SpatiaLite and ArcGIS 10.2</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/07/28/devops-for-geospatial-data/">DevOps for Geospatial Data</a>
       </li>
     
       <li class="post">
         <a href="/2013/07/19/focus/">Focus</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/18/geojson-on-github-now-what/">GeoJSON on GitHub: Now What?</a>
       </li>
     
   </ul>

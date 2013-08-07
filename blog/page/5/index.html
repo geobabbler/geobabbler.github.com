@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Okay, everybody calm the hell down. Anyone who thinks that the Esri acquisition of GeoIQ is strange hasn&#8217;t been paying attention to two things &hellip;">
+  <meta name="description" content="A few weeks ago, I posted about some .Net wrappers I created for the GeoIQ API. Due to ongoing project work, I have continued to extend them by &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/07/18/using-geoiq-analytics-in-net-applications/">Using GeoIQ Analytics in .Net Applications</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T00:00:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
+        
+         | <a href="/2012/07/18/using-geoiq-analytics-in-net-applications/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it&#8217;s my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That&#8217;s good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
+
+<p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
+
+<p>The GeoIQ platform offers <a href="http://developer.geoiq.com/api/analysis/" target="_blank">several functions</a> to analyze data sets hosted on a GeoIQ instance or GeoCommons. I have not yet wrapped all of the functions but am working my way through them as I can.</p>
+
+<p>For this post, I will intersect the locations of <a href="http://geocommons.com/overlays/87503" target="_blank">US GISPs as of 1/26/2011</a> with the <a href="http://geocommons.com/overlays/149925" target="_blank">Maryland Zip Code Boundaries</a> to produce a data set containing the locations of GISPs in Maryland, depicted in the map below.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/07/intersect_results.png"><img alt="" class="size-full wp-image-2793" height="340" src="http://geobabble.files.wordpress.com/2012/07/intersect_results.png" title="intersect_results" width="640" /></a><div style="text-align: center; font-size: 14px">Don&#8217;t worry, none of these are me.<br /><br/></div></div>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2012/07/18/using-geoiq-analytics-in-net-applications/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -502,49 +556,6 @@ using the plugin manager.
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/04/17/arcgis-image-services-and-leaflet/">ArcGIS Image Services and Leaflet</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-17T00:00:00-04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2012</time>
-        
-         | <a href="/2012/04/17/arcgis-image-services-and-leaflet/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;ve become a big fan of <a href="http://leaflet.cloudmade.com/">Leaflet</a> for putting maps on the web. It gives me most of what I need without much of what I don&#8217;t and is fairly easily extended, as shown by the <a href="http://geojason.info/leaflet-vector-layers/">impressive work of Jason Sanford</a>.</p>
-
-<p>A while back, <a href="http://twitter.com/dbouwman">Dave Bouwman</a> <a href="http://blog.davebouwman.com/2011/08/04/leaflet-lean-mean-javascript-maps/">blogged about work</a> he and the team at <a href="http://www.dtsagile.com/">DTS Agile</a> had done extending Leaflet to support ArcGIS Server layers. Given that there are a lot of ArcGIS Servers out there, this is a good thing to have. Thanks to section 4(f) of the <a href="http://www.esri.com/legal/pdfs/e-800-termsofuse.pdf">Esri Web Services Terms of Use</a>, it&#8217;s less useful for use with ArcGIS Online, but that&#8217;s probably the topic of another post. </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/04/17/arcgis-image-services-and-leaflet/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -593,15 +604,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/08/07/spatialite-and-arcgis-10-dot-2/">SpatiaLite and ArcGIS 10.2</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/07/28/devops-for-geospatial-data/">DevOps for Geospatial Data</a>
       </li>
     
       <li class="post">
         <a href="/2013/07/19/focus/">Focus</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/18/geojson-on-github-now-what/">GeoJSON on GitHub: Now What?</a>
       </li>
     
   </ul>

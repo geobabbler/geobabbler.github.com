@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-07-28T11:52:27-04:00</updated>
+  <updated>2013-08-07T13:18:13-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite and ArcGIS 10.2]]></title>
+    <link href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/"/>
+    <updated>2013-08-07T12:35:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2</id>
+    <content type="html"><![CDATA[<p>With the release of ArcGIS 10.2, <a href="http://www.esri.com">Esri</a> quietly added support for <a href="https://sqlite.org/">SQLite</a> as a geodatabase container. This is big news as the community has been looking for such support for some time. An open-source RDBMS originally designed for embedded systems, SQLite has a very small footprint and is <a href="https://www.sqlite.org/mostdeployed.html">arguably the most widely deployed RDBMS</a> in the world. (Thanks, in part, to the fact that it is embedded into Adobe Reader and other commonly used software.) Over the years numerous strategies for storing spatial data in SQLite have been developed, ranging from simply storing <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT or WKB</a> geometries in a column up to full extensions like <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>, which adds OGC-compliant data types and methods. SQLite is also the engine that drives the popular <a href="http://www.mapbox.com/developers/mbtiles/">MBTiles</a> implementation used by <a href="http://www.mapbox.com/tilemill/">TileMill</a> and <a href="http://www.mapbox.com">MapBox</a>.</p>
+
+<!--more-->
+
+
+<p><a href="http://resources.arcgis.com/en/help/main/10.2/index.html#//019v0000001w000000">According to the documentation</a>, ArcGIS supports the use of either Esri&#8217;s ST_GEOMETRY or SpatiaLite data types for geometry storage. This is consistent with Esri&#8217;s approach on other RDBMS platforms such as <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.oracle.com">Oracle</a>. While SpatiaLite has been supported by platforms such as <a href="http://qgis.org/">QGIS</a>, I can&#8217;t say I&#8217;ve seen a huge demand for data in SpatiaLite format. I have been using it for a while in some of <a href="http://www.zekiah.com">my company&#8217;s</a> data modeling work as we have a Federal customer that has a documented requirement for generation of physical models in SpatiaLite, among other platforms. We have also taken the step of supporting SQLite as a container for our <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">platform independent model (PIM) approach</a> for configuration management of logical geospatial data models.</p>
+
+<p>Esri&#8217;s new support of SpatiaLite, combined with my existing customer requirements, obviously sparked my interest so I was curious to kick the tires. Unfortunately, I also had the situation that my development environment for the PIM tools, due to current customer constraints, must remain at ArcGIS 10.1 for both the desktop software and the underlying ArcObjects libraries. I have not been able to carve out the time to build a 10.2 VM.</p>
+
+<p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, &#8221;<a href="http://twitter.com/fathersandman">Father Sandman</a>,&#8221; and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
+
+<div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/billdollins">@billdollins</a> <a href="https://twitter.com/FatherSandman">@FatherSandman</a> Score! Looks like we&#39;ve confirmed ArcGIS 10.2, QGIS 1.9.0, and SpatiaLite-GUI 1.7.1 are compatible.</p>&mdash; Bryan McBride (@brymcbride) <a href="https://twitter.com/brymcbride/statuses/365103999671738369">August 7, 2013</a></blockquote>
+<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+
+<p>So, using Father Sandman&#8217;s existing 10.2 install, we were able to verify the following:</p>
+
+<ol>
+<li>A SpatiaLite database created in ArcGIS 10.2 can be accessed and viewed in QGIS 1.9.0 and SpatiaLite GUI 1.7.1</li>
+<li>A SpatiaLite database created in QGIS 1.9.0 can be accessed in ArcGIS 10.2</li>
+</ol>
+
+
+<p>Obviously, some more rigorous tests need to be performed but the initial results are promising. I&#8217;m curious to explore the boundaries, in ArcGIS terms, between a SQLite geodatabase and a file geodatabase. It remains to be seen whether this will put a dent in the use of file geodatabases. If it happens at all, I think it will take time since SQLite is not on the radar of the vast majority of ArcGIS users. I would hope, at a minimum, it puts a final stake through the heart of the personal geodatabase. It could also drive explicit accreditation of SQLite/SpatiaLite tools on government systems, which would be nice.</p>
+
+<p>I&#8217;m happy, and somewhat pleasantly surprised, to see Esri take this step and provide another open option for data exchange.</p>
+
+<p>Now, about GeoJSON&#8230;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DevOps for Geospatial Data]]></title>
@@ -591,26 +627,6 @@
 <p>I think, in 2013, anything that attempts to do what GeoPackage sets out to do should have some provision for cartography. I would prefer CSS-like approach (such as <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>) and will say so when I submit comments but I would suspect that future discussion of cartography, if any, will probably start with SLD. For now, tiles can fill the gap.</p>
 
 <p>So comments are open, give it a look and tell OGC what you think.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Getting Ready for JS.geo]]></title>
-    <link href="http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo/"/>
-    <updated>2013-01-08T15:50:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo</id>
-    <content type="html"><![CDATA[<p>I&#8217;m looking forward to next week&#8217;s <a href="http://geojs.eventbrite.com/">JS.geo</a> event in Denver. It is a small event, spearheaded by <a href="http://twitter.com/cwhelm">Chris Helm</a> of <a href="http://www.esri.com">Esri</a>, that focuses on the use of Javascript in geospatial applications. Although I have been more vocal in my <a href="http://blog.geomusings.com/blog/categories/python/">recent explorations with Python</a>, I&#8217;ve probably done as much, if not more, work with Javascript over the past 18 months.</p>
-
-<div style="text-align:center;"><img src="http://mapbrief.com/wp-content/uploads/2012/11/no_plugin.jpg" /></div>
-
-
-<p>The pace of innovation with Javascript in the geospatial area has been staggering. It seems like only a short time ago that the options for working with geospatial applications were <a href="http://openlayers.org/">OpenLayers</a> and the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/">Esri Javascript API</a>. The rapid advent of tools such as <a href="http://www.geoext.org/">GeoExt</a>, <a href="http://leafletjs.com/">Leaflet</a>, and many others has really lead to a explosion of capability. Of course, the recent buzz has been about <a href="http://d3js.org/">D3</a>, which tackles a wide range of data visualization problems, including geo. D3 is of particular interest because it is tackling the issue of projection in the browser, freeing applications from the dominance of Web Mercator.</p>
-
-<p>Of course, it&#8217;s not been all about the browser, either as <a href="http://nodejs.org/">Node.js</a> has made abundantly clear. One of the most effective desktop applications for cartographic design, <a href="http://mapbox.com/tilemill/">TileMill</a>, is built with Node, among other tools.</p>
-
-<p>The maturity of Javascript as a tool for geospatial development is such that I am at the point that, if it weren&#8217;t for government customers that are <a href="http://mapbrief.com/2011/10/13/web-mapping-continues-to-pay-for-the-sins-of-internet-explorer/">still standardized on Internet Explorer 8</a> or older, a plug-in-based environment would not be my first choice for a new application.</p>
-
-<p>As for the JS.geo event itself, I am intrigued by its small, focused nature. It doesn&#8217;t seem to be as informal as an unconference but may be easier to digest than the typical geo event. It will also be great to catch up with the Front Range crowd.</p>
 ]]></content>
   </entry>
   
