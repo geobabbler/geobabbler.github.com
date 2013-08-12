@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Installing the the SQL Server 2008 November CTP side-by-side with SQL Server 2005 is very straightforward. On the previous build of my machine, I had &hellip;">
+  <meta name="description" content="So my PostGIS/SharpMap/WPF project is ready to go out the door. Literally. The servers are being loaded onto pallets and shipped to their respective &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/02/13/a-one-touch-almost-data-loader-with-fwtools-and-postgis/">A One-Touch (Almost) Data Loader With FWTools and PostGIS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2008</time>
+        
+         | <a href="/2008/02/13/a-one-touch-almost-data-loader-with-fwtools-and-postgis/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So my <a href="http://postgis.refractions.net/">PostGIS</a>/<a href="http://www.codeplex.com/SharpMap">SharpMap</a>/<a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF </a>project is ready to go out the door. Literally. The servers are being loaded onto pallets and shipped to their respective destinations. Great! Time for a cold one! Well&#8230;&#8230;maybe not. There&#8217;s one little problem: there&#8217;s no data on the servers yet.</p>
+
+<p>We had to coordinate with a large national government agency to get the data we needed. That part of the process experienced a little &#8220;slippage&#8221;. As a result, the last part of the task changed from loading data onto the servers to developing a data loading tool that could be run from a DVD with minimal involvement from humans. (Those pesky humans.) Just another Monday.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/02/13/a-one-touch-almost-data-loader-with-fwtools-and-postgis/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -475,48 +518,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/12/18/msdn-article-on-mapping-with-wpf/">MSDN Article on Mapping With WPF</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
-        
-         | <a href="/2007/12/18/msdn-article-on-mapping-with-wpf/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It&#8217;s a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn&#8217;t be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
-
-<p>I&#8217;ve been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven&#8217;t had a chance to extract what I&#8217;ve done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it&#8217;s shaping up in SharpMap 2.0.</p>
-
-<p>So, if you&#8217;re looking for an example of how to render spatial data in WPF, this is a good one.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/27/">&larr; Older</a>
@@ -565,15 +566,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/08/12/why-do-i-blog/">Why Do I Blog?</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/08/07/spatialite-and-arcgis-10-dot-2/">SpatiaLite and ArcGIS 10.2</a>
       </li>
     
       <li class="post">
         <a href="/2013/07/28/devops-for-geospatial-data/">DevOps for Geospatial Data</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/07/19/focus/">Focus</a>
       </li>
     
   </ul>

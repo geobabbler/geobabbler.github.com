@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="As zigGIS 2.0 enters its beta stage, I am (somewhat strangely) reminded of the famous line from Yeats: &#8220;what rough beast, its hour come round &hellip;">
+  <meta name="description" content="Obtuse Software has established a Twitter account for zigGIS with the intent of using Twitter to broadcast status updates on zigGIS. The link to the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/04/14/follow-ziggis-on-twitter/">Follow zigGIS on Twitter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-14T00:00:00-04:00" pubdate data-updated="true">Apr 14<span>th</span>, 2008</time>
+        
+         | <a href="/2008/04/14/follow-ziggis-on-twitter/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://obtusesoft.com">Obtuse Software</a> has established a Twitter account for zigGIS with the intent of using Twitter to broadcast status updates on zigGIS. The link to the zigGIS home on Twitter is:</p>
+
+<p><a href="http://twitter.com/zigGIS">twitter.com/zigGIS</a></p>
+
+<p>Twitter users who are interested in keeping up to date as zigGIS 2.0 moves through beta into its release and beyond can simply follow zigGIS on Twitter. I highly encourage those that are interested to follow. Initially, this will be an outbound form of communication. We will tweet to anyone who follows but we will not be immediately following anyone.</p>
+
+<p>It is a future goal of ours to evaluate the effectiveness of Twitter as a means of gathering feedback on zigGIS and integrating that feedback into the development process.</p>
+
+<p><img alt="" class="alignleft size-full wp-image-174" src="http://geobabble.files.wordpress.com/2008/04/twitter.png" /></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -462,58 +508,6 @@ Don&#8217;t fall on me&#8221;</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/03/18/postgresql-support-in-arcgis/">PostgreSQL Support in ArcGIS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-03-18T00:00:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2008</time>
-        
-         | <a href="/2008/03/18/postgresql-support-in-arcgis/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I just sat through a session titled &#8220;Working With the Geodatabase Effectively Using SQL.&#8221; It was heavily focused on ST_GEOMETRY. That&#8217;s pretty much what they want us to use. Interestingly, though, there won&#8217;t be ST_GEOMETRY in SQL Server 2008. They&#8217;ve added it to PostgreSQL (more on that later) but not SQL Server. Seems a little strange to me.</p>
-
-<p>There was a brief discussion of what PostgreSQL support will look like. There are no big surprises, just a little more detail. As I said, ESRI is implementing ST_GEOMETRY and also fully supporting the PostGIS spatial type. ST_GEOMETRY will be the default spatial type for ArcGIS but you will be able to use the PostGIS type via configuration keyword. The differences are:</p>
-
-<ol>
-<li><p>ST_GEOMETRY types and functions will reside in the &#8220;sde&#8221; schema (I guess that&#8217;s more efficient than call it the &#8220;arcgis_server_enterprise_basic&#8221; schema). PostGIS types and functions will reside in the public schema by default as is currently the case.</p></li>
-<li><p>The ST_GEOMETRY implementation will be consistent with those on Oracle, DB2 and Informix so, if you&#8217;re developing an app that is cross-platform (RDBMS-wise), you <em>may</em> want to use ST_GEOMETRY. It was said that the PostGIS spatial type only resides on PostgreSQL (we&#8217;ll dodge the obvious OGC-compliance piece which makes that statement somewhat shaky).</p></li>
-<li><p>The ST_GEOMETRY data type supports parametric geometry such as arcs and circles and the like whereas the PostGIS type does not. (Can you believe I&#8217;ve never looked into that? If that&#8217;s not correct, please feel free to correct me.) Of course, the REST API doesn&#8217;t support those and converts them to simple geometry&#8230;</p></li>
-<li><p>The ST_GEOMETRY spatial data is stored in ESRI&#8217;s compressed shape format which is sent directly to clients without translation. PostGIS stores in WKB format, which ArcGIS must first convert to compressed shape before sending so there will be something of a performance hit. Interpret that however you want, I&#8217;m just reporting.</p></li>
-</ol>
-
-
-<p>ST_GEOMETRY will use the PostGIS GIST spatial indexing framework but will implement an RTREE strategy through its own set of geometry operators. Additionally, ST_GEOMETRY columns can be defined within a CREATE TABLE statement compared to the use of the AddGeometryColumn function in PostGIS. Regardless of the spatial type used, tables created through SQL will still need to be registered with the geodatabase through the &#8220;sdelayer -o register&#8221; process in order to be used in ArcGIS. I&#8217;ve done this before with Oracle Spatial as a means to let Oracle do all of the heavy lifting. I would imagine the same strategy could be used on PostgreSQL if you want PostGIS to do all of the management of the data.</p>
-
-<p>As I said, there&#8217;s nothing earth-shattering there. It&#8217;s pretty much what I expected but now there are more details.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/25/">&larr; Older</a>
@@ -562,15 +556,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/08/12/why-do-i-blog/">Why Do I Blog?</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/08/07/spatialite-and-arcgis-10-dot-2/">SpatiaLite and ArcGIS 10.2</a>
       </li>
     
       <li class="post">
         <a href="/2013/07/28/devops-for-geospatial-data/">DevOps for Geospatial Data</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/07/19/focus/">Focus</a>
       </li>
     
   </ul>
