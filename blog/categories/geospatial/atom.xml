@@ -4,7 +4,7 @@
   <title><![CDATA[Category: geospatial | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/geospatial/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-08-12T13:42:20-04:00</updated>
+  <updated>2013-09-10T12:00:11-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Random Geospatial Stuff]]></title>
+    <link href="http://blog.geomusings.com/2013/09/10/random-geospatial-grab-bag/"/>
+    <updated>2013-09-10T10:16:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/09/10/random-geospatial-grab-bag</id>
+    <content type="html"><![CDATA[<p>It's been a while since I've posted as the usual wind-down of summer and wind-up of the school year has had me otherwise engaged. What follows are few developments over the past few months that have floated through the transom of my geo-awareness.</p>
+
+<p style="text-align:center;"><img src="http://daylightdonutsstier.com/assets/images/slideshow/CakeDonuts.jpg" height="50%" width="50%"/></p>
+
+<p><a href="http://geojson.io/">geojson.io</a> - Remember all of the attention given to the ability to render GitHub-hosted GeoJSON files as maps? Well, <a href="http://twitter.com/tmcw">Tom MacWright</a> of <a href="http://mapbox.com">MapBox</a> has, in fairly rapid fashion, given us this tool to edit GeoJSON in the browser and publish to either a GitHub repo or a gist. It's an easy-to-use tool with an interface consistent with other MapBox tools. It's definitely worth checking out and adds an important piece of workflow to the GeoJSON-on-GitHub concept.</p>
+
+<!--more-->
+
+
+<p><a href="http://gitspatial.com/">GitSpatial</a> - Continuing with the theme of being more productive with GeoJSON on GitHub, <a href="http://twitter.com/JCSanford">Jason Sanford</a> has developed GitSpatial to wrap a spatial API around your hosted GeoJSON. It actually works using a 'sync' approach so it pulls the GeoJSON into its own infrastructure and watchs the data on GitHub for changes. Jason has also updated his <a href="http://geojason.info/leaflet-vector-layers/">Leaflet Vector Layers</a> project to support GitSpatial. This project is in its early stages and Jason has been very open to feedback. I encourage you to check it out and help him make it better.</p>
+
+<p><a href="https://www.gaia-gis.it/fossil/virtualpg/index">VirtualPG</a> - This extension to SQLite/SpatiaLite was released in August and it is intended to facilitate data exchange between those platforms and PostgreSQL/PostGIS. I have yet to kick the tires on it but I plan to soon.</p>
+
+<p><a href="http://www.dhs.gov/infrastructure-information-partnerships#2">HSIP 2013</a> - For the first time in quite a while, I attended a <a href="https://www.hifldwg.org/">HIFLD</a> meeting. The theme of the meeting was HSIP Feedback, to which about one HIFLD per year is dedicated. While HSIP has never been perfect, it has managed to evolve to provide value across numerous communities. The meeting featured a parade of users articulating the essential nature of HSIP to their missions. With HSIP 2013, the distribution expands to 6 DVDs. In my opinion, this distribution method is one of its biggest, and most solvable, problems. With a plethora of <a href="http://www.weogeo.com">technologies</a> to choose from, streamlining and tailoring the delivery of HSIP to its users should be low-hanging fruit for HSIP's custodians.</p>
+
+<p>As for me, I've been spending my days writing interfaces for custom message formats to synchronize locations with video frames. It's much lower-level development than I've done in a while but it's been very fun. I've also been making some updates to my <a href="https://github.com/geobabbler/AGSOpenFormats">GeoJSON extension for ArcGIS Server</a> but I'll post about that in more detail soon.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[js.geo Day One]]></title>
@@ -129,21 +153,6 @@
     <li>My company is acting solely as a consultant and cannot represent AGIO in any official capacity. No communication from me or my company, including this post, should be considered a representation of the intent or positions of AGIO in any way.</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WhereCampDC Is Set]]></title>
-    <link href="http://blog.geomusings.com/2011/04/28/wherecampdc-is-set/"/>
-    <updated>2011-04-28T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/04/28/wherecampdc-is-set</id>
-    <content type="html"><![CDATA[<p>I just learned from <a href="http://twitter.com/wonderchook">Kate Chapman</a> that the date for <a href="http://wherecampdc.org/">WhereCampDC</a> has been set. It will be Saturday, June 11th. If you are interested in attending, you can register through EventBrite <a href="http://wherecampdc.eventbrite.com/">here</a>. Move fast because it'll probably fill up quickly!</p>
-
-<p>Despite all the of geospatial activity in this region, there has been a dearth of conference activity. The <a href="http://www.esri.com/events/feduc/index.html">Esri FedUC</a> has been the only game in town for years so WhereCampDC is a welcome addition to the scene. Also, the very structured conference environment around here could stand a little injection of "un" into its veins. :)</p>
-
-<p>Oh yeah, there'll be lightning talks on the 10th, too!</p>
-
-<p>See you there!</p>
 ]]></content>
   </entry>
   
