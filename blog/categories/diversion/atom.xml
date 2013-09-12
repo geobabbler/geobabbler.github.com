@@ -4,7 +4,7 @@
   <title><![CDATA[Category: diversion | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/diversion/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-09-10T12:00:11-04:00</updated>
+  <updated>2013-09-12T13:27:19-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Another Look at GIS StackExchange]]></title>
+    <link href="http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange/"/>
+    <updated>2013-09-12T11:10:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange</id>
+    <content type="html"><![CDATA[<p>A year ago, I used the StackExchange API to facilitate an <a href="http://blog.geomusings.com/2012/09/13/carving-up-gis-stackexchange/">analysis of tags on GIS StackExchange</a> to see what people were talking about on one of the largest and most successful vendor-neutral discussion sites in our industry. In that post, I stated "It would probably be good to revisit this in a year to see how things have changed, if at all."</p>
+
+<p>Well, a year has passed so I decided to do it again. I used the same scripts and approach I used last time in order to be consistent. Since this is one year later, there is one key caveat. My analysis last year looked at the top 100 tags since the start of the <a href="http://gis.stackexchange.com/">GIS StackExchange</a> site. Since I ran the same query this year, the new results are compounded so what they so are last year's results plus activity since then. Essentially, you are looking at "that plus this." The pie chart below shows the breakdown.</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/stackexchange_chart_2013.png" /></p>
+
+<!--more-->
+
+
+<p>Compared to last year's results, there hasn't been much movement in the distribution of tags. One thing I did notice, however is that the tag "qgis" leaped to the top of the list. Last year, "arcgis" was the top tag and "qgis" was number three. That said, I wouldn't jump to too many conclusions. A quick <a href="/assets/data/stack2013/output_2013.csv">look at the data</a> shows that, in addition to "arcgis", there are version-specific tags such as "arcgis-10.0" and "arcgis-10.1" as well as product-specific tags like "arcgis-server" so there's a lot of Esri-centric discussion going on, but that is to be expected. The top ten tags, however, include major components of the <a href="http://opengeo.org/">OpenGeo</a> Suite (OpenLayers, GeoServer, PostGIS) in addition to QGIS so open-source tools seem to be every bit as active a topic of discussion as do <a href="http://www.esri.com">Esri</a> tools.</p>
+
+<p>Speaking of the top ten tags, they were: <br /><br />
+1. qgis (3910) <br />
+2. arcgis (2382) <br />
+3. python (2171) <br />
+4. arcgis-10.0 (2142) <br />
+5. openlayers (1996) <br />
+6. postgis (1560) <br />
+7. geoserver (1193) <br />
+8. arcobjects (1184) <br />
+9. raster (1174) <br />
+10. arcmap (1113) <br /></p>
+
+<p>Last year, I got some back-channel requests to do a little more with the raw data so, seeing a chance to play with <a href="http://dsjs.org">D3</a>, here is a look at how things break down. Hover over a bubble to see the full name and tag count. If you follow your nose a bit, the color scheme will become apparent in relation to the pie chart's key.</p>
+
+<p><link rel="stylesheet" href="http://blog.geomusings.com/assets/data/stack2013/style.css" /></p>
+
+<iframe src="http://blog.geomusings.com/assets/data/stack2013/frame.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+
+<p>All of the same limitations I pointed out last year about posts having multiple tags and dilution across related tags still apply this year. If there is any insight into the mind share of the GIS community to be derived from this exercise, it is probably in the aggregate.</p>
+
+<p>The exact StackExchange API URL that generated these results is: <a href="https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100">https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100</a></p>
+
+<p>The results were generated on 11 September 2013 and subsequent results will vary from those shown here. The Python script used to process the results into CSV <a href="/assets/data/stack2013/handle_json.zip">can be found here</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Carving Up GIS StackExchange]]></title>

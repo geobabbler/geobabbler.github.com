@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I work at a technology consulting company that does a lot of software development. A while back, we started using Redmine to manage our software &hellip;">
+  <meta name="description" content="Sean Gillies pointed out on Twitter today that the GeoJSON output of coordinates from Twitter&#8217;s just-released geolocation capability is wrong. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/11/24/twitter-geojson-error/">Twitter GeoJSON Error</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-24T00:00:00-05:00" pubdate data-updated="true">Nov 24<span>th</span>, 2009</time>
+        
+         | <a href="/2009/11/24/twitter-geojson-error/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://twitter.com/sgillies/statuses/6005237402">Sean Gillies pointed out</a> on Twitter today that the GeoJSON output of coordinates from <a href="http://thenextweb.com/appetite/2009/11/20/twitters-geolocation-api-live-find-tweets-twitters-nearby/">Twitter&#8217;s just-released geolocation capability</a> is wrong. Sean is one of the authors of the spec so, when I saw his tweet, I took notice. According to the <a href="http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses%C2%A0update">Twitter documentation</a>:</p>
+
+<blockquote>
+The XML response uses GeoRSS to encode the latitude and longitude.  encodes as latitude, space, and longitude (see the response below for an example).  For JSON the response uses conventions laid forth in GeoJSON which looks like 
+
+&#8220;geo&#8221;:
+{
+     &#8220;type&#8221;:&#8221;Point&#8221;,
+     &#8220;coordinates&#8221;:[37.78029, -122.39697]
+}
+</blockquote>
+
+
+<p>You will notice that this is in Latitude/Longitude order whereas the <a href="http://geojson.org/geojson-spec.html#appendix-a-geometry-examples">GeoJSON specification clearly states</a> Longitude/Latitude.</p>
+
+<p>This is clearly an error that will throw off any existing software that has been developed to handle GeoJSON. This is somewhat reminiscent of a <a href="http://geobabble.wordpress.com/2007/12/18/sql-server-2008-wkt-xy-switching-illustrated/">similar issue with early versions of SQL Server 2008</a>, with a lot of the same issues applicable here. The main difference this time around being that the GeoJSON spec is much clearer on X/Y ordering than the WKT spec was.</p>
+
+<p>There seem to be a lot of clients already on board with supporting geolocation in Twitter so this could be a potentially large proliferation of this particular GeoJSON error. Twitter should look at correcting this before a lot of data gets out there.</p>
+
+<p>Good catch, Sean. And, yes, <a href="http://sgillies.net/blog/964/more-lessons-of-standardization">it should have been noticed before now</a>. Maybe we should look up from our iDroidBerries more often.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -451,48 +508,6 @@ As someone who has purchased or rated books by Norman Bridwell, you might like t
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/09/12/mapwindow-to-net/">MapWindow to .NET</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-09-12T00:00:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2009</time>
-        
-         | <a href="/2009/09/12/mapwindow-to-net/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The <a href="http://www.mapwindow.org/">MapWindow</a> open-source project will be holding its <a href="http://www.mapwindow.org/conference/2010/index.php">first-ever user conference</a> from March 31 to April 2, 2010 in Orlando, Florida. Aside from being a great milestone for MapWindow, it is also being billed as a &#8220;coming out party&#8221; for MapWindow  6, its first native .NET version.</p>
-
-<p>For those of you who are not familiar with MapWindow, it is and open-source (MPL 1.1) mapping library (think SharpMap or MapObjects) for use in developing applications, managed by the Geospatial Software Lab at Idaho State University. Although its desktop application and some geoprocessing tools have been written in .NET (VB.NET and C# respectively) for some time, the main library has been a 32-bit ActiveX control written in C++. At version 6, it will finally be fully .NET.</p>
-
-<p>I had used MapWindow a little bit some years ago but haven&#8217;t recently due to its ActiveX structure. I will definitely add it to my (ever-growing) list of things to check out now that it&#8217;s been ported.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -541,15 +556,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/09/12/another-look-at-gis-stackexchange/">Another Look at GIS StackExchange</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/09/10/random-geospatial-grab-bag/">Random Geospatial Stuff</a>
       </li>
     
       <li class="post">
         <a href="/2013/08/12/why-do-i-blog/">Why Do I Blog?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/08/07/spatialite-and-arcgis-10-dot-2/">SpatiaLite and ArcGIS 10.2</a>
       </li>
     
   </ul>

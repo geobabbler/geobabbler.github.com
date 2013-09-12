@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Anyone who has browsed this blog enough has probably figured out that I am a fan of Doctor Dobb&#8217;s Journal. This month&#8217;s issue inaugurates &hellip;">
+  <meta name="description" content="Things have been REALLY slow on zigGIS for a while. All of us (Paolo, Abe, me) have all been up to our eyeballs with work, leaving little time to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/07/27/ziggis-catalog-objects/">ZigGIS Catalog Objects</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-27T00:00:00-04:00" pubdate data-updated="true">Jul 27<span>th</span>, 2007</time>
+        
+         | <a href="/2007/07/27/ziggis-catalog-objects/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Things have been REALLY slow on <a href="http://code.google.com/p/ziggis">zigGIS</a> for a while. All of us (Paolo, Abe, me) have all been up to our eyeballs with work, leaving little time to work on the zig. Now that <a href="http://www.digital-pulp.com/">Abe is out on his own</a>, the three of us have been trying to coordinate a chat session to lay out a little bit of a way ahead. That has proven somewhat difficult in itself. I think the best way to handle it at this point is for Abe and I to go out to Rome and sit down with Paolo ;-) .</p>
+
+<p>Anyway, I had a little time so I pushed forward on the catalog objects. I&#8217;ve got it down to where the layers for a <a href="http://postgis.refractions.net/">PostGIS</a> database actually show up in the ArcCatalog tree but it&#8217;s still a little flaky from there. The screenshot below shows what I&#8217;ve got. You&#8217;ll notice that the geometry icons don&#8217;t show up. Well, the layer doesn&#8217;t draw in ArcCatalog either but everything still works fine in ArcMap.</p>
+
+<p><img alt="It?s a little closer?" src="http://geobabble.files.wordpress.com/2007/07/zigcatalog.png" /></p>
+
+<p>So now that I&#8217;ve got the hierarchy fleshed out, I can focus on the display logic. Incidentally, the attributes for the layers do show up so all is not completely lost.</p>
+
+<p>That&#8217;s what I&#8217;ve got for now. I can&#8217;t vouch for a specific schedule for a new release but we&#8217;re trying to coordinate that.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -602,117 +648,6 @@ See you again in a couple of weeks. Feel free to have a look around. Help yourse
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/05/09/creating-arcobjects-spatial-reference-objects-from-postgis-spatial-reference-definitions/">Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-05-09T00:00:00-04:00" pubdate data-updated="true">May 9<span>th</span>, 2007</time>
-        
-         | <a href="/2007/05/09/creating-arcobjects-spatial-reference-objects-from-postgis-spatial-reference-definitions/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support for user-defined spatial references. It pretty much boils down to querying the the appropriate SR from the PostGIS spatial_ref_sys table and applying the value of the srtext column to create a spatial reference in ArcObjects.</p>
-
-<p>This approach has a few advantages and disadvantages. First, the advantages. Although both PostGIS and ESRI implement the EPSG spatial reference codes, there is not a one-to-one match between the two. Therefore, you could get an SRID in PostGIS that&#8217;s not supported in ArcGIS. The approach described above should alleviate that, adding stability. Secondly, if you&#8217;ve created a user-defined spatial reference in PostGIS, you should be able to use it in ArcGIS.</p>
-
-<p>The disadvantages are relatively minor. First, all of the spatial references, even those created from standard EPSG SRs will appear to ArcGIS as custom spatial references, mainly because of the differing syntax of the SR string. Also, some unit definitions from PostGIS are not specifically recognized by ArcGIS. For instance &#8220;US survey feet&#8221; is shown as &#8220;unknown&#8221; in ArcGIS. This last one may be more than minor, depending on if it has any effect on distance calculations and the like but I haven&#8217;t gotten around to testing it yet.</p>
-
-<p>So, how about some code? Here&#8217;s a C# routine that I&#8217;m developing for zigGIS (don&#8217;t look, it&#8217;s not there yet). It&#8217;s based on a previous routine that Paolo and I developed. I should note that the Connection and AutoDataReader objects are zigGIS classes that inherit from ADO.NET classes. You should be able to replace them with standard OleDbConnection and DataReader objects and be fine.</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'>        <span class="k">static</span> <span class="k">public</span> <span class="n">ISpatialReference</span> <span class="nf">setEsriSpatiaReferenceFromSrText</span><span class="p">(</span><span class="kt">int</span> <span class="n">srid</span><span class="p">,</span> <span class="n">Connection</span> <span class="n">conn</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">ISpatialReference</span> <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">srText</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>            <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">try</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="c1">//Bill: query srtext associated with srid</span>
-</span><span class='line'>                <span class="n">AutoDataReader</span> <span class="n">dr</span> <span class="p">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">doQuery</span><span class="p">(</span><span class="s">&quot;select * from spatial_ref_sys where srid = &quot;</span> <span class="p">+</span> <span class="n">srid</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">dr</span><span class="p">.</span><span class="n">Read</span><span class="p">())</span>
-</span><span class='line'>                <span class="p">{</span>
-</span><span class='line'>                    <span class="n">srText</span> <span class="p">=</span> <span class="n">dr</span><span class="p">[</span><span class="s">&quot;srtext&quot;</span><span class="p">]</span> <span class="p">+</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>                    <span class="n">ISpatialReferenceFactory2</span> <span class="n">srf</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SpatialReferenceEnvironmentClass</span><span class="p">();</span>
-</span><span class='line'>                    <span class="k">if</span> <span class="p">(</span><span class="n">srText</span> <span class="p">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>                    <span class="p">{</span>
-</span><span class='line'>                        <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>                    <span class="p">}</span>
-</span><span class='line'>                    <span class="k">else</span>
-</span><span class='line'>                    <span class="p">{</span>
-</span><span class='line'>                        <span class="c1">//use srText to construct SR.</span>
-</span><span class='line'>                        <span class="n">srf</span><span class="p">.</span><span class="n">CreateESRISpatialReference</span><span class="p">(</span><span class="n">srText</span><span class="p">,</span> <span class="k">out</span> <span class="n">sr</span><span class="p">,</span> <span class="k">out</span> <span class="n">i</span><span class="p">);</span>
-</span><span class='line'>                    <span class="p">}</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="k">catch</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="c1">//PostGis srid is not implemented as an Esri Factory Code</span>
-</span><span class='line'>                <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/31/">&larr; Older</a>
@@ -761,15 +696,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/09/12/another-look-at-gis-stackexchange/">Another Look at GIS StackExchange</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/09/10/random-geospatial-grab-bag/">Random Geospatial Stuff</a>
       </li>
     
       <li class="post">
         <a href="/2013/08/12/why-do-i-blog/">Why Do I Blog?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/08/07/spatialite-and-arcgis-10-dot-2/">SpatiaLite and ArcGIS 10.2</a>
       </li>
     
   </ul>
