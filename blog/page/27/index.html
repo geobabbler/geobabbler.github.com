@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="So it&#8217;s been about a month since the release of the SQL Server 2008 November CTP. I&#8217;ve been dabbling with it and have made several posts &hellip;">
+  <meta name="description" content="In the words of Pete Townshend (as sung by Roger Daltrey): &#8220;Why should I care? Why should I care?&#8221; I can&#8217;t answer that one for you &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/01/07/sharpmap-on-apache/">SharpMap on Apache</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-07T00:00:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2008</time>
+        
+         | <a href="/2008/01/07/sharpmap-on-apache/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In the words of Pete Townshend (as sung by Roger Daltrey):</p>
+
+<p>&#8220;Why should I care? Why should I care?&#8221;</p>
+
+<p>I can&#8217;t answer that one for you. I ran into <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">this post</a> while searching out something else. It shows how to get <a href="http://asp.net/">ASP.NET</a> running under <a href="http://httpd.apache.org/">Apache</a> on Windows. Curiosity got the better of me and I had to try it. One important note is that mod_aspdotnet is no longer maintained by the Apache Software Foundation. It&#8217;s now available as a <a href="http://sourceforge.net/projects/mod-aspdotnet">separate project on SourceForge</a>. If you download the latest version, it works with Apache 2.2.6.</p>
+
+<p>Although both Apache and mod_aspdotnet have had subsequent releases since this has been posted, the instructions still work. It was about 10 minutes to get the sample project running and not much longer to get <a href="http://www.codeplex.com/SharpMap">SharpMap&#8217;s </a>&#8220;DemoWebSite&#8221; project working. Here&#8217;s a screen capture (there nothing that makes it obvious it&#8217;s running on Apache so You&#8217;ll just have to trust me).</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.png" title="Can you see the real me? Can ya?"><img alt="Can you see the real me? Can ya?" src="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.thumbnail.png" /></a></p>
+
+<p>This could be somewhat useful if you&#8217;re using a non-Server version of Windows and want to avoid the connection limitations of IIS. Beyond that, it&#8217;s probably just interesting.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -537,47 +585,6 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/28/sql-server-2008-sharpmap-data-provider-code/">SQL Server 2008 SharpMap Data Provider Code</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-28T00:00:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/28/sql-server-2008-sharpmap-data-provider-code/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As promised, I have uploaded the data provider code I <a href="http://geobabble.wordpress.com/2007/11/20/sharpmap-and-sql-server-2008-spatial/">mentioned earlier</a> to the <a href="http://www.codeplex.com/SharpMap">SharpMap</a> site. It&#8217;s written in C#. I took the existing Oracle provider, stripped out the Oracle SQL and put in T-SQL. There are a couple of things I&#8217;m still trying to chase down but it&#8217;s basically done at this point. I know they&#8217;re busy trying to finish up SharpMap 2.0 so I don&#8217;t know how long it&#8217;ll take to become available. Just in case, here&#8217;s the code:</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/11/28/sql-server-2008-sharpmap-data-provider-code/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/28/">&larr; Older</a>
@@ -626,15 +633,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/">Maryland Department of Planning Bundles Property Data with QGIS</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/09/20/come-sling-code-with-us/">Come Sling Code With Us</a>
       </li>
     
       <li class="post">
         <a href="/2013/09/12/another-look-at-gis-stackexchange/">Another Look at GIS StackExchange</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/09/10/random-geospatial-grab-bag/">Random Geospatial Stuff</a>
       </li>
     
   </ul>

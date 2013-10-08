@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as &hellip;">
+  <meta name="description" content="Abe announced via Twitter today that zigGIS 2.0.2 will be available in about a month. This a small but significant release becuase zigGIS will now &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/01/ziggis-2-0-2-getting-closer/">zigGIS 2.0.2 Getting Closer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-01T00:00:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2009</time>
+        
+         | <a href="/2009/01/01/ziggis-2-0-2-getting-closer/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://abegillespie.blogspot.com">Abe</a> announced via <a href="http://twitter.com/zigGIS">Twitter</a> today that <a href="http://pub.obtusesoft.com/">zigGIS</a> 2.0.2 will be available in about a month. This a small but significant release becuase zigGIS will now support the generic PostGIS &#8220;GEOMETRY&#8221; type. Because ArcGIS expects homogenous feaure classes, zigGIS will ask the user to choose a geometry type for the the specified GEOMETRY-typed column. So, if your table has mixed geometry types, you will need to specify one (like polygon for example) and zigGIS will present only records of that type to ArcGIS.</p>
+
+<p>Secondly, zigGIS will no longer expect your primary key to be called &#8220;gid&#8221;. This should reduce the instances where tables need to be modified for use with zigGIS.</p>
+
+<p>In previous releases, a few enterprising users had figured out how to get zigGIS to see views as layers by manually hacking them into the geometry_columns table. This was one way to get around the &#8220;gid&#8221; and GEOMETRY limitations. In 2.0.2, views will be fully supported so that no such hacking will be necessary.</p>
+
+<p>Abe, Paolo and I had a chat session a while back about the zigGIS roadmap and this represents the first step down that road. More information will be forthcoming as we flesh out the details of further changes.</p>
+
+<p><img alt="" class="alignleft" height="270" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" title="zigGIS" width="270" /></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -459,47 +505,6 @@ Here at MapWindow GIS (<a href="http://www.mapwindow.org">www.mapwindow.org</a>)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/08/12/esri-uc-summary/">ESRI UC Summary</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-12T00:00:00-04:00" pubdate data-updated="true">Aug 12<span>th</span>, 2008</time>
-        
-         | <a href="/2008/08/12/esri-uc-summary/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I spent last week in San Diego at the ESRI International User Conference. It was a bit different for me since I was working <a href="http://www.zekiah.com">Zekiah&#8217;s</a> booth most of the time. I did, however, make it out to a SIG and a couple of technical workshops. Additionally, some of our technical staff were there and had feedback on the sessions. What follows is a very high-level summary of my week.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/08/12/esri-uc-summary/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/22/">&larr; Older</a>
@@ -548,15 +553,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/">Maryland Department of Planning Bundles Property Data with QGIS</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/09/20/come-sling-code-with-us/">Come Sling Code With Us</a>
       </li>
     
       <li class="post">
         <a href="/2013/09/12/another-look-at-gis-stackexchange/">Another Look at GIS StackExchange</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/09/10/random-geospatial-grab-bag/">Random Geospatial Stuff</a>
       </li>
     
   </ul>

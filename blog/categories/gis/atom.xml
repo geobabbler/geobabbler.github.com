@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-09-24T10:48:08-04:00</updated>
+  <updated>2013-10-07T20:06:22-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Maryland Department of Planning Bundles Property Data with QGIS]]></title>
+    <link href="http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/"/>
+    <updated>2013-10-07T12:38:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis</id>
+    <content type="html"><![CDATA[<p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
+
+<!--more-->
+
+
+<p>From the MDP site, the bundled data includes:</p>
+
+<blockquote cite="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">The product DVD includes the State's computerized property (tax) maps; the x,y linkages (point or polygon) to the Parcel, Computer Assisted Mass Appraisal (CAMA) and Sale datasets; Parcel, CAMA and Sale data, including Sale data via download from the Subscriber Website, from the Maryland State Department of Assessments and Taxation (SDAT); reference grids including a grid for the property (tax) maps, an ADC map book grid, a grid for the Maryland State Highway Administration (SHA) road, stream and feature maps and a grid for USGS 7.5' Topographical quad maps; and additional SHA files including a digital centerline roads file, data derived from SHA digital grid maps, an SHA major roads file and a county boundary file.<br/>
+<br/>
+Also included are land use/land cover data; congressional and legislative district boundary files; census geography and census demographic data; ZIP code boundary files; Priority Funding Area (PFA) designations; floodplain data, including DFIRM data for selected jurisdictions; protected lands boundaries; watershed data; generalized zoning designations; sewer service area boundaries; public water service area boundaries for selected jurisdictions; National Register of Historic Places (NRHP) Maryland coverage; residential Sales x,y point and summary files derived from SDAT Parcel and Sale data; large-scale, high resolution color digital-ortho imagery and a custom Quantum GIS project file (.qgs).</blockquote>
+
+
+<p>The MDP site indicates there is a <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/CstFnd.pdf">licensing fee</a> (PDF), which I assume is to cover the management of the data sets and the <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/LicFnd.pdf">license agreement</a>, while acknowledging the GPL license of QGIS itself, seems to place the actual FINDER extension itself outide of any open-source license. (I am not a lawyer so I'll accept guidance on that interpretation.) That said, bundling QGIS with data that the statewide user community values and an application to help exploit it is a great way to get more users on board with QGIS.</p>
+
+<p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
+
+<p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Come Sling Code With Us]]></title>
@@ -143,47 +168,6 @@
 <p>I'm also encouraged by <a href="http://opengeo.org/">OpenGeo's</a> <a href="https://github.com/opengeo/GeoGit">GeoGit</a> initiative. I have not personally experimented with it yet so I will not speculate on the specifics of its implementation, but I am happy to see OpenGeo recognizing the need for a more open approach to feature-level version control. Since, however, it will be open-source, my hope is that proprietary GIS vendors, or their supporting integrators, will eventually support it as well.</p>
 
 <p>Ultimately, I am happy to see both GitHub and OpenGeo addressing this issue. Although their approaches are different, they offer, in addition to the Esri approach, choices for organizations in terms of workflow. Many data managers, whether for legal, strategic, or other reasons, recognize the importance of maintaining version history of geospatial data records. It is important for everything from parcel mapping to critical infrastructure protection and many other use cases. Historically, there have been very few tools available to address this problem effectively but I am hoping that is starting to change.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Focus]]></title>
-    <link href="http://blog.geomusings.com/2013/07/19/focus/"/>
-    <updated>2013-07-19T00:02:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/07/19/focus</id>
-    <content type="html"><![CDATA[<p>While the majority of the geospatial world was at the Esri International User Conference in San Diego last week, I was at a different conference in Orlando, Florida. This was my third time attending the Children with Diabetes (CWD) <a href="http://www.childrenwithdiabetes.com/activities/orlando2013/">Friends for Life</a> (FFL) conference and I'll be there as often as I can for the foreseeable future. It's beneficial in many obvious ways; enabling us to keep up with the latest developments in diabetes research and technologies as well as keeping us refreshed in terms of diabetes management best practices.</p>
-
-<p>The unexpected thing for me over the years has been how the lessons I've learned at FFL have begun to translate into other aspects of life outside of diabetes. (I do not have diabetes myself but I am a parent of a person who does.)  This year, perhaps because the ongoing Esri UC was somewhere in the back of my mind, it provided a different lens through which to view my approach to my professional activities.</p>
-
-<p>The content at FFL is varied. Some touches on leading edge work in the field of biological treatments such as the <a href="http://www.diabetesresearch.org/BioHub">Diabetes Research Institute's BioHub</a> as well as mechanical/electronic treatments such as the <a href="http://artificialpancreasproject.com/">Artificial Pancreas Project</a>. Other content touches upon achieving more effective day-to-day management using current techniques such as insulin pumps, shots, carbohydrate counting and the like.</p>
-
-<p>The conference includes many pharmaceutical companies offering competing products, differing lines of research that stand a chance of superseding one another, representatives of government agencies, insurance companies and advocacy groups that can have very adversarial relationships. Yet FFL has an overwhelmingly positive tone. This because everyone is focused on one goal: the elimination of diabetes. Any approach that represents a step toward that goal is cheered by all, as is any technique that eases the burden of living with diabetes in the meantime. Ultimately, the various technologies showcased at the conference help facilitate progress toward this goal but the technologies are not the point.</p>
-
-<p>Let me say that again.</p>
-
-<p><strong>The technologies are not the point.</strong></p>
-
-<!--more-->
-
-
-<p>This is the lesson that I am reminded of and am bringing back to my professional existence in the geospatial industry. Our industry has seen a lot of innovation from a number of players in recent years. The flowering of mature capability in the open-source world has, in my opinion, pushed proprietary vendors such as Esri offer improvements to their products and better solutions to their users. It can be easy to get caught up in the petty intrigues of the industry. What are Esri's real motivations behind their latest acquisition? What mapping library is that government system using? Is that API really RESTful? And so on...</p>
-
-<p>All of the geospatial tools in the marketplace, regardless of provenance, serve to facilitate solutions to a myriad of real-world problems. And those problems are the point. As a consultant in the geospatial industry, my job is to help my customers find the tools that best solve their problems and help implement them. My responsibility is to keep an open mind about all of the tools that are available.</p>
-
-<div style="text-align: center;">
-<iframe width="560" height="420" src="http://www.youtube.com/embed/A8W8GGdD6pc?color=white&theme=light"></iframe>
-(May be considered NSFW by some)
-</div>
-
-
-<br/>
-
-
-<p>That doesn't mean that I don't have my preferences. I believe that open systems are better than closed. I believe that open-source licenses are inherently better at facilitating both enterprise scalability and grass-roots innovation. I believe that there's a lot of really good proprietary, closed-source software. I believe that the greatest asset of any organization is its data. I believe that any tool that restricts an organization's access to its data and its ability to share its data how it sees fit should be strongly discouraged. I believe that users bear the ultimate responsibility for understanding the technologies that they choose. I believe there is nothing more interoperable than a URL. I believe lots of other things learned through patience, experience, and collaboration.</p>
-
-<p>If I were employed by a vendor or a vendor-like organization, I may take a slightly more partisan view. I also don't begrudge such organizations their own biases. I expect them to be loyal to their tools and to want to see them used and improved through that use. I would be suspect of them if they weren't.</p>
-
-<p>That, however, is not the case with me. So, believing that open is better than closed, my responsibility is to ensure that my own thinking and my own mind are kept open. That's something that I always know, but it is good to be reminded of it by being immersed in a community that is strongly focused on a goal.</p>
 ]]></content>
   </entry>
   

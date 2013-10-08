@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-09-24T10:48:08-04:00</updated>
+  <updated>2013-10-07T20:04:19-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Maryland Department of Planning Bundles Property Data with QGIS]]></title>
+    <link href="http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/"/>
+    <updated>2013-10-07T12:38:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis</id>
+    <content type="html"><![CDATA[<p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
+
+<!--more-->
+
+
+<p>From the MDP site, the bundled data includes:</p>
+
+<blockquote cite="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">The product DVD includes the State&#8217;s computerized property (tax) maps; the x,y linkages (point or polygon) to the Parcel, Computer Assisted Mass Appraisal (CAMA) and Sale datasets; Parcel, CAMA and Sale data, including Sale data via download from the Subscriber Website, from the Maryland State Department of Assessments and Taxation (SDAT); reference grids including a grid for the property (tax) maps, an ADC map book grid, a grid for the Maryland State Highway Administration (SHA) road, stream and feature maps and a grid for USGS 7.5&#8217; Topographical quad maps; and additional SHA files including a digital centerline roads file, data derived from SHA digital grid maps, an SHA major roads file and a county boundary file.<br/>
+<br/>
+Also included are land use/land cover data; congressional and legislative district boundary files; census geography and census demographic data; ZIP code boundary files; Priority Funding Area (PFA) designations; floodplain data, including DFIRM data for selected jurisdictions; protected lands boundaries; watershed data; generalized zoning designations; sewer service area boundaries; public water service area boundaries for selected jurisdictions; National Register of Historic Places (NRHP) Maryland coverage; residential Sales x,y point and summary files derived from SDAT Parcel and Sale data; large-scale, high resolution color digital-ortho imagery and a custom Quantum GIS project file (.qgs).</blockquote>
+
+
+<p>The MDP site indicates there is a <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/CstFnd.pdf">licensing fee</a> (PDF), which I assume is to cover the management of the data sets and the <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/LicFnd.pdf">license agreement</a>, while acknowledging the GPL license of QGIS itself, seems to place the actual FINDER extension itself outide of any open-source license. (I am not a lawyer so I&#8217;ll accept guidance on that interpretation.) That said, bundling QGIS with data that the statewide user community values and an application to help exploit it is a great way to get more users on board with QGIS.</p>
+
+<p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
+
+<p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Come Sling Code With Us]]></title>
@@ -589,29 +614,6 @@
 <p>Many thanks to <a href="http://twitter.com/hugoestr">Hugo Estrada</a>, <a href="http://twitter.com/DonMeltz">Don Meltz</a>, <a href="http://twitter.com/IndyGIS">Aaron Burgess</a>, <a href="http://twitter.com/JCSanford">Jason Sanford</a>, <a href="http://twitter.com/dandye">Dan Dye</a>, <a href="http://twitter.com/swfoundry">Christopher Moore</a>, <a href="http://twitter.com/scw">Shaun Walbridge</a>, <a href="http://twitter.com/jmwdesign">Jason Wheatley</a>, <a href="https://plus.google.com/u/0/102903916051293271489/posts">Wes Herche</a>, and <a href="https://plus.google.com/u/0/110136604428694315510/posts">Jorge Sanz</a>.</p>
 
 <p>If you have any other good online resources for getting started with Python, feel free to leave them in the comments.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Arc2Earth: Choose Your 'Cloud']]></title>
-    <link href="http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud/"/>
-    <updated>2013-02-28T06:22:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud</id>
-    <content type="html"><![CDATA[<p>For various reasons, I can&#8217;t attend today&#8217;s inaugural <a href="http://fedgeoday.com/">FedGeoDay</a> at the Woolly Mammoth Theatre in Washington, DC, though I&#8217;ll be watching the hashtag with great interest. Jack Flood of <a href="http://www.arc2earth.com/">Arc2Earth</a>, however, has already posted his slides to SlideShare:</p>
-
-<iframe src="http://www.slideshare.net/slideshow/embed_code/16811994" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
-
-
-<p> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/jflood3/fedgeodays-022013" title="Fedgeodays 022013" target="_blank">Fedgeodays 022013</a> </strong> from <strong><a href="http://www.slideshare.net/jflood3" target="_blank">Jack Flood</a></strong> </div></p>
-
-<!--more-->
-
-
-<p>While neither <a href="http://www.esri.com">ArcMap</a> nor Arc2Earth are open-source themselves, Jack points out that Arc2Earth acts as a bridge between ArcMap and several geospatial hosting platforms that are built on open-source technology but, also just as important, are successful at making data more openly available. These platforms include <a href="http://cartodb.com/">CartoDB</a> and <a href="http://mapbox.com/">MapBox</a>, among many others.</p>
-
-<p>Many people use, and prefer, ArcMap has their desktop cartography and analysis tool. I view Arc2Earth as an enabling technology that allows users to continue to be productive with ArcMap while also allowing them to retain control of how they direct their GIS investments in terms of publishing and hosting their maps and data.</p>
-
-<p>Disclaimer: <a href="http://www.zekiah.com">My company</a> is an Arc2Earth reseller.</p>
 ]]></content>
   </entry>
   
