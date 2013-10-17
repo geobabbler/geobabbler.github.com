@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-10-17T11:55:01-04:00</updated>
+  <updated>2013-10-17T12:36:36-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -37,7 +37,7 @@ msallowfullscreen width="770" height="433"></iframe>
 <!--more-->
 
 
-<p>The same can really be said of maps on the web. Most maps are published to convey some information that has been validated for the point in time in which it was published. Most of the organizations I&#8217;ve worked with, government and comemrcial, have a release process to vet the contents of a map before it is published. In effect, such organizations are making their map content static. The truth is that, like a CMS, a complex map server probably isn&#8217;t necessary for most maps we interact with today on the web.</p>
+<p>The same can really be said of maps on the web. Most maps are published to convey some information that has been validated for the point in time in which it was published. Most of the organizations I&#8217;ve worked with, government and commercial, have a release process to vet the contents of a map before it is published. In effect, such organizations are making their map content static. The truth is that, like a CMS, a complex map server probably isn&#8217;t necessary for most maps we interact with today on the web.</p>
 
 <p>In fact, I can still clearly recall use cases from just a few years where such architectures were not only overkill but counterproductive. We typically distributed analysis results via web-based interactive maps. The results were typically valid for point in time during which an area of interest was studied. We ended up developing versioning schemes to preserve analysis results from being altered by the next bulk data set update. Another tack was to set up a separate map service pointed at a directory of shapefiles. All of this was to get around the basic fact that geospatial data at the time was not web-ready. GeoJSON helps solve that problem.</p>
 

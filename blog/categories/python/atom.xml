@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-10-17T12:01:28-04:00</updated>
+  <updated>2013-10-17T12:36:36-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -37,7 +37,8 @@
     <id>http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners</id>
     <content type="html"><![CDATA[<p>A friend who is in the midst of a career change and moving into the GIS world asked me for some pointers to resources for getting started with Python. I threw the question out to Twitter (with a similar variation also posted to Google+):</p>
 
-<p>{% tweet http://twitter.com/billdollins/status/313263420923338753 %}</p>
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Can anyone recommend any good online Python training sources for beginners? Asking for a friend in the midst of a career change.</p>&mdash; Bill Dollins (@billdollins) <a href="https://twitter.com/billdollins/status/313263420923338753">March 17, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
 
 <p>I got a couple of requests to summarize any information I received, which seemed reasonable. I got quite a few responses and here are some links:</p>
 
@@ -171,12 +172,15 @@
 
 <p>On the server, I wrote a four-line batch file to act as a driver for the whole process. This batch file is what is called by a scheduled task in Windows.</p>
 
-<p>{% codeblock lang:powershell %}
-del <em>.xml
-del </em>.pickle
-python SmecoFeedObj.py
-python fetchlatest.py
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">del</span> <span class="p">&lt;</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">xml</span>
+</span><span class='line'><span class="n">del</span> <span class="p">&lt;/</span><span class="n">em</span><span class="p">&gt;.</span><span class="n">pickle</span>
+</span><span class='line'><span class="n">python</span> <span class="n">SmecoFeedObj</span><span class="p">.</span><span class="n">py</span>
+</span><span class='line'><span class="n">python</span> <span class="n">fetchlatest</span><span class="p">.</span><span class="n">py</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>As you can see, the batch is very simple. It deletes the old files, scrapes the latest version and writes new files (SmecoFeedObj.py) and then updates the GeoCommons data set (fetchlatest.py).</p>
 

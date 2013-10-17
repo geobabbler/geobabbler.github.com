@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Standard | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/standard/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-10-17T12:01:28-04:00</updated>
+  <updated>2013-10-17T12:36:36-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -42,43 +42,81 @@
 
 <p>This became the basis of my sample application. I decided to do a simple property finder that allows a user to find buildings by property type and square footage. As I mentioned, it's very easy to use GeoJSON with Leaflet. Here is the Javascript function that fetches the buildings from CartoDB and adds them to the map. It uses jQuery to do the actual fetch and then processes the result, adding the features into a Leaflet GeoJSON layer.</p>
 
-<p>{% codeblock lang:js %}</p>
-
-<pre><code>function getBuildings()
-{
-    var bldgLayer = new L.GeoJSON();
-    //here we also parse the attributes for the popups on the map
-    bldgLayer.on('featureparse', function(e) {
-      e.layer.setStyle({ color:  '#BDBDBD', weight: 1, fill: true, fillColor: '#EF6548', fillOpacity: 0.85 });
-      var label = "";
-      if (e.properties &amp;amp;&amp;amp; e.properties.address){
-            label += "&amp;lt;b&amp;gt;Address:&amp;lt;/b&amp;gt;: " + e.properties.address + "&amp;lt;br/&amp;gt;";
-      }
-      if (e.properties &amp;amp;&amp;amp; e.properties.structure_){
-            label += "&amp;lt;b&amp;gt;Property Type:&amp;lt;/b&amp;gt;: " + e.properties.structure_ + "&amp;lt;br/&amp;gt;";
-      }
-      if (e.properties &amp;amp;&amp;amp; e.properties.shape_area){
-            label += "&amp;lt;b&amp;gt;Square Footage:&amp;lt;/b&amp;gt;: " + e.properties.shape_area + "&amp;lt;br/&amp;gt;";
-      }
-      if (label != "")
-      {
-        e.layer.bindPopup(label);
-      }
-    });
-
-    $.getJSON(
-        "http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;amp;format=geojson&amp;amp;callback=?",
-        function(geojson) {
-        $.each(geojson.features, function(i, feature) {
-          bldgLayer.addGeoJSON(feature);
-        })
-    });
-
-    map.addLayer(bldgLayer);        
-}
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">getBuildings</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">bldgLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">//here we also parse the attributes for the popups on the map</span>
+</span><span class='line'>    <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;featureparse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">color</span><span class="o">:</span>  <span class="s1">&#39;#BDBDBD&#39;</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">fill</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;#EF6548&#39;</span><span class="p">,</span> <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mf">0.85</span> <span class="p">});</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span><span class="p">){</span>
+</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Address:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span><span class="p">){</span>
+</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Property Type:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span><span class="p">){</span>
+</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Square Footage:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>        <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span>
+</span><span class='line'>        <span class="s2">&quot;http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;amp;amp;format=geojson&amp;amp;amp;callback=?&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="kd">function</span><span class="p">(</span><span class="nx">geojson</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">features</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">addGeoJSON</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">})</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">bldgLayer</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p><del datetime="2011-10-14T14:44:58+00:00">If you look closely, you'll notice the use of a proxy handler to get past the same origin restriction. This handler is written in .Net. I had been using a Python proxy but urllib2 was indicating header errors in the return from CartoDB so I fell back to this one. I'll dig into that more later.</del> (Thanks to <a href="http://twitter.com/jatorre">Javier de la Torre</a> for straightening me out with the use of a callback.) The above routine is basically the template for all the work in the app. Aside from the basemap tiles, the app loads the town boundary and the buildings from CartoDB. A similar funtion drives the query function, building and passing a WHERE clause to CartoDB. The image below shows the interface with query results in blue. The popups are performed by Leaflet.</p>
 
