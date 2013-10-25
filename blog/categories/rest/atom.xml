@@ -4,7 +4,7 @@
   <title><![CDATA[Category: REST | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/rest/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-10-17T12:36:36-04:00</updated>
+  <updated>2013-10-25T10:23:45-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -45,205 +45,109 @@
 
 <p>The call returns a list of data sets. The JSON for a single data set looks like this:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="s2">&quot;votes&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;royalty_model&quot;</span><span class="o">:</span> <span class="s2">&quot;UNCREDITED&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;rating&quot;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_discount_expire_option&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;permalink&quot;</span><span class="o">:</span> <span class="s2">&quot;spatialed_sample_sql_server_data&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Sample SQL Server Data&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;step_kamap&quot;</span><span class="o">:</span> <span class="mf">0.0717937948</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;spatial_resolution_in_meters&quot;</span><span class="o">:</span> <span class="mf">3233.80355656636</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;user&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;votes&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;rating&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;spatialed&quot;</span><span class="p">},</span>
-</span><span class='line'><span class="s2">&quot;center_lat&quot;</span><span class="o">:</span> <span class="mf">45.16073438845</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;west_kamap&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">179.1333928049</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;south_kamap&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">134.2235717723</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;number_of_layers&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;uncompressed_misc_files_size&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;token&quot;</span><span class="o">:</span> <span class="s2">&quot;37a39b7d-af4e-d55d-9aa6-1aaff9353594&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;north_kamap&quot;</span><span class="o">:</span> <span class="mf">224.6980287277</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;center_long&quot;</span><span class="o">:</span> <span class="mf">0.3283989648</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;Layer_1&quot;</span><span class="p">,</span> <span class="s2">&quot;Layer_2&quot;</span><span class="p">,</span> <span class="s2">&quot;Layer_3&quot;</span><span class="p">],</span>
-</span><span class='line'><span class="s2">&quot;data_type&quot;</span><span class="o">:</span> <span class="s2">&quot;OTHER&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;data_created_on&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;from_appliance?&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_discount_expires_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;primary_tag&quot;</span><span class="o">:</span> <span class="s2">&quot;SQL&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;south&quot;</span><span class="o">:</span> <span class="mf">18.9234204317</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;projection&quot;</span><span class="o">:</span> <span class="s2">&quot;GEO&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;market&quot;</span><span class="o">:</span> <span class="s2">&quot;Complete&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;file_format&quot;</span><span class="o">:</span> <span class="s2">&quot;GeoTIFF&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;east_kamap&quot;</span><span class="o">:</span> <span class="mf">179.7882076951</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;datum&quot;</span><span class="o">:</span> <span class="s2">&quot;WGS84&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;children_count&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;uploaded_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2009/06/01 22:23:52 -0400&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;uncompressed_data_files_size&quot;</span><span class="o">:</span> <span class="mi">75000770</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_discount_rate&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;price_type&quot;</span><span class="o">:</span> <span class="s2">&quot;FIXED&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;parents_count&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;north&quot;</span><span class="o">:</span> <span class="mf">71.3980483452</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;max_price&quot;</span><span class="o">:</span> <span class="mf">5.04</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;y_conv&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0000000000&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;west&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">179.1333928049</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;\u003Cp\u003ESQL Server 2008 Spatial data for the United States. The data is supplied as a zipped SQL Server Backup file (Sample_USA.bak.zip) and contains the following tables:\u003C/p\u003E\r\n\u003Cbr\u003E\r\n\u003Cul\u003E\r\n\u003Cli\u003EUS Counties \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS States \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS Zipcodes \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS CensusBlockGroups \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS GeoNames \u003Ci\u003E[points]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS Highways \u003Ci\u003E[linestrings]\u003C/i\u003E\u003C/li\u003E\r\n\u003C/ul\u003E\r\n\u003Cp\u003EEach table contains a column of type geometry (geom) and a column of type geography (geog).  The geom column is in a spherical Albers Equal Area projection (the sphere is WGS 84 Authalic, the units are in meters ).  The geog column is in WGS 84 ellipsoidal coordinates.\u003C/p\u003E\r\n  \r\n  &quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;x_conv&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0000000000&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;Approved&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;spatial_resolution&quot;</span><span class="o">:</span> <span class="mf">0.04114097905</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;scales&quot;</span><span class="o">:</span> <span class="s2">&quot;357765655;205940642;118545611;68238409;39280075;22610789&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_min_margin&quot;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;hosted&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;east&quot;</span><span class="o">:</span> <span class="mf">179.7901907345</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_max_discount&quot;</span><span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;provider_margin&quot;</span><span class="o">:</span> <span class="mf">0.0</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:js %}
+{
+"votes": 0,
+"royalty_model": "UNCREDITED",
+"rating": 0.0,
+"provider_discount_expire_option": null,
+"permalink": "spatialed_sample_sql_server_data",
+"name": "Sample SQL Server Data",
+"step_kamap": 0.0717937948,
+"spatial_resolution_in_meters": 3233.80355656636,
+"user": {"votes": 0, "rating": null, "username": "spatialed"},
+"center_lat": 45.16073438845,
+"west_kamap": -179.1333928049,
+"south_kamap": -134.2235717723,
+"number_of_layers": 3,
+"uncompressed_misc_files_size": 0,
+"token": "37a39b7d-af4e-d55d-9aa6-1aaff9353594",
+"north_kamap": 224.6980287277,
+"center_long": 0.3283989648,
+"layers": ["Layer_1", "Layer_2", "Layer_3"],
+"data_type": "OTHER",
+"data_created_on": null,
+"from_appliance?": false,
+"provider_discount_expires_at": null,
+"primary_tag": "SQL",
+"south": 18.9234204317,
+"projection": "GEO",
+"market": "Complete",
+"file_format": "GeoTIFF",
+"east_kamap": 179.7882076951,
+"datum": "WGS84",
+"children_count": 0,
+"uploaded_at": "2009/06/01 22:23:52 -0400",
+"uncompressed_data_files_size": 75000770,
+"provider_discount_rate": 0,
+"price_type": "FIXED",
+"parents_count": 0,
+"north": 71.3980483452,
+"max_price": 5.04,
+"y_conv": "1.0000000000",
+"west": -179.1333928049,
+"description": "\u003Cp\u003ESQL Server 2008 Spatial data for the United States. The data is supplied as a zipped SQL Server Backup file (Sample_USA.bak.zip) and contains the following tables:\u003C/p\u003E\r\n\u003Cbr\u003E\r\n\u003Cul\u003E\r\n\u003Cli\u003EUS Counties \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS States \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS Zipcodes \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS CensusBlockGroups \u003Ci\u003E[polygons]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS GeoNames \u003Ci\u003E[points]\u003C/i\u003E\u003C/li\u003E\r\n\u003Cli\u003EUS Highways \u003Ci\u003E[linestrings]\u003C/i\u003E\u003C/li\u003E\r\n\u003C/ul\u003E\r\n\u003Cp\u003EEach table contains a column of type geometry (geom) and a column of type geography (geog).  The geom column is in a spherical Albers Equal Area projection (the sphere is WGS 84 Authalic, the units are in meters ).  The geog column is in WGS 84 ellipsoidal coordinates.\u003C/p\u003E\r\n  \r\n  ",
+"x_conv": "1.0000000000",
+"status": "Approved",
+"spatial_resolution": 0.04114097905,
+"scales": "357765655;205940642;118545611;68238409;39280075;22610789",
+"provider_min_margin": 0.0,
+"hosted": true,
+"east": 179.7901907345,
+"provider_max_discount": 0.0,
+"provider_margin": 0.0
+}
+{% endcodeblock %}</p>
 
 <p>From this, I can parse anything I need to know about the data set. In order to handle this, I created a class in C# that can deserialize this JSON into a .Net object. A snippet of that class is here:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;[</span><span class="n">DataContract</span><span class="p">()]</span>
-</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">BrowseDataset</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;token&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Token</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;name&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;description&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Description</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;north_kamap&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">North</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;south_kamap&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">South</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;east_kamap&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">East</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;west_kamap&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">West</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;data_type&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">DataType</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;file_format&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Format</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;data_created_on&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">CreateDate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;provider_margin&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">FullPrice</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;hosted&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Hosted</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;projection&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Projection</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;datum&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">string</span> <span class="n">Datum</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;center_lat&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">Latitude</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;center_long&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">Longitude</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;children_count&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">int</span> <span class="n">Children</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;parents_count&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="kt">double</span> <span class="n">Parents</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="na">    [DataMember(Name = &quot;user&quot;)]</span>
-</span><span class='line'>    <span class="k">public</span> <span class="n">BrowseUser</span> <span class="n">User</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>[DataContract()]
+public class BrowseDataset
+{
+    [DataMember(Name = "token")]
+    public string Token { get; set; }
+    [DataMember(Name = "name")]
+    public string Name { get; set; }
+    [DataMember(Name = "description")]
+    public string Description { get; set; }
+    [DataMember(Name = "north_kamap")]
+    public double North { get; set; }
+    [DataMember(Name = "south_kamap")]
+    public double South { get; set; }
+    [DataMember(Name = "east_kamap")]
+    public double East { get; set; }
+    [DataMember(Name = "west_kamap")]
+    public double West { get; set; }
+    [DataMember(Name = "data_type")]
+    public string DataType { get; set; }
+    [DataMember(Name = "file_format")]
+    public string Format { get; set; }
+    [DataMember(Name = "data_created_on")]
+    public string CreateDate { get; set; }
+    [DataMember(Name = "provider_margin")]
+    public double FullPrice { get; set; }
+    [DataMember(Name = "hosted")]
+    public string Hosted { get; set; }
+    [DataMember(Name = "projection")]
+    public string Projection { get; set; }
+    [DataMember(Name = "datum")]
+    public string Datum { get; set; }
+    [DataMember(Name = "center_lat")]
+    public double Latitude { get; set; }
+    [DataMember(Name = "center_long")]
+    public double Longitude { get; set; }
+    [DataMember(Name = "children_count")]
+    public int Children { get; set; }
+    [DataMember(Name = "parents_count")]
+    public double Parents { get; set; }
+    [DataMember(Name = "user")]
+    public BrowseUser User { get; set; }
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <p>As can be seen, I used DataContract and DataMember attributes to map the JSON values to properties. I also simplified the property names. If you take the time to compare, you?ll notice that I don?t handle all of the information. The dataset JSON contains more information than I needed for simply browsing so I am filtering out some of it. This doesn?t reduce traffic across the wire but does cut down on memory usage in my Silverlight client.</p>
 
@@ -253,31 +157,18 @@
 
 <p>When that button is clicked, this event handler is fired:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="k">void</span> <span class="n">btnFetch_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">weo</span><span class="p">.</span><span class="n">ProxyUrl</span> <span class="p">=</span> <span class="n">PrefixProxy</span><span class="p">(</span><span class="s">&quot;http://xxxx&quot;</span><span class="p">).</span><span class="n">AbsoluteUri</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">weo</span><span class="p">.</span><span class="n">BrowseDatasetCompleted</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">BrowseDatasetCompletedHandler</span><span class="p">(</span><span class="n">weo_BrowseDatasetCompleted</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">Envelope</span> <span class="n">env</span> <span class="p">=</span> <span class="n">MyMap</span><span class="p">.</span><span class="n">Extent</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">weo</span><span class="p">.</span><span class="n">getDatasetList</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">YMax</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">YMin</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">XMax</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">XMin</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>    private void btnFetch_Click(object sender, RoutedEventArgs e)
+    {
+        weo.ProxyUrl = PrefixProxy("http://xxxx").AbsoluteUri;
+        weo.BrowseDatasetCompleted += new BrowseDatasetCompletedHandler(weo_BrowseDatasetCompleted);
+        ESRI.ArcGIS.Client.Geometry.Envelope env = MyMap.Extent;
+        weo.getDatasetList(1, env.YMax, env.YMin, env.XMax, env.XMin);
+    }
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>"weo" is an instance of a wrapper class I created to encapsulate to WeoGeo interaction.</p>
 
@@ -285,173 +176,96 @@
 
 <p>The PrefixProxy (also from the ESRI sample) method includes some Silverlight-specific code so I kept it in my Silverlight Page class. I build a dummy call using the "http://xxxx" token so that my WeoGeo wrapper class doesn?t need to be Silverlight-specific. The wrapper then replaces the token with the correct call to the WeoGeo server. The wrapper?s getDatasetList method looks like this:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">public</span> <span class="k">void</span> <span class="n">getDatasetList</span><span class="p">(</span><span class="kt">int</span> <span class="n">page</span><span class="p">,</span> <span class="kt">double</span> <span class="n">north</span><span class="p">,</span> <span class="kt">double</span> <span class="n">south</span><span class="p">,</span> <span class="kt">double</span> <span class="n">east</span><span class="p">,</span> <span class="kt">double</span> <span class="n">west</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringCompleted</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">DownloadStringCompletedEventHandler</span><span class="p">(</span><span class="n">request_DownloadStringCompleted</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">_datasetBrowse</span><span class="p">,</span><span class="n">_protocol</span><span class="p">,</span> <span class="n">_library</span><span class="p">,</span> <span class="n">page</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">north</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">south</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">east</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span> <span class="n">west</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">url</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">ProxyUrl</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;http://xxxx&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
-</span><span class='line'>            <span class="c1">//System.Windows.MessageBox.Show(url);</span>
-</span><span class='line'>            <span class="n">request</span><span class="p">.</span><span class="n">DownloadStringAsync</span><span class="p">(</span><span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">url</span><span class="p">));</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">WebException</span> <span class="n">ex</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">throw</span> <span class="n">ex</span><span class="p">;</span> <span class="c1">//handled elsewhere</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>    public void getDatasetList(int page, double north, double south, double east, double west)
+    {
+        request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(request_DownloadStringCompleted);
+
+        try
+        {
+
+            string url = string.Format(_datasetBrowse,_protocol, _library, page.ToString(), north.ToString(), south.ToString(), east.ToString(), west.ToString());
+
+            url = this.ProxyUrl.Replace("http://xxxx", url);
+            //System.Windows.MessageBox.Show(url);
+            request.DownloadStringAsync(new Uri(url));
+        }
+        catch (WebException ex)
+        {
+            throw ex; //handled elsewhere
+        }
+    }
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>The WebClient class in Silverlight differs from the standard .Net WebClient in that it only makes asynchronous calls. So I attached a handler for the DownloadStringCompleted event. I then format the tokenized proxy URL with the correct URL to the WeoGeo Market and make the call. The _datasetBrowse variable is simply the template for the call and is defined as:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="kt">string</span> <span class="n">_datasetBrowse</span> <span class="p">=</span> <span class="s">@&quot;{0}{1}/datasets.json?page={2}&amp;amp;north={3}&amp;amp;south={4}&amp;amp;east={5}&amp;amp;west={6}&quot;</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}
+private string _datasetBrowse = @"{0}{1}/datasets.json?page={2}&amp;north={3}&amp;south={4}&amp;east={5}&amp;west={6}";
+{% endcodeblock %}</p>
 
 <p>One note about this call: WeoGeo expects the values for the extent to be in the WGS84 (EPSG:4326) spatial reference. The ESRI Silverlight API does not do coordinate transformations internally so, if your map is not in WGS84, you will need to transform your extent before making the call to the WeoGeo API. In my case, I kept my life simple by using the Blue Marble WMS service that is served by JPL and is in WGS84 (this is a great resource and <a href="http://twitter.com/JeffHarrison">@JeffHarrison</a> was dead-on for reminding me of that fact) .</p>
 
 <p>The DownloadStringCompleted event handler looks like this:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">void</span> <span class="n">request_DownloadStringCompleted</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">DownloadStringCompletedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">try</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Result</span><span class="p">;</span>
-</span><span class='line'>             <span class="kt">byte</span><span class="p">[]</span> <span class="n">b</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">Unicode</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">MemoryStream</span> <span class="n">st</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MemoryStream</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">DataContractJsonSerializer</span> <span class="n">ds</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DataContractJsonSerializer</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">BrowseDatasets</span><span class="p">));</span>
-</span><span class='line'>            <span class="n">BrowseDatasets</span> <span class="n">retval</span> <span class="p">=</span> <span class="p">(</span><span class="n">BrowseDatasets</span><span class="p">)</span><span class="n">ds</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">(</span><span class="n">st</span><span class="p">);</span>
-</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="n">BrowseDataset</span> <span class="n">d</span> <span class="k">in</span> <span class="n">retval</span><span class="p">.</span><span class="n">items</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="n">d</span><span class="p">.</span><span class="n">Library</span> <span class="p">=</span> <span class="n">_library</span><span class="p">;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">BrowseResults</span> <span class="p">=</span> <span class="n">retval</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">BrowseDatasetCompleted</span><span class="p">(</span><span class="n">retval</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="c1">//System.Windows.MessageBox.Show(ex.ToString());</span>
-</span><span class='line'>            <span class="n">BrowseDatasets</span> <span class="n">erDs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BrowseDatasets</span><span class="p">();</span>
-</span><span class='line'>            <span class="n">erDs</span><span class="p">.</span><span class="n">items</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">lt</span><span class="p">;</span><span class="n">BrowseDataset</span><span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;();</span>
-</span><span class='line'>            <span class="n">BrowseDatasetCompleted</span><span class="p">(</span><span class="n">erDs</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>    void request_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+    {
+        try
+        {
+            string s = e.Result;
+             byte[] b = Encoding.Unicode.GetBytes(s);
+            MemoryStream st = new MemoryStream(b);
+            DataContractJsonSerializer ds = new DataContractJsonSerializer(typeof(BrowseDatasets));
+            BrowseDatasets retval = (BrowseDatasets)ds.ReadObject(st);
+            foreach (BrowseDataset d in retval.items)
+            {
+                d.Library = _library;
+            }
+            this.BrowseResults = retval;
+            BrowseDatasetCompleted(retval);
+        }
+        catch (Exception ex)
+        {
+            //System.Windows.MessageBox.Show(ex.ToString());
+            BrowseDatasets erDs = new BrowseDatasets();
+            erDs.items = new List&amp;lt;BrowseDataset&amp;gt;();
+            BrowseDatasetCompleted(erDs);
+        }
+    }
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>In essence, it takes the JSON response, deserializes it into a list of BrowseDataset objects and then raises the wrapper?s BrowseDatasetCompleted event to pass the object back to the Silverlight application. In this case, an exception produces an empty list.</p>
 
 <p>Back in the Silverlight application, the BrowseDatasetCompleted event handler looks like this:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">void</span> <span class="n">weo_BrowseDatasetCompleted</span><span class="p">(</span><span class="n">Weo4Net</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">BrowseDatasets</span> <span class="n">ds</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">ds</span><span class="p">.</span><span class="n">items</span><span class="p">.</span><span class="n">Count</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="m">0</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">DisplayMemberPath</span> <span class="p">=</span> <span class="s">&quot;Name&quot;</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="n">BrowseDataset</span> <span class="n">bds</span> <span class="k">in</span> <span class="n">ds</span><span class="p">.</span><span class="n">items</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">{</span>
-</span><span class='line'>                <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">bds</span><span class="p">);</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">Visibility</span> <span class="p">=</span> <span class="n">Visibility</span><span class="p">.</span><span class="n">Visible</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">else</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">Visibility</span> <span class="p">=</span> <span class="n">Visibility</span><span class="p">.</span><span class="n">Collapsed</span><span class="p">;</span> <span class="c1">//hide if no data sets</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>    void weo_BrowseDatasetCompleted(Weo4Net.Data.BrowseDatasets ds)
+    {
+        if (ds.items.Count &amp;gt; 0)
+        {
+            this.weoDatasetList.Items.Clear();
+            this.weoDatasetList.DisplayMemberPath = "Name";
+            foreach (BrowseDataset bds in ds.items)
+            {
+                this.weoDatasetList.Items.Add(bds);
+            }
+            this.weoDatasetList.Visibility = Visibility.Visible;
+        }
+        else
+        {
+            this.weoDatasetList.Visibility = Visibility.Collapsed; //hide if no data sets
+        }
+    }
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>We could do anything we want here but I am simply adding the data sets to a list box so they can be selected and previewed. At this point, we are ready to put some stuff on the map.</p>
 
@@ -459,51 +273,31 @@
 
 <p>Each BrowseDataset object contains the North, South, East and West properties that define the geographic extent of the data and, thus, the preview image. When the user selects a dataset in the list, I use this information to add an Image element to the layer and define where it should be displayed. That is all handled in the list?s SelectionChanged event handler like this:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>    <span class="k">private</span> <span class="k">void</span> <span class="n">weoDatasetList_SelectionChanged</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">SelectionChangedEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">ElementLayer</span> <span class="n">elyr</span> <span class="p">=</span> <span class="n">MyMap</span><span class="p">.</span><span class="n">Layers</span><span class="p">[</span><span class="s">&quot;weoPreviewLayer&quot;</span><span class="p">]</span> <span class="k">as</span> <span class="n">ElementLayer</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">BrowseDataset</span> <span class="n">ds</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">weoDatasetList</span><span class="p">.</span><span class="n">SelectedItem</span> <span class="k">as</span> <span class="n">BrowseDataset</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">elyr</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span> <span class="c1">//clear any previous previews</span>
-</span><span class='line'>        <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;http://weodata.weogeo.com/dataset_tiles/{0}/kml.png&quot;</span><span class="p">,</span> <span class="n">ds</span><span class="p">.</span><span class="n">Token</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">Image</span> <span class="n">img</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Image</span><span class="p">();</span>
-</span><span class='line'>        <span class="n">BitmapImage</span> <span class="n">bmi</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BitmapImage</span><span class="p">(</span><span class="k">new</span> <span class="n">Uri</span><span class="p">(</span><span class="n">url</span><span class="p">));</span>
-</span><span class='line'>        <span class="n">img</span><span class="p">.</span><span class="n">Source</span> <span class="p">=</span> <span class="n">bmi</span><span class="p">;</span>
-</span><span class='line'>        <span class="c1">//set the ElementLayer.Envelope attribute of the Image</span>
-</span><span class='line'>        <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">Envelope</span> <span class="n">env</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ESRI</span><span class="p">.</span><span class="n">ArcGIS</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">Envelope</span><span class="p">(</span><span class="n">ds</span><span class="p">.</span><span class="n">East</span><span class="p">,</span> <span class="n">ds</span><span class="p">.</span><span class="n">South</span><span class="p">,</span> <span class="n">ds</span><span class="p">.</span><span class="n">West</span><span class="p">,</span> <span class="n">ds</span><span class="p">.</span><span class="n">North</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">ElementLayer</span><span class="p">.</span><span class="n">SetEnvelope</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">env</span><span class="p">);</span>
-</span><span class='line'>        <span class="n">elyr</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}</p>
+
+<pre><code>    private void weoDatasetList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        ElementLayer elyr = MyMap.Layers["weoPreviewLayer"] as ElementLayer;
+        BrowseDataset ds = this.weoDatasetList.SelectedItem as BrowseDataset;
+        elyr.Children.Clear(); //clear any previous previews
+        string url = String.Format("http://weodata.weogeo.com/dataset_tiles/{0}/kml.png", ds.Token);
+        Image img = new Image();
+        BitmapImage bmi = new BitmapImage(new Uri(url));
+        img.Source = bmi;
+        //set the ElementLayer.Envelope attribute of the Image
+        ESRI.ArcGIS.Client.Geometry.Envelope env = new ESRI.ArcGIS.Client.Geometry.Envelope(ds.East, ds.South, ds.West, ds.North);
+        ElementLayer.SetEnvelope(img, env);
+        elyr.Children.Add(img);          
+    }
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>As can be seen, this is designed to display one preview at a time. The main trick here is that the ElementLayer class defines an attached property called ?Envelope? to define the geographic extent of the UIEelement. In XAML, it would look like this:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;lt;</span>Image Stretch=&quot;Fill&quot; Source=&quot;http://weodata.weogeo.com/dataset_tiles/fc69c451-4714-8250-90d4-91b74528127e/kml.png&quot; esri:ElementLayer.Envelope=&quot;-78.0496954009,34.9499119752,-71.9494760266,40.0496953721&quot; /<span class="ni">&amp;gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:xml %}
+&lt;Image Stretch="Fill" Source="http://weodata.weogeo.com/dataset_tiles/fc69c451-4714-8250-90d4-91b74528127e/kml.png" esri:ElementLayer.Envelope="-78.0496954009,34.9499119752,-71.9494760266,40.0496953721" /&gt;
+{% endcodeblock %}</p>
 
 <p>In code, you use the static ElementLayer.SetEnvelope method to set this value for your UIElement. With that, you can now pan/zoom to an extent that you want, click a button to fetch a dataset listing, and select select individual datasets in the list to see the preview images.</p>
 

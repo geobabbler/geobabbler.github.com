@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-10-17T12:36:36-04:00</updated>
+  <updated>2013-10-25T10:20:53-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Desktop Not Dead]]></title>
+    <link href="http://blog.geomusings.com/2013/10/23/desktop-not-dead/"/>
+    <updated>2013-10-23T09:42:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/23/desktop-not-dead</id>
+    <content type="html"><![CDATA[<p>In 2011, I gave a talk at the NCGIS conference about the continued dominance of the desktop in the world of GIS. In that talk, my main point was that, regardless of the ultimate destination of GIS data or maps (cloud, server, paper, PDF, etc.), most GIS data passes through a desktop GIS at some point. I don&#8217;t have hard data to back up that claim but I think anyone who has worked in the industry for any length of time will agree that it feels right. If we loosely define &#8220;desktop GIS&#8221; to include not only GUI analytical tools like <a href="http://www.esri.com">ArcMap</a> or <a href="http://qgis.org">QGIS</a>, but also command-line tools such as <a href="http://www.gdal.org/">GDAL/OGR</a> and cartographic tools such as <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I think the statement is even more comfortable.</p>
+
+<p style="text-align:center;"><iframe width="560" height="420" src="http://www.youtube.com/embed/ljIQo1OHkTI?color=white&theme=light"></iframe></p>
+
+<p>Essentially, my claim was that desktop GIS is still the onramp for most of the data we interact with on the web. Over the past few years, geographically tagged live and temporally-sensitive data streams have increased in importance but I think most geospatial data still starts as traditional data sources (rasters, vectors, terrain, etc.) that pass through a desktop for analysis, processing, and styling before moving on to the web. Esri, for example, still features its desktop tools as prominent parts of its web publishing workflow and <a href="http://boundlessgeo.com/">Boundless</a> is working on a <a href="https://github.com/boundlessgeo/suite-qgis-plugin">similar path for QGIS</a>.</p>
+
+<!--more-->
+
+
+<p>The announcement of a Google Maps Engine connector for both <a href="https://github.com/googlemaps/mapsengine-arcgis-connector">ArcGIS</a> and <a href="https://github.com/googlemaps/mapsengine-qgis-connector">QGIS</a> is yet another example of the continued importance of the desktop in the GIS world. Simply put, the chances of a user choosing your platform increases if you can cut to the front of the line and present yourself in their desktop environment. <a href="http://blogs.esri.com/esri/arcgis/2013/10/22/googles-arcgis-toolbar-for-the-cloud/">Andrew Turner did a nice summary of many such integration efforts</a> involving ArcGIS Desktop, although the post fails to mention <a href="http://www.arc2earth.com">Arc2Earth</a>, which I consider the most comprehensive extension of its kind on the market. His discussion tracks with my personal experience in recent years. My most public activities have been <a href="https://code.google.com/p/ziggis/">zigGIS</a>, the <a href="http://blog.dc.esri.com/2010/11/22/toolbars-for-geocommons-and-geoiq/">GeoCommons toolbars</a> (thanks for the mention, Andrew), and the <a href="http://www.weogeo.com">WeoGeo</a> toolbar. I&#8217;ve also built a couple of others for organizations that wanted to get their data products in front of ArcGIS users easily and I am currently working on a live feed extension for a government user. The reality is that I&#8217;ve done more desktop development in the last three years than I had done in the preceding ten.</p>
+
+<p>Andrew&#8217;s point at the end of his post about Esri&#8217;s extensibility through various means is quite true. As much as developers love to complain about ArcGIS Desktop and ArcObjects (myself included), I have yet to find a data source that I couldn&#8217;t integrate using those tools. As I dig into the APIs behind QGIS, I am finding the same to be true there. Despite the tendency to downplay desktop GIS tools these days, I see them continuing to play a significant, if quiet, role in defining how we interact with maps and geospatial data across all platforms for the foreseeable future.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WeoGeo: Now With GeoJSON]]></title>
@@ -596,21 +616,6 @@ Also included are land use/land cover data; congressional and legislative distri
 <p>To be sure, the workshop was not all unicorns and rainbows. There were typical glitches such as file system and database permission issues that required on-the-fly adjustments, which Dr. Lembo and his students handled well. Some participants were clearly stumped at points while others were making good headway with the examples.</p>
 
 <p>Many of the participants probably remain committed <a href="http://www.esri.com">ArcGIS</a> users after the workshop while others may very well dig in and more thoroughly explore QGIS and PostGIS, but that&#8217;s really beside the point. Regardless of what the individual participants decide to do with the information from the workshop, all left with hands-on exposure to the tools that was presented in a manner that was free of hyperbole, FUD, or market-speak. They now have more first-hand information with which to make their own educated decisions as to how they want to proceed with their geospatial technology choices; and that, in my opinion, may have been the most valuable outcome of the workshop.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Off to TUGIS]]></title>
-    <link href="http://blog.geomusings.com/2013/03/18/off-to-tugis/"/>
-    <updated>2013-03-18T12:40:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/18/off-to-tugis</id>
-    <content type="html"><![CDATA[<p>Tomorrow, I&#8217;ll be heading up to the <a href="http://www.towson.edu/tugis/">Towson University GIS (TUGIS) conference</a> with 500 or so of my closest Maryland geo-friends. It has been restructured into a one-day event and the program seems to be very content-rich as a result. I am particularly happy to see more open-source content this year. There&#8217;s an intro session featuring <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.postgis.org">PostGIS</a>, <a href="http://qgis.org">QGIS</a>, and <a href="http://geoserver.org">GeoServer</a> presented by <a href="http://www.salisbury.edu/">Salisbury State University</a>. Salisbury was once known as a bastion of <a href="http://www.manifold.net/">Manifold</a> so they&#8217;ve got a long history of thinking outside the Arc. Additionally, there is a session (by Towson University) discussing the use of <a href="http://www.gdal.org">GDAL</a>, <a href="http://www.gdal.org/ogr/">OGR</a>, and <a href="https://github.com/sgillies/shapely">Shapely</a> in the development of a spatial service.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/mdflag.png" alt="Brian Timoney's favorite state flag" title="Brian Timoney's favorite state flag" /></p>
-
-<p>One thing I like about regional GIS conferences like this is that they tend to focus more on solutions to real-world problems instead of the latest technological bells and whistles. I spend so much of my time with my head in Federal requirements that it&#8217;s nice do a reset and get different perspectives on how geospatial technologies are used. I am particularly interested to hear the keynote from <a href="http://twitter.com/learondalby">Learon Dalby</a> of <a href="http://www.sanborn.com/">Sanborn</a> and formerly of the <a href="http://www.gis.state.ar.us/">Arkansas GIO office</a>. I had the pleasure of working with Learon and the AGIO team on a project a couple of years ago and am impressed with what they accomplished.</p>
-
-<p>I appreciate the new format of TUGIS as a one-day event is much easier to fit into the schedule. I&#8217;m looking forward to it.</p>
 ]]></content>
   </entry>
   

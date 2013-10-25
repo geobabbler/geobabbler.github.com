@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Desktop | geoMusings]]></title>
+  <title><![CDATA[Category: desktop | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/desktop/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-10-17T12:36:36-04:00</updated>
+  <updated>2013-10-25T10:23:45-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,30 +14,22 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Favorite QGIS Resources of the Moment]]></title>
-    <link href="http://blog.geomusings.com/2012/07/27/favorite-qgis-resources-of-the-moment/"/>
-    <updated>2012-07-27T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/27/favorite-qgis-resources-of-the-moment</id>
-    <content type="html"><![CDATA[<p>I've been dabbling more with Quantum GIS (<a href="http://qgis.org" target="_blank">QGIS</a>) lately. I'm not doing anything particularly sophisticated but it's a great viewer for some data types (<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a>, <a href="http://geojson.org/" target="_blank">GeoJSON</a>) that aren't supported by my commercial desktop GIS so it's helping me validate outputs of some applications I'm writing.</p>
+    <title type="html"><![CDATA[Desktop Not Dead]]></title>
+    <link href="http://blog.geomusings.com/2013/10/23/desktop-not-dead/"/>
+    <updated>2013-10-23T09:42:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/23/desktop-not-dead</id>
+    <content type="html"><![CDATA[<p>In 2011, I gave a talk at the NCGIS conference about the continued dominance of the desktop in the world of GIS. In that talk, my main point was that, regardless of the ultimate destination of GIS data or maps (cloud, server, paper, PDF, etc.), most GIS data passes through a desktop GIS at some point. I don't have hard data to back up that claim but I think anyone who has worked in the industry for any length of time will agree that it feels right. If we loosely define "desktop GIS" to include not only GUI analytical tools like <a href="http://www.esri.com">ArcMap</a> or <a href="http://qgis.org">QGIS</a>, but also command-line tools such as <a href="http://www.gdal.org/">GDAL/OGR</a> and cartographic tools such as <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I think the statement is even more comfortable.</p>
 
-<p><img alt="" src="http://fossies.org/unix/misc/qgis-1.8.0.tar.gz:a/qgis-1.8.0/images/splash/splash.png" /></p>
+<p style="text-align:center;">{% youtube ljIQo1OHkTI %}</p>
 
-<p>While I'll never be a real cartographer, I am interested in doing a little more. Here are the resources that have been helping me the most lately...</p>
+<p>Essentially, my claim was that desktop GIS is still the onramp for most of the data we interact with on the web. Over the past few years, geographically tagged live and temporally-sensitive data streams have increased in importance but I think most geospatial data still starts as traditional data sources (rasters, vectors, terrain, etc.) that pass through a desktop for analysis, processing, and styling before moving on to the web. Esri, for example, still features its desktop tools as prominent parts of its web publishing workflow and <a href="http://boundlessgeo.com/">Boundless</a> is working on a <a href="https://github.com/boundlessgeo/suite-qgis-plugin">similar path for QGIS</a>.</p>
 
 <!--more-->
 
 
-<p>I'll start with three blogs:</p>
+<p>The announcement of a Google Maps Engine connector for both <a href="https://github.com/googlemaps/mapsengine-arcgis-connector">ArcGIS</a> and <a href="https://github.com/googlemaps/mapsengine-qgis-connector">QGIS</a> is yet another example of the continued importance of the desktop in the GIS world. Simply put, the chances of a user choosing your platform increases if you can cut to the front of the line and present yourself in their desktop environment. <a href="http://blogs.esri.com/esri/arcgis/2013/10/22/googles-arcgis-toolbar-for-the-cloud/">Andrew Turner did a nice summary of many such integration efforts</a> involving ArcGIS Desktop, although the post fails to mention <a href="http://www.arc2earth.com">Arc2Earth</a>, which I consider the most comprehensive extension of its kind on the market. His discussion tracks with my personal experience in recent years. My most public activities have been <a href="https://code.google.com/p/ziggis/">zigGIS</a>, the <a href="http://blog.dc.esri.com/2010/11/22/toolbars-for-geocommons-and-geoiq/">GeoCommons toolbars</a> (thanks for the mention, Andrew), and the <a href="http://www.weogeo.com">WeoGeo</a> toolbar. I've also built a couple of others for organizations that wanted to get their data products in front of ArcGIS users easily and I am currently working on a live feed extension for a government user. The reality is that I've done more desktop development in the last three years than I had done in the preceding ten.</p>
 
-<p><a href="http://underdark.wordpress.com/" target="_blank">Anita Graser</a> (<a href="http://twitter.com/underdarkgis" target="_blank">@underdarkgis</a>)</p>
-
-<p><a href="http://woostuff.wordpress.com/" target="_blank">Nathan Woodrow</a> (<a href="http://twitter.com/madmanwoo" target="_blank">@madmanwoo</a>)</p>
-
-<p><a href="http://mapbox.com/blog/" target="_blank">The MapBox Blog</a> (<a href="http://twitter.com/mapbox" target="_blank">@mapbox</a>)</p>
-
-<p>The MapBox blog takes some explaining. It is primarily about how to be productive with MapBox, but some posts deal with using QGIS in your workflows. Those posts have some good information. All of these blogs have been helpful to me over the last couple of months.</p>
-
-<p>Outside of that, I set up a Google Alert for QGIS which feeds me all kinds of things: posts from other blogs, mailing entries, StackExchange questions, and so on. To make that easy, I ran the feed from that alert through <a href="http://ifttt.com/" target="_blank">ifttt.com</a> and have it posting to a Twitter account: (<a href="http://twitter.com/QGISInfo" target="_blank">@QGISInfo</a>). Feel free to check it out. Keep in mind that it's based on a Google search so odd results may creep in from time to time. I've been running the alert for a few weeks and it's been pretty clean. The Twitter feed is new and will be sparse until a few refresh cycles happen. Think of it as a poor man's "Planet QGIS." I hope you find it useful.</p>
+<p>Andrew's point at the end of his post about Esri's extensibility through various means is quite true. As much as developers love to complain about ArcGIS Desktop and ArcObjects (myself included), I have yet to find a data source that I couldn't integrate using those tools. As I dig into the APIs behind QGIS, I am finding the same to be true there. Despite the tendency to downplay desktop GIS tools these days, I see them continuing to play a significant, if quiet, role in defining how we interact with maps and geospatial data across all platforms for the foreseeable future.</p>
 ]]></content>
   </entry>
   
