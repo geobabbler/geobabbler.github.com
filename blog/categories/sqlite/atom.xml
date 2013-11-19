@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: SQLite | geoMusings]]></title>
+  <title><![CDATA[Category: sqlite | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/sqlite/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-11-10T18:17:47-05:00</updated>
+  <updated>2013-11-19T09:33:36-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,58 +14,568 @@
 
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite and ArcGIS 10.2]]></title>
-    <link href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/"/>
-    <updated>2013-08-07T12:35:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2</id>
-    <content type="html"><![CDATA[<p>With the release of ArcGIS 10.2, <a href="http://www.esri.com">Esri</a> quietly added support for <a href="https://sqlite.org/">SQLite</a> as a geodatabase container. This is big news as the community has been looking for such support for some time. An open-source RDBMS originally designed for embedded systems, SQLite has a very small footprint and is <a href="https://www.sqlite.org/mostdeployed.html">arguably the most widely deployed RDBMS</a> in the world. (Thanks, in part, to the fact that it is embedded into Adobe Reader and other commonly used software.) Over the years numerous strategies for storing spatial data in SQLite have been developed, ranging from simply storing <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT or WKB</a> geometries in a column up to full extensions like <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>, which adds OGC-compliant data types and methods. SQLite is also the engine that drives the popular <a href="http://www.mapbox.com/developers/mbtiles/">MBTiles</a> implementation used by <a href="http://www.mapbox.com/tilemill/">TileMill</a> and <a href="http://www.mapbox.com">MapBox</a>.</p>
+    <title type="html"><![CDATA[2011 TIGER Boundary Files in SpatiaLite Format]]></title>
+    <link href="http://blog.geomusings.com/2012/04/02/2011-tiger-boundary-files-in-spatialite-format/"/>
+    <updated>2012-04-02T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/04/02/2011-tiger-boundary-files-in-spatialite-format</id>
+    <content type="html"><![CDATA[<p>Over on the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Google Group</a>, <a href="http://www.stineconsulting.com/">Stine Consulting</a> announced the availability of <a href="http://www.stineconsulting.com/GIS%20Resources.php">2011 TIGER Boundary files</a> in <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a> format.</p>
 
-<!--more-->
+<p>Despite initial enthusiasm, mainstream uptake of SpatiaLite has been slow but I think that's about to change. Large organizations, such as the US Army, are showing a much more serious interest in SpatiaLite as they expand their use of mobile and hand-held platforms.</p>
 
-
-<p><a href="http://resources.arcgis.com/en/help/main/10.2/index.html#//019v0000001w000000">According to the documentation</a>, ArcGIS supports the use of either Esri's ST_GEOMETRY or SpatiaLite data types for geometry storage. This is consistent with Esri's approach on other RDBMS platforms such as <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.oracle.com">Oracle</a>. While SpatiaLite has been supported by platforms such as <a href="http://qgis.org/">QGIS</a>, I can't say I've seen a huge demand for data in SpatiaLite format. I have been using it for a while in some of <a href="http://www.zekiah.com">my company's</a> data modeling work as we have a Federal customer that has a documented requirement for generation of physical models in SpatiaLite, among other platforms. We have also taken the step of supporting SQLite as a container for our <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">platform independent model (PIM) approach</a> for configuration management of logical geospatial data models.</p>
-
-<p>Esri's new support of SpatiaLite, combined with my existing customer requirements, obviously sparked my interest so I was curious to kick the tires. Unfortunately, I also had the situation that my development environment for the PIM tools, due to current customer constraints, must remain at ArcGIS 10.1 for both the desktop software and the underlying ArcObjects libraries. I have not been able to carve out the time to build a 10.2 VM.</p>
-
-<p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
-
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/billdollins">@billdollins</a> <a href="https://twitter.com/FatherSandman">@FatherSandman</a> Score! Looks like we&#39;ve confirmed ArcGIS 10.2, QGIS 1.9.0, and SpatiaLite-GUI 1.7.1 are compatible.</p>&mdash; Bryan McBride (@brymcbride) <a href="https://twitter.com/brymcbride/statuses/365103999671738369">August 7, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
-
-<p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
-
-<ol>
-<li>A SpatiaLite database created in ArcGIS 10.2 can be accessed and viewed in QGIS 1.9.0 and SpatiaLite GUI 1.7.1</li>
-<li>A SpatiaLite database created in QGIS 1.9.0 can be accessed in ArcGIS 10.2</li>
-</ol>
-
-
-<p>Obviously, some more rigorous tests need to be performed but the initial results are promising. I'm curious to explore the boundaries, in ArcGIS terms, between a SQLite geodatabase and a file geodatabase. It remains to be seen whether this will put a dent in the use of file geodatabases. If it happens at all, I think it will take time since SQLite is not on the radar of the vast majority of ArcGIS users. I would hope, at a minimum, it puts a final stake through the heart of the personal geodatabase. It could also drive explicit accreditation of SQLite/SpatiaLite tools on government systems, which would be nice.</p>
-
-<p>I'm happy, and somewhat pleasantly surprised, to see Esri take this step and provide another open option for data exchange.</p>
-
-<p>Now, about GeoJSON...</p>
+<p>I expect that increased availability of data in native SpatiaLite databases will also help adoption. So if you need US boundaries data, check out this offering from Stine Consulting. And, if you're looking for more data for use in SpatiaLite, don't forget that you can download any dataset available on <a href="http://www.geocommons.com">GeoCommons</a> as a SpatiaLite database.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Breaking Radio Silence]]></title>
-    <link href="http://blog.geomusings.com/2012/06/07/breaking-radio-silence/"/>
-    <updated>2012-06-07T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/06/07/breaking-radio-silence</id>
-    <content type="html"><![CDATA[<p>Things have been kind of quiet on the blog lately due to things being busy at work. I call that a good problem to have. Since the beginning of the year, I've written a a lot of proposals for a mixture of potential customers. Interestingly, I'm seeing a lot more call for "GIS Analyst" work. One trend I've noticed, at least in the Federal sector, is that the time between proposal due dates and award announcements seems to be lengthening. That may be an indication of the ongoing flux in funding and organizations try to figure out how to fund their requirements. It will be interesting to see how it shakes out. Of course, it's good that the opportunities are there in the first place.</p>
+    <title type="html"><![CDATA[SpatiaLite 3.0 Beta Is Available]]></title>
+    <link href="http://blog.geomusings.com/2011/08/19/spatialite-3.0-beta-is-available/"/>
+    <updated>2011-08-19T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/19/spatialite-3.0-beta-is-available</id>
+    <content type="html"><![CDATA[<p>Alessandro Furieri announced the availability of the beta of SpatiaLite 3.0.0 on 17 August. It can be downloaded here: <a href="http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html">http://www.gaia-gis.it/spatialite-3.0.0-BETA/index.html</a>.</p>
 
-<p><a href="http://geobabble.files.wordpress.com/2012/06/microphone.jpg"><img alt="" class="aligncenter size-full wp-image-2664" height="413" src="http://geobabble.files.wordpress.com/2012/06/microphone.jpg" title="microphone" width="413" /></a></p>
+<p>Some of the more interesting additions include additional support for topology and the ability to export <a href="http://geojson.org">GeoJSON</a>.</p>
 
-<p>One the technical side of things, I've been involved in a smattering of things that's made it hard to roll up one good post. I'm pretty heavily involved in the PIM efforts that my colleague, Barry Schimpf, <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">has been blogging about</a> over on the <a href="http://www.zekiah.com" target="_blank">Zekiah</a> blog. <!--more--> Historically, the PIM data structures have been housed in Microsoft SQL Server, but we've been working on porting it to other platforms to provide options to end users. We've done an initial port to <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> but we've been spending most of our time on a <a href="http://www.sqlite.org/" target="_blank">SQLite</a>/<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> version. This has taken two forms. First is the port of the PIM structure itself to SQLite to make it easier to provide some of the PIM services such as profiling, version-to-version migrations, dataset generation, and validation in remote, field-based settings. Second is the generation/validation of physical implementations in SpatiaLite. This is being done for a customer who is expecting to do field data collection using SpatiaLite and these services will be helpful in enhancing data quality at the point of collection. Additionally, the SpatiaLite aspect of this work has had me living within <a href="http://qgis.org/" target="_blank">QGIS</a> lately.</p>
+<p>I did a <strong>very</strong> quick test with QGIS 1.7.0 and was able to directly access and edit a table in a database I created with SpatiaLite 3.0.0 so that's initially promising.</p>
 
-<p>Another thing I've been experimenting with is the use of <a href="http://nodejs.org/" target="_blank">Node.js</a> for real-time data processing. Our long-standing work in the situational awareness realm has had us working with real-time data feeds for a long time. I'm interested in the possibility of using Node to tackle some of the feed collection tasks. I've used an event-driven approach for such tasks in the past so that aspect of Node is quite familiar to me but the use of Javascript, its ease of deployment and potential scalability are intriguing to me. I'm coming late to the party with Node, primarily due to my rustiness with Javascript, but I'm liking what I'm seeing so far.</p>
+<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png"><img alt="" height="160" src="http://geobabble.files.wordpress.com/2011/08/qgis_spatiallite3.png?w=300" title="Accessing SpatiaLite 3.0.0 in QGIS" width="300" /></a><div style="text-align:center;font-size: 14px;">The extra island off the coast of Canada was edited in with QGIS.<br/><br/></div></div>
 
-<p>Beyond those major things, I've had the opportunity to start working with <a href="http://postgis.org/" target="_blank">PostGIS</a> 2.0 and play more with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://mapbox.com/" target="_blank">MapBox</a>. On the development side of things, these efforts have had be jumping back and forth a lot between C#, Javascript and a little bit of Python, as well as between Windows and Linux, depending on the task.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite Provider Now In SharpMap Repository]]></title>
+    <link href="http://blog.geomusings.com/2010/02/01/spatialite-provider-now-in-sharpmap-repository/"/>
+    <updated>2010-02-01T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2010/02/01/spatialite-provider-now-in-sharpmap-repository</id>
+    <content type="html"><![CDATA[<p>I got a surprise e-mail from <a href="http://www.codeplex.com/site/users/view/FObermaier">Felix</a> today letting me know that the <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a> <a href="http://geobabble.wordpress.com/2009/04/11/spatialite-provider-code-for-sharpmap-09/">provider I posted some time ago</a>, along with <a href="http://">Kev's great spatial index work</a>, has been included in the <a href="http://sharpmap.codeplex.com">SharpMap</a> repository. If you're looking for one place to pick them up, now you've got it.</p>
 
-<p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
+<p>If you haven't checked out SharpMap or SpatiaLite, I highly recommend both.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite Provider Code for SharpMap 0.9]]></title>
+    <link href="http://blog.geomusings.com/2009/04/11/spatialite-provider-code-for-sharpmap-0-9/"/>
+    <updated>2009-04-11T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2009/04/11/spatialite-provider-code-for-sharpmap-0-9</id>
+    <content type="html"><![CDATA[<p>I mentioned in an <a href="http://geobabble.wordpress.com/2008/12/30/odds-and-ends-spatialite-and-stuff/">earlier post</a> that I was working on building a <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a> data provider for <a href="http://www.codeplex.com/sharpmap">SharpMap</a> 0.9. That effort was mainly a learning exercise for me as work has already begun on one for SharpMap 2.0. I am making the source code available below. I have unit tested it (thanks <a href="http://www.gallio.org/">mbUnit3 and Gallio</a>) so it should be pretty solid.<!--more--></p>
 
-<p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
+<p>I started developing it against SpatiaLite 2.2 and finished working with 2.3 but I only tested it against 2.3. It is written in C#. It is also dependent on the <a href="http://sqlite.phxsoftware.com/">System.Data.SQLite</a> OLEDB provider.</p>
+
+<p>I will probably leave off with this for a bit now. There has been a lot of talk about using SpatiaLite as a transfer format for sharing data in sneaker-net or quasi-sneaker-net. In order to push that a little farther along, I plan to turn my attention to building an exporter/importer tool for use in <a href="http://www.esri.com/software/arcgis/">ArcGIS</a>. My thought is to be able to export an ArcGIS feature class to SpatiaLite and import one back in from it. I wrote a similar tool for <a href="http://postgis.refractions.net">PostGIS</a> a while back but the code is ugly and builds an intermediary SQL file. This give me a chance to clean that up. That won't help with being able to read a SpatiaLite table in ArcGIS and have it behave like a feature class but I think we'll get around to that sooner than later. I have no timetable for that effort since client work comes first but I'll post it when it's done.</p>
+
+<p>Have fun!</p>
+
+<p>{% codeblock lang:csharp %}
+// Copyright 2009 - William Dollins
+//
+// This file is part of SharpMap.
+// SharpMap is free software; you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation; either version 2 of the License, or
+// (at your option) any later version.
+//
+// SharpMap is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.</p>
+
+<p>// You should have received a copy of the GNU Lesser General Public License
+// along with SharpMap; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</p>
+
+<p>using SharpMap;
+using System.Data.SQLite;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text;
+using System.Data;
+using SharpMap.Data;
+using SharpMap.Data.Providers;
+using SharpMap.Converters.WellKnownBinary;</p>
+
+<p>namespace SharpMap.Data.Providers
+{</p>
+
+<pre><code>public class SpatiaLite : IProvider, IDisposable
+{
+    //string conStr = "Data Source=C:\\Workspace\\test.sqlite;Version=3;";
+    public SpatiaLite(string ConnectionStr, string tablename, string geometryColumnName, string OID_ColumnName)
+    {
+        //Object retVal = new SQLiteCommand("SELECT load_extension('libspatialite-2.dll');", new SQLiteConnection(ConnectionStr)).ExecuteScalar();
+        this.ConnectionString = ConnectionStr;
+        this.Table = tablename;
+        this.GeometryColumn = geometryColumnName; //Name of column to store geometry
+        this.ObjectIdColumn = OID_ColumnName; //Name of object ID column
+    }
+
+    #region IProvider Members
+
+    public System.Collections.ObjectModel.Collection GetGeometriesInView(SharpMap.Geometries.BoundingBox bbox)
+    {
+        Collection features = new Collection();
+        using (SQLiteConnection conn = new SQLiteConnection(_ConnectionString))
+        {
+            //conn.Open();
+            //Object retVal = new SQLiteCommand("SELECT load_extension('libspatialite-2.dll');", conn).ExecuteScalar();
+            string BoxIntersect = GetBoxClause(bbox);
+
+            string strSQL = "SELECT AsBinary(" + this.GeometryColumn + ") AS Geom ";
+            strSQL += "FROM " + this.Table + " WHERE ";
+            strSQL += BoxIntersect;
+            if (!String.IsNullOrEmpty(_defintionQuery))
+                strSQL += " AND " + this.DefinitionQuery;
+
+            using (SQLiteCommand command = new SQLiteCommand(strSQL, conn))
+            {
+                conn.Open();
+                Object retVal = new SQLiteCommand("SELECT load_extension('libspatialite-2.dll');", conn).ExecuteScalar();
+                using (SQLiteDataReader dr = command.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        if (dr[0] != DBNull.Value)
+                        {
+                            SharpMap.Geometries.Geometry geom = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse((byte[])dr[0]);
+                            if (geom != null)
+                                features.Add(geom);
+                        }
+                    }
+                }
+                conn.Close();
+            }
+        }
+        return features;
+    }
+
+    public System.Collections.ObjectModel.Collection GetObjectIDsInView(SharpMap.Geometries.BoundingBox bbox)
+    {
+        Collection objectlist = new Collection();
+        using (SQLiteConnection conn = new SQLiteConnection(_ConnectionString))
+        {
+            string strSQL = "SELECT " + this.ObjectIdColumn + " ";
+            strSQL += "FROM " + this.Table + " WHERE ";
+
+            strSQL += GetBoxClause(bbox);
+
+            if (!String.IsNullOrEmpty(_defintionQuery))
+                strSQL += " AND " + this.DefinitionQuery + " AND ";
+
+            using (SQLiteCommand command = new SQLiteCommand(strSQL, conn))
+            {
+                conn.Open();
+                Object retVal = new SQLiteCommand("SELECT load_extension('libspatialite-2.dll');", conn).ExecuteScalar();
+                using (SQLiteDataReader dr = command.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        if (dr[0] != DBNull.Value)
+                        {
+                            uint ID = Convert.ToUInt32(dr[0]);
+                            objectlist.Add(ID);
+                        }
+                    }
+                }
+                conn.Close();
+            }
+        }
+        return objectlist;
+    }
+
+    public SharpMap.Geometries.Geometry GetGeometryByID(uint oid)
+    {
+        SharpMap.Geometries.Geometry geom = null;
+        using (SQLiteConnection conn = new SQLiteConnection(_ConnectionString))
+        {
+
+            string strSQL = "SELECT AsBinary(" + this.GeometryColumn + ") AS Geom FROM " + this.Table + " WHERE " + this.ObjectIdColumn + "='" + oid.ToString() + "'";
+            conn.Open();
+            Object retVal = new SQLiteCommand("SELECT load_extension('libspatialite-2.dll');", conn).ExecuteScalar();
+            using (SQLiteCommand command = new SQLiteCommand(strSQL, conn))
+            {
+                using (SQLiteDataReader dr = command.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        if (dr[0] != DBNull.Value)
+                        {
+                            //byte[] b = dr[0] as byte[];
+                            geom = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse((byte[])dr[0]);
+                        }
+                    }
+                }
+            }
+            conn.Close();
+        }
+        return geom;
+    }
+
+    public void ExecuteIntersectionQuery(SharpMap.Geometries.Geometry geom, FeatureDataSet ds)
+    {
+        using (SQLiteConnection conn = new SQLiteConnection(_ConnectionString))
+        {
+
+            string strSQL = "SELECT *, AsBinary(" + this.GeometryColumn + ") AS sharpmap_tempgeometry ";
+            strSQL += "FROM " + this.Table + " WHERE ";
+            strSQL += GetOverlapsClause(geom);
+
+            if (!String.IsNullOrEmpty(_defintionQuery))
+                strSQL += " AND " + this.DefinitionQuery;
+
+            using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(strSQL, conn))
+            {
+                conn.Open();
+                Object retVal = new SQLiteCommand("SELECT load_extension('libspatialite-2.dll');", conn).ExecuteScalar();
+                System.Data.DataSet ds2 = new System.Data.DataSet();
+                adapter.Fill(ds2);
+                conn.Close();
+                if (ds2.Tables.Count &gt; 0)
+                {
+                    FeatureDataTable fdt = new FeatureDataTable(ds2.Tables[0]);
+                    foreach (System.Data.DataColumn col in ds2.Tables[0].Columns)
+                        if (col.ColumnName != this.GeometryColumn &amp;&amp; col.ColumnName != "sharpmap_tempgeometry" &amp;&amp; !col.ColumnName.StartsWith("Envelope_"))
+                            fdt.Columns.Add(col.ColumnName, col.DataType, col.Expression);
+                    foreach (System.Data.DataRow dr in ds2.Tables[0].Rows)
+                    {
+                        SharpMap.Data.FeatureDataRow fdr = fdt.NewRow();
+                        foreach (System.Data.DataColumn col in ds2.Tables[0].Columns)
+                            if (col.ColumnName != this.GeometryColumn &amp;&amp; col.ColumnName != "sharpmap_tempgeometry" &amp;&amp; !col.ColumnName.StartsWith("Envelope_"))
+                                fdr[col.ColumnName] = dr[col];
+                        if (dr["sharpmap_tempgeometry"] != DBNull.Value)
+                            fdr.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse((byte[])dr["sharpmap_tempgeometry"]);
+                        fdt.AddRow(fdr);
+                    }
+                    ds.Tables.Add(fdt);
+                }
+            }
+        }
+    }
+    public void ExecuteIntersectionQuery(SharpMap.Geometries.BoundingBox box, FeatureDataSet ds)
+    {
+        using (SQLiteConnection conn = new SQLiteConnection(_ConnectionString))
+        {
+
+            string strSQL = "SELECT *, AsBinary(" + this.GeometryColumn + ") AS sharpmap_tempgeometry ";
+            strSQL += "FROM " + this.Table + " WHERE ";
+            strSQL += GetBoxClause(box);
+
+            if (!String.IsNullOrEmpty(_defintionQuery))
+                strSQL += " AND " + this.DefinitionQuery;
+
+            using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(strSQL, conn))
+            {
+                conn.Open();
+                Object retVal = new SQLiteCommand("SELECT load_extension('libspatialite-2.dll');", conn).ExecuteScalar();
+                System.Data.DataSet ds2 = new System.Data.DataSet();
+                adapter.Fill(ds2);
+                conn.Close();
+                if (ds2.Tables.Count &gt; 0)
+                {
+                    FeatureDataTable fdt = new FeatureDataTable(ds2.Tables[0]);
+                    foreach (System.Data.DataColumn col in ds2.Tables[0].Columns)
+                        if (col.ColumnName != this.GeometryColumn &amp;&amp; col.ColumnName != "sharpmap_tempgeometry" &amp;&amp; !col.ColumnName.StartsWith("Envelope_"))
+                            fdt.Columns.Add(col.ColumnName, col.DataType, col.Expression);
+                    foreach (System.Data.DataRow dr in ds2.Tables[0].Rows)
+                    {
+                        SharpMap.Data.FeatureDataRow fdr = fdt.NewRow();
+                        foreach (System.Data.DataColumn col in ds2.Tables[0].Columns)
+                            if (col.ColumnName != this.GeometryColumn &amp;&amp; col.ColumnName != "sharpmap_tempgeometry" &amp;&amp; !col.ColumnName.StartsWith("Envelope_"))
+                                fdr[col.ColumnName] = dr[col];
+                        if (dr["sharpmap_tempgeometry"] != DBNull.Value)
+                            fdr.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse((byte[])dr["sharpmap_tempgeometry"]);
+                        fdt.AddRow(fdr);
+                    }
+                    ds.Tables.Add(fdt);
+                }
+            }
+        }
+    }
+
+    public int GetFeatureCount()
+    {
+        int count = 0;
+        using (SQLiteConnection conn = new SQLiteConnection(_ConnectionString))
+        {
+
+            string strSQL = "SELECT COUNT(*) as numrecs FROM " + this.Table;
+            if (!String.IsNullOrEmpty(_defintionQuery))
+                strSQL += " WHERE " + this.DefinitionQuery;
+            using (SQLiteCommand command = new SQLiteCommand(strSQL, conn))
+            {
+                conn.Open();
+                SQLiteDataReader dtr = command.ExecuteReader();
+                if (dtr["numrecs"] != null)
+                {
+                    count = Convert.ToInt32(dtr["numrecs"]); // (int)command.ExecuteScalar();
+                }
+                else
+                {
+                    count = -1;
+                }
+                    conn.Close();
+            }
+        }
+        return count;
+    }
+
+    public FeatureDataRow GetFeature(uint RowID)
+    {
+        using (SQLiteConnection conn = new SQLiteConnection(_ConnectionString))
+        {
+
+            string strSQL = "SELECT *, AsBinary(" + this.GeometryColumn + ") AS sharpmap_tempgeometry FROM " + this.Table + " WHERE " + this.ObjectIdColumn + "='" + RowID.ToString() + "'";
+            using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(strSQL, conn))
+            {
+                DataSet ds = new DataSet();
+                conn.Open();
+                Object retVal = new SQLiteCommand("SELECT load_extension('libspatialite-2.dll');", conn).ExecuteScalar();
+                adapter.Fill(ds);
+                conn.Close();
+                if (ds.Tables.Count &gt; 0)
+                {
+                    FeatureDataTable fdt = new FeatureDataTable(ds.Tables[0]);
+                    foreach (System.Data.DataColumn col in ds.Tables[0].Columns)
+                        if (col.ColumnName != this.GeometryColumn &amp;&amp; col.ColumnName != "sharpmap_tempgeometry" &amp;&amp; !col.ColumnName.StartsWith("Envelope_"))
+                            fdt.Columns.Add(col.ColumnName, col.DataType, col.Expression);
+                    if (ds.Tables[0].Rows.Count &gt; 0)
+                    {
+                        System.Data.DataRow dr = ds.Tables[0].Rows[0];
+                        SharpMap.Data.FeatureDataRow fdr = fdt.NewRow();
+                        foreach (System.Data.DataColumn col in ds.Tables[0].Columns)
+                            if (col.ColumnName != this.GeometryColumn &amp;&amp; col.ColumnName != "sharpmap_tempgeometry" &amp;&amp; !col.ColumnName.StartsWith("Envelope_"))
+                                fdr[col.ColumnName] = dr[col];
+                        if (dr["sharpmap_tempgeometry"] != DBNull.Value)
+                            fdr.Geometry = SharpMap.Converters.WellKnownBinary.GeometryFromWKB.Parse((byte[])dr["sharpmap_tempgeometry"]);
+                        return fdr;
+                    }
+                    else
+                        return null;
+
+                }
+                else
+                    return null;
+            }
+        }
+    }
+
+    public SharpMap.Geometries.BoundingBox GetExtents()
+    {
+        //TODO: Update GetExtents
+        SharpMap.Geometries.BoundingBox box = null;
+        using (SQLiteConnection conn = new SQLiteConnection(_ConnectionString))
+        {
+
+            //string strSQL = "SELECT Min(minx) AS MinX, Min(miny) AS MinY, Max(maxx) AS MaxX, Max(maxy) AS MaxY FROM " + this.Table;
+            string strSQL = string.Format("SELECT max(MbrMaxY({0})) as maxy, max(MbrMaxX({0})) as maxx, min(MbrMinY({0})) as miny, min(MbrMinX({0})) as minx from {1};", _GeometryColumn, _Table);
+            if (!String.IsNullOrEmpty(_defintionQuery))
+                strSQL += " WHERE " + this.DefinitionQuery;
+            using (SQLiteCommand command = new SQLiteCommand(strSQL, conn))
+            {
+                conn.Open();
+                Object retVal = new SQLiteCommand("SELECT load_extension('libspatialite-2.dll');", conn).ExecuteScalar();
+                using (SQLiteDataReader dr = command.ExecuteReader())
+                    if (dr.Read())
+                    {
+                        box = new SharpMap.Geometries.BoundingBox((double)dr["minx"], (double)dr["miny"], (double)dr["maxx"], (double)dr["maxy"]);
+                    }
+                conn.Close();
+            }
+            return box;
+        }
+    }
+
+    public string ConnectionID
+    {
+        get { return _ConnectionString; }
+    }
+
+    private bool _IsOpen;
+
+    /// 
+    /// Returns true if the datasource is currently open
+    /// 
+    public bool IsOpen
+    {
+        get { return _IsOpen; }
+    }
+
+    /// 
+    /// Opens the datasource
+    /// 
+    public void Open()
+    {
+        //Don't really do anything. mssql's ConnectionPooling takes over here
+        _IsOpen = true;
+    }
+    /// 
+    /// Closes the datasource
+    /// 
+    public void Close()
+    {
+        //Don't really do anything. mssql's ConnectionPooling takes over here
+        _IsOpen = false;
+    }
+
+    private int _srid = -2;
+
+    /// 
+    /// Spatial Reference ID
+    /// 
+    public int SRID
+    {
+        get { return _srid; }
+        set { _srid = value; }
+    }
+
+    #endregion
+
+    #region IDisposable Members
+
+    public void Dispose()
+    {
+        this.Dispose();
+        GC.SuppressFinalize(this);
+    }
+
+    //internal void Dispose(bool disposing)
+    //{
+    //    if (!disposed)
+    //    {
+    //        if (disposing)
+    //        {
+    //            //Close();
+    //        }
+    //        disposed = true;
+    //    }
+    //}
+    #endregion
+
+    #region Native Members
+
+    private string _ConnectionString;
+
+    /// 
+    /// Connectionstring
+    /// 
+    public string ConnectionString
+    {
+        get { return _ConnectionString; }
+        set { _ConnectionString = value; }
+    }
+
+    private string _Table;
+
+    /// 
+    /// Data table name
+    /// 
+    public string Table
+    {
+        get { return _Table; }
+        set { _Table = value; }
+    }
+
+    private string _GeometryColumn;
+
+    /// 
+    /// Name of geometry column
+    /// 
+    public string GeometryColumn
+    {
+        get { return _GeometryColumn; }
+        set { _GeometryColumn = value; }
+    }
+
+    private string _ObjectIdColumn;
+
+    /// 
+    /// Name of column that contains the Object ID
+    /// 
+    public string ObjectIdColumn
+    {
+        get { return _ObjectIdColumn; }
+        set { _ObjectIdColumn = value; }
+    }
+
+    private string GetBoxClause(SharpMap.Geometries.BoundingBox bbox)
+    {
+        //TODO:: make a diagonal line from bbox and convert to WKT. MBR of line will be identical to bbox.
+        string wkt = SharpMap.Converters.WellKnownText.GeometryToWKT.Write(LineFromBbox(bbox));
+        string retval = "MBRIntersects(GeomFromText('" + wkt + "')," + _GeometryColumn + ")=1";
+        return retval;
+        //return String.Format(SharpMap.Map.numberFormat_EnUS,
+        //    "(minx &lt; {0} AND maxx &gt; {1} AND miny &lt; {2} AND maxy &gt; {3})",
+        //    bbox.Max.X, bbox.Min.X, bbox.Max.Y, bbox.Min.Y);
+    }
+
+    private SharpMap.Geometries.IGeometry LineFromBbox(SharpMap.Geometries.BoundingBox bbox)
+    {
+        Collection PointColl = new Collection();
+        PointColl.Add(bbox.Min);
+        PointColl.Add(bbox.Max);
+
+        return (SharpMap.Geometries.IGeometry)new SharpMap.Geometries.LineString(PointColl);
+    }
+
+    public string GetOverlapsClause(SharpMap.Geometries.Geometry geom)
+    {
+        string wkt = SharpMap.Converters.WellKnownText.GeometryToWKT.Write((SharpMap.Geometries.IGeometry)geom);
+        string retval = "Intersects(GeomFromText('" + wkt + "')," + _GeometryColumn + ")=1";
+        return retval;
+        //return String.Format(SharpMap.Map.numberFormat_EnUS,
+        //    "(minx &lt; {0} AND maxx &gt; {1} AND miny &lt; {2} AND maxy &gt; {3})",
+        //    bbox.Max.X, bbox.Min.X, bbox.Max.Y, bbox.Min.Y);
+    }
+
+    private string _defintionQuery;
+
+    /// 
+    /// Definition query used for limiting dataset
+    /// 
+    public string DefinitionQuery
+    {
+        get { return _defintionQuery; }
+        set { _defintionQuery = value; }
+    }
+</code></pre>
+
+<h1>endregion</h1>
+
+<pre><code>}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite 2.3.0 Released]]></title>
+    <link href="http://blog.geomusings.com/2009/04/07/spatialite-2-3-0-released/"/>
+    <updated>2009-04-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2009/04/07/spatialite-2-3-0-released</id>
+    <content type="html"><![CDATA[<p>Alessandro has been very busy lately. He announced, via the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Google Group</a>, the release of version 2.3.0. The new features include (from the announcement):</p>
+
+<blockquote>
+- supporting Routing [VirtualNetwork]
+- supporting EXIF GPS pictures
+- compatibility support for FDO/OGR RFC16 [VirtualFDO]
+- intensive and generalize debugging
+- AMALGAMATION: all the stuff put in a single source, as SQLite already does a complete SpatialDBMS engine in just 2 (two) C sources
+- clear separation between the LIB and the TOOLs
+- libspatialite-2.3.0 now includes libsqlite; linking a single library allow to support a full SpatialDBMS engine [some 800KB required]
+- now builds on M$ Visual Studio .NET as well
+========================================================
+enhanced GUI-tool:
+- color SQL syntax
+- full DB self-initialization during creation
+  [using init_spatialite.sql is no longer required]
+- introducing MEMORY-DB ... try and see ...
+  ... never seen before something comparable ...
+</blockquote>
+
+
+<p>If you haven't checked out SpatiaLite, you really should. It's a very unique and useful tool.</p>
 ]]></content>
   </entry>
   

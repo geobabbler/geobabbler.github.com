@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PostGIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/postgis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-11-10T18:17:47-05:00</updated>
+  <updated>2013-11-19T09:33:36-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GIS Day After]]></title>
+    <link href="http://blog.geomusings.com/2013/11/19/gis-day-after/"/>
+    <updated>2013-11-19T09:13:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/11/19/gis-day-after</id>
+    <content type="html"><![CDATA[<p>It's the morning of November 21st, but not for long. You open one eye. Just one; it's best not to rush such things. Apparently, you finally came to rest in the ball pit you all made using the squishy globes from myriad conferences past. A cursory scan tells you the GIS lab is trashed. It starts to come back to you: the rousing game of "Pin the Certificate on the Khakis." Yes, there are your pleated khakis on the wall with everyone's training and GISP certificates stuck on or around them with pushpins. Someone won in what would have been a most painful way if the khakis had been on your body. The loin cloth fashioned from the old hard-copy topos (which you are still wearing). The fact that you let the intern talk you into finally opening a Twitter account and your glee at discovering you could attach photos to geocoded tweets with your BlackBerry.</p>
+
+<p>You look around the room at your coworkers strewn across the floor. There's the ArcObjects guy still sporting his "war paint" from the plotter toner. There's your lead analyst with a face tattoo of the town's land-use drawn in marker and, she proudly insisted, accurately projected in state plane. Slowly, you are able to account for everyone on your GIS staff. Good, no one has gone missing...except the intern.</p>
+
+<p>The door opens and you turn to see the intern standing there in all of her college-kid resilience, letting in far too much sunlight for your comfort. You're not sure it's possible to hate anyone more in this moment.</p>
+
+<p>"Oh, good," she says, "you're awake. Are you going to do the hangout?"</p>
+
+<p>"Hangout?" you mumble.</p>
+
+<p>"Yeah, <a href="http://www.spatiallyadjusted.com/2013/11/18/postgis-day-special-hangout-this-week/">James Fee is doing a PostGIS Day hangout with a panel of experts on PostGIS</a>. I told you about this. I told you about <a href="http://postgis.org">PostGIS</a>. Don't you remember? It starts in about an hour."</p>
+
+<p>It does sound familiar. You give it some thought. What better way to shake off the cobwebs from the bacchanalia of the "BEST GIS DAY EVAR!!!" (so says the hand-lettered Sharpie on the lab's wall) than a little geo-hair-of-the-dog? Maybe it's time to finally pay attention to this open-source stuff. You look around to survey the damage one more time. Besides, ditching the Oracle license might just about pay for this.</p>
+
+<p>"Yeah," you reply, "I'll be there in five minutes. Close the door, please."</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Open-Source GIS Bootcamp at Salisbury University]]></title>
@@ -101,32 +124,6 @@
 
 
 <p>I achieved similar success with a clip operation so I'm sufficiently confident in trying to package the plug-in up and put it in the hands of some of the analysts with whom I work. All-in-all, the plug-in is a nice piece of work. It's still not fully baked but it's a very solid start and deserves a closer look if you're looking to expand the reach of your ArcGIS investment.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
-    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
-    <updated>2012-11-27T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
-    <content type="html"><![CDATA[<p>I'm happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It's been one of the more consistently valuable resources in the community since its inception and it's good that it will continue.</p>
-
-<p>While I'm looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called "venerable" nowadays, but it still does what it does very well.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
-
-<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you're not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It's become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
-
-<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
-
-<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
-
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Try this IFTTT Recipe: Log PostGIS Items from Planet Geospatial to Evernote. <a href="https://t.co/z5hOxPqH" title="https://ifttt.com/recipes/67215">ifttt.com/recipes/67215</a></p>&mdash; James Fee (@cageyjames) <a href="https://twitter.com/cageyjames/status/272025049526050816" data-datetime="2012-11-23T17:13:20+00:00">November 23, 2012</a></blockquote>
-<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
-
-<p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
-
-<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
 ]]></content>
   </entry>
   

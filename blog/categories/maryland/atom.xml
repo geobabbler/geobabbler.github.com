@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Maryland | geoMusings]]></title>
+  <title><![CDATA[Category: maryland | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/maryland/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-11-10T18:17:47-05:00</updated>
+  <updated>2013-11-19T09:33:36-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,64 +14,73 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Maryland Department of Planning Bundles Property Data with QGIS]]></title>
-    <link href="http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/"/>
-    <updated>2013-10-07T12:38:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis</id>
-    <content type="html"><![CDATA[<p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
+    <title type="html"><![CDATA[Prince George's County, Maryland Posts 3-D Planning Model Videos]]></title>
+    <link href="http://blog.geomusings.com/2012/06/21/prince-georges-county-maryland-posts-3-d-planning-model-videos/"/>
+    <updated>2012-06-21T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/21/prince-georges-county-maryland-posts-3-d-planning-model-videos</id>
+    <content type="html"><![CDATA[<p>A few days ago, <a href="http://twitter.com/#!/MichaelShean" target="_blank">Michael Shean</a> of the <a href="http://www.mncppc.org/Commission_Home.html" target="_blank">Maryland-National Capital Parks and Planning Commission</a> (M-NCPPC) announced the availability of videos of 3-D terrain models created to support Planning Board activities in <a href="http://maps.google.com/maps?hl=en&amp;cp=26&amp;gs_id=7&amp;xhr=t&amp;bav=on.2,or.r_gc.r_pw.r_qf.,cf.osb&amp;biw=1280&amp;bih=638&amp;ion=1&amp;q=prince+george's+county&amp;um=1&amp;ie=UTF-8&amp;hq=&amp;hnear=0x89b64bcdfea9f6a7:0x68f24b5f98fbb7fc,Prince+George's,+MD&amp;gl=us&amp;sa=X&amp;ei=1FzjT_H1Iq-t0AHasqikAw&amp;sqi=2&amp;ved=0CJABELYD" target="_blank">Prince George's County, Maryland</a>. The videos have been made available via Google+ here: <a href="https://plus.google.com/105701421300090504528/posts" target="_blank">https://plus.google.com/105701421300090504528/posts</a>.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2012/06/pgcounty.png"><img alt="" class="aligncenter size-medium wp-image-2703" height="187" src="http://geobabble.files.wordpress.com/2012/06/pgcounty.png?w=300" title="pgcounty" width="300" /></a></p>
 
 <!--more-->
 
 
-<p>From the MDP site, the bundled data includes:</p>
+<p>I followed up to inquire how the models were created. M-NCPPC analyst Chris Rotondo gave me the following information:</p>
 
-<blockquote cite="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">The product DVD includes the State's computerized property (tax) maps; the x,y linkages (point or polygon) to the Parcel, Computer Assisted Mass Appraisal (CAMA) and Sale datasets; Parcel, CAMA and Sale data, including Sale data via download from the Subscriber Website, from the Maryland State Department of Assessments and Taxation (SDAT); reference grids including a grid for the property (tax) maps, an ADC map book grid, a grid for the Maryland State Highway Administration (SHA) road, stream and feature maps and a grid for USGS 7.5' Topographical quad maps; and additional SHA files including a digital centerline roads file, data derived from SHA digital grid maps, an SHA major roads file and a county boundary file.<br/>
-<br/>
-Also included are land use/land cover data; congressional and legislative district boundary files; census geography and census demographic data; ZIP code boundary files; Priority Funding Area (PFA) designations; floodplain data, including DFIRM data for selected jurisdictions; protected lands boundaries; watershed data; generalized zoning designations; sewer service area boundaries; public water service area boundaries for selected jurisdictions; National Register of Historic Places (NRHP) Maryland coverage; residential Sales x,y point and summary files derived from SDAT Parcel and Sale data; large-scale, high resolution color digital-ortho imagery and a custom Quantum GIS project file (.qgs).</blockquote>
+<blockquote>"We build our 3D models in Google SketchUp, using measurements from the site plan images submitted by the developers. Their architectural elevation images are also the source for our model textures. The building model is then loaded into Google Earth Pro, where we complete the scene by adding simple models of adjacent 3D buildings (based on our LiDAR data) and landscaping. We use the video capture tool within Google Earth Pro to record a video showing all perspectives of the potential development, and the same video that is presented to the Prince George?s County Planning Board is the one available on our Google Plus website. We have also worked with ESRI ArcScene 10 to create more complex terrain models and perform 3D viewshed analysis."</blockquote>
 
 
-<p>The MDP site indicates there is a <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/CstFnd.pdf">licensing fee</a> (PDF), which I assume is to cover the management of the data sets and the <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/LicFnd.pdf">license agreement</a>, while acknowledging the GPL license of QGIS itself, seems to place the actual FINDER extension itself outide of any open-source license. (I am not a lawyer so I'll accept guidance on that interpretation.) That said, bundling QGIS with data that the statewide user community values and an application to help exploit it is a great way to get more users on board with QGIS.</p>
+<p>The use of <a href="http://www.google.com/earth/index.html" target="_blank">Google</a> (and/or <a href="http://sketchup.google.com/" target="_blank">Trimble</a>) and <a href="http://www.esri.com" target="_blank">Esri</a> tools in combination is a theme I see popping up more often in all levels of government. Many shops have long-standing Esri-based workflows but the power of Google for information dissemination and visualization is proving compelling. M-NCPPC does a good job here of making use of both to create good visualizations in support of their core mission. Additionally, I really like the use of a social media channel for dissemination and I'd love to learn more about what drove the decision to use <a href="http://plus.google.com" target="_blank">Google+</a> as opposed to some other channel. (I have no issues with Google+, but am curious what drivers affected the choice.)</p>
 
-<p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
-
-<p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
+<p>This is a great example of the kind work many local governments are doing every day with traditional as well as not-so-traditional geospatial tools. Kudos to the Planning Department GIS staff at M-NCPPC.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[The Best Thing I Saw at TUGIS 2013]]></title>
-    <link href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/"/>
-    <updated>2013-03-20T12:17:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013</id>
-    <content type="html"><![CDATA[<p>I spent the day yesterday at <a href="http://www.towson.edu/">Towson University</a> attending the <a href="http://www.towson.edu/tugis/">TUGIS 2013</a> conference. The new one-day format was a firehose that showcased the diversity of geospatial work occurring across the State of Maryland. The keynote by <a href="http://www.linkedin.com/profile/view?id=44978536">Learon Dalby</a> was well-received and the content of the conference was generally substantive. While the day was a sprint, there was one workshop that really caught my attention more so than I would have thought from its title.</p>
+    <title type="html"><![CDATA[Anne Arundel County, Maryland Announces GIS Data Downloads]]></title>
+    <link href="http://blog.geomusings.com/2011/12/14/anne-arundel-county-maryland-announces-gis-data-downloads/"/>
+    <updated>2011-12-14T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/12/14/anne-arundel-county-maryland-announces-gis-data-downloads</id>
+    <content type="html"><![CDATA[<p>A while back, I <a href="http://blog.geomusings.com/2011/09/26/free-maryland-gis-data-resources/">posted</a> about county-level GIS data available in the State of Maryland. I was very happy to see an <a href="http://www.linkedin.com/groupItem?view=&amp;gid=3300945&amp;item=ANET%3AS%3A84763573&amp;trk=NUS_RITM-title">announcement on LinkedIn</a> that Anne Arundel County, Maryland has rolled out a new <a href="http://www.aacounty.org/OIT/GIS/GISData.cfm">data download page</a> that makes their GIS data freely available.</p>
 
-<p>The photo below shows 40 participants of an "Introduction to Free and Open Source GIS Software" workshop getting hands-on experience with <a href="http://www.qgis.org">QGIS</a> and <a href="http://www.postgis.org">PostGIS</a> by working through prepared but realistic scenarios. These scenarios included doing multi-user editing and performing spatial analysis to assess the effects of a potential toxic release over a small town.</p>
+<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2011/12/md_state_house_2011_12_14.jpg"><img alt="" height="614" src="http://geobabble.files.wordpress.com/2011/12/md_state_house_2011_12_14.jpg" title="md_state_house_2011_12_14" width="346" /></a><div style="text-align:center;font-size: 14px;">Anne Arundel County is home to Annapolis, the capital of Maryland and my favorite place on earth.<br/><br/></div></div>
 
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/tugis2013_workshop.jpg" /></p>
 
-<p>The workshop was put together by <a href="http://faculty.salisbury.edu/~ajlembo/">Dr. Arthur Lembo</a> of <a href="http://www.salisbury.edu/">Salisbury University</a> and conducted by him and a team of his students, who not only led portions of the workshop but were also stationed around the room to provide guidance to participants. The scenarios were prepared in printed workbooks that the participants were free to take with them, along with information about how to download the tools. All-in-all, I thought the workshop was very well-designed and presented a thorough overview of the capabilities of these two tools.</p>
+<p>Kudos to <a href="http://twitter.com/Eric112200">Eric Wilson</a> and everyone else in the Anne Arundel County GIS group for making this happen. Here's hoping more follow suit.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Free Maryland GIS Data Resources]]></title>
+    <link href="http://blog.geomusings.com/2011/09/26/free-maryland-gis-data-resources/"/>
+    <updated>2011-09-26T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/09/26/free-maryland-gis-data-resources</id>
+    <content type="html"><![CDATA[<p>It was with great interest that I read <a href="http://greatergreaterwashington.org/post/12041/regional-map-data-is-expensive/">this post last week about the cost of GIS data in the Washington, DC region</a>. Not only is the post itself informative but the comment discussion is also a worthy read.</p>
+
+<p><a href="http://www.netstate.com/states/symb/flags/md_flag.htm"><img alt="" class="aligncenter" height="256" src="http://www.netstate.com/states/symb/flags/images/md_fi.gif" title="Maryland state flag" width="384" /></a></p>
+
+<p>This did get me curious, however, as to which counties in my home state of Maryland make GIS data freely available. The approach I took to this was simple: I did what any average county resident would probably do and went to each county's web site looking for a link to a data download. If I didn't find something in a few clicks, I went to Google (search term: {county name} md gis). If there was nothing there, I moved on. With that, here are the counties I found which provide free, downloadable GIS data:</p>
 
 <!--more-->
 
 
-<p>To be sure, the workshop was not all unicorns and rainbows. There were typical glitches such as file system and database permission issues that required on-the-fly adjustments, which Dr. Lembo and his students handled well. Some participants were clearly stumped at points while others were making good headway with the examples.</p>
+<p><a href="http://ccgovernment.carr.org/ccg/mapserver4/gis/webpage/MapCatalogPage.html">Carroll County</a> (2000 Orthos only)</p>
 
-<p>Many of the participants probably remain committed <a href="http://www.esri.com">ArcGIS</a> users after the workshop while others may very well dig in and more thoroughly explore QGIS and PostGIS, but that's really beside the point. Regardless of what the individual participants decide to do with the information from the workshop, all left with hands-on exposure to the tools that was presented in a manner that was free of hyperbole, FUD, or market-speak. They now have more first-hand information with which to make their own educated decisions as to how they want to proceed with their geospatial technology choices; and that, in my opinion, may have been the most valuable outcome of the workshop.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Off to TUGIS]]></title>
-    <link href="http://blog.geomusings.com/2013/03/18/off-to-tugis/"/>
-    <updated>2013-03-18T12:40:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/18/off-to-tugis</id>
-    <content type="html"><![CDATA[<p>Tomorrow, I'll be heading up to the <a href="http://www.towson.edu/tugis/">Towson University GIS (TUGIS) conference</a> with 500 or so of my closest Maryland geo-friends. It has been restructured into a one-day event and the program seems to be very content-rich as a result. I am particularly happy to see more open-source content this year. There's an intro session featuring <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.postgis.org">PostGIS</a>, <a href="http://qgis.org">QGIS</a>, and <a href="http://geoserver.org">GeoServer</a> presented by <a href="http://www.salisbury.edu/">Salisbury State University</a>. Salisbury was once known as a bastion of <a href="http://www.manifold.net/">Manifold</a> so they've got a long history of thinking outside the Arc. Additionally, there is a session (by Towson University) discussing the use of <a href="http://www.gdal.org">GDAL</a>, <a href="http://www.gdal.org/ogr/">OGR</a>, and <a href="https://github.com/sgillies/shapely">Shapely</a> in the development of a spatial service.</p>
+<p><a href="http://www.ccgov.org/dept_planning/gis/avdata.cfm">Cecil County</a></p>
 
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/mdflag.png" alt="Brian Timoney's favorite state flag" title="Brian Timoney's favorite state flag" /></p>
+<p><a href="https://ww3.frederickcountymd.gov/gisdatazip/">Frederick County</a>  (requires registration)</p>
 
-<p>One thing I like about regional GIS conferences like this is that they tend to focus more on solutions to real-world problems instead of the latest technological bells and whistles. I spend so much of my time with my head in Federal requirements that it's nice do a reset and get different perspectives on how geospatial technologies are used. I am particularly interested to hear the keynote from <a href="http://twitter.com/learondalby">Learon Dalby</a> of <a href="http://www.sanborn.com/">Sanborn</a> and formerly of the <a href="http://www.gis.state.ar.us/">Arkansas GIO office</a>. I had the pleasure of working with Learon and the AGIO team on a project a couple of years ago and am impressed with what they accomplished.</p>
+<p><a href="http://www.harfordcountymd.gov/GIS/Index.cfm">Harford County</a></p>
 
-<p>I appreciate the new format of TUGIS as a one-day event is much easier to fit into the schedule. I'm looking forward to it.</p>
+<p><a href="http://gis.howardcountymd.gov/mainsite/GeneralDataDownload.html">Howard County</a></p>
+
+<p><a href="http://www.stmarysmd.com/gis/">St. Mary's County</a></p>
+
+<p><strong>UPDATE:</strong> Additionally, data is available from the <a href="http://www.marylandgis.net/SHAdata/list.asp">Maryland State Highway Administration</a> (ESRI personal geodatabase)</p>
+
+<p>I'm sure Maryland is not unique in the varying ways in which GIS data is distributed and the myriad ways local jurisdictions attempt cost recovery. These are difficult issues in the best of times and the current economic climate doesn't make them any easier.</p>
+
+<p>I only surveyed data that was available from the counties (and Baltimore City) directly. I did not delve into the many municipalities. Basically, the list above should not be interpreted as comprehensive but I hope it is useful to some.</p>
 ]]></content>
   </entry>
   
