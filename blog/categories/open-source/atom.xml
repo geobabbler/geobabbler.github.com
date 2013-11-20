@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: open source | geoMusings]]></title>
+  <title><![CDATA[Category: open-source | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/open-source/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-11-19T09:33:36-05:00</updated>
+  <updated>2013-11-19T19:54:52-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,109 +14,39 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Maryland Department of Planning Bundles Property Data with QGIS]]></title>
-    <link href="http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/"/>
-    <updated>2013-10-07T12:38:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis</id>
-    <content type="html"><![CDATA[<p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
+    <title type="html"><![CDATA[The Best Thing I Saw at TUGIS 2013]]></title>
+    <link href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/"/>
+    <updated>2013-03-20T12:17:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013</id>
+    <content type="html"><![CDATA[<p>I spent the day yesterday at <a href="http://www.towson.edu/">Towson University</a> attending the <a href="http://www.towson.edu/tugis/">TUGIS 2013</a> conference. The new one-day format was a firehose that showcased the diversity of geospatial work occurring across the State of Maryland. The keynote by <a href="http://www.linkedin.com/profile/view?id=44978536">Learon Dalby</a> was well-received and the content of the conference was generally substantive. While the day was a sprint, there was one workshop that really caught my attention more so than I would have thought from its title.</p>
+
+<p>The photo below shows 40 participants of an "Introduction to Free and Open Source GIS Software" workshop getting hands-on experience with <a href="http://www.qgis.org">QGIS</a> and <a href="http://www.postgis.org">PostGIS</a> by working through prepared but realistic scenarios. These scenarios included doing multi-user editing and performing spatial analysis to assess the effects of a potential toxic release over a small town.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/tugis2013_workshop.jpg" /></p>
+
+<p>The workshop was put together by <a href="http://faculty.salisbury.edu/~ajlembo/">Dr. Arthur Lembo</a> of <a href="http://www.salisbury.edu/">Salisbury University</a> and conducted by him and a team of his students, who not only led portions of the workshop but were also stationed around the room to provide guidance to participants. The scenarios were prepared in printed workbooks that the participants were free to take with them, along with information about how to download the tools. All-in-all, I thought the workshop was very well-designed and presented a thorough overview of the capabilities of these two tools.</p>
 
 <!--more-->
 
 
-<p>From the MDP site, the bundled data includes:</p>
+<p>To be sure, the workshop was not all unicorns and rainbows. There were typical glitches such as file system and database permission issues that required on-the-fly adjustments, which Dr. Lembo and his students handled well. Some participants were clearly stumped at points while others were making good headway with the examples.</p>
 
-<blockquote cite="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">The product DVD includes the State's computerized property (tax) maps; the x,y linkages (point or polygon) to the Parcel, Computer Assisted Mass Appraisal (CAMA) and Sale datasets; Parcel, CAMA and Sale data, including Sale data via download from the Subscriber Website, from the Maryland State Department of Assessments and Taxation (SDAT); reference grids including a grid for the property (tax) maps, an ADC map book grid, a grid for the Maryland State Highway Administration (SHA) road, stream and feature maps and a grid for USGS 7.5' Topographical quad maps; and additional SHA files including a digital centerline roads file, data derived from SHA digital grid maps, an SHA major roads file and a county boundary file.<br/>
-<br/>
-Also included are land use/land cover data; congressional and legislative district boundary files; census geography and census demographic data; ZIP code boundary files; Priority Funding Area (PFA) designations; floodplain data, including DFIRM data for selected jurisdictions; protected lands boundaries; watershed data; generalized zoning designations; sewer service area boundaries; public water service area boundaries for selected jurisdictions; National Register of Historic Places (NRHP) Maryland coverage; residential Sales x,y point and summary files derived from SDAT Parcel and Sale data; large-scale, high resolution color digital-ortho imagery and a custom Quantum GIS project file (.qgs).</blockquote>
-
-
-<p>The MDP site indicates there is a <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/CstFnd.pdf">licensing fee</a> (PDF), which I assume is to cover the management of the data sets and the <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/LicFnd.pdf">license agreement</a>, while acknowledging the GPL license of QGIS itself, seems to place the actual FINDER extension itself outide of any open-source license. (I am not a lawyer so I'll accept guidance on that interpretation.) That said, bundling QGIS with data that the statewide user community values and an application to help exploit it is a great way to get more users on board with QGIS.</p>
-
-<p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
-
-<p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
+<p>Many of the participants probably remain committed <a href="http://www.esri.com">ArcGIS</a> users after the workshop while others may very well dig in and more thoroughly explore QGIS and PostGIS, but that's really beside the point. Regardless of what the individual participants decide to do with the information from the workshop, all left with hands-on exposure to the tools that was presented in a manner that was free of hyperbole, FUD, or market-speak. They now have more first-hand information with which to make their own educated decisions as to how they want to proceed with their geospatial technology choices; and that, in my opinion, may have been the most valuable outcome of the workshop.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite and ArcGIS 10.2]]></title>
-    <link href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/"/>
-    <updated>2013-08-07T12:35:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2</id>
-    <content type="html"><![CDATA[<p>With the release of ArcGIS 10.2, <a href="http://www.esri.com">Esri</a> quietly added support for <a href="https://sqlite.org/">SQLite</a> as a geodatabase container. This is big news as the community has been looking for such support for some time. An open-source RDBMS originally designed for embedded systems, SQLite has a very small footprint and is <a href="https://www.sqlite.org/mostdeployed.html">arguably the most widely deployed RDBMS</a> in the world. (Thanks, in part, to the fact that it is embedded into Adobe Reader and other commonly used software.) Over the years numerous strategies for storing spatial data in SQLite have been developed, ranging from simply storing <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT or WKB</a> geometries in a column up to full extensions like <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>, which adds OGC-compliant data types and methods. SQLite is also the engine that drives the popular <a href="http://www.mapbox.com/developers/mbtiles/">MBTiles</a> implementation used by <a href="http://www.mapbox.com/tilemill/">TileMill</a> and <a href="http://www.mapbox.com">MapBox</a>.</p>
+    <title type="html"><![CDATA[Off to TUGIS]]></title>
+    <link href="http://blog.geomusings.com/2013/03/18/off-to-tugis/"/>
+    <updated>2013-03-18T12:40:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/18/off-to-tugis</id>
+    <content type="html"><![CDATA[<p>Tomorrow, I'll be heading up to the <a href="http://www.towson.edu/tugis/">Towson University GIS (TUGIS) conference</a> with 500 or so of my closest Maryland geo-friends. It has been restructured into a one-day event and the program seems to be very content-rich as a result. I am particularly happy to see more open-source content this year. There's an intro session featuring <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.postgis.org">PostGIS</a>, <a href="http://qgis.org">QGIS</a>, and <a href="http://geoserver.org">GeoServer</a> presented by <a href="http://www.salisbury.edu/">Salisbury State University</a>. Salisbury was once known as a bastion of <a href="http://www.manifold.net/">Manifold</a> so they've got a long history of thinking outside the Arc. Additionally, there is a session (by Towson University) discussing the use of <a href="http://www.gdal.org">GDAL</a>, <a href="http://www.gdal.org/ogr/">OGR</a>, and <a href="https://github.com/sgillies/shapely">Shapely</a> in the development of a spatial service.</p>
 
-<!--more-->
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/mdflag.png" alt="Brian Timoney's favorite state flag" title="Brian Timoney's favorite state flag" /></p>
 
+<p>One thing I like about regional GIS conferences like this is that they tend to focus more on solutions to real-world problems instead of the latest technological bells and whistles. I spend so much of my time with my head in Federal requirements that it's nice do a reset and get different perspectives on how geospatial technologies are used. I am particularly interested to hear the keynote from <a href="http://twitter.com/learondalby">Learon Dalby</a> of <a href="http://www.sanborn.com/">Sanborn</a> and formerly of the <a href="http://www.gis.state.ar.us/">Arkansas GIO office</a>. I had the pleasure of working with Learon and the AGIO team on a project a couple of years ago and am impressed with what they accomplished.</p>
 
-<p><a href="http://resources.arcgis.com/en/help/main/10.2/index.html#//019v0000001w000000">According to the documentation</a>, ArcGIS supports the use of either Esri's ST_GEOMETRY or SpatiaLite data types for geometry storage. This is consistent with Esri's approach on other RDBMS platforms such as <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.oracle.com">Oracle</a>. While SpatiaLite has been supported by platforms such as <a href="http://qgis.org/">QGIS</a>, I can't say I've seen a huge demand for data in SpatiaLite format. I have been using it for a while in some of <a href="http://www.zekiah.com">my company's</a> data modeling work as we have a Federal customer that has a documented requirement for generation of physical models in SpatiaLite, among other platforms. We have also taken the step of supporting SQLite as a container for our <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">platform independent model (PIM) approach</a> for configuration management of logical geospatial data models.</p>
-
-<p>Esri's new support of SpatiaLite, combined with my existing customer requirements, obviously sparked my interest so I was curious to kick the tires. Unfortunately, I also had the situation that my development environment for the PIM tools, due to current customer constraints, must remain at ArcGIS 10.1 for both the desktop software and the underlying ArcObjects libraries. I have not been able to carve out the time to build a 10.2 VM.</p>
-
-<p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
-
-<p>{% tweet http://twitter.com/brymcbride/status/365103999671738369 %}</p>
-
-<p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
-
-<ol>
-<li>A SpatiaLite database created in ArcGIS 10.2 can be accessed and viewed in QGIS 1.9.0 and SpatiaLite GUI 1.7.1</li>
-<li>A SpatiaLite database created in QGIS 1.9.0 can be accessed in ArcGIS 10.2</li>
-</ol>
-
-
-<p>Obviously, some more rigorous tests need to be performed but the initial results are promising. I'm curious to explore the boundaries, in ArcGIS terms, between a SQLite geodatabase and a file geodatabase. It remains to be seen whether this will put a dent in the use of file geodatabases. If it happens at all, I think it will take time since SQLite is not on the radar of the vast majority of ArcGIS users. I would hope, at a minimum, it puts a final stake through the heart of the personal geodatabase. It could also drive explicit accreditation of SQLite/SpatiaLite tools on government systems, which would be nice.</p>
-
-<p>I'm happy, and somewhat pleasantly surprised, to see Esri take this step and provide another open option for data exchange.</p>
-
-<p>Now, about GeoJSON...</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Open-Source GIS Bootcamp at Salisbury University]]></title>
-    <link href="http://blog.geomusings.com/2013/05/23/open-source-gis-bootcamp-at-salisbury-university/"/>
-    <updated>2013-05-23T05:33:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/05/23/open-source-gis-bootcamp-at-salisbury-university</id>
-    <content type="html"><![CDATA[<p><a href="http://www.linkedin.com/groupItem?view=&amp;srchtype=discussedNews&amp;gid=3300945&amp;item=242507385&amp;type=member&amp;trk=eml-anet_dig-b-pop_ttl-hdp&amp;ut=12tcrQvogVeRM1">Thanks to LinkedIn</a>, I saw that Dr. Art Lembo of Salisbury (Maryland) University is leading an "Open Source/Enterprise GIS Summer Bootcamp" at the university from June 3 - 7, 2013. All of the salient details, including contact information, <a href="http://www.esrgc.org/bootcamp/SUBootCamp.pdf">can be found here</a> (PDF).</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/river.jpg" /></p>
-
-<p>Having seen Dr. Lembo and his team in action <a href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">for an afternoon at TUGIS</a>, I think this will be a good way for those who have been wanting to take the leap with open-source GIS tools to get some hands-on experience with core tools like <a href="http://qgis.org/">QGIS</a> and <a href="http://postgis.net/">PostGIS</a>. It's also a great time of year to be on Maryland's Eastern Shore. The LinkedIn discussion says there are still spaces available but the date is coming up soon so you'll want to move quickly if you're interested.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SharpMap 1.0 RC1 Released]]></title>
-    <link href="http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released/"/>
-    <updated>2013-03-28T06:10:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released</id>
-    <content type="html"><![CDATA[<p>Over on Google+, <a href="https://plus.google.com/u/0/117900686009614580552/posts">Diego Guidi</a> let me know that the <a href="http://sharpmap.codeplex.com/releases/view/104098">SharpMap 1.0 Release Candidate has been released</a>. There was a time when I worked with, <a href="https://www.google.com/search?q=site%3Ablog.geomusings.com&amp;q=sharpmap">and wrote about</a>, SharpMap a lot. During that entire time, the stable version of SharpMap sat at some version number that started with "0.9". The release of a 1.0 candidate is a signal that the project is moving forward.</p>
-
-<p style="text-align:center;"> <img src="http://www.zekiah.com/sites/default/files/images/SharpMapSQL2008.preview.png" /></p>
-
-<p>This is important because there are still an awful lot of .Net developers out there, especially in government shops that made a big Microsoft push in terms of infrastructure and training years ago. Of course, many of those shops are also committed to Esri technologies but SharpMap, while being a fully-functioning mapping/GIS library, also provides easy access to data sources not natively supported by Esri. Additionally, it is very easy to extend to support new or custom data sources and strightforward to <a href="http://www.zekiah.com/index.php?q=node/146">get SharpMap to play nicely in traditionally Esri-centric environments</a>.</p>
-
-<!--more-->
-
-
-<p>At <a href="http://www.zekiah.com">my company</a> we've used SharpMap for just that for one of our key Navy customers. By building custom SharpMap data sources, we've been able to encapsulate business logic in Oracle, including the use of Oracle <a href="http://www.slideshare.net/shawty_ds/what-is-spatial-sql">Spatial SQL</a> to execute spatial analysis processes and deliver the results back to an Esri web client that is also interacting with ArcGIS Server for many standard functions. SharpMap enabled us to expose this logic through an HTTP+JSON interface while bypassing geodatabases, server object extensions, and other such cruft.</p>
-
-<p>In recent years, other open-source .Net projects such as <a href="https://dotspatial.codeplex.com/">DotSpatial</a> have gained traction and that's good. The .Net environment remains in widespread use so it is useful to have open-source geospatial options for that platform. I'm happy to see SharpMap remaining an option in that space.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Early Bird Registration for FOSS4G-NA Closes Soon]]></title>
-    <link href="http://blog.geomusings.com/2013/03/27/early-bird-registration-for-foss4gna-closes-soon/"/>
-    <updated>2013-03-27T13:29:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/27/early-bird-registration-for-foss4gna-closes-soon</id>
-    <content type="html"><![CDATA[<p><a href="https://twitter.com/bitnerd">David Bitner</a> sent out a reminder that Early Bird reagistration for the <a href="http://foss4g-na.org/">FOSS4G North America</a> conference closes on 1 April 2013. After that, the price goes up by $50 US. You can register <a href="http://foss4gna.eventbrite.com/">online at EventBrite</a>.</p>
-
-<p style="text-align:center;"> <img src="http://upload.wikimedia.org/wikipedia/commons/3/30/20060131_earthworm_hits_dirt.jpg" width="400" height="266"/></p>
-
-<p>The <a href="http://foss4g-na.org/wp-content/uploads/2013/03/PreliminaryProgram.pdf">preliminary program</a> (PDF) for this year's event looks exceptional, building upon and potentially exceeding the outstanding quality of FOSS4G-NA 2012. I'll be sorry to miss the conference this year but will be looking forward to its social media exhaust.</p>
-
-<p><sub><sup>Image by s shepherd schizoform on flickr <a href="http://creativecommons.org/licenses/by/2.0">CC-BY-2.0</a>, via Wikimedia Commons</sup></sub></p>
+<p>I appreciate the new format of TUGIS as a one-day event is much easier to fit into the schedule. I'm looking forward to it.</p>
 ]]></content>
   </entry>
   

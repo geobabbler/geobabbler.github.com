@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gis | geoMusings]]></title>
+  <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-11-19T09:33:36-05:00</updated>
+  <updated>2013-11-19T19:54:52-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,143 +14,134 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Another Look at GIS StackExchange]]></title>
-    <link href="http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange/"/>
-    <updated>2013-09-12T11:10:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange</id>
-    <content type="html"><![CDATA[<p>A year ago, I used the StackExchange API to facilitate an <a href="http://blog.geomusings.com/2012/09/13/carving-up-gis-stackexchange/">analysis of tags on GIS StackExchange</a> to see what people were talking about on one of the largest and most successful vendor-neutral discussion sites in our industry. In that post, I stated "It would probably be good to revisit this in a year to see how things have changed, if at all."</p>
+    <title type="html"><![CDATA[GIS Day After]]></title>
+    <link href="http://blog.geomusings.com/2013/11/19/gis-day-after/"/>
+    <updated>2013-11-19T09:13:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/11/19/gis-day-after</id>
+    <content type="html"><![CDATA[<p>It's the morning of November 21st, but not for long. You open one eye. Just one; it's best not to rush such things. Apparently, you finally came to rest in the ball pit you all made using the squishy globes from myriad conferences past. A cursory scan tells you the GIS lab is trashed. It starts to come back to you: the rousing game of "Pin the Certificate on the Khakis." Yes, there are your pleated khakis on the wall with everyone's training and GISP certificates stuck on or around them with pushpins. Someone won in what would have been a most painful way if the khakis had been on your body. The loin cloth fashioned from the old hard-copy topos (which you are still wearing). The fact that you let the intern talk you into finally opening a Twitter account and your glee at discovering you could attach photos to geocoded tweets with your BlackBerry.</p>
 
-<p>Well, a year has passed so I decided to do it again. I used the same scripts and approach I used last time in order to be consistent. Since this is one year later, there is one key caveat. My analysis last year looked at the top 100 tags since the start of the <a href="http://gis.stackexchange.com/">GIS StackExchange</a> site. Since I ran the same query this year, the new results are compounded so what they so are last year's results plus activity since then. Essentially, you are looking at "that plus this." The pie chart below shows the breakdown.</p>
+<p>You look around the room at your coworkers strewn across the floor. There's the ArcObjects guy still sporting his "war paint" from the plotter toner. There's your lead analyst with a face tattoo of the town's land-use drawn in marker and, she proudly insisted, accurately projected in state plane. Slowly, you are able to account for everyone on your GIS staff. Good, no one has gone missing...except the intern.</p>
 
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/stackexchange_chart_2013.png" /></p>
+<p>The door opens and you turn to see the intern standing there in all of her college-kid resilience, letting in far too much sunlight for your comfort. You're not sure it's possible to hate anyone more in this moment.</p>
+
+<p>"Oh, good," she says, "you're awake. Are you going to do the hangout?"</p>
+
+<p>"Hangout?" you mumble.</p>
+
+<p>"Yeah, <a href="http://www.spatiallyadjusted.com/2013/11/18/postgis-day-special-hangout-this-week/">James Fee is doing a PostGIS Day hangout with a panel of experts on PostGIS</a>. I told you about this. I told you about <a href="http://postgis.net">PostGIS</a>. Don't you remember? It starts in about an hour."</p>
+
+<p>It does sound familiar. You give it some thought. What better way to shake off the cobwebs from the bacchanalia of the "BEST GIS DAY EVAR!!!" (so says the hand-lettered Sharpie on the lab's wall) than a little geo-hair-of-the-dog? Maybe it's time to finally pay attention to this open-source stuff. You look around to survey the damage one more time. Besides, ditching the Oracle license might just about pay for this.</p>
+
+<p>"Yeah," you reply, "I'll be there in five minutes. Close the door, please."</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Desktop Not Dead]]></title>
+    <link href="http://blog.geomusings.com/2013/10/23/desktop-not-dead/"/>
+    <updated>2013-10-23T09:42:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/23/desktop-not-dead</id>
+    <content type="html"><![CDATA[<p>In 2011, I gave a talk at the NCGIS conference about the continued dominance of the desktop in the world of GIS. In that talk, my main point was that, regardless of the ultimate destination of GIS data or maps (cloud, server, paper, PDF, etc.), most GIS data passes through a desktop GIS at some point. I don't have hard data to back up that claim but I think anyone who has worked in the industry for any length of time will agree that it feels right. If we loosely define "desktop GIS" to include not only GUI analytical tools like <a href="http://www.esri.com">ArcMap</a> or <a href="http://qgis.org">QGIS</a>, but also command-line tools such as <a href="http://www.gdal.org/">GDAL/OGR</a> and cartographic tools such as <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I think the statement is even more comfortable.</p>
+
+<p style="text-align:center;"><iframe width="560" height="420" src="http://www.youtube.com/embed/ljIQo1OHkTI?color=white&theme=light"></iframe></p>
+
+<p>Essentially, my claim was that desktop GIS is still the onramp for most of the data we interact with on the web. Over the past few years, geographically tagged live and temporally-sensitive data streams have increased in importance but I think most geospatial data still starts as traditional data sources (rasters, vectors, terrain, etc.) that pass through a desktop for analysis, processing, and styling before moving on to the web. Esri, for example, still features its desktop tools as prominent parts of its web publishing workflow and <a href="http://boundlessgeo.com/">Boundless</a> is working on a <a href="https://github.com/boundlessgeo/suite-qgis-plugin">similar path for QGIS</a>.</p>
 
 <!--more-->
 
 
-<p>Compared to last year's results, there hasn't been much movement in the distribution of tags. One thing I did notice, however is that the tag "qgis" leaped to the top of the list. Last year, "arcgis" was the top tag and "qgis" was number three. That said, I wouldn't jump to too many conclusions. A quick <a href="/assets/data/stack2013/output_2013.csv">look at the data</a> shows that, in addition to "arcgis", there are version-specific tags such as "arcgis-10.0" and "arcgis-10.1" as well as product-specific tags like "arcgis-server" so there's a lot of Esri-centric discussion going on, but that is to be expected. The top ten tags, however, include major components of the <a href="http://opengeo.org/">OpenGeo</a> Suite (OpenLayers, GeoServer, PostGIS) in addition to QGIS so open-source tools seem to be every bit as active a topic of discussion as do <a href="http://www.esri.com">Esri</a> tools.</p>
+<p>The announcement of a Google Maps Engine connector for both <a href="https://github.com/googlemaps/mapsengine-arcgis-connector">ArcGIS</a> and <a href="https://github.com/googlemaps/mapsengine-qgis-connector">QGIS</a> is yet another example of the continued importance of the desktop in the GIS world. Simply put, the chances of a user choosing your platform increases if you can cut to the front of the line and present yourself in their desktop environment. <a href="http://blogs.esri.com/esri/arcgis/2013/10/22/googles-arcgis-toolbar-for-the-cloud/">Andrew Turner did a nice summary of many such integration efforts</a> involving ArcGIS Desktop, although the post fails to mention <a href="http://www.arc2earth.com">Arc2Earth</a>, which I consider the most comprehensive extension of its kind on the market. His discussion tracks with my personal experience in recent years. My most public activities have been <a href="https://code.google.com/p/ziggis/">zigGIS</a>, the <a href="http://blog.dc.esri.com/2010/11/22/toolbars-for-geocommons-and-geoiq/">GeoCommons toolbars</a> (thanks for the mention, Andrew), and the <a href="http://www.weogeo.com">WeoGeo</a> toolbar. I've also built a couple of others for organizations that wanted to get their data products in front of ArcGIS users easily and I am currently working on a live feed extension for a government user. The reality is that I've done more desktop development in the last three years than I had done in the preceding ten.</p>
 
-<p>Speaking of the top ten tags, they were: <br /><br />
-1. qgis (3910) <br />
-2. arcgis (2382) <br />
-3. python (2171) <br />
-4. arcgis-10.0 (2142) <br />
-5. openlayers (1996) <br />
-6. postgis (1560) <br />
-7. geoserver (1193) <br />
-8. arcobjects (1184) <br />
-9. raster (1174) <br />
-10. arcmap (1113) <br /></p>
-
-<p>Last year, I got some back-channel requests to do a little more with the raw data so, seeing a chance to play with <a href="http://d3js.org">D3</a>, here is a look at how things break down. Hover over a bubble to see the full name and tag count. If you follow your nose a bit, the color scheme will become apparent in relation to the pie chart's key.</p>
-
-<p><link rel="stylesheet" href="http://blog.geomusings.com/assets/data/stack2013/style.css" /></p>
-
-<iframe src="http://blog.geomusings.com/assets/data/stack2013/frame.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-
-
-<p>All of the same limitations I pointed out last year about posts having multiple tags and dilution across related tags still apply this year. If there is any insight into the mind share of the GIS community to be derived from this exercise, it is probably in the aggregate.</p>
-
-<p>The exact StackExchange API URL that generated these results is: <a href="https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100">https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100</a></p>
-
-<p>The results were generated on 11 September 2013 and subsequent results will vary from those shown here. The Python script used to process the results into CSV <a href="/assets/data/stack2013/handle_json.zip">can be found here</a>.</p>
+<p>Andrew's point at the end of his post about Esri's extensibility through various means is quite true. As much as developers love to complain about ArcGIS Desktop and ArcObjects (myself included), I have yet to find a data source that I couldn't integrate using those tools. As I dig into the APIs behind QGIS, I am finding the same to be true there. Despite the tendency to downplay desktop GIS tools these days, I see them continuing to play a significant, if quiet, role in defining how we interact with maps and geospatial data across all platforms for the foreseeable future.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite 4.1.0 Beta Preview Available]]></title>
-    <link href="http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available/"/>
-    <updated>2013-01-03T08:34:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available</id>
-    <content type="html"><![CDATA[<p>On the <a href="https://groups.google.com/forum/?fromgroups#!forum/spatialite-users">SpatiaLite Google Group</a> this morning, Sandro Furieri announced the availability of a beta preview of SpatiaLite 4.1.0. The primary focus of this preview is to get early comment on new capabilities supporting the storage, validation, and query of XML documents.</p>
+    <title type="html"><![CDATA[WeoGeo: Now With GeoJSON]]></title>
+    <link href="http://blog.geomusings.com/2013/10/17/weogeo-now-with-geojson/"/>
+    <updated>2013-10-17T05:42:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/17/weogeo-now-with-geojson</id>
+    <content type="html"><![CDATA[<p>It's great news that the <a href="http://www.washingtonpost.com/politics/house-effort-to-end-fiscal-crisis-collapses-leaving-senate-to-forge-last-minute-solution/2013/10/16/1e8bb150-364d-11e3-be86-6aeaa439845b_story.html?hpid=z1">government shutdown is finally over</a>. Many of our colleagues across the geospatial industry can now report back to work, ending a another stressful period for them. During the shutdown, many stepped up to try and fill the gap left by shuttered government web sites that would normally distribute geospatial data.</p>
 
-<p>More information about this update <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=XmlBlob+and+VirtualXPath">can be found here</a>. Says Sandro:</p>
+<p>Among those who stepped into the breach are my friends at <a href="http://www.weogeo.com">WeoGeo</a>, who told me they saw a huge uptick in traffic as the community realized that government data sets such as TIGER and DRG are freely available in the <a href="http://market.weogeo.com/">WeoGeo Market</a>. One of the capabilities that has been quietly introduced into WeoGeo's platform over the last few days is the ability to extract and download TIGER and OSM data directly in <a href="http://geojson.org">GeoJSON</a> format. The embedded video by WeoGeo walks through the customization and ordering process better than I can, but it's great to have the ability to extract fine-tuned data sets directly in GeoJSON format for use in modern web-mapping tools.</p>
 
-<blockquote>
-The main goals of these recently introduced enhancements are:<br/>
-- storing XML Documents directly within the DBMS <br/>
-- supporting XML validation<br/>
-- supporting plain SQL queries on behalf of XML Documents <br/>
-  via canonical XPath expressions<br/>
+<iframe src="http://fast.wistia.net/embed/iframe/vth8yo4cnz"
+allowtransparency="true" frameborder="0" scrolling="no"
+class="wistia_embed" name="wistia_embed" allowfullscreen
+mozallowfullscreen webkitallowfullscreen oallowfullscreen
+msallowfullscreen width="770" height="433"></iframe>
+
+
 <br/>
-Implementing directly into the Spatial DBMS a common core of 
-XML-oriented features surely is an interesting and useful option,
-just considering that ISO- and INSPIRE-Metadata or SLD/SE Styles 
-are fully based on XML.
-</blockquote>
 
 
-<p>Although I find myself working more with <a href="http://geojson.org">GeoJSON</a> and <a href="http://developmentseed.org/blog/2011/feb/09/introducing-carto-css-map-styling-language/">CartoCSS</a> these days, I think support for XML is a good step for SpatiaLite. There are some very mature use cases based on XML, as Sandro points out. While <a href="http://www.opengeospatial.org/standards/sld">SLD</a> is not my favorite, this may keep it on my radar. Also, it would be interesting to see how this new capability would possibly affect the evolution of the <a href="http://www.opengeospatial.org/projects/groups/geopackageswg">OGC GeoPackage draft specification</a>.</p>
+<p>Static content has been making a comeback lately, and justifiably so. The truth is that most of the content we interact with on the web won't change over time and complex content management systems (CMS) that dynamically generate HTML and such from databases on every call are really overkill. Sure, there are caching strategies and CDNs and such to hide some of the misery but you can't beat the speed, simplicity, and scalability of static content.</p>
+
+<!--more-->
+
+
+<p>The same can really be said of maps on the web. Most maps are published to convey some information that has been validated for the point in time in which it was published. Most of the organizations I've worked with, government and commercial, have a release process to vet the contents of a map before it is published. In effect, such organizations are making their map content static. The truth is that, like a CMS, a complex map server probably isn't necessary for most maps we interact with today on the web.</p>
+
+<p>In fact, I can still clearly recall use cases from just a few years where such architectures were not only overkill but counterproductive. We typically distributed analysis results via web-based interactive maps. The results were typically valid for point in time during which an area of interest was studied. We ended up developing versioning schemes to preserve analysis results from being altered by the next bulk data set update. Another tack was to set up a separate map service pointed at a directory of shapefiles. All of this was to get around the basic fact that geospatial data at the time was not web-ready. GeoJSON helps solve that problem.</p>
+
+<p>With modern client-side mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> and <a href="http://www.openlayers.org/">OpenLayers</a>, and with content generation tools like TileMill, it has become increasingly easy to make beautiful, interactive web maps that require no specialized back-end server to deliver geospatial content. With WeoGeo's support, combined with the online editing capabilities of <a href="http://geojson.io/">geojson.io</a> from <a href="http://mapbox.com">MapBox</a>, the validation capability of <a href="http://geojsonlint.com/">GeoJSONLint</a> by <a href="http://twitter.com/JCSanford">Jason Sanford</a>, the <a href="https://help.github.com/articles/mapping-geojson-files-on-github">simple hosting capability of GitHub</a>, and the extended query API provided by <a href="http://gitspatial.com/">GitSpatial</a> (again by Jason Sanford), we are very close to having a complete GeoJSON-centric workflow.</p>
+
+<p>Even as government data sites come back online, there are still good reasons to head over to WeoGeo and check out what they have. The customization capabilities alone (shown in the video above) make it very easy to get data for just your area of interest without having to download a lot of extra, unneeded data. The addition of GeoJSON support, in my opinion, shortens the workflow needed to get from data to information.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
-    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
-    <updated>2012-11-27T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
-    <content type="html"><![CDATA[<p>I'm happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It's been one of the more consistently valuable resources in the community since its inception and it's good that it will continue.</p>
+    <title type="html"><![CDATA[Maryland Department of Planning Bundles Property Data with QGIS]]></title>
+    <link href="http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/"/>
+    <updated>2013-10-07T12:38:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis</id>
+    <content type="html"><![CDATA[<p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
 
-<p>While I'm looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called "venerable" nowadays, but it still does what it does very well.</p>
+<!--more-->
 
-<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
 
-<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you're not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It's become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
+<p>From the MDP site, the bundled data includes:</p>
 
-<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
+<blockquote cite="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">The product DVD includes the State's computerized property (tax) maps; the x,y linkages (point or polygon) to the Parcel, Computer Assisted Mass Appraisal (CAMA) and Sale datasets; Parcel, CAMA and Sale data, including Sale data via download from the Subscriber Website, from the Maryland State Department of Assessments and Taxation (SDAT); reference grids including a grid for the property (tax) maps, an ADC map book grid, a grid for the Maryland State Highway Administration (SHA) road, stream and feature maps and a grid for USGS 7.5' Topographical quad maps; and additional SHA files including a digital centerline roads file, data derived from SHA digital grid maps, an SHA major roads file and a county boundary file.<br/>
+<br/>
+Also included are land use/land cover data; congressional and legislative district boundary files; census geography and census demographic data; ZIP code boundary files; Priority Funding Area (PFA) designations; floodplain data, including DFIRM data for selected jurisdictions; protected lands boundaries; watershed data; generalized zoning designations; sewer service area boundaries; public water service area boundaries for selected jurisdictions; National Register of Historic Places (NRHP) Maryland coverage; residential Sales x,y point and summary files derived from SDAT Parcel and Sale data; large-scale, high resolution color digital-ortho imagery and a custom Quantum GIS project file (.qgs).</blockquote>
 
-<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
 
-<p>{% tweet http://twitter.com/cageyjames/statuses/272025049526050816 %}</p>
+<p>The MDP site indicates there is a <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/CstFnd.pdf">licensing fee</a> (PDF), which I assume is to cover the management of the data sets and the <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/LicFnd.pdf">license agreement</a>, while acknowledging the GPL license of QGIS itself, seems to place the actual FINDER extension itself outide of any open-source license. (I am not a lawyer so I'll accept guidance on that interpretation.) That said, bundling QGIS with data that the statewide user community values and an application to help exploit it is a great way to get more users on board with QGIS.</p>
 
-<p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
+<p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
 
-<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
+<p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
-    <link href="http://blog.geomusings.com/2012/11/26/spatialite-for-android-available/"/>
-    <updated>2012-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/26/spatialite-for-android-available</id>
-    <content type="html"><![CDATA[<p>On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.</p>
+    <title type="html"><![CDATA[Come Sling Code With Us]]></title>
+    <link href="http://blog.geomusings.com/2013/09/20/come-sling-code-with-us/"/>
+    <updated>2013-09-20T09:57:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/09/20/come-sling-code-with-us</id>
+    <content type="html"><![CDATA[<p>It's been a pretty good week for us at <a href="http://www.zekiah.com">Zekiah</a>. We announced two new <a href="http://www.zekiah.com/index.php?q=press/2013/09/16/zekiah-technologies-inc-wins-marine-corps-logistics-support-services-mclogss-contra">contract</a> <a href="http://www.zekiah.com/index.php?q=press/2013/09/16/zekiah-technologies-inc-awarded-contract-mission-assurance-division">wins</a> and I'm pleased to say that we're not done yet. After final paperwork is done, we should be able to announce a couple more. These are the things that make small-business ownership worthwhile: doing good work, building relationships with our customers and then leveraging our track record to be able to work with new customers. Project execution and business development help us build the foundation necessary to be a good place for our employees to work and we try hard every day to make sure that we are such a place.</p>
 
-<p>I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.</p>
+<p>The second contract win we announced this week, with the US Navy's Mission Assurance Division in Dahlgren, Virginia, is particularly fulfilling for us because we have worked side-by-side with that organization since the late 1990's, doing challenging work in the areas of infrastructure protection and situational awareness during that time. We have literally grown and evolved alongside them over that time.</p>
 
-<p>The message is quoted below:</p>
+<p>I typically try not to mix my blog with the daily operational aspects of my work at Zekiah. Usually, my work comes through in abstracted form in various posts, although many posts actually reflect my own personal experimentation and side projects. I'm stepping outside of that practice today to say that our latest contract win has given us <a href="http://www.zekiah.com/index.php?q=careers/openings/gis-software-developer-ii">an opening for a software developer</a> to come work with us at the Mission Assurance Division.</p>
 
-<blockquote>
-Hi List,
-
-I'm really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
-
-[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
-
-Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
-
-[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
-
-A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he'll surely appreciate ;-)
-
-[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
-
-enjoy, Sandro
-</blockquote>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SpatiaLite 4.0 Released]]></title>
-    <link href="http://blog.geomusings.com/2012/11/26/spatialite-4-0-released/"/>
-    <updated>2012-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/26/spatialite-4-0-released</id>
-    <content type="html"><![CDATA[<p>It looks like it was a busy weekend for Sandro Furieri and the rest of the <a href="https://www.gaia-gis.it/fossil/libspatialite/index" target="_blank">SpatiaLite</a> team as version 4.0 was announced on Sunday. There are a number of changes, so it's best to <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=switching-to-4.0" target="_blank">catch up on them</a> before switching over.</p>
-
-<div style="text-align: center;"><a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a><div style="text-align: center;font-size: 14px;">Not this SpatiaLite</div></div>
+<div style="text-align: center;"><img src="http://blog.geomusings.com/images/posts/desk.jpg" /><div style="text-align: center;font-size: 14px;">Can you bring this workstation to life?</div></div>
 
 
-<p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I'll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
+<br />
+
+
+
+
+<!--more-->
+
+
+<p>This is an immediate opening and you would be performing .Net development with the full range of Microsoft and Esri technologies. The work has been challenging and is mission-essential for not only our customer but their sponsors as well. The work would require you to be on-site full time but you would be working with one of the most talented teams of developers, both government and contractor, with which I have ever been associated. This is a group from which I have learned a great deal and still do. This specific position is not for someone who is particularly senior but it is also not entry-level either. It's a great opportunity to grow a career that's underway and picking up steam.</p>
+
+<p>You can get some details by checking out the <a href="http://www.zekiah.com/index.php?q=careers/openings/gis-software-developer-ii">offical job posting</a>, where you can also apply online. Most of that language is pulled directly from the description in the contract. If you want to get an idea of what the day-to-day work looks like, <a href="http://blog.geomusings.com/about/">you can always contact me directly</a>. I will draw your attention to one requirement, however: "Active security clearance or the ability to obtain a security clearance." What that means is that we can't entertain staffing via offshoring, nor can we consider applicants who do not hold US citizenship. I bring that up only because everyone's time is valuable and I'd hate for you to waste your time applying if we can't consider you.</p>
+
+<p>So, if you're looking for the next challenge in your career and want to work with a great team, please send us your vitals. Some of the best and most meaningful work I've done in my career was done supporting this customer.</p>
 ]]></content>
   </entry>
   
