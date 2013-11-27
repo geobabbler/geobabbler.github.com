@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-11-19T19:54:52-05:00</updated>
+  <updated>2013-11-27T14:11:11-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Consider the 'Alternative']]></title>
+    <link href="http://blog.geomusings.com/2013/11/27/consider-the-alternative/"/>
+    <updated>2013-11-27T13:01:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/11/27/consider-the-alternative</id>
+    <content type="html"><![CDATA[<p>When I was in college, I had a psychology professor who posited that you could train a cat (a dodgy proposition at best) to take circuitous route to its food bowl by only rewarding that behavior. He was clearly a behaviorist and was convinced that you could completely condition the instinct to go straight to the food bowl out of the cat. To my knowledge, this professor did not own a cat and never attempted to test his assertion.</p>
+
+<p>I was reminded of this after reading my friend Atanas Entchev's <a href="http://blog.entchev.com/2013/11/22/some-post-postgis-day-thoughts.aspx">post in reaction</a> to the <a href="http://postgis.net">PostGIS</a> Day <a href="http://www.spatiallyadjusted.com/2013/11/21/todays-hangout-postgis-day-extravaganza-panel/">hangout panel discussion</a>. In his post, <a href="http://twiiter.com/atanas">Atanas</a> describes difficulty in convincing customers to consider open-source geospatial tools. These customers and prospects are comfortable with their proprietary tools and associated workflows and are reluctant to consider switching. I have encountered this attitude many times myself so I take no issue with the observation. Barriers to exit are real considerations, regardless of the new technology being considered. Organizations align themselves around their tools to achieve maximum efficiency with them. I discussed these issues at a talk I gave last year to the <a href="https://njgin.state.nj.us/OIT_NJGF/index.jsp">New Jersey Geospatial Forum</a> about how organizations can extend their existing geospatial technology investments with open-source technologies. These issues are very real for any organization with a mature, extended investment in a particular technology stack.</p>
+
+<p>Atanas went on to liken the attitude to that with which some people view alternative medicine and I can see his point. Traditional GIS has set itself apart from the rest of the technology world for so long that users are generally conditioned to believe that GIS workflows should involve a series of <a href="http://en.wikipedia.org/wiki/Rube_Goldberg">Rube Goldberg</a> machinations involving file-based data sets, some proprietary scripting, and possibly some application-level business logic to relate and/or join data as necessary. This has taken various forms over the years but diagrams of those workflows tend to look the same.</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geo_model.png" /></p>
+
+<!--more-->
+
+
+<p>Standing in contrast to such things, PostGIS looks alien, or "alternative." In truth, it is not "alternative" but rather "standard." As an example, here is <a href="http://blog.geomusings.com/assets/demos/nbi/">a map I produced a few weeks ago</a> showing the average ages of bridges by county. (I am not a cartographer.) It is a simple aggregation of the <a href="http://www.fhwa.dot.gov/bridge/nbi.cfm">National Bridge Inventory</a>, which consists of tens of thousands of records by county (3100-ish records). All of the data processing was done in PostgreSQL/PostGIS using nothing more exotic than SQL aggregate functions and some joins. None of the operations took longer than 6 seconds on my very pedestrian laptop. When I was done, I used QGIS to play with visualization and then dump out the static GeoJSON for use in Leaflet.</p>
+
+<p>For my many friends who are regular users of PostGIS, this is nothing exotic. For some of my friends who regularly use commercial tools, this is interesting but not earth-shattering. But for a large portion of my friends who are comfortable with traditional tools and workflows, the time-to-market for this effort (35 minutes from the time I downloaded the NBI to the time I pushed the map to GitHub) has them taking notice. This entire workflow involved SQL extended with OGC-compliant spatial objects. (Side note: I have been hard on OGC's web efforts but the Simple Features Specification has been a quiet workhorse across the geospatial industry for over a decade. It's a good example of the benefit that well-designed standards can provide.) The map is being served from static content over simple HTTP with some client-side Javascript handling visualization. No heavy APIs or middleware involved or needed. The QGIS part was really necessitated by own cartographic limitations, but I could have fully generated the GeoJSON from SQL as well.</p>
+
+<p>This example is fairly simplistic but I have good friends that are using PostGIS, and nothing more, to perform analyses and produce results for decision makers while sitting in meetings. This type of turnaround is standard in other market segments and the geospatial industry should expect nothing less. It requires nothing more than a strong foundation in SQL, mastery of spatial processes, and detailed understanding of your own data.</p>
+
+<p>So I have come to realize that the mainstream GIS community has become very much like my professor's theoretical cat; conditioned to take the long way to the end result when more direct paths are clearly available. What's more, they have become conditioned to think of such approaches as normal. Geospatial analytical operations can be very complex and the approaches to performing them were, in the past, necessarily convoluted due to the lack of understanding of spatial data types and operations within mainstream platforms. Those barriers have been rapidly disappearing over the past decade or so, but the user community has been slow to let go of its comfort with familiar tools and convoluted approaches. As I stated above, organizational barriers to exit are real considerations, but the inherent efficiencies available in modern geospatial tools such as PostGIS make the transition worth the effort.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GIS Day After]]></title>
@@ -112,36 +138,6 @@ Also included are land use/land cover data; congressional and legislative distri
 <p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
 
 <p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Come Sling Code With Us]]></title>
-    <link href="http://blog.geomusings.com/2013/09/20/come-sling-code-with-us/"/>
-    <updated>2013-09-20T09:57:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/09/20/come-sling-code-with-us</id>
-    <content type="html"><![CDATA[<p>It's been a pretty good week for us at <a href="http://www.zekiah.com">Zekiah</a>. We announced two new <a href="http://www.zekiah.com/index.php?q=press/2013/09/16/zekiah-technologies-inc-wins-marine-corps-logistics-support-services-mclogss-contra">contract</a> <a href="http://www.zekiah.com/index.php?q=press/2013/09/16/zekiah-technologies-inc-awarded-contract-mission-assurance-division">wins</a> and I'm pleased to say that we're not done yet. After final paperwork is done, we should be able to announce a couple more. These are the things that make small-business ownership worthwhile: doing good work, building relationships with our customers and then leveraging our track record to be able to work with new customers. Project execution and business development help us build the foundation necessary to be a good place for our employees to work and we try hard every day to make sure that we are such a place.</p>
-
-<p>The second contract win we announced this week, with the US Navy's Mission Assurance Division in Dahlgren, Virginia, is particularly fulfilling for us because we have worked side-by-side with that organization since the late 1990's, doing challenging work in the areas of infrastructure protection and situational awareness during that time. We have literally grown and evolved alongside them over that time.</p>
-
-<p>I typically try not to mix my blog with the daily operational aspects of my work at Zekiah. Usually, my work comes through in abstracted form in various posts, although many posts actually reflect my own personal experimentation and side projects. I'm stepping outside of that practice today to say that our latest contract win has given us <a href="http://www.zekiah.com/index.php?q=careers/openings/gis-software-developer-ii">an opening for a software developer</a> to come work with us at the Mission Assurance Division.</p>
-
-<div style="text-align: center;"><img src="http://blog.geomusings.com/images/posts/desk.jpg" /><div style="text-align: center;font-size: 14px;">Can you bring this workstation to life?</div></div>
-
-
-<br />
-
-
-
-
-<!--more-->
-
-
-<p>This is an immediate opening and you would be performing .Net development with the full range of Microsoft and Esri technologies. The work has been challenging and is mission-essential for not only our customer but their sponsors as well. The work would require you to be on-site full time but you would be working with one of the most talented teams of developers, both government and contractor, with which I have ever been associated. This is a group from which I have learned a great deal and still do. This specific position is not for someone who is particularly senior but it is also not entry-level either. It's a great opportunity to grow a career that's underway and picking up steam.</p>
-
-<p>You can get some details by checking out the <a href="http://www.zekiah.com/index.php?q=careers/openings/gis-software-developer-ii">offical job posting</a>, where you can also apply online. Most of that language is pulled directly from the description in the contract. If you want to get an idea of what the day-to-day work looks like, <a href="http://blog.geomusings.com/about/">you can always contact me directly</a>. I will draw your attention to one requirement, however: "Active security clearance or the ability to obtain a security clearance." What that means is that we can't entertain staffing via offshoring, nor can we consider applicants who do not hold US citizenship. I bring that up only because everyone's time is valuable and I'd hate for you to waste your time applying if we can't consider you.</p>
-
-<p>So, if you're looking for the next challenge in your career and want to work with a great team, please send us your vitals. Some of the best and most meaningful work I've done in my career was done supporting this customer.</p>
 ]]></content>
   </entry>
   
