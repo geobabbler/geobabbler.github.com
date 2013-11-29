@@ -13,4 +13,6 @@ Over time, links to various maps and samples will be posted here. In those cases
 
 [Map of US GISPs as of 21 August 2012](/assets/demos/clustermap/)
 
+[Average Age of US Bridges by County](/assets/demos/nbi/)
+
 [ClimaScope](http://climascope.tyndall.ac.uk/) - A climate change data visualization tool I worked on with my colleague, [Hugo Estrada](http://twitter.com/hugoestr).
