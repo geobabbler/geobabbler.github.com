@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="This post may cover some similar ground to that which Dave has been treading but I&#8217;m just trying to document my experiences as they occur. By &hellip;">
+  <meta name="description" content="In my previous post, I discussed some approaches to configuring PostgreSQL databases and accessing the data in them with ArcSDE 9.3. For this post, I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/06/02/using-arcsde-93-with-postgresql-part-2/">Using ArcSDE 9.3 With PostgreSQL, Part 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-02T00:00:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2008</time>
+        
+         | <a href="/2008/06/02/using-arcsde-93-with-postgresql-part-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In my <a href="http://geobabble.wordpress.com/2008/05/28/using-arcsde-93-with-postgresql-part-1/">previous post</a>, I discussed some approaches to configuring <a href="http://www.postgresql.org">PostgreSQL</a> databases and accessing the data in them with <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> 9.3. For this post, I will describe some of my ongoing experiences with getting data into ArcSDE 9.3.</p>
+
+<p>There are two main ways that I am investigating of loading/making available your spatial data in ArcSDE 9.3 for PostgreSQL. The first is the traditional method of importing a feature class via ArcCatalog. (You can also create data in this manner but I haven&#8217;t played with that yet.) The second is to register an existing <a href="http://postgis.refractions.net">PostGIS</a> table as a layer using the &#8221;<a href="http://edndoc.esri.com/arcsde/9.0/admin_cmd_refs/sdelayer.htm">sdelayer</a> -o register&#8221; command-line tool. I will discuss this latter option first.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/06/02/using-arcsde-93-with-postgresql-part-2/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -462,53 +505,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/04/09/ziggis-beta/">ZigGIS Beta</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-04-09T00:00:00-04:00" pubdate data-updated="true">Apr 9<span>th</span>, 2008</time>
-        
-         | <a href="/2008/04/09/ziggis-beta/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As zigGIS 2.0 enters its beta stage, I am (somewhat strangely) reminded of the famous line from Yeats:</p>
-
-<p>&#8220;what rough beast, its hour come round at last,
-Slouches towards Bethlehem to be born?&#8221;</p>
-
-<p>Kind of a weird thing to have pop into your head in relation to something as positive as zigGIS, but sleep deprivation can do that.</p>
-
-<p>Anyway, this is more of a status update than an invite. ZigGIS 2.0 is getting ready to enter its beta stage. The beta will be a closed beta amongst a subset of existing users. <a href="http://abegillespie.blogspot.com/2008/04/teb-beta.html">Abe has blogged about it.</a> It&#8217;ll help us get it tested while also keeping the beta program manageable (for us).</p>
-
-<p>So, for those who will be beta testing, now is the time. For the rest who are interested, zigGIS 2.0 is moving forward. More info can be found on Abe&#8217;s blog and screencasts are available at the <a href="http://www.obtusesoft.com/">Obtuse</a> site.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/25/">&larr; Older</a>
@@ -557,15 +553,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/">Building a Simple Geodata Service with Node, PostGIS, and Amazon</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/11/27/consider-the-alternative/">Consider the &#8216;Alternative&#8217;</a>
       </li>
     
       <li class="post">
         <a href="/2013/11/19/gis-day-after/">GIS Day After</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/10/23/desktop-not-dead/">Desktop Not Dead</a>
       </li>
     
   </ul>
