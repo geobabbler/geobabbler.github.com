@@ -263,10 +263,6 @@
 <span class='line-number'>77</span>
 <span class='line-number'>78</span>
 <span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">pg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pg&#39;</span><span class="p">);</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">conString</span> <span class="o">=</span> <span class="s2">&quot;postgres://username:password@hostname.rds.amazonaws.com:5432/database&quot;</span><span class="p">;</span> <span class="c1">//TODO: point to RDS instance</span>
 </span><span class='line'>
@@ -279,8 +275,7 @@
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_envelope(shape)) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
 </span><span class='line'>    <span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//console.log(result);</span>
-</span><span class='line'>
+</span><span class='line'>      <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>          <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
 </span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -301,8 +296,7 @@
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_envelope(st_transform(shape, &quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span> <span class="o">+</span> <span class="s2">&quot;))) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
 </span><span class='line'>    <span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//console.log(result);</span>
-</span><span class='line'>
+</span><span class='line'>      <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>          <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
 </span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -322,8 +316,7 @@
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(shape) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
 </span><span class='line'>    <span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//console.log(result);</span>
-</span><span class='line'>
+</span><span class='line'>      <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>          <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
 </span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -341,8 +334,7 @@
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_transform(shape, &quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span> <span class="o">+</span> <span class="s2">&quot;)) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
 </span><span class='line'>    <span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//console.log(result);</span>
-</span><span class='line'>
+</span><span class='line'>      <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>          <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
 </span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
