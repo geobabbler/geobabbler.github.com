@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-12-16T14:27:12-05:00</updated>
+  <updated>2013-12-27T09:20:38-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JS.Geo 2014 Announced]]></title>
+    <link href="http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced/"/>
+    <updated>2013-12-27T08:29:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced</id>
+    <content type="html"><![CDATA[<p>Information about the follow-up to last year's <a href="http://www.jsgeo.org/">JS.Geo</a> event has been percolating back-channel for a few weeks now. Now some <a href="http://lanyrd.com/2014/jsgeo14/">official details have been posted</a>. This year's event will be held in April in San Francisco. I attended last year's session, really liked the focused format, and got a lot of good information out of it. One thing that was nice was that, regardless of whether you are of an Esri or open-source persuasion in your development preferences, there was a lot of good information presented with a relative lack of hyperbole, which made it easy to focus on the content.</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></p>
+
+<p>As <a href="http://twitter.com/geo_rube">Todd Barr</a> <a href="http://drunkengeographer.tumblr.com/post/69908102132/when-i-realize-that-no-one-who-plans-gis-spatial">eloquently points out</a>, the April 2014 calender is somewhat crowded with geo-events but, based on last year's event, I'd recommend putting JS.Geo at the top of the list.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Consider the 'Alternative']]></title>
@@ -69,7 +82,7 @@
     <id>http://blog.geomusings.com/2013/10/23/desktop-not-dead</id>
     <content type="html"><![CDATA[<p>In 2011, I gave a talk at the NCGIS conference about the continued dominance of the desktop in the world of GIS. In that talk, my main point was that, regardless of the ultimate destination of GIS data or maps (cloud, server, paper, PDF, etc.), most GIS data passes through a desktop GIS at some point. I don't have hard data to back up that claim but I think anyone who has worked in the industry for any length of time will agree that it feels right. If we loosely define "desktop GIS" to include not only GUI analytical tools like <a href="http://www.esri.com">ArcMap</a> or <a href="http://qgis.org">QGIS</a>, but also command-line tools such as <a href="http://www.gdal.org/">GDAL/OGR</a> and cartographic tools such as <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I think the statement is even more comfortable.</p>
 
-<p style="text-align:center;"><iframe width="560" height="420" src="http://www.youtube.com/embed/ljIQo1OHkTI?color=white&theme=light"></iframe></p>
+<p style="text-align:center;">{% youtube ljIQo1OHkTI %}</p>
 
 <p>Essentially, my claim was that desktop GIS is still the onramp for most of the data we interact with on the web. Over the past few years, geographically tagged live and temporally-sensitive data streams have increased in importance but I think most geospatial data still starts as traditional data sources (rasters, vectors, terrain, etc.) that pass through a desktop for analysis, processing, and styling before moving on to the web. Esri, for example, still features its desktop tools as prominent parts of its web publishing workflow and <a href="http://boundlessgeo.com/">Boundless</a> is working on a <a href="https://github.com/boundlessgeo/suite-qgis-plugin">similar path for QGIS</a>.</p>
 
@@ -113,31 +126,6 @@ msallowfullscreen width="770" height="433"></iframe>
 <p>With modern client-side mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> and <a href="http://www.openlayers.org/">OpenLayers</a>, and with content generation tools like TileMill, it has become increasingly easy to make beautiful, interactive web maps that require no specialized back-end server to deliver geospatial content. With WeoGeo's support, combined with the online editing capabilities of <a href="http://geojson.io/">geojson.io</a> from <a href="http://mapbox.com">MapBox</a>, the validation capability of <a href="http://geojsonlint.com/">GeoJSONLint</a> by <a href="http://twitter.com/JCSanford">Jason Sanford</a>, the <a href="https://help.github.com/articles/mapping-geojson-files-on-github">simple hosting capability of GitHub</a>, and the extended query API provided by <a href="http://gitspatial.com/">GitSpatial</a> (again by Jason Sanford), we are very close to having a complete GeoJSON-centric workflow.</p>
 
 <p>Even as government data sites come back online, there are still good reasons to head over to WeoGeo and check out what they have. The customization capabilities alone (shown in the video above) make it very easy to get data for just your area of interest without having to download a lot of extra, unneeded data. The addition of GeoJSON support, in my opinion, shortens the workflow needed to get from data to information.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Maryland Department of Planning Bundles Property Data with QGIS]]></title>
-    <link href="http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/"/>
-    <updated>2013-10-07T12:38:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis</id>
-    <content type="html"><![CDATA[<p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
-
-<!--more-->
-
-
-<p>From the MDP site, the bundled data includes:</p>
-
-<blockquote cite="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">The product DVD includes the State's computerized property (tax) maps; the x,y linkages (point or polygon) to the Parcel, Computer Assisted Mass Appraisal (CAMA) and Sale datasets; Parcel, CAMA and Sale data, including Sale data via download from the Subscriber Website, from the Maryland State Department of Assessments and Taxation (SDAT); reference grids including a grid for the property (tax) maps, an ADC map book grid, a grid for the Maryland State Highway Administration (SHA) road, stream and feature maps and a grid for USGS 7.5' Topographical quad maps; and additional SHA files including a digital centerline roads file, data derived from SHA digital grid maps, an SHA major roads file and a county boundary file.<br/>
-<br/>
-Also included are land use/land cover data; congressional and legislative district boundary files; census geography and census demographic data; ZIP code boundary files; Priority Funding Area (PFA) designations; floodplain data, including DFIRM data for selected jurisdictions; protected lands boundaries; watershed data; generalized zoning designations; sewer service area boundaries; public water service area boundaries for selected jurisdictions; National Register of Historic Places (NRHP) Maryland coverage; residential Sales x,y point and summary files derived from SDAT Parcel and Sale data; large-scale, high resolution color digital-ortho imagery and a custom Quantum GIS project file (.qgs).</blockquote>
-
-
-<p>The MDP site indicates there is a <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/CstFnd.pdf">licensing fee</a> (PDF), which I assume is to cover the management of the data sets and the <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/LicFnd.pdf">license agreement</a>, while acknowledging the GPL license of QGIS itself, seems to place the actual FINDER extension itself outide of any open-source license. (I am not a lawyer so I'll accept guidance on that interpretation.) That said, bundling QGIS with data that the statewide user community values and an application to help exploit it is a great way to get more users on board with QGIS.</p>
-
-<p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
-
-<p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
 ]]></content>
   </entry>
   
