@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I just sat through a session titled &#8220;Working With the Geodatabase Effectively Using SQL.&#8221; It was heavily focused on ST_GEOMETRY. That&# &hellip;">
+  <meta name="description" content="ArcGIS 9.3 looks really good all the way around. ESRI seems to have really put a lot of work into making this a quality release. Basically, it&#8217; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/03/21/dev-summit-ahhhh-the-apis-and-security/">Dev Summit - Ahhhh, the APIs (and Security)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-21T00:00:00-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2008</time>
+        
+         | <a href="/2008/03/21/dev-summit-ahhhh-the-apis-and-security/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>ArcGIS 9.3 looks really good all the way around. ESRI seems to have really put a lot of work into making this a quality release. Basically, it&#8217;s all about consolidating the vision of 9.2 while also improving the execution of that vision. To be sure, there are some new capabilities (PostgreSQL support, Javascript API, REST API, etc.) but there has been a huge effort on shoring up the quality of the product. The ESRI developers themselves seem really excited as well. It seems as if they can&#8217;t wait for the beta to get in our collective hands. But, this being the Dev Summit, the real star of the show was the APIs.</p>
+
+<p>I didn&#8217;t attend anything on the Java ADF or the Flex API. Neither of those are things I&#8217;ll be using anytime soon so I didn&#8217;t check them out but <a href="http://fantomplanet.wordpress.com/">Fantom Planet</a> did attend the Flex API session and seemed duly impressed. So, if you want details on that, you should probably nag him.  ;)</p>
+
+<p>I sat in on a session about the .Net Web ADF. I&#8217;ve already read <a href="http://blog.davebouwman.net/2008/03/20/ArcGISServerNETADFSession.aspx">Dave&#8217;s post</a> on the same session and his notes read almost exactly like the ones I have in my notebook so, rather than retype my notes (which would essentially duplicate Dave&#8217;s post), I&#8217;ll refer you there. BTW, congrats Dave!</p>
+
+<p>The .Net Web ADF definitely seems to have a lot of improvements. The things I&#8217;m most excited about are a) all of the web controls being scriptable, b) the client-side JavaScript now being exposed, documented and supported, c) the re-engineering to use ASP.NET AJAX and d) resource-level tiling. ESRI put a lot of focus on reducing the number of server round-trips and reducing the need to execute the full page life-cycle. This will speed things up a lot. All of the items I just listed will have direct, immediate benefits on our Server projects. Oh yeah, using JSON to serialize their objects is cool as well. Additionally, the ADF is designed to use .Net 3.5 but you can toggle back to 2.0 if you need to. I see SilverLight in my future.</p>
+
+<p>I&#8217;ve already talked a little about the REST API. I think that one is going to be huge. It really expands the scope of potential clients for ArcGIS Server services to just about anything. As I said, they even hit services from Ruby and Python during the session. &#8220;Everything is a URL&#8221; was the big take-away from that session. So, pretty much anything that can call a URL and understand the response can be a client. A lot of my clients have standardized on SOAP web services (didn&#8217;t get to anything about the SOAP API but I&#8217;ll catch up on that during the beta) but I plan on leveraging the REST API as much as I can outside of those areas.</p>
+
+<p>The JavaScript API looks pretty good too. Using this, developers will be able to integrate ArcGIS Server services into Virtual Earth and Google Maps and other mashups. <a href="http://mandown.co.nz/events/day-1-building-mashups-using-the-arcgis-javascript-api-s-at-the-esri-developer-summit-2008/">Mandown</a> has an good summary of the session. Most of my customers will not be able to take advantage of ESRI hosting the API but that shouldn&#8217;t be a huge issue. However, it (along with the SOAP and REST APIs) fit in well with the mobile code policies we have to adhere to.</p>
+
+<p>When I went to the FedUC, Jack articulated a vision of ArcGIS providing advanced GIS analysis to whatever client you wanted to use. The Dev Summit really brought that home in a way that you could see it. The various APIs give lots of options that should fit into any environment.</p>
+
+<p>Lastly, I attended the session on securing .Net web applications. The security model is essentially an extension of what we did at 9.2 but a whole lot easier to administer. They generally follow the ASP.NET model (OS security, Forms, custom provider). That&#8217;ll make it easier to to get systems accredited. However, with regard to AGS web services, they&#8217;ve made one significant change for the better (IMHO). Security for web services is now managed by the SOM rather than being defined in the web.config. This has one huge advantage in that security is now applied consistently to web services regardless of which API you are using to access the services. This means that whether you use the Java ADF, .NET ADF, REST API, JavaScript API, SOAP API or whatever, web service security will be the same. I&#8217;ll need to educate some of the security types I deal with on the SOM (and they&#8217;ll want to red-team it, I&#8217;m sure) but I think it&#8217;ll end up being an easy sell.</p>
+
+<p>So, this&#8217;ll be an exciting release for developers. I think it could be as significant as when we were all introduced to ArcObjects at 8.0. Now, I&#8217;ve just got to get into the office and set up the beta&#8230;.</p>
+
+<p>UPDATE: <a href="http://www.spatiallyadjusted.com/2008/03/21/reflection-on-the-2008-esri-developer-summit/">James raises a good point</a> about the demos. They do make it look like you can do really cool stuff with just a little bit of code. It&#8217;s important to remember that calling the service from the API is just one part. You&#8217;ll still need to implement your complex logic in the service. Also, more sophisticated behaviors on the client will require more code there. It&#8217;s important not to get caught up in the sales hype. 9.3 will offer some powerful options but it&#8217;s important to keep the total level of effort in mind. The new APIs give you more options for developing your applications, but they don&#8217;t obviate the need to actually write the code.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -479,50 +535,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/18/esri-2008-fed-uc-vibe/">ESRI 2008 Fed UC Vibe</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-18T00:00:00-05:00" pubdate data-updated="true">Feb 18<span>th</span>, 2008</time>
-        
-         | <a href="/2008/02/18/esri-2008-fed-uc-vibe/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>At the risk of sounding like an ESRI shill&#8230;</p>
-
-<p>The <a href="http://www.esri.com/events/feduc/index.html">FedUC</a> starts on Wednesday and this year it seems to have a different feel to it. It feels like it&#8217;s definitely picked up some momentum over previous years. The sessions seem to be a little meatier and the atmosphere feels more purposeful and businesslike now.</p>
-
-<p>I have been a proponent of the FedUC since it has started. First of all, I do a lot of work with ESRI products for the Federal government and the idea of having a major event (i.e. not a user group meeting) on the East Coast has been rather compelling. I&#8217;ve blogged a lot about the development I do but my company is small and I wear a lot of hats, including project manager, marketing, etc. ESRI&#8217;s federal team in Vienna, VA has put a lot of effort over the past few years into beefing up the FedUC, and it feels like that work is paying off this year.</p>
-
-<p>I&#8217;ve had numerous meeting requests this year. In addition, there are a number of sessions I want to see as well as exhibits by some companies that I have been wanting to see. From a business standpoint, there&#8217;s a lot of return on it this year (for me anyway). For those west of the Mississippi, you can probably get a lot of the same benefits in San Diego but those in the East (particularly those doing federal work) may want to give the FedUC a closer look. This will be the first year that I will probably spend each day there from beginning to end.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/27/">&larr; Older</a>
@@ -571,15 +583,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/">DC DevSummit In Works for 2014 Esri Federal GIS Conference</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/12/27/js-dot-geo-2014-announced/">JS.Geo 2014 Announced</a>
       </li>
     
       <li class="post">
         <a href="/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/">Building a Simple Geodata Service with Node, PostGIS, and Amazon</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/11/27/consider-the-alternative/">Consider the &#8216;Alternative&#8217;</a>
       </li>
     
   </ul>
