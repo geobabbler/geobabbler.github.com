@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gis | geoMusings]]></title>
+  <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-12-27T13:46:34-05:00</updated>
+  <updated>2013-12-27T14:29:09-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,143 +14,113 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Another Look at GIS StackExchange]]></title>
-    <link href="http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange/"/>
-    <updated>2013-09-12T11:10:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange</id>
-    <content type="html"><![CDATA[<p>A year ago, I used the StackExchange API to facilitate an <a href="http://blog.geomusings.com/2012/09/13/carving-up-gis-stackexchange/">analysis of tags on GIS StackExchange</a> to see what people were talking about on one of the largest and most successful vendor-neutral discussion sites in our industry. In that post, I stated "It would probably be good to revisit this in a year to see how things have changed, if at all."</p>
-
-<p>Well, a year has passed so I decided to do it again. I used the same scripts and approach I used last time in order to be consistent. Since this is one year later, there is one key caveat. My analysis last year looked at the top 100 tags since the start of the <a href="http://gis.stackexchange.com/">GIS StackExchange</a> site. Since I ran the same query this year, the new results are compounded so what they so are last year's results plus activity since then. Essentially, you are looking at "that plus this." The pie chart below shows the breakdown.</p>
-
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/stackexchange_chart_2013.png" /></p>
+    <title type="html"><![CDATA[DC DevSummit In Works for 2014 Esri Federal GIS Conference]]></title>
+    <link href="http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/"/>
+    <updated>2013-12-27T13:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference</id>
+    <content type="html"><![CDATA[<p>I got word today that <a href="http://www.esri.com">Esri</a> is planning a one-day [Developer Summit] in conjunction with the <a href="http://www.esri.com/events/federal/">2014 Federal GIS Conference</a>. It appears that the DevSummit will happen on the Wednesday immediately following the Fed Conference (which runs on the Monday and Tuesday) and will be focused on the issues and challenges that are unique to developing applications with Esri technologies for the Federal Government. I spoke with <a href="http://www.linkedin.com/in/jdbarry">Jim Barry</a>, who told me the DevSummit has come together rather quickly and Esri hasn't had time to do its usual data gathering to prepare for such an event. As a result, they are canvassing the developer community for input on topics they should cover. Here are some things I suggested:</p>
 
 <!--more-->
 
 
-<p>Compared to last year's results, there hasn't been much movement in the distribution of tags. One thing I did notice, however is that the tag "qgis" leaped to the top of the list. Last year, "arcgis" was the top tag and "qgis" was number three. That said, I wouldn't jump to too many conclusions. A quick <a href="/assets/data/stack2013/output_2013.csv">look at the data</a> shows that, in addition to "arcgis", there are version-specific tags such as "arcgis-10.0" and "arcgis-10.1" as well as product-specific tags like "arcgis-server" so there's a lot of Esri-centric discussion going on, but that is to be expected. The top ten tags, however, include major components of the <a href="http://opengeo.org/">OpenGeo</a> Suite (OpenLayers, GeoServer, PostGIS) in addition to QGIS so open-source tools seem to be every bit as active a topic of discussion as do <a href="http://www.esri.com">Esri</a> tools.</p>
-
-<p>Speaking of the top ten tags, they were: <br /><br />
-1. qgis (3910) <br />
-2. arcgis (2382) <br />
-3. python (2171) <br />
-4. arcgis-10.0 (2142) <br />
-5. openlayers (1996) <br />
-6. postgis (1560) <br />
-7. geoserver (1193) <br />
-8. arcobjects (1184) <br />
-9. raster (1174) <br />
-10. arcmap (1113) <br /></p>
-
-<p>Last year, I got some back-channel requests to do a little more with the raw data so, seeing a chance to play with <a href="http://d3js.org">D3</a>, here is a look at how things break down. Hover over a bubble to see the full name and tag count. If you follow your nose a bit, the color scheme will become apparent in relation to the pie chart's key.</p>
-
-<p><link rel="stylesheet" href="http://blog.geomusings.com/assets/data/stack2013/style.css" /></p>
-
-<iframe src="http://blog.geomusings.com/assets/data/stack2013/frame.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<ul>
+<li><p>Developing for <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> compliance - FISMA compliance has to be baked into an application from the beginning. It would be great to see some content on best practices and resources available to support this when developing with Esri tools and APIs. Esri's regional office in Vienna, Virginia has been doing a lot of work in this area but I'm not sure the information is widespread.</p></li>
+<li><p>Desktop development - I still see <em>a lot</em> of ArcGIS desktop development in the Federal arena. This ranges from traditional ArcObjects extensions to add-ins to work with the File Geodatabase API. I think content related to how to do continued desktop development and support in light of the current realities of highly constrained desktop environments would be invaluable. For example, how to construct and deploy applications that don't necessarily need to touch the registry and can be deployed without administrative rights. Also, some content on the future of Esri desktop products (like <a href="http://video.esri.com/watch/2533/unveiling-the-new-arcgis-professional-application-with-jim-mckinney-and-jack-dangermond">ArcGIS Professional</a>) and what it means for application developers would be useful.</p></li>
+</ul>
 
 
-<p>All of the same limitations I pointed out last year about posts having multiple tags and dilution across related tags still apply this year. If there is any insight into the mind share of the GIS community to be derived from this exercise, it is probably in the aggregate.</p>
+<p><img src="http://blog.geomusings.com/images/posts/code.png" style="float:left;margin: 5px 25px 5px 0px;" /></p>
 
-<p>The exact StackExchange API URL that generated these results is: <a href="https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100">https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100</a></p>
+<ul>
+<li><p>.Net - There's still a lot of .Net development going on in Federal spaces. Most of my Federal customers are still primarily using .Net and you can peruse Federal geospatial RFPs on any given day and see that it is widespread. I'm fairly comfortable with .Net, as are most of the government and contractor developers I work with but it would be good to have some .Net-focused content alongside the newer, sexier platforms.</p></li>
+<li><p><a href="http://www.arcgis.com/features/">ArcGIS Online for Organizations</a> - Whatever messaging Esri thinks they are doing is not working very well. I encounter a great many Federal users who simply don't understand what it can do for them, why they would consider it, how to budget for it, or whether they can really use it. My understanding is the main Federal GIS Conference will be talking about these issues a lot so I think the DevSummit should focus on the <a href="https://developers.arcgis.com/en/">tools and APIs</a> that are available so that developers can begin to address the ideas the main conference attendees will come back with.</p></li>
+<li><p>Data interoperability - I have spent a lot of time over the past year developing tools to support data modeling and configuration management efforts for some Federal users. Part of this work has involved developing tools to produce physical implementations of approved geospatial data models in a number of formats, though the formats that have been of primary interest with my customers have been the Esri File Geodatabase and <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>. The general workflows I have seen involve users working with Esri geodatabase formats in the office, while ingesting field-collected data in SpatiaLite format. All of this data needs to remain compliant with approved data models throughout the life cycle, regardless of format. <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">We've been tackling that</a> at <a href="http://www.esri.com">Zekiah</a> with good success. Given the support of SQLite/SpatiaLite in ArcGIS 10.2, I'd like to see some discussion of data conversion/interoperability approaches that developers can automate with Esri tools.</p></li>
+</ul>
 
-<p>The results were generated on 11 September 2013 and subsequent results will vary from those shown here. The Python script used to process the results into CSV <a href="/assets/data/stack2013/handle_json.zip">can be found here</a>.</p>
+
+<p>Those are some topics I suggested to Jim off the top of my head. I'll probably think of more. Jim and his team at Esri are actively seeking this sort of input since time is short so I'd suggest <a href="http://www.linkedin.com/in/jdbarry">contacting him</a> with your thoughts. Given the short timeframe, I'd expect official information from Esri very soon.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite 4.1.0 Beta Preview Available]]></title>
-    <link href="http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available/"/>
-    <updated>2013-01-03T08:34:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available</id>
-    <content type="html"><![CDATA[<p>On the <a href="https://groups.google.com/forum/?fromgroups#!forum/spatialite-users">SpatiaLite Google Group</a> this morning, Sandro Furieri announced the availability of a beta preview of SpatiaLite 4.1.0. The primary focus of this preview is to get early comment on new capabilities supporting the storage, validation, and query of XML documents.</p>
+    <title type="html"><![CDATA[JS.Geo 2014 Announced]]></title>
+    <link href="http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced/"/>
+    <updated>2013-12-27T08:29:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced</id>
+    <content type="html"><![CDATA[<p>Information about the follow-up to last year's <a href="http://www.jsgeo.org/">JS.Geo</a> event has been percolating back-channel for a few weeks now. Now some <a href="http://lanyrd.com/2014/jsgeo14/">official details have been posted</a>. This year's event will be held in April in San Francisco. I attended last year's session, really liked the focused format, and got a lot of good information out of it. One thing that was nice was that, regardless of whether you are of an Esri or open-source persuasion in your development preferences, there was a lot of good information presented with a relative lack of hyperbole, which made it easy to focus on the content.</p>
 
-<p>More information about this update <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=XmlBlob+and+VirtualXPath">can be found here</a>. Says Sandro:</p>
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></p>
 
-<blockquote>
-The main goals of these recently introduced enhancements are:<br/>
-- storing XML Documents directly within the DBMS <br/>
-- supporting XML validation<br/>
-- supporting plain SQL queries on behalf of XML Documents <br/>
-  via canonical XPath expressions<br/>
-<br/>
-Implementing directly into the Spatial DBMS a common core of 
-XML-oriented features surely is an interesting and useful option,
-just considering that ISO- and INSPIRE-Metadata or SLD/SE Styles 
-are fully based on XML.
-</blockquote>
-
-
-<p>Although I find myself working more with <a href="http://geojson.org">GeoJSON</a> and <a href="http://developmentseed.org/blog/2011/feb/09/introducing-carto-css-map-styling-language/">CartoCSS</a> these days, I think support for XML is a good step for SpatiaLite. There are some very mature use cases based on XML, as Sandro points out. While <a href="http://www.opengeospatial.org/standards/sld">SLD</a> is not my favorite, this may keep it on my radar. Also, it would be interesting to see how this new capability would possibly affect the evolution of the <a href="http://www.opengeospatial.org/projects/groups/geopackageswg">OGC GeoPackage draft specification</a>.</p>
+<p>As <a href="http://twitter.com/geo_rube">Todd Barr</a> <a href="http://drunkengeographer.tumblr.com/post/69908102132/when-i-realize-that-no-one-who-plans-gis-spatial">eloquently points out</a>, the April 2014 calender is somewhat crowded with geo-events but, based on last year's event, I'd recommend putting JS.Geo at the top of the list.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
-    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
-    <updated>2012-11-27T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
-    <content type="html"><![CDATA[<p>I'm happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It's been one of the more consistently valuable resources in the community since its inception and it's good that it will continue.</p>
+    <title type="html"><![CDATA[Consider the 'Alternative']]></title>
+    <link href="http://blog.geomusings.com/2013/11/27/consider-the-alternative/"/>
+    <updated>2013-11-27T13:01:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/11/27/consider-the-alternative</id>
+    <content type="html"><![CDATA[<p>When I was in college, I had a psychology professor who posited that you could train a cat (a dodgy proposition at best) to take a circuitous route to its food bowl by only rewarding that behavior. He was clearly a behaviorist and was convinced that you could completely condition the instinct to go straight to the food bowl out of the cat. To my knowledge, this professor did not own a cat and never attempted to test his assertion.</p>
 
-<p>While I'm looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called "venerable" nowadays, but it still does what it does very well.</p>
+<p>I was reminded of this after reading my friend Atanas Entchev's <a href="http://blog.entchev.com/2013/11/22/some-post-postgis-day-thoughts.aspx">post in reaction</a> to the <a href="http://postgis.net">PostGIS</a> Day <a href="http://www.spatiallyadjusted.com/2013/11/21/todays-hangout-postgis-day-extravaganza-panel/">hangout panel discussion</a>. In his post, <a href="http://twiiter.com/atanas">Atanas</a> describes difficulty in convincing customers to consider open-source geospatial tools. These customers and prospects are comfortable with their proprietary tools and associated workflows and are reluctant to consider switching. I have encountered this attitude many times myself so I take no issue with the observation. Barriers to exit are real considerations, regardless of the new technology being considered. Organizations align themselves around their tools to achieve maximum efficiency with them. I discussed these issues at a talk I gave last year to the <a href="https://njgin.state.nj.us/OIT_NJGF/index.jsp">New Jersey Geospatial Forum</a> about how organizations can extend their existing geospatial technology investments with open-source technologies. These issues are very real for any organization with a mature, extended investment in a particular technology stack.</p>
 
-<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
+<p>Atanas went on to liken the attitude to that with which some people view alternative medicine and I can see his point. Traditional GIS has set itself apart from the rest of the technology world for so long that users are generally conditioned to believe that GIS workflows should involve a series of <a href="http://en.wikipedia.org/wiki/Rube_Goldberg">Rube Goldberg</a> machinations involving file-based data sets, some proprietary scripting, and possibly some application-level business logic to relate and/or join data as necessary. This has taken various forms over the years but diagrams of those workflows tend to look the same.</p>
 
-<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you're not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It's become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geo_model.png" /></p>
 
-<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
+<!--more-->
 
-<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
 
-<p>{% tweet http://twitter.com/cageyjames/statuses/272025049526050816 %}</p>
+<p>Standing in contrast to such things, PostGIS looks alien, or "alternative." In truth, it is not "alternative" but rather "standard." As an example, here is <a href="http://blog.geomusings.com/assets/demos/nbi/">a map I produced a few weeks ago</a> showing the average ages of bridges by county. (I am not a cartographer.) It is a simple aggregation of the <a href="http://www.fhwa.dot.gov/bridge/nbi.cfm">National Bridge Inventory</a>, which consists of tens of thousands of records by county (3100-ish records). All of the data processing was done in PostgreSQL/PostGIS using nothing more exotic than SQL aggregate functions and some joins. None of the operations took longer than 6 seconds on my very pedestrian laptop. When I was done, I used QGIS to play with visualization and then dump out the static GeoJSON for use in Leaflet.</p>
 
-<p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
+<p>For my many friends who are regular users of PostGIS, this is nothing exotic. For some of my friends who regularly use commercial tools, this is interesting but not earth-shattering. But for a large portion of my friends who are comfortable with traditional tools and workflows, the time-to-market for this effort (35 minutes from the time I downloaded the NBI to the time I pushed the map to GitHub) has them taking notice. This entire workflow involved SQL extended with OGC-compliant spatial objects. (Side note: I have been hard on OGC's web efforts but the Simple Features Specification has been a quiet workhorse across the geospatial industry for over a decade. It's a good example of the benefit that well-designed standards can provide.) The map is being served from static content over simple HTTP with some client-side Javascript handling visualization. No heavy APIs or middleware involved or needed. The QGIS part was really necessitated by own cartographic limitations, but I could have fully generated the GeoJSON from SQL as well.</p>
 
-<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
+<p>This example is fairly simplistic but I have good friends that are using PostGIS, and nothing more, to perform analyses and produce results for decision makers while sitting in meetings. This type of turnaround is standard in other market segments and the geospatial industry should expect nothing less. It requires nothing more than a strong foundation in SQL, mastery of spatial processes, and detailed understanding of your own data.</p>
+
+<p>So I have come to realize that the mainstream GIS community has become very much like my professor's theoretical cat; conditioned to take the long way to the end result when more direct paths are clearly available. What's more, they have become conditioned to think of such approaches as normal. Geospatial analytical operations can be very complex and the approaches to performing them were, in the past, necessarily convoluted due to the lack of understanding of spatial data types and operations within mainstream platforms. Those barriers have been rapidly disappearing over the past decade or so, but the user community has been slow to let go of its comfort with familiar tools and convoluted approaches. As I stated above, organizational barriers to exit are real considerations, but the inherent efficiencies available in modern geospatial tools such as PostGIS make the transition worth the effort.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
-    <link href="http://blog.geomusings.com/2012/11/26/spatialite-for-android-available/"/>
-    <updated>2012-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/26/spatialite-for-android-available</id>
-    <content type="html"><![CDATA[<p>On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.</p>
+    <title type="html"><![CDATA[GIS Day After]]></title>
+    <link href="http://blog.geomusings.com/2013/11/19/gis-day-after/"/>
+    <updated>2013-11-19T09:13:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/11/19/gis-day-after</id>
+    <content type="html"><![CDATA[<p>It's the morning of November 21st, but not for long. You open one eye. Just one; it's best not to rush such things. Apparently, you finally came to rest in the ball pit you all made using the squishy globes from myriad conferences past. A cursory scan tells you the GIS lab is trashed. It starts to come back to you: the rousing game of "Pin the Certificate on the Khakis." Yes, there are your pleated khakis on the wall with everyone's training and GISP certificates stuck on or around them with pushpins. Someone won in what would have been a most painful way if the khakis had been on your body. The loin cloth fashioned from the old hard-copy topos (which you are still wearing). The fact that you let the intern talk you into finally opening a Twitter account and your glee at discovering you could attach photos to geocoded tweets with your BlackBerry.</p>
 
-<p>I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.</p>
+<p>You look around the room at your coworkers strewn across the floor. There's the ArcObjects guy still sporting his "war paint" from the plotter toner. There's your lead analyst with a face tattoo of the town's land-use drawn in marker and, she proudly insisted, accurately projected in state plane. Slowly, you are able to account for everyone on your GIS staff. Good, no one has gone missing...except the intern.</p>
 
-<p>The message is quoted below:</p>
+<p>The door opens and you turn to see the intern standing there in all of her college-kid resilience, letting in far too much sunlight for your comfort. You're not sure it's possible to hate anyone more in this moment.</p>
 
-<blockquote>
-Hi List,
+<p>"Oh, good," she says, "you're awake. Are you going to do the hangout?"</p>
 
-I'm really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
+<p>"Hangout?" you mumble.</p>
 
-[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
+<p>"Yeah, <a href="http://www.spatiallyadjusted.com/2013/11/18/postgis-day-special-hangout-this-week/">James Fee is doing a PostGIS Day hangout with a panel of experts on PostGIS</a>. I told you about this. I told you about <a href="http://postgis.net">PostGIS</a>. Don't you remember? It starts in about an hour."</p>
 
-Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
+<p>It does sound familiar. You give it some thought. What better way to shake off the cobwebs from the bacchanalia of the "BEST GIS DAY EVAR!!!" (so says the hand-lettered Sharpie on the lab's wall) than a little geo-hair-of-the-dog? Maybe it's time to finally pay attention to this open-source stuff. You look around to survey the damage one more time. Besides, ditching the Oracle license might just about pay for this.</p>
 
-[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
-
-A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he'll surely appreciate ;-)
-
-[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
-
-enjoy, Sandro
-</blockquote>
-
+<p>"Yeah," you reply, "I'll be there in five minutes. Close the door, please."</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite 4.0 Released]]></title>
-    <link href="http://blog.geomusings.com/2012/11/26/spatialite-4-0-released/"/>
-    <updated>2012-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/26/spatialite-4-0-released</id>
-    <content type="html"><![CDATA[<p>It looks like it was a busy weekend for Sandro Furieri and the rest of the <a href="https://www.gaia-gis.it/fossil/libspatialite/index" target="_blank">SpatiaLite</a> team as version 4.0 was announced on Sunday. There are a number of changes, so it's best to <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=switching-to-4.0" target="_blank">catch up on them</a> before switching over.</p>
+    <title type="html"><![CDATA[Desktop Not Dead]]></title>
+    <link href="http://blog.geomusings.com/2013/10/23/desktop-not-dead/"/>
+    <updated>2013-10-23T09:42:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/23/desktop-not-dead</id>
+    <content type="html"><![CDATA[<p>In 2011, I gave a talk at the NCGIS conference about the continued dominance of the desktop in the world of GIS. In that talk, my main point was that, regardless of the ultimate destination of GIS data or maps (cloud, server, paper, PDF, etc.), most GIS data passes through a desktop GIS at some point. I don't have hard data to back up that claim but I think anyone who has worked in the industry for any length of time will agree that it feels right. If we loosely define "desktop GIS" to include not only GUI analytical tools like <a href="http://www.esri.com">ArcMap</a> or <a href="http://qgis.org">QGIS</a>, but also command-line tools such as <a href="http://www.gdal.org/">GDAL/OGR</a> and cartographic tools such as <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I think the statement is even more comfortable.</p>
 
-<div style="text-align: center;"><a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a><div style="text-align: center;font-size: 14px;">Not this SpatiaLite</div></div>
+<p style="text-align:center;"><iframe width="560" height="420" src="http://www.youtube.com/embed/ljIQo1OHkTI?color=white&theme=light"></iframe></p>
+
+<p>Essentially, my claim was that desktop GIS is still the onramp for most of the data we interact with on the web. Over the past few years, geographically tagged live and temporally-sensitive data streams have increased in importance but I think most geospatial data still starts as traditional data sources (rasters, vectors, terrain, etc.) that pass through a desktop for analysis, processing, and styling before moving on to the web. Esri, for example, still features its desktop tools as prominent parts of its web publishing workflow and <a href="http://boundlessgeo.com/">Boundless</a> is working on a <a href="https://github.com/boundlessgeo/suite-qgis-plugin">similar path for QGIS</a>.</p>
+
+<!--more-->
 
 
-<p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I'll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
+<p>The announcement of a Google Maps Engine connector for both <a href="https://github.com/googlemaps/mapsengine-arcgis-connector">ArcGIS</a> and <a href="https://github.com/googlemaps/mapsengine-qgis-connector">QGIS</a> is yet another example of the continued importance of the desktop in the GIS world. Simply put, the chances of a user choosing your platform increases if you can cut to the front of the line and present yourself in their desktop environment. <a href="http://blogs.esri.com/esri/arcgis/2013/10/22/googles-arcgis-toolbar-for-the-cloud/">Andrew Turner did a nice summary of many such integration efforts</a> involving ArcGIS Desktop, although the post fails to mention <a href="http://www.arc2earth.com">Arc2Earth</a>, which I consider the most comprehensive extension of its kind on the market. His discussion tracks with my personal experience in recent years. My most public activities have been <a href="https://code.google.com/p/ziggis/">zigGIS</a>, the <a href="http://blog.dc.esri.com/2010/11/22/toolbars-for-geocommons-and-geoiq/">GeoCommons toolbars</a> (thanks for the mention, Andrew), and the <a href="http://www.weogeo.com">WeoGeo</a> toolbar. I've also built a couple of others for organizations that wanted to get their data products in front of ArcGIS users easily and I am currently working on a live feed extension for a government user. The reality is that I've done more desktop development in the last three years than I had done in the preceding ten.</p>
+
+<p>Andrew's point at the end of his post about Esri's extensibility through various means is quite true. As much as developers love to complain about ArcGIS Desktop and ArcObjects (myself included), I have yet to find a data source that I couldn't integrate using those tools. As I dig into the APIs behind QGIS, I am finding the same to be true there. Despite the tendency to downplay desktop GIS tools these days, I see them continuing to play a significant, if quiet, role in defining how we interact with maps and geospatial data across all platforms for the foreseeable future.</p>
 ]]></content>
   </entry>
   

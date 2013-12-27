@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ESRI | geoMusings]]></title>
+  <title><![CDATA[Category: Esri | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/esri/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-12-27T13:46:34-05:00</updated>
+  <updated>2013-12-27T14:29:09-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,166 +14,37 @@
 
   
   <entry>
-    <title type="html"><![CDATA[DC DevSummit In Works for 2014 Esri Federal GIS Conference]]></title>
-    <link href="http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/"/>
-    <updated>2013-12-27T13:15:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference</id>
-    <content type="html"><![CDATA[<p>I got word today that <a href="http://www.esri.com">Esri</a> is planning a one-day [Developer Summit] in conjunction with the <a href="http://www.esri.com/events/federal/">2014 Federal GIS Conference</a>. It appears that the DevSummit will happen on the Wednesday immediately following the Fed Conference (which runs on the Monday and Tuesday) and will be focused on the issues and challenges that are unique to developing applications with Esri technologies for the Federal Government. I spoke with <a href="http://www.linkedin.com/in/jdbarry">Jim Barry</a>, who told me the DevSummit has come together rather quickly and Esri hasn't had time to do its usual data gathering to prepare for such an event. As a result, they are canvassing the developer community for input on topics they should cover. Here are some things I suggested:</p>
+    <title type="html"><![CDATA[SpatiaLite and ArcGIS 10.2]]></title>
+    <link href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/"/>
+    <updated>2013-08-07T12:35:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2</id>
+    <content type="html"><![CDATA[<p>With the release of ArcGIS 10.2, <a href="http://www.esri.com">Esri</a> quietly added support for <a href="https://sqlite.org/">SQLite</a> as a geodatabase container. This is big news as the community has been looking for such support for some time. An open-source RDBMS originally designed for embedded systems, SQLite has a very small footprint and is <a href="https://www.sqlite.org/mostdeployed.html">arguably the most widely deployed RDBMS</a> in the world. (Thanks, in part, to the fact that it is embedded into Adobe Reader and other commonly used software.) Over the years numerous strategies for storing spatial data in SQLite have been developed, ranging from simply storing <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT or WKB</a> geometries in a column up to full extensions like <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>, which adds OGC-compliant data types and methods. SQLite is also the engine that drives the popular <a href="http://www.mapbox.com/developers/mbtiles/">MBTiles</a> implementation used by <a href="http://www.mapbox.com/tilemill/">TileMill</a> and <a href="http://www.mapbox.com">MapBox</a>.</p>
 
 <!--more-->
 
 
-<ul>
-<li><p>Developing for <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> compliance - FISMA compliance has to be baked into an application from the beginning. It would be great to see some content on best practices and resources available to support this when developing with Esri tools and APIs. Esri's regional office in Vienna, Virginia has been doing a lot of work in this area but I'm not sure the information is widespread.</p></li>
-<li><p>Desktop development - I still see <em>a lot</em> of ArcGIS desktop development in the Federal arena. This ranges from traditional ArcObjects extensions to add-ins to work with the File Geodatabase API. I think content related to how to do continued desktop development and support in light of the current realities of highly constrained desktop environments would be invaluable. For example, how to construct and deploy applications that don't necessarily need to touch the registry and can be deployed without administrative rights. Also, some content on the future of Esri desktop products (like <a href="http://video.esri.com/watch/2533/unveiling-the-new-arcgis-professional-application-with-jim-mckinney-and-jack-dangermond">ArcGIS Professional</a>) and what it means for application developers would be useful.</p></li>
-</ul>
+<p><a href="http://resources.arcgis.com/en/help/main/10.2/index.html#//019v0000001w000000">According to the documentation</a>, ArcGIS supports the use of either Esri's ST_GEOMETRY or SpatiaLite data types for geometry storage. This is consistent with Esri's approach on other RDBMS platforms such as <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.oracle.com">Oracle</a>. While SpatiaLite has been supported by platforms such as <a href="http://qgis.org/">QGIS</a>, I can't say I've seen a huge demand for data in SpatiaLite format. I have been using it for a while in some of <a href="http://www.zekiah.com">my company's</a> data modeling work as we have a Federal customer that has a documented requirement for generation of physical models in SpatiaLite, among other platforms. We have also taken the step of supporting SQLite as a container for our <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">platform independent model (PIM) approach</a> for configuration management of logical geospatial data models.</p>
 
+<p>Esri's new support of SpatiaLite, combined with my existing customer requirements, obviously sparked my interest so I was curious to kick the tires. Unfortunately, I also had the situation that my development environment for the PIM tools, due to current customer constraints, must remain at ArcGIS 10.1 for both the desktop software and the underlying ArcObjects libraries. I have not been able to carve out the time to build a 10.2 VM.</p>
 
-<p><img src="http://blog.geomusings.com/images/posts/code.png" style="float:left;margin: 5px 25px 5px 0px;" /></p>
+<p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
 
-<ul>
-<li><p>.Net - There's still a lot of .Net development going on in Federal spaces. Most of my Federal customers are still primarily using .Net and you can peruse Federal geospatial RFPs on any given day and see that it is widespread. I'm fairly comfortable with .Net, as are most of the government and contractor developers I work with but it would be good to have some .Net-focused content alongside the newer, sexier platforms.</p></li>
-<li><p><a href="http://www.arcgis.com/features/">ArcGIS Online for Organizations</a> - Whatever messaging Esri thinks they are doing is not working very well. I encounter a great many Federal users who simply don't understand what it can do for them, why they would consider it, how to budget for it, or whether they can really use it. My understanding is the main Federal GIS Conference will be talking about these issues a lot so I think the DevSummit should focus on the <a href="https://developers.arcgis.com/en/">tools and APIs</a> that are available so that developers can begin to address the ideas the main conference attendees will come back with.</p></li>
-<li><p>Data interoperability - I have spent a lot of time over the past developing tools to support data modeling and configuration management efforts for some Federal users. Part of this work has involved developing tools to produce physical implementations of approved geospatial data models in a number of formats, though the formats that have been of primary interest with my customers have been the Esri File Geodatabase and <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>. The general workflows I have seen involve users working with Esri geodatabase formats in the office, while ingesting field-collected data in SpatiaLite format. All of this data needs to remain compliant with approved data models throughout the life cycle, regardless of format. <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">We've been tackling that</a> at <a href="http://www.esri.com">Zekiah</a> with good success. Given the support of SQLite/SpatiaLite in ArcGIS 10.2, I'd like to see some discussion of data conversion/interoperability approaches that developers can automate with Esri tools.</p></li>
-</ul>
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/billdollins">@billdollins</a> <a href="https://twitter.com/FatherSandman">@FatherSandman</a> Score! Looks like we&#39;ve confirmed ArcGIS 10.2, QGIS 1.9.0, and SpatiaLite-GUI 1.7.1 are compatible.</p>&mdash; Bryan McBride (@brymcbride) <a href="https://twitter.com/brymcbride/statuses/365103999671738369">August 7, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
 
-
-<p>Those are some topics I suggested to Jim off the top of my head. I'll probably think of more. Jim and his team at Esri are actively seeking this sort of input since time is short so I'd suggest <a href="http://www.linkedin.com/in/jdbarry">contacting him</a> with your thoughts. Given the short timeframe, I'd expect official information from Esri very soon.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DevOps for Geospatial Data]]></title>
-    <link href="http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data/"/>
-    <updated>2013-07-28T10:54:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data</id>
-    <content type="html"><![CDATA[<p>There has been a bit of buzz the past couple of weeks over the <a href="https://github.com/blog/1541-geojson-rendering-improvements">ability of GitHub to render GeoJSON and TopoJSON files</a> automatically using  and embedded <a href="http://leafletjs.com/">Leaflet</a> map and <a href="http://www.mapbox.com/">MapBox</a> technology. This buzz is quite justified as it presents an easy way to simply publish and visualize vector data sets. In the weeks since the initial announcement, the community has begun exploring the limits of GitHub's capability. Probably the two biggest limiting factors are individual file size limits and API rate limits. Some, including myself, are exploring strategies for maximizing the ability to store, disseminate, and visualize data within these confines. For the near term, <a href="https://github.com/">GitHub</a> will probably not be the place to store terabytes of data or act as the CDN for a high-volume mapping application. That is perfectly fine and there is still a great deal of value to be found within GitHub's current generous constraints.</p>
-
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geodata-git.png" /></p>
-
-<p>One aspect of GitHub (really, its underlying <a href="http://git-scm.com/">git</a> engine) that is of great interest to me is the ability to perform version control and configuration management on data itself. With GitHub, that currently takes the form of text-based formats such as JSON but it's a start. In my experience supporting various customers over the years, configuration management of data has been a common gap in information operations. The most common, and inadequate, approach to this problem has been through the use of metadata. Almost two decades of viewing out-of-date, incomplete, and inaccurate metadata has given the lie to this approach. Metadata represents a separate maintenance workflow for which many organizations simply do not dedicate resources. Data-set-level metadata is also inadequate for volatile data sets in which individual records are updated frequently.</p>
-
-<!--more-->
-
-
-<p>I have worked with many organizations that had excellent DevOps processes for managing and deploying application code that simply had no corresponding processes for the data that the code was utilizing. We are long past time for addressing the importance of configuration management for data itself.</p>
-
-<p>That is not to say there have not been approaches to addressing this issue. Since version 8.0, <a href="http://www.esri.com">Esri</a> has had a means of <a href="http://www.esri.com/software/arcgis/geodatabase/multi-user-functionality">versioning enterprise geodatabases</a> that are stored in an RDBMS. This approach does have the ability to track feature-level changes and manages their inclusion in the master version of the data set. Quite frankly, I've never loved the Esri approach to versioning. I think it gives too much responsibility to middleware when it should be the database's sole responsibility to keep itself intact. Also, I have always felt the workflow is a bit too proscribed and takes too much business process decision ability from the data owner. That said, it has been the only real game in town for a long time so I have implemented it many times.</p>
-
-<p><a href="http://www.openstreetmap.org/">OpenStreetMap</a> (OSM) has also been a success story for tracking feature-level version history. Its approach has successfully managed millions of edits to a worldwide database so its utility is certainly proven. Organizations that need to maintain their own data behind their firewalls cannot really make use of OSM itself but the OSM approach is solid.</p>
-
-<p><a href="http://www.zekiah.com">At my own company</a>, we have been working with customers to implement <a href="http://blog.geomusings.com/2012/03/27/configuration-management-for-geospatial-data-models/">configuration management of data models</a> (logical and physical) but we are not really addressing CM of the data managed by those models. Even so, working at the model/schema level has still helped our customers improve their data management workflows by being able to identify versions of data models supported by deployed applications and helping to migrate between versions as needed.</p>
-
-<p>The recent move by GitHub to support visualization of spatial data files actually introduces no new capability in terms of configuration management of data files. Users have always had the ability to store and manage JSON, text, XML and other formats in GitHub and git. My hope is that the visualization capability, and the inevitable exploration it will generate, will shine more light on the issue of data configuration management. In my opinion, this is the most powerful aspect the platform brings.</p>
-
-<p>I'm also encouraged by <a href="http://opengeo.org/">OpenGeo's</a> <a href="https://github.com/opengeo/GeoGit">GeoGit</a> initiative. I have not personally experimented with it yet so I will not speculate on the specifics of its implementation, but I am happy to see OpenGeo recognizing the need for a more open approach to feature-level version control. Since, however, it will be open-source, my hope is that proprietary GIS vendors, or their supporting integrators, will eventually support it as well.</p>
-
-<p>Ultimately, I am happy to see both GitHub and OpenGeo addressing this issue. Although their approaches are different, they offer, in addition to the Esri approach, choices for organizations in terms of workflow. Many data managers, whether for legal, strategic, or other reasons, recognize the importance of maintaining version history of geospatial data records. It is important for everything from parcel mapping to critical infrastructure protection and many other use cases. Historically, there have been very few tools available to address this problem effectively but I am hoping that is starting to change.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GeoJSON from ArcGIS Server]]></title>
-    <link href="http://blog.geomusings.com/2013/06/10/geojson-from-arcgis-server/"/>
-    <updated>2013-06-10T09:54:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/06/10/geojson-from-arcgis-server</id>
-    <content type="html"><![CDATA[<p>A while back, I posted about <a href="http://blog.geomusings.com/2011/11/15/fgeojson/">my desire to see GeoJSON supported as an output format from ArcGIS Server</a>. I found myself needing that capability so I recently completed, <a href="https://github.com/geobabbler/AGSOpenFormats">and posted to GitHub</a>, a first cut at a server object extension (SOE) for ArcGIS Server 10.1 that enables output of <a href="http://geojson.org/">GeoJSON</a> via an HTTP GET.</p>
-
-<p>Using the SOE is fairly straightforward. If you download the code and build it (ensuring you have installed the ArcObjects SDK for .Net), you can simply move the project outputs to your target machine and use the ArcGIS Server manager to install the SOE. Once you log into the manager application, click "Site" at the top of the page and then "Extensions" on the left. Click "Add Extension" and browse to the .soe file. You should end up seeing something like this:</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/geojsonserver1.png" /></p>
-
-<!--more-->
-
-
-<p>After, that you can go back to "Services," choose a map service, select "Capabilities," and you should see "Open Data Formats" as a choice to select. At that point, you should be ready to go.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/geojsonserver2.png" /></p>
-
-<p>That's all meat-and-potatoes configuration workflow that <a href="http://www.esri.com">Esri</a> has made very easy at 10.1. Once you've been through all of that, you should be able to go to your map service properties using a URL like this:</p>
-
-<p>http://localhost/arcgis/rest/services/SampleWorldCities/MapServer</p>
-
-<p>...and you should see be able to scroll to the bottom and see "GeoJSONServer" (which will change in a future version) as a supported extension.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/geojsonserver4.png" /></p>
-
-<p>Following that link should take you to a page that shows "GeoJSON" as a supported operation. From there, you should be taken to a page that allows you to enter in a layer number (required) or a query (optional). The layer number is the layer's ordinal shown in the map service properties above. The query parameter can be a SQL WHERE clause that is valid for the layer in question (leaving off the word "WHERE"). This is consistent with how definition queries are handled elsewhere in the Esri REST API. At this point, GET and POST do the same thing though that may change in the future. You can use this form (which is generated by default) to test the SOE and get examples of valid URLs. For example, this URL returns GeoJSON for the continent of Asia from my sample map service:</p>
-
-<p>http://localhost/arcgis/rest/services/SampleWorldCities/MapServer/exts/GeoJSONServer/GeoJSON?query=CONTINENT%3D%27Asia%27&amp;layer=1&amp;f=json</p>
-
-<p>In the process of developing the SOE, I tested the outputs using <a href="http://geojsonlint.com/">geojsonlint.com</a> and the <a href="http://openlayers.org/dev/examples/vector-formats.html">OpenLayers vector format example</a> page (see the following screen shot).</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/geojsonserver5.png" /></p>
-
-<p>A few nuts and bolts:</p>
+<p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
 
 <ol>
-<li>I refactored my previous <a href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/">extension methods for the File Geodatabase API</a> to work with ArcObjects for this SOE. The code is functional but I'd call the conversion about 75% complete. A close examination by an experienced ArcObjects developer may lead to some head-scratching as there are some artifacts from the FGDB API oriented code that I'll be cleaning up over the next couple of weeks.</li>
-<li>The SOE is currently output-only and only supports attribute queries. I plan to work on the ability to pass in a GeoJSON geometry to do a spatial filter as well but my GeoJSON code currently only persists Esri geometries to GeoJSON but does not yet de-persist. For the sake of consistency, I don't want to mix JSON syntax, so I want to add in de-persistence before implementing spatial filters.</li>
-<li>The SOE always transforms geometries to WGS84 for GeoJSON output. The GeoJSON spec doesn't specifically require this; it was just my call.</li>
-<li>The SOE has been tested with ArcGIS Server 10.1 only. I don't know if the current code will present any issues with previous versions but I really have no plans to go back and test them. The actual GeoJSON generation shouldn't be much of an issue but I can't speak for the SOE interface itself. Forks are welcome.</li>
+<li>A SpatiaLite database created in ArcGIS 10.2 can be accessed and viewed in QGIS 1.9.0 and SpatiaLite GUI 1.7.1</li>
+<li>A SpatiaLite database created in QGIS 1.9.0 can be accessed in ArcGIS 10.2</li>
 </ol>
 
 
-<p>As can be seen, the code is still under active development but it works in its current configuration. It's actually performed pretty well on a very modest Amazon instance so I'm somewhat encouraged. I'll post some issues to GitHub as a nominal road map.</p>
+<p>Obviously, some more rigorous tests need to be performed but the initial results are promising. I'm curious to explore the boundaries, in ArcGIS terms, between a SQLite geodatabase and a file geodatabase. It remains to be seen whether this will put a dent in the use of file geodatabases. If it happens at all, I think it will take time since SQLite is not on the radar of the vast majority of ArcGIS users. I would hope, at a minimum, it puts a final stake through the heart of the personal geodatabase. It could also drive explicit accreditation of SQLite/SpatiaLite tools on government systems, which would be nice.</p>
 
-<p>In a semi-related note, it looks like Marten Hogeweg of Esri is working on integrating GeoJSON support into Esri's portal server project, so users of that tool may want to hold on for that.</p>
+<p>I'm happy, and somewhat pleasantly surprised, to see Esri take this step and provide another open option for data exchange.</p>
 
-<p>{% tweet http://twitter.com/martenhogeweg/status/343190756271464448 %}</p>
-
-<p>I'm looking forward to checking out Marten's work and am glad to see Esri taking greater notice of GeoJSON.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OGC Abandons the Web]]></title>
-    <link href="http://blog.geomusings.com/2013/05/30/ogc-abandons-the-web/"/>
-    <updated>2013-05-30T10:52:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/05/30/ogc-abandons-the-web</id>
-    <content type="html"><![CDATA[<p>Those are my words, not theirs.</p>
-
-<p>It came to light today that <a href="http://www.opengeospatial.org/">OGC</a> has decided to <a href="http://lists.osgeo.org/pipermail/discuss/2013-May/011789.html">withdraw the GeoServices REST Specification</a>, also known as the "ESRI REST API," as a proposed standard. I will not take up the relative merits of the specification or the implications of OGC potentially adopting an industry-developed specification that has so much implied workflow embedded in it. With this decision, three facts remain unaltered:</p>
-
-<ol>
-<li>The ESRI REST API will continue forward as a widely-used de facto standard in the form of ArcGIS Server installs and other emulations, such as that in <a href="http://www.arc2earth.com/">Arc2Earth</a>.</li>
-<li>GeoJSON will continue forward as a widely-used de facto standard in the form of numerous open-source implementations.</li>
-<li>OGC still has no JSON syntax.</li>
-</ol>
-
-
-<p>Yes, twelve years after the <a href="https://en.wikipedia.org/wiki/JSON#History">birth of JSON</a>, five years after the <a href="http://webhelp.esri.com/arcgisserver/9.3/java/index.htm#whats_new_93.htm">release of the ESRI REST API and its embedded JSON syntax</a>, and five years after the <a href="http://geojson.org/geojson-spec.html">release of GeoJSON 1.0</a>, OGC is still has no entry in the JSON space. Between Esri and GeoJSON, the utility of JSON in web mapping applications has been roundly proven. In the ESRI arena, find me anyone who willingly uses the SOAP API these days while the adoption of support for GeoJSON across the open-source GIS world speaks volumes. The industry has voted with its feet and its code as to what it prefers.</p>
-
-<p>There's probably a lively discussion to be had about where JSON should fit into OGC's priorities. What is clear, however, is that Javascript and JSON are driving the web at large and the web-mapping space in the geospatial market. With no official stance of any kind in this area, it becomes increasingly difficult to take OGC seriously in matters of the modern web.</p>
-
-<p>Howard Butler had a great point a while back when discussing the potential adoption of the GeoServices REST Specification:</p>
-
-<p>{% tweet http://twitter.com/howardbutler/status/331405667837542401 %}</p>
-
-<p>The irony here is that the withdrawal of the specification accomplishes the same thing. I won't go so far as to say OGC has no clue or doesn't care but, in the perception-is-reality department, they look pretty out-of-touch these days. Is this a problem with process? Maybe. Is it a problem with message? Definitely. The message I've gotten from this whole episode is that we can keep doing what we've been doing with our web mapping applications because OGC has nothing for us.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Arc2Earth: Choose Your 'Cloud']]></title>
-    <link href="http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud/"/>
-    <updated>2013-02-28T06:22:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud</id>
-    <content type="html"><![CDATA[<p>For various reasons, I can't attend today's inaugural <a href="http://fedgeoday.com/">FedGeoDay</a> at the Woolly Mammoth Theatre in Washington, DC, though I'll be watching the hashtag with great interest. Jack Flood of <a href="http://www.arc2earth.com/">Arc2Earth</a>, however, has already posted his slides to SlideShare:</p>
-
-<iframe src="http://www.slideshare.net/slideshow/embed_code/16811994" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
-
-
-<p> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/jflood3/fedgeodays-022013" title="Fedgeodays 022013" target="_blank">Fedgeodays 022013</a> </strong> from <strong><a href="http://www.slideshare.net/jflood3" target="_blank">Jack Flood</a></strong> </div></p>
-
-<!--more-->
-
-
-<p>While neither <a href="http://www.esri.com">ArcMap</a> nor Arc2Earth are open-source themselves, Jack points out that Arc2Earth acts as a bridge between ArcMap and several geospatial hosting platforms that are built on open-source technology but, also just as important, are successful at making data more openly available. These platforms include <a href="http://cartodb.com/">CartoDB</a> and <a href="http://mapbox.com/">MapBox</a>, among many others.</p>
-
-<p>Many people use, and prefer, ArcMap has their desktop cartography and analysis tool. I view Arc2Earth as an enabling technology that allows users to continue to be productive with ArcMap while also allowing them to retain control of how they direct their GIS investments in terms of publishing and hosting their maps and data.</p>
-
-<p>Disclaimer: <a href="http://www.zekiah.com">My company</a> is an Arc2Earth reseller.</p>
+<p>Now, about GeoJSON...</p>
 ]]></content>
   </entry>
   
