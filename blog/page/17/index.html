@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Updated: This demo application now running here. I will update this demo periodically, as time permits, so keep checking back. At the 2010 ESRI &hellip;">
+  <meta name="description" content="A while back, I posted this about running SharpMap on Apache. At the time, the ability to run ASP.NET on Apache was mainly a curiosity to me but had &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,69 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/02/integrating-aspnet-with-drupal-in-the-acquia-stack/">Integrating ASP.NET With Drupal in the Acquia Stack</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-02T00:00:00-05:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2010</time>
+        
+         | <a href="/2010/03/02/integrating-aspnet-with-drupal-in-the-acquia-stack/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A while back, I posted <a href="http://geobabble.wordpress.com/2008/01/07/sharpmap-on-apache/">this</a> about running <a href="http://sharpmap.codeplex.com">SharpMap</a> on <a href="http://www.apache.org/">Apache</a>. At the time, the ability to run ASP.NET on Apache was mainly a curiosity to me but had little practical value. Recently, I had the need to revisit this technique for a project. I used the same <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">post</a> I had used previously as a reference, although the comment by Carlos there was more up-to-date and served me well this time.</p>
+
+<p>This time, we were migrating an old custom-built site to the <a href="http://drupal.org/">Drupal</a> CMS. The old site was a mixture of ASP Classic and ASP.NET. Drupal is a <a href="http://www.php.net/">PHP</a>-based CMS. Due to the deadline for completing the migration, there were two ASP.NET applications that we planned to leave in place. They automated custom workflows and our schedule didn&#8217;t allow for rewriting them. Drupal had been installed as part of the <a href="http://acquia.com/downloads">Acquia stack installer</a> that includes Apache, PHP, Drupal and <a href="http://www.mysql.com/">MySQL</a>.</p>
+
+<p>Following the instructions I had used previously, I integrated mod_aspdotnet in the Apache http.conf. I made the following entries, as instructed (these are sample entries for purposes of this post).</p>
+
+<p> <code>AspNetMount /SampleASP "c:/SampleASP"
+ Alias /SampleASP "c:/SampleASP"</code></p>
+
+<p>These entries mount the ASP.NET application where it sits physically and alias it to a virtual directory in Apache. Having done this before, I was not worried. This time, however, it did not work. After some research, I realized that these directives were in conflict with some mod_rewrite entries that are part of the stack installer. They are:</p>
+
+<p><code>
+  ServerName localhost
+  RewriteEngine On
+  RewriteOptions Inherit
+  RewriteCond %{REQUEST_URI} !/acquia-drupal.<em>
+  RewriteCond %{REQUEST_URI} !/phpmyadmin.</em>
+  RewriteRule ^(/.*)?$ /acquia-drupal$1
+</code></p>
+
+<p>In this case, any URI that does not look like http://${hostname}/acquia-drupal is rewritten to match that format. So my URI of http://${hostname}/SampleASP was being rewritten as http://${hostname}/acquia-drupal/SampleASP which does not exist and promptly fails. The solution to this problem was to modify the AspNetMount and Alias entries above to this:</p>
+
+<p> <code>AspNetMount /acquia-drupal/SampleASP "c:/SampleASP"
+ Alias /acquia-drupal/SampleASP "c:/SampleASP"</code></p>
+
+<p> This redirected properly and the ASP.NET executed. So, the lesson here is that, if you choose to use a stack installer, make sure you understand the customizations that the installer makes to the products it includes.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -464,63 +527,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/11/24/twitter-geojson-error/">Twitter GeoJSON Error</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-24T00:00:00-05:00" pubdate data-updated="true">Nov 24<span>th</span>, 2009</time>
-        
-         | <a href="/2009/11/24/twitter-geojson-error/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://twitter.com/sgillies/statuses/6005237402">Sean Gillies pointed out</a> on Twitter today that the GeoJSON output of coordinates from <a href="http://thenextweb.com/appetite/2009/11/20/twitters-geolocation-api-live-find-tweets-twitters-nearby/">Twitter&#8217;s just-released geolocation capability</a> is wrong. Sean is one of the authors of the spec so, when I saw his tweet, I took notice. According to the <a href="http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses%C2%A0update">Twitter documentation</a>:</p>
-
-<blockquote>
-The XML response uses GeoRSS to encode the latitude and longitude.  encodes as latitude, space, and longitude (see the response below for an example).  For JSON the response uses conventions laid forth in GeoJSON which looks like 
-
-&#8220;geo&#8221;:
-{
-     &#8220;type&#8221;:&#8221;Point&#8221;,
-     &#8220;coordinates&#8221;:[37.78029, -122.39697]
-}
-</blockquote>
-
-
-<p>You will notice that this is in Latitude/Longitude order whereas the <a href="http://geojson.org/geojson-spec.html#appendix-a-geometry-examples">GeoJSON specification clearly states</a> Longitude/Latitude.</p>
-
-<p>This is clearly an error that will throw off any existing software that has been developed to handle GeoJSON. This is somewhat reminiscent of a <a href="http://geobabble.wordpress.com/2007/12/18/sql-server-2008-wkt-xy-switching-illustrated/">similar issue with early versions of SQL Server 2008</a>, with a lot of the same issues applicable here. The main difference this time around being that the GeoJSON spec is much clearer on X/Y ordering than the WKT spec was.</p>
-
-<p>There seem to be a lot of clients already on board with supporting geolocation in Twitter so this could be a potentially large proliferation of this particular GeoJSON error. Twitter should look at correcting this before a lot of data gets out there.</p>
-
-<p>Good catch, Sean. And, yes, <a href="http://sgillies.net/blog/964/more-lessons-of-standardization">it should have been noticed before now</a>. Maybe we should look up from our iDroidBerries more often.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -569,15 +575,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/12/30/thank-you-and-happy-2014/">geoMusings 2013</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/">DC DevSummit In Works for 2014 Esri Federal GIS Conference</a>
       </li>
     
       <li class="post">
         <a href="/2013/12/27/js-dot-geo-2014-announced/">JS.Geo 2014 Announced</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/">Building a Simple Geodata Service with Node, PostGIS, and Amazon</a>
       </li>
     
   </ul>

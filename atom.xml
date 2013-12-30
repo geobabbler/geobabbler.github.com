@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2013-12-27T14:29:09-05:00</updated>
+  <updated>2013-12-30T16:40:24-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[geoMusings 2013]]></title>
+    <link href="http://blog.geomusings.com/2013/12/30/thank-you-and-happy-2014/"/>
+    <updated>2013-12-30T16:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/30/thank-you-and-happy-2014</id>
+    <content type="html"><![CDATA[<p>As we enter the final hours of 2013, I wanted to take the chance to thank everyone who stopped by, and continues to stop by, this blog. I appreciate your readership, comments, and feedback. Even after 7 years, I am still humbled by the fact that so many read this blog each year. I decided to take a look at the top ten posts from this year, according to Google Analytics.</p>
+
+<ol>
+<li><a href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/">Yes, You Need to Code</a></li>
+<li><a href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/">GeoJSON on GitHub: Now What?</a></li>
+<li><a href="http://blog.geomusings.com/2013/06/10/geojson-from-arcgis-server/">GeoJSON From ArcGIS Server</a></li>
+<li><a href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/">SpatiaLite and ArcGIS 10.2</a></li>
+<li><a href="http://blog.geomusings.com/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis/">Checking Out the GDAL/OGR Plugin for ArcGIS</a></li>
+<li><a href="http://blog.geomusings.com/2013/05/30/ogc-abandons-the-web/">OGC Abandons the Web</a></li>
+<li><a href="http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data/">DevOps for Geospatial Data</a></li>
+<li><a href="http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange/">Another Look at GIS StackExchange</a></li>
+<li><a href="http://blog.geomusings.com/2013/11/27/consider-the-alternative/">Consider the &#8216;Alternative&#8217;</a></li>
+<li><a href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">The Best Thing I Saw at TUGIS 2013</a></li>
+</ol>
+
+
+<p>When I took a look at the list above, I realized that I have been much more focused on data than I have in past years. I think I kept a development/integration flavor but the focus on data was quite noticeable in retrospect. Though I have been actively coding all year, I notice that I did not have as many code-focused posts, which is something of a departure from previous years. 2014 is already shaping up to be a busy year personally and professionally so it will be interesting to see where that leads me on this blog.</p>
+
+<p>Thanks again for your continued interest and I hope you have a fruitful 2014.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DC DevSummit In Works for 2014 Esri Federal GIS Conference]]></title>
@@ -970,21 +997,6 @@ Also included are land use/land cover data; congressional and legislative distri
 <p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/river.jpg" /></p>
 
 <p>Having seen Dr. Lembo and his team in action <a href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">for an afternoon at TUGIS</a>, I think this will be a good way for those who have been wanting to take the leap with open-source GIS tools to get some hands-on experience with core tools like <a href="http://qgis.org/">QGIS</a> and <a href="http://postgis.net/">PostGIS</a>. It&#8217;s also a great time of year to be on Maryland&#8217;s Eastern Shore. The LinkedIn discussion says there are still spaces available but the date is coming up soon so you&#8217;ll want to move quickly if you&#8217;re interested.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Simple Tile Viewer]]></title>
-    <link href="http://blog.geomusings.com/2013/04/25/simple-tile-viewer/"/>
-    <updated>2013-04-25T14:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/04/25/simple-tile-viewer</id>
-    <content type="html"><![CDATA[<p>We do a lot of tiles for various customers at <a href="http://www.zekiah.com">Zekiah</a>. Tiling is as much art as science and sometimes things go wrong so we have a range of utilities that we use to perform various kids of QA. Because the caches can be large, we usually want to perform a visual QA on the static tiles before pushing them up to wherever they are going to live full-time.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/cacheviewer2.png" /></p>
-
-<p>In order to facilitate that, I wrote a very simple tile viewer using <a href="http://nodejs.org/">Node.js</a> and <a href="http://leafletjs.com/">Leaflet</a>. It uses a config file to get everything it needs to operate so we just make our changes there. This application currently only works with Web Mercator tiles but I&#8217;m working on adding support for WGS84. It also doesn&#8217;t work with &#8216;compact&#8217; tiles from ArcGIS Server. It obviously requires Node, and it also requires an <a href="https://npmjs.org/">NPM</a> install of the &#8216;open&#8217; module to facilitate opening the browser.</p>
-
-<p>Anything else you need to know is in the readme. I hope you find it useful. It can be <a href="https://github.com/geobabbler/cacheview">downloaded here</a>.</p>
 ]]></content>
   </entry>
   
