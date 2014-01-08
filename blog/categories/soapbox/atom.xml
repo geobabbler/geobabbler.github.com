@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: soapbox | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/soapbox/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-01-07T21:09:23-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[When Is a GeoPortal Not a GeoPortal?]]></title>
+    <link href="http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal/"/>
+    <updated>2013-04-24T13:40:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal</id>
+    <content type="html"><![CDATA[<p>When it's really a desktop application.</p>
+
+<p>Over the past few weeks, I have been reading with conflicted agreement the posts of <a href="http://mapbrief.com/2013/02/21/the-waiting-is-the-hardest-part-why-map-portals-dont-work-part-v/">Brian Timoney</a> and <a href="http://geosprocket.blogspot.com/2013/04/toward-ideal-geoportal.html">Bill Morris</a> about the nature of geo-portals and what they should or should not be and do. I say that I am in conflicted agreement not because I take any issue with anything they have said. Their posts represent what should be considered best practices in terms of building web mapping applications. In Brian's posts, the counter-examples he highlights represent some of the worst practices to be avoided.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/arcmap_browser.png" /></p>
+
+<p>My conflict arises from the fact that, while I agree with the ideas that Brian and Bill put forward, I find myself working against them in my current work. In my <a href="http://www.spatiallyadjusted.com/2013/04/10/hangouts-with-james-fee-developer-i-hardly-knew-her/">hangout with James Fee</a> a couple of weeks ago, I mentioned that I am working again (albeit temporarily) in the world of Silverlight. I am supporting a very large, complex Silverlight application that, as one of many functions, includes a mapping module that runs counter to almost every best practice espoused by Brian and Bill. And I am adding to it.</p>
+
+<!--more-->
+
+
+<p>The main difference with this application is that it will never be a public-facing internet application. It is intended to be deployed to a limited user base in an intranet/extranet environment. One of the overarching goals is to deliver sophisticated analytical tools and a desktop-like experience to the user community. So why not simply deliver a desktop application, or a series of extensions to ArcGIS, or both?</p>
+
+<p>The answer to that is simply "enterprise IT policy." This particular organization works under an IT policy framework that makes it nearly impossible to deploy custom desktop applications. This is not a unique situation as restrictive IT policies exist in many large organizations, especially Federal agencies. Some of that policy exists in the name of security, which is a laudable goal, but good developers with clear policy requirements, working in collaboration with IA staff, can secure an application regardless of how it is deployed. A larger driver is reduction of configuration management costs. It is simply expensive to identify specific users, ensure their systems meet proper specifications, deliver desktop tools to them, and sustain those tools over time. This, of course, has been one of advantages of web applications from the outset.  So "stuffing the desktop into the browser" looks like an attractive path and it is for development that must meet requirements within a budget and a schedule. Anything that reduces the friction of dealing with IT policy is a win.</p>
+
+<p>This is all well and good within the confines of one's own intranet. What happens behind the firewall stays behind the firewall...except for when it doesn't. Poor application design is poor application design regardless of which side of the firewall on which it sits. When draconian IT policy enshrines the adoption of something-less-than-best practices, we all lose. Groupthink begins to set in and developers that spend their time building plugin-based, should-be-desktop applications on the intranet for a targeted audience of GIS users can begin to lose perspective on what makes a suitable interface for the general user. Eventually, those intranet practices will begin to be exposed on public-facing applications because many developers will continue to do what they have learned (and have been encouraged) to do.</p>
+
+<p>Any enterprise that is sufficiently large enough to have instituted a heavy IT policy is probably engaged in some level of software development and/or customization. That policy should be flexible enough to enable users and developers to choose the right tool and/or architecture for the job, rather than turning one particular architecture (HTTP in this case) into a one-size-fits-all channel for inappropriately designed tools and practices.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Yes, You Need to Code]]></title>
+    <link href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/"/>
+    <updated>2013-01-30T14:26:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/30/yes-you-need-to-code</id>
+    <content type="html"><![CDATA[<p>Over the past year, I've been involved in searching for GIS analysts a number of times. As a result, I've noticed a few patterns:</p>
+
+<ol>
+<li>There are a lot of analysts out there looking for jobs. Every time I run an ad, I get at least 100 resumes from people of various levels of experience and education.</li>
+<li>The vast majority of those that I call to pre-screen have not done any meaningful coding of any kind. This includes Python, which has been shipping with ArcGIS for several versions now.</li>
+<li>Of those that do have some coding experience, many do not show it on their resumes. I find this particularly interesting as I can't imagine why a person would choose not to list all relevant skills or experience.</li>
+</ol>
+
+
+<p>I am very publicly on the record that I think some form of coding skill is essential for any GIS analyst entering the workforce today. My reasoning here is fairly straightforward.</p>
+
+<ol>
+<li>The "IS" in "GIS" stands for "information system." This means "computers." Actually, according to one of my professors in the late '80s, an information system doesn't technically have to involve computers but this is 2013 and even brewing a cup of coffee involves a computer.</li>
+<li>The "G" in "GIS" stands for "geography." (Don't worry, the revelations will keep coming.) Geography is intensely mathematical. I suppose, in the interest of accuracy, I should state that some segments of geography are less mathematical than others but I think it's safe to say that the elements of the science that are addressed by GIS involve a lot of math. Take, for instance, coordinate reference systems. That one small but important part of geography can separate the wheat from the chaff quickly.</li>
+<li>Computers use code to do math.</li>
+</ol>
+
+
+<p>Modern GIS software is complicated and comes with a lot of capability by default. Just look at the default UI for ArcMap or QGIS and you'll see a lot of tools at your fingertips. In other words, there are a lot of buttons to push. This is fine but I'd wager that these software tools expose less than 10% of their full capability through their default interfaces.</p>
+
+<!--more-->
+
+
+<p>The reason for that is that there are simply too many use cases in geography to design into a piece of software by default. That is why these tools, and most other GIS software, ship with APIs. ("Ship" is a loose concept with open-source but please grant me license.) These APIs expose the full capability of the software so that users may customize it to their needs. That means coding. For both <a href="http://www.esri.com">ArcGIS</a> and <a href="http://qgis.org">QGIS</a>, that can mean Python but there are lots of other choices as well.</p>
+
+<div style="text-align:center;">
+<img src="http://blog.geomusings.com/images/posts/globalmaptiles.png" />
+</div>
+
+
+<br/><br/>
+
+
+<p>If you choose to get by with just using the GUI tools, you are doing yourself two disservices:</p>
+
+<ol>
+<li>You are placing yourself at the mercy of others who can code to get around to building the customizations you need.</li>
+<li>You are allowing your skills to erode by not using a significant amount of capability.</li>
+</ol>
+
+
+<p>So you need to code to some extent. You need to in order to automate complicated tasks you do regularly, or read in data that's in some oddball format, or use some capability of your GIS-du-jour that isn't exposed out of the box, or to make that web map sing, or for any of a number of other reasons. Luckily, you have a wealth of information at your fingertips. It is called open-source geospatial software. I can already hear the protests: You learned on ArcGIS in school. You are comfortable with ArcGIS and you like it. Fine, keep using it.</p>
+
+<p>But while you're using ArcGIS, also check out the source code for open-source libraries like <a href="https://github.com/sgillies/shapely">Shapely</a> or <a href="http://trac.osgeo.org/geos/">GEOS</a> or <a href="http://www.gdal.org/">GDAL</a> or other commonly used (even under the hood of ArcGIS) tools. You learned the math in school. You toughed out these concepts and you understand them. Now look at the compiled knowledge of a lot of smart programmers to see how the concepts are concretely implemented in code. The process will, at a minimum, make you a better ArcGIS user because you'll understand what's going on under the hood. The truth is, even if ArcGIS isn't directly using one of those open-source libraries, it's probably using an ESRI-developed implementation of a standard algorithm. It's similar enough that you'll be able to understand the behavior and that will help you better bind your own customizations to their closed-source API.</p>
+
+<p>I say this because it worked for me. I am a programmer by training and passion. I heard the phrase "GIS" once, in passing, during a lecture in college. Yet, my first job was in the GIS field. Needless to say, I had a lot of learning to do. Most of it came at the hands of some very patient geographers. The first tools I was exposed to were the proprietary tools of MapInfo and ESRI (with a smattering of Intergraph). I was able to soak in what the geographers were telling me and bang against those APIs to build some useful tools but the light bulb really came on for me when I began reading the source code of open-source projects. There, laid out before me, was what the software was <em>really</em> doing.</p>
+
+<p>Today, I work with a mixture of open-source and proprietary tools but the majority of my paying work is still in the Esri realm. My exposure to open-source has, however, made me better with it because it has deepened my understanding.</p>
+
+<p>Not everyone can be a professional software developer as it takes a certain mindset to do it all of the time. But, in the GIS market of 2013, everyone needs to have some understanding of some kind of coding, whether <a href="http://python.org/">Python</a> or <a href="http://www.r-project.org/">R</a> or <a href="http://d3js.org/">Javascript</a> or something else.</p>
+
+<p>One other side note: Over the past year, I have also advertised for software developers with results that are opposite of what I see with analysts. There are very few applicants and many that I see have been out of work for a while, have no GIS background and spent a lot of years working with older tools. These are "blue bird" applicants hoping to catch on. In short, there is a gulf between the high demand for GIS-literate programmers and the miniscule supply. Having the ability to code, and showing it on your resume, can be what separates you from the pack of 100 other analysts applying for the same position.</p>
+
+<p>So, yes, you need to code.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Have a Good Weekend and Remember Atanas]]></title>
+    <link href="http://blog.geomusings.com/2011/10/21/have-a-good-weekend-and-remember-atanas/"/>
+    <updated>2011-10-21T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/10/21/have-a-good-weekend-and-remember-atanas</id>
+    <content type="html"><![CDATA[<p>I'm about to head out for the weekend. As we get ready to go about our weekend activities, let's not forget that Atanas Entchev and his family are <a href="http://njgeo.org/2011/10/17/colleague-in-need-atanas-entchev/">still</a> being <a href="http://www.cecintl.com/facilities_rr_nj_006.html">detained</a>. If you have not yet donated to the <a href="http://www.tenthcave.com/2011/10/plea-for-help.html">Entchev legal fund</a>, please take time to do so before you head out. Please keep them in your thoughts and <a href="https://writerep.house.gov/writerep/welcome.shtml">take action</a> on their behalf.</p>
+
+<div style="text-align:center;"><img alt="" height="300" src="http://mapbrief.com/wp-content/uploads/2011/10/atanas.jpg" title="Atanas Entchev" width="300" /><div style="text-align:center;font-size: 14px;">Geospatial professional Atanas Entchev<br/><br/></div></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Support Atanas Entchev]]></title>
+    <link href="http://blog.geomusings.com/2011/10/17/support-atanas-entchev/"/>
+    <updated>2011-10-17T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/10/17/support-atanas-entchev</id>
+    <content type="html"><![CDATA[<p><strong>UPDATE:</strong> Atanas' daughter, Christina, is now using his Twitter account to get information out. In addition, she posted a <a href="http://www.tenthcave.com/2011/10/plea-for-help.html">message from Atanas</a> on his blog. He and his son are currently being detained. Also, please see the comment stream to John's post (link below) for additional information about sending letters of support. Letters that are not signed may no be considered so, if sending an e-mail, be sure to send a signed, scanned copy as an attachment.</p>
+
+<hr />
+
+
+<p><a href="http://njgeo.org/2011/10/17/colleague-in-need-atanas-entchev/">John Reiser posted this piece</a> on the situation of our colleague, Atanas Entchev. Atanas, a native of Bulgaria, came to the United States in 1991, followed soon thereafter by his family. They applied for asylum and have been in litigation regarding their status ever since. The latest opinion, filed on June 23, 2011 by the US Third Circuit Court of Appeals <a href="http://www.ca3.uscourts.gov/opinarch/104369np.pdf">may be found here</a> (.pdf). Says John:</p>
+
+<blockquote>
+After emigrating here with his family over twenty years ago to escape political persecution, the US Government is now planning to deport the Entchevs.
+</blockquote>
+
+
+<p>My dealings with Atanas have been almost exclusively through social media channels and I have never met him in person. Despite that, I feel I know him as a result of his open participation in those arenas. His knowledge of the applications of GIS, especially at the municipal level, is top-notch. His contributions to the GIS community, such as the publications listed in his <a href="http://www.linkedin.com/profile/view?id=8637855&amp;authType=name&amp;authToken=eUA1&amp;locale=en_US&amp;pvs=pp&amp;trk=ppro_viewmore">LinkedIn profile</a>, as well as his <a href="http://www.directionsmag.com/authors/atanas-entchev/121956">contributions to Directions Magazine</a> and his <a href="http://blog.entchev.com/">blog</a> demonstrate active engagement in his (our) professional community. He is also a small business owner, having founded <a href="http://entchev.com/index.htm">his own GIS services company</a> in 2005.</p>
+
+<p>Of course, legal opinions are only meant to focus on relevant law. As a result, this tapestry of the Entchevs life in America becomes obscured. At one point, the opinion says (LPR = Legal Permanent Resident):</p>
+
+<blockquote>
+Although the daughter's adjustment to LPR status may slightly strengthen Entchev's ties to the community, and as a matter of discretion the Department of State may therefore be more inclined to grant a waiver, it is far from clear that the status of Entchev's daughter as an LPR would result in a different outcome for a new waiver application.
+</blockquote>
+
+
+<p>Not being a lawyer, I can't comment on the legal content but this is a very sterile reduction of the Entchevs' life. Those of us who have been linked to Atanas through social media know of his love of sailing, tennis and biking and have seen photos of the Entchevs enjoying the arts around the New York region. So, during two decades of litigation, the legal merits of which have left the Third Circuit Court of Appeals unmoved, the Entchevs have built a rich, textured, wholly American life.</p>
+
+<p>As Atanas's wife Mayia says:</p>
+
+<blockquote>
+If you are willing and able to write a letter of recommendation, your contribution will be invaluable to our case, and would be greatly appreciated by our family.
+</blockquote>
+
+
+<p>If you know Atanas, please take time to write a letter in support of him and his family. Instructions are in John's post.</p>
+
+<p>Please also see posts from <a href="http://www.spatiallyadjusted.com/2011/10/17/stand-up-for-atanas-entchev/">James Fee</a>, <a href="http://blog.entchev.com/2011/10/17/a-call-for-help-for-atanas.aspx">Randal Hale</a> and <a href="http://gislounge.com/help-support-geospatial-professional-atanas-entchev/">Caitlin Dempsey</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Prying Data Open]]></title>
+    <link href="http://blog.geomusings.com/2011/08/30/prying-data-open/"/>
+    <updated>2011-08-30T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/30/prying-data-open</id>
+    <content type="html"><![CDATA[<p>In the aftermath of Hurricane Irene, I was trying to get information from my <a href="http://www.smeco.coop">local electric cooperative</a> about outages. There were many (including my neighborhood) and I wanted to see the scale of the problem. It turns out, they have a page with a map that shows current outages by zip code.</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png"><img alt="" class="size-medium wp-image-2018" height="202" src="http://geobabble.files.wordpress.com/2011/08/smeco_outage.png?w=300" title="smeco_outage" width="300" /></a><div style="text-align: center; font-size: 14px">Old school outage map<br /></div></div>
+
+
+<p>It's pretty old-school as far as web maps go but it gets the job done. Their day job is making electricity, not web maps, so I won't critique it too much. One thing I did notice is that the map seems to be dynamically generated (as do the tables on the page) from some inaccessible data source. I search and tried to find some kind of feed, to no avail.</p>
+
+<!--more-->
+
+
+<p>The data on this page is ideal for an RSS feed which could be consumed by any of the local news portals, online mapping sites, and other outlets that may be used by the public. Yet, there is no feed. Here is an example of useful information locked away behind an uninformed design decision. The organization has already made the decision to publish this information so using RSS or social media would not expose anything more than what is already being released.</p>
+
+<p>It makes me wonder about the scale of this problem. How much more information is being produced in relatively inaccessible forms by otherwise well-intentioned organizations? In this case, the information is being produced as an HTML page, so we can always scrape and republish the information, which is exactly what I did. The resulting feed can be found here:</p>
+
+<p><a href="http://demo.zekiah.com/smecofeed/smeco_outage.xml">http://demo.zekiah.com/smecofeed/smeco_outage.xml</a></p>
+
+<p>The feed is simple: the ZIP code is in the item title and the number households affected is in the item description (by itself with no other decoration). Since ZIP codes are fairly standard, it makes it easy to consume the feed and do other things with it, such as <a href="http://geocommons.com/maps/97440">map it on GeoCommons</a>. This map may seem redundant but now the data can be layered with other data sets such as shelter locations, ice distribution centers and the like, making it more useful.</p>
+
+<p>To produce this feed I used Python. <a href="http://blog.davebouwman.com/">Dave Bouwman</a> pointed me to <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> and I also made use of the <a href="http://www.crummy.com/software/ScrapeNFeed/">ScrapeNFeed</a> library (which makes use of <a href="http://www.dalkescientific.com/Python/PyRSS2Gen.html">PyRSS2Gen</a>). I have it set up on a cron job to update every two hours and dump a new XML file. I decided this was preferable to doing a direct link back to the page because I'm unsure how robust their server is. I am posting my code below in the event that someone else needs to do this. This type of approach is very fragile. You'll see from the code that it's very dependent upon the structure of the source HTML. So, if the page structure changes, the feed will break. This is obviously not ideal so it's best to view it as a band-aid.</p>
+
+<p>I suspect that there's a lot of this kind of thing going on. Where you find it, it's best to engage with the organization to help make it better and that's my next step here. There's been a lot of talk about open data in our industry for a while, along with a lot of activity. Situations like this make me realize the scale of the work yet to be done. It will take a lot of effort to open up data all the way down the line and, perhaps, even more effort to help organizations understand why it is beneficial to do so in the first place. But it's work that needs to be done.</p>
+
+<p>As promised, here's the Python code should anyone find it useful:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyRSS2Gen</span> <span class="kn">import</span> <span class="n">RSSItem</span><span class="p">,</span> <span class="n">Guid</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">ScrapeNFeed</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nc">SmecoFeed</span><span class="p">(</span><span class="n">ScrapeNFeed</span><span class="o">.</span><span class="n">ScrapedFeed</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="k">def</span> <span class="nf">HTML2RSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+</span><span class='line'>            <span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class='line'>            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span><span class='line'>                    <span class="n">row</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</span><span class='line'>                    <span class="n">cols</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)</span>
+</span><span class='line'>                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
+</span><span class='line'>                        <span class="nb">zip</span> <span class="o">=</span> <span class="nb">zip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
+</span><span class='line'>                        <span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&amp;amp;amp;nbsp;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span><span class='line'>                        <span class="c">#This link is not real. It will simply take you to the homepage.</span>
+</span><span class='line'>                        <span class="n">lnk</span> <span class="o">=</span> <span class="s">&#39;http://www.smeco.coop#&#39;</span> <span class="o">+</span> <span class="nb">zip</span>
+</span><span class='line'>                        <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RSSItem</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">zip</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="n">tot</span><span class="p">,</span><span class="n">link</span><span class="o">=</span><span class="n">lnk</span><span class="p">))</span>
+</span><span class='line'>                        <span class="c">#print zip</span>
+</span><span class='line'>                        <span class="c">#print tot</span>
+</span><span class='line'>                        <span class="c">#cols = row.findAll(&#39;td&#39;)</span>
+</span><span class='line'>                        <span class="c">#for col in cols:</span>
+</span><span class='line'>                        <span class="c">#    print col.string</span>
+</span><span class='line'>            <span class="bp">self</span><span class="o">.</span><span class="n">addRSSItems</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">SmecoFeed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;Current SMECO outages (as scraped by Zekiah Technologies)&quot;</span><span class="p">,</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>             <span class="s">&#39;http://outage.smeco.coop&#39;</span><span class="p">,</span>
+</span><span class='line'>             <span class="s">&quot;Current SMECO power outages by ZIP code&quot;</span><span class="p">,</span>
+</span><span class='line'>             <span class="s">&#39;smeco_outage.xml&#39;</span><span class="p">,</span>
+</span><span class='line'>     <span class="s">&#39;smeco_outage.pickle&#39;</span><span class="p">,</span>
+</span><span class='line'>             <span class="n">managingEditor</span><span class="o">=</span><span class="s">&#39;bill@zekiah.com (Bill Dollins)&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>

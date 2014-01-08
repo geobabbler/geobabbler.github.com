@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: government | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/government/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-01-07T21:09:23-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
+    <link href="http://blog.geomusings.com/2012/11/26/spatialite-for-android-available/"/>
+    <updated>2012-11-26T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/26/spatialite-for-android-available</id>
+    <content type="html"><![CDATA[<p>On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.</p>
+
+<p>I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.</p>
+
+<p>The message is quoted below:</p>
+
+<blockquote>
+Hi List,
+
+I'm really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
+
+[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
+
+Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
+
+[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
+
+A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he'll surely appreciate ;-)
+
+[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
+
+enjoy, Sandro
+</blockquote>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Wilson Center to Discuss FCC National Broadband Map]]></title>
+    <link href="http://blog.geomusings.com/2012/10/09/wilson-center-to-discuss-fcc-national-broadband-map/"/>
+    <updated>2012-10-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/10/09/wilson-center-to-discuss-fcc-national-broadband-map</id>
+    <content type="html"><![CDATA[<p>One of the most compelling recent success stories for open-source geospatial tools in the Federal Government has been the <a href="http://www.fcc.gov/" target="_blank">Federal Communications Commission</a> (FCC) <a href="http://broadbandmap.gov/" target="_blank">National Broadband Map</a> initiative. It has been a very visible example of the stability, scalability, flexibility, and power of open-source geospatial tools.</p>
+
+<p>The Woodrow Wilson Center will be hosting <a href="http://www.wilsoncenter.org/event/the-national-broadband-map-case-study-open-innovation-for-national-policy" target="_blank">a case study of National Broadband Map</a> on October 15th, 2012. The event's page also includes a link to the full paper (PDF), authored by <a href="http://www.linkedin.com/profile/view?id=113470334" target="_blank">Zachary Bastian</a> of the Wilson Center and <a href="http://www.linkedin.com/profile/view?id=10690378" target="_blank">Michael Byrne</a> of the FCC.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2933" height="285" src="http://geobabble.files.wordpress.com/2012/10/nbm.png" title="nbm" width="640" /></p>
+
+<p>The full paper, in my opinion, is recommended reading for anyone working with geospatial technologies in the government space. While the Broadband Map has rightfully garnered significant attention based upon its success, especially in terms of performance and scalability, the paper does a good job of reminding us that the map is not an end goal in itself, but a step toward the larger policy goal of expanding broadband access. The paper does an excellent job of illustrating how top-level policy goals were broken down into actionable parts that resulted in a concrete product such as the Broadband Map. In so doing, it walks us through the introduction and fostering of an open culture within the FCC that resulted not only in the Broadband Map but also in the development of open APIs and the availability of FCC tools as open-source projects themselves.</p>
+
+<p>In its conclusions, the paper also makes compelling observations about the power of focused policy goals to drive the use of technology standing in stark contrast to generic overarching technical policies, such as the National Spatial Data Infrastructure (NSDI) which are disconnected from specific policy goals and achieve little traction.</p>
+
+<p>If you are interested not only in geospatial technologies, but also the link between policy and technology implementation, and the cultural change that can be brought about by open-source technologies, you should consider attending the event at the Wilson Center on the 15th. While not a universal blueprint, the National Broadband Map makes a compelling case study.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FCC Open-Sources MapBox Module for Drupal]]></title>
+    <link href="http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal/"/>
+    <updated>2012-03-20T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal</id>
+    <content type="html"><![CDATA[<p>See the FCC announcement <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">here</a>.</p>
+
+<p><a href="http://mapbox.com" target="_blank">MapBox</a> has been winning a lot of high-profile converts lately, such as <a href="http://mapbox.com/blog/foursquare-switches-mapbox-streets-openstreetmap/" target="_blank">Foursquare</a>. In my opinion, it's one of the more perfect web mapping solutions, commercial or open-source, to come along in a while. The combination of cartographic engine (<a href="http://mapnik.org/" target="_blank">Mapnik</a>), tile generation (<a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a>) and storage (<a href="http://mapbox.com/mbtiles-spec/" target="_blank">MBTiles</a>) make MapBox one of the most elegant ways to serve beautiful maps currently available. <!--more--></p>
+
+<p>The Federal Communications Commission (FCC) has been using MapBox to make a number of <a href="http://www.fcc.gov/maps" target="_blank">compelling maps</a> available to the public. Additonally, the FCC's site has been built on the open-source content management system <a href="http://drupal.org/" target="_blank">Drupal</a>. Today, the <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">FCC announced</a> that they are making the source code to their MapBox module for Drupal, SlashMap, <a href="http://drupal.org/project/slashmaps" target="_blank">available</a>. This should provide a straightforward way to integrate MapBox maps with a Drupal site.</p>
+
+<p>The FCC has been very active in using open-source tools for their work and it's great to see them giving back to the community in this manner. It's a phenomenon that I think we'll see a lot more of from all levels of government as understanding of and comfort with open-source models increases.</p>
+
+<p>So, if you are a Drupal user, you may want to check out SlashMaps as a way to integrate some very nice web maps. Kudos to <a href="http://twitter.com/byrne_tweets" target="_blank">Michael Byrne</a> and his team at the FCC for taking this step.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FCC Broadband Map Featured by CBS]]></title>
+    <link href="http://blog.geomusings.com/2011/10/28/fcc-broadband-map-featured-by-cbs/"/>
+    <updated>2011-10-28T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/10/28/fcc-broadband-map-featured-by-cbs</id>
+    <content type="html"><![CDATA[<p><a href="http://twitter.com/Byrne_Tweets">Michael Byrne</a> of the Federal Communications Commission (FCC) gave a really good talk at FOSS4G, telling the story of the FCC <a href="http://www.broadbandmap.gov">National Broadband Map</a> application, which is built on open-source geospatial tools. In addition to being open-source, it's a modern web system that makes diligent use of caching and other techniques to achieve great performance. I do a lot of work in the Federal space and, in my opinion, it's one of best public-facing Federal web tools deployed in recent memory.</p>
+
+<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2011/10/fccmap2.png"><img alt="" height="368" src="http://geobabble.files.wordpress.com/2011/10/fccmap2.png" title="FCC National Broadband Map" width="590" /></a><div style="text-align:center;font-size: 14px;">FCC National Broadband Map<br/><br/></div></div>
+
+
+<p>CBS News, <a href="http://www.cbsnews.com/8301-501465_162-20127020-501465/fcc-approves-$4.5-billion-for-broadband-in-era-of-steve-jobs/">in discussing a new $4.5 billion broadband fund by the FCC</a>, features a nice screenshot of the system. It's nice to see good work and innovation get recognized. Michael and his team should be proud.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Open Government, Open Data and Some Lessons from Arkansas]]></title>
+    <link href="http://blog.geomusings.com/2011/06/29/open-government-open-data-and-some-lessons-from-arkansas/"/>
+    <updated>2011-06-29T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/06/29/open-government-open-data-and-some-lessons-from-arkansas</id>
+    <content type="html"><![CDATA[<p>I was reading Brian Timoney's excellent post "<a href="http://mapbrief.com/2011/06/29/open-government-is-a-slammed-door-at-the-blm/">Open Government is a Slammed Door at the BLM</a>," when I encountered this line:</p>
+
+<blockquote>
+Top-down, large scale spatial-data-integration-by-directive simply doesn?t have the track record of success to justify the costs...
+</blockquote>
+
+
+<p>This resonates well with observations that I have made during the course of my recent work with the <a href="http://www.gis.arkansas.gov/">Arkansas GIO</a> office. The immediate focus of that work was to help AGIO assess the current state of their <a href="http://www.geostor.arkansas.gov/G6/Home.html">GeoStor</a> platform and gather data about current and emerging capabilities in order to support decision-making about whether to migrate to a hosted (cloud) environment. In the course of doing that work, I learned about the collaborative approach AGIO has taken with the cities and counties of Arkansas, which also informs some of the functional requirements of GeoStor.</p>
+
+<!--more-->
+
+
+<p>AGIO, among many other functions, offers state-wide, seamless data sets for streets, parcels and addresses. These data sets are assembled from county/city data and allow GeoStor to feature a highly accurate geocoding service, which serves as a resource to support requirements such as <a href="http://www.streamlinedsalestax.org/">streamlined sales tax</a> and others. AGIO feels that commercial geocoding engines do not provide enough accuracy to support these types of requirements so they use detailed data from local jurisdictions to build one for the State.</p>
+
+<p>What I came to understand is that AGIO integrates these data sets in the absence of any top-down requirement of the kind Brian mentions in his post. In general, they take the data as it comes (format, schema, etc.) and use automated/manual processes to transform the data and build/update the data sets. Using this "light touch" approach, AGIO receives data from all 75 counties in the State.</p>
+
+<p>This arrangement works because AGIO views GeoStor as a state-wide asset that must be able to provide value back to the localities as well as to individual citizens. Local jurisdictions can store/host their data on GeoStor. They can also make use of the platform to host map viewers and applications. For instance, the <a href="http://bit.ly/k4f4Ae">Saline County Assessor's Viewer</a> is hosted on the GeoStor platform. So that geocoder can be used by the localities for their own needs without needing to build and maintain their own. Another example is the <a href="http://www.geostor.arkansas.gov/G6/Home.html">GeoStor search tool</a>, which can be used to expose any asset registered with GeoStor (local or linked). This search engine becomes a single point of entry that counties can use to expose their own products and services.</p>
+
+<p>And, again, all of this works without a top-down approach of "integration-by-directive," as Brian puts it. When I asked <a href="http://twitter.com/learondalby">Learon Dalby</a> about this approach, he cited minimal impact on counties and value-add, among others, as two important core values that inform the work AGIO does. This approach requires a lot of leg work. Staff visit the counties and AGIO seems to be remarkably in touch with the needs at that level. Basically, all participants get something of value out of the arrangement and the citizens of Arkansas benefit from the collaboration.</p>
+
+<p>This approach stands in stark contrast to much-less-successful efforts I have witnessed at the Federal level. Through my participation in various working groups over the years I have seen numerous top-down efforts fail. Commonly, this is because they offer a data standard that legislates both content and structure. Oftentimes, these standards to do not mesh well with data that is already in place at lower echelons so additional collection/validation/conversion procedures are required, leading to increased complexity and "discussions" over who will fund/execute that additional complexity. Since complexity usually translates into dollars, the stream of vendors and integrators with solutions to mitigate that complexity soon follows.</p>
+
+<p>Another situation I have commonly observed in such efforts, especially those that attempt to get data from the state level up to the Federal level, is a lack of perceived value by the state-level data providers. Often, they feel they do not see value flow back down. They see high-quality data go in and little, if anything, come back out. This is often obscured by nebulous policy or security requirements but almost universally leads to frustration.</p>
+
+<p>Which brings me back to the Arkansas model. The minimization of top-down requirements and the focus on providing clear value (which doesn't always need to be realized in dollars) to all participants are key reasons why it works. A straw-man that is often tossed out in working groups is "Will it scale?" That's a non-factor here. With 75 counties participating, it is already operating at scale. Here, I am not referring to data. Scaling data is easy. Scaling relationships and participation is harder. Processes that impose little overhead scale better. AGIO succeeds by knowing their mission and pushing down as few requirements and as much value as possible.</p>
+
+<p>If the Federal government (including the defense and homeland security sectors) ever gets serious about "open government," "open data," data sharing and other such efforts, it might be worth a trip to Arkansas.</p>
+]]></content>
+  </entry>
+  
+</feed>

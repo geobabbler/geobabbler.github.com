@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: GISR | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/gisr/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-01-07T21:09:23-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[GIS in the Rockies / NoCo Roundup]]></title>
+    <link href="http://blog.geomusings.com/2010/09/20/gis-in-the-rockies-noco-roundup/"/>
+    <updated>2010-09-20T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/09/20/gis-in-the-rockies-noco-roundup</id>
+    <content type="html"><![CDATA[<p>Last week marked a couple of firsts for me: it was my first time attending the <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a> conference and also my first time in Northern Colorado. I enjoyed my trip greatly.</p>
+
+<p>First off, the people of Northern Colorado were universally nice. That held true of everyone I met at the conference as well as people at every restaurant, gas station and other establishment I entered. Of course, why not? The countryside is beautiful. For a lifelong resident of the East Coast, the countryside of Northern Colorado represents the stereotypical image I get in my mind when I think of "the West." Driving north from Denver, the plains stretched out on one side as far as I could see while, on the other side, mountains arose as if just "plopped" there. All of this under a sky so vast I have really only seen its like back East when driving through the Everglades.</p>
+
+<p>In this setting, I made my way to the conference. This is the first time I've been to such a regional conference. Due to committments at home, I had to fly out Wednesday morning so I did not get to catch <a href="http://twitter.com/pmbatty">Peter Batty's</a> <a href="http://www.gisuser.com/content/view/21412/28/">keynote</a>. I did, however, run into <a href="http://twitter.com/briantimoney">Brian Timoney</a> and <a href="http://twitter.com/gletham">Glenn Letham</a> rather quickly so I started out with friendly faces. <!--more--></p>
+
+<p>The first session I attended was a VMWare session related to running ArcGIS Server in a virtualized environment. My primary reason for attending this one was, due to the staggered schedule of the sessions, it was the only one that was beginning as I got there. That didn't break a lot of new ground for me but I got to finally meet <a href="http://twitter.com/Taliesn">Brian Sullivan</a> and <a href="http://twitter.com/wyojeff">Jeff Fruhwirth</a>, whom I have followed on Twitter for some time. I missed the "Web Mercator" session, which I understand was very heavy on math and left some brains bleeding at the end. I would've loved to have caught that one since I have been hip-deep in dealing with that for the last few weeks.</p>
+
+<p><img alt="null" src="http://www.transworldtractortreks.com/images%20pop%20up/Entering%20The%20Ranch%20at%20Loveland%20Convention%20Centre.jpg" /></p>
+
+<p>I won't make this post a blow-by-blow of each session I attended but one of the things I liked about the conference was that the focus seemed to be more about using GIS as a tool to solve real problems rather than focusing on the latest bells and whistles of a particular software. This was true even in the software-focused sessions such as "ArcGIS Server: Factors Affecting Performance and Scalbility." Mostly, though, the sessions were more like <a href="http://twitter.com/Fat_Tony930">Anthony Alvarado's</a> session discussing monitoring of levees in the Sacramento Valley. In this one, it became very clear that GIS was one tool among many in a very complex effort. As a consultant who is usually brought in to "do the GIS," this was a particularly effective reality check.</p>
+
+<p>One of the more illuminating experiences for me was the Wednesday night social. Quite by accident, I stumbled into it. I had been awake for something like 18 hours at that point so I was foraging for food and happened into the venue where the social was occuring. As a result, I got to spend a couple of hours with people working Front Range GIS in various capacities. Some were with Boulder County, another supported the mining industry as a consultant. All had one thing in common: they had not heard of the open-source technologies that many in my extended circle discuss and use. This, again, served as a good reality check.</p>
+
+<p>Over time, I have become an advocate of being a "technology omnivore." We all have our primary toolsets (proprietary or otherwise) with which we work most of the time but proficiency with other tools increases our versatility and can also cause us to re-examine the ways we use our primary tools, making us more efficient with them. Exposure to alternate tools may cause us to think critically about tasks that may otherwise become rote through the habitual use of a single tool.</p>
+
+<p>This concept was illustrated prefectly for me in the talk that preceded mine, "Utilizing <a href="http://www.postgis.org">PostGIS</a> for Large-Scale Geoprocessing" by Robert Spotts and <a href="http://twitter.com/MichaelTafel">Michael Tafel</a>. They described how they were able to use PostGIS and spatial SQL to accomplish a large task in a few minutes which had previously run for days in <a href="http://www.esri.com">ArcGIS</a> without completing. It's this type of "right tool for the job" approach that familarity with multiple tool sets can enable. That served as a good lead-in for my talk on <a href="http://pub.obtusesoft.com">zigGIS</a> (Michael Tafel did a great job arranging the track).</p>
+
+<p>I have a tendency to really wind myself up before a talk so, afterward, I cut out. Thursday evening was a treat due to good food, beer and conversation with <a href="http://twitter.com/sgillies">Sean Gillies</a>, Brian Timoney, <a href="http://twitter.com/cwhelm">Chris Helm</a> and my good friend (and recent Colorado transplant) <a href="http://twitter.com/djgetman">Dan Getman</a> (Glenn Letham also stopped by for a bit). I hadn't seen Dan for quite some time and I was happy to see that he and his family are settling in well out there. There was a little shop talk and a lot of non-shop talk and it was a good evening. Thanks to Sean for setting it up. The work Dan and Chris are doing at the <a href="http://www.nrel.gov/">National Renewable Energy Lab</a> along with the work Sean does with mapping ancient sites serves to illustrate the wide range of applications for which geospatial technologies can be used. The variety of tools they use also serves to illustrate there is more than one way to approach things.</p>
+
+<p>On a personal level, I got a lot out of the conference. Stepping out of my bubble for a few days was a good way to recharge my imagination for the work I do and the tools I use. Although I saw a lot of different applications and a variety of tools in use, I also saw indications that knowledge of alternate tools (such as open-source) is not as widespread or as deep as it may appear to me from where I normally sit. I will need to chew on this fact for a while.</p>
+
+<p>Lastly, Northern Colorado was a big hit with me. I really need to bring my family out for a trip. If I could ever get over my need to be within 20 minutes of tidal salt water, it's a place that could definitely be on the list.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Be the Crowd]]></title>
+    <link href="http://blog.geomusings.com/2010/09/16/be-the-crowd/"/>
+    <updated>2010-09-16T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/09/16/be-the-crowd</id>
+    <content type="html"><![CDATA[<p>I have generally been very happy with <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a> (more on that in another post) as it's good to get a look at different uses, concerns and perspectives. This afternoon, I sat through the "Collaboration Panel" discussion. The panel was made of of a few people representing state, regional and local governments and well as utilities and academia. Almost uniformly, there was a fear (yes, I mean fear) of <a href="http://en.wikipedia.org/wiki/Crowdsourcing">crowdsourcing</a> that was best summed up by the following statement:</p>
+
+<blockquote> "Crowdsourcing presents a vulnerability to us."</blockquote>
+
+
+<p>Thank goodness <a href="http://twitter.com/gletham/status/24679715438">Glenn Letham was sitting there and tweeted it</a> or I might not have believed I heard it. Over the course of the discussion, talk kept returning to the image of "just anyone" editing spatial data, opening up potential liability for jurisdictions. Another gem:</p>
+
+<blockquote>"When everyone is responsible, no one is responsible."</blockquote>
+
+
+<p>I will grant that the entire discussion did not focus on crowdsourcing but it was a topic that was circled back to several times. I was left with a sense that, when these people think of crowdsourcing, they literally picture crowds of the "great unwashed" making random edits to critical data sets from there iPhones. Fear, uncertainty and doubt was projected at such a level that it exposed, well, fear, uncertainty and doubt on the part of the panelists.</p>
+
+<p>A great premium was placed on data being collected and managed by "authoritative" data providers, who collect data using a set of validated business rules and procedures. Yet a great premium was also placed on getting to the point where such data sets can be freely shared. This exposed to me another issue: a complete lack of understanding of the concept of crowdsourcing.</p>
+
+<p>I realize that, for governments, there can be legal and statutory issues with publicly sharing data sets (the Privacy Act with regard to parcel data, for example) that must be worked through. For this discussion, I will set those aside. The following statement was made late in the session:</p>
+
+<blockquote>"<a href="http://www.openstreetmap.org/">OpenStreetMap</a> will never be an authoritative data source."</blockquote>
+
+
+<p>To that, I offer this (which I could not offer in the session since the floor was not opened):</p>
+
+<p>If you feel you are the "authoritative" provider for street data for your region and that you capture that data using vetted procedures and business rules that assure data quality and accuracy <em>and</em> you profess to want to be able to share that data with the public, why don't you donate that data to OpenStreetMap so that it would then be providing "authoritative" data (or at least data derived from an "authoritative" source). People who choose to use OSM for their applications would then be using high-quality data.</p>
+
+<p>Why not, rather than tear down the concept, engage and participate, provide the model for how to do so and demonstrate leadership? In other words...</p>
+
+<p>Be the crowd!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gearing up for GIS in the Rockies]]></title>
+    <link href="http://blog.geomusings.com/2010/09/09/gearing-up-for-gis-in-the-rockies/"/>
+    <updated>2010-09-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/09/09/gearing-up-for-gis-in-the-rockies</id>
+    <content type="html"><![CDATA[<p>I finally got around to finishing my travel plans for <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a> (personal obligations prevent me from making it out for <a href="http://ignitespatialnoco.wordpress.com/">Ingite Spatial NoCo</a>). I booked my flight a while ago but I had been procrastinating on the hotel and rental car. This will be my first time in that part of Colorado so I am looking forward to seeing the area and meeting people out there. NoCo is second only to the DC area in clustering of folks in my Twitter crowd.<!--more--></p>
+
+<p><img alt="GISR Logo" src="http://www.gisintherockies.org/GISITR2010/images/GIS2010_Logo.jpg" /></p>
+
+<p>I'll be giving a small talk at the conference about <a href="http://pub.obtusesoft.com">zigGIS</a>. It'll be part history lesson and part look-ahead and I'll try to address some use cases. In conversation, I find that people tend to see an "either/or" choice between zigGIS and using <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> with <a href="http://www.postgresql.org/">PostgreSQL</a>. In truth, they can peacefully coexist and, depending on how ArcSDE is configured to work with PostgreSQL and <a href="http://www.postgis.org/">PostGIS</a>, zigGIS can augment workflows nicely. So I'll touch on that but I'll also explore how it can provide some flexibility in a maturing GIS shop.</p>
+
+<p>Of course, I'll also talk about zigGIS returning to open-source at version 3.0. Abe is shouldering the burden for that and there's a lot to do, starting with choosing a license. We had some discussions about it and I think he's leaning toward the Apache license but we'd be happy for thoughts/inputs from others who've been down this road. Version 3.0 will be a major re-work of the code to address some of the changes that <a href="http://abegillespie.blogspot.com/2010/06/on-to-30.html">Abe blogged about</a>. It could be a while before something testable exists but it's an overhaul that's been needed.</p>
+
+<p>All-in-all, I'm looking forward to the trip and the conference. Hopefully, I'll see you there.</p>
+]]></content>
+  </entry>
+  
+</feed>

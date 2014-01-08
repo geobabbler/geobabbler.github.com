@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+		<title>A look at our bridges</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+		<meta name="description" content="Average age of US bridges by county" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+		<link rel="counties" type="application/json" href="nbi_county.geojson">
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+		<![endif]-->
+		<link href="screen.css" rel="stylesheet" type="text/css" />
+		<link href="screen2.css" rel="stylesheet" type="text/css" />
+		<!--
+		<link href="legend.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-1.6.4.min.js"></script>
+        <title>How did Maryland counties vote on Question 6?</title>
+		<style>
+			h2 {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 36px;
+			}
+			body {
+				font-family: 'PT Serif', serif;
+				font-size: 12px;
+			}
+		</style>-->
+		<style>
+			.title {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 36px;
+			}
+			body {
+				font-family: 'PT Serif', serif;
+				font-size: 12px;
+			}
+		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}		
+		</style>
+	</head>
+    <body style="background-color: white;">
+	<span class="title">Average Age of Bridges by County</span>
+		<div id="map" style="height:425px;width:100%;background-color: '#FFFFFF';"></div>
+		<script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<!--<script src="scripts/md_county_q6_2012.js"></script>-->
+		<script>
+		var mqurl = 'http://blog.geomusings.com/assets/demos/mdq6/data/tiles/NaturalEarth/md/{z}/{x}/{y}.png'; //'http://a0.acetate.geoiq.com/tiles/acetate-bg/{z}/{x}/{y}.png'; // 'http://{s}.mqcdn.com/naip/{z}/{x}/{y}.png';
+		//var mqSubdomains = new Array("a0","a1","a2","a3");
+		var mqattribution = 'County data via Esri, Bridge data via National Bridge Inventory'; //'Tiles Courtesy GeoIQ. Licensed under a Creative Commons Attribution 3.0 License.';
+		var acetate = new L.TileLayer(mqurl, {minZoom: 7, maxZoom: 9, attribution: mqattribution}); //, subdomains: mqSubdomains});
+
+		function getColor(d) {
+			return d > 56 ? '#084594' :
+				d > 47  ? '#2171B5' :
+				d > 41  ? '#4292C6' :
+				d > 36  ? '#6BAED6' :
+				d > 31   ? '#9ECAE1' :
+				d > 21   ? '#C6DBEF' :
+				d > 5   ? '#EFF3FF' :
+                     '#C0C0C0';
+		}
+		
+		function style(feature) {
+			return {
+				fillColor: getColor(feature.properties.avgage),
+				weight: 0.5,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.85
+			};
+		}
+		
+		function highlightFeature(e) {
+			var layer = e.target;
+			//var props = layer.valueOf();
+			//alert(props);
+			/*layer.setStyle({
+				weight: 5,
+				color: '#666',
+				dashArray: '',
+				fillOpacity: 0.7
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+			}*/
+			info.update(layer.feat.properties);
+		}
+		
+		//var geojson;
+
+		
+		function resetHighlight(e) {
+			//geojson.resetStyle(e.target);
+			info.update();
+		}
+		
+		function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+		}
+		
+		var map = L.map('map').setView([41.2586111, -95.9375], 4); //.addLayer(acetate);
+		//alert(q6data);
+		function onEachFeature(feature, layer) {
+			Object.defineProperty(layer, "feat", {
+				value: feature,
+				writable: true,
+				enumerable: true,
+				configurable: true
+			});
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+
+		$.getJSON($('link[rel="counties"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			onEachFeature: onEachFeature
+			});
+		geojson.addTo(map);
+		});
+		
+ 
+		//geojson.addTo(map);
+		//);
+		
+		
+		//geojson = L.geoJson(q6data, {
+		//	style: style,
+		//	onEachFeature: onEachFeature
+		//}).addTo(map);
+		
+		var info = L.control();
+
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+
+		// method that we will use to update the control based on feature properties passed
+		info.update = function (props) {
+		   if (props){
+			var tot = props.votefor + props.voteagainst;
+			var pctfor = (props.votefor/tot) * 100;
+			var pctagainst = (props.voteagainst/tot) * 100;
+			}
+			this._div.innerHTML = '<h4>Bridge Data</h4>' +  (props ?
+				'<b>' + props.name + ', ' + props.state_name + '</b><br /><b>Average Age:</b> ' + props.avgage + '</b><br /><b>Average Year Built:</b> ' + props.avgbuilt + '<br/><b>Approximate Bridge Count:</b> ' + props.bridgecount + '<br/><br/>'
+				: 'Hover over a county');
+		};
+
+		info.addTo(map);
+		
+		var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [5, 21, 36, 41, 47, 56],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+legend.addTo(map);
+		</script>
+		<br/>
+&nbsp;Bridge data processed from the National Bridge Inventory (NBI) included in the <a href="http://apps.bts.gov/publications/national_transportation_atlas_database/2012/">National Transportation Atlas Database 2012</a> (<a href="nbi_county.geojson">download GeoJSON</a>)<br/>
+<br/>
+Age of each bridge record was calculated from calendar year 2013 based upon year of construction (ITEM27) in the NBI. The map above reflects only those bridges for which there is no indication of reconstruction (ITEM106), implying that they are the original structures. Bridge data was then aggregated by county. All processing was performed using PostgreSQL and PostGIS. The <a href="nbi_coding_guide.pdf">NBI coding guide</a> (PDF) is included here for reference. This data makes no attempt to account for periodic maintenance.<br/>
+<br/>
+&nbsp;<a href="http://blog.geomusings.com">geomusings</a>
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8441719; 
+var sc_invisible=1; 
+var sc_security="2fc819f5"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost +
+"statcounter.com/counter/counter.js'></"+"script>");</script>
+<noscript><div class="statcounter"><a title="hits counter"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/8441719/0/2fc819f5/1/"
+alt="hits counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+    </body>
+</html>

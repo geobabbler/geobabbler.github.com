@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mapnik | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/mapnik/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-01-07T21:09:23-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[FCC Open-Sources MapBox Module for Drupal]]></title>
+    <link href="http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal/"/>
+    <updated>2012-03-20T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal</id>
+    <content type="html"><![CDATA[<p>See the FCC announcement <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">here</a>.</p>
+
+<p><a href="http://mapbox.com" target="_blank">MapBox</a> has been winning a lot of high-profile converts lately, such as <a href="http://mapbox.com/blog/foursquare-switches-mapbox-streets-openstreetmap/" target="_blank">Foursquare</a>. In my opinion, it's one of the more perfect web mapping solutions, commercial or open-source, to come along in a while. The combination of cartographic engine (<a href="http://mapnik.org/" target="_blank">Mapnik</a>), tile generation (<a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a>) and storage (<a href="http://mapbox.com/mbtiles-spec/" target="_blank">MBTiles</a>) make MapBox one of the most elegant ways to serve beautiful maps currently available. <!--more--></p>
+
+<p>The Federal Communications Commission (FCC) has been using MapBox to make a number of <a href="http://www.fcc.gov/maps" target="_blank">compelling maps</a> available to the public. Additonally, the FCC's site has been built on the open-source content management system <a href="http://drupal.org/" target="_blank">Drupal</a>. Today, the <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">FCC announced</a> that they are making the source code to their MapBox module for Drupal, SlashMap, <a href="http://drupal.org/project/slashmaps" target="_blank">available</a>. This should provide a straightforward way to integrate MapBox maps with a Drupal site.</p>
+
+<p>The FCC has been very active in using open-source tools for their work and it's great to see them giving back to the community in this manner. It's a phenomenon that I think we'll see a lot more of from all levels of government as understanding of and comfort with open-source models increases.</p>
+
+<p>So, if you are a Drupal user, you may want to check out SlashMaps as a way to integrate some very nice web maps. Kudos to <a href="http://twitter.com/byrne_tweets" target="_blank">Michael Byrne</a> and his team at the FCC for taking this step.</p>
+]]></content>
+  </entry>
+  
+</feed>

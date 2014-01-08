@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: proposals | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/proposals/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-01-07T21:09:23-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using Redmine for Proposal Management]]></title>
+    <link href="http://blog.geomusings.com/2009/11/17/using-redmine-for-proposal-management/"/>
+    <updated>2009-11-17T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2009/11/17/using-redmine-for-proposal-management</id>
+    <content type="html"><![CDATA[<p>I work at a technology consulting company that does a lot of software development. A while back, we started using <a href="http://www.redmine.org/">Redmine</a> to manage our software development projects. Redmine is an open-source, web-based project management tool. It provides a lot of capability, is easily customizable without coding, features SCM integration and, since it is built on Ruby on Rails, can be extended using RoR as well. We are still getting comfortable with it but it has been meeting our needs well and has been well-received by our customers.<!--more--></p>
+
+<p>As consultants, we also write a lot of proposals. Proposals in response to Federal government RFPs can be particularly cumbersome. Recently, we decided to use Redmine to help us manage a proposal effort. Although it is typically used for software development, Redmine, at a more abstract level, really is a project management tool that helps you to manage the development of a work product. We saw no reason why that product couldn't be a proposal.</p>
+
+<p>Although the schedule is typically more compressed, a proposal effort has a due date, milestones, work assignments, requirements and everything else you would expect in a typical software project so we ran with it.</p>
+
+<p>For this first attempt, we have tried to keep it simple. We created a few custom tracker types. These included "Volume" for each proposal volume, "Writing Assignment", "Graphics", "Pink Team Review", and "Red Team Review." We did some simple customization to the workflow for each of these trackers and defined roles that make sense for a proposal. As a result, we could enter in all of the assignments, attach the requirements (work requirements, proposal formatting instructions, evaluation criteria, etc.) and attach relevant files (RFP, resume templates, section templates, etc.).</p>
+
+<p>Since technical content usually comes from the technical staff, they work in an environment with which they are familiar. As they update progress and time spent on their assignment, we can get an idea of the ongoing level of effort while also having the proposal schedule front and center. Redmines automatic e-mail notification feature was very useful in alerting staff to new assignments.</p>
+
+<p>Overall, I've been impressed with the flexibility of Redmine and this application demonstrates that it can be flexible enough to be applied outside of its traditional use cases.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: scuttlebutt | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/scuttlebutt/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-01-07T21:09:23-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[GeoServices REST Specification and OGC]]></title>
+    <link href="http://blog.geomusings.com/2011/06/16/geoservices-rest-specification-and-ogc/"/>
+    <updated>2011-06-16T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/06/16/geoservices-rest-specification-and-ogc</id>
+    <content type="html"><![CDATA[<p>So this is what I get for missing the Ignite sessions at WhereCampDC<sup>*</sup>:</p>
+
+<p><div class='embed tweet'>Sorry, you are not authorized to see this status.</div></p>
+
+<p><sup>*</sup>I got to dance with my daughter and help her chase fireflies so I win.</p>
+
+<p>The worst-kept rumor/secret in recent memory is now "out there" so here are my thoughts:</p>
+
+<!--more-->
+
+
+<ol>
+    
+<li>It makes perfect sense for <a href="http://www.opengeospatial.org/">OGC</a>. They were caught completely flatfooted by REST and this provides an expedient (and already widely-deployed) way to catch up, if they adopt it. Esri's API works pretty well and is certainly a nice starting point for a spec.</li>
+
+<li>It's also a no-brainer for <a href="http://www.esri.com">Esri</a>. If adopted, they are automatically OGC-compliant and may even be able to call ArcGIS Server a reference implementation. There's no way that doesn't benefit them and they would probably be the biggest winner in this. What would be nice is if Esri followed this up with some demonstration of commitment to the community such as releasing one or more of their REST API clients as open-source.</li>
+
+<li>I assume this includes the Esri JSON syntax (my term), which is the underpinning of the GeoServices REST Specification. That leaves me wondering about <a href="http://geojson.org">GeoJSON</a>. It's a community specification that's been <a href="http://wiki.geojson.org/Users">widely adopted</a> across the industry. It wouldn't be very hard to augment the GeoServices spec with "f=geojson" on the calls that are appropriate but I can't see OGC doing that for a spec they don't own (although, by doing so, they would live into the "open" part of their name). 
+
+For what it's worth, I like GeoJSON and find it tighter and more focused than the Esri syntax for what it does and I think it should be part of the discussion somehow. It's not entirely a 1-to-1 match as GeoJSON is designed for transmitting geometries and features. The Esri JSON syntax is broader in scope, addressing not only geometries but also other functions such as listing available endpoints and fetching endpoint metadata and such. So GeoJSON, in its current form, would not address all of the needs of the GeoServices spec but would certainly be a viable option for functions such as returning the results of feature layer queries.</li>
+
+<li>It would be interesting to see whether the spec gets implemented across the community. It has been available for months but there hasn't been a wide uptake. The only example I am aware of is <a href="http://www.arc2earth.com/products/cloud/">Arc2Earth's cloud work</a> which <a href="http://ucdemos.appspot.com/a2e/ArcGIS/rest/services/NYC/NYC_Subways/MapServer/">implements it</a> on top of their Google-AppEngine-based services. Maybe OGC adoption would provide the kind of "top cover" that will give developers peace-of-mind. (Note: My company is an Arc2Earth reseller.)
+</li>
+
+<div style="text-align:center;"><img alt="" height="202" src="http://geobabble.files.wordpress.com/2011/06/a2e_esrisl.png" title="Arc2Earth Cloud Service in Esri Silverlight API" width="442" /><div style="text-align:center;font-size: 14px;">Arc2Earth sample in Esri Silverlight demo application<br/><br/></div></div>
+
+<li>If the <a href="http://www.esri.com/library/whitepapers/pdfs/geoservices-rest-spec.pdf">GeoServices REST Specification</a> (Beware, PDF) is adopted by OGC, it will continue a trend begun with the adoption of KML and GeoRSS in which they formally adopt community and de facto standards that have emerged and been proven in the industry. I think that's a valid approach that can exist alongside their usual standards development process. This case is a little different than those in that it was developed by a single vendor (like KML) and has been released and documented (like KML) but hasn't really been widely implemented outside its initial vendor base prior to consideration (unlike KML). That's a subtle but important difference that bears watching.
+</li>
+</ol>
+
+
+<p>Those were some of my initial thoughts upon hearing this. If it happens, it's obviously of immediate benefit to both OGC and Esri. The lack of any viable presence by OGC in this area has left a void that has begun to be filled by other efforts, including Esri's. It'll be interesting to see the longer-term implications. I think <a href="http://www.spatiallyadjusted.com/2011/06/16/esri-rest-api-could-be-an-ogc-standard/">James</a> is correct that we can expect to see implementations on server platforms such as <a href="http://mapserver.org/">MapServer</a> and <a href="http://geoserver.org/display/GEOS/Welcome">GeoServer</a> but I wonder how relevant it will be in the emerging environment surrounding big data and hosted (i.e. cloud) infrastructures. An end-to-end GIS interface may be less relevant than a more atomic approach that allows support for spatial types to be injected as needed into a larger framework (for example, supporting use of GeoJSON on specific calls the way Twitter does). There's room for both approaches but distinct paths are beginning to emerge.</p>
+]]></content>
+  </entry>
+  
+</feed>

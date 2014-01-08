@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Google Earth Builder | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/google-earth-builder/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-01-07T21:09:23-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Arc2Earth Sync Beta Announced]]></title>
+    <link href="http://blog.geomusings.com/2011/11/23/arc2earth-sync-beta-announced/"/>
+    <updated>2011-11-23T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/11/23/arc2earth-sync-beta-announced</id>
+    <content type="html"><![CDATA[<p>Over on <a href="https://plus.google.com/112324940962843535547/posts/B9T9M1vPLCz">Google+</a> (and also on Twitter), <a href="http://twitter.com/bflood">Brian Flood</a> announced the impending availability of Arc2Earth Sync Beta to existing <a href="http://www.arc2earth.com">Arc2Earth</a> users. This has been brewing for for a while and Brian says it best:</p>
+
+<blockquote>
+"What makes Sync really cool is the live edit synchronization and the ability to publish online to different formats. It's a great way to provide integration between ArcGIS desktops/online and the other Cloud database providers like Google."
+</blockquote>
+
+
+<!--more-->
+
+
+<p>So it gives users the ability to publish, edit and synchronize data they are storing in on-line, hosted environments using the editing tools of ArcMap. The initial beta will only support Google Fusion Tables but support for Google Earth Builder and - this caught my eye right away - <a href="http://cartodb.com">CartoDB</a> are scheduled for after the first of the year.</p>
+
+<div style="text-align:center;"><img alt="" height="375" src="http://geobabble.files.wordpress.com/2011/11/assorted_donuts1.jpg" title="Choices, choices..." width="500" /><div style="text-align:center;font-size: 14px;">Arc2Earth Sync stands to give ArcGIS users an assortment of hosted data platforms to choose from.<br/><br/></div></div>
+
+
+<p>There are a lot of ArcGIS for Desktop users out there and exposing different hosted solutions using workflows and tools with which they are comfortable has the potential to do a lot for user choice and the ability to control one's own data.</p>
+
+<p>Here is a link to Brian's screencast showing Arc2Earth Sync in action: <a href="https://arc2earth.viewscreencasts.com/fe762cac52664083ad5dfdfcd0f750c9">https://arc2earth.viewscreencasts.com/fe762cac52664083ad5dfdfcd0f750c9</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Arc2Earth Focusing On Google Earth Builder]]></title>
+    <link href="http://blog.geomusings.com/2011/08/03/arc2earth-focusing-on-google-earth-builder/"/>
+    <updated>2011-08-03T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/03/arc2earth-focusing-on-google-earth-builder</id>
+    <content type="html"><![CDATA[<p><a href="http://www.arc2earth.com">Arc2Earth</a> (disclaimer: <a href="http://www.zekiah.com">my company</a> is an Arc2Earth reseller) has focused a lot on extending their integration with the Google cloud infrastructure. This started with Cloud Services, which provided the ability to push data into Google <a href="http://code.google.com/appengine/">AppEngine</a> and serve it through emulation of the <a href="http://help.arcgis.com/en/arcgisserver/10.0/apis/rest/index.html">Esri REST API</a> (among other options). This was expanded to include live editing of data hosted on AppEngine. More recently, Arc2Earth added support for <a href="http://www.google.com/fusiontables/public/tour/index.html">Google Fusion Tables</a>.</p>
+
+<p><img alt="arc2earth logo" src="http://www.arc2earth.com/wp-content/uploads/2010/10/logo_Arc2Earth_h.png" /></p>
+
+<p>Late last year, they announced their <a href="http://beta.arc2cloud.com/">Arc2Cloud</a> initiative to expose Google's spatial data services to ArcGIS users. This has seemed to fall of the radar a bit lately but, as we know, there have been <a href="http://www.google.com/enterprise/earthmaps/builder.html">changes brewing on the on the Google end of things</a> so some delays from Arc2Earth are understandable.<!--more--></p>
+
+<p>Yesterday's newsletter from Arc2Earth confirmed suspicions with the following:</p>
+
+<blockquote>
+Many of you have also been asking about Arc2Cloud and when it will be available. All we can say is it has changed into something more powerful and we are really excited about where it will lead us. If you want to use Google Fusion Tables or Google Earth Builder from within ArcGIS, this is the product for you. Arc2Cloud is still used to provide online compatibility with ArcGIS but the real benefit is the automatic synchronization of your data. 
+
+It runs in the task tray and keeps everything up to date (data, live edits, tiles, published maps etc) without you having to do anything. In fact, I think it's the culmination of all the different parts of Arc2Earth into a single, automated package. Arc2Earth Sync will be coming this fall as part of Arc2Earth Desktop.
+</blockquote>
+
+
+<p>So there you have it, Arc2Earth will be your interface between ArcGIS Desktop and Google Earth Builder. The state of offerings in the "cloud" for geospatial users will be changing a lot over the next year or so. Arc2Earth looks like it will be a nice way to keep your options open.</p>
+]]></content>
+  </entry>
+  
+</feed>
