@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-01-07T21:09:23-05:00</updated>
+  <updated>2014-01-08T22:21:05-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[File Geodatabase Schema Compare Tool]]></title>
+    <link href="http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool/"/>
+    <updated>2014-01-08T20:32:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool</id>
+    <content type="html"><![CDATA[<p>In my work supporting various aspects of geospatial data modeling, I've spent a lot of time delving into concepts around configuration management of such data models. We've been able to apply a core tool set to perform various functions such as version managment, profiling, version-to-version migration, and validation in conjunction with a system we call the platform independent model (PIM). I gave quick overview of the PIM <a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">in this post over on the Zekiah blog</a> and the complete series on it <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">can be found here</a>.</p>
+
+<p>I've recently spent a bit of time consolidating code after a recent data delivery and decided to post a utility that was an outgrowth of that effort: <a href="https://github.com/Zekiah/ArcGISCompare">a tool to compare schemas of two Esri file geodatabases and report differences</a>. This lent itself to general use because it does not require any connection to a PIM.</p>
+
+<p style="text-align:center;"><img src="https://github.com/Zekiah/ArcGISCompare/raw/master/screenshot.png" /></p>
+
+<!--more-->
+
+
+<p>The PIM deals mainly at the logical level with data models, but a full configuration management workflow must occasionally touch physical data sets. One use case we had to support, for which this tool was built, was the case where users in the field must compare separate data sets for eventual integration. Although these workflows start with a template data set, it is not unusal for changes to be made during collection, resulting in very similar but not identical schemas. This tool helps users identify such differences in order to make configuration management decisions based upon the actual state of the collected data.</p>
+
+<p>The tool is fairly straightforward: choose a template data set, choose an implementation data set, run the compare, and examine the results. It contains ArcObjects dependencies although we may migrate it to the file geodatabase API in order to eliminate those.</p>
+
+<p>We are also in the process of building a similar tool to work with SQLite/SpatiaLite data sets, which is the other format we commonly see used and will post that tool when it is complete. In the meantime, I hope you find this application useful.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Of Predictions and (Geo)Hipsters]]></title>
@@ -109,32 +131,6 @@
 <p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></p>
 
 <p>As <a href="http://twitter.com/geo_rube">Todd Barr</a> <a href="http://drunkengeographer.tumblr.com/post/69908102132/when-i-realize-that-no-one-who-plans-gis-spatial">eloquently points out</a>, the April 2014 calender is somewhat crowded with geo-events but, based on last year's event, I'd recommend putting JS.Geo at the top of the list.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Consider the 'Alternative']]></title>
-    <link href="http://blog.geomusings.com/2013/11/27/consider-the-alternative/"/>
-    <updated>2013-11-27T13:01:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/11/27/consider-the-alternative</id>
-    <content type="html"><![CDATA[<p>When I was in college, I had a psychology professor who posited that you could train a cat (a dodgy proposition at best) to take a circuitous route to its food bowl by only rewarding that behavior. He was clearly a behaviorist and was convinced that you could completely condition the instinct to go straight to the food bowl out of the cat. To my knowledge, this professor did not own a cat and never attempted to test his assertion.</p>
-
-<p>I was reminded of this after reading my friend Atanas Entchev's <a href="http://blog.entchev.com/2013/11/22/some-post-postgis-day-thoughts.aspx">post in reaction</a> to the <a href="http://postgis.net">PostGIS</a> Day <a href="http://www.spatiallyadjusted.com/2013/11/21/todays-hangout-postgis-day-extravaganza-panel/">hangout panel discussion</a>. In his post, <a href="http://twiiter.com/atanas">Atanas</a> describes difficulty in convincing customers to consider open-source geospatial tools. These customers and prospects are comfortable with their proprietary tools and associated workflows and are reluctant to consider switching. I have encountered this attitude many times myself so I take no issue with the observation. Barriers to exit are real considerations, regardless of the new technology being considered. Organizations align themselves around their tools to achieve maximum efficiency with them. I discussed these issues at a talk I gave last year to the <a href="https://njgin.state.nj.us/OIT_NJGF/index.jsp">New Jersey Geospatial Forum</a> about how organizations can extend their existing geospatial technology investments with open-source technologies. These issues are very real for any organization with a mature, extended investment in a particular technology stack.</p>
-
-<p>Atanas went on to liken the attitude to that with which some people view alternative medicine and I can see his point. Traditional GIS has set itself apart from the rest of the technology world for so long that users are generally conditioned to believe that GIS workflows should involve a series of <a href="http://en.wikipedia.org/wiki/Rube_Goldberg">Rube Goldberg</a> machinations involving file-based data sets, some proprietary scripting, and possibly some application-level business logic to relate and/or join data as necessary. This has taken various forms over the years but diagrams of those workflows tend to look the same.</p>
-
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geo_model.png" /></p>
-
-<!--more-->
-
-
-<p>Standing in contrast to such things, PostGIS looks alien, or "alternative." In truth, it is not "alternative" but rather "standard." As an example, here is <a href="http://blog.geomusings.com/assets/demos/nbi/">a map I produced a few weeks ago</a> showing the average ages of bridges by county. (I am not a cartographer.) It is a simple aggregation of the <a href="http://www.fhwa.dot.gov/bridge/nbi.cfm">National Bridge Inventory</a>, which consists of tens of thousands of records by county (3100-ish records). All of the data processing was done in PostgreSQL/PostGIS using nothing more exotic than SQL aggregate functions and some joins. None of the operations took longer than 6 seconds on my very pedestrian laptop. When I was done, I used QGIS to play with visualization and then dump out the static GeoJSON for use in Leaflet.</p>
-
-<p>For my many friends who are regular users of PostGIS, this is nothing exotic. For some of my friends who regularly use commercial tools, this is interesting but not earth-shattering. But for a large portion of my friends who are comfortable with traditional tools and workflows, the time-to-market for this effort (35 minutes from the time I downloaded the NBI to the time I pushed the map to GitHub) has them taking notice. This entire workflow involved SQL extended with OGC-compliant spatial objects. (Side note: I have been hard on OGC's web efforts but the Simple Features Specification has been a quiet workhorse across the geospatial industry for over a decade. It's a good example of the benefit that well-designed standards can provide.) The map is being served from static content over simple HTTP with some client-side Javascript handling visualization. No heavy APIs or middleware involved or needed. The QGIS part was really necessitated by own cartographic limitations, but I could have fully generated the GeoJSON from SQL as well.</p>
-
-<p>This example is fairly simplistic but I have good friends that are using PostGIS, and nothing more, to perform analyses and produce results for decision makers while sitting in meetings. This type of turnaround is standard in other market segments and the geospatial industry should expect nothing less. It requires nothing more than a strong foundation in SQL, mastery of spatial processes, and detailed understanding of your own data.</p>
-
-<p>So I have come to realize that the mainstream GIS community has become very much like my professor's theoretical cat; conditioned to take the long way to the end result when more direct paths are clearly available. What's more, they have become conditioned to think of such approaches as normal. Geospatial analytical operations can be very complex and the approaches to performing them were, in the past, necessarily convoluted due to the lack of understanding of spatial data types and operations within mainstream platforms. Those barriers have been rapidly disappearing over the past decade or so, but the user community has been slow to let go of its comfort with familiar tools and convoluted approaches. As I stated above, organizational barriers to exit are real considerations, but the inherent efficiencies available in modern geospatial tools such as PostGIS make the transition worth the effort.</p>
 ]]></content>
   </entry>
   

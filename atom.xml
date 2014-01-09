@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-01-07T21:09:23-05:00</updated>
+  <updated>2014-01-08T22:21:05-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[File Geodatabase Schema Compare Tool]]></title>
+    <link href="http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool/"/>
+    <updated>2014-01-08T20:32:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool</id>
+    <content type="html"><![CDATA[<p>In my work supporting various aspects of geospatial data modeling, I&#8217;ve spent a lot of time delving into concepts around configuration management of such data models. We&#8217;ve been able to apply a core tool set to perform various functions such as version managment, profiling, version-to-version migration, and validation in conjunction with a system we call the platform independent model (PIM). I gave quick overview of the PIM <a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">in this post over on the Zekiah blog</a> and the complete series on it <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">can be found here</a>.</p>
+
+<p>I&#8217;ve recently spent a bit of time consolidating code after a recent data delivery and decided to post a utility that was an outgrowth of that effort: <a href="https://github.com/Zekiah/ArcGISCompare">a tool to compare schemas of two Esri file geodatabases and report differences</a>. This lent itself to general use because it does not require any connection to a PIM.</p>
+
+<p style="text-align:center;"><img src="https://github.com/Zekiah/ArcGISCompare/raw/master/screenshot.png" /></p>
+
+<!--more-->
+
+
+<p>The PIM deals mainly at the logical level with data models, but a full configuration management workflow must occasionally touch physical data sets. One use case we had to support, for which this tool was built, was the case where users in the field must compare separate data sets for eventual integration. Although these workflows start with a template data set, it is not unusal for changes to be made during collection, resulting in very similar but not identical schemas. This tool helps users identify such differences in order to make configuration management decisions based upon the actual state of the collected data.</p>
+
+<p>The tool is fairly straightforward: choose a template data set, choose an implementation data set, run the compare, and examine the results. It contains ArcObjects dependencies although we may migrate it to the file geodatabase API in order to eliminate those.</p>
+
+<p>We are also in the process of building a similar tool to work with SQLite/SpatiaLite data sets, which is the other format we commonly see used and will post that tool when it is complete. In the meantime, I hope you find this application useful.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Of Predictions and (Geo)Hipsters]]></title>
@@ -984,36 +1006,6 @@ Also included are land use/land cover data; congressional and legislative distri
 
 
 <p>I&#8217;m looking forward to checking out Marten&#8217;s work and am glad to see Esri taking greater notice of GeoJSON.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OGC Abandons the Web]]></title>
-    <link href="http://blog.geomusings.com/2013/05/30/ogc-abandons-the-web/"/>
-    <updated>2013-05-30T10:52:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/05/30/ogc-abandons-the-web</id>
-    <content type="html"><![CDATA[<p>Those are my words, not theirs.</p>
-
-<p>It came to light today that <a href="http://www.opengeospatial.org/">OGC</a> has decided to <a href="http://lists.osgeo.org/pipermail/discuss/2013-May/011789.html">withdraw the GeoServices REST Specification</a>, also known as the &#8220;ESRI REST API,&#8221; as a proposed standard. I will not take up the relative merits of the specification or the implications of OGC potentially adopting an industry-developed specification that has so much implied workflow embedded in it. With this decision, three facts remain unaltered:</p>
-
-<ol>
-<li>The ESRI REST API will continue forward as a widely-used de facto standard in the form of ArcGIS Server installs and other emulations, such as that in <a href="http://www.arc2earth.com/">Arc2Earth</a>.</li>
-<li>GeoJSON will continue forward as a widely-used de facto standard in the form of numerous open-source implementations.</li>
-<li>OGC still has no JSON syntax.</li>
-</ol>
-
-
-<p>Yes, twelve years after the <a href="https://en.wikipedia.org/wiki/JSON#History">birth of JSON</a>, five years after the <a href="http://webhelp.esri.com/arcgisserver/9.3/java/index.htm#whats_new_93.htm">release of the ESRI REST API and its embedded JSON syntax</a>, and five years after the <a href="http://geojson.org/geojson-spec.html">release of GeoJSON 1.0</a>, OGC is still has no entry in the JSON space. Between Esri and GeoJSON, the utility of JSON in web mapping applications has been roundly proven. In the ESRI arena, find me anyone who willingly uses the SOAP API these days while the adoption of support for GeoJSON across the open-source GIS world speaks volumes. The industry has voted with its feet and its code as to what it prefers.</p>
-
-<p>There&#8217;s probably a lively discussion to be had about where JSON should fit into OGC&#8217;s priorities. What is clear, however, is that Javascript and JSON are driving the web at large and the web-mapping space in the geospatial market. With no official stance of any kind in this area, it becomes increasingly difficult to take OGC seriously in matters of the modern web.</p>
-
-<p>Howard Butler had a great point a while back when discussing the potential adoption of the GeoServices REST Specification:</p>
-
-<div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/JeffHarrison">@JeffHarrison</a> I think it would be great for OGC to ratify GeoServices. It would cement their irrelevance to current and future developers.</p>&mdash; Howard Butler (@howardbutler) <a href="https://twitter.com/howardbutler/statuses/331405667837542401">May 6, 2013</a></blockquote>
-<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>The irony here is that the withdrawal of the specification accomplishes the same thing. I won&#8217;t go so far as to say OGC has no clue or doesn&#8217;t care but, in the perception-is-reality department, they look pretty out-of-touch these days. Is this a problem with process? Maybe. Is it a problem with message? Definitely. The message I&#8217;ve gotten from this whole episode is that we can keep doing what we&#8217;ve been doing with our web mapping applications because OGC has nothing for us.</p>
 ]]></content>
   </entry>
   
