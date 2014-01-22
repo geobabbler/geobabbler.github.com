@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: GitHub | geoMusings]]></title>
+  <title><![CDATA[Category: github | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-01-09T05:52:21-05:00</updated>
+  <updated>2014-01-22T15:56:23-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,90 +14,22 @@
 
   
   <entry>
-    <title type="html"><![CDATA[DevOps for Geospatial Data]]></title>
-    <link href="http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data/"/>
-    <updated>2013-07-28T10:54:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data</id>
-    <content type="html"><![CDATA[<p>There has been a bit of buzz the past couple of weeks over the <a href="https://github.com/blog/1541-geojson-rendering-improvements">ability of GitHub to render GeoJSON and TopoJSON files</a> automatically using  and embedded <a href="http://leafletjs.com/">Leaflet</a> map and <a href="http://www.mapbox.com/">MapBox</a> technology. This buzz is quite justified as it presents an easy way to simply publish and visualize vector data sets. In the weeks since the initial announcement, the community has begun exploring the limits of GitHub's capability. Probably the two biggest limiting factors are individual file size limits and API rate limits. Some, including myself, are exploring strategies for maximizing the ability to store, disseminate, and visualize data within these confines. For the near term, <a href="https://github.com/">GitHub</a> will probably not be the place to store terabytes of data or act as the CDN for a high-volume mapping application. That is perfectly fine and there is still a great deal of value to be found within GitHub's current generous constraints.</p>
+    <title type="html"><![CDATA[Mapping GISPs Again With Leaflet.markercluster]]></title>
+    <link href="http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster/"/>
+    <updated>2012-08-31T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster</id>
+    <content type="html"><![CDATA[<p>So I've been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It's become my lightweight mapping library of choice. There's a lot it doesn't do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
 
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geodata-git.png" /></p>
-
-<p>One aspect of GitHub (really, its underlying <a href="http://git-scm.com/">git</a> engine) that is of great interest to me is the ability to perform version control and configuration management on data itself. With GitHub, that currently takes the form of text-based formats such as JSON but it's a start. In my experience supporting various customers over the years, configuration management of data has been a common gap in information operations. The most common, and inadequate, approach to this problem has been through the use of metadata. Almost two decades of viewing out-of-date, incomplete, and inaccurate metadata has given the lie to this approach. Metadata represents a separate maintenance workflow for which many organizations simply do not dedicate resources. Data-set-level metadata is also inadequate for volatile data sets in which individual records are updated frequently.</p>
-
-<!--more-->
+<div style="text-align:center;"><a href="http://blog.geomusings.com/assets/demos/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a><div style="text-align:center;font-size: 14px;">Click the image to go to the live demo<br/><br/></div></div>
 
 
-<p>I have worked with many organizations that had excellent DevOps processes for managing and deploying application code that simply had no corresponding processes for the data that the code was utilizing. We are long past time for addressing the importance of configuration management for data itself.</p>
+<p>A while back, I stumbled onto the <a href="https://github.com/danzel/Leaflet.markercluster" target="_blank">Leaflet.markercluster</a> project on GitHub, which adds a clustering layer type. I wanted to try it so I revisited my old <a href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/" target="_blank">GISP heat map demo</a> (Silverlight) and decided to rework it. I was happy to finally get a chance to strip out the plug-in, anyway.  <!--more--></p>
 
-<p>That is not to say there have not been approaches to addressing this issue. Since version 8.0, <a href="http://www.esri.com">Esri</a> has had a means of <a href="http://www.esri.com/software/arcgis/geodatabase/multi-user-functionality">versioning enterprise geodatabases</a> that are stored in an RDBMS. This approach does have the ability to track feature-level changes and manages their inclusion in the master version of the data set. Quite frankly, I've never loved the Esri approach to versioning. I think it gives too much responsibility to middleware when it should be the database's sole responsibility to keep itself intact. Also, I have always felt the workflow is a bit too proscribed and takes too much business process decision ability from the data owner. That said, it has been the only real game in town for a long time so I have implemented it many times.</p>
+<p>This time around, I chose not to bother with the PMP data because it was kind of a pain to process the last time. I downloaded the GISP data from the <a href="http://www.gisci.org/secure/members/directory/results.asp" target="_blank">GISCI site</a> and once again ran it through <a href="http://www.geocommons.com" target="_blank">GeoCommons</a> to geocode it. This time, there were noticeable anomalies, such as positional accuracy problems (Richmond, VA was 25 miles east of where it should have been) and surprising omissions such as a failure to match major cities like Jacksonville, Florida and Phoenix, Arizona. I corrected some of the more egregious problems by hand and dumped the rest. Luckily none of this got in the way of the real goal of testing the clustering library but, if you visit the <a href="http://demo.zekiah.com/clustermap" target="_blank">live demo</a>, any anomalies you may notice are most likely related to the data and not the library.</p>
 
-<p><a href="http://www.openstreetmap.org/">OpenStreetMap</a> (OSM) has also been a success story for tracking feature-level version history. Its approach has successfully managed millions of edits to a worldwide database so its utility is certainly proven. Organizations that need to maintain their own data behind their firewalls cannot really make use of OSM itself but the OSM approach is solid.</p>
+<p>Once geocoding was complete, I downloaded the CSV and processed it into the JSON structure expected by the marker cluster library. The library is still fairly new, and I am fairly new to using it so I had some problems if I deviated from the sample format. As a result, I stuck to that format and resolved to investigate it more. After that, it was very easy to wire up into a light application, with the clusters thrown on top of some tiles from <a href="http://www.mapbox.com" target="_blank">MapBox</a>. (Thanks to <a href="http://www.geosprocket.com/" target="_blank">Bill Morris</a> for showing me that base map.)</p>
 
-<p><a href="http://www.zekiah.com">At my own company</a>, we have been working with customers to implement <a href="http://blog.geomusings.com/2012/03/27/configuration-management-for-geospatial-data-models/">configuration management of data models</a> (logical and physical) but we are not really addressing CM of the data managed by those models. Even so, working at the model/schema level has still helped our customers improve their data management workflows by being able to identify versions of data models supported by deployed applications and helping to migrate between versions as needed.</p>
-
-<p>The recent move by GitHub to support visualization of spatial data files actually introduces no new capability in terms of configuration management of data files. Users have always had the ability to store and manage JSON, text, XML and other formats in GitHub and git. My hope is that the visualization capability, and the inevitable exploration it will generate, will shine more light on the issue of data configuration management. In my opinion, this is the most powerful aspect the platform brings.</p>
-
-<p>I'm also encouraged by <a href="http://opengeo.org/">OpenGeo's</a> <a href="https://github.com/opengeo/GeoGit">GeoGit</a> initiative. I have not personally experimented with it yet so I will not speculate on the specifics of its implementation, but I am happy to see OpenGeo recognizing the need for a more open approach to feature-level version control. Since, however, it will be open-source, my hope is that proprietary GIS vendors, or their supporting integrators, will eventually support it as well.</p>
-
-<p>Ultimately, I am happy to see both GitHub and OpenGeo addressing this issue. Although their approaches are different, they offer, in addition to the Esri approach, choices for organizations in terms of workflow. Many data managers, whether for legal, strategic, or other reasons, recognize the importance of maintaining version history of geospatial data records. It is important for everything from parcel mapping to critical infrastructure protection and many other use cases. Historically, there have been very few tools available to address this problem effectively but I am hoping that is starting to change.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GeoJSON on GitHub: Now What?]]></title>
-    <link href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/"/>
-    <updated>2013-06-18T16:04:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what</id>
-    <content type="html"><![CDATA[<p>So <a href="http://github.com">GitHub</a> <a href="https://github.com/blog/1528-there-s-a-map-for-that">announced</a> that you can now automatically view any <a href="http://geojson.org">GeoJSON</a> files that may be in a repository inside an interactive map driven by <a href="http://www.mapbox.com/">MapBox</a> technology. This simple enhancement to GitHub is probably one of the most significant developments in the geospatial industry in years. I'll explain a little later in this post. It's also important to view this new capability as a great, but limited, first step. I'll discuss that a little later as well.</p>
-
-<p>While it's cool to click on a link and just see a map, it doesn't take long to wonder about how you can use this capability beyond viewing data in GitHub. What follows are three ways to capitalize on GeoJSON in GitHub. Not all are directly related to the new mapping capability, and two have been possible for a long time. That said, the GitHub announcement may draw interest from users who have not previously considered either GitHub or GeoJSON, so I hope these approaches will be useful.</p>
-
-<h3>Embed the GitHub map.</h3>
-
-<p><del>If you click on a GeoJSON file and view the new map in GitHub, a quick view of the page source will show that this map is embedded in an IFRAME object.</del> GitHub provides a <a href="https://help.github.com/articles/mapping-geojson-files-on-github#embedding-your-map-elsewhere">simple embedding method</a> to display the GitHub map in any page. (Thanks to <a href="https://github.com/benbalter">Ben Balter</a> for this update.) It's a great way to quickly publish a data set while also providing access to download the raw data.</p>
-
-<p style="text-align:center;"><script src="https://embed.github.com/view/geojson/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson"></script></p>
-
-<!--more-->
-
-
-<h3>Stream the data into your own web map.</h3>
-
-<p>This is not a new capability; if you've had GeoJSON in a repo, you've always been able to do this. That said, if you're checking out GitHub or GeoJSON for the first time as a result of the new mapping capability, this is something you may want to try. I have had a page up for a while showing the <a href="http://blog.geomusings.com/assets/demos/mdq6/">county-by-bounty breakdown of Maryland's marriage equality question from the 2012 election</a> that uses this approach to load the data into a <a href="http://leafletjs.com/">Leaflet</a> map from GitHub and style it. (Incidentally, the tiles in the map are also hosted on GitHub.)</p>
-
-<h3>Stream the data into your desktop.</h3>
-
-<p>A third option is to stream the GeoJSON data directly into desktop GIS software such as QGIS for further analysis. In QGIS, simply need to add a vector, specifying "Protocol" and entering the URL to your GitHub-hosted GeoJSON file. Make sure you use the "raw" URL that looks something like this: https://raw.github.com/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson .</p>
-
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/add_geojson_layer.png" /></p>
-
-<p>After a few seconds (or more depending on the file size), it should load into QGIS like this:</p>
-
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/qgis_github_geojson.png" /></p>
-
-<p>Additionally, the <a href="https://github.com/RBURHUM/arcgis-ogr/">GDAL/OGR plug-in for ArcGIS</a> by <a href="http://www.amigocloud.com/homepage/index.html">AmigoCloud</a> provides a way to get GeoJSON into ArcMap, though you may need to download the data first.</p>
-
-<p>UPDATE: Dane Springmeyer pointed out that TileMill supports remote URLs as well.</p>
-
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/geomusingsblog">@geomusingsblog</a> <a href="https://twitter.com/billdollins">@billdollins</a> - very cool, had no idea QGIS supported remote urls. TileMill does also: <a href="http://t.co/o3wxv2VkEv">http://t.co/o3wxv2VkEv</a></p>&mdash; Dane Springmeyer (@springmeyer) <a href="https://twitter.com/springmeyer/statuses/347483526171594753">June 19, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
-
-<p>Those are three (or so) quick ways to capitalize on GeoJSON data in GitHub now. So what next?</p>
-
-<p>I stated earlier that I think the GitHub announcement was one of the most significant developments in years. I think it is best explained by <a href="http://feomike.github.io/post/thoughts-on-disruption.html">feoMike in his recent post</a>. As he points out, GitHub has made it easy to communicate spatial information in a way that is fully consistent with the web. Now that simple mapping is available to a large community of developers, it will be interesting to see where they take it. feoMike offered up a few early examples in his post. It's worth a read.</p>
-
-<p>The GitHub move is great for GeoJSON as a format. I've said in the past that the search for the next shapefile ends with GeoJSON. If the web is this generation's dominant computing platform (it is), then GeoJSON provides a simple, elegant solution for geographic data transport in a manner that the shapefile did for the desktop. Support by GitHub is one more example of the community voting with its code as to what it prefers.</p>
-
-<p>I also said it was a great first step, but limited. The mapping capability is understandably basic, though the documentation shows how you can customize styling somewhat. There is also a point at which the data seems to become too big to render (in either the map or in raw form). Bill Morris has identified this limit to be in the ballpark of 4.5MB, which can be easy to hit with GeoJSON.</p>
-
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/byrne_tweets">@byrne_tweets</a> <a href="https://twitter.com/BenBalter">@BenBalter</a> <a href="https://twitter.com/ericg">@ericg</a> <a href="https://twitter.com/ajturner">@ajturner</a> +1 for a solid number on max renderable filesize. 4.5MB is pushing it: <a href="https://t.co/cNTbA5Djqw">https://t.co/cNTbA5Djqw</a></p>&mdash; Bill Morris (@vtcraghead) <a href="https://twitter.com/vtcraghead/statuses/346825523521019904">June 18, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
-
-<p>So this means that enterprises won't be dumping terabytes of vectors to GeoJSON and loading them into GitHub. That's a good thing in my book. It is, however, an acceptable solution for small data sets and quick turn-around data sharing. As with all things, you have to go in with the right set of expectations.</p>
-
-<p>The thing I'm probably least worried about is how this affects <a href="http://www.esri.com">Esri</a>. Without any specific inside knowledge of Esri's plans, I suspect some form of official support for GeoJSON isn't far off. There are too many people inside Esri who get GeoJSON for it not to happen. If anything, the GitHub announcement may provide a bit of a push by providing a potentially rich source of data sets to consume. The real question is what form the support will take. In any event, Esri provides enough APIs to enable us to develop our own support for GeoJSON if we need it.</p>
-
-<p>The addition of GeoJSON mapping to GitHub is a very small change in the scheme of that platform, but such small changes can sometimes lead to big shifts. It has been possible for a long time to use GitHub to host geospatial data for applications. The main benefit of this latest change, in my opinion, is its potential to get people thinking about the platform in a different way. With such a visible (and visual) change on a platform targeted at developers, I hope that it will motivate that community to begin experimenting with how far it can be pushed. If a hosted platform with an already-baked-in workflow for change management and version control begins to be viewed as a viable home for spatial data, it has the potential to change how the geospatial community thinks about how it does business.</p>
+<p>I think I prefer this representation to a heat map as it conveys more information at a glance. I'm happy to have this library in my toolbox now and am looking forward to seeing it evolve. I recommend checking it out.</p>
 ]]></content>
   </entry>
   

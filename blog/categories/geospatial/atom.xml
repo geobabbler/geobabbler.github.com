@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Geospatial | geoMusings]]></title>
+  <title><![CDATA[Category: geospatial | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/geospatial/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-01-09T05:52:21-05:00</updated>
+  <updated>2014-01-22T15:56:23-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,15 +14,135 @@
 
   
   <entry>
-    <title type="html"><![CDATA[JS.Geo 2014 Announced]]></title>
-    <link href="http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced/"/>
-    <updated>2013-12-27T08:29:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced</id>
-    <content type="html"><![CDATA[<p>Information about the follow-up to last year's <a href="http://www.jsgeo.org/">JS.Geo</a> event has been percolating back-channel for a few weeks now. Now some <a href="http://lanyrd.com/2014/jsgeo14/">official details have been posted</a>. This year's event will be held in April in San Francisco. I attended last year's session, really liked the focused format, and got a lot of good information out of it. One thing that was nice was that, regardless of whether you are of an Esri or open-source persuasion in your development preferences, there was a lot of good information presented with a relative lack of hyperbole, which made it easy to focus on the content.</p>
+    <title type="html"><![CDATA[DC DevSummit In Works for 2014 Esri Federal GIS Conference]]></title>
+    <link href="http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/"/>
+    <updated>2013-12-27T13:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference</id>
+    <content type="html"><![CDATA[<p>I got word today that <a href="http://www.esri.com">Esri</a> is planning a one-day [Developer Summit] in conjunction with the <a href="http://www.esri.com/events/federal/">2014 Federal GIS Conference</a>. It appears that the DevSummit will happen on the Wednesday immediately following the Fed Conference (which runs on the Monday and Tuesday) and will be focused on the issues and challenges that are unique to developing applications with Esri technologies for the Federal Government. I spoke with <a href="http://www.linkedin.com/in/jdbarry">Jim Barry</a>, who told me the DevSummit has come together rather quickly and Esri hasn't had time to do its usual data gathering to prepare for such an event. As a result, they are canvassing the developer community for input on topics they should cover. Here are some things I suggested:</p>
 
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></p>
+<!--more-->
 
-<p>As <a href="http://twitter.com/geo_rube">Todd Barr</a> <a href="http://drunkengeographer.tumblr.com/post/69908102132/when-i-realize-that-no-one-who-plans-gis-spatial">eloquently points out</a>, the April 2014 calender is somewhat crowded with geo-events but, based on last year's event, I'd recommend putting JS.Geo at the top of the list.</p>
+
+<ul>
+<li><p>Developing for <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> compliance - FISMA compliance has to be baked into an application from the beginning. It would be great to see some content on best practices and resources available to support this when developing with Esri tools and APIs. Esri's regional office in Vienna, Virginia has been doing a lot of work in this area but I'm not sure the information is widespread.</p></li>
+<li><p>Desktop development - I still see <em>a lot</em> of ArcGIS desktop development in the Federal arena. This ranges from traditional ArcObjects extensions to add-ins to work with the File Geodatabase API. I think content related to how to do continued desktop development and support in light of the current realities of highly constrained desktop environments would be invaluable. For example, how to construct and deploy applications that don't necessarily need to touch the registry and can be deployed without administrative rights. Also, some content on the future of Esri desktop products (like <a href="http://video.esri.com/watch/2533/unveiling-the-new-arcgis-professional-application-with-jim-mckinney-and-jack-dangermond">ArcGIS Professional</a>) and what it means for application developers would be useful.</p></li>
+</ul>
+
+
+<p><img src="http://blog.geomusings.com/images/posts/code.png" style="float:left;margin: 5px 25px 5px 0px;" /></p>
+
+<ul>
+<li><p>.Net - There's still a lot of .Net development going on in Federal spaces. Most of my Federal customers are still primarily using .Net and you can peruse Federal geospatial RFPs on any given day and see that it is widespread. I'm fairly comfortable with .Net, as are most of the government and contractor developers I work with but it would be good to have some .Net-focused content alongside the newer, sexier platforms.</p></li>
+<li><p><a href="http://www.arcgis.com/features/">ArcGIS Online for Organizations</a> - Whatever messaging Esri thinks they are doing is not working very well. I encounter a great many Federal users who simply don't understand what it can do for them, why they would consider it, how to budget for it, or whether they can really use it. My understanding is the main Federal GIS Conference will be talking about these issues a lot so I think the DevSummit should focus on the <a href="https://developers.arcgis.com/en/">tools and APIs</a> that are available so that developers can begin to address the ideas the main conference attendees will come back with.</p></li>
+<li><p>Data interoperability - I have spent a lot of time over the past year developing tools to support data modeling and configuration management efforts for some Federal users. Part of this work has involved developing tools to produce physical implementations of approved geospatial data models in a number of formats, though the formats that have been of primary interest with my customers have been the Esri File Geodatabase and <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>. The general workflows I have seen involve users working with Esri geodatabase formats in the office, while ingesting field-collected data in SpatiaLite format. All of this data needs to remain compliant with approved data models throughout the life cycle, regardless of format. <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">We've been tackling that</a> at <a href="http://www.esri.com">Zekiah</a> with good success. Given the support of SQLite/SpatiaLite in ArcGIS 10.2, I'd like to see some discussion of data conversion/interoperability approaches that developers can automate with Esri tools.</p></li>
+</ul>
+
+
+<p>Those are some topics I suggested to Jim off the top of my head. I'll probably think of more. Jim and his team at Esri are actively seeking this sort of input since time is short so I'd suggest <a href="http://www.linkedin.com/in/jdbarry">contacting him</a> with your thoughts. Given the short timeframe, I'd expect official information from Esri very soon.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Random Geospatial Stuff]]></title>
+    <link href="http://blog.geomusings.com/2013/09/10/random-geospatial-grab-bag/"/>
+    <updated>2013-09-10T10:16:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/09/10/random-geospatial-grab-bag</id>
+    <content type="html"><![CDATA[<p>It's been a while since I've posted as the usual wind-down of summer and wind-up of the school year has had me otherwise engaged. What follows are few developments over the past few months that have floated through the transom of my geo-awareness.</p>
+
+<p style="text-align:center;"><img src="http://daylightdonutsstier.com/assets/images/slideshow/CakeDonuts.jpg" height="50%" width="50%"/></p>
+
+<p><a href="http://geojson.io/">geojson.io</a> - Remember all of the attention given to the ability to render GitHub-hosted GeoJSON files as maps? Well, <a href="http://twitter.com/tmcw">Tom MacWright</a> of <a href="http://mapbox.com">MapBox</a> has, in fairly rapid fashion, given us this tool to edit GeoJSON in the browser and publish to either a GitHub repo or a gist. It's an easy-to-use tool with an interface consistent with other MapBox tools. It's definitely worth checking out and adds an important piece of workflow to the GeoJSON-on-GitHub concept.</p>
+
+<!--more-->
+
+
+<p><a href="http://gitspatial.com/">GitSpatial</a> - Continuing with the theme of being more productive with GeoJSON on GitHub, <a href="http://twitter.com/JCSanford">Jason Sanford</a> has developed GitSpatial to wrap a spatial API around your hosted GeoJSON. It actually works using a 'sync' approach so it pulls the GeoJSON into its own infrastructure and watchs the data on GitHub for changes. Jason has also updated his <a href="http://geojason.info/leaflet-vector-layers/">Leaflet Vector Layers</a> project to support GitSpatial. This project is in its early stages and Jason has been very open to feedback. I encourage you to check it out and help him make it better.</p>
+
+<p><a href="https://www.gaia-gis.it/fossil/virtualpg/index">VirtualPG</a> - This extension to SQLite/SpatiaLite was released in August and it is intended to facilitate data exchange between those platforms and PostgreSQL/PostGIS. I have yet to kick the tires on it but I plan to soon.</p>
+
+<p><a href="http://www.dhs.gov/infrastructure-information-partnerships#2">HSIP 2013</a> - For the first time in quite a while, I attended a <a href="https://www.hifldwg.org/">HIFLD</a> meeting. The theme of the meeting was HSIP Feedback, to which about one HIFLD per year is dedicated. While HSIP has never been perfect, it has managed to evolve to provide value across numerous communities. The meeting featured a parade of users articulating the essential nature of HSIP to their missions. With HSIP 2013, the distribution expands to 6 DVDs. In my opinion, this distribution method is one of its biggest, and most solvable, problems. With a plethora of <a href="http://www.weogeo.com">technologies</a> to choose from, streamlining and tailoring the delivery of HSIP to its users should be low-hanging fruit for HSIP's custodians.</p>
+
+<p>As for me, I've been spending my days writing interfaces for custom message formats to synchronize locations with video frames. It's much lower-level development than I've done in a while but it's been very fun. I've also been making some updates to my <a href="https://github.com/geobabbler/AGSOpenFormats">GeoJSON extension for ArcGIS Server</a> but I'll post about that in more detail soon.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[js.geo Day One]]></title>
+    <link href="http://blog.geomusings.com/2013/01/14/js-dot-geo-day-one/"/>
+    <updated>2013-01-14T18:04:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/14/js-dot-geo-day-one</id>
+    <content type="html"><![CDATA[<p>Yesterday, I attended the <a href="http://geojs.eventbrite.com/">JS.geo</a> conference at the Colorado University Denver campus. It looked like about 100 or so came out for the event. I was able to catch up with <a href="http://twitter.com/cwhelm">Chris Helm</a> and <a href="http://twitter.com/briantimoney">Brian Timoney</a> the night before and they told me the event took off faster than they had originally expected. I think this speaks to two things: 1) the level of interest in Javascript as a solution for geospatial applications and 2) the fast pace of innovation in the Javascript community that has a lot of people looking for ways to stay abreast of the latest developments.</p>
+
+<p>What follows is an overview based on some of the notes I took. I wasn't always writing as I sometimes just stopped to listen and I'll probably follow up with more details later.</p>
+
+<div style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></div>
+
+
+<p>Data reduction was strong current running under the day. With the rise of newer libraries that enable more sophisticated capabilities in the browser, there is increased recognition of the need to reduce the amount of data passing over the wire. For geometry, <a href="https://github.com/mbostock/topojson">TopoJSON</a> is getting a lot of attention here. It delivers topologically correct data which reduces data by removing redundant geometry such coincident arcs between polygons and such. The output reminds me of an old <a href="http://www.gdal.org/ogr/drv_avcbin.html">ARC/INFO coverage</a> and is providing stunning results in reducing the size of geometries when compared to <a href="http://geojson.org">GeoJSON</a> or Esri JSON. <a href="http://twitter.com/andrewxhill">Andrew Hill</a> of <a href="http://vizzuality.com">Vizzuality</a> mentioned that <a href="http://cartodb.com">CartoDB</a> currently has support for TopoJSON in staging. He also discussed strategies they use to reduce the size of feature and attribute data. This "data cubing" strategy turns out to similar to approaches that are commonplace in the financial industry. This serves as a reminder to look around and see what others are doing to solve similar problems.</p>
+
+<!--more-->
+
+
+<p>One a related note, the reduction of application code being delivered to the browser is also a focus. This was probably best illustrated by <a href="http://twitter.com/mattpriour">Matt Priour's</a> talk on <a href="http://openlayers.org">OpenLayers</a>. The fact that there are now three builds (full, mobile, light) as well as a focus on being more modular in version 3. <a href="http://twitter.com/pmbatty">Peter Batty</a>, in his demo of <a href="http://www.ubisense.net/en/">Ubisense</a>, made a good case for intelligent balance between server-side and client-side processing to achieve good performance.</p>
+
+<p><a href="https://www.khronos.org/webgl/">WebGL</a> got a lot of attention from a number of speakers, with <a href="http://twitter.com/brendankenny">Brendan Kenny</a> of Google showing work he has done, including a Javascript port of GLUTessellation. Jeremy Bartley of Esri gave a lightning talk about <a href="http://www.esri.com/software/cityengine">CityEngine</a>, which is based on WebGL. WebGL is widely seen as the open solution to graphics performance that may finally kill the need for plug-ins. In side discussions, Jeremy talked about how WebGL will figure more into the previously discussed data reduction problem. The reality is that both servers and clients are getting much better at handling large data sets but the same can't necessarily be said for the wires that connect them.</p>
+
+<p>GeoJSON continues to get a lot of love. It continues to be, in my opinion, the motor oil for the engine that is web mapping. It will be interesting see how the separation of concerns between GeoJSON and TopoJSON evolves, but I think GeoJSON will continue to be an important syntax.</p>
+
+<p>While the majority of the discussion focused on browsers, <a href="http://nodejs.org/">Node.js</a> got significant attention. <a href="http://twitter.com/willwhitedc">Will White</a> of <a href="http://mapbox.com">MapBox</a> gave a good talk about the evolution of Node and the advantages of its non-blocking I/O model. One statistic he gave was surprising: he said 6 of the top 12 contributors on GitHub are Node contributors. That speaks loudly to the rapid evolution of Node as well as the interest in Javascript. Will put out a call to the geospatial community to build out the geospatial capabilities of Node. Later in the day, we saw a good lightning talk that showed Node processing real-time data and feeding a number of D3 visualizations.</p>
+
+<p>While Matt Priour and <a href="https://twitter.com/atogle">Aaron Ogle</a> opened with great talks on OpenLayers and <a href="http://leafletjs.com/">Leaflet</a>, respectively, the clear star of the client-side show was <a href="http://d3js.org/">D3</a> (although Aaron's walkshed analysis in Leaflet was cool). There were lots of great visualizations (as well as nods to TopoJSON). While the D3's support for projections is getting a lot of attention from geospatial developers, I am more interested in its holistic approach to data visualization. In D3, geo is one way to look at data, but not the central way. Because of this, D3 provides an integrated capability to have multiple data visualizations in an application without overloading with a ton of libraries.</p>
+
+<p>I am already well past tl;dr on this post and I have to catch a plane. Many of the URL talks were great but I'll follow up with some more details. All-in-all, I think the event was quite a success and I'm glad I came.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Comment Period Open for GeoPackage Specification Draft]]></title>
+    <link href="http://blog.geomusings.com/2013/01/09/comment-period-open-for-geopackage-specification-draft/"/>
+    <updated>2013-01-09T06:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/09/comment-period-open-for-geopackage-specification-draft</id>
+    <content type="html"><![CDATA[<p>The Open Geospatial Consortium (OGC) has <a href="http://www.opengeospatial.org/pressroom/pressreleases/1756">published a draft GeoPackage specification for comment</a>. The GeoPackage specification attempts to create a non-proprietary means for packaging and exchanging all geospatial data in all its forms (vector, raster, and tiles). A couple of things that jump out at me:</p>
+
+<ul>
+<li>It calls out <a href="https://sqlite.org/">SQLite</a> as the reference implementation of a GeoPackage container</li>
+<li>It calls out <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a> 4 as the reference implementation of a vector feature store</li>
+<li>It does not call out a reference implementation for rasters or tiles</li>
+<li>It does not mention exchange of cartography.</li>
+</ul>
+
+
+<!--more-->
+
+
+<p>Although the draft references the <a href="http://mapbox.com/developers/mbtiles/">MBTiles</a> specification and uses it as an example of a pure SQL method of storing tiles, it does not call out MBTiles as the chosen storage approach nor does it mention MBTiles as a reference implementation. The draft should not be read as "SpatiaLite + MBTiles."</p>
+
+<div style="text-align:center;"><a href="http://www.publicdomainpictures.net/view-image.php?image=9097&picture=empty-cardboard-boxes"><img src="http://blog.geomusings.com/images/posts/boxes.png" /></a></div>
+
+
+<p>I think, in 2013, anything that attempts to do what GeoPackage sets out to do should have some provision for cartography. I would prefer CSS-like approach (such as <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>) and will say so when I submit comments but I would suspect that future discussion of cartography, if any, will probably start with SLD. For now, tiles can fill the gap.</p>
+
+<p>So comments are open, give it a look and tell OGC what you think.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Getting Ready for JS.geo]]></title>
+    <link href="http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo/"/>
+    <updated>2013-01-08T15:50:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo</id>
+    <content type="html"><![CDATA[<p>I'm looking forward to next week's <a href="http://geojs.eventbrite.com/">JS.geo</a> event in Denver. It is a small event, spearheaded by <a href="http://twitter.com/cwhelm">Chris Helm</a> of <a href="http://www.esri.com">Esri</a>, that focuses on the use of Javascript in geospatial applications. Although I have been more vocal in my <a href="http://blog.geomusings.com/blog/categories/python/">recent explorations with Python</a>, I've probably done as much, if not more, work with Javascript over the past 18 months.</p>
+
+<div style="text-align:center;"><img src="http://mapbrief.com/wp-content/uploads/2012/11/no_plugin.jpg" /></div>
+
+
+<p>The pace of innovation with Javascript in the geospatial area has been staggering. It seems like only a short time ago that the options for working with geospatial applications were <a href="http://openlayers.org/">OpenLayers</a> and the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/">Esri Javascript API</a>. The rapid advent of tools such as <a href="http://www.geoext.org/">GeoExt</a>, <a href="http://leafletjs.com/">Leaflet</a>, and many others has really lead to a explosion of capability. Of course, the recent buzz has been about <a href="http://d3js.org/">D3</a>, which tackles a wide range of data visualization problems, including geo. D3 is of particular interest because it is tackling the issue of projection in the browser, freeing applications from the dominance of Web Mercator.</p>
+
+<p>Of course, it's not been all about the browser, either as <a href="http://nodejs.org/">Node.js</a> has made abundantly clear. One of the most effective desktop applications for cartographic design, <a href="http://mapbox.com/tilemill/">TileMill</a>, is built with Node, among other tools.</p>
+
+<p>The maturity of Javascript as a tool for geospatial development is such that I am at the point that, if it weren't for government customers that are <a href="http://mapbrief.com/2011/10/13/web-mapping-continues-to-pay-for-the-sins-of-internet-explorer/">still standardized on Internet Explorer 8</a> or older, a plug-in-based environment would not be my first choice for a new application.</p>
+
+<p>As for the JS.geo event itself, I am intrigued by its small, focused nature. It doesn't seem to be as informal as an unconference but may be easier to digest than the typical geo event. It will also be great to catch up with the Front Range crowd.</p>
 ]]></content>
   </entry>
   
