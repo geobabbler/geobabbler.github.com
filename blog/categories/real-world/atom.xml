@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Real World | geoMusings]]></title>
+  <title><![CDATA[Category: real world | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/real-world/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-01-22T15:56:23-05:00</updated>
+  <updated>2014-01-23T11:52:13-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,45 +14,64 @@
 
   
   <entry>
-    <title type="html"><![CDATA[GeoIQ & Esri]]></title>
-    <link href="http://blog.geomusings.com/2012/07/10/geoiq-esri/"/>
-    <updated>2012-07-10T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/10/geoiq-esri</id>
-    <content type="html"><![CDATA[<p>Okay, everybody calm the hell down. Anyone who thinks that the <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">Esri acquisition of GeoIQ</a> is strange hasn't been paying attention to two things: 1) the direction that Esri says they want to go and 2) what the GeoIQ platform really is. I would be very surprised if GeoIQ becomes the 2012 version of <a href="http://www.thefreelibrary.com/ESRI+Acquires+Atlas+GIS+and+Atlas+SDK+--+Claritas+and+ESRI+Announce...-a018336428" target="_blank">Atlas GIS</a>. This acquisition/merger makes more sense than may be initially apparent.</p>
+    <title type="html"><![CDATA[Yes, You Need to Code]]></title>
+    <link href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/"/>
+    <updated>2013-01-30T14:26:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/30/yes-you-need-to-code</id>
+    <content type="html"><![CDATA[<p>Over the past year, I've been involved in searching for GIS analysts a number of times. As a result, I've noticed a few patterns:</p>
 
-<p>{% youtube _eyFiClAzq8 %}</p>
+<ol>
+<li>There are a lot of analysts out there looking for jobs. Every time I run an ad, I get at least 100 resumes from people of various levels of experience and education.</li>
+<li>The vast majority of those that I call to pre-screen have not done any meaningful coding of any kind. This includes Python, which has been shipping with ArcGIS for several versions now.</li>
+<li>Of those that do have some coding experience, many do not show it on their resumes. I find this particularly interesting as I can't imagine why a person would choose not to list all relevant skills or experience.</li>
+</ol>
 
-<p>It's no secret that I've worked with <a href="http://www.esri.com" target="_blank">Esri</a> tools for a long time and my recent work with the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform has been well-documented on this blog, including work integrating the two platforms at the API level. Based on what I've seen from both companies, here are thoughts on why I think this move makes a lot of sense:  <!--more--></p>
 
-<p><strong>First, why it makes sense for Esri...</strong></p>
+<p>I am very publicly on the record that I think some form of coding skill is essential for any GIS analyst entering the workforce today. My reasoning here is fairly straightforward.</p>
 
-<p>GeoIQ/<a href="http://www.geocommons.com" target="_blank">GeoCommons</a> is, and has been for a long time, what <a href="http://www.arcgis.com/home/" target="_blank">ArcGIS Online</a> (AGOL) should be and still isn't. It was built from the beginning as a hosted platform without any encumbrances of an existing technology/code base. It is stable, staying online throughout many recent incidents, in a way that AGOL can't claim. The back-end data storage architecture, developed on a "NoSQL" platform and designed by GeoIQ, is already much more scalable than anything coming from a geodatabase legacy.</p>
+<ol>
+<li>The "IS" in "GIS" stands for "information system." This means "computers." Actually, according to one of my professors in the late '80s, an information system doesn't technically have to involve computers but this is 2013 and even brewing a cup of coffee involves a computer.</li>
+<li>The "G" in "GIS" stands for "geography." (Don't worry, the revelations will keep coming.) Geography is intensely mathematical. I suppose, in the interest of accuracy, I should state that some segments of geography are less mathematical than others but I think it's safe to say that the elements of the science that are addressed by GIS involve a lot of math. Take, for instance, coordinate reference systems. That one small but important part of geography can separate the wheat from the chaff quickly.</li>
+<li>Computers use code to do math.</li>
+</ol>
 
-<p>Esri made their mark in client/server (there's an oldie) GIS and have not been able to successfully move past it to this day. You can move ArcGIS to Amazon if you want but it's still client/server. If you pull back and think about it, the least logical thing you can do when trying to build a SaaS is to try and port an architecture that was designed for desktops and servers. GeoIQ, on the other hand, never designed for those platforms. Their SaaS was built to be a hosted system, accessible via an API. That approach has enabled them to expand from data storage to cartographics/visualization to analytics smoothly and consistently.</p>
 
-<p>The API is key here. The GeoIQ platform is exposed via a "RESTish" <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">HTTP+JSON API</a>. If you examine the API documentation with an eye toward bridging to the Esri <a href="http://www.esri.com/news/releases/10_3qtr/geoservices-rest.html" target="_blank">GeoServices REST Specification</a> (which I have), it doesn't take long to get from GeoIQ's overlays, maps and analytics to Esri's map services, feature services and server extensions. Resource hierarchies are a little different and, of course, JSON syntax is different but none of those are insurmountable hurdles. In fact, it would be no more difficult to make GeoIQ emit Esri JSON than it would be to make the Esri REST API emit <a href="http://www.geojson.org" target="_blank">GeoJSON</a>.</p>
+<p>Modern GIS software is complicated and comes with a lot of capability by default. Just look at the default UI for ArcMap or QGIS and you'll see a lot of tools at your fingertips. In other words, there are a lot of buttons to push. This is fine but I'd wager that these software tools expose less than 10% of their full capability through their default interfaces.</p>
 
-<p>Based on my previous analyses, I don't think putting a GeoServices REST implementation on top of GeoIQ would be the most technically challenging thing in the world. And given the existence of the <a href="http://www.opengeospatial.org/projects/groups/gservrestswg" target="_blank">OGC GeoService REST SWG</a>, doing so may eventually get you in line for standards compliance. (I'll leave the rest of you to debate the value of that.) But, aside from potential standards compliance, the biggest reason to do so would be to enable all of the existing Esri client tools that already know how to interact with the Esri REST API to be able to talk to the GeoIQ platform.</p>
+<!--more-->
 
-<p>So let's summarize: In a hosted world, the back-end implementation doesn't really matter much because client tools talk through an API. If I'm using HTTP to communicate, I don't care if it's COM or Java or Ruby or whatever on the back end. That's why APIs are valuable and those built to use standards like HTTP are even more so. GeoIQ has an in-place, highly-scalable, spatial storage/visualization/analytics platform that's exposed through an HTTP interface. Bolt on another interface, and you have ArcGIS Online. There's some work involved but not nearly as much as building the platform from scratch.</p>
 
-<p>So, if Esri is smart, the GeoIQ platform becomes ArcGIS Online. They'd need to work on improving the tools to pass data between the hosted platform and the client/server platform, and maybe tighter integration with the desktop tools to ease publishing. It would probably be good to beef up symbology in GeoIQ as this is one thing that Esri currently does better, more easily, than GeoIQ. Also the analytical tools in place with GeoIQ are already win over AGOL.</p>
+<p>The reason for that is that there are simply too many use cases in geography to design into a piece of software by default. That is why these tools, and most other GIS software, ship with APIs. ("Ship" is a loose concept with open-source but please grant me license.) These APIs expose the full capability of the software so that users may customize it to their needs. That means coding. For both <a href="http://www.esri.com">ArcGIS</a> and <a href="http://qgis.org">QGIS</a>, that can mean Python but there are lots of other choices as well.</p>
 
-<p><strong>Why it makes sense for GeoIQ...</strong></p>
+<div style="text-align:center;">
+<img src="http://blog.geomusings.com/images/posts/globalmaptiles.png" />
+</div>
 
-<p>So I've done a good bit of work with the GeoIQ platform and APIs. Probably not enough to call myself an expert but enough to feel comfortable. I've worked on a couple of successful implementations, including the <a href="http://blog.geoiq.com/2012/04/27/visualizing-our-changing-climate-with-climascope/" target="_blank">ClimaScope portal recently mentioned on the GeoIQ blog</a> and am currently in the middle of another one. I have found the platform to be impressive, with the potential for a great amount of productivity.</p>
 
-<p>A couple of years ago, I had the good fortune to attend the FortiusOne holiday party (they weren't yet called GeoIQ). One thing that struck me about that evening was the dedication and passion that every single employee seemed to have for what they were doing. Everyone was committed to building the best tools they possibly could. I got the sense that if someone were tasked with building a CSV exporter, they would make sure it was the best CSV exporter anyone had ever seen. I came away from that experience a believer.</p>
+<br/><br/>
 
-<p>Over the ensuing time working with the GeoIQ platform, I have noticed small anomalies here and there: documentation that's not quite up to date, small bugs, longer response times, etc. These types of issues are not uncommon but are somewhat out of character for an organization with a high level of dedication and enthusiasm.</p>
 
-<p>That said, my role as a business owner has given me an interest in things such as acquisition drivers. What I have come to realize is that the small issues I was observing are not uncommon for a small company that has achieved a certain level of growth but has plateaued. In other words, growing pains. The reasons small companies plateau are varied but getting past a plateau can be difficult and may require additional resources that are difficult to muster internally. This can lead small companies to seek acquisition.</p>
+<p>If you choose to get by with just using the GUI tools, you are doing yourself two disservices:</p>
 
-<p>GeoIQ has always been very dedicated to how their technology is applied. They have a noticeable footprint in the DoD world and have had high-profile implementations such as the World Bank, World Wildlife Fund and others on the NGO side of things. Not coincidentally, these are areas in which Esri is active. In short, there has probably always been more in common between Esri and GeoIQ than met the eye. GeoIQ now has access to the resources of a larger company than help mitigate their growing pains and help them more effectively focus on the application areas they care about.</p>
+<ol>
+<li>You are placing yourself at the mercy of others who can code to get around to building the customizations you need.</li>
+<li>You are allowing your skills to erode by not using a significant amount of capability.</li>
+</ol>
 
-<p>In my opinion, this acquisition not only makes sense, it is somewhat classic. In hindsight, it could even be called obvious. I could go on about this but I won't.</p>
 
-<p>Many in our industry, myself included, took a vicarious enjoyment in the David-versus-Goliath interplay between GeoIQ and Esri but now it's time for us to get back to work. I think all of the principals involved in this transaction deserve credit for keeping open minds and being able to look past all of that to recognize the potential common benefits of joining forces. I sincerely hope GeoIQ doesn't become the next Atlas GIS and I suspect it won't.</p>
+<p>So you need to code to some extent. You need to in order to automate complicated tasks you do regularly, or read in data that's in some oddball format, or use some capability of your GIS-du-jour that isn't exposed out of the box, or to make that web map sing, or for any of a number of other reasons. Luckily, you have a wealth of information at your fingertips. It is called open-source geospatial software. I can already hear the protests: You learned on ArcGIS in school. You are comfortable with ArcGIS and you like it. Fine, keep using it.</p>
+
+<p>But while you're using ArcGIS, also check out the source code for open-source libraries like <a href="https://github.com/sgillies/shapely">Shapely</a> or <a href="http://trac.osgeo.org/geos/">GEOS</a> or <a href="http://www.gdal.org/">GDAL</a> or other commonly used (even under the hood of ArcGIS) tools. You learned the math in school. You toughed out these concepts and you understand them. Now look at the compiled knowledge of a lot of smart programmers to see how the concepts are concretely implemented in code. The process will, at a minimum, make you a better ArcGIS user because you'll understand what's going on under the hood. The truth is, even if ArcGIS isn't directly using one of those open-source libraries, it's probably using an ESRI-developed implementation of a standard algorithm. It's similar enough that you'll be able to understand the behavior and that will help you better bind your own customizations to their closed-source API.</p>
+
+<p>I say this because it worked for me. I am a programmer by training and passion. I heard the phrase "GIS" once, in passing, during a lecture in college. Yet, my first job was in the GIS field. Needless to say, I had a lot of learning to do. Most of it came at the hands of some very patient geographers. The first tools I was exposed to were the proprietary tools of MapInfo and ESRI (with a smattering of Intergraph). I was able to soak in what the geographers were telling me and bang against those APIs to build some useful tools but the light bulb really came on for me when I began reading the source code of open-source projects. There, laid out before me, was what the software was <em>really</em> doing.</p>
+
+<p>Today, I work with a mixture of open-source and proprietary tools but the majority of my paying work is still in the Esri realm. My exposure to open-source has, however, made me better with it because it has deepened my understanding.</p>
+
+<p>Not everyone can be a professional software developer as it takes a certain mindset to do it all of the time. But, in the GIS market of 2013, everyone needs to have some understanding of some kind of coding, whether <a href="http://python.org/">Python</a> or <a href="http://www.r-project.org/">R</a> or <a href="http://d3js.org/">Javascript</a> or something else.</p>
+
+<p>One other side note: Over the past year, I have also advertised for software developers with results that are opposite of what I see with analysts. There are very few applicants and many that I see have been out of work for a while, have no GIS background and spent a lot of years working with older tools. These are "blue bird" applicants hoping to catch on. In short, there is a gulf between the high demand for GIS-literate programmers and the miniscule supply. Having the ability to code, and showing it on your resume, can be what separates you from the pack of 100 other analysts applying for the same position.</p>
+
+<p>So, yes, you need to code.</p>
 ]]></content>
   </entry>
   

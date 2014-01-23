@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Oracle Spatial | geoMusings]]></title>
+  <title><![CDATA[Category: oracle spatial | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/oracle-spatial/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-01-22T15:56:23-05:00</updated>
+  <updated>2014-01-23T11:57:11-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,23 +14,31 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Configuration Management for Geospatial Data Models]]></title>
-    <link href="http://blog.geomusings.com/2012/03/27/configuration-management-for-geospatial-data-models/"/>
-    <updated>2012-03-27T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/03/27/configuration-management-for-geospatial-data-models</id>
-    <content type="html"><![CDATA[<p>I wanted to take a opportunity to do something I don't often do, and draw attention to a series of posts that's going on over on <a href="http://www.zekiah.com/index.php?q=blog">my company's blog</a>. About a year ago, my company, <a href="http://www.zekiah.com">Zekiah Technologies</a> joined forces with Upper 90 Systems. Upper 90 was probably best known for their work building tools that supported the Spatial Data Standard for Facilities, Infrastructure, and Environment (SDSFIE), which is a data model that is used by the US DOD to standardize the representation of GIS data for the purpose of performing facilities management on military installations.</p>
+    <title type="html"><![CDATA[SQL Server 2008 WKT X/Y Switching Illustrated]]></title>
+    <link href="http://blog.geomusings.com/2007/12/18/sql-server-2008-wkt-xy-switching-illustrated/"/>
+    <updated>2007-12-18T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2007/12/18/sql-server-2008-wkt-xy-switching-illustrated</id>
+    <content type="html"><![CDATA[<p><strong>UPDATE:</strong> Microsoft has <a href="http://blogs.msdn.com/isaac/archive/2007/12/27/latitude-longitude-ordering.aspx">announced</a> that they will address this issue in an upcoming CTP. They plan to implement longitude-latitude ordering in WKB and WKT for both the geography and geometry types.</p>
 
-<p><a href="http://www.acq.osd.mil/ie/bei/disdi/factsheet_sdsfie.pdf" target="_blank">SDSFIE</a> (PDF) has existed for some time, with several versions of the standard being rolled out to its diverse user community. Through that process, we've learned a thing or two about configuration management of widely-implemented geospatial data models. This understanding has been turned into a series of tools designed to help with the issues surround lifecycle management of a data model (as opposed to physical databases themselves). <!--more--></p>
+<p>In a response to my <a href="http://geobabble.wordpress.com/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/">previous post</a>, <a href="http://www.spatialdatalogic.com/cs/blogs/brian_flood/default.aspx">Brian Flood</a> mentioned the ongoing discussion about <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> and the "switching" of X and Y values in <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> strings depending upon which spatial data type, geometry or geography, is being used. The SQL snippet below boils the issue down to a simple example:</p>
 
-<p>The approach and tools are loosely referred to as the "platform-independent model", or PIM. We call it that because the model defines the rules that govern how to create and manage a geospatial database in compliance with a given data standard, but the model is not the database itself. As a result, we can support physical implementations on any number of platforms (Esri, PostGIS, Oracle Spatial, SpatiaLite, Bentley, Autodesk, etc.). The tools give users the ability to perform version management, schema generation, compliance checking, profiling, development of migration paths between versions and many other functions.</p>
+<p>{% codeblock lang:sql %}
+DECLARE @g geometry;
+SET @g = geometry::STGeomFromText('POINT(3 8)', 4326);
+SELECT @g.STX as geomX;</p>
 
-<p>Barry Schimpf, the former president of Upper 90 Systems and now my colleague at Zekiah, has been working on a series of posts describing this approach and, eventually, the tools. Three posts have gone up with others on the way:</p>
+<p>DECLARE @h geography;
+SET @h = geography::STGeomFromText('POINT(3 8)', 4326);
+SELECT @h.Lat as geogLat;
+{% endcodeblock %}</p>
 
-<p><a href="http://www.zekiah.com/index.php?q=blog/2012/01/13/expanding-usefulness-geospatial-data-standards" target="_blank">Expanding Usefulness of Geospatial Data Standards</a>
-<a href="http://www.zekiah.com/index.php?q=blog/2012/03/19/applying-flexible-yet-standard-geospatial-conventions" target="_blank">Applying Flexible, Yet Standard, Geospatial Conventions</a>
-<a href="http://www.zekiah.com/index.php?q=blog/2012/03/24/understanding-geospatial-data-rules-platform-independent-model-pim" target="_blank">Understanding Geospatial Data Rules in the Platform Independent Model (PIM)</a></p>
+<p>In both cases, the value returned is 3. As can be seen, the same WKT string is being used in both cases. The main difference is that one example queries the X value of a GEOMETRY object and the other queries the Lat (Latitude, or Y) value of a GEOGRAPHY object. So, depending on the data type, the same ordinal can be X or Y. You can check out the debate on this topic <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2431933&amp;SiteID=1">here</a>. It is a great discussion that covers a lot of ground and I highly recommend checking it out.</p>
 
-<p>The approach Barry discusses has already been leveraged to support Federal data models beyond SDSFIE so we know it is transferable. We think it could have benefits for at the state, local, or regional levels as well. I encourage you to check out the posts and keep an eye out for more as they emerge.</p>
+<p>For me, the issue is consistency. Regardless of the mindsets of professionals vs. non-professionals or the imprecision of the OGC spec, the bottom line is that the same call behaves differently for two related data types. Admittedly GEOGRAPHY and GEOMETRY do different things. GEOGRAPHY is for geodetic (spherical) data and GEOMETRY is for planar data. This fact, however, has no bearing on how WKT is parsed. The current situation is analagous to having a rounding function that by default rounds up for doubles and rounds down for singles.</p>
+
+<p>At this point, I would normally say pick a method and run with it for both data types but I do have a preference here. I think that WKT should be parsed as X,Y consistently in order to provide better interoperability with a wider variety of client software. The simple fact is that most products out there do X,Y. For instance, I am working with SharpMap and it generates WKT in X,Y order and assumes X,Y order when parsing. Other database platforms such as Oracle, PostGIS and MySQL do the same but it's the client software that matters most in this case. I'm sure that others can chime in with more examples.</p>
+
+<p>I am intrigued by the use of a separate data type to handle geodetic data but the X,Y order of WKT has no bearing here. To my way of thinking, the best approach would be to commit to X,Y order for both GEOMETRY and GEOGRAPHY.</p>
 ]]></content>
   </entry>
   
