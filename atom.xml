@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-02-05T21:56:00-05:00</updated>
+  <updated>2014-02-06T12:01:39-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Meanwhile, Over at Zekiah...]]></title>
+    <link href="http://blog.geomusings.com/2014/02/06/meanwhile/"/>
+    <updated>2014-02-06T11:34:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/06/meanwhile</id>
+    <content type="html"><![CDATA[<p>I don&#8217;t usually cross-pollinate between this, my personal blog, and the company blog over at <a href="http://www.zekiah.com">Zekiah</a>. One of the great things about working at a place like Zekiah, however, is the opportunity to work with smart people and see what they are doing. At times, my colleagues will share components of their work on the company blog. We encourage this, and the experimentation that leads to the posts, as a way to keep our technical capabilities fresh and to also showcase what we do in a way that goes beyond the typical capabilities statements that exist on every site. My colleagues have been pretty busy but have managed to take some time to write a few posts about their work:</p>
+
+<ul>
+<li><a href="http://www.zekiah.com/index.php?q=blog/2014/02/04/esri-cityengine-unity-40-and-oculus-rift">Esri CityEngine, Unity 4.0 and the Oculus Rift</a> - My colleague, <a href="http://twitter.com/DanEntzian">Dan Entzian</a>, is an avid gamer, a great developer, and a smart GIS guy. This post combines those interests by showing how to bring cities created in Esri&#8217;s <a href="http://www.esri.com/software/cityengine/">CityEngine</a> into gaming environments like <a href="http://unity3d.com/">Unity</a> and integrate them with the <a href="http://www.oculusvr.com/">Oculus Rift</a> virtual reality display. It&#8217;s a quick, but detailed, read that shows the interactions possible between geospatial tools and games.</li>
+</ul>
+
+
+<!--more-->
+
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/unity_ide.png" /></p>
+
+<ul>
+<li><p><a href="http://www.zekiah.com/index.php?q=blog/2014/01/23/using-awk-ease-your-csv-manipulation">Using AWK to ease your CSV manipulation</a> - <a href="http://twitter.com/hugoestr">Hugo Estrada</a> shows how to use an old, but still effective, tool, <a href="http://www.grymoire.com/Unix/Awk.html">AWK</a>, to process GPS data for use in GIS software. This post is a great reminder that the best tool for the job may already be sitting there at our command prompt waiting for us.</p></li>
+<li><p><a href="http://www.zekiah.com/index.php?q=blog/2013/12/18/exporting-esri-silverlight-graphic-layer-google-earth-part-2">Exporting ESRI Silverlight Graphic Layer to Google Earth, Part 2</a> - While Silverlight is, politely speaking, passe, we have a few customers that are still attached to it. Generally, the systems that are using it are accredited systems of record so a rip-and-replace of Silverlight (or any other component) is simply not feasible without a significant paperwork drill. So we try to help our customers keep those systems as useful for their end users as possible. This post, also by Dan Entzian, illustrates how we did that in one case. A follow up to <a href="http://www.zekiah.com/index.php?q=blog/2011/10/11/exporting-esri-silverlight-graphic-layer-google-earth">an older post</a>, this post was done in response to an e-mail inquiry from a reader of the previous post.</p></li>
+<li><p><a href="http://www.zekiah.com/index.php?q=blog/2013/12/17/overview-clojure">An Overview of Clojure</a> - In this post, Hugo Estrada takes a look a <a href="http://clojure.org/">Clojure</a>, a variant of the Lisp programming language, and reports on his experience at Clojure Con. I found this particularly interesting since, as a lifelong programmer, I am always interested in new languages (even if it is getting harder to find the time to tinker with them myself).</p></li>
+<li><p><a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">Generating Physical Schemas From a PIM</a> - Okay, this one was written by me, but the work is pretty interesting and involved the efforts of a few co-workers, including Barry Schimpf and Dan Entzian. This post describes a tool that we developed as part of our overall approach to geospatial data model management. This script generator produces SQL scripts for either <a href="http://postgis.net/">PostGIS</a> or <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a> that enable a user to create spatial databases that are compliant with a data model. The information for the data model (which is always user-defined, not proscribed by us) is stored in what we call the platform independent model, or <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">PIM</a>. We&#8217;ve used the PIM, its encapsulating API, and tools to good effect for a couple of customers now. This post attempts to provide a concrete picture of what can be an abstract concept.</p></li>
+</ul>
+
+
+<p>Since Zekiah is a services company, rather than a platform company, we get to work with a broad range of technologies in support of our customers, in addition to our own internal research. This makes each day pretty interesting and can also make for lively conversation at company events. As the posts above showcase, my colleagues are working on some interesting things and it&#8217;s a pleasure to work them each day.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Esri Federal GIS Conference Features Immersion Summits]]></title>
@@ -910,66 +939,6 @@ Also included are land use/land cover data; congressional and legislative distri
 <p>If I were employed by a vendor or a vendor-like organization, I may take a slightly more partisan view. I also don&#8217;t begrudge such organizations their own biases. I expect them to be loyal to their tools and to want to see them used and improved through that use. I would be suspect of them if they weren&#8217;t.</p>
 
 <p>That, however, is not the case with me. So, believing that open is better than closed, my responsibility is to ensure that my own thinking and my own mind are kept open. That&#8217;s something that I always know, but it is good to be reminded of it by being immersed in a community that is strongly focused on a goal.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GeoJSON on GitHub: Now What?]]></title>
-    <link href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/"/>
-    <updated>2013-06-18T16:04:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what</id>
-    <content type="html"><![CDATA[<p>So <a href="http://github.com">GitHub</a> <a href="https://github.com/blog/1528-there-s-a-map-for-that">announced</a> that you can now automatically view any <a href="http://geojson.org">GeoJSON</a> files that may be in a repository inside an interactive map driven by <a href="http://www.mapbox.com/">MapBox</a> technology. This simple enhancement to GitHub is probably one of the most significant developments in the geospatial industry in years. I&#8217;ll explain a little later in this post. It&#8217;s also important to view this new capability as a great, but limited, first step. I&#8217;ll discuss that a little later as well.</p>
-
-<p>While it&#8217;s cool to click on a link and just see a map, it doesn&#8217;t take long to wonder about how you can use this capability beyond viewing data in GitHub. What follows are three ways to capitalize on GeoJSON in GitHub. Not all are directly related to the new mapping capability, and two have been possible for a long time. That said, the GitHub announcement may draw interest from users who have not previously considered either GitHub or GeoJSON, so I hope these approaches will be useful.</p>
-
-<h3>Embed the GitHub map.</h3>
-
-<p><del>If you click on a GeoJSON file and view the new map in GitHub, a quick view of the page source will show that this map is embedded in an IFRAME object.</del> GitHub provides a <a href="https://help.github.com/articles/mapping-geojson-files-on-github#embedding-your-map-elsewhere">simple embedding method</a> to display the GitHub map in any page. (Thanks to <a href="https://github.com/benbalter">Ben Balter</a> for this update.) It&#8217;s a great way to quickly publish a data set while also providing access to download the raw data.</p>
-
-<p style="text-align:center;"><script src="https://embed.github.com/view/geojson/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson"></script></p>
-
-<!--more-->
-
-
-<h3>Stream the data into your own web map.</h3>
-
-<p>This is not a new capability; if you&#8217;ve had GeoJSON in a repo, you&#8217;ve always been able to do this. That said, if you&#8217;re checking out GitHub or GeoJSON for the first time as a result of the new mapping capability, this is something you may want to try. I have had a page up for a while showing the <a href="http://blog.geomusings.com/assets/demos/mdq6/">county-by-bounty breakdown of Maryland&#8217;s marriage equality question from the 2012 election</a> that uses this approach to load the data into a <a href="http://leafletjs.com/">Leaflet</a> map from GitHub and style it. (Incidentally, the tiles in the map are also hosted on GitHub.)</p>
-
-<h3>Stream the data into your desktop.</h3>
-
-<p>A third option is to stream the GeoJSON data directly into desktop GIS software such as QGIS for further analysis. In QGIS, simply need to add a vector, specifying &#8220;Protocol&#8221; and entering the URL to your GitHub-hosted GeoJSON file. Make sure you use the &#8220;raw&#8221; URL that looks something like this: https://raw.github.com/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson .</p>
-
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/add_geojson_layer.png" /></p>
-
-<p>After a few seconds (or more depending on the file size), it should load into QGIS like this:</p>
-
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/qgis_github_geojson.png" /></p>
-
-<p>Additionally, the <a href="https://github.com/RBURHUM/arcgis-ogr/">GDAL/OGR plug-in for ArcGIS</a> by <a href="http://www.amigocloud.com/homepage/index.html">AmigoCloud</a> provides a way to get GeoJSON into ArcMap, though you may need to download the data first.</p>
-
-<p>UPDATE: Dane Springmeyer pointed out that TileMill supports remote URLs as well.</p>
-
-<div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/geomusingsblog">@geomusingsblog</a> <a href="https://twitter.com/billdollins">@billdollins</a> - very cool, had no idea QGIS supported remote urls. TileMill does also: <a href="http://t.co/o3wxv2VkEv">http://t.co/o3wxv2VkEv</a></p>&mdash; Dane Springmeyer (@springmeyer) <a href="https://twitter.com/springmeyer/statuses/347483526171594753">June 19, 2013</a></blockquote>
-<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>Those are three (or so) quick ways to capitalize on GeoJSON data in GitHub now. So what next?</p>
-
-<p>I stated earlier that I think the GitHub announcement was one of the most significant developments in years. I think it is best explained by <a href="http://feomike.github.io/post/thoughts-on-disruption.html">feoMike in his recent post</a>. As he points out, GitHub has made it easy to communicate spatial information in a way that is fully consistent with the web. Now that simple mapping is available to a large community of developers, it will be interesting to see where they take it. feoMike offered up a few early examples in his post. It&#8217;s worth a read.</p>
-
-<p>The GitHub move is great for GeoJSON as a format. I&#8217;ve said in the past that the search for the next shapefile ends with GeoJSON. If the web is this generation&#8217;s dominant computing platform (it is), then GeoJSON provides a simple, elegant solution for geographic data transport in a manner that the shapefile did for the desktop. Support by GitHub is one more example of the community voting with its code as to what it prefers.</p>
-
-<p>I also said it was a great first step, but limited. The mapping capability is understandably basic, though the documentation shows how you can customize styling somewhat. There is also a point at which the data seems to become too big to render (in either the map or in raw form). Bill Morris has identified this limit to be in the ballpark of 4.5MB, which can be easy to hit with GeoJSON.</p>
-
-<div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/byrne_tweets">@byrne_tweets</a> <a href="https://twitter.com/BenBalter">@BenBalter</a> <a href="https://twitter.com/ericg">@ericg</a> <a href="https://twitter.com/ajturner">@ajturner</a> +1 for a solid number on max renderable filesize. 4.5MB is pushing it: <a href="https://t.co/cNTbA5Djqw">https://t.co/cNTbA5Djqw</a></p>&mdash; Bill Morris (@vtcraghead) <a href="https://twitter.com/vtcraghead/statuses/346825523521019904">June 18, 2013</a></blockquote>
-<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>So this means that enterprises won&#8217;t be dumping terabytes of vectors to GeoJSON and loading them into GitHub. That&#8217;s a good thing in my book. It is, however, an acceptable solution for small data sets and quick turn-around data sharing. As with all things, you have to go in with the right set of expectations.</p>
-
-<p>The thing I&#8217;m probably least worried about is how this affects <a href="http://www.esri.com">Esri</a>. Without any specific inside knowledge of Esri&#8217;s plans, I suspect some form of official support for GeoJSON isn&#8217;t far off. There are too many people inside Esri who get GeoJSON for it not to happen. If anything, the GitHub announcement may provide a bit of a push by providing a potentially rich source of data sets to consume. The real question is what form the support will take. In any event, Esri provides enough APIs to enable us to develop our own support for GeoJSON if we need it.</p>
-
-<p>The addition of GeoJSON mapping to GitHub is a very small change in the scheme of that platform, but such small changes can sometimes lead to big shifts. It has been possible for a long time to use GitHub to host geospatial data for applications. The main benefit of this latest change, in my opinion, is its potential to get people thinking about the platform in a different way. With such a visible (and visual) change on a platform targeted at developers, I hope that it will motivate that community to begin experimenting with how far it can be pushed. If a hosted platform with an already-baked-in workflow for change management and version control begins to be viewed as a viable home for spatial data, it has the potential to change how the geospatial community thinks about how it does business.</p>
 ]]></content>
   </entry>
   

@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="This one caught my eye when it came across Planet GS so I listened to the referenced piece. Suffice it so say that I&#8217;ve been kind of close to &hellip;">
+  <meta name="description" content="I view ArcSDE (and its predecessor, SDE) as something of a seminal technology. In my quest for true enterprise integration of GIS, ArcSDE fills &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,51 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/05/arcsde-time-for-a-change/">ArcSDE - Time for a Change</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-05T00:00:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/05/arcsde-time-for-a-change/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I view <a href="http://www.esri.com/software/arcgis/arcsde/">ArcSDE</a> (and its predecessor, SDE) as something of a seminal technology. In my quest for true enterprise integration of GIS, ArcSDE <del datetime="2009-05-04T21:24:40+00:00">fills</del> filled a crucial gap by providing the ability to store, manage and analyze spatial data in the same <a href="http://en.wikipedia.org/wiki/Relational_database_management_system">RDBMS</a> used for everything else. Long gone are the days when I had to manage relates between INFO tables or shapefiles and that&#8217;s a good thing. I have since accomplished similar tasks with <a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://www.oracle.com/technology/products/spatial/index.html">Oracle Spatial</a> but SDE was the first product I ever used that offered the capability to bring my GIS in from the cold.</p>
+
+<p>At version 9.3, ArcSDE will support <a href="http://www.postgresql.org/">PostgreSQL</a> as a back-end, meaning you don&#8217;t <em>also</em> need to license an expensive RDBMS in addition to ArcGIS to take advantage of everything ArcGIS Server has to offer. This gives us another option and options are good.</p>
+
+<p>I have blogged before about my involvment with <a href="http://code.google.com/p/ziggis/">zigGIS</a>, which has given me a lot of exposure to PostGIS. I&#8217;ve also done a good bit of work with Oracle Spatial. Both experiences have given me experience with, and a love of, spatial SQL (as each has implemented it). Having all of the data types and methods necessary to store, manage and analyze spatial data completely encapsulated in the RDBMS is a huge advantage. Building an n-tier or services-oriented system is so much easier because all I really need to interact with my spatial data is an OLEDB provider (we&#8217;re a .NET shop). This encapsulation serves to further expose the disadvantages of the current middleware approach of ArcSDE.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/11/05/arcsde-time-for-a-change/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -477,56 +522,6 @@ In all likelihood, future versions of the Google Earth COM API will be fully bac
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/08/10/friday-frivolity-from-the-spam-folder/">Friday Frivolity From the Spam Folder</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-08-10T00:00:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2007</time>
-        
-         | <a href="/2007/08/10/friday-frivolity-from-the-spam-folder/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is WAY off-topic, for those of hitting this from Planet GS or an aggregator.</p>
-
-<p>My deified status as been confirmed!</p>
-
-<p>I was doing my weekly perusal of my spam folder to make sure SpamBayes didn&#8217;t actually filter something valid. I&#8217;m sure everyone has been getting the bogus &#8220;you&#8217;ve received a greeting card from a friend/family member/classmate/colleague/etc.&#8221; messages.</p>
-
-<p>This one made me laugh&#8230;</p>
-
-<p><img src="http://geobabble.files.wordpress.com/2007/08/spam.png" /></p>
-
-<p>I&#8217;ve always had a pretty high opinion of myself but I have apparently not been aiming high enough!</p>
-
-<p>We now return to regularly scheduled programming.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/31/">&larr; Older</a>
@@ -575,15 +570,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/02/06/meanwhile/">Meanwhile, Over at Zekiah&#8230;</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/02/05/esri-federal-gis-conference-features-immersion-summits/">Esri Federal GIS Conference Features Immersion Summits</a>
       </li>
     
       <li class="post">
         <a href="/2014/01/08/file-geodatabase-compare-tool/">File Geodatabase Schema Compare Tool</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/01/07/predictions/">Of Predictions and (Geo)Hipsters</a>
       </li>
     
   </ul>
