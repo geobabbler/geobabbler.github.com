@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: apache | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/apache/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Integrating ASP.NET with Drupal in the Acquia Stack]]></title>
+    <link href="http://blog.geomusings.com/2010/03/02/integrating-aspnet-with-drupal-in-the-acquia-stack/"/>
+    <updated>2010-03-02T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2010/03/02/integrating-aspnet-with-drupal-in-the-acquia-stack</id>
+    <content type="html"><![CDATA[<p>A while back, I posted <a href="http://geobabble.wordpress.com/2008/01/07/sharpmap-on-apache/">this</a> about running <a href="http://sharpmap.codeplex.com">SharpMap</a> on <a href="http://www.apache.org/">Apache</a>. At the time, the ability to run ASP.NET on Apache was mainly a curiosity to me but had little practical value. Recently, I had the need to revisit this technique for a project. I used the same <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">post</a> I had used previously as a reference, although the comment by Carlos there was more up-to-date and served me well this time.</p>
+
+<p>This time, we were migrating an old custom-built site to the <a href="http://drupal.org/">Drupal</a> CMS. The old site was a mixture of ASP Classic and ASP.NET. Drupal is a <a href="http://www.php.net/">PHP</a>-based CMS. Due to the deadline for completing the migration, there were two ASP.NET applications that we planned to leave in place. They automated custom workflows and our schedule didn't allow for rewriting them. Drupal had been installed as part of the <a href="http://acquia.com/downloads">Acquia stack installer</a> that includes Apache, PHP, Drupal and <a href="http://www.mysql.com/">MySQL</a>.</p>
+
+<p>Following the instructions I had used previously, I integrated mod_aspdotnet in the Apache http.conf. I made the following entries, as instructed (these are sample entries for purposes of this post).</p>
+
+<p> <code>AspNetMount /SampleASP "c:/SampleASP"
+ Alias /SampleASP "c:/SampleASP"</code></p>
+
+<p>These entries mount the ASP.NET application where it sits physically and alias it to a virtual directory in Apache. Having done this before, I was not worried. This time, however, it did not work. After some research, I realized that these directives were in conflict with some mod_rewrite entries that are part of the stack installer. They are:</p>
+
+<p><code>
+  ServerName localhost
+  RewriteEngine On
+  RewriteOptions Inherit
+  RewriteCond %{REQUEST_URI} !/acquia-drupal.<em>
+  RewriteCond %{REQUEST_URI} !/phpmyadmin.</em>
+  RewriteRule ^(/.*)?$ /acquia-drupal$1
+</code></p>
+
+<p>In this case, any URI that does not look like http://${hostname}/acquia-drupal is rewritten to match that format. So my URI of http://${hostname}/SampleASP was being rewritten as http://${hostname}/acquia-drupal/SampleASP which does not exist and promptly fails. The solution to this problem was to modify the AspNetMount and Alias entries above to this:</p>
+
+<p> <code>AspNetMount /acquia-drupal/SampleASP "c:/SampleASP"
+ Alias /acquia-drupal/SampleASP "c:/SampleASP"</code></p>
+
+<p> This redirected properly and the ASP.NET executed. So, the lesson here is that, if you choose to use a stack installer, make sure you understand the customizations that the installer makes to the products it includes.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SharpMap on Apache]]></title>
+    <link href="http://blog.geomusings.com/2008/01/07/sharpmap-on-apache/"/>
+    <updated>2008-01-07T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2008/01/07/sharpmap-on-apache</id>
+    <content type="html"><![CDATA[<p>In the words of Pete Townshend (as sung by Roger Daltrey):</p>
+
+<p>"Why should I care? Why should I care?"</p>
+
+<p>I can't answer that one for you. I ran into <a href="http://weblogs.asp.net/israelio/archive/2005/09/11/424852.aspx">this post</a> while searching out something else. It shows how to get <a href="http://asp.net/">ASP.NET</a> running under <a href="http://httpd.apache.org/">Apache</a> on Windows. Curiosity got the better of me and I had to try it. One important note is that mod_aspdotnet is no longer maintained by the Apache Software Foundation. It's now available as a <a href="http://sourceforge.net/projects/mod-aspdotnet">separate project on SourceForge</a>. If you download the latest version, it works with Apache 2.2.6.</p>
+
+<p>Although both Apache and mod_aspdotnet have had subsequent releases since this has been posted, the instructions still work. It was about 10 minutes to get the sample project running and not much longer to get <a href="http://www.codeplex.com/SharpMap">SharpMap's </a>"DemoWebSite" project working. Here's a screen capture (there nothing that makes it obvious it's running on Apache so You'll just have to trust me).</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.png" title="Can you see the real me? Can ya?"><img alt="Can you see the real me? Can ya?" src="http://geobabble.files.wordpress.com/2008/01/sharpmap_apache.thumbnail.png" /></a></p>
+
+<p>This could be somewhat useful if you're using a non-Server version of Windows and want to avoid the connection limitations of IIS. Beyond that, it's probably just interesting.</p>
+]]></content>
+  </entry>
+  
+</feed>

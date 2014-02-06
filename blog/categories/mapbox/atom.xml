@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: MapBox | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/mapbox/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Arc2Earth: Choose Your 'Cloud']]></title>
+    <link href="http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud/"/>
+    <updated>2013-02-28T06:22:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/02/28/arc2earth-choose-your-cloud</id>
+    <content type="html"><![CDATA[<p>For various reasons, I can't attend today's inaugural <a href="http://fedgeoday.com/">FedGeoDay</a> at the Woolly Mammoth Theatre in Washington, DC, though I'll be watching the hashtag with great interest. Jack Flood of <a href="http://www.arc2earth.com/">Arc2Earth</a>, however, has already posted his slides to SlideShare:</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16811994" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/jflood3/fedgeodays-022013" title="Fedgeodays 022013" target="_blank">Fedgeodays 022013</a> </strong> from <strong><a href="http://www.slideshare.net/jflood3" target="_blank">Jack Flood</a></strong> </div></p>
+
+<!--more-->
+
+
+<p>While neither <a href="http://www.esri.com">ArcMap</a> nor Arc2Earth are open-source themselves, Jack points out that Arc2Earth acts as a bridge between ArcMap and several geospatial hosting platforms that are built on open-source technology but, also just as important, are successful at making data more openly available. These platforms include <a href="http://cartodb.com/">CartoDB</a> and <a href="http://mapbox.com/">MapBox</a>, among many others.</p>
+
+<p>Many people use, and prefer, ArcMap has their desktop cartography and analysis tool. I view Arc2Earth as an enabling technology that allows users to continue to be productive with ArcMap while also allowing them to retain control of how they direct their GIS investments in terms of publishing and hosting their maps and data.</p>
+
+<p>Disclaimer: <a href="http://www.zekiah.com">My company</a> is an Arc2Earth reseller.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Breaking Radio Silence]]></title>
+    <link href="http://blog.geomusings.com/2012/06/07/breaking-radio-silence/"/>
+    <updated>2012-06-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/07/breaking-radio-silence</id>
+    <content type="html"><![CDATA[<p>Things have been kind of quiet on the blog lately due to things being busy at work. I call that a good problem to have. Since the beginning of the year, I've written a a lot of proposals for a mixture of potential customers. Interestingly, I'm seeing a lot more call for "GIS Analyst" work. One trend I've noticed, at least in the Federal sector, is that the time between proposal due dates and award announcements seems to be lengthening. That may be an indication of the ongoing flux in funding and organizations try to figure out how to fund their requirements. It will be interesting to see how it shakes out. Of course, it's good that the opportunities are there in the first place.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2012/06/microphone.jpg"><img alt="" class="aligncenter size-full wp-image-2664" height="413" src="http://geobabble.files.wordpress.com/2012/06/microphone.jpg" title="microphone" width="413" /></a></p>
+
+<p>One the technical side of things, I've been involved in a smattering of things that's made it hard to roll up one good post. I'm pretty heavily involved in the PIM efforts that my colleague, Barry Schimpf, <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">has been blogging about</a> over on the <a href="http://www.zekiah.com" target="_blank">Zekiah</a> blog. <!--more--> Historically, the PIM data structures have been housed in Microsoft SQL Server, but we've been working on porting it to other platforms to provide options to end users. We've done an initial port to <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> but we've been spending most of our time on a <a href="http://www.sqlite.org/" target="_blank">SQLite</a>/<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> version. This has taken two forms. First is the port of the PIM structure itself to SQLite to make it easier to provide some of the PIM services such as profiling, version-to-version migrations, dataset generation, and validation in remote, field-based settings. Second is the generation/validation of physical implementations in SpatiaLite. This is being done for a customer who is expecting to do field data collection using SpatiaLite and these services will be helpful in enhancing data quality at the point of collection. Additionally, the SpatiaLite aspect of this work has had me living within <a href="http://qgis.org/" target="_blank">QGIS</a> lately.</p>
+
+<p>Another thing I've been experimenting with is the use of <a href="http://nodejs.org/" target="_blank">Node.js</a> for real-time data processing. Our long-standing work in the situational awareness realm has had us working with real-time data feeds for a long time. I'm interested in the possibility of using Node to tackle some of the feed collection tasks. I've used an event-driven approach for such tasks in the past so that aspect of Node is quite familiar to me but the use of Javascript, its ease of deployment and potential scalability are intriguing to me. I'm coming late to the party with Node, primarily due to my rustiness with Javascript, but I'm liking what I'm seeing so far.</p>
+
+<p>Beyond those major things, I've had the opportunity to start working with <a href="http://postgis.org/" target="_blank">PostGIS</a> 2.0 and play more with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://mapbox.com/" target="_blank">MapBox</a>. On the development side of things, these efforts have had be jumping back and forth a lot between C#, Javascript and a little bit of Python, as well as between Windows and Linux, depending on the task.</p>
+
+<p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
+
+<p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FOSS4G North America]]></title>
+    <link href="http://blog.geomusings.com/2012/04/12/foss4g-north-america/"/>
+    <updated>2012-04-12T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/04/12/foss4g-north-america</id>
+    <content type="html"><![CDATA[<p>It's rather fitting that the second plenary talk on Wednesday had to do with "firehose" applications since the <a href="http://foss4g-na.org/" target="_blank">FOSS4G North America</a> (FOSS4GNA) conference was something of a firehose in itself. Despite the fact that the event was smaller than the worldwide event in Denver back in October, I came away with the same "full brain" feeling.</p>
+
+<p><img alt="It feels like I never leave this place." src="http://www.visitingdc.com/images/washington-dc-convention-center.jpg" /></p>
+
+<p>Of course, given the recent production release of <a href="http://blog.opengeo.org/2012/04/03/postgis-2-0-released/" target="_blank">PostGIS 2.0</a>, that was kind of the big story for this event. I attended a number of <a href="http://postgis.org/" target="_blank">PostGIS</a>/<a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>-related sessions and came away with lots of new information. I especially enjoyed <a href="http://twitter.com/pwramsey" target="_blank">Paul Ramsey's</a> "what's new" talk on Wednesday. One thing I enjoy about his talks (here and in Denver) is that he's not afraid to throw sample SQL up on the screen. It's one thing to hear about a new feature but it's another thing entirely to see a concrete example. Some may find the idea of raw SQL in a presentation abhorrent but it worked for me. <!--more--></p>
+
+<p>I've already started playing with PostGIS 2.0 but haven't gotten terribly far so these sessions helped a lot. It's already been pretty well vetted by the community during it's various pre-release stages so it seems remarkably stable. With the addition of topology and raster analysis in addition to 3D/4D indexing and new vector functions, PostGIS probably handles the majority of what most users would need for GIS analysis at the database level. I'm excited to dig deeper.</p>
+
+<p>I also attended a few web-mapping themed talks. If there is one word that consistently and repeatedly passed the lips of most of the presenters, it was "<a href="http://geojson.org/" target="_blank">GeoJSON</a>." I've <a href="http://blog.geomusings.com/?s=geojson" target="_blank">blogged about GeoJSON</a> in the past but it really is the oil that makes the modern geo-web run smoothly. The rate of adoption it is receiving rivals only one other <em>de facto</em> standard that I can recall: you may remember something called the shapefile. The fact is that anyone who's been hunting through their file system looking for the "next shapefile" has been looking in the wrong place. It lives behind that nice map in your browser. The shapefile took off because it solved a problem for what was the frontier of GIS in the 1990s; the transition from heavy workstations to desktop mapping. GeoJSON solves the problem of delivering vector spatial data for today's frontier; the transition from the desktop GIS to web mapping. It's that simple. We don't need another file format to solve an old problem that already has a solution.</p>
+
+<p>Of course, there was a lot more. I got introduced to <a href="http://cartodb.com/" target="_blank">CartoDB</a> in Denver, have <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/" target="_blank">experimented with it</a> since then and was able to get an update on its 1.0 release at one of the sessions. It remains a compelling option for spatial data hosting and <a href="http://vizzuality.com/" target="_blank">Vizzuality</a> are actively engaging with the open-source communities that build the tools they use. On the cartography side of things, <a href="http://stamen.com/" target="_blank">Stamen</a> continues to show how beautiful maps can be made with open-source tools. Similarly, <a href="http://mapbox.com/" target="_blank">MapBox</a> showed how they efficiently deliver high-quality maps on the web. For my money, the unsung hero of what MapBox is doing is <a href="http://mapbox.com/mbtiles-spec/utfgrid/" target="_blank">UTFGrid</a>. I hadn't delved into it deeply until I saw the announcement that <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> now supports it. UTFGrid is breathtakingly elegant in its approach to delivering richer content with tiles. I expect that, in a few years, UTFGrid will be a standard part under the hood of any web mapping experience, like tiles and slippy maps are today.</p>
+
+<p>The only consistent criticism I heard was that most of the sessions were "too technical." I can see some validity to this, given that the event was held in Washington, DC and many higher-level government or policy types who may have been seeking to conceptually understand open-source geospatial may have been put off. Commercial vendors have addressed this problem with the establishment of "executive tracks" at their events. That said, if that's the biggest criticism that can be leveled, then FOSS4GNA was a rousing success in my book.</p>
+
+<p>I have resolved that I will take at least one of my kids, if not both, to the next FOSS4G event that I attend. The attitude of the open-source crowd is one that I want to rub off on them. Aside from the energy that is exuded from a gathering such as this, the open-source world is full of people who see a problem and just set out to solve it. I want my kids to be exposed to that kind of initiative and understand the power that can come from harnessing it, even if they never go into a technical field.</p>
+
+<p>My understanding is that FOSS4GNA came together very quickly. Given that, it was a very high-quality conference and the organizers should be commended. Early tongue-in-cheek commentary referred to it as the "<a href="http://opengeo.org/" target="_blank">OpenGeo </a>User Conference." I felt like there was good balance and, when I attended sessions given by OpenGeo staff, I didn't feel like I was beaten over the head with the OpenGeo brand. All-in-all, I found my day-and-a-half at FOSS4GNA to be very beneficial and I'm hoping it becomes an annual event. (<strong>Update</strong>: It looks like next year's FOSS4GNA <a href="https://twitter.com/#!/foss4gna/status/190517270928293888" target="_blank">will be in Minnesota</a>.)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FCC Open-Sources MapBox Module for Drupal]]></title>
+    <link href="http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal/"/>
+    <updated>2012-03-20T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal</id>
+    <content type="html"><![CDATA[<p>See the FCC announcement <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">here</a>.</p>
+
+<p><a href="http://mapbox.com" target="_blank">MapBox</a> has been winning a lot of high-profile converts lately, such as <a href="http://mapbox.com/blog/foursquare-switches-mapbox-streets-openstreetmap/" target="_blank">Foursquare</a>. In my opinion, it's one of the more perfect web mapping solutions, commercial or open-source, to come along in a while. The combination of cartographic engine (<a href="http://mapnik.org/" target="_blank">Mapnik</a>), tile generation (<a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a>) and storage (<a href="http://mapbox.com/mbtiles-spec/" target="_blank">MBTiles</a>) make MapBox one of the most elegant ways to serve beautiful maps currently available. <!--more--></p>
+
+<p>The Federal Communications Commission (FCC) has been using MapBox to make a number of <a href="http://www.fcc.gov/maps" target="_blank">compelling maps</a> available to the public. Additonally, the FCC's site has been built on the open-source content management system <a href="http://drupal.org/" target="_blank">Drupal</a>. Today, the <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">FCC announced</a> that they are making the source code to their MapBox module for Drupal, SlashMap, <a href="http://drupal.org/project/slashmaps" target="_blank">available</a>. This should provide a straightforward way to integrate MapBox maps with a Drupal site.</p>
+
+<p>The FCC has been very active in using open-source tools for their work and it's great to see them giving back to the community in this manner. It's a phenomenon that I think we'll see a lot more of from all levels of government as understanding of and comfort with open-source models increases.</p>
+
+<p>So, if you are a Drupal user, you may want to check out SlashMaps as a way to integrate some very nice web maps. Kudos to <a href="http://twitter.com/byrne_tweets" target="_blank">Michael Byrne</a> and his team at the FCC for taking this step.</p>
+]]></content>
+  </entry>
+  
+</feed>

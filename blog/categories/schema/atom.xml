@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: schema | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/schema/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[File Geodatabase Schema Compare Tool]]></title>
+    <link href="http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool/"/>
+    <updated>2014-01-08T20:32:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool</id>
+    <content type="html"><![CDATA[<p>In my work supporting various aspects of geospatial data modeling, I've spent a lot of time delving into concepts around configuration management of such data models. We've been able to apply a core tool set to perform various functions such as version managment, profiling, version-to-version migration, and validation in conjunction with a system we call the platform independent model (PIM). I gave quick overview of the PIM <a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">in this post over on the Zekiah blog</a> and the complete series on it <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">can be found here</a>.</p>
+
+<p>I've recently spent a bit of time consolidating code after a recent data delivery and decided to post a utility that was an outgrowth of that effort: <a href="https://github.com/Zekiah/ArcGISCompare">a tool to compare schemas of two Esri file geodatabases and report differences</a>. This lent itself to general use because it does not require any connection to a PIM.</p>
+
+<p style="text-align:center;"><img src="https://github.com/Zekiah/ArcGISCompare/raw/master/screenshot.png" /></p>
+
+<!--more-->
+
+
+<p>The PIM deals mainly at the logical level with data models, but a full configuration management workflow must occasionally touch physical data sets. One use case we had to support, for which this tool was built, was the case where users in the field must compare separate data sets for eventual integration. Although these workflows start with a template data set, it is not unusal for changes to be made during collection, resulting in very similar but not identical schemas. This tool helps users identify such differences in order to make configuration management decisions based upon the actual state of the collected data.</p>
+
+<p>The tool is fairly straightforward: choose a template data set, choose an implementation data set, run the compare, and examine the results. It contains ArcObjects dependencies although we may migrate it to the file geodatabase API in order to eliminate those.</p>
+
+<p>We are also in the process of building a similar tool to work with SQLite/SpatiaLite data sets, which is the other format we commonly see used and will post that tool when it is complete. In the meantime, I hope you find this application useful.</p>
+
+<p>An installer (10.1) <a href="https://dl.dropboxusercontent.com/u/6749645/PIM/setup_ArcGISCompare.zip">can be found here</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

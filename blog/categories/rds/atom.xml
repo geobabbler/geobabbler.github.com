@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: RDS | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/rds/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Building a Simple Geodata Service with Node, PostGIS, and Amazon]]></title>
+    <link href="http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/"/>
+    <updated>2013-12-11T15:18:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds</id>
+    <content type="html"><![CDATA[<p><strong>tl;dr</strong></p>
+
+<p>This post describes the construction of a simple, lightweight geospatial data service using Node.JS, PostGIS and Amazon RDS. It is somewhat lengthy and includes a number of code snippets. The post is primarily targeted at users who may be interested in alternative strategies for publishing geospatial data but may not be familiar with the tools discussed here. This effort is ongoing and follow-up posts can be expected.</p>
+
+<p><strong>Rationale</strong></p>
+
+<p>I'm always looking for opportunities to experiment with new tools and the announcement of PostgreSQL/PostGIS support on Amazon RDS piqued my curiosity. Over the past six months, I have run into the repeated need on a couple of projects to be able to get the bounding box of various polygon features in order to drive dynamic mapping displays. Additionally, the required spatial references of these projects have varied beyond WGS84 and Web Mercator.</p>
+
+<p>With that, the seeds of a geodata service were born. I decided to build one that would, via a simple HTTP call, return the bounding box of a polygon or the polygon itself, in the spatial reference of my choice as a single GeoJSON feature.</p>
+
+<p>I knew I wanted to use PostGIS hosted on Amazon RDS to store my data. Here are the rest of the building blocks for this particular application:</p>
+
+<ol>
+<li><a href="http://nodejs.org">Node.js</a></li>
+<li>Express web application framework for Node</li>
+<li>PG module for accessing PostgreSQL with Node</li>
+<li>Natural Earth 1:10M country boundaries</li>
+</ol>
+
+
+<!--more-->
+
+
+<p><strong>Setting up PostGIS on Amazon RDS</strong></p>
+
+<p>Setting up the PostgreSQL instance on RDS was very easy. I simply <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreatePorstgreSQLInstance.html">followed the instructions here</a> for doing it in the AWS Management Console. I also got a lot of use out of <a href="http://www.databasesoup.com/2013/11/first-look-at-postgresql-rds-on-amazon.html">this post by Josh Berkus</a>. Don't forget to also set up your security group to govern access to your database instance <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithSecurityGroups.html">as described here</a>. I prefer to grant access to specific IP addresses.</p>
+
+<p>Now that the Amazon configuration is done, your RDS instance essentially behaves the same as if you had set it up on a server in your server room. You can now access the instance using all of the standard PostgreSQL tools with which you are familiar. This is good because we need to do at least one more thing before we load our spatial data: we have to enable the PostGIS extension. I find that it is easiest to accomplish this at the command line:</p>
+
+<p><em>psql -U {username} -h {really long amazon instance host name} {database name}</em></p>
+
+<p>Once you've connected, issue the command to enable PostGIS in your database:</p>
+
+<p><em>CREATE EXTENSION postgis;</em></p>
+
+<p>You may also want to enable topology while you're here:</p>
+
+<p><em>CREATE EXTENSION postgis_topology;</em></p>
+
+<p>This should complete your setup. Now you are ready to load data.</p>
+
+<p><strong>Loading Spatial Data</strong></p>
+
+<p>As I mentioned above, we are now dealing with a standard PostgreSQL server that happens to be running on Amazon RDS. You can use whatever workflow you prefer to load your spatial data.</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/pgadmin_rds.png" /></p>
+
+<p>I downloaded the <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/">Natural Earth 1:10M country polygons</a> for this effort. Once downloaded, I used the DB Manager extension to <a href="http://qgis.org">QGIS</a> to import the data to PostgreSQL. I also did a test import with <a href="http://www.gdal.org/ogr/">OGR</a>. Both worked fine so it's really a matter of preference.</p>
+
+<p><strong>Building the Application</strong></p>
+
+<p>I chose to use Node.js because it is very lightweight and ideal for building targeted web applications. I decided to use the <a href="http://expressjs.com/">Express web framework for Node</a>, mainly because it makes things very easy. To access PostgreSQL, I used the <a href="https://github.com/brianc/node-postgres">node-postgres module</a>. I was planning to deploy the application in an Ubuntu instance on Amazon EC2, so I chose to do the development on Ubuntu. Theoretically, that shouldn't matter with Node but the node-postgres module builds a native library when it is installed so it was a factor here.</p>
+
+<p>After building the package.json file and using that to install the Express, node-postgres, and their dependencies, I build a quick server script to act as the web interface for the application. This is where Express really excels in that it makes it easy to define resource paths in an application.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>server.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">),</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">geo</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/geo&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/countries/:id/bbox&#39;</span><span class="p">,</span> <span class="nx">geo</span><span class="p">.</span><span class="nx">bbox</span><span class="p">);</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/countries/:id/bbox/:srid&#39;</span><span class="p">,</span> <span class="nx">geo</span><span class="p">.</span><span class="nx">bboxSrid</span><span class="p">);</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/countries/:id/polygon&#39;</span><span class="p">,</span> <span class="nx">geo</span><span class="p">.</span><span class="nx">polygon</span><span class="p">);</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/countries/:id/polygon/:srid&#39;</span><span class="p">,</span> <span class="nx">geo</span><span class="p">.</span><span class="nx">polygonSrid</span><span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Listening on port 3000...&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The four "app.get" statements above define calls to get either the bounding box or the actual polygon for a country. When the ":srid" parameter is not specified, the resulting feature is returned in the default spatial reference of WGS84. If a valid EPSG spatial reference code is supplied, then the resulting feature is transformed to that spatial reference. The ":id" parameter in all of the calls represents the ISO Alpha-3 code for a country. You will notice that the application listens on port 3000. More on that later.</p>
+
+<p>The next step is to define the route handlers. In this application, this where interaction with PostGIS will take place. Note that each of the exports correspond to the callback functions in the app.get statements above.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>geo.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">pg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pg&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">conString</span> <span class="o">=</span> <span class="s2">&quot;postgres://username:password@hostname.rds.amazonaws.com:5432/database&quot;</span><span class="p">;</span> <span class="c1">//TODO: point to RDS instance&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">exports</span><span class="p">.</span><span class="nx">bbox</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:4326&quot;</span><span class="p">}};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">idformat</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">idformat</span> <span class="o">=</span> <span class="nx">idformat</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_envelope(shape)) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="c1">//build a GeoJSON feature and return it</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span><span class="nx">crs</span><span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span> <span class="nx">geometry</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span> <span class="nx">properties</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;iso&quot;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;representation&quot;</span><span class="o">:</span> <span class="s2">&quot;extent&quot;</span><span class="p">}});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">};</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">exports</span><span class="p">.</span><span class="nx">bboxSrid</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span><span class="p">}};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">idformat</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">idformat</span> <span class="o">=</span> <span class="nx">idformat</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_envelope(st_transform(shape, &quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span> <span class="o">+</span> <span class="s2">&quot;))) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span><span class="nx">crs</span><span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span> <span class="nx">geometry</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span> <span class="nx">properties</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;iso&quot;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;representation&quot;</span><span class="o">:</span> <span class="s2">&quot;extent&quot;</span><span class="p">}});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">};</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">exports</span><span class="p">.</span><span class="nx">polygon</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="c1">//TODO: Flesh this out. Logic will be similar to bounding box.</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:4326&quot;</span><span class="p">}};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">idformat</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">idformat</span> <span class="o">=</span> <span class="nx">idformat</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(shape) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span> <span class="nx">crs</span><span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span> <span class="nx">geometry</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span> <span class="nx">properties</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;iso&quot;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;representation&quot;</span><span class="o">:</span> <span class="s2">&quot;boundary&quot;</span><span class="p">}});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span> <span class="p">};</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">exports</span><span class="p">.</span><span class="nx">polygonSrid</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span><span class="p">}};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">idformat</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">idformat</span> <span class="o">=</span> <span class="nx">idformat</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_transform(shape, &quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span> <span class="o">+</span> <span class="s2">&quot;)) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span><span class="nx">crs</span><span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span> <span class="nx">geometry</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span> <span class="nx">properties</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;iso&quot;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;representation&quot;</span><span class="o">:</span> <span class="s2">&quot;boundary&quot;</span><span class="p">}});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span> <span class="p">};</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The PostGIS spatial SQL for each function is shown in the "client.query" calls in the code above. This approach is very similar to constructing SQL calls in a number of other application environments. You will notice that a coordinate reference system object is constructed and attached to each valid response, which is structured as a <a href="http://geojson.org">GeoJSON</a> feature. The code currently assumes EPSG codes but that may be addressed in a future version.</p>
+
+<p>The above modules do most of the heavy lifting. The full code for this sample <a href="https://github.com/geobabbler/geo-service">is available here</a>.</p>
+
+<p>To test the application, simply issue the following command in a terminal:</p>
+
+<p><em>node server.js</em> (this assumes you are running from the same directory in which server.js resides. The file extension is optional.</p>
+
+<p>Your web application is now listening on port 3000. In a browser, visit the following URL:</p>
+
+<p><em>http://localhost:3000/countries/irl/bbox</em></p>
+
+<p>This should return a GeoJSON feature representing the bounding box of Ireland in WGS84. You can then test the other three calls with appropriate parameters. To get the bounding box in Web Mercator, go to:</p>
+
+<p><em>http://localhost:3000/countries/irl/bbox/3785</em></p>
+
+<p><strong>Deploying the Application</strong></p>
+
+<p>The application should now be ready to deploy. In my case, I created an Ubuntu EC2 instance (free tier). Using SSH, I made sure Node and git were installed on the machine. Additionally, I installed <a href="https://github.com/nodejitsu/forever">Forever</a> which allows a Node application to run continuously (similar to a service on Windows). This can also be done using an upstart script but I chose Forever. I may switch to using <a href="http://devo.ps/blog/2013/06/26/goodbye-node-forever-hello-pm2.html">PM2</a> at some point.</p>
+
+<p>Now, it's simply matter of installing the application code to the instance via git, wget, or the method of your choice. Once installed, be sure to go to the folder containing the code and issue the "npm install" command. This will read the package.json install Express, node-postgres, and other dependencies. Since some native code is built in the process, you may need to issue the command under sudo.</p>
+
+<p>I mentioned above that the application listens on port 3000. The Ubuntu instance, by default, will not allow the application to listen on port 80. This can be mitigated in a number of ways but I issued the following command to redirect traffic from 80 to 3000. Since this instance is single-use, this approach is sufficient.</p>
+
+<p><em>sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000</em></p>
+
+<p>Once you are ready to go, you'll want to start the application with the following command:</p>
+
+<p><em>forever start server</em> (again assuming you are executing from the directory containing server.js)</p>
+
+<p>A couple of Amazon notes: 1) You may want to assign an elastic IP to your instance for a persistent IP address and 2) you'll want you remember to configure your RDS security group to allow access from your instance's IP address.</p>
+
+<p><strong>Conclusion</strong></p>
+
+<p>If everything has gone correctly, you should be able to execute the above URLs (using your instance IP address) and get a response like the following, which you should be able to load directly into QGIS or another GeoJSON-literate client. Altogether, I was able to assemble this in one evening. This small collection of open-source tools, combined with the Amazon infrastructure, seems to provide a straightforward path to a hosted geodata service. This example is intentionally simple but PostGIS provides a robust collection of functions that can be exploited in a similar manner, leading to more advanced processing or analysis. I will continue my experimentation but am encouraged by what I have seen so far.</p>
+
+<p><strong>Sample Response</strong></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>irl_bbox.json </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;crs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:4326&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>  <span class="p">[</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-10.4781794909999</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">51.4457054710001</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-10.4781794909999</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">55.386379299</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-5.99351966099994</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">55.386379299</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-5.99351966099994</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">51.4457054710001</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-10.4781794909999</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">51.4457054710001</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'>  <span class="p">]</span>
+</span><span class='line'><span class="p">]</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="nt">&quot;iso&quot;</span><span class="p">:</span> <span class="s2">&quot;irl&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="nt">&quot;representation&quot;</span><span class="p">:</span> <span class="s2">&quot;extent&quot;</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>

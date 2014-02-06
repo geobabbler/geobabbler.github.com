@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Leaflet | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/leaflet/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Simple Tile Viewer]]></title>
+    <link href="http://blog.geomusings.com/2013/04/25/simple-tile-viewer/"/>
+    <updated>2013-04-25T14:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/04/25/simple-tile-viewer</id>
+    <content type="html"><![CDATA[<p>We do a lot of tiles for various customers at <a href="http://www.zekiah.com">Zekiah</a>. Tiling is as much art as science and sometimes things go wrong so we have a range of utilities that we use to perform various kids of QA. Because the caches can be large, we usually want to perform a visual QA on the static tiles before pushing them up to wherever they are going to live full-time.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/cacheviewer2.png" /></p>
+
+<p>In order to facilitate that, I wrote a very simple tile viewer using <a href="http://nodejs.org/">Node.js</a> and <a href="http://leafletjs.com/">Leaflet</a>. It uses a config file to get everything it needs to operate so we just make our changes there. This application currently only works with Web Mercator tiles but I'm working on adding support for WGS84. It also doesn't work with 'compact' tiles from ArcGIS Server. It obviously requires Node, and it also requires an <a href="https://npmjs.org/">NPM</a> install of the 'open' module to facilitate opening the browser.</p>
+
+<p>Anything else you need to know is in the readme. I hope you find it useful. It can be <a href="https://github.com/geobabbler/cacheview">downloaded here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How long until the ads stop?]]></title>
+    <link href="http://blog.geomusings.com/2012/11/06/how-long-until-the-ads-stop/"/>
+    <updated>2012-11-06T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/06/how-long-until-the-ads-stop</id>
+    <content type="html"><![CDATA[<p>In celebration of this day when the non-stop political ads, robo-calls, junk mail, and social media posts <em>should</em> finally come to an end. I threw together a little map to show the latest time at which polls close in each state. This should represent, state-by-state, the time (EST) at which you can safely go back to answering your phones. Click the image below to go there (the data takes a couple of seconds to load).</p>
+
+<p><a href="http://demo.zekiah.com/polls"><img alt="" class="aligncenter size-full wp-image-2947" height="331" src="http://geobabble.files.wordpress.com/2012/11/pollmap.png" title="pollmap" width="640" /></a></p>
+
+<p>Democracy is a wonderful thing, but it will be nice to have this campaign season behind us.</p>
+
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/K1vaEweJUUk?color=white&theme=light"></iframe></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mapping GISPs Again With Leaflet.markercluster]]></title>
+    <link href="http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster/"/>
+    <updated>2012-08-31T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster</id>
+    <content type="html"><![CDATA[<p>So I've been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It's become my lightweight mapping library of choice. There's a lot it doesn't do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
+
+<div style="text-align:center;"><a href="http://blog.geomusings.com/assets/demos/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a><div style="text-align:center;font-size: 14px;">Click the image to go to the live demo<br/><br/></div></div>
+
+
+<p>A while back, I stumbled onto the <a href="https://github.com/danzel/Leaflet.markercluster" target="_blank">Leaflet.markercluster</a> project on GitHub, which adds a clustering layer type. I wanted to try it so I revisited my old <a href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/" target="_blank">GISP heat map demo</a> (Silverlight) and decided to rework it. I was happy to finally get a chance to strip out the plug-in, anyway.  <!--more--></p>
+
+<p>This time around, I chose not to bother with the PMP data because it was kind of a pain to process the last time. I downloaded the GISP data from the <a href="http://www.gisci.org/secure/members/directory/results.asp" target="_blank">GISCI site</a> and once again ran it through <a href="http://www.geocommons.com" target="_blank">GeoCommons</a> to geocode it. This time, there were noticeable anomalies, such as positional accuracy problems (Richmond, VA was 25 miles east of where it should have been) and surprising omissions such as a failure to match major cities like Jacksonville, Florida and Phoenix, Arizona. I corrected some of the more egregious problems by hand and dumped the rest. Luckily none of this got in the way of the real goal of testing the clustering library but, if you visit the <a href="http://demo.zekiah.com/clustermap" target="_blank">live demo</a>, any anomalies you may notice are most likely related to the data and not the library.</p>
+
+<p>Once geocoding was complete, I downloaded the CSV and processed it into the JSON structure expected by the marker cluster library. The library is still fairly new, and I am fairly new to using it so I had some problems if I deviated from the sample format. As a result, I stuck to that format and resolved to investigate it more. After that, it was very easy to wire up into a light application, with the clusters thrown on top of some tiles from <a href="http://www.mapbox.com" target="_blank">MapBox</a>. (Thanks to <a href="http://www.geosprocket.com/" target="_blank">Bill Morris</a> for showing me that base map.)</p>
+
+<p>I think I prefer this representation to a heat map as it conveys more information at a glance. I'm happy to have this library in my toolbox now and am looking forward to seeing it evolve. I recommend checking it out.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CartoDB/Leaflet Sample Update]]></title>
+    <link href="http://blog.geomusings.com/2012/07/09/cartodbleaflet-sample-update/"/>
+    <updated>2012-07-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/09/cartodbleaflet-sample-update</id>
+    <content type="html"><![CDATA[<p>A while back, I posted about some experimentation I did with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://cartodb.com/" target="_blank">CartoDB</a> in the wake of FOSS4G in Denver. I recently had the chance to go back and update that sample with some spatial queries. At the time of the original post, CartoDB was still in beta and spatial queries didn't seem to work, despite the fact that the back-end was driven by PostGIS.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2737" height="310" src="http://geobabble.files.wordpress.com/2012/07/cartodb_spatial_query.png" title="cartodb_spatial_query" width="640" /></p>
+
+<!--more-->
+
+
+<p>Since then, of course, CartoDB has gone production, as has <a href="http://www.postgis.org" target="_blank">PostGIS</a> 2.0 (up to <a href="http://www.postgis.org/news/20120622/" target="_blank">2.0.1</a> now) so I decided to <a href="http://demo.zekiah.com/propfinder2/" target="_blank">update the sample</a> a little. This time, I added a floodway layer that flows through <a href="http://leonardtown.somd.com/" target="_blank" title="Official Leonardtown home page">Leonardtown</a>, <a href="http://maps.google.com/maps?sugexp=chrome,mod%3D16&amp;q=leonardtown,+md&amp;um=1&amp;ie=UTF-8&amp;hq=&amp;hnear=0x89b768aa0432337d:0x22590e342c11b91b,Leonardtown,+MD&amp;gl=us&amp;sa=X&amp;ei=wRL8T9TIFqno0QGshqC6Bg&amp;ved=0CHwQtgM" target="_blank" title="Leonardtown in Google Maps">Maryland</a>. With a button click, you can identify the buildings that intersect the floodway. I am again using the CartoDB SQL API and GeoJSON to accomplish this. The API call that accomplishes this is:</p>
+
+<p><a href="http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;format=geojson" target="_blank">http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,<br />floodway%20WHERE%20ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)<br />&amp;format=geojson</a></p>
+
+<p>If you pull that apart, you'll see a relatively straightforward use of a PostGIS spatial operator in there:</p>
+
+<h2><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="k">SELECT</span> <span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="n">leonardtown_bldgs</span><span class="p">,</span><span class="n">floodway</span> <span class="k">WHERE</span> <span class="n">ST_Intersects</span><span class="p">(</span><span class="n">floodway</span><span class="p">.</span><span class="n">the_geom</span><span class="p">,</span><span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="n">the_geom</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The Javascript function that executes the query is here:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">getFloodBldgs</span><span class="p">(){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">bldgLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">();</span>
+</span><span class='line'>    <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;featureparse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">color</span><span class="o">:</span>  <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">fill</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mf">0.9</span> <span class="p">});</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span><span class="p">){</span>
+</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Address:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span><span class="p">){</span>
+</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Property Type:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span><span class="p">){</span>
+</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Square Footage:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>        <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span>
+</span><span class='line'>        <span class="s2">&quot;http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20&quot;</span> <span class="o">+</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="s2">&quot;ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;amp;format=geojson&amp;amp;callback=?&quot;</span><span class="p">,</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>        <span class="kd">function</span><span class="p">(</span><span class="nx">geojson</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">features</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">addGeoJSON</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">})</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">bldgLayer</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The CartoDB documentation has greatly improved since my last post, including some <a href="http://developers.cartodb.com/examples.html" target="_blank">good developer examples</a>. A little bit of comfort with PostGIS-esque spatial SQL goes a long way with CartoDB. It's good to see how the platform is evolving.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Breaking Radio Silence]]></title>
+    <link href="http://blog.geomusings.com/2012/06/07/breaking-radio-silence/"/>
+    <updated>2012-06-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/07/breaking-radio-silence</id>
+    <content type="html"><![CDATA[<p>Things have been kind of quiet on the blog lately due to things being busy at work. I call that a good problem to have. Since the beginning of the year, I've written a a lot of proposals for a mixture of potential customers. Interestingly, I'm seeing a lot more call for "GIS Analyst" work. One trend I've noticed, at least in the Federal sector, is that the time between proposal due dates and award announcements seems to be lengthening. That may be an indication of the ongoing flux in funding and organizations try to figure out how to fund their requirements. It will be interesting to see how it shakes out. Of course, it's good that the opportunities are there in the first place.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2012/06/microphone.jpg"><img alt="" class="aligncenter size-full wp-image-2664" height="413" src="http://geobabble.files.wordpress.com/2012/06/microphone.jpg" title="microphone" width="413" /></a></p>
+
+<p>One the technical side of things, I've been involved in a smattering of things that's made it hard to roll up one good post. I'm pretty heavily involved in the PIM efforts that my colleague, Barry Schimpf, <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">has been blogging about</a> over on the <a href="http://www.zekiah.com" target="_blank">Zekiah</a> blog. <!--more--> Historically, the PIM data structures have been housed in Microsoft SQL Server, but we've been working on porting it to other platforms to provide options to end users. We've done an initial port to <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> but we've been spending most of our time on a <a href="http://www.sqlite.org/" target="_blank">SQLite</a>/<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> version. This has taken two forms. First is the port of the PIM structure itself to SQLite to make it easier to provide some of the PIM services such as profiling, version-to-version migrations, dataset generation, and validation in remote, field-based settings. Second is the generation/validation of physical implementations in SpatiaLite. This is being done for a customer who is expecting to do field data collection using SpatiaLite and these services will be helpful in enhancing data quality at the point of collection. Additionally, the SpatiaLite aspect of this work has had me living within <a href="http://qgis.org/" target="_blank">QGIS</a> lately.</p>
+
+<p>Another thing I've been experimenting with is the use of <a href="http://nodejs.org/" target="_blank">Node.js</a> for real-time data processing. Our long-standing work in the situational awareness realm has had us working with real-time data feeds for a long time. I'm interested in the possibility of using Node to tackle some of the feed collection tasks. I've used an event-driven approach for such tasks in the past so that aspect of Node is quite familiar to me but the use of Javascript, its ease of deployment and potential scalability are intriguing to me. I'm coming late to the party with Node, primarily due to my rustiness with Javascript, but I'm liking what I'm seeing so far.</p>
+
+<p>Beyond those major things, I've had the opportunity to start working with <a href="http://postgis.org/" target="_blank">PostGIS</a> 2.0 and play more with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://mapbox.com/" target="_blank">MapBox</a>. On the development side of things, these efforts have had be jumping back and forth a lot between C#, Javascript and a little bit of Python, as well as between Windows and Linux, depending on the task.</p>
+
+<p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
+
+<p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
+]]></content>
+  </entry>
+  
+</feed>

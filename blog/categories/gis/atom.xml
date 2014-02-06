@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: GIS | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Esri Federal GIS Conference Features Immersion Summits]]></title>
+    <link href="http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits/"/>
+    <updated>2014-02-05T20:19:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits</id>
+    <content type="html"><![CDATA[<p>The 2014 installment of the <a href="http://www.esri.com/events/federal">Esri Federal GIS Conference</a> (formerly known as the Federal User Conference) happens next week. I have attended the event off and on since its inception. While I originally was drawn by the presence of a large geo-related event in my local area, that gap has been filled by numerous, smaller events from various sources in the past few years. The FedUC has traditionally had something of an identity crisis, with the content often feeling a bit diffuse and somewhat rushed over its quick, two-day schedule.</p>
+
+<p>To Esri's credit, and probably in recognition of the changing economics regarding travel for Federal employees, they have continued to fine-tune the event when they could have easily walked away from it. The main problem with the FedUC is the fact that the Federal Government performs a wide array of functions that are difficult to cover well over two days in a conventional format. Esri has tackled that problem this year with the introduction of <a href="http://www.esri.com/events/federal/agenda/immersion-summits">"immersion summits,"</a> which are three-and-a-half hour sessions dedicated to specific domain areas.</p>
+
+<!--more-->
+
+
+<p>For example, check out the Natural Resources Immersion Summit led by my friend <a href="http://twitter.com/jsteffenson">John Steffenson</a>. The agenda features speakers from USDA, USGS, the US Forest Service, the EPA, the Fish and Wildlife Service, and Department of Interior, representing over 100 years of higher education dedicated to natural resources management. The session also has slots for several demos of systems deployed in natual resources domain.</p>
+
+<p>The session's content seems to be designed take a holistic view, including fiscal, logistical, technical, and demographic challenges among others. This type of deep focus is an intriguing change to event's focus. While nautral resources is not my usual domain, I do like to drop into other sessions as I find that uses cases from other domains can give me ideas to bring back to my work. I think this new format could maximize the use of the compact schedule of the Federal GIS Conference and begin to give the event its own identity.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[File Geodatabase Schema Compare Tool]]></title>
+    <link href="http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool/"/>
+    <updated>2014-01-08T20:32:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool</id>
+    <content type="html"><![CDATA[<p>In my work supporting various aspects of geospatial data modeling, I've spent a lot of time delving into concepts around configuration management of such data models. We've been able to apply a core tool set to perform various functions such as version managment, profiling, version-to-version migration, and validation in conjunction with a system we call the platform independent model (PIM). I gave quick overview of the PIM <a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">in this post over on the Zekiah blog</a> and the complete series on it <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">can be found here</a>.</p>
+
+<p>I've recently spent a bit of time consolidating code after a recent data delivery and decided to post a utility that was an outgrowth of that effort: <a href="https://github.com/Zekiah/ArcGISCompare">a tool to compare schemas of two Esri file geodatabases and report differences</a>. This lent itself to general use because it does not require any connection to a PIM.</p>
+
+<p style="text-align:center;"><img src="https://github.com/Zekiah/ArcGISCompare/raw/master/screenshot.png" /></p>
+
+<!--more-->
+
+
+<p>The PIM deals mainly at the logical level with data models, but a full configuration management workflow must occasionally touch physical data sets. One use case we had to support, for which this tool was built, was the case where users in the field must compare separate data sets for eventual integration. Although these workflows start with a template data set, it is not unusal for changes to be made during collection, resulting in very similar but not identical schemas. This tool helps users identify such differences in order to make configuration management decisions based upon the actual state of the collected data.</p>
+
+<p>The tool is fairly straightforward: choose a template data set, choose an implementation data set, run the compare, and examine the results. It contains ArcObjects dependencies although we may migrate it to the file geodatabase API in order to eliminate those.</p>
+
+<p>We are also in the process of building a similar tool to work with SQLite/SpatiaLite data sets, which is the other format we commonly see used and will post that tool when it is complete. In the meantime, I hope you find this application useful.</p>
+
+<p>An installer (10.1) <a href="https://dl.dropboxusercontent.com/u/6749645/PIM/setup_ArcGISCompare.zip">can be found here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Of Predictions and (Geo)Hipsters]]></title>
+    <link href="http://blog.geomusings.com/2014/01/07/predictions/"/>
+    <updated>2014-01-07T20:09:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/01/07/predictions</id>
+    <content type="html"><![CDATA[<p>"Never make predictions, especially about the future." - Casey Stengel</p>
+
+<p>A few days ago, my friend <a href="http://www.linkedin.com/profile/view?id=8637855">Atanas Entchev</a> asked me for <a href="http://geohipster.com/2013/12/31/what-will-be-hot-in-geo-in-2014-predictions-from-the-geohipster-crowd/">my thoughts on coming trends in 2014</a> for a feature he was preparing for his <a href="http://geohipster.com/">GeoHipster</a> site. Being the obliging sort that I am, I provided a couple and I've been attempting to explain one ever since. This has mostly been back-channel via private messages and such but, today, the GeoHipster piece was the subject of the "#geowebchat" on Twitter. Twitter is very effective for some types of communication but quickly goes off the rails where nuance or anything long-form is required. So, it was time for a post. My prediction went like this:</p>
+
+<blockquote><p>I think 2014 will be the year Javascript takes over mapping and visualization in the geospatial world.</p></blockquote>
+
+<p>It was followed by an apparently too brief explanation that I will attempt to expand here.</p>
+
+<!--more-->
+
+
+<p>I am very fortunate that, in my professional circle, I am connected to a number of people who are doing very cutting-edge things with a lot of technologies. These people have been doing very impressive things with various web technologies for a number of years. So much so that these technologies are somewhat mundane in those circles. As a person who makes my living supporting Federal contracts for a number of agencies, I also have a foot in another camp that has not been as far along with these tools.</p>
+
+<p>Before I get too far into this, I will state that there are many people building very cutting-edge systems in and for the Federal government, but the penetration of modern web tools and techniques is very uneven for a number of reasons. The reasons range from procurement inefficiencies to byzantine information security requirements to workforce training issues and so on. This is generally a reflection of process, not people. As a result, there are still many shops operating on platforms such as Windows XP and Internet Explorer 8, which does not allow for advanced web development.</p>
+
+<p>My observation over on GeoHipster was not targeted at the cutting-edge developers but rather a reflection of changing trends I am seeing across the vast middle of the technology sector represented by large teams of developers working in the bullpens of various government buildings and large system integrators. Initiatives are under way to begin swapping out antiquated technologies for more modern, if still slightly behind the curve, versions that allow for more modern approaches. These initiatives happen to coincide with a push by major vendors away from older technologies, such as browser plug-ins, to more standard development tools such as Javascript, and its supporting ecosystem.</p>
+
+<p>This community is made up of a vast number of very talented developers who have been working with middle of the road technologies for all of the reasons discussed above. The maturation of tools and processes in the Javascript ecosystem lends itself to wider adoption going forward and I see that accelerating in 2014. Dave Bouwman's <a href="http://blog.davebouwman.com/2014/01/04/javascript-fu/">excellent post on Javascript tools</a> is exactly the kind of resource that shows developers used to working with heavy IDEs and other tools that provide a lot of hand-holding how to achieve the productivity they expect with the next generation of development tools. Dave, of course, is also well-versed is the life these developers lead so I am certain he had an eye on that community with his post.</p>
+
+<p>All of this leads to great opportunity. For as much great work that has already been done, there is an army of smart, talented developers who have yet to be turned loose with modern web tools. This is a community that implemented geofencing, "geotriggers," location-based alerting and other concepts using older languages and architectures at least a decade before they appeared in the current marketplace.</p>
+
+<p>So, ultimately, my prediction had very little to do with Javascript and modern web technologies and much more to do with the talents of a large developer community that has been waiting to make use of them. Overly optimistic? Perhaps, but it beats the alternative.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[geoMusings 2013]]></title>
+    <link href="http://blog.geomusings.com/2013/12/30/thank-you-and-happy-2014/"/>
+    <updated>2013-12-30T16:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/30/thank-you-and-happy-2014</id>
+    <content type="html"><![CDATA[<p>As we enter the final hours of 2013, I wanted to take the chance to thank everyone who stopped by, and continues to stop by, this blog. I appreciate your readership, comments, and feedback. Even after 7 years, I am still humbled by the fact that so many read this blog each year. I decided to take a look at the top ten posts from this year, according to Google Analytics.</p>
+
+<ol>
+<li><a href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/">Yes, You Need to Code</a></li>
+<li><a href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/">GeoJSON on GitHub: Now What?</a></li>
+<li><a href="http://blog.geomusings.com/2013/06/10/geojson-from-arcgis-server/">GeoJSON From ArcGIS Server</a></li>
+<li><a href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/">SpatiaLite and ArcGIS 10.2</a></li>
+<li><a href="http://blog.geomusings.com/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis/">Checking Out the GDAL/OGR Plugin for ArcGIS</a></li>
+<li><a href="http://blog.geomusings.com/2013/05/30/ogc-abandons-the-web/">OGC Abandons the Web</a></li>
+<li><a href="http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data/">DevOps for Geospatial Data</a></li>
+<li><a href="http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange/">Another Look at GIS StackExchange</a></li>
+<li><a href="http://blog.geomusings.com/2013/11/27/consider-the-alternative/">Consider the 'Alternative'</a></li>
+<li><a href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">The Best Thing I Saw at TUGIS 2013</a></li>
+</ol>
+
+
+<p>When I took a look at the list above, I realized that I have been much more focused on data than I have in past years. I think I kept a development/integration flavor but the focus on data was quite noticeable in retrospect. Though I have been actively coding all year, I notice that I did not have as many code-focused posts, which is something of a departure from previous years. 2014 is already shaping up to be a busy year personally and professionally so it will be interesting to see where that leads me on this blog.</p>
+
+<p>Thanks again for your continued interest and I hope you have a fruitful 2014.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DC DevSummit In Works for 2014 Esri Federal GIS Conference]]></title>
+    <link href="http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/"/>
+    <updated>2013-12-27T13:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference</id>
+    <content type="html"><![CDATA[<p>I got word today that <a href="http://www.esri.com">Esri</a> is planning a one-day [Developer Summit] in conjunction with the <a href="http://www.esri.com/events/federal/">2014 Federal GIS Conference</a>. It appears that the DevSummit will happen on the Wednesday immediately following the Fed Conference (which runs on the Monday and Tuesday) and will be focused on the issues and challenges that are unique to developing applications with Esri technologies for the Federal Government. I spoke with <a href="http://www.linkedin.com/in/jdbarry">Jim Barry</a>, who told me the DevSummit has come together rather quickly and Esri hasn't had time to do its usual data gathering to prepare for such an event. As a result, they are canvassing the developer community for input on topics they should cover. Here are some things I suggested:</p>
+
+<!--more-->
+
+
+<ul>
+<li><p>Developing for <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> compliance - FISMA compliance has to be baked into an application from the beginning. It would be great to see some content on best practices and resources available to support this when developing with Esri tools and APIs. Esri's regional office in Vienna, Virginia has been doing a lot of work in this area but I'm not sure the information is widespread.</p></li>
+<li><p>Desktop development - I still see <em>a lot</em> of ArcGIS desktop development in the Federal arena. This ranges from traditional ArcObjects extensions to add-ins to work with the File Geodatabase API. I think content related to how to do continued desktop development and support in light of the current realities of highly constrained desktop environments would be invaluable. For example, how to construct and deploy applications that don't necessarily need to touch the registry and can be deployed without administrative rights. Also, some content on the future of Esri desktop products (like <a href="http://video.esri.com/watch/2533/unveiling-the-new-arcgis-professional-application-with-jim-mckinney-and-jack-dangermond">ArcGIS Professional</a>) and what it means for application developers would be useful.</p></li>
+</ul>
+
+
+<p><img src="http://blog.geomusings.com/images/posts/code.png" style="float:left;margin: 5px 25px 5px 0px;" /></p>
+
+<ul>
+<li><p>.Net - There's still a lot of .Net development going on in Federal spaces. Most of my Federal customers are still primarily using .Net and you can peruse Federal geospatial RFPs on any given day and see that it is widespread. I'm fairly comfortable with .Net, as are most of the government and contractor developers I work with but it would be good to have some .Net-focused content alongside the newer, sexier platforms.</p></li>
+<li><p><a href="http://www.arcgis.com/features/">ArcGIS Online for Organizations</a> - Whatever messaging Esri thinks they are doing is not working very well. I encounter a great many Federal users who simply don't understand what it can do for them, why they would consider it, how to budget for it, or whether they can really use it. My understanding is the main Federal GIS Conference will be talking about these issues a lot so I think the DevSummit should focus on the <a href="https://developers.arcgis.com/en/">tools and APIs</a> that are available so that developers can begin to address the ideas the main conference attendees will come back with.</p></li>
+<li><p>Data interoperability - I have spent a lot of time over the past year developing tools to support data modeling and configuration management efforts for some Federal users. Part of this work has involved developing tools to produce physical implementations of approved geospatial data models in a number of formats, though the formats that have been of primary interest with my customers have been the Esri File Geodatabase and <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>. The general workflows I have seen involve users working with Esri geodatabase formats in the office, while ingesting field-collected data in SpatiaLite format. All of this data needs to remain compliant with approved data models throughout the life cycle, regardless of format. <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">We've been tackling that</a> at <a href="http://www.esri.com">Zekiah</a> with good success. Given the support of SQLite/SpatiaLite in ArcGIS 10.2, I'd like to see some discussion of data conversion/interoperability approaches that developers can automate with Esri tools.</p></li>
+</ul>
+
+
+<p>Those are some topics I suggested to Jim off the top of my head. I'll probably think of more. Jim and his team at Esri are actively seeking this sort of input since time is short so I'd suggest <a href="http://www.linkedin.com/in/jdbarry">contacting him</a> with your thoughts. Given the short timeframe, I'd expect official information from Esri very soon.</p>
+]]></content>
+  </entry>
+  
+</feed>

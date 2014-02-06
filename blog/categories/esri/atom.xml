@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Esri | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/esri/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Esri Federal GIS Conference Features Immersion Summits]]></title>
+    <link href="http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits/"/>
+    <updated>2014-02-05T20:19:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits</id>
+    <content type="html"><![CDATA[<p>The 2014 installment of the <a href="http://www.esri.com/events/federal">Esri Federal GIS Conference</a> (formerly known as the Federal User Conference) happens next week. I have attended the event off and on since its inception. While I originally was drawn by the presence of a large geo-related event in my local area, that gap has been filled by numerous, smaller events from various sources in the past few years. The FedUC has traditionally had something of an identity crisis, with the content often feeling a bit diffuse and somewhat rushed over its quick, two-day schedule.</p>
+
+<p>To Esri's credit, and probably in recognition of the changing economics regarding travel for Federal employees, they have continued to fine-tune the event when they could have easily walked away from it. The main problem with the FedUC is the fact that the Federal Government performs a wide array of functions that are difficult to cover well over two days in a conventional format. Esri has tackled that problem this year with the introduction of <a href="http://www.esri.com/events/federal/agenda/immersion-summits">"immersion summits,"</a> which are three-and-a-half hour sessions dedicated to specific domain areas.</p>
+
+<!--more-->
+
+
+<p>For example, check out the Natural Resources Immersion Summit led by my friend <a href="http://twitter.com/jsteffenson">John Steffenson</a>. The agenda features speakers from USDA, USGS, the US Forest Service, the EPA, the Fish and Wildlife Service, and Department of Interior, representing over 100 years of higher education dedicated to natural resources management. The session also has slots for several demos of systems deployed in natual resources domain.</p>
+
+<p>The session's content seems to be designed take a holistic view, including fiscal, logistical, technical, and demographic challenges among others. This type of deep focus is an intriguing change to event's focus. While nautral resources is not my usual domain, I do like to drop into other sessions as I find that uses cases from other domains can give me ideas to bring back to my work. I think this new format could maximize the use of the compact schedule of the Federal GIS Conference and begin to give the event its own identity.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite and ArcGIS 10.2]]></title>
+    <link href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/"/>
+    <updated>2013-08-07T12:35:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2</id>
+    <content type="html"><![CDATA[<p>With the release of ArcGIS 10.2, <a href="http://www.esri.com">Esri</a> quietly added support for <a href="https://sqlite.org/">SQLite</a> as a geodatabase container. This is big news as the community has been looking for such support for some time. An open-source RDBMS originally designed for embedded systems, SQLite has a very small footprint and is <a href="https://www.sqlite.org/mostdeployed.html">arguably the most widely deployed RDBMS</a> in the world. (Thanks, in part, to the fact that it is embedded into Adobe Reader and other commonly used software.) Over the years numerous strategies for storing spatial data in SQLite have been developed, ranging from simply storing <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT or WKB</a> geometries in a column up to full extensions like <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>, which adds OGC-compliant data types and methods. SQLite is also the engine that drives the popular <a href="http://www.mapbox.com/developers/mbtiles/">MBTiles</a> implementation used by <a href="http://www.mapbox.com/tilemill/">TileMill</a> and <a href="http://www.mapbox.com">MapBox</a>.</p>
+
+<!--more-->
+
+
+<p><a href="http://resources.arcgis.com/en/help/main/10.2/index.html#//019v0000001w000000">According to the documentation</a>, ArcGIS supports the use of either Esri's ST_GEOMETRY or SpatiaLite data types for geometry storage. This is consistent with Esri's approach on other RDBMS platforms such as <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.oracle.com">Oracle</a>. While SpatiaLite has been supported by platforms such as <a href="http://qgis.org/">QGIS</a>, I can't say I've seen a huge demand for data in SpatiaLite format. I have been using it for a while in some of <a href="http://www.zekiah.com">my company's</a> data modeling work as we have a Federal customer that has a documented requirement for generation of physical models in SpatiaLite, among other platforms. We have also taken the step of supporting SQLite as a container for our <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">platform independent model (PIM) approach</a> for configuration management of logical geospatial data models.</p>
+
+<p>Esri's new support of SpatiaLite, combined with my existing customer requirements, obviously sparked my interest so I was curious to kick the tires. Unfortunately, I also had the situation that my development environment for the PIM tools, due to current customer constraints, must remain at ArcGIS 10.1 for both the desktop software and the underlying ArcObjects libraries. I have not been able to carve out the time to build a 10.2 VM.</p>
+
+<p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/billdollins">@billdollins</a> <a href="https://twitter.com/FatherSandman">@FatherSandman</a> Score! Looks like we&#39;ve confirmed ArcGIS 10.2, QGIS 1.9.0, and SpatiaLite-GUI 1.7.1 are compatible.</p>&mdash; Bryan McBride (@brymcbride) <a href="https://twitter.com/brymcbride/statuses/365103999671738369">August 7, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
+
+<ol>
+<li>A SpatiaLite database created in ArcGIS 10.2 can be accessed and viewed in QGIS 1.9.0 and SpatiaLite GUI 1.7.1</li>
+<li>A SpatiaLite database created in QGIS 1.9.0 can be accessed in ArcGIS 10.2</li>
+</ol>
+
+
+<p>Obviously, some more rigorous tests need to be performed but the initial results are promising. I'm curious to explore the boundaries, in ArcGIS terms, between a SQLite geodatabase and a file geodatabase. It remains to be seen whether this will put a dent in the use of file geodatabases. If it happens at all, I think it will take time since SQLite is not on the radar of the vast majority of ArcGIS users. I would hope, at a minimum, it puts a final stake through the heart of the personal geodatabase. It could also drive explicit accreditation of SQLite/SpatiaLite tools on government systems, which would be nice.</p>
+
+<p>I'm happy, and somewhat pleasantly surprised, to see Esri take this step and provide another open option for data exchange.</p>
+
+<p>Now, about GeoJSON...</p>
+]]></content>
+  </entry>
+  
+</feed>

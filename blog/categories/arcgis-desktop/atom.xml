@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: arcgis desktop | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/arcgis-desktop/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Arc2Earth Sync Beta Announced]]></title>
+    <link href="http://blog.geomusings.com/2011/11/23/arc2earth-sync-beta-announced/"/>
+    <updated>2011-11-23T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2011/11/23/arc2earth-sync-beta-announced</id>
+    <content type="html"><![CDATA[<p>Over on <a href="https://plus.google.com/112324940962843535547/posts/B9T9M1vPLCz">Google+</a> (and also on Twitter), <a href="http://twitter.com/bflood">Brian Flood</a> announced the impending availability of Arc2Earth Sync Beta to existing <a href="http://www.arc2earth.com">Arc2Earth</a> users. This has been brewing for for a while and Brian says it best:</p>
+
+<blockquote>
+"What makes Sync really cool is the live edit synchronization and the ability to publish online to different formats. It's a great way to provide integration between ArcGIS desktops/online and the other Cloud database providers like Google."
+</blockquote>
+
+
+<!--more-->
+
+
+<p>So it gives users the ability to publish, edit and synchronize data they are storing in on-line, hosted environments using the editing tools of ArcMap. The initial beta will only support Google Fusion Tables but support for Google Earth Builder and - this caught my eye right away - <a href="http://cartodb.com">CartoDB</a> are scheduled for after the first of the year.</p>
+
+<div style="text-align:center;"><img alt="" height="375" src="http://geobabble.files.wordpress.com/2011/11/assorted_donuts1.jpg" title="Choices, choices..." width="500" /><div style="text-align:center;font-size: 14px;">Arc2Earth Sync stands to give ArcGIS users an assortment of hosted data platforms to choose from.<br/><br/></div></div>
+
+
+<p>There are a lot of ArcGIS for Desktop users out there and exposing different hosted solutions using workflows and tools with which they are comfortable has the potential to do a lot for user choice and the ability to control one's own data.</p>
+
+<p>Here is a link to Brian's screencast showing Arc2Earth Sync in action: <a href="https://arc2earth.viewscreencasts.com/fe762cac52664083ad5dfdfcd0f750c9">https://arc2earth.viewscreencasts.com/fe762cac52664083ad5dfdfcd0f750c9</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PgMap Is Now SpatialKit]]></title>
+    <link href="http://blog.geomusings.com/2011/10/25/pgmap-is-now-spatialkit/"/>
+    <updated>2011-10-25T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/10/25/pgmap-is-now-spatialkit</id>
+    <content type="html"><![CDATA[<p><a href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/">I blogged a while back on PgMap</a>, a freeware ArcGIS extension for directly connecting to PostGIS. <a href="http://st-links.com/default.aspx">ST-Links</a>, the makers of PgMap, sent out an e-mail this morning announcing that PgMap and QMap (the equivalent technology for interacting with SQL Server 2008 spatial data) have been combined into a single tool called SpatialKit. This move comes as part of the 3.0 release of the tool.</p>
+
+<p>The same announcement also mentioned a <a href="http://groups.google.com/group/spatialkit?hl=en">Google Group dedicated to SpatialKit</a>. When I took a look at PgMap before, it seemed to be a pretty nice tool so I'm looking forward to digging into this. If you were a previous user of zigGIS, or if you have experimented with ArcSquirrel for SQL Server 2008 access, you may want to check out SpatialKit.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pre-FOSS4G Roundup]]></title>
+    <link href="http://blog.geomusings.com/2011/09/12/pre-foss4g-roundup/"/>
+    <updated>2011-09-12T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/09/12/pre-foss4g-roundup</id>
+    <content type="html"><![CDATA[<p>I'm getting ready to head out to Denver for the 2011 installment of <a href="http://2011.foss4g.org">FOSS4G</a>. It seems like my biggest problem will be figuring out how to clone myself in order to sit in every session. Open-source geospatial is such a vibrant and active area right now that there's just so much to see and learn.</p>
+
+<p>A couple of things of note (to me) before I head out the door:</p>
+
+<!--more-->
+
+
+<ol>
+<li>An announcement came through last week on the geowanking mailing list of a new tool called <a href="http://www.mxd2map.org/index.html">MXD2Map</a>, which purports to convert <a href="http://www.esri.com/software/arcgis/arcgis-for-desktop/index.html">ArcMap</a> MXD documents to <a href="http://mapserver.org/">MapServer</a> map files with corresponding <a href="http://www.opengeospatial.org/standards/wms">WMS</a> and <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> services created. I have not had a chance to look at it yet (mainly because I don't have a current instance of MapServer running) but I'm excited to give it a go when I get a chance. From the MXD2Map site:</li>
+</ol>
+
+
+<blockquote>
+What is MXD2map?
+MXD2map has the ability to publish ArcGIS MXD-files as OGC webservices via UMN MapServer.
+
+MXD2map combines the following advantages:
+
+Create your maps within your accustomed working environment with ArcGIS Desktop
+Convert your project into a UMN MapServer confiuration mapfile
+Intranetwide publishing of your own data via OGC webservices (e.g. WMS/WFS)
+MXD2map is actively supported by <a href="http://www.bsh.de/">Bundesamt fuer Seeschifffahrt und Hydrographie</a> in Hamburg.
+</blockquote>
+
+
+<ol>
+<li><p>It seems to me that a greater number of questions on <a href="http://gis.stackexchange.com/">gis.stackexchange.com</a> are related to open-source GIS tools these days. Occasionally, questions from the site catch my eye in my Twitter timeline and it seemed like more and more were discussing open-source tools. As I wrote this post this morning, 17 of the first 50 questions were related to various open-source geospatial tools, ranging from desktop to web to database to libraries. This is a purely anecdotal observation on my part but the increase of questions on a forum like this seems to point to potentially greater activity in terms of using these tools to implement solutions.</p></li>
+<li><p>A little <a href="http://en.wikipedia.org/wiki/Front_Range">Front Range</a> love. I watched the activity at <a href="http://stateofthemap.org/">SOTM11</a> via Twitter off and on this weekend. This leads into FOSS4G and follows less than two weeks after <a href="http://www.gisintherockies.org/GISITR2011/Home/Default.aspx">GIS in the Rockies</a> (also in Denver). I think the Front Range just effectively demonstrated that it is the leading region in the country in terms of all things spatial.</p></li>
+</ol>
+
+
+<p>That's it. I'm excited about catching up with old friends, meeting new ones, connecting Twitter avatars to real faces, and soaking up lots of FOSS4G knowledge.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[So, Which Is It?]]></title>
+    <link href="http://blog.geomusings.com/2011/08/17/so-which-is-it/"/>
+    <updated>2011-08-17T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/17/so-which-is-it</id>
+    <content type="html"><![CDATA[<p><strong>Update:</strong> I pulled this link out of the comment thread below to emphasize it. It seems to answer this question for now: <a href="http://forums.arcgis.com/threads/35676-Edit-spatial-data-with-quot-ArcGIS-for-Desktop-10.1-quot-in-non-SDE-RDBMS-systems">http://forums.arcgis.com/threads/35676-Edit-spatial-data-with-quot-ArcGIS-for-Desktop-10.1-quot-in-non-SDE-RDBMS-systems</a></p>
+
+<p>Since my <a href="http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road/">previous</a> <a href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/">posts</a> about <a href="http://st-links.com/default.aspx">PgMap</a> and the shuttering of <a href="http://www.obtusesoft.com/">zigGIS</a>, the nature of the planned support for connecting directly to spatial databases from ArcGIS 10.1 has gotten somewhat muddier.</p>
+
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/zU9lv_WqK6k?color=white&theme=light"></iframe></p>
+
+<p>One of the first indications of direct support was <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">this statement from the ESRI UC Q&amp;A</a>.</p>
+
+<!--more-->
+
+
+<p>This statement, of course, doesn't specifically say anything about editing. I followed up with some people at <a href="http://www.esri.com">ESRI</a> (who shall remain nameless) who said the intent was to support editing of spatial databases in the same manner as current simple feature editing. So there we have it, read/edit from ArcMap without the need of ArcSDE.</p>
+
+<p>Or not...</p>
+
+<p>Subsequently, I have gotten a direct message on Twitter (from someone outside ESRI) indicating that editing will be supported only through the Spatial Data Server (SDS) and will require an SDS license. That seems to be bolstered by this <a href="http://proceedings.esri.com/library/userconf/proc11/uc/tw-pdfs/tw_1472.pdf">PDF from the ESRI UC</a>.</p>
+
+<p>So, at this point, I'll confess to being a little confused. There's a lot of new technology and capability being introduced at 10.1. (Hmmmm, maybe it should be 11.0?) So, given that it's all still in beta, I'll chalk it up to general churn associated with an impending release.</p>
+
+<p>Regardless of what the exact story is, I'm not sure it'll affect any decisions related to zigGIS. If ArcMap isn't supported, PgMap is still a compelling alternative for ArcGIS Desktop users. But perhaps someone from ESRI can help clear this up so the community can know what to expect.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Taking A Look At PgMap]]></title>
+    <link href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/"/>
+    <updated>2011-08-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap</id>
+    <content type="html"><![CDATA[<p>When I blogged about <a href="http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road/">the official end of zigGIS</a> last week, I included a mention of <a href="http://st-links.com/default.aspx">PgMap</a>, a free extension to <a href="http://www.esri.com">ArcMap</a> for direct read/edit of <a href="http://postgis.refractions.net">PostGIS</a> data. Judging from outbound links, there seems to be a good bit of interest in it so I decided to take a look.</p>
+
+<p>To recap, Abe decided to pull the plug on zigGIS due to the fact that <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">ESRI will support direct read/edit of spatial databases</a> (as simple features) in 10.1. In my opinion, this is a good development. With native support coming, there was no need to continue with zigGIS. That support, however, will only exist in ArcGIS 10.1. Users of older versions will need to find alternatives. Based on our experience with zigGIS (as well as download data I've seen for the <a href="http://www.zekiah.com/index.php?q=weogeo">WeoGeo toolbar</a>), there are a lot of people (especially outside the US) still using ArcGIS 9.x so demand for an alternative will probably be high for some time.   <!--more--></p>
+
+<p>A quick glance shows me that there are a lot of similarities between PgMap and zigGIS. This is not surprising as there are really only so many ways to approach the task of connecting directly to PostGIS from ArcMap. That said, there are some key differences that are very attractive. They are:</p>
+
+<ol>
+    <li>Support for ArcGIS 10</li>
+    <li>Support for PostgreSQL 9.x</li>
+    <li>Support for PostGIS 1.5</li>
+    <li>Availability of a companion product, QMap, for connecting to SQL Server 2008</li>
+</ol>
+
+
+<p>These differences represent capabilities that were frequently requested by zigGIS users but that we simply hadn't gotten to so it's good to see that PgMap has been able to support them. While PgMap is free of charge, it does require a license key. Without the license key, the documentation says that you will only have access to the first 1000 rows of your data. I was only ever able to access the first 100 rows so I suspect there may be a typo in either the docs or the code.</p>
+
+<p>Using ArcGIS 10.0 (ArcEditor), I gave it a very quick run-through. The capability I found is impressive. PgMap allows you to manage connections to PostGIS databases, add PostGIS tables as feature classes and set definition queries for those layers. It appears that PgMap reads the geometry_columns table to list layers. I will need to investigate further to see if it supports views or spatial tables that have not been registered in the geometry_columns table.</p>
+
+<p>There is one key difference between zigGIS and PgMap that I did not mention above and which is quite powerful. PgMap supports the export of ArcGIS feature classes directly to PostGIS (and vice versa). It also appears to support appending to existing PostGIS tables but I have not tested that yet. I used PgMap to export a feature class from a file geodatabase to my PostGIS database and it went flawlessly.</p>
+
+<div style="text-align:center;"><img alt="" height="507" src="http://geobabble.files.wordpress.com/2011/08/pgmap_export.png" title="Using PgMap to export data to PostGIS" width="531" /><div style="text-align:center;font-size: 14px;">PgMap export dialog<br/><br/></div></div>
+
+
+<p>The resulting PostGIS table was displayed perfectly in QGIS, with all of the attributes coming over well. I have not delved in yet to to see what assumptions PgMap makes in terms of data type conversions between the geodatabase and PostgreSQL.</p>
+
+<div style="text-align:center;"><img alt="" height="315" src="http://geobabble.files.wordpress.com/2011/08/pgmap_qgis.png" title="QGIS displaying PostGIS data imported with PgMap" width="590" /><div style="text-align:center;font-size: 14px;">O Canada!<br/><br/></div></div>
+
+
+<p>PgMap also integrates seamlessly with the ArcMap editor toolbar for editing. During my investigations, I noticed that layers are loaded into in-memory workspaces so they are natively supported for editing. Edits are then posted back to PostGIS when saved. This is similar to the approach that zigGIS used and is also similar to the behavior of other tools as well. When I get my license, I will need to test with larger data sets. zigGIS originally used in-memory workspaces but we noticed performance problems when loading large data sets so we switched to scratch workspaces. There are numerous ways to mitigate this but, until I can access full data sets, I can't really test it.</p>
+
+<p>Editing worked well. I was even able to use PgMap to do further testing on my <a href="http://blog.geomusings.com/2011/08/01/triggered-notifications-using-postgis/">notification system</a>.</p>
+
+<p>All in all, I think PgMap is an impressive tool that should be able to support the needs of ArcGIS 9.x and 10.0 users going forward. It's good to know that a tool is out there to continue meeting that demand.</p>
+]]></content>
+  </entry>
+  
+</feed>

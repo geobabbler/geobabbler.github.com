@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="Matt Faulkner has done a nice job of creating what amounts to be a geospatial feed dashboard with Overhead Update. It has quickly become one of the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Octopress 2.0" />
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/blog/page/22/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/samples">Samples</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/02/check-out-overhead-update/">Check Out Overhead Update</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-02T00:00:00-05:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2009</time>
+        
+         | <a href="/2009/01/02/check-out-overhead-update/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Matt Faulkner has done a nice job of creating what amounts to be a geospatial feed dashboard with <a href="http://www.overheadupdate.com">Overhead Update</a>. It has quickly become one of the first places I visit each day. <a href="http://blog.davebouwman.net/2008/12/20/OverheadUpdatecomAllTopForGeospatial.aspx">Dave</a> and <a href="http://blog.gisuser.com/?p=3322">Glenn</a> have already blogged about it but I figure spreading the word a little more can&#8217;t hurt. Also, Matt was kind enough to include me.</p>
+
+<p>I also suggest checking out Matt&#8217;s other site: <a href="http://www.virtualbirdseye.com/">Virtual Bird&#8217;s Eye</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/01/ziggis-2-0-2-getting-closer/">zigGIS 2.0.2 Getting Closer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-01T00:00:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2009</time>
+        
+         | <a href="/2009/01/01/ziggis-2-0-2-getting-closer/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://abegillespie.blogspot.com">Abe</a> announced via <a href="http://twitter.com/zigGIS">Twitter</a> today that <a href="http://pub.obtusesoft.com/">zigGIS</a> 2.0.2 will be available in about a month. This a small but significant release becuase zigGIS will now support the generic PostGIS &#8220;GEOMETRY&#8221; type. Because ArcGIS expects homogenous feaure classes, zigGIS will ask the user to choose a geometry type for the the specified GEOMETRY-typed column. So, if your table has mixed geometry types, you will need to specify one (like polygon for example) and zigGIS will present only records of that type to ArcGIS.</p>
+
+<p>Secondly, zigGIS will no longer expect your primary key to be called &#8220;gid&#8221;. This should reduce the instances where tables need to be modified for use with zigGIS.</p>
+
+<p>In previous releases, a few enterprising users had figured out how to get zigGIS to see views as layers by manually hacking them into the geometry_columns table. This was one way to get around the &#8220;gid&#8221; and GEOMETRY limitations. In 2.0.2, views will be fully supported so that no such hacking will be necessary.</p>
+
+<p>Abe, Paolo and I had a chat session a while back about the zigGIS roadmap and this represents the first step down that road. More information will be forthcoming as we flesh out the details of further changes.</p>
+
+<p><img alt="" class="alignleft" height="270" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" title="zigGIS" width="270" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/12/30/odds-and-ends-spatialite-and-stuff/">Odds and Ends (SpatiaLite and Stuff)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-30T00:00:00-05:00" pubdate data-updated="true">Dec 30<span>th</span>, 2008</time>
+        
+         | <a href="/2008/12/30/odds-and-ends-spatialite-and-stuff/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as well. We established a new presence in Colorado Springs (I&#8217;ll be traveling there at the end of January). Additionally, I&#8217;ve been busy with project work and have recently begun spend part time on a customer site. So, the blog has been squeezed a little.</p>
+
+<p>I am doing more work with <a href="http://www.esri.com/software/arcgis/arcgisserver/">ArcGIS Server 9.3</a> and the Javascript API but probably won&#8217;t have enough to blog about for a few more weeks. Also, at the urging of <a href="http://geopdf.blogspot.com/">Adam Estrada</a>, I have begun dabbling more with <a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a>. You may remember my post some time ago about integrating <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">SQLite with SharpMap</a>. SpatiaLite is a spatial extension to SQLite and it seems to be very powerful. I am currently re-working my previous code so that I&#8217;ll have a SpatiaLite provider for <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. With the use of the <a href="http://sqlite.phxsoftware.com/">SQLite OLEDB provider</a>, this has gone fairly smoothly.</p>
+
+<p>The thing I really like about it is the portability. You can basically drop a couple of DLLs and go. Additionally, SpatiaLite has strong support for many spatial operations so it can be a fairly robust analysis back-end. These two attributes raise a lot of possibilities for mobile applications. I have done some mobile development work with <a href="http://postgis.refractions.net/">PostGIS</a> (okay, the platforms were fairly heavy but they were in vehicles that rolled around) and it worked well but SpatiaLite might ease some of those &#8220;in the field&#8221; workflows, especially the delivery of relevant basemap information.</p>
+
+<p>With regard to SharpMap, it looks like SpatiaLite provider is under way for 2.0. I am doing my own for 0.9 because it helps me get more comfortable with SpatiaLite. Once I am finished, I&#8217;ll be happy to share my code but you may want to take a look at what&#8217;s being implemented with 2.0. It&#8217;s fairly elegant.</p>
+
+<p>Also of interest, the <a href="http://groups.google.com/group/spatialite-users">SpatiaLite Users Google Group</a>.</p>
+
+<p>Update: the code for SharpMap 2.0 is currently located <a href="http://code.google.com/p/sharpmapv2/">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/11/25/patch-to-arcgis-9-3-service-pack-1/">Patch to ArcGIS 9.3 Service Pack 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-25T00:00:00-05:00" pubdate data-updated="true">Nov 25<span>th</span>, 2008</time>
+        
+         | <a href="/2008/11/25/patch-to-arcgis-9-3-service-pack-1/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you&#8217;ve recently installed ArcGIS 9.3 Service Pack 1, be aware that there is a patch out that fixes an issue with topology validation. You can read more about it here:</p>
+
+<p><a href="http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=35833">http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=35833</a></p>
+
+<p>This patch seems to apply to Desktop, Engine and Server so you may want to check it out.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/11/17/nearest-book/">Nearest Book</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-17T00:00:00-05:00" pubdate data-updated="true">Nov 17<span>th</span>, 2008</time>
+        
+         | <a href="/2008/11/17/nearest-book/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This meme is percolating across the internets and it&#8217;s kinda fun.</p>
+
+<blockquote>By definition then, the terrorists and their followers become excluded from civil society of the mainstream, while the sympathetic public remains included.</blockquote>
+
+
+<p><em>The Geographical Dimensions of Terrorism</em>, edited by Susan L. Cutter, Douglas B. Richardson and Thomas J. Wilbanks.</p>
+
+<p><strong>The instructions</strong>: Grab the nearest book. Open it to page 56. Find the fifth sentence. Post the text of the sentence in your journal along with these instructions. Don?t dig for your favorite book, the cool book, or the intellectual one: pick the CLOSEST.</p>
+
+<p>If I hadn&#8217;t cleaned my desk on Friday, it would&#8217;ve most likely been something about Test-Driven Development but I did so this one was closest today which is interesting since it&#8217;s been ages since I read it. This particular excerpt comes from a passage describing the two primary audiences of terrorists and the social/physical separation of those audiences. It is taken from the section titled &#8220;Geographies of Inclusion/Exclusion&#8221; by Colin Flint.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/11/05/time-to-kill-the-red-blue-maps/">Time to Kill the Red-Blue Maps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-05T00:00:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2008</time>
+        
+         | <a href="/2008/11/05/time-to-kill-the-red-blue-maps/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Now that the election is behind us, I have a little time to ponder one of my hopes for the future in our little corner of the world. I would really like to see the concept of the binary red-blue election map put out to pasture.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/11/05/time-to-kill-the-red-blue-maps/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/25/writing-geojson-from-sharpmap-part-1/">Writing GeoJSON From SharpMap, Part 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-25T00:00:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2008</time>
+        
+         | <a href="/2008/09/25/writing-geojson-from-sharpmap-part-1/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In between proposals, white papers and the like, I?ve been able to do a little coding to keep myself sane. Recently, I have been playing with <a href="http://www.codeplex.com/sharpmap">SharpMap</a>, <a href="http://wiki.geojson.org/Main_Page">GeoJSON</a> and <a href="http://openlayers.org">OpenLayers</a>. But not necessarily in that order. Originally, I was looking over the GeoJSON spec to get more of a feel for it and decided that it would be fun (I know) to write an exporter for SharpMap. There is already a converter to write SharpMap geometries as WKT so I went ahead and built another one to convert to GeoJSON. In order to test it, I decided to use OpenLayers.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/09/25/writing-geojson-from-sharpmap-part-1/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/15/chrome-ie-killer-or-not/">Chrome - IE-Killer? Or Not&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-15T00:00:00-04:00" pubdate data-updated="true">Sep 15<span>th</span>, 2008</time>
+        
+         | <a href="/2008/09/15/chrome-ie-killer-or-not/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use <a href="http://www.statcounter.com/">StatCounter</a> to track statistics on a couple of web sites, including this blog. StatCounter, like many other similar services, tracks by browser among other ways of analyzing your statisitics. Anyway, they have been <a href="http://blog.statcounter.com/2008/09/chrome-latest-stats-globalusuk/">posting some statistics about <a href="http://www.google.com/chrome">Google Chrome</a> on their blog</a>. I found them interesting so I thought I&#8217;d pass on a link.</p>
+
+<p>What is most interesting to me is that, while Chrome usage has increased, it has not come at the expense of Internet Explorer. Primarily, Firefox and Safari have taken the biggest hit. In the US and UK, IE usage has actually grown since the Chrome introduction while the others have shrunk. Globally, IE usage also shrank but by less than Firefox and Safari. &#8220;Other&#8221; (I presume this to mean Opera and other cats and dogs) grew globally.</p>
+
+<p>I&#8217;ve played with Chrome. It&#8217;s nice as a curiosity. I think the world needs another browser about as much as it needs another lawyer but no one is asking me&#8230;.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/03/mapwindow-looking-for-testers-and-programmers/">MapWindow Looking for Testers and Programmers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-03T00:00:00-04:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2008</time>
+        
+         | <a href="/2008/09/03/mapwindow-looking-for-testers-and-programmers/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.mapwindow.org/">MapWindow</a> is has posted a message over on <a href="http://www.linkedin.com">LinkedIn</a> looking for testers and programmers. The text of the message, posted by Paul Meems, is:</p>
+
+<blockquote>Any GIS experts available with some free time?
+Here at MapWindow GIS (<a href="http://www.mapwindow.org">www.mapwindow.org</a>) we&#8217;re looking for people who are willing the use MapWindow (it&#8217;s Open Source, so it&#8217;s free to use) and share their experiences. We also have our own LinkedIn group: <a href="http://www.linkedin.com/e/gis/122945/37A6504A848A">http://www.linkedin.com/e/gis/122945/37A6504A848A</a></blockquote>
+
+
+<p>A follow-up answer to one of my LinkedIn contacts clarified that they are looking for testers and programmers. So, if you&#8217;re interested in helping out an open-source project, here&#8217;s your chance. Also, you may want to give LinkedIn a spin.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/21/using-arcsde-93-with-postgresql-part-35/">Using ArcSDE 9.3 With PostgreSQL, Part 3.5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-21T00:00:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2008</time>
+        
+         | <a href="/2008/08/21/using-arcsde-93-with-postgresql-part-35/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I thought I was done with the series a while back but I&#8217;ve been getting a steady stream of questions through other channels so I thought I&#8217;d wrap up a lot of the common stuff in another post. Most of the inquiries come from people trying to integrate <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> for <a href="http://www.postgresql.org">PostgreSQL</a> with open-source tools in one way or another. Here are a few notes:</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/08/21/using-arcsde-93-with-postgresql-part-35/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/23/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/21/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2600437314795269";
+/* geoMusings - GIS */
+google_ad_slot = "1381808721";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</section>
+<section>
+
+<a href="http://twitter.com/billdollins"><img src="/images/twitter.png" width="32" height="32" alt="View my Twitter profile"></a>&nbsp;
+
+
+<a href="http://www.linkedin.com/in/billdollins"><img src="/images/linkedin.png" width="32" height="32" alt="View LinkedIn profile of Bill Dollins"></a>&nbsp;
+
+
+<a href="https://plus.google.com/103048542132426664956?rel=author"><img src="/images/gplus.png" width="32" height="32"></a>&nbsp;
+
+
+<a href="http://www.facebook.com/pages/GeoMusings/304146182966988"><img src="/images/fb.png" width="32" height="32" alt="Follow my Facebook page"></a>&nbsp;
+
+
+<a href="https://github.com/geobabbler"><img src="/images/github32.png" width="32" height="32" alt="View my profile on GitHub"></a>&nbsp;
+
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/02/05/esri-federal-gis-conference-features-immersion-summits/">Esri Federal GIS Conference Features Immersion Summits</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/08/file-geodatabase-compare-tool/">File Geodatabase Schema Compare Tool</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/07/predictions/">Of Predictions and (Geo)Hipsters</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 3, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+<section>
+  <h1>Disclaimer</h1>
+  <p>The information in this weblog is provided &#8220;AS IS&#8221; with no warranties, and confers no rights.
+  <br/> <br/>
+  This weblog does not represent the thoughts, intentions, plans or strategies of my employer. It is solely my opinion and probably incorrect.
+  </p>
+</section>
+<section>
+<img src="/images/geomusings.png" width="64" height="64" alt="View my Twitter profile">
+</section>
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  - <span class="credit">Theme by <a href="http://www.gehaxelt.in">Gehaxelt</a></span>
+  <span class="credit">and <a href="http://www.it-solutions-neef.de">IT Solutions Neef</a></span>
+  <!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="free web stats"
+href="http://statcounter.com/free-web-stats/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="free web stats"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37240509-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- End of Google Analytics -->
+<!-- MapStats -->
+<script
+type="text/javascript"
+src="http://54.214.24.130/api/visits/2"></script>
+<!-- End of MapStats -->
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

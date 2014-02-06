@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Silverlight | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/silverlight/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[When Is a GeoPortal Not a GeoPortal?]]></title>
+    <link href="http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal/"/>
+    <updated>2013-04-24T13:40:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal</id>
+    <content type="html"><![CDATA[<p>When it's really a desktop application.</p>
+
+<p>Over the past few weeks, I have been reading with conflicted agreement the posts of <a href="http://mapbrief.com/2013/02/21/the-waiting-is-the-hardest-part-why-map-portals-dont-work-part-v/">Brian Timoney</a> and <a href="http://geosprocket.blogspot.com/2013/04/toward-ideal-geoportal.html">Bill Morris</a> about the nature of geo-portals and what they should or should not be and do. I say that I am in conflicted agreement not because I take any issue with anything they have said. Their posts represent what should be considered best practices in terms of building web mapping applications. In Brian's posts, the counter-examples he highlights represent some of the worst practices to be avoided.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/arcmap_browser.png" /></p>
+
+<p>My conflict arises from the fact that, while I agree with the ideas that Brian and Bill put forward, I find myself working against them in my current work. In my <a href="http://www.spatiallyadjusted.com/2013/04/10/hangouts-with-james-fee-developer-i-hardly-knew-her/">hangout with James Fee</a> a couple of weeks ago, I mentioned that I am working again (albeit temporarily) in the world of Silverlight. I am supporting a very large, complex Silverlight application that, as one of many functions, includes a mapping module that runs counter to almost every best practice espoused by Brian and Bill. And I am adding to it.</p>
+
+<!--more-->
+
+
+<p>The main difference with this application is that it will never be a public-facing internet application. It is intended to be deployed to a limited user base in an intranet/extranet environment. One of the overarching goals is to deliver sophisticated analytical tools and a desktop-like experience to the user community. So why not simply deliver a desktop application, or a series of extensions to ArcGIS, or both?</p>
+
+<p>The answer to that is simply "enterprise IT policy." This particular organization works under an IT policy framework that makes it nearly impossible to deploy custom desktop applications. This is not a unique situation as restrictive IT policies exist in many large organizations, especially Federal agencies. Some of that policy exists in the name of security, which is a laudable goal, but good developers with clear policy requirements, working in collaboration with IA staff, can secure an application regardless of how it is deployed. A larger driver is reduction of configuration management costs. It is simply expensive to identify specific users, ensure their systems meet proper specifications, deliver desktop tools to them, and sustain those tools over time. This, of course, has been one of advantages of web applications from the outset.  So "stuffing the desktop into the browser" looks like an attractive path and it is for development that must meet requirements within a budget and a schedule. Anything that reduces the friction of dealing with IT policy is a win.</p>
+
+<p>This is all well and good within the confines of one's own intranet. What happens behind the firewall stays behind the firewall...except for when it doesn't. Poor application design is poor application design regardless of which side of the firewall on which it sits. When draconian IT policy enshrines the adoption of something-less-than-best practices, we all lose. Groupthink begins to set in and developers that spend their time building plugin-based, should-be-desktop applications on the intranet for a targeted audience of GIS users can begin to lose perspective on what makes a suitable interface for the general user. Eventually, those intranet practices will begin to be exposed on public-facing applications because many developers will continue to do what they have learned (and have been encouraged) to do.</p>
+
+<p>Any enterprise that is sufficiently large enough to have instituted a heavy IT policy is probably engaged in some level of software development and/or customization. That policy should be flexible enough to enable users and developers to choose the right tool and/or architecture for the job, rather than turning one particular architecture (HTTP in this case) into a one-size-fits-all channel for inappropriately designed tools and practices.</p>
+]]></content>
+  </entry>
+  
+</feed>

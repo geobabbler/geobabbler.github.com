@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gvSIG | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/gvsig/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-02-05T21:56:00-05:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[gvSIG Case Studies Available]]></title>
+    <link href="http://blog.geomusings.com/2010/10/04/gvsig-case-studies-available/"/>
+    <updated>2010-10-04T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/10/04/gvsig-case-studies-available</id>
+    <content type="html"><![CDATA[<p>The <a href="http://www.osgeo.org/gvsig">gvSIG (open-source desktop GIS)</a> project now has a site listing gvSIG implementation case studies. It is available at:</p>
+
+<p><a href="http://casestudies.gvsig.org/">http://casestudies.gvsig.org/</a></p>
+
+<p>A quick perusal of the site shows a few case studies covering a variety of application areas. This type of thing could be a good way to showcase (and market) the power of gvSIG to a wider audience. It looks like you have to fill out a standardized form in order to submit a project, which gives the resulting case studies consistent and fairly clean structure.</p>
+
+<p>There's no indication of the acceptance criteria for a case study but it looks like something to keep an eye on for a while.</p>
+
+<p>So, if you're a gvSIG user or consultant, then here's a place to toot your horn.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[gvSIG and Wine]]></title>
+    <link href="http://blog.geomusings.com/2010/08/26/gvsig-and-wine/"/>
+    <updated>2010-08-26T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/08/26/gvsig-and-wine</id>
+    <content type="html"><![CDATA[<p>I mean <a href="http://en.wikipedia.org/wiki/Wine">wine</a>, not <a href="http://www.winehq.org/">Wine</a>.</p>
+
+<p>I've got to give kudos for innovative marketing on this one. I found this interesting announcement from gvSIG in my inbox this morning:</p>
+
+<blockquote>
+Enosat, in collaboration with the Association gvSIG, is going to carry  
+out an online course on Geographic Information Systems (GIS) and  
+Remote Sensing applied to vine-growing for the English-speaking  
+community.
+
+This new edition of the course is launched in English, hoping to  
+repeat the success of the previous edition in Spanish.
+
+The GIS software used for this course is free software (gvSIG Desktop).
+
+This course covers the basic concepts of GIS and Remote Sensing.  
+Furthermore, it enables students to apply these concepts to their  
+professional area. This course is aimed at the wine sector, that is,  
+technicians in charge of wineries, vine growers, etc.
+
+Places on the course are limited and the admission is in order of  
+registration. The syllabus and course details can be found at  
+<a href="http://www.enosat.com/formation.php">http://www.enosat.com/formation.php</a>
+For further information, please contact: <a href="mailto:course.enosat@gmail.com">course.enosat@gmail.com</a>
+</blockquote>
+
+
+<p>I really hope this takes off as I am already envisioning a host of implementation services built around this market. Now I've just got to translate my rates into bottles per hour. ;-)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[gvSIG Extensions Available]]></title>
+    <link href="http://blog.geomusings.com/2010/01/21/gvsig-extensions-available/"/>
+    <updated>2010-01-21T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2010/01/21/gvsig-extensions-available</id>
+    <content type="html"><![CDATA[<p>My inbox has been busy this week with announcements from <a href="http://www.gvsig.gva.es/inicio-gvsig/">gvSIG</a>. New builds of the network extension and the 3D extension have been released.</p>
+
+<p>New features of the network extension are described as:</p>
+
+<blockquote>
+"- Create and define network topology (using velocities, or sense of direction, modified costs, barriers, turn costs ...)
+- Calculate shortest path
+- Travelling Salesman Problem (TSP)
+- Origin - Destination matrices
+- Service Areas
+- Emergency / Nearest facilities provider
+- Minimum Spanning Tree (MSP)
+- Trace (back and forward) the network and find events on the network."
+</blockquote>
+
+
+<!--more-->
+
+
+<p>The new build of the 3D extension fixes some instabilities on Vista/Win7 and support for Leopard and Snow Leopard on the Mac. Its new features are described as:</p>
+
+<blockquote>
+"- New kernel version integrated (osgVP-2.2.0).
+- Improved memory management .
+- Added new symbology system.
+- Various display modes, including stereo and fullscreen."
+</blockquote>
+
+
+<p>As always, more information can be found on the <a href="http://www.gvsig.gva.es/inicio-gvsig/">gvSIG site</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[gvSIG 1.9 Released]]></title>
+    <link href="http://blog.geomusings.com/2009/11/12/gvsig-1.9-released/"/>
+    <updated>2009-11-12T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2009/11/12/gvsig-1.9-released</id>
+    <content type="html"><![CDATA[<p>Just ahead of the <a href="http://www.gvsig.gva.es/eng/inicio-gvsig/">gvSIG</a> <a href="http://jornadas.gvsig.org/home/view?set_language=en">conference</a> in Valencia, <a href="http://www.gvsig.gva.es/eng/gvsig-desktop/all-versions/download/gvsig-19/downloading-the-program/">version 1.9</a> has been released. gvSIG is an open-source desktop GIS developed in Java. The new features in 1.9 are summarized <a href="http://www.gvsig.gva.es/eng/gvsig-desktop/all-versions/download/gvsig-19/version-notes/new-features/">here</a>.</p>
+
+<p>Some of the new features, including SLD import/export, are pretty interesting. gvSIG seems to be flourishing a bit under the wing of <a href="http://www.osgeo.org/gvsig">OSGEO</a>. It's a tool that I have gone back to periodically over the years, and I'll probably take a deeper dive this time given some of the new features. I suggest giving gvSIG a go if you haven't tried it.</p>
+
+<p><img alt="gvSIG 1.9 released" src="http://www.gvsig.gva.es/uploads/pics/Logo-gvSIG_150_03.gif" /></p>
+
+<p>UPDATE: The gvSIG download site seems to be having some serious bandwidth issues.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Communication Proposal Deadline for gvSIG Conference]]></title>
+    <link href="http://blog.geomusings.com/2009/09/09/communication-proposal-deadline-for-gvsig-conference/"/>
+    <updated>2009-09-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2009/09/09/communication-proposal-deadline-for-gvsig-conference</id>
+    <content type="html"><![CDATA[<p>As I <a href="http://geobabble.wordpress.com/2009/06/30/5th-gvsig-conference-announced/">posted before</a>, the 5th <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a> conference is scheduled for December 2-4, 2009 in Valencia. I got an e-mail reminder that communication proposals (presentations, posters, etc.) are due by September 21st. From the e-mail:</p>
+
+<blockquote>
+We remind you that we are now expecting communication proposals for the 5th gvSIG Conference (Valencia, 2nd-4th December 2009) [1]. The deadline is September 21st.
+
+You just have to send an abstract, following the template provided on the Reports section of the Conference web page [2] to contacto-jornadas-gvsig@gva.es and the scientific committee will evaluate it to be in the conference programme.
+
+There are two types of communications: presentation and poster. The communications have to be preferably related to the gvSIG project and the following issues will be also be considered in the evaluation:
+
+  * Innovation.
+  * Usefulness for the GIS community.
+  * Usefulness for the free open source community.
+</blockquote>
+
+]]></content>
+  </entry>
+  
+</feed>
