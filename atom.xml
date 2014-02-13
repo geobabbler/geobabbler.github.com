@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-02-06T12:01:39-05:00</updated>
+  <updated>2014-02-13T17:32:29-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Initial Thoughts On the DC DevSummit]]></title>
+    <link href="http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit/"/>
+    <updated>2014-02-13T17:19:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit</id>
+    <content type="html"><![CDATA[<p>This week, I attended the first-ever <a href="http://www.esri.com">Esri</a> <a href="http://www.esri.com/events/devsummit-dc">DC DevSummit</a> which followed the <a href="http://www.esri.com/events/federal">Federal GIS Conference</a> (please switch it back to &#8220;FedUC&#8221;). This event, intended and a smaller, Federally-focused, companion to the annual Palm Springs DevSummit, came together quickly but was very well-attended with about 300 attendees.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/devsummit.jpg" /></p>
+
+<p>It was interesting to note that the most well-attended sessions of the day had to do with Javascript (every Javascript session had over 100 participants). As more and more organizations update their IT infrastructures, the acceleration away from plug-ins seems to be picking up pace. The most common refrain amongst attendees in that regard is that continued standardization on IE8 remains the biggest impediment to sunsetting things like Flex and Silverlight, but the logjam seems to be starting to break loose.</p>
+
+<!--more-->
+
+
+<p>Despite the photo I posted, <a href="http://twitter.com/ajturner">Andrew Turner&#8217;s</a> open-source session was fairly well-attended. It was good to see tools like <a href="https://github.com/Esri/koop">Koop</a> in action. It is clear that there is real effort going on within Esri to produce open-source tools and that the people working on them are genuinely committed to them. That said, it is obviously still early days and such efforts are clearly swimming upstream against the preponderance of corporate culture. This is an effort that will best be judged over the long haul.</p>
+
+<p>I also have to give a shout out to <a href="http://twitter.com/agup">Andy Gup</a>, whom I finally met at this conference. By chance, I sat through three of his sessions. He is one of the best technical presenters I have ever seen and Esri should require junior staff to sit through his sessions to see how it should be done.</p>
+
+<p>I found the DevSummit generally worthwhile and I was impressed with how well it came together given the short timeframe. Since I was encouraged to blog suggestions, here are a few:</p>
+
+<ol>
+<li><p>Make a DevSummit a permanent fixture as a follow-on to the Federal User Conference each year. The format of this year&#8217;s Federal conference can be tweaked but stay mainly focused on user-centric use cases and some intro-level discussions of technologies. A DevSummit would mark a shift in to much more technical content with advanced discussions of APIs, security, techniques and best practices.</p></li>
+<li><p>Pull out the stops. As I indicated in item 1, ramp up the technical content, in comparison to that of the Federal conference, significantly. This year&#8217;s event started down that path. I would keep the technical content of the Federal conference on the bunny slopes and shift to the black diamonds for the DevSummit.</p></li>
+<li><p>Expand to two days. It was a quick day and there were definitely sessions I would have liked to have gotten to. Additionally, it would be good to see some user content, maybe some lightning talks on the evening between the days. One of the biggest challenges working in the Federal space is the compartmentalization between and within agencies. With the DevSummit drawing interested people to one location, it would be good to get more opportunities to interact with other developers and exchange information.</p></li>
+<li><p><a href="http://www.gsa.gov/portal/category/102371?utm_source=OCM&amp;utm_medium=print-radio&amp;utm_term=HP_13_SpecialTopics_fedramp&amp;utm_campaign=shortcuts">FedRAMP</a> and <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> were non-existent this year. Jim Barry explained to me that these were areas where content simply wasn&#8217;t ready to go in the short time given to prepare for the DevSummit. That&#8217;s fair, and I certainly respect the decision to not provide content that could not be done well. These are, however, core issues for anyone doing development for the Federal Government. Next year&#8217;s DC DevSummit really needs to have content for developers attempting to deploy to FedRAMP and achieve FISMA compliance with Esri tools.</p></li>
+</ol>
+
+
+<p>Those my quick hits. I&#8217;ll probably have more after I have time to digest what I saw and dig out from the backlog resulting from two days out of the office. Kudos to <a href="http://twitter.com/jimbarry">Jim Barry</a> for his work pulling the DC DevSummit together.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Meanwhile, Over at Zekiah...]]></title>
@@ -898,47 +930,6 @@ Also included are land use/land cover data; congressional and legislative distri
 <p>I&#8217;m also encouraged by <a href="http://opengeo.org/">OpenGeo&#8217;s</a> <a href="https://github.com/opengeo/GeoGit">GeoGit</a> initiative. I have not personally experimented with it yet so I will not speculate on the specifics of its implementation, but I am happy to see OpenGeo recognizing the need for a more open approach to feature-level version control. Since, however, it will be open-source, my hope is that proprietary GIS vendors, or their supporting integrators, will eventually support it as well.</p>
 
 <p>Ultimately, I am happy to see both GitHub and OpenGeo addressing this issue. Although their approaches are different, they offer, in addition to the Esri approach, choices for organizations in terms of workflow. Many data managers, whether for legal, strategic, or other reasons, recognize the importance of maintaining version history of geospatial data records. It is important for everything from parcel mapping to critical infrastructure protection and many other use cases. Historically, there have been very few tools available to address this problem effectively but I am hoping that is starting to change.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Focus]]></title>
-    <link href="http://blog.geomusings.com/2013/07/19/focus/"/>
-    <updated>2013-07-19T00:02:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/07/19/focus</id>
-    <content type="html"><![CDATA[<p>While the majority of the geospatial world was at the Esri International User Conference in San Diego last week, I was at a different conference in Orlando, Florida. This was my third time attending the Children with Diabetes (CWD) <a href="http://www.childrenwithdiabetes.com/activities/orlando2013/">Friends for Life</a> (FFL) conference and I&#8217;ll be there as often as I can for the foreseeable future. It&#8217;s beneficial in many obvious ways; enabling us to keep up with the latest developments in diabetes research and technologies as well as keeping us refreshed in terms of diabetes management best practices.</p>
-
-<p>The unexpected thing for me over the years has been how the lessons I&#8217;ve learned at FFL have begun to translate into other aspects of life outside of diabetes. (I do not have diabetes myself but I am a parent of a person who does.)  This year, perhaps because the ongoing Esri UC was somewhere in the back of my mind, it provided a different lens through which to view my approach to my professional activities.</p>
-
-<p>The content at FFL is varied. Some touches on leading edge work in the field of biological treatments such as the <a href="http://www.diabetesresearch.org/BioHub">Diabetes Research Institute&#8217;s BioHub</a> as well as mechanical/electronic treatments such as the <a href="http://artificialpancreasproject.com/">Artificial Pancreas Project</a>. Other content touches upon achieving more effective day-to-day management using current techniques such as insulin pumps, shots, carbohydrate counting and the like.</p>
-
-<p>The conference includes many pharmaceutical companies offering competing products, differing lines of research that stand a chance of superseding one another, representatives of government agencies, insurance companies and advocacy groups that can have very adversarial relationships. Yet FFL has an overwhelmingly positive tone. This because everyone is focused on one goal: the elimination of diabetes. Any approach that represents a step toward that goal is cheered by all, as is any technique that eases the burden of living with diabetes in the meantime. Ultimately, the various technologies showcased at the conference help facilitate progress toward this goal but the technologies are not the point.</p>
-
-<p>Let me say that again.</p>
-
-<p><strong>The technologies are not the point.</strong></p>
-
-<!--more-->
-
-
-<p>This is the lesson that I am reminded of and am bringing back to my professional existence in the geospatial industry. Our industry has seen a lot of innovation from a number of players in recent years. The flowering of mature capability in the open-source world has, in my opinion, pushed proprietary vendors such as Esri offer improvements to their products and better solutions to their users. It can be easy to get caught up in the petty intrigues of the industry. What are Esri&#8217;s real motivations behind their latest acquisition? What mapping library is that government system using? Is that API really RESTful? And so on&#8230;</p>
-
-<p>All of the geospatial tools in the marketplace, regardless of provenance, serve to facilitate solutions to a myriad of real-world problems. And those problems are the point. As a consultant in the geospatial industry, my job is to help my customers find the tools that best solve their problems and help implement them. My responsibility is to keep an open mind about all of the tools that are available.</p>
-
-<div style="text-align: center;">
-<iframe width="560" height="420" src="http://www.youtube.com/embed/A8W8GGdD6pc?color=white&theme=light"></iframe>
-(May be considered NSFW by some)
-</div>
-
-
-<br/>
-
-
-<p>That doesn&#8217;t mean that I don&#8217;t have my preferences. I believe that open systems are better than closed. I believe that open-source licenses are inherently better at facilitating both enterprise scalability and grass-roots innovation. I believe that there&#8217;s a lot of really good proprietary, closed-source software. I believe that the greatest asset of any organization is its data. I believe that any tool that restricts an organization&#8217;s access to its data and its ability to share its data how it sees fit should be strongly discouraged. I believe that users bear the ultimate responsibility for understanding the technologies that they choose. I believe there is nothing more interoperable than a URL. I believe lots of other things learned through patience, experience, and collaboration.</p>
-
-<p>If I were employed by a vendor or a vendor-like organization, I may take a slightly more partisan view. I also don&#8217;t begrudge such organizations their own biases. I expect them to be loyal to their tools and to want to see them used and improved through that use. I would be suspect of them if they weren&#8217;t.</p>
-
-<p>That, however, is not the case with me. So, believing that open is better than closed, my responsibility is to ensure that my own thinking and my own mind are kept open. That&#8217;s something that I always know, but it is good to be reminded of it by being immersed in a community that is strongly focused on a goal.</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: FedUC | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/feduc/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-02-06T12:27:37-05:00</updated>
+  <updated>2014-02-13T17:32:29-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Initial Thoughts On the DC DevSummit]]></title>
+    <link href="http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit/"/>
+    <updated>2014-02-13T17:19:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit</id>
+    <content type="html"><![CDATA[<p>This week, I attended the first-ever <a href="http://www.esri.com">Esri</a> <a href="http://www.esri.com/events/devsummit-dc">DC DevSummit</a> which followed the <a href="http://www.esri.com/events/federal">Federal GIS Conference</a> (please switch it back to "FedUC"). This event, intended and a smaller, Federally-focused, companion to the annual Palm Springs DevSummit, came together quickly but was very well-attended with about 300 attendees.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/devsummit.jpg" /></p>
+
+<p>It was interesting to note that the most well-attended sessions of the day had to do with Javascript (every Javascript session had over 100 participants). As more and more organizations update their IT infrastructures, the acceleration away from plug-ins seems to be picking up pace. The most common refrain amongst attendees in that regard is that continued standardization on IE8 remains the biggest impediment to sunsetting things like Flex and Silverlight, but the logjam seems to be starting to break loose.</p>
+
+<!--more-->
+
+
+<p>Despite the photo I posted, <a href="http://twitter.com/ajturner">Andrew Turner's</a> open-source session was fairly well-attended. It was good to see tools like <a href="https://github.com/Esri/koop">Koop</a> in action. It is clear that there is real effort going on within Esri to produce open-source tools and that the people working on them are genuinely committed to them. That said, it is obviously still early days and such efforts are clearly swimming upstream against the preponderance of corporate culture. This is an effort that will best be judged over the long haul.</p>
+
+<p>I also have to give a shout out to <a href="http://twitter.com/agup">Andy Gup</a>, whom I finally met at this conference. By chance, I sat through three of his sessions. He is one of the best technical presenters I have ever seen and Esri should require junior staff to sit through his sessions to see how it should be done.</p>
+
+<p>I found the DevSummit generally worthwhile and I was impressed with how well it came together given the short timeframe. Since I was encouraged to blog suggestions, here are a few:</p>
+
+<ol>
+<li><p>Make a DevSummit a permanent fixture as a follow-on to the Federal User Conference each year. The format of this year's Federal conference can be tweaked but stay mainly focused on user-centric use cases and some intro-level discussions of technologies. A DevSummit would mark a shift in to much more technical content with advanced discussions of APIs, security, techniques and best practices.</p></li>
+<li><p>Pull out the stops. As I indicated in item 1, ramp up the technical content, in comparison to that of the Federal conference, significantly. This year's event started down that path. I would keep the technical content of the Federal conference on the bunny slopes and shift to the black diamonds for the DevSummit.</p></li>
+<li><p>Expand to two days. It was a quick day and there were definitely sessions I would have liked to have gotten to. Additionally, it would be good to see some user content, maybe some lightning talks on the evening between the days. One of the biggest challenges working in the Federal space is the compartmentalization between and within agencies. With the DevSummit drawing interested people to one location, it would be good to get more opportunities to interact with other developers and exchange information.</p></li>
+<li><p><a href="http://www.gsa.gov/portal/category/102371?utm_source=OCM&amp;utm_medium=print-radio&amp;utm_term=HP_13_SpecialTopics_fedramp&amp;utm_campaign=shortcuts">FedRAMP</a> and <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> were non-existent this year. Jim Barry explained to me that these were areas where content simply wasn't ready to go in the short time given to prepare for the DevSummit. That's fair, and I certainly respect the decision to not provide content that could not be done well. These are, however, core issues for anyone doing development for the Federal Government. Next year's DC DevSummit really needs to have content for developers attempting to deploy to FedRAMP and achieve FISMA compliance with Esri tools.</p></li>
+</ol>
+
+
+<p>Those my quick hits. I'll probably have more after I have time to digest what I saw and dig out from the backlog resulting from two days out of the office. Kudos to <a href="http://twitter.com/jimbarry">Jim Barry</a> for his work pulling the DC DevSummit together.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Esri Federal GIS Conference Features Immersion Summits]]></title>
@@ -96,34 +128,6 @@
 <p>I'm looking forward to the reprise of the <a href="http://www.esri.com/events/fedcon/agenda/dev-geo.html" target="_blank">DevGeo</a> session this year as well as a number of the sessions and also meeting up with a lot of my geo-geek friends. I haven't heard the details on #geoglobaldomination yet but I'm sure it will occur.</p>
 
 <p>I'll try to blog more during the course of the conference.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DC/MD/VA Area Geo-Event Scene Getting More Active]]></title>
-    <link href="http://blog.geomusings.com/2012/02/03/dcmdva-area-geo-event-scene-getting-more-active/"/>
-    <updated>2012-02-03T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/02/03/dcmdva-area-geo-event-scene-getting-more-active</id>
-    <content type="html"><![CDATA[<p>There was a time only a few years ago when, if you lived in the DC/MD/VA area, planning your geo-conference schedule for the year went something like this: Register for the ESRI FedUC and then start booking plane tickets for everything else. That is no longer the case with more events occurring in the area. Here's a round-up of a few events that are on my 2012 schedule so far:</p>
-
-<div style="text-align:center;"><img alt="" height="536" src="http://geobabble.files.wordpress.com/2012/02/foss4g_lanyard_small.png" title="foss4g_lanyard_small" width="495" /><div style="text-align:center;font-size: 14px;">You can never have too many of these...<br/><br/></div></div>
-
-
-<p><a href="http://www.esri.com/events/fedcon/index.html">ESRI Federal GIS Conference</a> (formerly known as the Federal User Conference): 22 - 24 February. This is probably one of the longest-running and largest events in the area. This year features another <a href="http://www.esri.com/events/fedcon/agenda/dev-geo.html">DevGeo</a> session, focusing on developing applications with the various ESRI tools. Last year was the first time it was done at a FedUC and the room was packed all day. This conference is obviously an ESRI show but the last few years have included unofficial, after-hours gatherings of people working with a wide range of geospatial tools. Even if you are not an ESRI user, there may be something going on in the vicinity that would be worthwhile. <!--more--></p>
-
-<p><a href="http://www.towson.edu/tugis/">TUGIS 2012</a>: 19 - 20 March. I hesitated to list this because the last thing you want to do is suggest to someone from Baltimore that they are in the DC area. So let me clarify: This is NOT technically a DC-area event but it draws a lot of attendees from the DC area. It's also probably the longest running GIS-related event in the region, celebrating its 25th year this year. The organizers at Towson do a good job of mixing up the program so it's not as overtly "Federal" as events farther down I-95 can be.</p>
-
-<p><a href="http://foss4g-na.org/">FOSS4G North America</a>: 10 - 12 April. This event was the topic of my <a href="http://blog.geomusings.com/2012/01/23/foss4g-north-america-to-be-held-in-washington-dc/">previous post</a>. Clearly, it's intended to be a North American event and I would expect it to move around year-to-year so I'll just be happy for the good fortune that <a href="http://www.osgeo.org/">OSGEO</a> decided to inaugurate it in my back yard. It makes perfect sense as there is growing interest in, and adoption of, open-source geospatial tools in the Federal Government.</p>
-
-<p><a href="http://www.wherecampdc.org/">WhereCampDC 2012</a>: Dates TBD. <a href="http://twitter.com/#!/kelsosCorner/status/156469857704083457">I have heard rumblings</a> but haven't seen details. Last year's event was great and I hope it is reprised this year.</p>
-
-<p>There are also a couple of interesting recurring events that have taken root in the area:</p>
-
-<p><a href="http://www.meetup.com/Geo-DC/">Geo DC Meetups</a> - This is an independent group that meets the first Wednesday of every month and covers a wide range of topics. Given that I live out in the provinces, I don't get into the city as much as I would like for these but the group has been gaining momentum. It seems to be doing a good job of building a community of geo-minded people in the area.</p>
-
-<p><a href="http://www.meetup.com/DevMeetUpNortheast/">ESRI Dev Meetups</a>: These meetups are ostensibly focused on application development with ESRI tools but, in practice, the content of the talks cover a wide variety of issues and tools. There have been talks regarding integration of ESRI tools with other geospatial platforms, best practices, case studies, etc. The nice part about these events is that ESRI doesn't want their staff doing the talking. They just book the venue and put out the refreshments. These meetups occur as part of ESRI's Northeast regional effort to establish these events so they don't occur as frequently as the Geo DC events.</p>
-
-<p>This level of activity in the region is good to see as the potential for a vibrant community has always been there. There are lots of people involved in making this happen but the people at <a href="http://developmentseed.org/">Development Seed</a>, <a href="http://www.geoiq.com">GeoIQ</a> and <a href="http://www.esri.com">ESRI</a> have been particularly proactive in energizing their respective constituencies and the results seem to be beneficial for all.</p>
 ]]></content>
   </entry>
   
