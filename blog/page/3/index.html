@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="While the majority of the geospatial world was at the Esri International User Conference in San Diego last week, I was at a different conference in &hellip;">
+  <meta name="description" content="There has been a bit of buzz the past couple of weeks over the ability of GitHub to render GeoJSON and TopoJSON files automatically using and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,53 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/07/28/devops-for-geospatial-data/">DevOps for Geospatial Data</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-28T10:54:00-04:00" pubdate data-updated="true">Jul 28<span>th</span>, 2013</time>
+        
+         | <a href="/2013/07/28/devops-for-geospatial-data/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There has been a bit of buzz the past couple of weeks over the <a href="https://github.com/blog/1541-geojson-rendering-improvements">ability of GitHub to render GeoJSON and TopoJSON files</a> automatically using  and embedded <a href="http://leafletjs.com/">Leaflet</a> map and <a href="http://www.mapbox.com/">MapBox</a> technology. This buzz is quite justified as it presents an easy way to simply publish and visualize vector data sets. In the weeks since the initial announcement, the community has begun exploring the limits of GitHub&#8217;s capability. Probably the two biggest limiting factors are individual file size limits and API rate limits. Some, including myself, are exploring strategies for maximizing the ability to store, disseminate, and visualize data within these confines. For the near term, <a href="https://github.com/">GitHub</a> will probably not be the place to store terabytes of data or act as the CDN for a high-volume mapping application. That is perfectly fine and there is still a great deal of value to be found within GitHub&#8217;s current generous constraints.</p>
+
+<p style="text-align:center;"><img src="/images/posts/geodata-git.png" /></p>
+
+<p>One aspect of GitHub (really, its underlying <a href="http://git-scm.com/">git</a> engine) that is of great interest to me is the ability to perform version control and configuration management on data itself. With GitHub, that currently takes the form of text-based formats such as JSON but it&#8217;s a start. In my experience supporting various customers over the years, configuration management of data has been a common gap in information operations. The most common, and inadequate, approach to this problem has been through the use of metadata. Almost two decades of viewing out-of-date, incomplete, and inaccurate metadata has given the lie to this approach. Metadata represents a separate maintenance workflow for which many organizations simply do not dedicate resources. Data-set-level metadata is also inadequate for volatile data sets in which individual records are updated frequently.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/07/28/devops-for-geospatial-data/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -504,52 +551,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/03/25/loose-ends/">Light Housekeeping</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-25T21:35:00-04:00" pubdate data-updated="true">Mar 25<span>th</span>, 2013</time>
-        
-         | <a href="/2013/03/25/loose-ends/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Just a quick note to tidy up some loose ends related to recent posts&#8230;</p>
-
-<p>First, regarding the post &#8221;<a href="http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/">A #LazyWeb Compendium of Python Resources for Beginners</a>,&#8221; the University of South Florida PyBulls Python interest group, as promised, compiled a list of Python resources and posted it <a href="https://github.com/PyBulls/learning-resources">on their GitHub page</a>. Thanks to them for their quick response.</p>
-
-<p style="text-align:center;"> <img src="http://img.ehowcdn.com/article-new/ehow/images/a06/kv/li/proper-cutting-down-tree-chainsaw-800x800.jpg" /></p>
-
-<p>Second, following up on the post &#8221;<a href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">The Best Thing I Saw at TUGIS 2013</a>,&#8221; the data and workbooks for Dr. Arthur Lembo&#8217;s introduction to open-source GIS have been made available. The data <a href="https://github.com/esrgc/qgistraining">can be found on GitHub</a> and the workbooks can be found on the <a href="http://www.esrgc.org/training/">Eastern Shore Regional GIS Cooperative web site</a>. Many thanks for contributing these resources.</p>
-
-<p>These items are embedded in the comments for their respective posts but I thought it would be useful to call them out more prominently.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -598,15 +599,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/02/17/url-utility-for-twitter-direct-messages/">URL Utility for Twitter Direct Messages</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/02/13/initial-thoughts-on-the-dc-devsummit/">Initial Thoughts On the DC DevSummit</a>
       </li>
     
       <li class="post">
         <a href="/2014/02/06/meanwhile/">Meanwhile, Over at Zekiah&#8230;</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/02/05/esri-federal-gis-conference-features-immersion-summits/">Esri Federal GIS Conference Features Immersion Summits</a>
       </li>
     
   </ul>
