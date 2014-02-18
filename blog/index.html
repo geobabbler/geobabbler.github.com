@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="When Twitter opened up direct messages (DMs) so that anyone could DM anyone else, they made it much more difficult to DM links. This is &hellip;">
+  <meta name="description" content="What does one do when presented with more snow days than expected? My friends in Colorado would probably do something outrageous like skiing, but I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,60 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/02/18/a-little-deeper-with-node-and-postgis/">A Little Deeper With Node and PostGIS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-18T13:44:00-05:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
+        
+         | <a href="/2014/02/18/a-little-deeper-with-node-and-postgis/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>What does one do when presented with more snow days than expected? My friends in Colorado would probably do something outrageous like skiing, but I found it to be a great opportunity to catch up on some of my recreational coding. Specifically, I wanted to revisit the <a href="http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/">Node/PostGIS work I blogged about earlier</a>.</p>
+
+<p>As fun as that project was, it was fairly limited in scope and I wanted to spread my wings a little more with Node. So I decided to build a more general-purpose wrapper around <a href="http://postgis.net">PostGIS</a>. Lately, I&#8217;ve become a bit obsessed with the idea that PostGIS may be the only GIS tool you really need in terms of data storage, management, and analytics. That&#8217;s probably a topic for another post but exploring that concept was a perfect premise for my continued explorations with Node.</p>
+
+<p>I have been circling back to Node over the past few months to continue building my comfort level with it. I tend to eschew frameworks when i have learning something new because I want to get comfortable with the core before I start layering on abstraction. That was my approach with <a href="http://blog.geomusings.com/2013/04/25/simple-tile-viewer/">the tile viewer tool I built a while back</a>. For the recent post centered on Amazon RDS, I added Express into the mix, which has been a big help.</p>
+
+<p>This time around, I wanted to dig a little deeper with the <a href="https://github.com/brianc/node-postgres">node-postgres</a> module and also make the application more modular. I wanted to build around a few core principles:</p>
+
+<ol>
+<li>Keep it RESTful (or as close to it as I could)</li>
+<li>GeoJSON in/GeoJSON out (so&#8230;.vector only for now)</li>
+<li>Let PostGIS do the heavy lifting</li>
+</ol>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2014/02/18/a-little-deeper-with-node-and-postgis/">Read on &rarr;</a>
+    </footer>
+  
+
+</article>
 
 
     <article class="post">
@@ -464,65 +518,6 @@
 <p>As <a href="http://twitter.com/geo_rube">Todd Barr</a> <a href="http://drunkengeographer.tumblr.com/post/69908102132/when-i-realize-that-no-one-who-plans-gis-spatial">eloquently points out</a>, the April 2014 calender is somewhat crowded with geo-events but, based on last year&#8217;s event, I&#8217;d recommend putting JS.Geo at the top of the list.</p>
 </div>
   
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/">Building a Simple Geodata Service With Node, PostGIS, and Amazon</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-12-11T15:18:00-05:00" pubdate data-updated="true">Dec 11<span>th</span>, 2013</time>
-        
-         | <a href="/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>tl;dr</strong></p>
-
-<p>This post describes the construction of a simple, lightweight geospatial data service using Node.JS, PostGIS and Amazon RDS. It is somewhat lengthy and includes a number of code snippets. The post is primarily targeted at users who may be interested in alternative strategies for publishing geospatial data but may not be familiar with the tools discussed here. This effort is ongoing and follow-up posts can be expected.</p>
-
-<p><strong>Rationale</strong></p>
-
-<p>I&#8217;m always looking for opportunities to experiment with new tools and the announcement of PostgreSQL/PostGIS support on Amazon RDS piqued my curiosity. Over the past six months, I have run into the repeated need on a couple of projects to be able to get the bounding box of various polygon features in order to drive dynamic mapping displays. Additionally, the required spatial references of these projects have varied beyond WGS84 and Web Mercator.</p>
-
-<p>With that, the seeds of a geodata service were born. I decided to build one that would, via a simple HTTP call, return the bounding box of a polygon or the polygon itself, in the spatial reference of my choice as a single GeoJSON feature.</p>
-
-<p>I knew I wanted to use PostGIS hosted on Amazon RDS to store my data. Here are the rest of the building blocks for this particular application:</p>
-
-<ol>
-<li><a href="http://nodejs.org">Node.js</a></li>
-<li>Express web application framework for Node</li>
-<li>PG module for accessing PostgreSQL with Node</li>
-<li>Natural Earth 1:10M country boundaries</li>
-</ol>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/">Read on &rarr;</a>
-    </footer>
   
 
 </article>

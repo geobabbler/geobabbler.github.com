@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="In case you missed it, ESRI as posted the ArcGIS 9.4 holistic testing schedule. The schedule currently runs through the end of April 2009 but doesn&# &hellip;">
+  <meta name="description" content="This isn&#8217;t a huge surprise but this announcement made it official a couple of days ago. Basically, you&#8217;ll need to use ArcGIS Server&#8217 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/01/arcsde-geocoding-services-deprecated-at-93/">ArcSDE Geocoding Services Deprecated at 9.3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-01T00:00:00-04:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
+        
+         | <a href="/2008/08/01/arcsde-geocoding-services-deprecated-at-93/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This isn&#8217;t a huge surprise but <a href="http://support.esri.com/index.cfm?fa=knowledgebase.documentation.viewDoc&amp;PID=66&amp;MetaID=1430">this announcement</a> made it official a couple of days ago.</p>
+
+<p>Basically, you&#8217;ll need to use ArcGIS Server&#8217;s server-side geocoding because the next release of ArcSDE won&#8217;t include it. The PDF attached to the announcement gives more detail. I know we had moved away from ArcSDE geocoding some time ago because it didn&#8217;t hold up to the load we were putting on it. We used Oracle Spatial instead.</p>
+
+<p>But, if you&#8217;ve got any apps that are still using ArcSDE for geocoding, now&#8217;s the time the transition.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -564,49 +606,6 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/06/02/using-arcsde-93-with-postgresql-part-2/">Using ArcSDE 9.3 With PostgreSQL, Part 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-02T00:00:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2008</time>
-        
-         | <a href="/2008/06/02/using-arcsde-93-with-postgresql-part-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In my <a href="http://geobabble.wordpress.com/2008/05/28/using-arcsde-93-with-postgresql-part-1/">previous post</a>, I discussed some approaches to configuring <a href="http://www.postgresql.org">PostgreSQL</a> databases and accessing the data in them with <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> 9.3. For this post, I will describe some of my ongoing experiences with getting data into ArcSDE 9.3.</p>
-
-<p>There are two main ways that I am investigating of loading/making available your spatial data in ArcSDE 9.3 for PostgreSQL. The first is the traditional method of importing a feature class via ArcCatalog. (You can also create data in this manner but I haven&#8217;t played with that yet.) The second is to register an existing <a href="http://postgis.refractions.net">PostGIS</a> table as a layer using the &#8221;<a href="http://edndoc.esri.com/arcsde/9.0/admin_cmd_refs/sdelayer.htm">sdelayer</a> -o register&#8221; command-line tool. I will discuss this latter option first.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/06/02/using-arcsde-93-with-postgresql-part-2/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/25/">&larr; Older</a>
@@ -655,15 +654,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/02/18/a-little-deeper-with-node-and-postgis/">A Little Deeper with Node and PostGIS</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/02/17/url-utility-for-twitter-direct-messages/">URL Utility for Twitter Direct Messages</a>
       </li>
     
       <li class="post">
         <a href="/2014/02/13/initial-thoughts-on-the-dc-devsummit/">Initial Thoughts On the DC DevSummit</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/02/06/meanwhile/">Meanwhile, Over at Zekiah&#8230;</a>
       </li>
     
   </ul>

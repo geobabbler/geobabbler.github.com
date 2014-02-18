@@ -9,12 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="&#8220;Buy the sky and
-Sell the sky and
-Lift your arms up to the sky
-And ask the sky
-And ask the sky
-Don&#8217;t fall on me&#8221; Did REM predict &hellip;">
+  <meta name="description" content="As zigGIS 2.0 enters its beta stage, I am (somewhat strangely) reminded of the famous line from Yeats: &#8220;what rough beast, its hour come round &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +67,53 @@ Don&#8217;t fall on me&#8221; Did REM predict &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/04/09/ziggis-beta/">ZigGIS Beta</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-09T00:00:00-04:00" pubdate data-updated="true">Apr 9<span>th</span>, 2008</time>
+        
+         | <a href="/2008/04/09/ziggis-beta/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As zigGIS 2.0 enters its beta stage, I am (somewhat strangely) reminded of the famous line from Yeats:</p>
+
+<p>&#8220;what rough beast, its hour come round at last,
+Slouches towards Bethlehem to be born?&#8221;</p>
+
+<p>Kind of a weird thing to have pop into your head in relation to something as positive as zigGIS, but sleep deprivation can do that.</p>
+
+<p>Anyway, this is more of a status update than an invite. ZigGIS 2.0 is getting ready to enter its beta stage. The beta will be a closed beta amongst a subset of existing users. <a href="http://abegillespie.blogspot.com/2008/04/teb-beta.html">Abe has blogged about it.</a> It&#8217;ll help us get it tested while also keeping the beta program manageable (for us).</p>
+
+<p>So, for those who will be beta testing, now is the time. For the rest who are interested, zigGIS 2.0 is moving forward. More info can be found on Abe&#8217;s blog and screencasts are available at the <a href="http://www.obtusesoft.com/">Obtuse</a> site.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -471,58 +513,6 @@ Don&#8217;t fall on me&#8221;</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/03/18/dev-summit-rest-api-session/">Dev Summit REST API Session</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-03-18T00:00:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2008</time>
-        
-         | <a href="/2008/03/18/dev-summit-rest-api-session/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I just sat through the first REST API session at the Dev Summit. They had it in a pretty big room and it was packed. There is a lot of interest in it here. Generally, you can walk up to just about any random person and they&#8217;ll say they want to learn more about the REST API. The other web APIs (JavaScript, SOAP, etc.) are also generating a lot of interest.</p>
-
-<p>To sum up the REST API in one word: impressive. ESRI is definitely on the right track here. I think this API could end up overshadowing the others over time. After sitting through the session, I have my doubts about whether the API holds up to the strictest definition of REST but I came away unconcerned by that. The simplicity and the power of this API cannot be understated.</p>
-
-<p>All resources (requests, layers, services, etc.) are represented as URLs. This provides the ability to very simply call powerful geoprocessing and analysis services running in ArcGIS Server. The API also supports a myraid of output formats. They demonstrated using Google Earth, Google Maps and Virtual Earth as clients. Also shown was the use of Python and Ruby scripts to call AGS services through the REST API as well as Yahoo Pipes. The output formats specifically discussed were HTML (default), (geo)JSON, KML/KMZ, image, layer (for use by ArcMap clients), NMF (for AGX), Google Maps and Virtual Earth. There&#8217;s enough there to pretty much do what you need.</p>
-
-<p>Before anyone asks, no they did not specifically mention OpenLayers nor was it shown but there were numerous examples of GeoJSON output. Based on what I saw, I think it would trivial to integrate with OpenLayers.</p>
-
-<p>The REST API makes diligent use of caching in order to optimize performance. One aspect I was interested in was security. During the plenary, it was mentioned that AGS security can be managed using industry standards such as LDAP and others. While this is not specific to the REST API, it is worth noting that, once security settings are defined, they automatically apply across all of AGS&#8217;s supported web interfaces. This will be a huge thing for many of my customers. In addition, security is role-based and can be applied to folders or individual services.</p>
-
-<p>From a developer standpoint, 9.3 could end up being the most important release of ArcGIS in a long time. The JavaScript, SOAP and REST APIs will open up development to a lot of new developers. I think that these APIs will be critical to achieving the goal for ArcGIS articulated at the FedUC for AGS to be the geospatial analysis engine that can feed the visualization client of your choice.</p>
-
-<p>A couple of other minor notes: AGS 9.3 introduces a geometry service that&#8217;s not bound to any specific data but exposes geometric opertations to clients. Currently, the REST API only supports simple geometries so parametric types such as arcs and circles are converted to densified lines or polygons.</p>
-
-<p>This was an impressive session. It looks like ESRI is putting a lot of effort into getting the REST API as right as they can this first time out. This session made me eager to get home and get the 9.3 beta running.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/27/">&larr; Older</a>
@@ -571,15 +561,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/02/18/a-little-deeper-with-node-and-postgis/">A Little Deeper with Node and PostGIS</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/02/17/url-utility-for-twitter-direct-messages/">URL Utility for Twitter Direct Messages</a>
       </li>
     
       <li class="post">
         <a href="/2014/02/13/initial-thoughts-on-the-dc-devsummit/">Initial Thoughts On the DC DevSummit</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/02/06/meanwhile/">Meanwhile, Over at Zekiah&#8230;</a>
       </li>
     
   </ul>

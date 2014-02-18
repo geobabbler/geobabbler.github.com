@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: .net | geoMusings]]></title>
+  <title><![CDATA[Category: .Net | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/-net/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-02-17T13:14:42-05:00</updated>
+  <updated>2014-02-18T16:26:02-05:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,211 +14,22 @@
 
   
   <entry>
-    <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
-    <link href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/"/>
-    <updated>2012-08-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api</id>
-    <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
+    <title type="html"><![CDATA[SharpMap 1.0 RC1 Released]]></title>
+    <link href="http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released/"/>
+    <updated>2013-03-28T06:10:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/28/sharpmap-1-dot-0-rc1-released</id>
+    <content type="html"><![CDATA[<p>Over on Google+, <a href="https://plus.google.com/u/0/117900686009614580552/posts">Diego Guidi</a> let me know that the <a href="http://sharpmap.codeplex.com/releases/view/104098">SharpMap 1.0 Release Candidate has been released</a>. There was a time when I worked with, <a href="https://www.google.com/search?q=site%3Ablog.geomusings.com&amp;q=sharpmap">and wrote about</a>, SharpMap a lot. During that entire time, the stable version of SharpMap sat at some version number that started with "0.9". The release of a 1.0 candidate is a signal that the project is moving forward.</p>
 
-<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
+<p style="text-align:center;"> <img src="http://www.zekiah.com/sites/default/files/images/SharpMapSQL2008.preview.png" /></p>
 
-<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. <!--more--></p>
-
-<p>Since the PIM is really a configuration management system for spatial data models, the tools need to support a wide variety of scenarios, including data migration between platforms, versions, approved user-defined implementations, etc. in a manner that's compliant with the data model being managed. As a result, some ETL-like tools are built into the workflows, although ETL is not a primary focus of the PIM.</p>
-
-<p>Since the PIM tools are written in .NET, I built a couple of extension methods to assist with some of the workflows in the existing tools. They enable outbound support for GeoJSON and WKT. The GeoJSON methods work on RowCollection, Row, and ShapeBuffer objects to create FeatureCollection, Feature, and Geometry types respectively. In practice, they'd be used something like this example from a very simple ASP.NET MVC sample application:</p>
-
-<p>{% codeblock lang:csharp %}
-var path = Server.MapPath("/App_Data/mvc_samples.gdb");
-Geodatabase gdb = Geodatabase.Open(path);
-Table statesTable = gdb.OpenTable("\us_states");
-RowCollection rows = statesTable.Search("*", "STATE_NAME LIKE 'M%'", RowInstance.Recycle);
-var rval = rows.ToGeoJson();
-gdb.Close();
-Response.ContentType = "application/json";
-object result = this.Content(rval);
-return result as ActionResult;
-{% endcodeblock %}</p>
-
-<p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
-
-<p>As I said, I developed these to support workflows in existing applications. If you're looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using GeoIQ Analytics in .Net Applications]]></title>
-    <link href="http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications/"/>
-    <updated>2012-07-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications</id>
-    <content type="html"><![CDATA[<p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it's my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That's good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
-
-<p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
-
-<p>The GeoIQ platform offers <a href="http://developer.geoiq.com/api/analysis/" target="_blank">several functions</a> to analyze data sets hosted on a GeoIQ instance or GeoCommons. I have not yet wrapped all of the functions but am working my way through them as I can.</p>
-
-<p>For this post, I will intersect the locations of <a href="http://geocommons.com/overlays/87503" target="_blank">US GISPs as of 1/26/2011</a> with the <a href="http://geocommons.com/overlays/149925" target="_blank">Maryland Zip Code Boundaries</a> to produce a data set containing the locations of GISPs in Maryland, depicted in the map below.</p>
-
-<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/07/intersect_results.png"><img alt="" class="size-full wp-image-2793" height="340" src="http://geobabble.files.wordpress.com/2012/07/intersect_results.png" title="intersect_results" width="640" /></a><div style="text-align: center; font-size: 14px">Don't worry, none of these are me.<br /><br/></div></div>
-
-
-
+<p>This is important because there are still an awful lot of .Net developers out there, especially in government shops that made a big Microsoft push in terms of infrastructure and training years ago. Of course, many of those shops are also committed to Esri technologies but SharpMap, while being a fully-functioning mapping/GIS library, also provides easy access to data sources not natively supported by Esri. Additionally, it is very easy to extend to support new or custom data sources and strightforward to <a href="http://www.zekiah.com/index.php?q=node/146">get SharpMap to play nicely in traditionally Esri-centric environments</a>.</p>
 
 <!--more-->
 
 
-<p>It is important to understand how analytics on the GeoIQ platform work. The output of any successful operation will be a new data set representing the analysis results. Additionally, due to the fact that some analyses may take a long time, they are run asynchronously so you'll need to check back periodically to see if the analysis is complete. That leads to the following very basic workflow:</p>
+<p>At <a href="http://www.zekiah.com">my company</a> we've used SharpMap for just that for one of our key Navy customers. By building custom SharpMap data sources, we've been able to encapsulate business logic in Oracle, including the use of Oracle <a href="http://www.slideshare.net/shawty_ds/what-is-spatial-sql">Spatial SQL</a> to execute spatial analysis processes and deliver the results back to an Esri web client that is also interacting with ArcGIS Server for many standard functions. SharpMap enabled us to expose this logic through an HTTP+JSON interface while bypassing geodatabases, server object extensions, and other such cruft.</p>
 
-<ol>
-<li>Initialize analysis</li>
-<li>Periodically check status</li>
-<li>When complete, do something with it</li>
-</ol>
-
-
-<p>So let's get started. Since my original commit, I have added a class that contains wrappers for the GeoIQ analysis methods (<a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Analytics.cs" target="_blank">see here</a>). Due to the consistency of the GeoIQ design, they are all very similar and I'll probably get around to doing some clean-up refactoring after I get all of the methods wrapped. All of the methods I've wrapped so far return the same JSON response so it was easy to create a simple <a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Data/AnalyticsData.cs" target="_blank">AnalyticsResponse</a> class to deserialize that.</p>
-
-<p>In the calling application, I'll set up a couple of module-level objects to help keep track of things:</p>
-
-<p>{% codeblock lang:csharp %}</p>
-
-<pre><code>    private System.Timers.Timer _layerTimer = new System.Timers.Timer(500); //to check status of analysis
-    private AnalyticsResponse _response = null; //response object created by analysis
-    private Analytics _analytics = new Analytics("http://geocommons.com", "username", "password"); //instance of wrapper class for GeoIQ analytic methods
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>With these building blocks in place, it's fairly easy to execute the basic workflow:</p>
-
-<ol>
-<li>Initialize analysis:</li>
-</ol>
-
-
-<p>{% codeblock lang:csharp %}
-//call intersect method
-//layer 87503 = GISPs, layer 149925 = zip codes
-//prefer_1 tells GeoIQ to return records from layer 1 (GISPs in this case)
- <em>response = </em>analytics.Intersect(87503, 149925, MergeOptions.prefer_1); //capture response object
- //start timer to check status
- this._layerTimer.Enabled = true;
-{% endcodeblock %}</p>
-
-<p>This calls the intersect method of the Analytics object, captures the resulting response object, and starts the timer to check the status of the analysis.</p>
-
-<ol>
-<li>Periodically check status:</li>
-</ol>
-
-
-<p>In this case, I used a simple timer that checks every half second, although you may want to space that out more if you're sure your analyses will take a while to run. This shows the timer event handler code:</p>
-
-<p>{% codeblock lang:csharp %}
-void _layerTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-{</p>
-
-<pre><code> string status = _analytics.GetState(_response.ID); //ID is that of new layer created by analysis
- if (status.ToLower() == "\"complete\"") //this means analysis is complete
- {
-     //use Invoke to access UI elements from timer thread
-     this.Invoke(new MethodInvoker(delegate
-     {
-        //set up link label to enable download of new data as KML
-        this.lnkDownloadShape.Text = "Analysis Complete: Download KML";
-        this.lnkDownloadShape.Links.Clear();
-        this.lnkDownloadShape.Links.Add(19, 18, "http://geocommons.com/overlays/" + _response.ID.ToString() + ".kml");
-        this.lnkDownloadShape.Visible = true;
-        this._layerTimer.Enabled = false;
-     }));
- }
-</code></pre>
-
-<p>}
-{% endcodeblock %}</p>
-
-<p>In a nutshell, it checks the status using a wrapper method. If the status is "complete", then a download link is shown. This code makes the KML version available but you could choose a shapefile or any other format supported by GeoIQ.</p>
-
-<ol>
-<li>When complete, do something with it:</li>
-</ol>
-
-
-<p>In this case, I just make it available for download. Once the data set exists, however, it's really just a matter of imagination.</p>
-
-<p>{% codeblock lang:csharp %}
-private void lnkDownloadShape_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-{</p>
-
-<pre><code>//this actually downloads the data and may even fire off Google Earth
-System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
-</code></pre>
-
-<p>}
-{% endcodeblock %}</p>
-
-<p>In a more robust application (meaning not a sample for a blog post), you could put the results into a map or feed them into locally-installed analysis tools for further processing or do just about anything you want that supports your workflow. I've been a fan of the analytical capability of GeoIQ for some time and I hope, whatever the future holds, that these kinds of tools make it into the next generation of products.</p>
-
-<p>The full Windows Forms code for this sample is <a href="https://gist.github.com/3137738" target="_blank">available here</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GeoIQ API Wrappers for .Net]]></title>
-    <link href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/"/>
-    <updated>2012-06-11T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net</id>
-    <content type="html"><![CDATA[<p>A while back, I built a small <a href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/" target="_blank">interface between GeoIQ/GeoCommons and ArcGIS Desktop</a>. From there, it became more of a full-fledged <a href="http://developer.geoiq.com/tools/arcgis-toolbar/" target="_blank">toolbar for ArcGIS</a>. During that effort, I began developing some .Net classes to wrap the <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">GeoIQ RESTful API</a>. As we progressed with the toolbar, my colleague <a href="http://www.hugoestrada.net/" target="_blank">Hugo Estrada</a> also contributed to the library.</p>
-
-<p><img alt="" class="aligncenter size-full wp-image-2676" height="145" src="http://geobabble.files.wordpress.com/2012/06/geoiq_dotnet2.png" title="GeoIQ + .Net" width="640" /></p>
-
-<p>The original intent was to wrap the entire API but it turns out that we were undertaking this in the middle of GeoIQ's upgrade to version 2.0. In the intervening time, we got some projects implementing the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform for end users (such as the <a href="http://blog.geoiq.com/2012/04/27/visualizing-our-changing-climate-with-climascope/" target="_blank">Climascope portal</a> that Andrew Turner recently blogged about). <!--more--></p>
-
-<p>While all of this was going on, I would occasionally blog about some of the work we were doing and, thanks to various search engines, I've gotten a few inquiries about interfacing with GeoIQ within .Net applications. Apparently, GeoIQ has also had a few such inquiries.</p>
-
-<p>Because of this interest, I have decided to post the wrapper library as it currently stands to GitHub. It can be found here: <a href="https://github.com/geobabbler/GeoIQ4Net">https://github.com/geobabbler/GeoIQ4Net</a></p>
-
-<p>It is very much a work in progress. We have been able to extend it on a project-by-project basis to touch those parts of the API that we have needed to use. For example, you may notice that the wrapper for the GeoIQ Maps API is a little thin. It implements only what we needed to use during a project time crunch. You may also notice the lack of docs. Those will be coming soon, I promise.</p>
-
-<p>We have successfully used this library to develop desktop tools, command-line tools, <a href="http://www.silverlight.net/" target="_blank">Silverlight</a> applications and ASP.NET applications (old ASP.NET forms as well as MVC). Additionally, I have successfully compiled the library on Linux using <a href="http://www.mono-project.com/Main_Page" target="_blank">Mono</a> with no modifications. Most of the original methods have synchronous and asynchronous versions to support both Silverlight and ASP.NET applications, some of the later ones are still lacking asynchronous equivalents.</p>
-
-<p>I have my own road map of things that I'd like to implement to make the library more complete but, given the rising interest in integrating GeoIQ with .Net, I thought it best to put the code out now. Most of the initial development was funded by GeoIQ with the intent of releasing it as open-source. This step finally fulfills that vision. Please feel free to fork, improve, patch or contribute as you see fit and check back for updates. If you have questions, feel free to contact me directly (contact information is on the About page of this blog) until such time as I can post some docs.</p>
-
-<p>A couple of technical notes: The library is written in C#. There project files for the .Net Framework 3.5 and 4.0. This was done to meet the needs of ArcGIS 9.3 and Microsoft Office 2010, respectively. The library was been successfully used with private, hosted GeoIQ instances as well as <a href="http://www.geocommons.com" target="_blank">GeoCommons</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MapWindow Open-Source Conference Coming Up]]></title>
-    <link href="http://blog.geomusings.com/2012/05/25/mapwindow-open-source-conference-coming-up/"/>
-    <updated>2012-05-25T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/05/25/mapwindow-open-source-conference-coming-up</id>
-    <content type="html"><![CDATA[<p>Thanks to Twitter, I see that the <a href="http://www.mapwindow.org/conference/2012/" target="_blank">3rd annual MapWindow Open-Source GIS Conference</a> is coming up at the end of June. It is being held in Velp, The Netherlands. I call this conference out because it has a strong, but not exclusive, concentration on open-source GIS tools for the .Net environment, such as <a href="http://dotspatial.codeplex.com/" target="_blank">DotSpatial</a>, <a href="http://sharpmap.codeplex.com/" target="_blank">SharpMap</a>, and <a href="https://code.google.com/p/nettopologysuite/" target="_blank">NTS</a>. Additionally, there will be content on non-.Net tools such as PostGIS, OpenLayers and others. This makes sense as any complete stack usually contains a mix of technologies. <a href="http://postgis.org/" target="_blank">PostGIS</a> is almost the <em>de facto</em> standard back-end for open-source geo stacks and <a href="http://qgis.org/" target="_blank">QGIS</a> is probably the best open-source editor for it so inclusion of such tools is quite necessary.</p>
-
-<p><img alt="MapWindow" src="http://geobabble.files.wordpress.com/2012/05/mapwindow.png?w=245" /></p>
-
-<p>For a number of reasons, I can't attend but I'll be watching the live stream with interest. It's location in Europe makes a lot of sense. I've always noticed that my early posts on SharpMap get a large portion of traffic from Europe and a majority of the user base of <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> was European so I suspect there is a lot of demand there for open-source tools built on .Net. This conference could be a good one-stop shop if you are interested in such tools.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Couple of Updates]]></title>
-    <link href="http://blog.geomusings.com/2010/06/15/a-couple-of-updates/"/>
-    <updated>2010-06-15T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2010/06/15/a-couple-of-updates</id>
-    <content type="html"><![CDATA[<p>Shortly after my <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">previous post</a>, about browsing and downloading data from <a href="http://www.geocommons.com">GeoCommons</a>, hit the wires, I got quite a few back-channel requests for the code. I sent it out via e-mail to a number of people and then posted it via DropBox. I have finally gotten around to posting it up on Google Code, making things much more manageable. It is now available <a href="http://code.google.com/p/geocommonsbrowser/">here</a>.</p>
-
-<p>I have made a few updates since the original post. Some were administrative but were functional. They are:</p>
-
-<ol>
-<li>The code was updated to replace SharpZipLib with <a href="http://dotnetzip.codeplex.com">DotNetZip</a> for handling zip files.</li>
-<li>The code now attempts to identify the default KML handler on the user's system and pass KML directly to it for previewing.</li>
-<li>The user now gets a wait cursor when the tool is processing downloads and such. This should make it a little more usable.</li>
-<li>The code headers had been pasted in from <a href="http://sharpmap.codeplex.com">SharpMap</a> and I missed some references to SharpMap in the text. Those have been corrected.</li>
-</ol>
-
-
-<p>Anyway, thanks for all the interest. It sort of caught me off guard but at least the code is more accessible now. I've got a few more updates planned so this should streamline things.</p>
+<p>In recent years, other open-source .Net projects such as <a href="https://dotspatial.codeplex.com/">DotSpatial</a> have gained traction and that's good. The .Net environment remains in widespread use so it is useful to have open-source geospatial options for that platform. I'm happy to see SharpMap remaining an option in that space.</p>
 ]]></content>
   </entry>
   
