@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Programming | geoMusings]]></title>
+  <title><![CDATA[Category: programming | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-03-12T11:30:53-04:00</updated>
+  <updated>2014-04-01T15:46:12-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,68 +14,178 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Come Sling Code With Us]]></title>
-    <link href="http://blog.geomusings.com/2013/09/20/come-sling-code-with-us/"/>
-    <updated>2013-09-20T09:57:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/09/20/come-sling-code-with-us</id>
-    <content type="html"><![CDATA[<p>It's been a pretty good week for us at <a href="http://www.zekiah.com">Zekiah</a>. We announced two new <a href="http://www.zekiah.com/index.php?q=press/2013/09/16/zekiah-technologies-inc-wins-marine-corps-logistics-support-services-mclogss-contra">contract</a> <a href="http://www.zekiah.com/index.php?q=press/2013/09/16/zekiah-technologies-inc-awarded-contract-mission-assurance-division">wins</a> and I'm pleased to say that we're not done yet. After final paperwork is done, we should be able to announce a couple more. These are the things that make small-business ownership worthwhile: doing good work, building relationships with our customers and then leveraging our track record to be able to work with new customers. Project execution and business development help us build the foundation necessary to be a good place for our employees to work and we try hard every day to make sure that we are such a place.</p>
+    <title type="html"><![CDATA[Data, Apps, and Maps]]></title>
+    <link href="http://blog.geomusings.com/2014/04/01/data/"/>
+    <updated>2014-04-01T15:14:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/04/01/data</id>
+    <content type="html"><![CDATA[<p>It's been a quiet month-and-a-half here on the blog, mostly owing to an abundance of project tasks. I recently started a short-term project to help one of my Federal customers extend data source support for an application they have been developing. This customer is technically a new one but the project team is made up of government developers that I have worked with on a few other projects so there is a great deal of familiarity.</p>
 
-<p>The second contract win we announced this week, with the US Navy's Mission Assurance Division in Dahlgren, Virginia, is particularly fulfilling for us because we have worked side-by-side with that organization since the late 1990's, doing challenging work in the areas of infrastructure protection and situational awareness during that time. We have literally grown and evolved alongside them over that time.</p>
-
-<p>I typically try not to mix my blog with the daily operational aspects of my work at Zekiah. Usually, my work comes through in abstracted form in various posts, although many posts actually reflect my own personal experimentation and side projects. I'm stepping outside of that practice today to say that our latest contract win has given us <a href="http://www.zekiah.com/index.php?q=careers/openings/gis-software-developer-ii">an opening for a software developer</a> to come work with us at the Mission Assurance Division.</p>
-
-<div style="text-align: center;"><img src="http://blog.geomusings.com/images/posts/desk.jpg" /><div style="text-align: center;font-size: 14px;">Can you bring this workstation to life?</div></div>
-
-
-<br />
-
-
-
+<p>The application, which has been under development for some time, is written in .Net and make use of the open-source (MIT) <a href="http://greatmaps.codeplex.com">GMap.NET</a> mapping library. The application features a desktop version running in Windows and a mobile version running on Android tablets. The .Net back end works seamlessly on both through the use of <a href="http://xamarin.com">Xamarin</a>, although I have not had the chance to get my hands dirty with that yet due to limits on Xamarin licenses and available Android devices. To its credit, GMap.NET seems to work fairly well in both environments.</p>
 
 <!--more-->
 
 
-<p>This is an immediate opening and you would be performing .Net development with the full range of Microsoft and Esri technologies. The work has been challenging and is mission-essential for not only our customer but their sponsors as well. The work would require you to be on-site full time but you would be working with one of the most talented teams of developers, both government and contractor, with which I have ever been associated. This is a group from which I have learned a great deal and still do. This specific position is not for someone who is particularly senior but it is also not entry-level either. It's a great opportunity to grow a career that's underway and picking up steam.</p>
+<p>The project needed the ability to plug in custom base maps that would be accessible on the mobile devices which would not have internet connectivity, so I chose to use <a href="https://www.mapbox.com/developers/mbtiles/">MBTiles</a> as the provider format, given that it is widely supported and well-documented. This was my first time using the GMap.NET library and it was fairly easy to develop a new provider for it. <a href="https://github.com/geobabbler/MBTilesMapProvider">I have posted my provider code here</a>, though it may not work as a separate library due to some design choices in the core library.</p>
 
-<p>You can get some details by checking out the <a href="http://www.zekiah.com/index.php?q=careers/openings/gis-software-developer-ii">offical job posting</a>, where you can also apply online. Most of that language is pulled directly from the description in the contract. If you want to get an idea of what the day-to-day work looks like, <a href="http://blog.geomusings.com/about/">you can always contact me directly</a>. I will draw your attention to one requirement, however: "Active security clearance or the ability to obtain a security clearance." What that means is that we can't entertain staffing via offshoring, nor can we consider applicants who do not hold US citizenship. I bring that up only because everyone's time is valuable and I'd hate for you to waste your time applying if we can't consider you.</p>
+<p>From there, I actually had to move on to making some data sets for the various upcoming application test runs. This enabled me to reconnect with some old friends: <a href="https://www.mapbox.com/tilemill/">TileMill</a>, <a href="http://www.arc2earth.com">Arc2Earth</a>, and <a href="http://market.weogeo.com">WeoGeo</a>. I used WeoGeo for the bulk of my data acquisition, sticking to open data sources such as OSM and TIGER. The areas that I needed to work with were fairly small and WeoGeo's feature of allowing me to upload KML to clip my data is really quite nice. If you still haven't checked out WeoGeo for data acquisition, you really should. The customization tools even make for-purchase data sets fairly affordable.</p>
 
-<p>So, if you're looking for the next challenge in your career and want to work with a great team, please send us your vitals. Some of the best and most meaningful work I've done in my career was done supporting this customer.</p>
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/weoorder.png" /></p>
+
+<p>I did my initial prototyping in TileMill to generate data sets to test the map provider. Once I moved on to building the actual data sets, I moved over to Arc2Earth. The main driver for that decision was that, in addtion to data acquired from WeoGeo, I had some data in a few government formats to integrate as well. Through GDAL and OGR, I could have accomplished that in TileMill, but I was able cut out a lot of data manipulation with Arc2Earth. That is why we keep multiple tools on the workbench.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/a2eexport2.png" /></p>
+
+<p>To help fusing multiple databases, I had to take the step of developing <a href="https://github.com/geobabbler/MBTilesMerge">a GUI tool to merge MBTiles</a> databases. <a href="https://github.com/mapbox/mbutil/blob/master/patch">MapBox has a perfectly fine utility</a> to do this but this particular shop has seen fit to block console access on our Windows machines so I had to create my own tool to accomplish this task.</p>
+
+<p>Every once in a while, it's good to get back in touch with data and mapping workflows. It keeps me honest as a developer, even though mapping is not my strong suit. I have found working with GMap.NET interesting but I'm not sure I'd choose to do so again. There are a few design choices that fall into the "not how I would have done it" category but, primarily, I haven't found any compelling reason to choose it over <a href="https://sharpmap.codeplex.com">SharpMap</a>, <a href="https://dotspatial.codeplex.com">DotSpatial</a>, or <a href="https://brutile.codeplex.com">BruTile</a>, which are open-source .Net libraries with which I am much more familiar.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[A #LazyWeb Compendium of Python Resources for Beginners]]></title>
-    <link href="http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/"/>
-    <updated>2013-03-17T15:19:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners</id>
-    <content type="html"><![CDATA[<p>A friend who is in the midst of a career change and moving into the GIS world asked me for some pointers to resources for getting started with Python. I threw the question out to Twitter (with a similar variation also posted to Google+):</p>
+    <title type="html"><![CDATA[When Is a GeoPortal Not a GeoPortal?]]></title>
+    <link href="http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal/"/>
+    <updated>2013-04-24T13:40:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/04/24/when-is-a-geoportal-not-a-geoportal</id>
+    <content type="html"><![CDATA[<p>When it's really a desktop application.</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Can anyone recommend any good online Python training sources for beginners? Asking for a friend in the midst of a career change.</p>&mdash; Bill Dollins (@billdollins) <a href="https://twitter.com/billdollins/status/313263420923338753">March 17, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>Over the past few weeks, I have been reading with conflicted agreement the posts of <a href="http://mapbrief.com/2013/02/21/the-waiting-is-the-hardest-part-why-map-portals-dont-work-part-v/">Brian Timoney</a> and <a href="http://geosprocket.blogspot.com/2013/04/toward-ideal-geoportal.html">Bill Morris</a> about the nature of geo-portals and what they should or should not be and do. I say that I am in conflicted agreement not because I take any issue with anything they have said. Their posts represent what should be considered best practices in terms of building web mapping applications. In Brian's posts, the counter-examples he highlights represent some of the worst practices to be avoided.</p>
 
-<p>I got a couple of requests to summarize any information I received, which seemed reasonable. I got quite a few responses and here are some links:</p>
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/arcmap_browser.png" /></p>
+
+<p>My conflict arises from the fact that, while I agree with the ideas that Brian and Bill put forward, I find myself working against them in my current work. In my <a href="http://www.spatiallyadjusted.com/2013/04/10/hangouts-with-james-fee-developer-i-hardly-knew-her/">hangout with James Fee</a> a couple of weeks ago, I mentioned that I am working again (albeit temporarily) in the world of Silverlight. I am supporting a very large, complex Silverlight application that, as one of many functions, includes a mapping module that runs counter to almost every best practice espoused by Brian and Bill. And I am adding to it.</p>
 
 <!--more-->
 
 
-<p><a href="http://learnpythonthehardway.org/">Learn Python the Hard Way</a> - This one got the most mentions<br/>
-<a href="http://inventwithpython.com/">Invent With Python</a><br/>
-<a href="http://www.greenteapress.com/">Green Tea Press</a><br/>
-<a href="http://newcoder.io/">New Coder</a><br/>
-<a href="http://www.codecademy.com/tracks/python">Codecademy</a><br/>
-<a href="https://www.khanacademy.org/science/computer-science">Khan Academy</a><br/>
-<a href="http://www.diveintopython.net/">Dive Into Python</a> - Note: I heard positive and negative on this one.<br/>
-<a href="http://www.realpython.com/e-book/">Real Python</a><br/>
-<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/index.htm">MIT Introduction to Computer Science and Programming</a><br/>
-<a href="https://www.udacity.com/course/cs101">Udacity</a></p>
+<p>The main difference with this application is that it will never be a public-facing internet application. It is intended to be deployed to a limited user base in an intranet/extranet environment. One of the overarching goals is to deliver sophisticated analytical tools and a desktop-like experience to the user community. So why not simply deliver a desktop application, or a series of extensions to ArcGIS, or both?</p>
 
-<p>I can't claim to have checked out all of them, but I consider the recommendations to have come from trusted sources. So, if you're <a href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/">looking to expand your GIS expertise by adding some Python knowledge</a>, these may be a good place to start. Not all of them are free-of-charge since that wasn't one of my friend's requirements.</p>
+<p>The answer to that is simply "enterprise IT policy." This particular organization works under an IT policy framework that makes it nearly impossible to deploy custom desktop applications. This is not a unique situation as restrictive IT policies exist in many large organizations, especially Federal agencies. Some of that policy exists in the name of security, which is a laudable goal, but good developers with clear policy requirements, working in collaboration with IA staff, can secure an application regardless of how it is deployed. A larger driver is reduction of configuration management costs. It is simply expensive to identify specific users, ensure their systems meet proper specifications, deliver desktop tools to them, and sustain those tools over time. This, of course, has been one of advantages of web applications from the outset.  So "stuffing the desktop into the browser" looks like an attractive path and it is for development that must meet requirements within a budget and a schedule. Anything that reduces the friction of dealing with IT policy is a win.</p>
 
-<p>Additionally, Dan Dye informs me that the PyBulls Python interest group at the University of South Florida will take up this question and post a document with a list of resources on GitHub. Be sure to keep an eye on <a href="https://github.com/pybulls/">https://github.com/pybulls/</a> . Thank you!</p>
+<p>This is all well and good within the confines of one's own intranet. What happens behind the firewall stays behind the firewall...except for when it doesn't. Poor application design is poor application design regardless of which side of the firewall on which it sits. When draconian IT policy enshrines the adoption of something-less-than-best practices, we all lose. Groupthink begins to set in and developers that spend their time building plugin-based, should-be-desktop applications on the intranet for a targeted audience of GIS users can begin to lose perspective on what makes a suitable interface for the general user. Eventually, those intranet practices will begin to be exposed on public-facing applications because many developers will continue to do what they have learned (and have been encouraged) to do.</p>
 
-<p>Many thanks to <a href="http://twitter.com/hugoestr">Hugo Estrada</a>, <a href="http://twitter.com/DonMeltz">Don Meltz</a>, <a href="http://twitter.com/IndyGIS">Aaron Burgess</a>, <a href="http://twitter.com/JCSanford">Jason Sanford</a>, <a href="http://twitter.com/dandye">Dan Dye</a>, <a href="http://twitter.com/swfoundry">Christopher Moore</a>, <a href="http://twitter.com/scw">Shaun Walbridge</a>, <a href="http://twitter.com/jmwdesign">Jason Wheatley</a>, <a href="https://plus.google.com/u/0/102903916051293271489/posts">Wes Herche</a>, and <a href="https://plus.google.com/u/0/110136604428694315510/posts">Jorge Sanz</a>.</p>
+<p>Any enterprise that is sufficiently large enough to have instituted a heavy IT policy is probably engaged in some level of software development and/or customization. That policy should be flexible enough to enable users and developers to choose the right tool and/or architecture for the job, rather than turning one particular architecture (HTTP in this case) into a one-size-fits-all channel for inappropriately designed tools and practices.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mowers and Maps]]></title>
+    <link href="http://blog.geomusings.com/2012/08/18/mowers-and-maps/"/>
+    <updated>2012-08-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/18/mowers-and-maps</id>
+    <content type="html"><![CDATA[<p>I was mowing the lawn today and trimming with the push mower pictured below. If it looks old, that's because it is. I first acquired it in 1978 when it was given to me by neighbors that were moving to an apartment near the city, meaning they no longer needed it. It still starts on the third pull and I've used it every summer since it was given to me.</p>
 
-<p>If you have any other good online resources for getting started with Python, feel free to leave them in the comments.</p>
+<p><img alt="" class="aligncenter size-full wp-image-2823" height="360" src="http://geobabble.files.wordpress.com/2012/08/mower.jpeg" title="They don&#039;t make them like this anymore" width="640" /></p>
+
+<p>As I was mowing, I thought about how old the mower is and how it came to be in my possession. This led me to think about the origin of my fascination with maps. What does one have to do with the other? Allow me to explain.</p>
+
+<p>As you can imagine, I was fairly young when the lawn mower was given to me. I had gotten to know the neighbors up the street by playing with their son. One day, I noticed a large shelf of identical, leather-bound books taking up the entire back wall of a room. I asked what they were and they invited me to browse them. It turned out that my neighbor was the son of a long-time chair of the National Geographic Society. These books were actually bound collections, by year, of every issue of National Geographic from the first issue on.</p>
+
+<p>Over time, I would spend hours poring through these volumes, fascinated by the world as it was documented by National Geographic from 1888 forward. I did not get to read every issue but I was especially drawn to the maps when they were present. I realize now that my identity as a "map nerd" took root there.</p>
+
+<p>Coincidentally, 1978 was the year I first started programming. Those two experiences turned out to be major influences on who I became.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GeoIQ API Wrappers for .Net]]></title>
+    <link href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/"/>
+    <updated>2012-06-11T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net</id>
+    <content type="html"><![CDATA[<p>A while back, I built a small <a href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/" target="_blank">interface between GeoIQ/GeoCommons and ArcGIS Desktop</a>. From there, it became more of a full-fledged <a href="http://developer.geoiq.com/tools/arcgis-toolbar/" target="_blank">toolbar for ArcGIS</a>. During that effort, I began developing some .Net classes to wrap the <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">GeoIQ RESTful API</a>. As we progressed with the toolbar, my colleague <a href="http://www.hugoestrada.net/" target="_blank">Hugo Estrada</a> also contributed to the library.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2676" height="145" src="http://geobabble.files.wordpress.com/2012/06/geoiq_dotnet2.png" title="GeoIQ + .Net" width="640" /></p>
+
+<p>The original intent was to wrap the entire API but it turns out that we were undertaking this in the middle of GeoIQ's upgrade to version 2.0. In the intervening time, we got some projects implementing the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform for end users (such as the <a href="http://blog.geoiq.com/2012/04/27/visualizing-our-changing-climate-with-climascope/" target="_blank">Climascope portal</a> that Andrew Turner recently blogged about). <!--more--></p>
+
+<p>While all of this was going on, I would occasionally blog about some of the work we were doing and, thanks to various search engines, I've gotten a few inquiries about interfacing with GeoIQ within .Net applications. Apparently, GeoIQ has also had a few such inquiries.</p>
+
+<p>Because of this interest, I have decided to post the wrapper library as it currently stands to GitHub. It can be found here: <a href="https://github.com/geobabbler/GeoIQ4Net">https://github.com/geobabbler/GeoIQ4Net</a></p>
+
+<p>It is very much a work in progress. We have been able to extend it on a project-by-project basis to touch those parts of the API that we have needed to use. For example, you may notice that the wrapper for the GeoIQ Maps API is a little thin. It implements only what we needed to use during a project time crunch. You may also notice the lack of docs. Those will be coming soon, I promise.</p>
+
+<p>We have successfully used this library to develop desktop tools, command-line tools, <a href="http://www.silverlight.net/" target="_blank">Silverlight</a> applications and ASP.NET applications (old ASP.NET forms as well as MVC). Additionally, I have successfully compiled the library on Linux using <a href="http://www.mono-project.com/Main_Page" target="_blank">Mono</a> with no modifications. Most of the original methods have synchronous and asynchronous versions to support both Silverlight and ASP.NET applications, some of the later ones are still lacking asynchronous equivalents.</p>
+
+<p>I have my own road map of things that I'd like to implement to make the library more complete but, given the rising interest in integrating GeoIQ with .Net, I thought it best to put the code out now. Most of the initial development was funded by GeoIQ with the intent of releasing it as open-source. This step finally fulfills that vision. Please feel free to fork, improve, patch or contribute as you see fit and check back for updates. If you have questions, feel free to contact me directly (contact information is on the About page of this blog) until such time as I can post some docs.</p>
+
+<p>A couple of technical notes: The library is written in C#. There project files for the .Net Framework 3.5 and 4.0. This was done to meet the needs of ArcGIS 9.3 and Microsoft Office 2010, respectively. The library was been successfully used with private, hosted GeoIQ instances as well as <a href="http://www.geocommons.com" target="_blank">GeoCommons</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CartoDB + Leaflet = Easy]]></title>
+    <link href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/"/>
+    <updated>2011-10-13T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy</id>
+    <content type="html"><![CDATA[<p>One of the biggest sources of buzz at <a href="http://2011.foss4g.org/">FOSS4G</a> was <a href="http://cartodb.com">CartoDB</a>. It is a hosted solution from <a href="http://vizzuality.com/">Vizzuality</a> that uses <a href="http://postgis.org/">PostGIS</a> to allow you to store your spatial data online. I got a beta account a couple of weeks ago but life (i.e. paying work) kept getting in the way but I finally got to play with it recently.</p>
+
+<p>One of the things that intrigued me is that, similar to <a href="http://www.google.com/fusiontables/Home/">Google Fusion Tables</a>, CartoDB exposes a SQL interface through a RESTful API (I'm still not sure if the term "API" applies to REST but it's a convenient shorthand). Essentially, CartoDB exposes PostgreSQL SQL and the spatial SQL extensions of PostGIS. Once your data is loaded, you can query it and return the results as either CartoDB's JSON syntax, KML or <a href="http://geojson.org">GeoJSON</a>.</p>
+
+<p>With this information, I set out to build a simple application to query property data and display the results on a map in a browser. In addition to CartoDB, I elected to use the <a href="http://leaflet.cloudmade.com/">Leaflet</a> Javascript library to accomplish the mapping (although I also experimented with OpenLayers). Displaying and styling GeoJSON in Leaflet is very straightforward and this task gave me and excuse to get a little more comfortable with it.</p>
+
+<!--more-->
+
+
+<p>For starters, I downloaded building footprints for St. Mary's County, Maryland (freely available <a href="http://www.stmarysmd.com/gis/">here</a>). The footprints themselves are countywide so I also downloaded the boundary for Leonardtown, Maryland and used <a href="http://qgis.org/">QGIS</a> to clip out just those buildings that fell within the town boundary. Once my data was prepped, I uploaded it into CartoDB.</p>
+
+<div style="text-align: center;"><img alt="" class="size-full wp-image-2134" height="359" src="http://geobabble.files.wordpress.com/2011/10/cartodb_upload.png" title="cartodb_upload" width="590" /><div style="text-align: center; font-size: 14px">The CartoDB uploader is very easy to use.<br /></div></div>
+
+
+<p>Once the data is uploaded and made public, it is as easy as a URL to pull down the GeoJSON (or even KML). Click here:</p>
+
+<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson</a></p>
+
+<p>You'll notice that some SQL is embedded in the URL. Finding the commercial properties in the data set is as simple as adding a WHERE clause:</p>
+
+<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20'Commercial'&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20'Commercial'&amp;format=geojson</a></p>
+
+<p>This became the basis of my sample application. I decided to do a simple property finder that allows a user to find buildings by property type and square footage. As I mentioned, it's very easy to use GeoJSON with Leaflet. Here is the Javascript function that fetches the buildings from CartoDB and adds them to the map. It uses jQuery to do the actual fetch and then processes the result, adding the features into a Leaflet GeoJSON layer.</p>
+
+<p>{% codeblock lang:js %}</p>
+
+<pre><code>function getBuildings()
+{
+    var bldgLayer = new L.GeoJSON();
+    //here we also parse the attributes for the popups on the map
+    bldgLayer.on('featureparse', function(e) {
+      e.layer.setStyle({ color:  '#BDBDBD', weight: 1, fill: true, fillColor: '#EF6548', fillOpacity: 0.85 });
+      var label = "";
+      if (e.properties &amp;amp;&amp;amp; e.properties.address){
+            label += "&amp;lt;b&amp;gt;Address:&amp;lt;/b&amp;gt;: " + e.properties.address + "&amp;lt;br/&amp;gt;";
+      }
+      if (e.properties &amp;amp;&amp;amp; e.properties.structure_){
+            label += "&amp;lt;b&amp;gt;Property Type:&amp;lt;/b&amp;gt;: " + e.properties.structure_ + "&amp;lt;br/&amp;gt;";
+      }
+      if (e.properties &amp;amp;&amp;amp; e.properties.shape_area){
+            label += "&amp;lt;b&amp;gt;Square Footage:&amp;lt;/b&amp;gt;: " + e.properties.shape_area + "&amp;lt;br/&amp;gt;";
+      }
+      if (label != "")
+      {
+        e.layer.bindPopup(label);
+      }
+    });
+
+    $.getJSON(
+        "http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;amp;format=geojson&amp;amp;callback=?",
+        function(geojson) {
+        $.each(geojson.features, function(i, feature) {
+          bldgLayer.addGeoJSON(feature);
+        })
+    });
+
+    map.addLayer(bldgLayer);        
+}
+</code></pre>
+
+<p>{% endcodeblock %}</p>
+
+<p><del datetime="2011-10-14T14:44:58+00:00">If you look closely, you'll notice the use of a proxy handler to get past the same origin restriction. This handler is written in .Net. I had been using a Python proxy but urllib2 was indicating header errors in the return from CartoDB so I fell back to this one. I'll dig into that more later.</del> (Thanks to <a href="http://twitter.com/jatorre">Javier de la Torre</a> for straightening me out with the use of a callback.) The above routine is basically the template for all the work in the app. Aside from the basemap tiles, the app loads the town boundary and the buildings from CartoDB. A similar funtion drives the query function, building and passing a WHERE clause to CartoDB. The image below shows the interface with query results in blue. The popups are performed by Leaflet.</p>
+
+<div style="text-align: center;"><img alt="" class="size-full wp-image-2139" height="300" src="http://geobabble.files.wordpress.com/2011/10/propfinder.png" title="propfinder" width="590" /><div style="text-align: center; font-size: 14px">Selected buildings are shown in blue with popups to display the property details<br /></div></div>
+
+
+<p>All told, this app took about 3 or so hours to build and deploy. This version doesn't actually make use of any spatial SQL yet but I'll add that soon. The live demo can be found here: <a href="http://demo.zekiah.com/propfinder/">http://demo.zekiah.com/propfinder/</a> (give the buildings a few seconds to load). It seems to work well in Firefox and Chrome and is functional, although clunky, in IE9. I haven't tried Safari or earlier versions of IE.</p>
+
+<p>CartoDB is still in beta but already seems solid and is definitely powerful. As a hosted solution, there are associated costs but that's to be expected. I'll keep playing with it but it's already impressive.</p>
 ]]></content>
   </entry>
   

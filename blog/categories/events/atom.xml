@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Events | geoMusings]]></title>
+  <title><![CDATA[Category: events | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/events/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-03-12T11:30:53-04:00</updated>
+  <updated>2014-04-01T15:46:12-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,21 +14,118 @@
 
   
   <entry>
-    <title type="html"><![CDATA[JS.Geo 2014 Announced (Maybe)]]></title>
-    <link href="http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced/"/>
-    <updated>2013-12-27T08:29:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced</id>
-    <content type="html"><![CDATA[<p><strong>UPDATE (12 March 2014):</strong> The situation with JS.GEO 2014 seems to be a bit fluid and the information originally posted here is no longer accurate. As indicated by Steve Citron-Pousty, the current goal is to have the event occur with <a href="https://2014.foss4g.org">FOSS4G in Portland</a>, though that does not appear to have been finalized. In short, don't book travel yet.</p>
+    <title type="html"><![CDATA[Initial Thoughts On the DC DevSummit]]></title>
+    <link href="http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit/"/>
+    <updated>2014-02-13T17:19:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit</id>
+    <content type="html"><![CDATA[<p>This week, I attended the first-ever <a href="http://www.esri.com">Esri</a> <a href="http://www.esri.com/events/devsummit-dc">DC DevSummit</a> which followed the <a href="http://www.esri.com/events/federal">Federal GIS Conference</a> (please switch it back to "FedUC"). This event, intended and a smaller, Federally-focused, companion to the annual Palm Springs DevSummit, came together quickly but was very well-attended with about 300 attendees.</p>
 
-<div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/mappingmashups">@mappingmashups</a> <a href="https://twitter.com/smathermather">@smathermather</a> <a href="https://twitter.com/billdollins">@billdollins</a> we are looking to try and combine with Foss4G <a href="https://twitter.com/cwhelm">@cwhelm</a></p>&mdash; TheSteve0 (@TheSteve0) <a href="https://twitter.com/TheSteve0/status/443553754873217024">March 11, 2014</a></blockquote>
-<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/devsummit.jpg" /></p>
+
+<p>It was interesting to note that the most well-attended sessions of the day had to do with Javascript (every Javascript session had over 100 participants). As more and more organizations update their IT infrastructures, the acceleration away from plug-ins seems to be picking up pace. The most common refrain amongst attendees in that regard is that continued standardization on IE8 remains the biggest impediment to sunsetting things like Flex and Silverlight, but the logjam seems to be starting to break loose.</p>
+
+<!--more-->
 
 
-<p>Information about the follow-up to last year's <a href="http://www.jsgeo.org/">JS.Geo</a> event has been percolating back-channel for a few weeks now. <del>Now some <a href="http://lanyrd.com/2014/jsgeo14/">official details have been posted</a>. This year's event will be held in April in San Francisco</del>. I attended last year's session, really liked the focused format, and got a lot of good information out of it. One thing that was nice was that, regardless of whether you are of an Esri or open-source persuasion in your development preferences, there was a lot of good information presented with a relative lack of hyperbole, which made it easy to focus on the content.</p>
+<p>Despite the photo I posted, <a href="http://twitter.com/ajturner">Andrew Turner's</a> open-source session was fairly well-attended. It was good to see tools like <a href="https://github.com/Esri/koop">Koop</a> in action. It is clear that there is real effort going on within Esri to produce open-source tools and that the people working on them are genuinely committed to them. That said, it is obviously still early days and such efforts are clearly swimming upstream against the preponderance of corporate culture. This is an effort that will best be judged over the long haul.</p>
 
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></p>
+<p>I also have to give a shout out to <a href="http://twitter.com/agup">Andy Gup</a>, whom I finally met at this conference. By chance, I sat through three of his sessions. He is one of the best technical presenters I have ever seen and Esri should require junior staff to sit through his sessions to see how it should be done.</p>
 
-<p>As <a href="http://twitter.com/geo_rube">Todd Barr</a> <a href="http://drunkengeographer.tumblr.com/post/69908102132/when-i-realize-that-no-one-who-plans-gis-spatial">eloquently points out</a>, the April 2014 calender is somewhat crowded with geo-events but, based on last year's event, I'd recommend putting JS.Geo at the top of the list.</p>
+<p>I found the DevSummit generally worthwhile and I was impressed with how well it came together given the short timeframe. Since I was encouraged to blog suggestions, here are a few:</p>
+
+<ol>
+<li><p>Make a DevSummit a permanent fixture as a follow-on to the Federal User Conference each year. The format of this year's Federal conference can be tweaked but stay mainly focused on user-centric use cases and some intro-level discussions of technologies. A DevSummit would mark a shift in to much more technical content with advanced discussions of APIs, security, techniques and best practices.</p></li>
+<li><p>Pull out the stops. As I indicated in item 1, ramp up the technical content, in comparison to that of the Federal conference, significantly. This year's event started down that path. I would keep the technical content of the Federal conference on the bunny slopes and shift to the black diamonds for the DevSummit.</p></li>
+<li><p>Expand to two days. It was a quick day and there were definitely sessions I would have liked to have gotten to. Additionally, it would be good to see some user content, maybe some lightning talks on the evening between the days. One of the biggest challenges working in the Federal space is the compartmentalization between and within agencies. With the DevSummit drawing interested people to one location, it would be good to get more opportunities to interact with other developers and exchange information.</p></li>
+<li><p><a href="http://www.gsa.gov/portal/category/102371?utm_source=OCM&amp;utm_medium=print-radio&amp;utm_term=HP_13_SpecialTopics_fedramp&amp;utm_campaign=shortcuts">FedRAMP</a> and <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> were non-existent this year. Jim Barry explained to me that these were areas where content simply wasn't ready to go in the short time given to prepare for the DevSummit. That's fair, and I certainly respect the decision to not provide content that could not be done well. These are, however, core issues for anyone doing development for the Federal Government. Next year's DC DevSummit really needs to have content for developers attempting to deploy to FedRAMP and achieve FISMA compliance with Esri tools.</p></li>
+</ol>
+
+
+<p>Those my quick hits. I'll probably have more after I have time to digest what I saw and dig out from the backlog resulting from two days out of the office. Kudos to <a href="http://twitter.com/jimbarry">Jim Barry</a> for his work pulling the DC DevSummit together.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Esri Federal GIS Conference Features Immersion Summits]]></title>
+    <link href="http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits/"/>
+    <updated>2014-02-05T20:19:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits</id>
+    <content type="html"><![CDATA[<p>The 2014 installment of the <a href="http://www.esri.com/events/federal">Esri Federal GIS Conference</a> (formerly known as the Federal User Conference) happens next week. I have attended the event off and on since its inception. While I originally was drawn by the presence of a large geo-related event in my local area, that gap has been filled by numerous, smaller events from various sources in the past few years. The FedUC has traditionally had something of an identity crisis, with the content often feeling a bit diffuse and somewhat rushed over its quick, two-day schedule.</p>
+
+<p>To Esri's credit, and probably in recognition of the changing economics regarding travel for Federal employees, they have continued to fine-tune the event when they could have easily walked away from it. The main problem with the FedUC is the fact that the Federal Government performs a wide array of functions that are difficult to cover well over two days in a conventional format. Esri has tackled that problem this year with the introduction of <a href="http://www.esri.com/events/federal/agenda/immersion-summits">"immersion summits,"</a> which are three-and-a-half hour sessions dedicated to specific domain areas.</p>
+
+<!--more-->
+
+
+<p>For example, check out the Natural Resources Immersion Summit led by my friend <a href="http://twitter.com/jsteffenson">John Steffenson</a>. The agenda features speakers from USDA, USGS, the US Forest Service, the EPA, the Fish and Wildlife Service, and Department of Interior, representing over 100 years of higher education dedicated to natural resources management. The session also has slots for several demos of systems deployed in natual resources domain.</p>
+
+<p>The session's content seems to be designed take a holistic view, including fiscal, logistical, technical, and demographic challenges among others. This type of deep focus is an intriguing change to event's focus. While nautral resources is not my usual domain, I do like to drop into other sessions as I find that uses cases from other domains can give me ideas to bring back to my work. I think this new format could maximize the use of the compact schedule of the Federal GIS Conference and begin to give the event its own identity.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DC DevSummit In Works for 2014 Esri Federal GIS Conference]]></title>
+    <link href="http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/"/>
+    <updated>2013-12-27T13:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference</id>
+    <content type="html"><![CDATA[<p>I got word today that <a href="http://www.esri.com">Esri</a> is planning a one-day [Developer Summit] in conjunction with the <a href="http://www.esri.com/events/federal/">2014 Federal GIS Conference</a>. It appears that the DevSummit will happen on the Wednesday immediately following the Fed Conference (which runs on the Monday and Tuesday) and will be focused on the issues and challenges that are unique to developing applications with Esri technologies for the Federal Government. I spoke with <a href="http://www.linkedin.com/in/jdbarry">Jim Barry</a>, who told me the DevSummit has come together rather quickly and Esri hasn't had time to do its usual data gathering to prepare for such an event. As a result, they are canvassing the developer community for input on topics they should cover. Here are some things I suggested:</p>
+
+<!--more-->
+
+
+<ul>
+<li><p>Developing for <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> compliance - FISMA compliance has to be baked into an application from the beginning. It would be great to see some content on best practices and resources available to support this when developing with Esri tools and APIs. Esri's regional office in Vienna, Virginia has been doing a lot of work in this area but I'm not sure the information is widespread.</p></li>
+<li><p>Desktop development - I still see <em>a lot</em> of ArcGIS desktop development in the Federal arena. This ranges from traditional ArcObjects extensions to add-ins to work with the File Geodatabase API. I think content related to how to do continued desktop development and support in light of the current realities of highly constrained desktop environments would be invaluable. For example, how to construct and deploy applications that don't necessarily need to touch the registry and can be deployed without administrative rights. Also, some content on the future of Esri desktop products (like <a href="http://video.esri.com/watch/2533/unveiling-the-new-arcgis-professional-application-with-jim-mckinney-and-jack-dangermond">ArcGIS Professional</a>) and what it means for application developers would be useful.</p></li>
+</ul>
+
+
+<p><img src="http://blog.geomusings.com/images/posts/code.png" style="float:left;margin: 5px 25px 5px 0px;" /></p>
+
+<ul>
+<li><p>.Net - There's still a lot of .Net development going on in Federal spaces. Most of my Federal customers are still primarily using .Net and you can peruse Federal geospatial RFPs on any given day and see that it is widespread. I'm fairly comfortable with .Net, as are most of the government and contractor developers I work with but it would be good to have some .Net-focused content alongside the newer, sexier platforms.</p></li>
+<li><p><a href="http://www.arcgis.com/features/">ArcGIS Online for Organizations</a> - Whatever messaging Esri thinks they are doing is not working very well. I encounter a great many Federal users who simply don't understand what it can do for them, why they would consider it, how to budget for it, or whether they can really use it. My understanding is the main Federal GIS Conference will be talking about these issues a lot so I think the DevSummit should focus on the <a href="https://developers.arcgis.com/en/">tools and APIs</a> that are available so that developers can begin to address the ideas the main conference attendees will come back with.</p></li>
+<li><p>Data interoperability - I have spent a lot of time over the past year developing tools to support data modeling and configuration management efforts for some Federal users. Part of this work has involved developing tools to produce physical implementations of approved geospatial data models in a number of formats, though the formats that have been of primary interest with my customers have been the Esri File Geodatabase and <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>. The general workflows I have seen involve users working with Esri geodatabase formats in the office, while ingesting field-collected data in SpatiaLite format. All of this data needs to remain compliant with approved data models throughout the life cycle, regardless of format. <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">We've been tackling that</a> at <a href="http://www.esri.com">Zekiah</a> with good success. Given the support of SQLite/SpatiaLite in ArcGIS 10.2, I'd like to see some discussion of data conversion/interoperability approaches that developers can automate with Esri tools.</p></li>
+</ul>
+
+
+<p>Those are some topics I suggested to Jim off the top of my head. I'll probably think of more. Jim and his team at Esri are actively seeking this sort of input since time is short so I'd suggest <a href="http://www.linkedin.com/in/jdbarry">contacting him</a> with your thoughts. Given the short timeframe, I'd expect official information from Esri very soon.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Early Bird Registration for FOSS4G-NA Closes Soon]]></title>
+    <link href="http://blog.geomusings.com/2013/03/27/early-bird-registration-for-foss4gna-closes-soon/"/>
+    <updated>2013-03-27T13:29:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/27/early-bird-registration-for-foss4gna-closes-soon</id>
+    <content type="html"><![CDATA[<p><a href="https://twitter.com/bitnerd">David Bitner</a> sent out a reminder that Early Bird reagistration for the <a href="http://foss4g-na.org/">FOSS4G North America</a> conference closes on 1 April 2013. After that, the price goes up by $50 US. You can register <a href="http://foss4gna.eventbrite.com/">online at EventBrite</a>.</p>
+
+<p style="text-align:center;"> <img src="http://upload.wikimedia.org/wikipedia/commons/3/30/20060131_earthworm_hits_dirt.jpg" width="400" height="266"/></p>
+
+<p>The <a href="http://foss4g-na.org/wp-content/uploads/2013/03/PreliminaryProgram.pdf">preliminary program</a> (PDF) for this year's event looks exceptional, building upon and potentially exceeding the outstanding quality of FOSS4G-NA 2012. I'll be sorry to miss the conference this year but will be looking forward to its social media exhaust.</p>
+
+<p><sub><sup>Image by s shepherd schizoform on flickr <a href="http://creativecommons.org/licenses/by/2.0">CC-BY-2.0</a>, via Wikimedia Commons</sup></sub></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Best Thing I Saw at TUGIS 2013]]></title>
+    <link href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/"/>
+    <updated>2013-03-20T12:17:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013</id>
+    <content type="html"><![CDATA[<p>I spent the day yesterday at <a href="http://www.towson.edu/">Towson University</a> attending the <a href="http://www.towson.edu/tugis/">TUGIS 2013</a> conference. The new one-day format was a firehose that showcased the diversity of geospatial work occurring across the State of Maryland. The keynote by <a href="http://www.linkedin.com/profile/view?id=44978536">Learon Dalby</a> was well-received and the content of the conference was generally substantive. While the day was a sprint, there was one workshop that really caught my attention more so than I would have thought from its title.</p>
+
+<p>The photo below shows 40 participants of an "Introduction to Free and Open Source GIS Software" workshop getting hands-on experience with <a href="http://www.qgis.org">QGIS</a> and <a href="http://www.postgis.org">PostGIS</a> by working through prepared but realistic scenarios. These scenarios included doing multi-user editing and performing spatial analysis to assess the effects of a potential toxic release over a small town.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/tugis2013_workshop.jpg" /></p>
+
+<p>The workshop was put together by <a href="http://faculty.salisbury.edu/~ajlembo/">Dr. Arthur Lembo</a> of <a href="http://www.salisbury.edu/">Salisbury University</a> and conducted by him and a team of his students, who not only led portions of the workshop but were also stationed around the room to provide guidance to participants. The scenarios were prepared in printed workbooks that the participants were free to take with them, along with information about how to download the tools. All-in-all, I thought the workshop was very well-designed and presented a thorough overview of the capabilities of these two tools.</p>
+
+<!--more-->
+
+
+<p>To be sure, the workshop was not all unicorns and rainbows. There were typical glitches such as file system and database permission issues that required on-the-fly adjustments, which Dr. Lembo and his students handled well. Some participants were clearly stumped at points while others were making good headway with the examples.</p>
+
+<p>Many of the participants probably remain committed <a href="http://www.esri.com">ArcGIS</a> users after the workshop while others may very well dig in and more thoroughly explore QGIS and PostGIS, but that's really beside the point. Regardless of what the individual participants decide to do with the information from the workshop, all left with hands-on exposure to the tools that was presented in a manner that was free of hyperbole, FUD, or market-speak. They now have more first-hand information with which to make their own educated decisions as to how they want to proceed with their geospatial technology choices; and that, in my opinion, may have been the most valuable outcome of the workshop.</p>
 ]]></content>
   </entry>
   

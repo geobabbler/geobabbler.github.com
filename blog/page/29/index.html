@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Update (7/1/2011): I wrote this post early in the SQL 2008 CTP. I no longer use the method described here. If you found this post via StackOverflow &hellip;">
+  <meta name="description" content="I found this article today about using VB9 and WPF to draw thematic maps. It&#8217;s a good walk-through of how to do it. The article admits that the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/msdn-article-on-mapping-with-wpf/">MSDN Article on Mapping With WPF</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/18/msdn-article-on-mapping-with-wpf/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It&#8217;s a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn&#8217;t be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
+
+<p>I&#8217;ve been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven&#8217;t had a chance to extract what I&#8217;ve done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it&#8217;s shaping up in SharpMap 2.0.</p>
+
+<p>So, if you&#8217;re looking for an example of how to render spatial data in WPF, this is a good one.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -534,46 +576,6 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/19/sql-server-2008-november-ctp-released/">SQL Server 2008 November CTP Released</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-19T00:00:00-05:00" pubdate data-updated="true">Nov 19<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/19/sql-server-2008-november-ctp-released/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It&#8217;s downloading as I write. Here&#8217;s the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">link</a>. Now the rest of us can try the spatial support!</p>
-
-<p>This is something that&#8217;s been long overdue from Microsoft. It&#8217;s time to lock myself in the basement. :)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/30/">&larr; Older</a>
@@ -622,15 +624,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/04/01/data/">Data, Apps, and Maps</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/02/18/a-little-deeper-with-node-and-postgis/">A Little Deeper with Node and PostGIS</a>
       </li>
     
       <li class="post">
         <a href="/2014/02/17/url-utility-for-twitter-direct-messages/">URL Utility for Twitter Direct Messages</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/02/13/initial-thoughts-on-the-dc-devsummit/">Initial Thoughts On the DC DevSummit</a>
       </li>
     
   </ul>

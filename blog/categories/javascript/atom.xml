@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: javascript | geoMusings]]></title>
+  <title><![CDATA[Category: Javascript | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-03-12T11:30:53-04:00</updated>
+  <updated>2014-04-01T15:46:12-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,68 +14,384 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Simple Tile Viewer]]></title>
-    <link href="http://blog.geomusings.com/2013/04/25/simple-tile-viewer/"/>
-    <updated>2013-04-25T14:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/04/25/simple-tile-viewer</id>
-    <content type="html"><![CDATA[<p>We do a lot of tiles for various customers at <a href="http://www.zekiah.com">Zekiah</a>. Tiling is as much art as science and sometimes things go wrong so we have a range of utilities that we use to perform various kids of QA. Because the caches can be large, we usually want to perform a visual QA on the static tiles before pushing them up to wherever they are going to live full-time.</p>
+    <title type="html"><![CDATA[JS.Geo 2014 Announced (Maybe)]]></title>
+    <link href="http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced/"/>
+    <updated>2013-12-27T08:29:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced</id>
+    <content type="html"><![CDATA[<p><strong>UPDATE (12 March 2014):</strong> The situation with JS.GEO 2014 seems to be a bit fluid and the information originally posted here is no longer accurate. As indicated by Steve Citron-Pousty, the current goal is to have the event occur with <a href="https://2014.foss4g.org">FOSS4G in Portland</a>, though that does not appear to have been finalized. In short, don't book travel yet.</p>
 
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/cacheviewer2.png" /></p>
+<div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/mappingmashups">@mappingmashups</a> <a href="https://twitter.com/smathermather">@smathermather</a> <a href="https://twitter.com/billdollins">@billdollins</a> we are looking to try and combine with Foss4G <a href="https://twitter.com/cwhelm">@cwhelm</a></p>&mdash; TheSteve0 (@TheSteve0) <a href="https://twitter.com/TheSteve0/status/443553754873217024">March 11, 2014</a></blockquote>
+<script async src="http://blog.geomusings.com//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 
-<p>In order to facilitate that, I wrote a very simple tile viewer using <a href="http://nodejs.org/">Node.js</a> and <a href="http://leafletjs.com/">Leaflet</a>. It uses a config file to get everything it needs to operate so we just make our changes there. This application currently only works with Web Mercator tiles but I'm working on adding support for WGS84. It also doesn't work with 'compact' tiles from ArcGIS Server. It obviously requires Node, and it also requires an <a href="https://npmjs.org/">NPM</a> install of the 'open' module to facilitate opening the browser.</p>
 
-<p>Anything else you need to know is in the readme. I hope you find it useful. It can be <a href="https://github.com/geobabbler/cacheview">downloaded here</a>.</p>
+<p>Information about the follow-up to last year's <a href="http://www.jsgeo.org/">JS.Geo</a> event has been percolating back-channel for a few weeks now. <del>Now some <a href="http://lanyrd.com/2014/jsgeo14/">official details have been posted</a>. This year's event will be held in April in San Francisco</del>. I attended last year's session, really liked the focused format, and got a lot of good information out of it. One thing that was nice was that, regardless of whether you are of an Esri or open-source persuasion in your development preferences, there was a lot of good information presented with a relative lack of hyperbole, which made it easy to focus on the content.</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></p>
+
+<p>As <a href="http://twitter.com/geo_rube">Todd Barr</a> <a href="http://drunkengeographer.tumblr.com/post/69908102132/when-i-realize-that-no-one-who-plans-gis-spatial">eloquently points out</a>, the April 2014 calender is somewhat crowded with geo-events but, based on last year's event, I'd recommend putting JS.Geo at the top of the list.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[js.geo Day One]]></title>
-    <link href="http://blog.geomusings.com/2013/01/14/js-dot-geo-day-one/"/>
-    <updated>2013-01-14T18:04:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/14/js-dot-geo-day-one</id>
-    <content type="html"><![CDATA[<p>Yesterday, I attended the <a href="http://geojs.eventbrite.com/">JS.geo</a> conference at the Colorado University Denver campus. It looked like about 100 or so came out for the event. I was able to catch up with <a href="http://twitter.com/cwhelm">Chris Helm</a> and <a href="http://twitter.com/briantimoney">Brian Timoney</a> the night before and they told me the event took off faster than they had originally expected. I think this speaks to two things: 1) the level of interest in Javascript as a solution for geospatial applications and 2) the fast pace of innovation in the Javascript community that has a lot of people looking for ways to stay abreast of the latest developments.</p>
+    <title type="html"><![CDATA[Personal Geospatial Workflows]]></title>
+    <link href="http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows/"/>
+    <updated>2012-11-09T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows</id>
+    <content type="html"><![CDATA[<p>I've had a couple of people ask me recently about the geospatial tools I use. Year-over-year, that answer changes but here's how I answer that right now:</p>
 
-<p>What follows is an overview based on some of the notes I took. I wasn't always writing as I sometimes just stopped to listen and I'll probably follow up with more details later.</p>
+<p>As a Federal contractor, I spend a lot of time working with the <a href="http://www.esri.com" target="_blank">Esri</a> stack during my work day. A few years ago, I added a few open-source geospatial tools into my tool set and, since then, have also done a respectable amount to consulting work them as well. The balance between the two varies over time, depending on the requirements of individual customers and projects. Lately, commercial customers have seemed much more interested in open-source tools while my government customers are sticking with Esri. Since those observations are based on the the extremely heavy filter of my own recent experience, I'd be hesitant to draw any larger conclusions from them.</p>
 
-<div style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/jsgeo13.png" /></div>
+<p><img alt="" height="264" src="http://blog.geomusings.com/images/posts/duct-tape.jpg" title="Duct Tape" width="300" /></p>
+
+<p>I've always believed that proficiency with a wide range of tools makes me a better consultant and integrator, so I am always exploring and trying new things. With those commercial customers, and in my own personal side projects, my recent workflows have gelled around a core set of tools, both commercial and open-source: <!--more--></p>
+
+<p><a href="http://www.postgis.org" target="_blank">PostGIS</a> - I am very comfortable with SQL and tend to use <a href="http://www.postgresql.org" target="_blank">PostgreSQL</a> and PostGIS for a lot of my vector data processing. Lately, this has mainly involved joining up geometries with attributes and doing aggregations and similar things. For example, the vector data in this <a href="http://geobabbler.github.com/mdq62012.html" target="_blank">map of the county-level Maryland Question 6 results</a> was processed in PostGIS. Very simply, I have a baseline table of the counties of Maryland which I will use to create new data sets. In this case, I imported a CSV of the election results, created a view that joined up the data and then selected the view into a new table. This is workflow is much easier with PostGIS 2.x thanks to the <a href="http://blog.opengeo.org/2012/03/06/postgis-2-0-new-features-typmod/" target="_blank">use of typmod</a>.</p>
+
+<p><a href="http://qgis.org" target="_blank">QGIS</a> - In the case of the map mentioned above, the data set is ultimately going to be static so it makes sense to serve it as static content, rather than bringing a heavyweight geospatial server such as <a href="http://www.esri.com/software/arcgis/arcgisserver/" target="_blank">ArcGIS</a> or <a href="http://geoserver.org/display/GEOS/Welcome" target="_blank">GeoServer</a> into the mix. In these cases, I lean toward <a href="http://geojson.org/" target="_blank">GeoJSON</a>. QGIS makes it very easy to export any vector layer out to GeoJSON so it's become my go-to tool for that. QGIS also has great analytical tools and I consider it a complete functional match for ArcMap but, having said that, I'm actually very comfortable with the spatial SQL functions in PostGIS so I end up doing most of my analytical work there.</p>
+
+<p><a href="http://leafletjs.com/" target="_blank">Leaflet</a>/<a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> - Most of the web maps I'm doing are single-use and pretty straightforward. When that's the case, I prefer to use Leaflet as it's a pretty lightweight library. That said, I keep OpenLayers in the mix if the GIS-like requirements get a little more complex. OpenLayers does more "out of the box" than Leaflet but Leaflet is trimmer so it really depends on the use case.</p>
+
+<p><a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>/<a href="http://mapbox.com/tilemill/" target="_blank">TileMill </a>- Arc2Earth is a commercial extension to ArcGIS and I lean on it to make tiles, although it does a lot more than that. I also use TileMill for this purpose but it really depends on where my cartography resides. There's a lot of good cartography locked up in MXDs and Arc2Earth is just a great way to capitalize on that. It's also nice that Arc2Earth works in ArcMap, eliminating the need for a license of Server.  If I'm building my cartography from scratch, which is not really my strong suit, I'll lean toward TileMill because it more easily connects directly to PostGIS, which is where my data tends to reside if I have my druthers. Again, it depends on the use case.</p>
+
+<p><a href="http://www.python.org/" target="_blank">Python</a>/Javascript - I'm doing a lot more work in Python these days. It's become the <em>lingua franca</em> of GIS development in my book. Additionally, the capabilities of Javascript for web maps is evolving at a stunning pace. I can't see being productive in the long term in the geospatial field without proficiency in these two languages.</p>
+
+<p>So these are the tools that I'm using most often these days as part of my personal workflows. The stable of tools that I use evolves over time, as should be evident if you peruse this blog. In general, I'm finding it very easy to be productive with these tools right now.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mapping GISPs Again With Leaflet.markercluster]]></title>
+    <link href="http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster/"/>
+    <updated>2012-08-31T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster</id>
+    <content type="html"><![CDATA[<p>So I've been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It's become my lightweight mapping library of choice. There's a lot it doesn't do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
+
+<div style="text-align:center;"><a href="http://blog.geomusings.com/assets/demos/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a><div style="text-align:center;font-size: 14px;">Click the image to go to the live demo<br/><br/></div></div>
 
 
-<p>Data reduction was strong current running under the day. With the rise of newer libraries that enable more sophisticated capabilities in the browser, there is increased recognition of the need to reduce the amount of data passing over the wire. For geometry, <a href="https://github.com/mbostock/topojson">TopoJSON</a> is getting a lot of attention here. It delivers topologically correct data which reduces data by removing redundant geometry such coincident arcs between polygons and such. The output reminds me of an old <a href="http://www.gdal.org/ogr/drv_avcbin.html">ARC/INFO coverage</a> and is providing stunning results in reducing the size of geometries when compared to <a href="http://geojson.org">GeoJSON</a> or Esri JSON. <a href="http://twitter.com/andrewxhill">Andrew Hill</a> of <a href="http://vizzuality.com">Vizzuality</a> mentioned that <a href="http://cartodb.com">CartoDB</a> currently has support for TopoJSON in staging. He also discussed strategies they use to reduce the size of feature and attribute data. This "data cubing" strategy turns out to similar to approaches that are commonplace in the financial industry. This serves as a reminder to look around and see what others are doing to solve similar problems.</p>
+<p>A while back, I stumbled onto the <a href="https://github.com/danzel/Leaflet.markercluster" target="_blank">Leaflet.markercluster</a> project on GitHub, which adds a clustering layer type. I wanted to try it so I revisited my old <a href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/" target="_blank">GISP heat map demo</a> (Silverlight) and decided to rework it. I was happy to finally get a chance to strip out the plug-in, anyway.  <!--more--></p>
+
+<p>This time around, I chose not to bother with the PMP data because it was kind of a pain to process the last time. I downloaded the GISP data from the <a href="http://www.gisci.org/secure/members/directory/results.asp" target="_blank">GISCI site</a> and once again ran it through <a href="http://www.geocommons.com" target="_blank">GeoCommons</a> to geocode it. This time, there were noticeable anomalies, such as positional accuracy problems (Richmond, VA was 25 miles east of where it should have been) and surprising omissions such as a failure to match major cities like Jacksonville, Florida and Phoenix, Arizona. I corrected some of the more egregious problems by hand and dumped the rest. Luckily none of this got in the way of the real goal of testing the clustering library but, if you visit the <a href="http://demo.zekiah.com/clustermap" target="_blank">live demo</a>, any anomalies you may notice are most likely related to the data and not the library.</p>
+
+<p>Once geocoding was complete, I downloaded the CSV and processed it into the JSON structure expected by the marker cluster library. The library is still fairly new, and I am fairly new to using it so I had some problems if I deviated from the sample format. As a result, I stuck to that format and resolved to investigate it more. After that, it was very easy to wire up into a light application, with the clusters thrown on top of some tiles from <a href="http://www.mapbox.com" target="_blank">MapBox</a>. (Thanks to <a href="http://www.geosprocket.com/" target="_blank">Bill Morris</a> for showing me that base map.)</p>
+
+<p>I think I prefer this representation to a heat map as it conveys more information at a glance. I'm happy to have this library in my toolbox now and am looking forward to seeing it evolve. I recommend checking it out.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ArcGIS Image Services and Leaflet]]></title>
+    <link href="http://blog.geomusings.com/2012/04/17/arcgis-image-services-and-leaflet/"/>
+    <updated>2012-04-17T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/04/17/arcgis-image-services-and-leaflet</id>
+    <content type="html"><![CDATA[<p>I've become a big fan of <a href="http://leaflet.cloudmade.com/">Leaflet</a> for putting maps on the web. It gives me most of what I need without much of what I don't and is fairly easily extended, as shown by the <a href="http://geojason.info/leaflet-vector-layers/">impressive work of Jason Sanford</a>.</p>
+
+<p>A while back, <a href="http://twitter.com/dbouwman">Dave Bouwman</a> <a href="http://blog.davebouwman.com/2011/08/04/leaflet-lean-mean-javascript-maps/">blogged about work</a> he and the team at <a href="http://www.dtsagile.com/">DTS Agile</a> had done extending Leaflet to support ArcGIS Server layers. Given that there are a lot of ArcGIS Servers out there, this is a good thing to have. Thanks to section 4(f) of the <a href="http://www.esri.com/legal/pdfs/e-800-termsofuse.pdf">Esri Web Services Terms of Use</a>, it's less useful for use with ArcGIS Online, but that's probably the topic of another post. <!--more--></p>
+
+<p>I recently had the need to use an <a href="http://help.arcgis.com/en/arcgisserver/10.0/help/arcgis_server_dotnet_help/index.html#//009300000043000000">ArcGIS Server image service</a> with a Leaflet app. Specifically, I was using the USGS <a href="http://isse.cr.usgs.gov/ArcGIS/rest/services/Orthoimagery/USGS_EDC_Ortho_NAIP/ImageServer">NAIP image service</a>. This service is available as a WMS, which works perfectly well with Leaflet, but I needed to take advantage of some of the capabilities of the <a href="http://www.esri.com">Esri</a> service, such being able to set the interpolation method.</p>
+
+<p>The API signature for interacting with an image service is somewhat different from that of a dynamic map service with ArcGIS Server so I took the DTS AgsDynamicLayer class and modified to an AgsImageLayer class. Because the image service does some raster operations on the fly, it can be a little slower than a standard tiled or dynamic service. As a result, I'd recommend only going this route if you need to allow your users to fiddle with some options. For most production web-mapping applications, you'll probably want to stick with tiles.</p>
+
+<p>It seemed kind of silly to fork the <a href="https://github.com/dtsagile/Leaflet">DTS code</a> for one class so I sent it to Dave, who was gracious enough to accept it. Thanks to DTS for their work, which made my life much easier. Since they have day jobs, too, I'm not sure when it will appear so I thought I'd post it here as well in case someone may find it useful. Most of the code came over from the DTS class, with modifications I needed to work with image services. With apologies for the length, here it is:</p>
+
+<p>{% codeblock lang:js %}
+//Class for interacting with ArcGIS Server image services
+//Bill Dollins - Zekiah Technologies
+//Modified from AgsDynamicLayer.js by DTSAgile</p>
+
+<p>L.AgsImageLayer = L.Class.extend({</p>
+
+<pre><code>includes: L.Mixin.Events,
+
+options: {
+    minZoom: 0,
+    maxZoom: 18,
+    attribution: '',
+    opacity: 1,
+    format: 'PNG8',
+    bandids: '',
+    compressionquality: 0,
+    interpolation: 'RSP_NearestNeighbor',
+    pixelType: 'U8',
+
+    unloadInvisibleTiles: L.Browser.mobileWebkit
+},
+
+initialize: function (/*String*/url, /*Object*/options) {
+    L.Util.setOptions(this, options);
+    this._url = url;
+},
+
+//public properties that modify the map
+
+setInterpolation: function (interpolation) {
+    this.options.interpolation = interpolation;
+},
+
+getInterpolation: function () {
+    return this.options.interpolation;
+},
+
+setOpacity: function (opacity) {
+    //set it immediately
+    if (this._image) {
+        this._image.style.opacity = opacity;
+        // stupid webkit hack to force redrawing of tiles
+        this._image.style.webkitTransform += ' translate(0,0)';
+    }
+    this.options.opacity = opacity;
+},
+
+getOpacity: function () {
+    return this.options.opacity;
+},
+
+reset: function () {
+    this._reset();
+},
+
+update: function () {
+</code></pre>
+
+<p>//        var topLeft = this.<em>map.latLngToLayerPoint(this.</em>map.getBounds().getNorthWest()),
+//                bottomRight = this.<em>map.latLngToLayerPoint(this.</em>map.getBounds().getSouthEast()),
+//                size = bottomRight.subtract(topLeft);</p>
+
+<p>//        L.DomUtil.setPosition(this.<em>image, topLeft);
+//        this.</em>image.style.width = size.x + 'px';
+//        this._image.style.height = size.y + 'px';</p>
+
+<pre><code>    this._image.updating = false;
+    this._updateLayer();
+},
+
+show: function () {
+    this._image.style.display = 'block';
+    this._image.style.visibility = 'visible';
+},
+
+hide: function () {
+    this._image.style.display = 'none';
+},
+
+isVisible: function () {
+    return this._image.style.display === 'block';
+},
+
+onAdd: function (map) {
+    this._map = map;
+
+    this._reset();
+
+    map.on('viewreset', this._reset, this);
+    map.on('moveend', this._moveEnd, this);
+    map.on('zoomend', this._zoomEnd, this);
+},
+
+onRemove: function (map) {
+    map.getPanes().mapPane.removeChild(this._image);
+    map.off('viewreset', this._reset, this);
+    map.off('moveend', this._moveEnd, this);
+    map.off('zoomend', this._zoomEnd, this);
+},
+
+_initImage: function () {
+    this._image = L.DomUtil.create('img', 'leaflet-image-layer');
+
+    this._image.style.visibility = 'hidden';
+    this._image.style.opacity = this.options.opacity;
+    this._image.style.display = 'block';
+    //TODO createImage util method to remove duplication        
+    L.Util.extend(this._image, {
+        onselectstart: L.Util.falseFn,
+        onmousemove: L.Util.falseFn,
+        onload: this._onImageLoad,
+        src: this._getImageUrl(),
+        updating: false,
+        agsLayer: this,
+        map: this._map
+    });
+    this._map.getPanes().mapPane.appendChild(this._image);
+},
+
+_getImageUrl: function () {
+    //construct the export image url
+    var bnds = this._map.getBounds();
+    var sz = this._map.getSize();
+    //bboxsr &amp;amp; imagesr params need to be specified like so to avoid alignment problems on some map services - not sure why
+    var bbox = 'bbox=' + bnds.getSouthEast().lng + '%2C' + bnds.getSouthEast().lat + '%2C' + bnds.getNorthWest().lng + '%2C' + bnds.getNorthWest().lat + '&amp;amp;bboxsr=4326&amp;amp;imageSR=3857';
+    var size = '&amp;amp;size=' + sz.x + '%2C' + sz.y;
+    var format = '&amp;amp;format=' + this.options.format;
+    var pixeltype = '&amp;amp;pixelType=' + this.options.pixelType;
+    var interpolation = '&amp;amp;interpolation=' + this.options.interpolation;
+    //Some of the following parameters are supported by ArcGIS Server Image Services but not implemented here.
+    //They have been included as placeholders.
+    var nodata = '&amp;amp;noData=';
+    var compressionquality = '&amp;amp;compressionQuality=' + this.options.compressionquality;
+    var bandids = '&amp;amp;bandIds=' + this.options.bandids;
+    var mosaicprops = '&amp;amp;mosaicProperties=';
+    var viewpointprops = '&amp;amp;viewpointProperties=';
+    var url = this._url + '/exportImage?' + bbox + size + format + pixeltype + nodata + interpolation + compressionquality + bandids + mosaicprops + viewpointprops + '&amp;amp;f=image';
+    return url; // this._url + '/export?' + bbox + size + layers + format + transparent + '&amp;amp;f=image';
+},
+
+_updateLayer: function () {
+    if (!this._image.updating) {
+        //console.log('Updating layer NW: ' + map.getBounds().getNorthWest());            
+        this._image.updating = true;
+
+        //update the src based on the new location
+        this._image.src = this._getImageUrl();
+        //reset the image location on the map
+        //            //hang the info on the image, we'll actually update it onload to make sure we don't reposition it before the new image comes down
+        //this doesn't seem to work on mobile
+        //            this._image.topLeft = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest());
+        //            var bottomRight = this._map.latLngToLayerPoint(this._map.getBounds().getSouthEast());
+        //            this._image.size = bottomRight.subtract(this._image.topLeft);
+
+        var topLeft = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest()),
+            bottomRight = this._map.latLngToLayerPoint(this._map.getBounds().getSouthEast()),
+            size = bottomRight.subtract(topLeft);
+        L.DomUtil.setPosition(this._image, topLeft);
+        this._image.style.width = size.x + 'px';
+        this._image.style.height = size.y + 'px';
+    }
+},
+
+_moveEnd: function () {
+    //console.log('in _moveEnd : NW: ' + map.getBounds().getNorthWest());
+    //don't set display:none for moves - makes for smoother panning - no flicker
+    //oops, that didn't work on mobile
+
+
+    this._image.style.display = 'none';
+    this._updateLayer();
+},
+
+_zoomEnd: function () {
+    //console.log('in _moveEnd');
+
+    //        //zoom the image...(animate it?)
+    //        //L.DomUtil.setPosition(this, this.topLeft);
+    //        //debugger;
+    //        //it's gonna be something like this but it's not quite right - also will need to get/ calculate the correct factor (using 1.5 below) and change it for zoom out
+    //        //and we need to properly calculate the new left and top - just hard coded approximate values below
+    //        this._image.style.left = '-420px';
+    //        this._image.style.top = '-228px';
+    //        this._image.style.width = this._image.width * 1.5 + 'px';
+    //        this._image.style.height = this._image.height * 1.5 + 'px';
+
+
+    //for now, we'll just do this
+    this._image.style.display = 'none';
+    this._updateLayer();
+},
+
+_reset: function () {
+    if (this._image) {
+        this._map.getPanes().mapPane.removeChild(this._image);
+    }
+    this._initImage();
+    this._updateLayer();
+},
+
+_onImageLoad: function () {
+    //        //reset the image location on the map - doing it this way does not seem to work on mobile
+    //        L.DomUtil.setPosition(this, this.topLeft);
+    //        this.style.width = this.size.x + 'px';
+    //        this.style.height = this.size.y + 'px';
+
+
+    //this is the image
+
+    //make sure it's visible and reset the updating flag
+    this.style.visibility = 'visible';
+    this.style.display = 'block';
+
+    this.updating = false;
+}
+</code></pre>
+
+<p>});
+{% endcodeblock %}</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CartoDB + Leaflet = Easy]]></title>
+    <link href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/"/>
+    <updated>2011-10-13T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy</id>
+    <content type="html"><![CDATA[<p>One of the biggest sources of buzz at <a href="http://2011.foss4g.org/">FOSS4G</a> was <a href="http://cartodb.com">CartoDB</a>. It is a hosted solution from <a href="http://vizzuality.com/">Vizzuality</a> that uses <a href="http://postgis.org/">PostGIS</a> to allow you to store your spatial data online. I got a beta account a couple of weeks ago but life (i.e. paying work) kept getting in the way but I finally got to play with it recently.</p>
+
+<p>One of the things that intrigued me is that, similar to <a href="http://www.google.com/fusiontables/Home/">Google Fusion Tables</a>, CartoDB exposes a SQL interface through a RESTful API (I'm still not sure if the term "API" applies to REST but it's a convenient shorthand). Essentially, CartoDB exposes PostgreSQL SQL and the spatial SQL extensions of PostGIS. Once your data is loaded, you can query it and return the results as either CartoDB's JSON syntax, KML or <a href="http://geojson.org">GeoJSON</a>.</p>
+
+<p>With this information, I set out to build a simple application to query property data and display the results on a map in a browser. In addition to CartoDB, I elected to use the <a href="http://leaflet.cloudmade.com/">Leaflet</a> Javascript library to accomplish the mapping (although I also experimented with OpenLayers). Displaying and styling GeoJSON in Leaflet is very straightforward and this task gave me and excuse to get a little more comfortable with it.</p>
 
 <!--more-->
 
 
-<p>One a related note, the reduction of application code being delivered to the browser is also a focus. This was probably best illustrated by <a href="http://twitter.com/mattpriour">Matt Priour's</a> talk on <a href="http://openlayers.org">OpenLayers</a>. The fact that there are now three builds (full, mobile, light) as well as a focus on being more modular in version 3. <a href="http://twitter.com/pmbatty">Peter Batty</a>, in his demo of <a href="http://www.ubisense.net/en/">Ubisense</a>, made a good case for intelligent balance between server-side and client-side processing to achieve good performance.</p>
+<p>For starters, I downloaded building footprints for St. Mary's County, Maryland (freely available <a href="http://www.stmarysmd.com/gis/">here</a>). The footprints themselves are countywide so I also downloaded the boundary for Leonardtown, Maryland and used <a href="http://qgis.org/">QGIS</a> to clip out just those buildings that fell within the town boundary. Once my data was prepped, I uploaded it into CartoDB.</p>
 
-<p><a href="https://www.khronos.org/webgl/">WebGL</a> got a lot of attention from a number of speakers, with <a href="http://twitter.com/brendankenny">Brendan Kenny</a> of Google showing work he has done, including a Javascript port of GLUTessellation. Jeremy Bartley of Esri gave a lightning talk about <a href="http://www.esri.com/software/cityengine">CityEngine</a>, which is based on WebGL. WebGL is widely seen as the open solution to graphics performance that may finally kill the need for plug-ins. In side discussions, Jeremy talked about how WebGL will figure more into the previously discussed data reduction problem. The reality is that both servers and clients are getting much better at handling large data sets but the same can't necessarily be said for the wires that connect them.</p>
-
-<p>GeoJSON continues to get a lot of love. It continues to be, in my opinion, the motor oil for the engine that is web mapping. It will be interesting see how the separation of concerns between GeoJSON and TopoJSON evolves, but I think GeoJSON will continue to be an important syntax.</p>
-
-<p>While the majority of the discussion focused on browsers, <a href="http://nodejs.org/">Node.js</a> got significant attention. <a href="http://twitter.com/willwhitedc">Will White</a> of <a href="http://mapbox.com">MapBox</a> gave a good talk about the evolution of Node and the advantages of its non-blocking I/O model. One statistic he gave was surprising: he said 6 of the top 12 contributors on GitHub are Node contributors. That speaks loudly to the rapid evolution of Node as well as the interest in Javascript. Will put out a call to the geospatial community to build out the geospatial capabilities of Node. Later in the day, we saw a good lightning talk that showed Node processing real-time data and feeding a number of D3 visualizations.</p>
-
-<p>While Matt Priour and <a href="https://twitter.com/atogle">Aaron Ogle</a> opened with great talks on OpenLayers and <a href="http://leafletjs.com/">Leaflet</a>, respectively, the clear star of the client-side show was <a href="http://d3js.org/">D3</a> (although Aaron's walkshed analysis in Leaflet was cool). There were lots of great visualizations (as well as nods to TopoJSON). While the D3's support for projections is getting a lot of attention from geospatial developers, I am more interested in its holistic approach to data visualization. In D3, geo is one way to look at data, but not the central way. Because of this, D3 provides an integrated capability to have multiple data visualizations in an application without overloading with a ton of libraries.</p>
-
-<p>I am already well past tl;dr on this post and I have to catch a plane. Many of the URL talks were great but I'll follow up with some more details. All-in-all, I think the event was quite a success and I'm glad I came.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Getting Ready for JS.geo]]></title>
-    <link href="http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo/"/>
-    <updated>2013-01-08T15:50:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/08/getting-ready-for-js-dot-geo</id>
-    <content type="html"><![CDATA[<p>I'm looking forward to next week's <a href="http://geojs.eventbrite.com/">JS.geo</a> event in Denver. It is a small event, spearheaded by <a href="http://twitter.com/cwhelm">Chris Helm</a> of <a href="http://www.esri.com">Esri</a>, that focuses on the use of Javascript in geospatial applications. Although I have been more vocal in my <a href="http://blog.geomusings.com/blog/categories/python/">recent explorations with Python</a>, I've probably done as much, if not more, work with Javascript over the past 18 months.</p>
-
-<div style="text-align:center;"><img src="http://mapbrief.com/wp-content/uploads/2012/11/no_plugin.jpg" /></div>
+<div style="text-align: center;"><img alt="" class="size-full wp-image-2134" height="359" src="http://geobabble.files.wordpress.com/2011/10/cartodb_upload.png" title="cartodb_upload" width="590" /><div style="text-align: center; font-size: 14px">The CartoDB uploader is very easy to use.<br /></div></div>
 
 
-<p>The pace of innovation with Javascript in the geospatial area has been staggering. It seems like only a short time ago that the options for working with geospatial applications were <a href="http://openlayers.org/">OpenLayers</a> and the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/">Esri Javascript API</a>. The rapid advent of tools such as <a href="http://www.geoext.org/">GeoExt</a>, <a href="http://leafletjs.com/">Leaflet</a>, and many others has really lead to a explosion of capability. Of course, the recent buzz has been about <a href="http://d3js.org/">D3</a>, which tackles a wide range of data visualization problems, including geo. D3 is of particular interest because it is tackling the issue of projection in the browser, freeing applications from the dominance of Web Mercator.</p>
+<p>Once the data is uploaded and made public, it is as easy as a URL to pull down the GeoJSON (or even KML). Click here:</p>
 
-<p>Of course, it's not been all about the browser, either as <a href="http://nodejs.org/">Node.js</a> has made abundantly clear. One of the most effective desktop applications for cartographic design, <a href="http://mapbox.com/tilemill/">TileMill</a>, is built with Node, among other tools.</p>
+<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;format=geojson</a></p>
 
-<p>The maturity of Javascript as a tool for geospatial development is such that I am at the point that, if it weren't for government customers that are <a href="http://mapbrief.com/2011/10/13/web-mapping-continues-to-pay-for-the-sins-of-internet-explorer/">still standardized on Internet Explorer 8</a> or older, a plug-in-based environment would not be my first choice for a new application.</p>
+<p>You'll notice that some SQL is embedded in the URL. Finding the commercial properties in the data set is as simple as adding a WHERE clause:</p>
 
-<p>As for the JS.geo event itself, I am intrigued by its small, focused nature. It doesn't seem to be as informal as an unconference but may be easier to digest than the typical geo event. It will also be great to catch up with the Front Range crowd.</p>
+<p><a href="http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20'Commercial'&amp;format=geojson">http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs%20WHERE%20structure_%20=%20'Commercial'&amp;format=geojson</a></p>
+
+<p>This became the basis of my sample application. I decided to do a simple property finder that allows a user to find buildings by property type and square footage. As I mentioned, it's very easy to use GeoJSON with Leaflet. Here is the Javascript function that fetches the buildings from CartoDB and adds them to the map. It uses jQuery to do the actual fetch and then processes the result, adding the features into a Leaflet GeoJSON layer.</p>
+
+<p>{% codeblock lang:js %}</p>
+
+<pre><code>function getBuildings()
+{
+    var bldgLayer = new L.GeoJSON();
+    //here we also parse the attributes for the popups on the map
+    bldgLayer.on('featureparse', function(e) {
+      e.layer.setStyle({ color:  '#BDBDBD', weight: 1, fill: true, fillColor: '#EF6548', fillOpacity: 0.85 });
+      var label = "";
+      if (e.properties &amp;amp;&amp;amp; e.properties.address){
+            label += "&amp;lt;b&amp;gt;Address:&amp;lt;/b&amp;gt;: " + e.properties.address + "&amp;lt;br/&amp;gt;";
+      }
+      if (e.properties &amp;amp;&amp;amp; e.properties.structure_){
+            label += "&amp;lt;b&amp;gt;Property Type:&amp;lt;/b&amp;gt;: " + e.properties.structure_ + "&amp;lt;br/&amp;gt;";
+      }
+      if (e.properties &amp;amp;&amp;amp; e.properties.shape_area){
+            label += "&amp;lt;b&amp;gt;Square Footage:&amp;lt;/b&amp;gt;: " + e.properties.shape_area + "&amp;lt;br/&amp;gt;";
+      }
+      if (label != "")
+      {
+        e.layer.bindPopup(label);
+      }
+    });
+
+    $.getJSON(
+        "http://geomusings.cartodb.com/api/v1/sql?q=SELECT%20*%20FROM%20leonardtown_bldgs&amp;amp;format=geojson&amp;amp;callback=?",
+        function(geojson) {
+        $.each(geojson.features, function(i, feature) {
+          bldgLayer.addGeoJSON(feature);
+        })
+    });
+
+    map.addLayer(bldgLayer);        
+}
+</code></pre>
+
+<p>{% endcodeblock %}</p>
+
+<p><del datetime="2011-10-14T14:44:58+00:00">If you look closely, you'll notice the use of a proxy handler to get past the same origin restriction. This handler is written in .Net. I had been using a Python proxy but urllib2 was indicating header errors in the return from CartoDB so I fell back to this one. I'll dig into that more later.</del> (Thanks to <a href="http://twitter.com/jatorre">Javier de la Torre</a> for straightening me out with the use of a callback.) The above routine is basically the template for all the work in the app. Aside from the basemap tiles, the app loads the town boundary and the buildings from CartoDB. A similar funtion drives the query function, building and passing a WHERE clause to CartoDB. The image below shows the interface with query results in blue. The popups are performed by Leaflet.</p>
+
+<div style="text-align: center;"><img alt="" class="size-full wp-image-2139" height="300" src="http://geobabble.files.wordpress.com/2011/10/propfinder.png" title="propfinder" width="590" /><div style="text-align: center; font-size: 14px">Selected buildings are shown in blue with popups to display the property details<br /></div></div>
+
+
+<p>All told, this app took about 3 or so hours to build and deploy. This version doesn't actually make use of any spatial SQL yet but I'll add that soon. The live demo can be found here: <a href="http://demo.zekiah.com/propfinder/">http://demo.zekiah.com/propfinder/</a> (give the buildings a few seconds to load). It seems to work well in Firefox and Chrome and is functional, although clunky, in IE9. I haven't tried Safari or earlier versions of IE.</p>
+
+<p>CartoDB is still in beta but already seems solid and is definitely powerful. As a hosted solution, there are associated costs but that's to be expected. I'll keep playing with it but it's already impressive.</p>
 ]]></content>
   </entry>
   

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Esri | geoMusings]]></title>
+  <title><![CDATA[Category: ESRI | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/esri/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-03-12T11:30:53-04:00</updated>
+  <updated>2014-04-01T15:46:12-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,55 +14,146 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Esri Federal GIS Conference Features Immersion Summits]]></title>
-    <link href="http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits/"/>
-    <updated>2014-02-05T20:19:00-05:00</updated>
-    <id>http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits</id>
-    <content type="html"><![CDATA[<p>The 2014 installment of the <a href="http://www.esri.com/events/federal">Esri Federal GIS Conference</a> (formerly known as the Federal User Conference) happens next week. I have attended the event off and on since its inception. While I originally was drawn by the presence of a large geo-related event in my local area, that gap has been filled by numerous, smaller events from various sources in the past few years. The FedUC has traditionally had something of an identity crisis, with the content often feeling a bit diffuse and somewhat rushed over its quick, two-day schedule.</p>
+    <title type="html"><![CDATA[Initial Thoughts On the DC DevSummit]]></title>
+    <link href="http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit/"/>
+    <updated>2014-02-13T17:19:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit</id>
+    <content type="html"><![CDATA[<p>This week, I attended the first-ever <a href="http://www.esri.com">Esri</a> <a href="http://www.esri.com/events/devsummit-dc">DC DevSummit</a> which followed the <a href="http://www.esri.com/events/federal">Federal GIS Conference</a> (please switch it back to "FedUC"). This event, intended and a smaller, Federally-focused, companion to the annual Palm Springs DevSummit, came together quickly but was very well-attended with about 300 attendees.</p>
 
-<p>To Esri's credit, and probably in recognition of the changing economics regarding travel for Federal employees, they have continued to fine-tune the event when they could have easily walked away from it. The main problem with the FedUC is the fact that the Federal Government performs a wide array of functions that are difficult to cover well over two days in a conventional format. Esri has tackled that problem this year with the introduction of <a href="http://www.esri.com/events/federal/agenda/immersion-summits">"immersion summits,"</a> which are three-and-a-half hour sessions dedicated to specific domain areas.</p>
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/devsummit.jpg" /></p>
+
+<p>It was interesting to note that the most well-attended sessions of the day had to do with Javascript (every Javascript session had over 100 participants). As more and more organizations update their IT infrastructures, the acceleration away from plug-ins seems to be picking up pace. The most common refrain amongst attendees in that regard is that continued standardization on IE8 remains the biggest impediment to sunsetting things like Flex and Silverlight, but the logjam seems to be starting to break loose.</p>
 
 <!--more-->
 
 
-<p>For example, check out the Natural Resources Immersion Summit led by my friend <a href="http://twitter.com/jsteffenson">John Steffenson</a>. The agenda features speakers from USDA, USGS, the US Forest Service, the EPA, the Fish and Wildlife Service, and Department of Interior, representing over 100 years of higher education dedicated to natural resources management. The session also has slots for several demos of systems deployed in natual resources domain.</p>
+<p>Despite the photo I posted, <a href="http://twitter.com/ajturner">Andrew Turner's</a> open-source session was fairly well-attended. It was good to see tools like <a href="https://github.com/Esri/koop">Koop</a> in action. It is clear that there is real effort going on within Esri to produce open-source tools and that the people working on them are genuinely committed to them. That said, it is obviously still early days and such efforts are clearly swimming upstream against the preponderance of corporate culture. This is an effort that will best be judged over the long haul.</p>
 
-<p>The session's content seems to be designed take a holistic view, including fiscal, logistical, technical, and demographic challenges among others. This type of deep focus is an intriguing change to event's focus. While nautral resources is not my usual domain, I do like to drop into other sessions as I find that uses cases from other domains can give me ideas to bring back to my work. I think this new format could maximize the use of the compact schedule of the Federal GIS Conference and begin to give the event its own identity.</p>
+<p>I also have to give a shout out to <a href="http://twitter.com/agup">Andy Gup</a>, whom I finally met at this conference. By chance, I sat through three of his sessions. He is one of the best technical presenters I have ever seen and Esri should require junior staff to sit through his sessions to see how it should be done.</p>
+
+<p>I found the DevSummit generally worthwhile and I was impressed with how well it came together given the short timeframe. Since I was encouraged to blog suggestions, here are a few:</p>
+
+<ol>
+<li><p>Make a DevSummit a permanent fixture as a follow-on to the Federal User Conference each year. The format of this year's Federal conference can be tweaked but stay mainly focused on user-centric use cases and some intro-level discussions of technologies. A DevSummit would mark a shift in to much more technical content with advanced discussions of APIs, security, techniques and best practices.</p></li>
+<li><p>Pull out the stops. As I indicated in item 1, ramp up the technical content, in comparison to that of the Federal conference, significantly. This year's event started down that path. I would keep the technical content of the Federal conference on the bunny slopes and shift to the black diamonds for the DevSummit.</p></li>
+<li><p>Expand to two days. It was a quick day and there were definitely sessions I would have liked to have gotten to. Additionally, it would be good to see some user content, maybe some lightning talks on the evening between the days. One of the biggest challenges working in the Federal space is the compartmentalization between and within agencies. With the DevSummit drawing interested people to one location, it would be good to get more opportunities to interact with other developers and exchange information.</p></li>
+<li><p><a href="http://www.gsa.gov/portal/category/102371?utm_source=OCM&amp;utm_medium=print-radio&amp;utm_term=HP_13_SpecialTopics_fedramp&amp;utm_campaign=shortcuts">FedRAMP</a> and <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> were non-existent this year. Jim Barry explained to me that these were areas where content simply wasn't ready to go in the short time given to prepare for the DevSummit. That's fair, and I certainly respect the decision to not provide content that could not be done well. These are, however, core issues for anyone doing development for the Federal Government. Next year's DC DevSummit really needs to have content for developers attempting to deploy to FedRAMP and achieve FISMA compliance with Esri tools.</p></li>
+</ol>
+
+
+<p>Those my quick hits. I'll probably have more after I have time to digest what I saw and dig out from the backlog resulting from two days out of the office. Kudos to <a href="http://twitter.com/jimbarry">Jim Barry</a> for his work pulling the DC DevSummit together.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite and ArcGIS 10.2]]></title>
-    <link href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/"/>
-    <updated>2013-08-07T12:35:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2</id>
-    <content type="html"><![CDATA[<p>With the release of ArcGIS 10.2, <a href="http://www.esri.com">Esri</a> quietly added support for <a href="https://sqlite.org/">SQLite</a> as a geodatabase container. This is big news as the community has been looking for such support for some time. An open-source RDBMS originally designed for embedded systems, SQLite has a very small footprint and is <a href="https://www.sqlite.org/mostdeployed.html">arguably the most widely deployed RDBMS</a> in the world. (Thanks, in part, to the fact that it is embedded into Adobe Reader and other commonly used software.) Over the years numerous strategies for storing spatial data in SQLite have been developed, ranging from simply storing <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT or WKB</a> geometries in a column up to full extensions like <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>, which adds OGC-compliant data types and methods. SQLite is also the engine that drives the popular <a href="http://www.mapbox.com/developers/mbtiles/">MBTiles</a> implementation used by <a href="http://www.mapbox.com/tilemill/">TileMill</a> and <a href="http://www.mapbox.com">MapBox</a>.</p>
+    <title type="html"><![CDATA[Meanwhile, Over at Zekiah...]]></title>
+    <link href="http://blog.geomusings.com/2014/02/06/meanwhile/"/>
+    <updated>2014-02-06T11:34:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/06/meanwhile</id>
+    <content type="html"><![CDATA[<p>I don't usually cross-pollinate between this, my personal blog, and the company blog over at <a href="http://www.zekiah.com">Zekiah</a>. One of the great things about working at a place like Zekiah, however, is the opportunity to work with smart people and see what they are doing. At times, my colleagues will share components of their work on the company blog. We encourage this, and the experimentation that leads to the posts, as a way to keep our technical capabilities fresh and to also showcase what we do in a way that goes beyond the typical capabilities statements that exist on every site. My colleagues have been pretty busy but have managed to take some time to write a few posts about their work:</p>
+
+<ul>
+<li><a href="http://www.zekiah.com/index.php?q=blog/2014/02/04/esri-cityengine-unity-40-and-oculus-rift">Esri CityEngine, Unity 4.0 and the Oculus Rift</a> - My colleague, <a href="http://twitter.com/DanEntzian">Dan Entzian</a>, is an avid gamer, a great developer, and a smart GIS guy. This post combines those interests by showing how to bring cities created in Esri's <a href="http://www.esri.com/software/cityengine/">CityEngine</a> into gaming environments like <a href="http://unity3d.com/">Unity</a> and integrate them with the <a href="http://www.oculusvr.com/">Oculus Rift</a> virtual reality display. It's a quick, but detailed, read that shows the interactions possible between geospatial tools and games.</li>
+</ul>
+
 
 <!--more-->
 
 
-<p><a href="http://resources.arcgis.com/en/help/main/10.2/index.html#//019v0000001w000000">According to the documentation</a>, ArcGIS supports the use of either Esri's ST_GEOMETRY or SpatiaLite data types for geometry storage. This is consistent with Esri's approach on other RDBMS platforms such as <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.oracle.com">Oracle</a>. While SpatiaLite has been supported by platforms such as <a href="http://qgis.org/">QGIS</a>, I can't say I've seen a huge demand for data in SpatiaLite format. I have been using it for a while in some of <a href="http://www.zekiah.com">my company's</a> data modeling work as we have a Federal customer that has a documented requirement for generation of physical models in SpatiaLite, among other platforms. We have also taken the step of supporting SQLite as a container for our <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">platform independent model (PIM) approach</a> for configuration management of logical geospatial data models.</p>
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/unity_ide.png" /></p>
 
-<p>Esri's new support of SpatiaLite, combined with my existing customer requirements, obviously sparked my interest so I was curious to kick the tires. Unfortunately, I also had the situation that my development environment for the PIM tools, due to current customer constraints, must remain at ArcGIS 10.1 for both the desktop software and the underlying ArcObjects libraries. I have not been able to carve out the time to build a 10.2 VM.</p>
-
-<p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
-
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/billdollins">@billdollins</a> <a href="https://twitter.com/FatherSandman">@FatherSandman</a> Score! Looks like we&#39;ve confirmed ArcGIS 10.2, QGIS 1.9.0, and SpatiaLite-GUI 1.7.1 are compatible.</p>&mdash; Bryan McBride (@brymcbride) <a href="https://twitter.com/brymcbride/statuses/365103999671738369">August 7, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
-
-<p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
-
-<ol>
-<li>A SpatiaLite database created in ArcGIS 10.2 can be accessed and viewed in QGIS 1.9.0 and SpatiaLite GUI 1.7.1</li>
-<li>A SpatiaLite database created in QGIS 1.9.0 can be accessed in ArcGIS 10.2</li>
-</ol>
+<ul>
+<li><p><a href="http://www.zekiah.com/index.php?q=blog/2014/01/23/using-awk-ease-your-csv-manipulation">Using AWK to ease your CSV manipulation</a> - <a href="http://twitter.com/hugoestr">Hugo Estrada</a> shows how to use an old, but still effective, tool, <a href="http://www.grymoire.com/Unix/Awk.html">AWK</a>, to process GPS data for use in GIS software. This post is a great reminder that the best tool for the job may already be sitting there at our command prompt waiting for us.</p></li>
+<li><p><a href="http://www.zekiah.com/index.php?q=blog/2013/12/18/exporting-esri-silverlight-graphic-layer-google-earth-part-2">Exporting ESRI Silverlight Graphic Layer to Google Earth, Part 2</a> - While Silverlight is, politely speaking, passe, we have a few customers that are still attached to it. Generally, the systems that are using it are accredited systems of record so a rip-and-replace of Silverlight (or any other component) is simply not feasible without a significant paperwork drill. So we try to help our customers keep those systems as useful for their end users as possible. This post, also by Dan Entzian, illustrates how we did that in one case. A follow up to <a href="http://www.zekiah.com/index.php?q=blog/2011/10/11/exporting-esri-silverlight-graphic-layer-google-earth">an older post</a>, this post was done in response to an e-mail inquiry from a reader of the previous post.</p></li>
+<li><p><a href="http://www.zekiah.com/index.php?q=blog/2013/12/17/overview-clojure">An Overview of Clojure</a> - In this post, Hugo Estrada takes a look a <a href="http://clojure.org/">Clojure</a>, a variant of the Lisp programming language, and reports on his experience at Clojure Con. I found this particularly interesting since, as a lifelong programmer, I am always interested in new languages (even if it is getting harder to find the time to tinker with them myself).</p></li>
+<li><p><a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">Generating Physical Schemas From a PIM</a> - Okay, this one was written by me, but the work is pretty interesting and involved the efforts of a few co-workers, including Barry Schimpf and Dan Entzian. This post describes a tool that we developed as part of our overall approach to geospatial data model management. This script generator produces SQL scripts for either <a href="http://postgis.net/">PostGIS</a> or <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a> that enable a user to create spatial databases that are compliant with a data model. The information for the data model (which is always user-defined, not proscribed by us) is stored in what we call the platform independent model, or <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">PIM</a>. We've used the PIM, its encapsulating API, and tools to good effect for a couple of customers now. This post attempts to provide a concrete picture of what can be an abstract concept.</p></li>
+</ul>
 
 
-<p>Obviously, some more rigorous tests need to be performed but the initial results are promising. I'm curious to explore the boundaries, in ArcGIS terms, between a SQLite geodatabase and a file geodatabase. It remains to be seen whether this will put a dent in the use of file geodatabases. If it happens at all, I think it will take time since SQLite is not on the radar of the vast majority of ArcGIS users. I would hope, at a minimum, it puts a final stake through the heart of the personal geodatabase. It could also drive explicit accreditation of SQLite/SpatiaLite tools on government systems, which would be nice.</p>
+<p>Since Zekiah is a services company, rather than a platform company, we get to work with a broad range of technologies in support of our customers, in addition to our own internal research. This makes each day pretty interesting and can also make for lively conversation at company events. As the posts above showcase, my colleagues are working on some interesting things and it's a pleasure to work them each day.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[File Geodatabase Schema Compare Tool]]></title>
+    <link href="http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool/"/>
+    <updated>2014-01-08T20:32:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool</id>
+    <content type="html"><![CDATA[<p>In my work supporting various aspects of geospatial data modeling, I've spent a lot of time delving into concepts around configuration management of such data models. We've been able to apply a core tool set to perform various functions such as version managment, profiling, version-to-version migration, and validation in conjunction with a system we call the platform independent model (PIM). I gave quick overview of the PIM <a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">in this post over on the Zekiah blog</a> and the complete series on it <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">can be found here</a>.</p>
 
-<p>I'm happy, and somewhat pleasantly surprised, to see Esri take this step and provide another open option for data exchange.</p>
+<p>I've recently spent a bit of time consolidating code after a recent data delivery and decided to post a utility that was an outgrowth of that effort: <a href="https://github.com/Zekiah/ArcGISCompare">a tool to compare schemas of two Esri file geodatabases and report differences</a>. This lent itself to general use because it does not require any connection to a PIM.</p>
 
-<p>Now, about GeoJSON...</p>
+<p style="text-align:center;"><img src="https://github.com/Zekiah/ArcGISCompare/raw/master/screenshot.png" /></p>
+
+<!--more-->
+
+
+<p>The PIM deals mainly at the logical level with data models, but a full configuration management workflow must occasionally touch physical data sets. One use case we had to support, for which this tool was built, was the case where users in the field must compare separate data sets for eventual integration. Although these workflows start with a template data set, it is not unusal for changes to be made during collection, resulting in very similar but not identical schemas. This tool helps users identify such differences in order to make configuration management decisions based upon the actual state of the collected data.</p>
+
+<p>The tool is fairly straightforward: choose a template data set, choose an implementation data set, run the compare, and examine the results. It contains ArcObjects dependencies although we may migrate it to the file geodatabase API in order to eliminate those.</p>
+
+<p>We are also in the process of building a similar tool to work with SQLite/SpatiaLite data sets, which is the other format we commonly see used and will post that tool when it is complete. In the meantime, I hope you find this application useful.</p>
+
+<p>An installer (10.1) <a href="https://dl.dropboxusercontent.com/u/6749645/PIM/setup_ArcGISCompare.zip">can be found here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DC DevSummit In Works for 2014 Esri Federal GIS Conference]]></title>
+    <link href="http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/"/>
+    <updated>2013-12-27T13:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference</id>
+    <content type="html"><![CDATA[<p>I got word today that <a href="http://www.esri.com">Esri</a> is planning a one-day [Developer Summit] in conjunction with the <a href="http://www.esri.com/events/federal/">2014 Federal GIS Conference</a>. It appears that the DevSummit will happen on the Wednesday immediately following the Fed Conference (which runs on the Monday and Tuesday) and will be focused on the issues and challenges that are unique to developing applications with Esri technologies for the Federal Government. I spoke with <a href="http://www.linkedin.com/in/jdbarry">Jim Barry</a>, who told me the DevSummit has come together rather quickly and Esri hasn't had time to do its usual data gathering to prepare for such an event. As a result, they are canvassing the developer community for input on topics they should cover. Here are some things I suggested:</p>
+
+<!--more-->
+
+
+<ul>
+<li><p>Developing for <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> compliance - FISMA compliance has to be baked into an application from the beginning. It would be great to see some content on best practices and resources available to support this when developing with Esri tools and APIs. Esri's regional office in Vienna, Virginia has been doing a lot of work in this area but I'm not sure the information is widespread.</p></li>
+<li><p>Desktop development - I still see <em>a lot</em> of ArcGIS desktop development in the Federal arena. This ranges from traditional ArcObjects extensions to add-ins to work with the File Geodatabase API. I think content related to how to do continued desktop development and support in light of the current realities of highly constrained desktop environments would be invaluable. For example, how to construct and deploy applications that don't necessarily need to touch the registry and can be deployed without administrative rights. Also, some content on the future of Esri desktop products (like <a href="http://video.esri.com/watch/2533/unveiling-the-new-arcgis-professional-application-with-jim-mckinney-and-jack-dangermond">ArcGIS Professional</a>) and what it means for application developers would be useful.</p></li>
+</ul>
+
+
+<p><img src="http://blog.geomusings.com/images/posts/code.png" style="float:left;margin: 5px 25px 5px 0px;" /></p>
+
+<ul>
+<li><p>.Net - There's still a lot of .Net development going on in Federal spaces. Most of my Federal customers are still primarily using .Net and you can peruse Federal geospatial RFPs on any given day and see that it is widespread. I'm fairly comfortable with .Net, as are most of the government and contractor developers I work with but it would be good to have some .Net-focused content alongside the newer, sexier platforms.</p></li>
+<li><p><a href="http://www.arcgis.com/features/">ArcGIS Online for Organizations</a> - Whatever messaging Esri thinks they are doing is not working very well. I encounter a great many Federal users who simply don't understand what it can do for them, why they would consider it, how to budget for it, or whether they can really use it. My understanding is the main Federal GIS Conference will be talking about these issues a lot so I think the DevSummit should focus on the <a href="https://developers.arcgis.com/en/">tools and APIs</a> that are available so that developers can begin to address the ideas the main conference attendees will come back with.</p></li>
+<li><p>Data interoperability - I have spent a lot of time over the past year developing tools to support data modeling and configuration management efforts for some Federal users. Part of this work has involved developing tools to produce physical implementations of approved geospatial data models in a number of formats, though the formats that have been of primary interest with my customers have been the Esri File Geodatabase and <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>. The general workflows I have seen involve users working with Esri geodatabase formats in the office, while ingesting field-collected data in SpatiaLite format. All of this data needs to remain compliant with approved data models throughout the life cycle, regardless of format. <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">We've been tackling that</a> at <a href="http://www.esri.com">Zekiah</a> with good success. Given the support of SQLite/SpatiaLite in ArcGIS 10.2, I'd like to see some discussion of data conversion/interoperability approaches that developers can automate with Esri tools.</p></li>
+</ul>
+
+
+<p>Those are some topics I suggested to Jim off the top of my head. I'll probably think of more. Jim and his team at Esri are actively seeking this sort of input since time is short so I'd suggest <a href="http://www.linkedin.com/in/jdbarry">contacting him</a> with your thoughts. Given the short timeframe, I'd expect official information from Esri very soon.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DevOps for Geospatial Data]]></title>
+    <link href="http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data/"/>
+    <updated>2013-07-28T10:54:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data</id>
+    <content type="html"><![CDATA[<p>There has been a bit of buzz the past couple of weeks over the <a href="https://github.com/blog/1541-geojson-rendering-improvements">ability of GitHub to render GeoJSON and TopoJSON files</a> automatically using  and embedded <a href="http://leafletjs.com/">Leaflet</a> map and <a href="http://www.mapbox.com/">MapBox</a> technology. This buzz is quite justified as it presents an easy way to simply publish and visualize vector data sets. In the weeks since the initial announcement, the community has begun exploring the limits of GitHub's capability. Probably the two biggest limiting factors are individual file size limits and API rate limits. Some, including myself, are exploring strategies for maximizing the ability to store, disseminate, and visualize data within these confines. For the near term, <a href="https://github.com/">GitHub</a> will probably not be the place to store terabytes of data or act as the CDN for a high-volume mapping application. That is perfectly fine and there is still a great deal of value to be found within GitHub's current generous constraints.</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geodata-git.png" /></p>
+
+<p>One aspect of GitHub (really, its underlying <a href="http://git-scm.com/">git</a> engine) that is of great interest to me is the ability to perform version control and configuration management on data itself. With GitHub, that currently takes the form of text-based formats such as JSON but it's a start. In my experience supporting various customers over the years, configuration management of data has been a common gap in information operations. The most common, and inadequate, approach to this problem has been through the use of metadata. Almost two decades of viewing out-of-date, incomplete, and inaccurate metadata has given the lie to this approach. Metadata represents a separate maintenance workflow for which many organizations simply do not dedicate resources. Data-set-level metadata is also inadequate for volatile data sets in which individual records are updated frequently.</p>
+
+<!--more-->
+
+
+<p>I have worked with many organizations that had excellent DevOps processes for managing and deploying application code that simply had no corresponding processes for the data that the code was utilizing. We are long past time for addressing the importance of configuration management for data itself.</p>
+
+<p>That is not to say there have not been approaches to addressing this issue. Since version 8.0, <a href="http://www.esri.com">Esri</a> has had a means of <a href="http://www.esri.com/software/arcgis/geodatabase/multi-user-functionality">versioning enterprise geodatabases</a> that are stored in an RDBMS. This approach does have the ability to track feature-level changes and manages their inclusion in the master version of the data set. Quite frankly, I've never loved the Esri approach to versioning. I think it gives too much responsibility to middleware when it should be the database's sole responsibility to keep itself intact. Also, I have always felt the workflow is a bit too proscribed and takes too much business process decision ability from the data owner. That said, it has been the only real game in town for a long time so I have implemented it many times.</p>
+
+<p><a href="http://www.openstreetmap.org/">OpenStreetMap</a> (OSM) has also been a success story for tracking feature-level version history. Its approach has successfully managed millions of edits to a worldwide database so its utility is certainly proven. Organizations that need to maintain their own data behind their firewalls cannot really make use of OSM itself but the OSM approach is solid.</p>
+
+<p><a href="http://www.zekiah.com">At my own company</a>, we have been working with customers to implement <a href="http://blog.geomusings.com/2012/03/27/configuration-management-for-geospatial-data-models/">configuration management of data models</a> (logical and physical) but we are not really addressing CM of the data managed by those models. Even so, working at the model/schema level has still helped our customers improve their data management workflows by being able to identify versions of data models supported by deployed applications and helping to migrate between versions as needed.</p>
+
+<p>The recent move by GitHub to support visualization of spatial data files actually introduces no new capability in terms of configuration management of data files. Users have always had the ability to store and manage JSON, text, XML and other formats in GitHub and git. My hope is that the visualization capability, and the inevitable exploration it will generate, will shine more light on the issue of data configuration management. In my opinion, this is the most powerful aspect the platform brings.</p>
+
+<p>I'm also encouraged by <a href="http://opengeo.org/">OpenGeo's</a> <a href="https://github.com/opengeo/GeoGit">GeoGit</a> initiative. I have not personally experimented with it yet so I will not speculate on the specifics of its implementation, but I am happy to see OpenGeo recognizing the need for a more open approach to feature-level version control. Since, however, it will be open-source, my hope is that proprietary GIS vendors, or their supporting integrators, will eventually support it as well.</p>
+
+<p>Ultimately, I am happy to see both GitHub and OpenGeo addressing this issue. Although their approaches are different, they offer, in addition to the Esri approach, choices for organizations in terms of workflow. Many data managers, whether for legal, strategic, or other reasons, recognize the importance of maintaining version history of geospatial data records. It is important for everything from parcel mapping to critical infrastructure protection and many other use cases. Historically, there have been very few tools available to address this problem effectively but I am hoping that is starting to change.</p>
 ]]></content>
   </entry>
   

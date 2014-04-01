@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Arc2Earth | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arc2earth/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-03-12T11:30:53-04:00</updated>
+  <updated>2014-04-01T15:46:12-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Data, Apps, and Maps]]></title>
+    <link href="http://blog.geomusings.com/2014/04/01/data/"/>
+    <updated>2014-04-01T15:14:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/04/01/data</id>
+    <content type="html"><![CDATA[<p>It's been a quiet month-and-a-half here on the blog, mostly owing to an abundance of project tasks. I recently started a short-term project to help one of my Federal customers extend data source support for an application they have been developing. This customer is technically a new one but the project team is made up of government developers that I have worked with on a few other projects so there is a great deal of familiarity.</p>
+
+<p>The application, which has been under development for some time, is written in .Net and make use of the open-source (MIT) <a href="http://greatmaps.codeplex.com">GMap.NET</a> mapping library. The application features a desktop version running in Windows and a mobile version running on Android tablets. The .Net back end works seamlessly on both through the use of <a href="http://xamarin.com">Xamarin</a>, although I have not had the chance to get my hands dirty with that yet due to limits on Xamarin licenses and available Android devices. To its credit, GMap.NET seems to work fairly well in both environments.</p>
+
+<!--more-->
+
+
+<p>The project needed the ability to plug in custom base maps that would be accessible on the mobile devices which would not have internet connectivity, so I chose to use <a href="https://www.mapbox.com/developers/mbtiles/">MBTiles</a> as the provider format, given that it is widely supported and well-documented. This was my first time using the GMap.NET library and it was fairly easy to develop a new provider for it. <a href="https://github.com/geobabbler/MBTilesMapProvider">I have posted my provider code here</a>, though it may not work as a separate library due to some design choices in the core library.</p>
+
+<p>From there, I actually had to move on to making some data sets for the various upcoming application test runs. This enabled me to reconnect with some old friends: <a href="https://www.mapbox.com/tilemill/">TileMill</a>, <a href="http://www.arc2earth.com">Arc2Earth</a>, and <a href="http://market.weogeo.com">WeoGeo</a>. I used WeoGeo for the bulk of my data acquisition, sticking to open data sources such as OSM and TIGER. The areas that I needed to work with were fairly small and WeoGeo's feature of allowing me to upload KML to clip my data is really quite nice. If you still haven't checked out WeoGeo for data acquisition, you really should. The customization tools even make for-purchase data sets fairly affordable.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/weoorder.png" /></p>
+
+<p>I did my initial prototyping in TileMill to generate data sets to test the map provider. Once I moved on to building the actual data sets, I moved over to Arc2Earth. The main driver for that decision was that, in addtion to data acquired from WeoGeo, I had some data in a few government formats to integrate as well. Through GDAL and OGR, I could have accomplished that in TileMill, but I was able cut out a lot of data manipulation with Arc2Earth. That is why we keep multiple tools on the workbench.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/a2eexport2.png" /></p>
+
+<p>To help fusing multiple databases, I had to take the step of developing <a href="https://github.com/geobabbler/MBTilesMerge">a GUI tool to merge MBTiles</a> databases. <a href="https://github.com/mapbox/mbutil/blob/master/patch">MapBox has a perfectly fine utility</a> to do this but this particular shop has seen fit to block console access on our Windows machines so I had to create my own tool to accomplish this task.</p>
+
+<p>Every once in a while, it's good to get back in touch with data and mapping workflows. It keeps me honest as a developer, even though mapping is not my strong suit. I have found working with GMap.NET interesting but I'm not sure I'd choose to do so again. There are a few design choices that fall into the "not how I would have done it" category but, primarily, I haven't found any compelling reason to choose it over <a href="https://sharpmap.codeplex.com">SharpMap</a>, <a href="https://dotspatial.codeplex.com">DotSpatial</a>, or <a href="https://brutile.codeplex.com">BruTile</a>, which are open-source .Net libraries with which I am much more familiar.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Arc2Earth: Choose Your 'Cloud']]></title>
@@ -43,15 +71,13 @@
     <id>http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed</id>
     <content type="html"><![CDATA[<p>In case you missed it, this tweet floated across the Twitters last week:</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Blogged: TileMill Connect - Open Mxd Documents in @<a href="https://twitter.com/mapbox">mapbox</a> TileMill <a href="http://t.co/hDicr4z0" title="http://bit.ly/WbBOKW">bit.ly/WbBOKW</a></p>&mdash; Arc2Earth (@Arc2Earth) <a href="https://twitter.com/Arc2Earth/status/269194049230102528" data-datetime="2012-11-15T21:43:57+00:00">November 15, 2012</a></blockquote>
-<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/Arc2Earth/status/269194049230102528 %}</p>
 
 <p>Yes, the team at <a href="http://www.arc2earth.com">Arc2Earth</a> is apparently working on a new feature in <a href="http://www.arc2earth.com/services/sync/">Arc2Earth Sync,</a> called TileMill Connect, that will link <a href="http://www.esri.com">ArcMap</a> MXDs with <a href="http://mapbox.com/tilemill/">TileMill</a>. This will allow users to migrate their ArcMap cartography into TileMill to take advantage of the rich tools there as well as the potential for version control and cut/paste sharing of techniques and best practices enabled by <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>.</p>
 
 <p><a href="http://twitter.com/bFlood">Brian Flood</a> followed that up today with a short video showing it in action.</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>quick TileMill Connect demo video showing how it works. <a href="https://twitter.com/search/%23mapbox">#mapbox</a> <a href="https://twitter.com/search/%23arcgis">#arcgis</a> <a href="https://twitter.com/search/%23tilemill">#tilemill</a> <a href="https://twitter.com/search/%23arc2earth">#arc2earth</a> <a href="http://t.co/8WFdqCqH" title="http://bit.ly/QTWqpH">bit.ly/QTWqpH</a></p>&mdash; Arc2Earth (@Arc2Earth) <a href="https://twitter.com/Arc2Earth/status/270631991110692865" data-datetime="2012-11-19T20:57:49+00:00">November 19, 2012</a></blockquote>
-<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/Arc2Earth/status/270631991110692865 %}</p>
 
 <p>No word on a timetable for this feature, but I can't wait to kick the tires. I am especially intrigued by the pseudo <a href="http://www.postgis.org">PostGIS</a> proxy service that enables connections to ArcGIS data sources.</p>
 ]]></content>
@@ -126,30 +152,6 @@
 <p>Why would you do this? It is certainly possible to build great cartographic representations in ArcGIS but those representations are locked away in ArcGIS map documents, styles, layer packages and such; all of which are some proprietary binary format such as persisted COM objects. While this may not be the worst thing in the world, CartoCSS, being a text format, more easily lends itself to configuration control. Organizations that want to maintain configuration control over map templates and such can take advantage of standard tools such as git or SVN to do so. I have found that organizations with strict IT policies are also exactly the same kinds of organizations that to maintain control over content and styling so this is actually a surprisingly important factor.</p>
 
 <p>I'll probably play with this more as time and customer demand allow, but it's good to know this option is available for providing flexibility with ArcGIS Server.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Arc2Earth Focusing On Google Earth Builder]]></title>
-    <link href="http://blog.geomusings.com/2011/08/03/arc2earth-focusing-on-google-earth-builder/"/>
-    <updated>2011-08-03T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2011/08/03/arc2earth-focusing-on-google-earth-builder</id>
-    <content type="html"><![CDATA[<p><a href="http://www.arc2earth.com">Arc2Earth</a> (disclaimer: <a href="http://www.zekiah.com">my company</a> is an Arc2Earth reseller) has focused a lot on extending their integration with the Google cloud infrastructure. This started with Cloud Services, which provided the ability to push data into Google <a href="http://code.google.com/appengine/">AppEngine</a> and serve it through emulation of the <a href="http://help.arcgis.com/en/arcgisserver/10.0/apis/rest/index.html">Esri REST API</a> (among other options). This was expanded to include live editing of data hosted on AppEngine. More recently, Arc2Earth added support for <a href="http://www.google.com/fusiontables/public/tour/index.html">Google Fusion Tables</a>.</p>
-
-<p><img alt="arc2earth logo" src="http://www.arc2earth.com/wp-content/uploads/2010/10/logo_Arc2Earth_h.png" /></p>
-
-<p>Late last year, they announced their <a href="http://beta.arc2cloud.com/">Arc2Cloud</a> initiative to expose Google's spatial data services to ArcGIS users. This has seemed to fall of the radar a bit lately but, as we know, there have been <a href="http://www.google.com/enterprise/earthmaps/builder.html">changes brewing on the on the Google end of things</a> so some delays from Arc2Earth are understandable.<!--more--></p>
-
-<p>Yesterday's newsletter from Arc2Earth confirmed suspicions with the following:</p>
-
-<blockquote>
-Many of you have also been asking about Arc2Cloud and when it will be available. All we can say is it has changed into something more powerful and we are really excited about where it will lead us. If you want to use Google Fusion Tables or Google Earth Builder from within ArcGIS, this is the product for you. Arc2Cloud is still used to provide online compatibility with ArcGIS but the real benefit is the automatic synchronization of your data. 
-
-It runs in the task tray and keeps everything up to date (data, live edits, tiles, published maps etc) without you having to do anything. In fact, I think it's the culmination of all the different parts of Arc2Earth into a single, automated package. Arc2Earth Sync will be coming this fall as part of Arc2Earth Desktop.
-</blockquote>
-
-
-<p>So there you have it, Arc2Earth will be your interface between ArcGIS Desktop and Google Earth Builder. The state of offerings in the "cloud" for geospatial users will be changing a lot over the next year or so. Arc2Earth looks like it will be a nice way to keep your options open.</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: TileMill | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/tilemill/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-03-12T11:30:53-04:00</updated>
+  <updated>2014-04-01T15:43:31-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Data, Apps, and Maps]]></title>
+    <link href="http://blog.geomusings.com/2014/04/01/data/"/>
+    <updated>2014-04-01T15:14:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/04/01/data</id>
+    <content type="html"><![CDATA[<p>It's been a quiet month-and-a-half here on the blog, mostly owing to an abundance of project tasks. I recently started a short-term project to help one of my Federal customers extend data source support for an application they have been developing. This customer is technically a new one but the project team is made up of government developers that I have worked with on a few other projects so there is a great deal of familiarity.</p>
+
+<p>The application, which has been under development for some time, is written in .Net and make use of the open-source (MIT) <a href="http://greatmaps.codeplex.com">GMap.NET</a> mapping library. The application features a desktop version running in Windows and a mobile version running on Android tablets. The .Net back end works seamlessly on both through the use of <a href="http://xamarin.com">Xamarin</a>, although I have not had the chance to get my hands dirty with that yet due to limits on Xamarin licenses and available Android devices. To its credit, GMap.NET seems to work fairly well in both environments.</p>
+
+<!--more-->
+
+
+<p>The project needed the ability to plug in custom base maps that would be accessible on the mobile devices which would not have internet connectivity, so I chose to use <a href="https://www.mapbox.com/developers/mbtiles/">MBTiles</a> as the provider format, given that it is widely supported and well-documented. This was my first time using the GMap.NET library and it was fairly easy to develop a new provider for it. <a href="https://github.com/geobabbler/MBTilesMapProvider">I have posted my provider code here</a>, though it may not work as a separate library due to some design choices in the core library.</p>
+
+<p>From there, I actually had to move on to making some data sets for the various upcoming application test runs. This enabled me to reconnect with some old friends: <a href="https://www.mapbox.com/tilemill/">TileMill</a>, <a href="http://www.arc2earth.com">Arc2Earth</a>, and <a href="http://market.weogeo.com">WeoGeo</a>. I used WeoGeo for the bulk of my data acquisition, sticking to open data sources such as OSM and TIGER. The areas that I needed to work with were fairly small and WeoGeo's feature of allowing me to upload KML to clip my data is really quite nice. If you still haven't checked out WeoGeo for data acquisition, you really should. The customization tools even make for-purchase data sets fairly affordable.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/weoorder.png" /></p>
+
+<p>I did my initial prototyping in TileMill to generate data sets to test the map provider. Once I moved on to building the actual data sets, I moved over to Arc2Earth. The main driver for that decision was that, in addtion to data acquired from WeoGeo, I had some data in a few government formats to integrate as well. Through GDAL and OGR, I could have accomplished that in TileMill, but I was able cut out a lot of data manipulation with Arc2Earth. That is why we keep multiple tools on the workbench.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/a2eexport2.png" /></p>
+
+<p>To help fusing multiple databases, I had to take the step of developing <a href="https://github.com/geobabbler/MBTilesMerge">a GUI tool to merge MBTiles</a> databases. <a href="https://github.com/mapbox/mbutil/blob/master/patch">MapBox has a perfectly fine utility</a> to do this but this particular shop has seen fit to block console access on our Windows machines so I had to create my own tool to accomplish this task.</p>
+
+<p>Every once in a while, it's good to get back in touch with data and mapping workflows. It keeps me honest as a developer, even though mapping is not my strong suit. I have found working with GMap.NET interesting but I'm not sure I'd choose to do so again. There are a few design choices that fall into the "not how I would have done it" category but, primarily, I haven't found any compelling reason to choose it over <a href="https://sharpmap.codeplex.com">SharpMap</a>, <a href="https://dotspatial.codeplex.com">DotSpatial</a>, or <a href="https://brutile.codeplex.com">BruTile</a>, which are open-source .Net libraries with which I am much more familiar.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Biggest News You May Have Missed...]]></title>
