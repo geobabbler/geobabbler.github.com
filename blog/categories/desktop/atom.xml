@@ -4,7 +4,7 @@
   <title><![CDATA[Category: desktop | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/desktop/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-04-17T14:50:22-04:00</updated>
+  <updated>2014-04-17T16:15:54-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -20,7 +20,7 @@
     <id>http://blog.geomusings.com/2013/10/23/desktop-not-dead</id>
     <content type="html"><![CDATA[<p>In 2011, I gave a talk at the NCGIS conference about the continued dominance of the desktop in the world of GIS. In that talk, my main point was that, regardless of the ultimate destination of GIS data or maps (cloud, server, paper, PDF, etc.), most GIS data passes through a desktop GIS at some point. I don't have hard data to back up that claim but I think anyone who has worked in the industry for any length of time will agree that it feels right. If we loosely define "desktop GIS" to include not only GUI analytical tools like <a href="http://www.esri.com">ArcMap</a> or <a href="http://qgis.org">QGIS</a>, but also command-line tools such as <a href="http://www.gdal.org/">GDAL/OGR</a> and cartographic tools such as <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I think the statement is even more comfortable.</p>
 
-<p style="text-align:center;">{% youtube ljIQo1OHkTI %}</p>
+<p style="text-align:center;"><iframe width="560" height="420" src="http://www.youtube.com/embed/ljIQo1OHkTI?color=white&theme=light"></iframe></p>
 
 <p>Essentially, my claim was that desktop GIS is still the onramp for most of the data we interact with on the web. Over the past few years, geographically tagged live and temporally-sensitive data streams have increased in importance but I think most geospatial data still starts as traditional data sources (rasters, vectors, terrain, etc.) that pass through a desktop for analysis, processing, and styling before moving on to the web. Esri, for example, still features its desktop tools as prominent parts of its web publishing workflow and <a href="http://boundlessgeo.com/">Boundless</a> is working on a <a href="https://github.com/boundlessgeo/suite-qgis-plugin">similar path for QGIS</a>.</p>
 
