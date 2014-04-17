@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-04-01T15:43:31-04:00</updated>
+  <updated>2014-04-17T14:45:34-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Virtual Rasters to Generate Contours in QGIS]]></title>
+    <link href="http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis/"/>
+    <updated>2014-04-17T13:39:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis</id>
+    <content type="html"><![CDATA[<p>Every now and again, I am asked to make maps. It&#8217;s not my strongest suit, but it sometimes comes with the territory. My latest task, as mentioned in my previous post, involves building support for <a href="https://www.mapbox.com/developers/mbtiles/">MBTiles</a> databases into a mobile situational awareness tool. This is done so that the devices can have a persistent local basemap in the field. The need arose to ensure that the basemaps were high contrast to assist with visibility in bright sunlight. Something like this:</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour0.png" /></p>
+
+<p>One of the requirements was to have topographic-map-like contours to indicate changes in elevation. Existing map services didn&#8217;t provide what we needed so it was necessary to build a custom map, which meant generating contour lines. It had been years since I had last done that with Esri tools, but I didn&#8217;t have any extension licenses available, so I turned to <a href="http://www.qgis.org/en/site/">QGIS</a> to get the job done this time.</p>
+
+<!--more-->
+
+
+<p>My area of interest was a portion of Virginia. Since I couldn&#8217;t find any pre-generated contours for the state, I turned to elevation models. There are numerous places to get such data, but I <a href="http://geoserve.asp.radford.edu/dems/va_dems.htm">downloaded some DEMs from Radford University</a> since they are already carved up by county. They are perhaps a bit dated, but they sufficed for this particular testing round.</p>
+
+<p>It was easy to find <a href="http://boringnerdystuff.wordpress.com/2012/07/14/302/">guidance on how to generate contours in QGIS</a>. So I ran the process on a couple of adjacent counties and noticed that the edges didn&#8217;t line up, which was not surprising. My first thought was that I would need to merge the DEMs but, luckily, I stumbled across the virtual raster tool in QGIS. This tool provides a nice UI for building a <a href="http://www.gdal.org/gdal_vrttut.html">GDAL virtual raster</a> from a series of separate rasters specified by the user. This can be a bit cumbersome to do manually and this GUI tool was a real time saver. It can be found in QGIS Dufour here:</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour1.png" /></p>
+
+<p>To make my life easier, I moved all of my DEMs into one folder so I could just point the tool at the folder. I filled in the name of the output file and took the defaults for everything else.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour2.png" /></p>
+
+<p>Notice that the dialog shows me the GDAL command that I am building with the UI. Advanced users can even edit it here. This is a really nice feature that can help you get comfortable with GDAL. I am not a GDAL expert, nor am I particularly adept with raster operations so I found this to be a huge help and I plan to use it more.</p>
+
+<p>The tool doesn&#8217;t change any data; it merely writes a text file so it works very quickly. the resulting virtual raster was done in a few seconds.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour3.png" /></p>
+
+<p>With the data now &#8220;merged,&#8221; I was able to continue with data generation. For my purposes, 10-meter contours were more than sufficient. I generated a shapefile, but any QGIS-supported format is valid as an output. It should be noted that the &#8220;Attribute name&#8221; choice is not checked by default. Check this if you want to attach the elevation value to each line. Also notice that QGIS is again giving us the relevant GDAL command as we build it. This very powerful as it gives you the option to use QGIS to prototype GDAL operations and then script them outside of QGIS, if you desire.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour6.png" /></p>
+
+<p>This process took a little longer, thanks to Faquier County, but still finished in about 90 seconds. The resulting contours were contiguous across counties, so my needs were met.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour8.png" /></p>
+
+<p>I&#8217;m now it the process of styling the map in <a href="https://www.mapbox.com/tilemill/">TileMill</a> so that I can generate the databases. It&#8217;s good to occasionally take off my developer hat and put on that of a user. I&#8217;ve known for quite a while that QGIS stands toe-to-toe with any other desktop GIS software but this work got me to use some tools that I rarely ever touch. I was impressed with not only the speed, but also how smoothly the work flowed. My pedestrian laptop didn&#8217;t engage in nearly the same level of huffing and puffing that it does when I have to use other software. That may be a hidden &#8220;win&#8221; in that users can extend the useful life of their hardware by using tools that don&#8217;t tax it as much while producing the same results.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Data, Apps, and Maps]]></title>
@@ -1168,30 +1210,6 @@ Also included are land use/land cover data; congressional and legislative distri
 <p>The exact StackExchange API URL that generated these results is: <a href="https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100">https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100</a></p>
 
 <p>The results were generated on 11 September 2013 and subsequent results will vary from those shown here. The Python script used to process the results into CSV <a href="http://blog.geomusings.com/assets/data/stack2013/handle_json.zip">can be found here</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Random Geospatial Stuff]]></title>
-    <link href="http://blog.geomusings.com/2013/09/10/random-geospatial-grab-bag/"/>
-    <updated>2013-09-10T10:16:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/09/10/random-geospatial-grab-bag</id>
-    <content type="html"><![CDATA[<p>It&#8217;s been a while since I&#8217;ve posted as the usual wind-down of summer and wind-up of the school year has had me otherwise engaged. What follows are few developments over the past few months that have floated through the transom of my geo-awareness.</p>
-
-<p style="text-align:center;"><img src="http://daylightdonutsstier.com/assets/images/slideshow/CakeDonuts.jpg" height="50%" width="50%"/></p>
-
-<p><a href="http://geojson.io/">geojson.io</a> - Remember all of the attention given to the ability to render GitHub-hosted GeoJSON files as maps? Well, <a href="http://twitter.com/tmcw">Tom MacWright</a> of <a href="http://mapbox.com">MapBox</a> has, in fairly rapid fashion, given us this tool to edit GeoJSON in the browser and publish to either a GitHub repo or a gist. It&#8217;s an easy-to-use tool with an interface consistent with other MapBox tools. It&#8217;s definitely worth checking out and adds an important piece of workflow to the GeoJSON-on-GitHub concept.</p>
-
-<!--more-->
-
-
-<p><a href="http://gitspatial.com/">GitSpatial</a> - Continuing with the theme of being more productive with GeoJSON on GitHub, <a href="http://twitter.com/JCSanford">Jason Sanford</a> has developed GitSpatial to wrap a spatial API around your hosted GeoJSON. It actually works using a &#8216;sync&#8217; approach so it pulls the GeoJSON into its own infrastructure and watchs the data on GitHub for changes. Jason has also updated his <a href="http://geojason.info/leaflet-vector-layers/">Leaflet Vector Layers</a> project to support GitSpatial. This project is in its early stages and Jason has been very open to feedback. I encourage you to check it out and help him make it better.</p>
-
-<p><a href="https://www.gaia-gis.it/fossil/virtualpg/index">VirtualPG</a> - This extension to SQLite/SpatiaLite was released in August and it is intended to facilitate data exchange between those platforms and PostgreSQL/PostGIS. I have yet to kick the tires on it but I plan to soon.</p>
-
-<p><a href="http://www.dhs.gov/infrastructure-information-partnerships#2">HSIP 2013</a> - For the first time in quite a while, I attended a <a href="https://www.hifldwg.org/">HIFLD</a> meeting. The theme of the meeting was HSIP Feedback, to which about one HIFLD per year is dedicated. While HSIP has never been perfect, it has managed to evolve to provide value across numerous communities. The meeting featured a parade of users articulating the essential nature of HSIP to their missions. With HSIP 2013, the distribution expands to 6 DVDs. In my opinion, this distribution method is one of its biggest, and most solvable, problems. With a plethora of <a href="http://www.weogeo.com">technologies</a> to choose from, streamlining and tailoring the delivery of HSIP to its users should be low-hanging fruit for HSIP&#8217;s custodians.</p>
-
-<p>As for me, I&#8217;ve been spending my days writing interfaces for custom message formats to synchronize locations with video frames. It&#8217;s much lower-level development than I&#8217;ve done in a while but it&#8217;s been very fun. I&#8217;ve also been making some updates to my <a href="https://github.com/geobabbler/AGSOpenFormats">GeoJSON extension for ArcGIS Server</a> but I&#8217;ll post about that in more detail soon.</p>
 ]]></content>
   </entry>
   
