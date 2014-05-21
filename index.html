@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Every now and again, I am asked to make maps. It&#8217;s not my strongest suit, but it sometimes comes with the territory. My latest task, as &hellip;">
+  <meta name="description" content="I have been spending the past few weeks dealing more with data and mapping than I have in quite a while. It&#8217;s given me a chance to regain my &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,53 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/05/20/personal-geospatial-workflows/">Personal Geospatial Workflows, May 2014 Edition</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-20T08:21:00-04:00" pubdate data-updated="true">May 20<span>th</span>, 2014</time>
+        
+         | <a href="/2014/05/20/personal-geospatial-workflows/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have been spending the past few weeks dealing more with data and mapping than I have in quite a while. It&#8217;s given me a chance to regain my footing with map-making, reconnect with some end-user tools like <a href="http://www.arc2earth.com">Arc2Earth</a>, and build a little more proficiency with things like <a href="http://www.gdal.org/">GDAL</a>, <a href="http://qgis.org">QGIS</a>, and <a href="https://www.mapbox.com/tilemill/">TileMill</a>. Of course, I&#8217;ve been able to sneak in some coding as I&#8217;ve identified gaps in my workflow.</p>
+
+<p>In a nutshell, I am building base maps for use on disconnected mobile devices. There are two styles of base maps; imagery (really more of an imagery/vector hybrid) and a high-contrast map for use on the outdoor devices and sourced only from vector data. In both cases, I am building MBTiles databases to support the requirement for disconnected operations and to provide consistency in data size and performance.</p>
+
+<p>For the imagery base maps, I was faced with following a data request process that may or may not have resulted in getting imagery in a timely fashion. Alternatively, I was presented with the option of using a tiled map service to get the imagery. Given that I was just making basemaps, this would have been acceptable but for the spotty speed and reliability of the network connection. The ideal solution would be to get only the tiles I need, store them locally, create a geo-referenced image from them, and build a virtual raster table (VRT) for each level.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2014/05/20/personal-geospatial-workflows/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -494,62 +541,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/12/30/thank-you-and-happy-2014/">geoMusings 2013</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-12-30T16:00:00-05:00" pubdate data-updated="true">Dec 30<span>th</span>, 2013</time>
-        
-         | <a href="/2013/12/30/thank-you-and-happy-2014/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As we enter the final hours of 2013, I wanted to take the chance to thank everyone who stopped by, and continues to stop by, this blog. I appreciate your readership, comments, and feedback. Even after 7 years, I am still humbled by the fact that so many read this blog each year. I decided to take a look at the top ten posts from this year, according to Google Analytics.</p>
-
-<ol>
-<li><a href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/">Yes, You Need to Code</a></li>
-<li><a href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/">GeoJSON on GitHub: Now What?</a></li>
-<li><a href="http://blog.geomusings.com/2013/06/10/geojson-from-arcgis-server/">GeoJSON From ArcGIS Server</a></li>
-<li><a href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/">SpatiaLite and ArcGIS 10.2</a></li>
-<li><a href="http://blog.geomusings.com/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis/">Checking Out the GDAL/OGR Plugin for ArcGIS</a></li>
-<li><a href="http://blog.geomusings.com/2013/05/30/ogc-abandons-the-web/">OGC Abandons the Web</a></li>
-<li><a href="http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data/">DevOps for Geospatial Data</a></li>
-<li><a href="http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange/">Another Look at GIS StackExchange</a></li>
-<li><a href="http://blog.geomusings.com/2013/11/27/consider-the-alternative/">Consider the &#8216;Alternative&#8217;</a></li>
-<li><a href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">The Best Thing I Saw at TUGIS 2013</a></li>
-</ol>
-
-
-<p>When I took a look at the list above, I realized that I have been much more focused on data than I have in past years. I think I kept a development/integration flavor but the focus on data was quite noticeable in retrospect. Though I have been actively coding all year, I notice that I did not have as many code-focused posts, which is something of a departure from previous years. 2014 is already shaping up to be a busy year personally and professionally so it will be interesting to see where that leads me on this blog.</p>
-
-<p>Thanks again for your continued interest and I hope you have a fruitful 2014.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -596,15 +587,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/05/20/personal-geospatial-workflows/">Personal Geospatial Workflows, May 2014 Edition</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis/">Using Virtual Rasters to Generate Contours in QGIS</a>
       </li>
     
       <li class="post">
         <a href="/2014/04/01/data/">Data, Apps, and Maps</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/02/18/a-little-deeper-with-node-and-postgis/">A Little Deeper with Node and PostGIS</a>
       </li>
     
   </ul>

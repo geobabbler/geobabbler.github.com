@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="The last couple of days have shown some traffic being driven to my blog from search terms such as &#8220;opening zig file&#8221; so I thought I&#8217 &hellip;">
+  <meta name="description" content="UPDATECheck the comments for the resolution to this. 9.2 offers a registry setting and, since I&#8217;m upgrading, I&#8217;ll make use of that. I got &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/02/24/how-do-you-disable-this-dialog-in-arcmap/">How Do You Disable This Dialog in ArcMap?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-24T00:00:00-05:00" pubdate data-updated="true">Feb 24<span>th</span>, 2007</time>
+        
+         | <a href="/2007/02/24/how-do-you-disable-this-dialog-in-arcmap/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong><strong>UPDATE</strong></strong><em>Check the comments for the resolution to this. 9.2 offers a registry setting and, since I&#8217;m upgrading, I&#8217;ll make use of that. I got pretty far on my API hack though.</em></p>
+
+<p>My question is twofold: First: Can you stop this dialog from appearing in ArcMap 9.1? Second: If not, does 9.2 give you the option to turn this thing off?</p>
+
+<p><img alt="ArcMap Drawing Errors?Dialog" src="http://geobabble.files.wordpress.com/2007/02/arcmap_draw_error.JPG" /></p>
+
+<p>I have posted a similar query on the ESRI forums but I thought the blogosphere may be able to weigh in on this. This dialog was introduced at 9.1 as a &#8220;feature&#8221; but it&#8217;s not the most developer-friendly thing in the world. A little background:</p>
+
+<p>I have an application running as a Windows service that is receiving data and stuffing it into ArcSDE. I have another app that&#8217;s an ArcMap extension. It refreshed the map on a specified interval and shows the new data as it comes in. There is no syncronization between the two. As you would expect, there are occaionally collisions. The ArcSDE layer may be in load-only mode or something similar. I have a lot of exception-handling in place to trap all of those kinds of things.</p>
+
+<p>This dialog defies all of that. Despite my exception handling, it still pops up and it completely freaks out my users. I would like to turn it off. (I would really like to kill it.) I can&#8217;t find a registry setting or any other such option that allows me to do that so I&#8217;m stumped. Any help would be appreciated and I promise to sing your praises on this blog if you have the solution.</p>
+
+<p>For background: we are using 9.1 (for a number of reasons). We are starting the upgrade planning to go to 9.2. If 9.2 fixes this, then I&#8217;ll stop worrying about it. Any useful info would be very helpful. My next step is some slimy Windows API hack to suppress the damned thing.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -464,49 +514,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/01/14/derived-geometry-redux/">Derived Geometry Redux</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-01-14T00:00:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2007</time>
-        
-         | <a href="/2007/01/14/derived-geometry-redux/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A long time ago, on a blog-hosting site far far away, there was a blog called ArcDeveloper (not to be confused with <a href="http://www.arcdeveloper.net/">ArcDeveloper.Net</a>, which came later and did more). That was my first blog. It went in a few different directions. I wasn&#8217;t happy with it, so I killed it. There&#8217;s nothing to link to now.</p>
-
-<p>Anyway, one of the posts I did on that blog had to do with creating derived geometry classes in .Net. The basic premise is simple: create a class that inherits from one of the ArcObjects geometry classes and then extend it to fit your needs. My application at the time had to do with writing an ArcGIS client for <a href="http://www.incident.com/cookbook/index.php/Welcome_to_the_CAP_Cookbook">Common Alerting Protocol (CAP)</a> feeds.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/01/14/derived-geometry-redux/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/35/">&larr; Older</a>
@@ -555,15 +562,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/05/20/personal-geospatial-workflows/">Personal Geospatial Workflows, May 2014 Edition</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis/">Using Virtual Rasters to Generate Contours in QGIS</a>
       </li>
     
       <li class="post">
         <a href="/2014/04/01/data/">Data, Apps, and Maps</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/02/18/a-little-deeper-with-node-and-postgis/">A Little Deeper with Node and PostGIS</a>
       </li>
     
   </ul>
