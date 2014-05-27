@@ -18,11 +18,12 @@
 			}
 		.info {
 			padding: 6px 8px;
-			font: 14px/16px Arial, Helvetica, sans-serif;
+			font-family: 'Open Sans', sans-serif;
+			font-size: 11px;
 			background: white;
 			background: rgba(255,255,255,0.8);
 			box-shadow: 0 0 15px rgba(0,0,0,0.2);
-			border-radius: 5px;
+			border-radius: 3px;
 		}
 		.info h4 {
 			margin: 0 0 5px;
@@ -108,7 +109,7 @@ iframe {
 			map.fitBounds(e.target.getBounds());
 		}
 		
-		var map = L.map('map').setView([38.2951, -77.0367], 7); //
+		var map = L.map('map').setView([38.3914, -75.0697], 7); //
 		map.addLayer(acetate);
 		map._layersMinZoom=7;
 		map._layersMaxZoom=9;
@@ -160,7 +161,7 @@ iframe {
 			var spend2012 = (props.fy12 / props.population) / props.median_income * 100;
 			}
 			this._div.innerHTML = '<h4>Procurement Data</h4>' +  (props ?
-				'<b>' + props.county + ', ' + props.state + '</b><br /><b>FY10:</b> ' + props.fy10.formatMoney(2, '.', ',', '$') + '</b><br /><b>FY11:</b> ' + props.fy11.formatMoney(2, '.', ',', '$') + '<br/><b>FY12:</b> ' + props.fy12.formatMoney(2, '.', ',', '$') + '<br/><b>FY13:</b> ' + props.fy13.formatMoney(2, '.', ',', '$') + '<br/><b>FY14:</b> ' + props.fy14.formatMoney(2, '.', ',', '$') + '<br/><b>Total:</b> ' + props.total.formatMoney(2, '.', ',', '$') + '<br/><b>Population (2012 est.):</b> ' + props.population.formatMoney(0, '.', ',', '') + '<br/><b>Median Household Income (2012 est.):</b> ' + props.median_income.formatMoney(2, '.', ',', '$') + props.median_income.formatMoney(2, '.', ',', '$') + '<br/><b>Per Capita Procurement (Total):</b> ' + spend.formatMoney(2, '.', ',', '$') + '<br/><br/><sub>FY14 data as of 18 April 2014</sub>'
+				'<b>' + props.county + ', ' + props.state + '</b><br /><b>FY10:</b> ' + props.fy10.formatMoney(2, '.', ',', '$') + '</b><br /><b>FY11:</b> ' + props.fy11.formatMoney(2, '.', ',', '$') + '<br/><b>FY12:</b> ' + props.fy12.formatMoney(2, '.', ',', '$') + '<br/><b>FY13:</b> ' + props.fy13.formatMoney(2, '.', ',', '$') + '<br/><b>FY14:</b> ' + props.fy14.formatMoney(2, '.', ',', '$') + '<br/><b>Total:</b> ' + props.total.formatMoney(2, '.', ',', '$') + '<br/><b>Population (2012 est.):</b> ' + props.population.formatMoney(0, '.', ',', '') + '<br/><b>Median Household Income (2012 est.):</b> ' + props.median_income.formatMoney(2, '.', ',', '$') + '<br/><b>Per Capita Procurement (Total):</b> ' + spend.formatMoney(2, '.', ',', '$') + '<br/><br/><sub>FY14 data as of 18 April 2014</sub>'
 				: 'Hover over a county');
 		};
 
