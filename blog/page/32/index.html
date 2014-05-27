@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Things have been REALLY slow on zigGIS for a while. All of us (Paolo, Abe, me) have all been up to our eyeballs with work, leaving little time to &hellip;">
+  <meta name="description" content="Or vice versa. A while back I posted about setting up a GIS server using open source GIS technologies. When I left off, I was going to start messing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/07/31/extending-sharpmap-with-sqlite/">Extending SharpMap With SQLite</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-31T00:00:00-04:00" pubdate data-updated="true">Jul 31<span>st</span>, 2007</time>
+        
+         | <a href="/2007/07/31/extending-sharpmap-with-sqlite/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Or vice versa.</p>
+
+<p>A while back I posted about setting up a <a href="http://geobabble.wordpress.com/2007/06/19/my-little-open-source-stack/">GIS server using open source GIS technologies</a>. When I left off, I was going to start messing with <a href="http://www.codeplex.com/SharpMap">SharpMap</a>. I&#8217;ve been able to get back to that recently. I am working on a project where I need to do some basic spatial operations on a workstation but I want to keep a relatively small software foot print on the box. Of course, this screams &#8220;web service&#8221; or some such thing but the platform is mobile with no guaranteed network access.</p>
+
+<p>So I went back to SharpMap. It&#8217;s footprint is relatively small (compared to ArcGIS) and the licensing model can&#8217;t be beat :-) . Next, I had to focus on the data source. I decided to look at <a href="http://www.sqlite.org/">SQLite</a> due to its small footprint. Additionally, the availabiliy of an <a href="http://sqlite.phxsoftware.com/">OLEDB driver</a> gave me option for non-spatial data that shapefiles alone didn&#8217;t (I just didn&#8217;t want to wrestle with the dBase driver).</p>
+
+<p>So I got to do something I&#8217;ve wanted to do for a while: write my own data provider for SharpMap. There&#8217;s probably something out there already but how can I learn that way? So I based my data provider class on the class that already existed for MS SQL Server (MsSql.cs). It served as an excellent basis. I was surprised at how very easy it was to do this sort of implementation. The picture below depicts a SharpMap MapImage control with polygon data being read from SQLite.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/07/sharpmap_sqlite.png" title="SharpMap desktop app with data from?SQLite"><img alt="SharpMap desktop app with data from?SQLite" src="http://geobabble.files.wordpress.com/2007/07/sharpmap_sqlite.thumbnail.png" /></a></p>
+
+<p>SQLite is inherently text-based so I found it easier to store the geometry as <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> rather that <a href="http://dev.mysql.com/doc/refman/5.0/en/gis-wkb-format.html">WKB</a> but that actually helps me with another project requirement: displaying the data in a <a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF</a> form. Transforming the WKT to <a href="http://www.xaml.net/">XAML</a> will be easier but I digress.</p>
+
+<p>I am very impressed with the updates being made to SharpMap. I feel like I&#8217;m just scratching the surface of what it can do. Version 2.0 has not technically been released but I have found the latest builds to be very stable and I&#8217;m moving forward without hesitation using it in my project.</p>
+
+<p>I have uploaded my code below. Just rename it to a .cs file.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/07/sqllite.txt" title="SqlLite.cs Source Code">Click here for the SqlLite.cs source code</a></p>
+
+<p><a href="http://www.statcounter.com/" target="_blank"><img alt="hit counter" border="0" src="http://c31.statcounter.com/2901378/0/be706774/0/" /></a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -601,52 +657,6 @@ See you again in a couple of weeks. Feel free to have a look around. Help yourse
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/06/19/my-little-open-source-stack/">My Little Open-Source Stack</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-06-19T00:00:00-04:00" pubdate data-updated="true">Jun 19<span>th</span>, 2007</time>
-        
-         | <a href="/2007/06/19/my-little-open-source-stack/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It&#8217;s been a while since I&#8217;ve posted and things have been busy. Soccer season has ended, the kids have finished school and I&#8217;ve finished up at my client site and moved back to the office. Among the many things I&#8217;ve been working on, I&#8217;ve started building an open-source GIS stack. It&#8217;s not entirely open-source since it&#8217;s installed on a Windows server but the purists will have to get over that.</p>
-
-<p>So far, I&#8217;ve got <a href="http://www.postgresql.org/">PostgreSQL</a>/<a href="http://postgis.refractions.net/">PostGIS</a> and <a href="http://docs.codehaus.org/display/GEOS/Home">GeoServer 1.5.1</a> installed. I&#8217;ve got GeoServer running as a Windows service and I&#8217;ve loaded a couple of data sets into PostGIS, serving one out through GeoServer for now. I&#8217;ve been able to successfully connect to the <a href="http://www.opengeospatial.org/standards/wms">WMS</a> and <a href="http://www.opengeospatial.org/standards/wfs">WFS</a> remotely using <a href="http://udig.refractions.net/confluence/display/UDIG/Home">uDig</a> as a client. <a href="http://code.google.com/apis/kml/documentation/">KML</a> seems to work fine for the sample data sets that install with GeoServer but my test layer doesn&#8217;t work correctly. That&#8217;s not as much of an issue for us right now because we&#8217;ll probably focus on <a href="http://worldwind.arc.nasa.gov/">World Wind</a> for the spinny globe component. Basically, I&#8217;m at the infrastructure-building stage. My next step is to set up <a href="http://www.codeplex.com/SharpMap">SharpMap</a> and start writing some apps.</p>
-
-<p>The only hiccup I&#8217;ve had so far dealt with getting GeoServer to run as a service. Every time I logged out, the service would stop (not a great feature in a service). It turns out that I had the DLL and JARs for the <a href="http://wrapper.tanukisoftware.org/doc/english/introduction.html">Java Service Wrapper</a> in the wrong place. Now it works fine.</p>
-
-<p>So far, I&#8217;m impressed with how smoothly it&#8217;s going. We&#8217;ll see how long that keeps up once I start slinging code. ;)</p>
-
-<p><img alt="The road less traveled?" src="http://geobabble.files.wordpress.com/2007/06/road.jpg" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/33/">&larr; Older</a>
@@ -695,15 +705,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/05/26/govwin-analyzes-federal-spending-in-the-dc-area/">GovWin Analyzes Federal Spending in the DC Area</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/05/20/personal-geospatial-workflows/">Personal Geospatial Workflows, May 2014 Edition</a>
       </li>
     
       <li class="post">
         <a href="/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis/">Using Virtual Rasters to Generate Contours in QGIS</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/04/01/data/">Data, Apps, and Maps</a>
       </li>
     
   </ul>
