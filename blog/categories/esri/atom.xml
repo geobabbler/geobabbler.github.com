@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: esri | geoMusings]]></title>
+  <title><![CDATA[Category: Esri | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/esri/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-05-27T19:41:15-04:00</updated>
+  <updated>2014-05-31T18:39:47-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,243 +14,55 @@
 
   
   <entry>
-    <title type="html"><![CDATA[The Biggest News You May Have Missed...]]></title>
-    <link href="http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed/"/>
-    <updated>2012-11-19T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/19/the-biggest-news-you-may-have-missed</id>
-    <content type="html"><![CDATA[<p>In case you missed it, this tweet floated across the Twitters last week:</p>
+    <title type="html"><![CDATA[Esri Federal GIS Conference Features Immersion Summits]]></title>
+    <link href="http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits/"/>
+    <updated>2014-02-05T20:19:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/05/esri-federal-gis-conference-features-immersion-summits</id>
+    <content type="html"><![CDATA[<p>The 2014 installment of the <a href="http://www.esri.com/events/federal">Esri Federal GIS Conference</a> (formerly known as the Federal User Conference) happens next week. I have attended the event off and on since its inception. While I originally was drawn by the presence of a large geo-related event in my local area, that gap has been filled by numerous, smaller events from various sources in the past few years. The FedUC has traditionally had something of an identity crisis, with the content often feeling a bit diffuse and somewhat rushed over its quick, two-day schedule.</p>
 
-<p>{% tweet http://twitter.com/Arc2Earth/status/269194049230102528 %}</p>
-
-<p>Yes, the team at <a href="http://www.arc2earth.com">Arc2Earth</a> is apparently working on a new feature in <a href="http://www.arc2earth.com/services/sync/">Arc2Earth Sync,</a> called TileMill Connect, that will link <a href="http://www.esri.com">ArcMap</a> MXDs with <a href="http://mapbox.com/tilemill/">TileMill</a>. This will allow users to migrate their ArcMap cartography into TileMill to take advantage of the rich tools there as well as the potential for version control and cut/paste sharing of techniques and best practices enabled by <a href="http://mapbox.com/tilemill/docs/manual/carto/">CartoCSS</a>.</p>
-
-<p><a href="http://twitter.com/bFlood">Brian Flood</a> followed that up today with a short video showing it in action.</p>
-
-<p>{% tweet http://twitter.com/Arc2Earth/status/270631991110692865 %}</p>
-
-<p>No word on a timetable for this feature, but I can't wait to kick the tires. I am especially intrigued by the pseudo <a href="http://www.postgis.org">PostGIS</a> proxy service that enables connections to ArcGIS data sources.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Personal Geospatial Workflows]]></title>
-    <link href="http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows/"/>
-    <updated>2012-11-09T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/09/personal-geospatial-workflows</id>
-    <content type="html"><![CDATA[<p>I've had a couple of people ask me recently about the geospatial tools I use. Year-over-year, that answer changes but here's how I answer that right now:</p>
-
-<p>As a Federal contractor, I spend a lot of time working with the <a href="http://www.esri.com" target="_blank">Esri</a> stack during my work day. A few years ago, I added a few open-source geospatial tools into my tool set and, since then, have also done a respectable amount to consulting work them as well. The balance between the two varies over time, depending on the requirements of individual customers and projects. Lately, commercial customers have seemed much more interested in open-source tools while my government customers are sticking with Esri. Since those observations are based on the the extremely heavy filter of my own recent experience, I'd be hesitant to draw any larger conclusions from them.</p>
-
-<p><img alt="" height="264" src="http://blog.geomusings.com/images/posts/duct-tape.jpg" title="Duct Tape" width="300" /></p>
-
-<p>I've always believed that proficiency with a wide range of tools makes me a better consultant and integrator, so I am always exploring and trying new things. With those commercial customers, and in my own personal side projects, my recent workflows have gelled around a core set of tools, both commercial and open-source: <!--more--></p>
-
-<p><a href="http://www.postgis.org" target="_blank">PostGIS</a> - I am very comfortable with SQL and tend to use <a href="http://www.postgresql.org" target="_blank">PostgreSQL</a> and PostGIS for a lot of my vector data processing. Lately, this has mainly involved joining up geometries with attributes and doing aggregations and similar things. For example, the vector data in this <a href="http://geobabbler.github.com/mdq62012.html" target="_blank">map of the county-level Maryland Question 6 results</a> was processed in PostGIS. Very simply, I have a baseline table of the counties of Maryland which I will use to create new data sets. In this case, I imported a CSV of the election results, created a view that joined up the data and then selected the view into a new table. This is workflow is much easier with PostGIS 2.x thanks to the <a href="http://blog.opengeo.org/2012/03/06/postgis-2-0-new-features-typmod/" target="_blank">use of typmod</a>.</p>
-
-<p><a href="http://qgis.org" target="_blank">QGIS</a> - In the case of the map mentioned above, the data set is ultimately going to be static so it makes sense to serve it as static content, rather than bringing a heavyweight geospatial server such as <a href="http://www.esri.com/software/arcgis/arcgisserver/" target="_blank">ArcGIS</a> or <a href="http://geoserver.org/display/GEOS/Welcome" target="_blank">GeoServer</a> into the mix. In these cases, I lean toward <a href="http://geojson.org/" target="_blank">GeoJSON</a>. QGIS makes it very easy to export any vector layer out to GeoJSON so it's become my go-to tool for that. QGIS also has great analytical tools and I consider it a complete functional match for ArcMap but, having said that, I'm actually very comfortable with the spatial SQL functions in PostGIS so I end up doing most of my analytical work there.</p>
-
-<p><a href="http://leafletjs.com/" target="_blank">Leaflet</a>/<a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> - Most of the web maps I'm doing are single-use and pretty straightforward. When that's the case, I prefer to use Leaflet as it's a pretty lightweight library. That said, I keep OpenLayers in the mix if the GIS-like requirements get a little more complex. OpenLayers does more "out of the box" than Leaflet but Leaflet is trimmer so it really depends on the use case.</p>
-
-<p><a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>/<a href="http://mapbox.com/tilemill/" target="_blank">TileMill </a>- Arc2Earth is a commercial extension to ArcGIS and I lean on it to make tiles, although it does a lot more than that. I also use TileMill for this purpose but it really depends on where my cartography resides. There's a lot of good cartography locked up in MXDs and Arc2Earth is just a great way to capitalize on that. It's also nice that Arc2Earth works in ArcMap, eliminating the need for a license of Server.  If I'm building my cartography from scratch, which is not really my strong suit, I'll lean toward TileMill because it more easily connects directly to PostGIS, which is where my data tends to reside if I have my druthers. Again, it depends on the use case.</p>
-
-<p><a href="http://www.python.org/" target="_blank">Python</a>/Javascript - I'm doing a lot more work in Python these days. It's become the <em>lingua franca</em> of GIS development in my book. Additionally, the capabilities of Javascript for web maps is evolving at a stunning pace. I can't see being productive in the long term in the geospatial field without proficiency in these two languages.</p>
-
-<p>So these are the tools that I'm using most often these days as part of my personal workflows. The stable of tools that I use evolves over time, as should be evident if you peruse this blog. In general, I'm finding it very easy to be productive with these tools right now.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Cutting Tiles for ArcGIS Server Using TileMill]]></title>
-    <link href="http://blog.geomusings.com/2012/10/03/cutting-tiles-for-arcgis-server-using-tilemill/"/>
-    <updated>2012-10-03T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/10/03/cutting-tiles-for-arcgis-server-using-tilemill</id>
-    <content type="html"><![CDATA[<p>There's been a lot of talk about <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a> lately, with good cause. TileMill makes it very easy generate beautiful map tiles using the <a href="http://mapnik.org/" target="_blank">Mapnik</a> engine and CartoCSS provides a familiar method to author the cartographic representation of spatial data. <a href="http://mapbrief.com/2012/09/27/gis-cartography-the-latest-best-opportunity-to-bridge-the-chasm/" target="_blank">As Brian Timoney points out</a>, CartoCSS has the added bonus of making best practices shareable via copy-and-paste.</p>
-
-
-
-
-<p>Naturally, the best way to take advantage of TileMill is to export your tiles to <a href="https://github.com/mapbox/mbtiles-spec" target="_blank">MBTiles</a> and use <a href="http://mapbox.com/" target="_blank">MapBox</a> hosting. If that's not an option, you can pretty easily self-host with <a href="https://github.com/mapbox/tilestream" target="_blank">TileStream</a>. That said, there are some organizations that, due to larger GIS workflows, IT policies, and a host of other legitimate reasons, need or choose to use <a href="http://www.esri.com" target="_blank">ArcGIS Server</a> to do map hosting. For those organizations, TileMill is still an option to create attractive basemaps, within certain constraints.</p>
-
-
-<p><img alt="" class="aligncenter size-full wp-image-2911" height="295" src="http://geobabble.files.wordpress.com/2012/10/tilemill_screen.png" title="tilemill_screen" width="640" /></p>
-
-<p>So I set out to see if I could bridge the gap between the two. Two blog posts pointed the way. A while back, <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">Dan Dye blogged about how he had forked mb-util</a> and added support for exporting WeoGeo tilepacks from MBTiles. Also, a co-worker of mine, Eric Mahaffey, had blogged some time ago about <a href="http://www.zekiah.com/index.php?q=blog/2011/08/03/using-arc2earth-tile-caching-across-air-gapped-networks" target="_blank">how to use Arc2Earth to manage tile caches across air-gapped networks</a>. Using these posts for guidance, I was pretty sure I had all the pieces I needed. <!--more--></p>
-
-<p>First, I decided to fork Dan's code (I love GitHub) and add support for exporting ArcGIS tiles. Essentially, I followed Dan's pattern and added a choice for an ArcGIS schema as a command-line option. My forked version <a href="https://github.com/geobabbler/mbutil" target="_blank">can be found on GitHub</a>.</p>
-
-<p>I then fired up TileMill (0.10.0 for Windows) and created some tiles at zoom levels 4 through 8 using the "Control Room" sample that comes with TileMill. I chose this for two reasons: First, I am not very good at cartography and this sample looks attractive and distinct from the generic ArcGIS sample I used. Second, it's very well-known to TileMill users so it worked well for this demo. I won't go into how I created the tiles as this post is not intended to be a TileMill tutorial.</p>
-
-<p>Once I had exported the tiles to an MBTiles file, I ran the updated mb-util Python utility to export the tiles in an ArcGIS structure. The command-line usage is shown below. One note: I did not generate the "level" folders in accordance with ArcGIS convention. If you are familiar with ArcGIS, you know that the level numbers are relative so that, if your service only contains levels 3, 4 , and 5, the will be levels L00, L01, L02 respectively. Instead, the utility names them according to their original TMS levels (L03, L04, L05 in this case). So, you may need to rename your level folders when you rehost to ArcGIS Server but this should entail a maximum of 19 manual edits, which seemed like a reasonable compromise.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2012/10/mbutil_cmd.png"><img alt="" class="aligncenter size-full wp-image-2897" height="311" src="http://geobabble.files.wordpress.com/2012/10/mbutil_cmd.png" title="mb-util usage" width="640" /></a></p>
-
-<p>So mb-util created the "_alllayers" folder and its child file system for us. Because I'm not creating a conf.xml yet, I can create it by hand or use ArcGIS to create some dummy tiles with a configuration. Once that's done, we are simply engaged in a file copy  operation (picking up at step 4 of Eric's post). For this demo, I created an actual map using one of the ArcGIS samples so that it would be apparent that the operation worked. In practice, I wouldn't go to that much trouble up front. The image below shows the map service using the original tiles.</p>
-
-<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/10/arc_tilemill1.png"><img alt="" class="size-full wp-image-2901" height="370" src="http://geobabble.files.wordpress.com/2012/10/arc_tilemill1.png" title="ArcGIS map service before TileMill tiles" width="640" /></a> <div style="text-align: center;font-size: 14px;">ArcGIS map service as created from the original MXD.</div></div>
-
-
-<p>After I copied the tiles from TileMill into the correct location, I was able to refresh the window and see the boundary between the original tiles and the those from TileMill. Again, this was just for demo purposes. In practice, the whole cache would be from TileMill. The image below shows the updated cache, displayed using the ArcGIS Javascript API.</p>
-
-<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/10/arc_tilemill2.png"><img alt="" class="size-full wp-image-2902" height="370" src="http://geobabble.files.wordpress.com/2012/10/arc_tilemill2.png" title="ArcGIS map service after TileMill tiles" width="640" /></a> <div style="text-align: center;font-size: 14px;">ArcGIS map service showing tiles from TileMill.</div></div>
-
-
-<p>I apologize for screenshots but my EDN license precludes making my ArcGIS Server public for a live demo.</p>
-
-<p>So, it's perfectly possible to create nice basemaps using TileMill for use in ArcGIS server, provided you adhere to two constraints: 1) You use Web Mercator for your spatial reference and 2) You make sure your ArcGIS cache is the "exploded" variety.</p>
-
-<p>Why would you do this? It is certainly possible to build great cartographic representations in ArcGIS but those representations are locked away in ArcGIS map documents, styles, layer packages and such; all of which are some proprietary binary format such as persisted COM objects. While this may not be the worst thing in the world, CartoCSS, being a text format, more easily lends itself to configuration control. Organizations that want to maintain configuration control over map templates and such can take advantage of standard tools such as git or SVN to do so. I have found that organizations with strict IT policies are also exactly the same kinds of organizations that to maintain control over content and styling so this is actually a surprisingly important factor.</p>
-
-<p>I'll probably play with this more as time and customer demand allow, but it's good to know this option is available for providing flexibility with ArcGIS Server.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
-    <link href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/"/>
-    <updated>2012-08-24T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api</id>
-    <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
-
-<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
-
-<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. <!--more--></p>
-
-<p>Since the PIM is really a configuration management system for spatial data models, the tools need to support a wide variety of scenarios, including data migration between platforms, versions, approved user-defined implementations, etc. in a manner that's compliant with the data model being managed. As a result, some ETL-like tools are built into the workflows, although ETL is not a primary focus of the PIM.</p>
-
-<p>Since the PIM tools are written in .NET, I built a couple of extension methods to assist with some of the workflows in the existing tools. They enable outbound support for GeoJSON and WKT. The GeoJSON methods work on RowCollection, Row, and ShapeBuffer objects to create FeatureCollection, Feature, and Geometry types respectively. In practice, they'd be used something like this example from a very simple ASP.NET MVC sample application:</p>
-
-<p>{% codeblock lang:csharp %}
-var path = Server.MapPath("/App_Data/mvc_samples.gdb");
-Geodatabase gdb = Geodatabase.Open(path);
-Table statesTable = gdb.OpenTable("\us_states");
-RowCollection rows = statesTable.Search("*", "STATE_NAME LIKE 'M%'", RowInstance.Recycle);
-var rval = rows.ToGeoJson();
-gdb.Close();
-Response.ContentType = "application/json";
-object result = this.Content(rval);
-return result as ActionResult;
-{% endcodeblock %}</p>
-
-<p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
-
-<p>As I said, I developed these to support workflows in existing applications. If you're looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using GeoIQ Analytics in .Net Applications]]></title>
-    <link href="http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications/"/>
-    <updated>2012-07-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/07/18/using-geoiq-analytics-in-net-applications</id>
-    <content type="html"><![CDATA[<p>A few weeks ago, I posted about some <a href="http://blog.geomusings.com/2012/06/11/geoiq-api-wrappers-for-net/" target="_blank">.Net wrappers</a> I created for the <a href="http://developer.geoiq.com/api/" target="_blank">GeoIQ API</a>. Due to ongoing project work, I have continued to extend them by adding methods to wrap GeoIQ analytical capabilities. Despite the recent <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">acquistion of GeoIQ by Esri</a>, it's my understanding that <a href="http://geocommons.com" target="_blank">GeoCommons</a> and existing GeoIQ installations will continue for some time. That's good, because analytics on the GeoIQ platform are powerful and fairly easy to use. This post will demonstrate how to use analytics in a .Net application.</p>
-
-<p>As previously posted, the .Net wrappers can be found on github <a href="https://github.com/geobabbler/GeoIQ4Net" target="_blank">here</a>.</p>
-
-<p>The GeoIQ platform offers <a href="http://developer.geoiq.com/api/analysis/" target="_blank">several functions</a> to analyze data sets hosted on a GeoIQ instance or GeoCommons. I have not yet wrapped all of the functions but am working my way through them as I can.</p>
-
-<p>For this post, I will intersect the locations of <a href="http://geocommons.com/overlays/87503" target="_blank">US GISPs as of 1/26/2011</a> with the <a href="http://geocommons.com/overlays/149925" target="_blank">Maryland Zip Code Boundaries</a> to produce a data set containing the locations of GISPs in Maryland, depicted in the map below.</p>
-
-<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2012/07/intersect_results.png"><img alt="" class="size-full wp-image-2793" height="340" src="http://geobabble.files.wordpress.com/2012/07/intersect_results.png" title="intersect_results" width="640" /></a><div style="text-align: center; font-size: 14px">Don't worry, none of these are me.<br /><br/></div></div>
-
-
-
+<p>To Esri's credit, and probably in recognition of the changing economics regarding travel for Federal employees, they have continued to fine-tune the event when they could have easily walked away from it. The main problem with the FedUC is the fact that the Federal Government performs a wide array of functions that are difficult to cover well over two days in a conventional format. Esri has tackled that problem this year with the introduction of <a href="http://www.esri.com/events/federal/agenda/immersion-summits">"immersion summits,"</a> which are three-and-a-half hour sessions dedicated to specific domain areas.</p>
 
 <!--more-->
 
 
-<p>It is important to understand how analytics on the GeoIQ platform work. The output of any successful operation will be a new data set representing the analysis results. Additionally, due to the fact that some analyses may take a long time, they are run asynchronously so you'll need to check back periodically to see if the analysis is complete. That leads to the following very basic workflow:</p>
+<p>For example, check out the Natural Resources Immersion Summit led by my friend <a href="http://twitter.com/jsteffenson">John Steffenson</a>. The agenda features speakers from USDA, USGS, the US Forest Service, the EPA, the Fish and Wildlife Service, and Department of Interior, representing over 100 years of higher education dedicated to natural resources management. The session also has slots for several demos of systems deployed in natual resources domain.</p>
+
+<p>The session's content seems to be designed take a holistic view, including fiscal, logistical, technical, and demographic challenges among others. This type of deep focus is an intriguing change to event's focus. While nautral resources is not my usual domain, I do like to drop into other sessions as I find that uses cases from other domains can give me ideas to bring back to my work. I think this new format could maximize the use of the compact schedule of the Federal GIS Conference and begin to give the event its own identity.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite and ArcGIS 10.2]]></title>
+    <link href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/"/>
+    <updated>2013-08-07T12:35:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2</id>
+    <content type="html"><![CDATA[<p>With the release of ArcGIS 10.2, <a href="http://www.esri.com">Esri</a> quietly added support for <a href="https://sqlite.org/">SQLite</a> as a geodatabase container. This is big news as the community has been looking for such support for some time. An open-source RDBMS originally designed for embedded systems, SQLite has a very small footprint and is <a href="https://www.sqlite.org/mostdeployed.html">arguably the most widely deployed RDBMS</a> in the world. (Thanks, in part, to the fact that it is embedded into Adobe Reader and other commonly used software.) Over the years numerous strategies for storing spatial data in SQLite have been developed, ranging from simply storing <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT or WKB</a> geometries in a column up to full extensions like <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>, which adds OGC-compliant data types and methods. SQLite is also the engine that drives the popular <a href="http://www.mapbox.com/developers/mbtiles/">MBTiles</a> implementation used by <a href="http://www.mapbox.com/tilemill/">TileMill</a> and <a href="http://www.mapbox.com">MapBox</a>.</p>
+
+<!--more-->
+
+
+<p><a href="http://resources.arcgis.com/en/help/main/10.2/index.html#//019v0000001w000000">According to the documentation</a>, ArcGIS supports the use of either Esri's ST_GEOMETRY or SpatiaLite data types for geometry storage. This is consistent with Esri's approach on other RDBMS platforms such as <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.oracle.com">Oracle</a>. While SpatiaLite has been supported by platforms such as <a href="http://qgis.org/">QGIS</a>, I can't say I've seen a huge demand for data in SpatiaLite format. I have been using it for a while in some of <a href="http://www.zekiah.com">my company's</a> data modeling work as we have a Federal customer that has a documented requirement for generation of physical models in SpatiaLite, among other platforms. We have also taken the step of supporting SQLite as a container for our <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">platform independent model (PIM) approach</a> for configuration management of logical geospatial data models.</p>
+
+<p>Esri's new support of SpatiaLite, combined with my existing customer requirements, obviously sparked my interest so I was curious to kick the tires. Unfortunately, I also had the situation that my development environment for the PIM tools, due to current customer constraints, must remain at ArcGIS 10.1 for both the desktop software and the underlying ArcObjects libraries. I have not been able to carve out the time to build a 10.2 VM.</p>
+
+<p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/billdollins">@billdollins</a> <a href="https://twitter.com/FatherSandman">@FatherSandman</a> Score! Looks like we&#39;ve confirmed ArcGIS 10.2, QGIS 1.9.0, and SpatiaLite-GUI 1.7.1 are compatible.</p>&mdash; Bryan McBride (@brymcbride) <a href="https://twitter.com/brymcbride/statuses/365103999671738369">August 7, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
 
 <ol>
-<li>Initialize analysis</li>
-<li>Periodically check status</li>
-<li>When complete, do something with it</li>
+<li>A SpatiaLite database created in ArcGIS 10.2 can be accessed and viewed in QGIS 1.9.0 and SpatiaLite GUI 1.7.1</li>
+<li>A SpatiaLite database created in QGIS 1.9.0 can be accessed in ArcGIS 10.2</li>
 </ol>
 
 
-<p>So let's get started. Since my original commit, I have added a class that contains wrappers for the GeoIQ analysis methods (<a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Analytics.cs" target="_blank">see here</a>). Due to the consistency of the GeoIQ design, they are all very similar and I'll probably get around to doing some clean-up refactoring after I get all of the methods wrapped. All of the methods I've wrapped so far return the same JSON response so it was easy to create a simple <a href="https://github.com/geobabbler/GeoIQ4Net/blob/master/Data/AnalyticsData.cs" target="_blank">AnalyticsResponse</a> class to deserialize that.</p>
+<p>Obviously, some more rigorous tests need to be performed but the initial results are promising. I'm curious to explore the boundaries, in ArcGIS terms, between a SQLite geodatabase and a file geodatabase. It remains to be seen whether this will put a dent in the use of file geodatabases. If it happens at all, I think it will take time since SQLite is not on the radar of the vast majority of ArcGIS users. I would hope, at a minimum, it puts a final stake through the heart of the personal geodatabase. It could also drive explicit accreditation of SQLite/SpatiaLite tools on government systems, which would be nice.</p>
 
-<p>In the calling application, I'll set up a couple of module-level objects to help keep track of things:</p>
+<p>I'm happy, and somewhat pleasantly surprised, to see Esri take this step and provide another open option for data exchange.</p>
 
-<p>{% codeblock lang:csharp %}</p>
-
-<pre><code>    private System.Timers.Timer _layerTimer = new System.Timers.Timer(500); //to check status of analysis
-    private AnalyticsResponse _response = null; //response object created by analysis
-    private Analytics _analytics = new Analytics("http://geocommons.com", "username", "password"); //instance of wrapper class for GeoIQ analytic methods
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>With these building blocks in place, it's fairly easy to execute the basic workflow:</p>
-
-<ol>
-<li>Initialize analysis:</li>
-</ol>
-
-
-<p>{% codeblock lang:csharp %}
-//call intersect method
-//layer 87503 = GISPs, layer 149925 = zip codes
-//prefer_1 tells GeoIQ to return records from layer 1 (GISPs in this case)
- <em>response = </em>analytics.Intersect(87503, 149925, MergeOptions.prefer_1); //capture response object
- //start timer to check status
- this._layerTimer.Enabled = true;
-{% endcodeblock %}</p>
-
-<p>This calls the intersect method of the Analytics object, captures the resulting response object, and starts the timer to check the status of the analysis.</p>
-
-<ol>
-<li>Periodically check status:</li>
-</ol>
-
-
-<p>In this case, I used a simple timer that checks every half second, although you may want to space that out more if you're sure your analyses will take a while to run. This shows the timer event handler code:</p>
-
-<p>{% codeblock lang:csharp %}
-void _layerTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-{</p>
-
-<pre><code> string status = _analytics.GetState(_response.ID); //ID is that of new layer created by analysis
- if (status.ToLower() == "\"complete\"") //this means analysis is complete
- {
-     //use Invoke to access UI elements from timer thread
-     this.Invoke(new MethodInvoker(delegate
-     {
-        //set up link label to enable download of new data as KML
-        this.lnkDownloadShape.Text = "Analysis Complete: Download KML";
-        this.lnkDownloadShape.Links.Clear();
-        this.lnkDownloadShape.Links.Add(19, 18, "http://geocommons.com/overlays/" + _response.ID.ToString() + ".kml");
-        this.lnkDownloadShape.Visible = true;
-        this._layerTimer.Enabled = false;
-     }));
- }
-</code></pre>
-
-<p>}
-{% endcodeblock %}</p>
-
-<p>In a nutshell, it checks the status using a wrapper method. If the status is "complete", then a download link is shown. This code makes the KML version available but you could choose a shapefile or any other format supported by GeoIQ.</p>
-
-<ol>
-<li>When complete, do something with it:</li>
-</ol>
-
-
-<p>In this case, I just make it available for download. Once the data set exists, however, it's really just a matter of imagination.</p>
-
-<p>{% codeblock lang:csharp %}
-private void lnkDownloadShape_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-{</p>
-
-<pre><code>//this actually downloads the data and may even fire off Google Earth
-System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
-</code></pre>
-
-<p>}
-{% endcodeblock %}</p>
-
-<p>In a more robust application (meaning not a sample for a blog post), you could put the results into a map or feed them into locally-installed analysis tools for further processing or do just about anything you want that supports your workflow. I've been a fan of the analytical capability of GeoIQ for some time and I hope, whatever the future holds, that these kinds of tools make it into the next generation of products.</p>
-
-<p>The full Windows Forms code for this sample is <a href="https://gist.github.com/3137738" target="_blank">available here</a>.</p>
+<p>Now, about GeoJSON...</p>
 ]]></content>
   </entry>
   

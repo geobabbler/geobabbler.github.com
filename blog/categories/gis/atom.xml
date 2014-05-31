@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gis | geoMusings]]></title>
+  <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-05-27T19:41:15-04:00</updated>
+  <updated>2014-05-31T18:39:47-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,143 +14,511 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Another Look at GIS StackExchange]]></title>
-    <link href="http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange/"/>
-    <updated>2013-09-12T11:10:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/09/12/another-look-at-gis-stackexchange</id>
-    <content type="html"><![CDATA[<p>A year ago, I used the StackExchange API to facilitate an <a href="http://blog.geomusings.com/2012/09/13/carving-up-gis-stackexchange/">analysis of tags on GIS StackExchange</a> to see what people were talking about on one of the largest and most successful vendor-neutral discussion sites in our industry. In that post, I stated "It would probably be good to revisit this in a year to see how things have changed, if at all."</p>
+    <title type="html"><![CDATA[Personal Geospatial Workflows, May 2014 Edition]]></title>
+    <link href="http://blog.geomusings.com/2014/05/20/personal-geospatial-workflows/"/>
+    <updated>2014-05-20T08:21:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/05/20/personal-geospatial-workflows</id>
+    <content type="html"><![CDATA[<p>I have been spending the past few weeks dealing more with data and mapping than I have in quite a while. It's given me a chance to regain my footing with map-making, reconnect with some end-user tools like <a href="http://www.arc2earth.com">Arc2Earth</a>, and build a little more proficiency with things like <a href="http://www.gdal.org/">GDAL</a>, <a href="http://qgis.org">QGIS</a>, and <a href="https://www.mapbox.com/tilemill/">TileMill</a>. Of course, I've been able to sneak in some coding as I've identified gaps in my workflow.</p>
 
-<p>Well, a year has passed so I decided to do it again. I used the same scripts and approach I used last time in order to be consistent. Since this is one year later, there is one key caveat. My analysis last year looked at the top 100 tags since the start of the <a href="http://gis.stackexchange.com/">GIS StackExchange</a> site. Since I ran the same query this year, the new results are compounded so what they so are last year's results plus activity since then. Essentially, you are looking at "that plus this." The pie chart below shows the breakdown.</p>
+<p>In a nutshell, I am building base maps for use on disconnected mobile devices. There are two styles of base maps; imagery (really more of an imagery/vector hybrid) and a high-contrast map for use on the outdoor devices and sourced only from vector data. In both cases, I am building MBTiles databases to support the requirement for disconnected operations and to provide consistency in data size and performance.</p>
 
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/stackexchange_chart_2013.png" /></p>
+<p>For the imagery base maps, I was faced with following a data request process that may or may not have resulted in getting imagery in a timely fashion. Alternatively, I was presented with the option of using a tiled map service to get the imagery. Given that I was just making basemaps, this would have been acceptable but for the spotty speed and reliability of the network connection. The ideal solution would be to get only the tiles I need, store them locally, create a geo-referenced image from them, and build a virtual raster table (VRT) for each level.</p>
 
 <!--more-->
 
 
-<p>Compared to last year's results, there hasn't been much movement in the distribution of tags. One thing I did notice, however is that the tag "qgis" leaped to the top of the list. Last year, "arcgis" was the top tag and "qgis" was number three. That said, I wouldn't jump to too many conclusions. A quick <a href="/assets/data/stack2013/output_2013.csv">look at the data</a> shows that, in addition to "arcgis", there are version-specific tags such as "arcgis-10.0" and "arcgis-10.1" as well as product-specific tags like "arcgis-server" so there's a lot of Esri-centric discussion going on, but that is to be expected. The top ten tags, however, include major components of the <a href="http://opengeo.org/">OpenGeo</a> Suite (OpenLayers, GeoServer, PostGIS) in addition to QGIS so open-source tools seem to be every bit as active a topic of discussion as do <a href="http://www.esri.com">Esri</a> tools.</p>
+<p>Downloading the tiles was easy, but for the VRT to work, each tile needed to be geo-referenced. It was fairly easy to modify the venerable <a href="http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/globalmaptiles.py">globalmaptiles.py</a> to include a routine to create world file parameters for a specified tile. With this, I was able to write out an affine transformation world file for each tile I downloaded. I rolled this whole process up into a <a href="https://github.com/geobabbler/tile-grab">Python script that's available here</a>. Please note that my goal was to create a VRT, so the script flattens out the tiling scheme so that all images are under the appropriate "Z" directory. (This particular server was an ArcGIS Server but the script doesn't care as long as you can provide a valide URL template.)</p>
 
-<p>Speaking of the top ten tags, they were: <br /><br />
-1. qgis (3910) <br />
-2. arcgis (2382) <br />
-3. python (2171) <br />
-4. arcgis-10.0 (2142) <br />
-5. openlayers (1996) <br />
-6. postgis (1560) <br />
-7. geoserver (1193) <br />
-8. arcobjects (1184) <br />
-9. raster (1174) <br />
-10. arcmap (1113) <br /></p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>python tile_grab.py -b <span class="m">-158</span>;<span class="m">21</span>;<span class="m">-157</span>;<span class="m">22</span> -d E:\tiles\oahu_img\a -i false -z <span class="m">6</span> -u http:<span class="n">//www.someserver.net/arcgis/rest/services/ImagerySvc/MapServer/tile/{z}/{y}/{x}.png</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>Last year, I got some back-channel requests to do a little more with the raw data so, seeing a chance to play with <a href="http://d3js.org">D3</a>, here is a look at how things break down. Hover over a bubble to see the full name and tag count. If you follow your nose a bit, the color scheme will become apparent in relation to the pie chart's key.</p>
+<p>With the tiles downloaded and geo-referenced, it was easy to use the gdalbuildvrt utility to generate the VRT, which can be used in QGIS, TileMill, and ArcGIS Desktop as you prefer.</p>
 
-<p><link rel="stylesheet" href="http://blog.geomusings.com/assets/data/stack2013/style.css" /></p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>gdalbuildvrt <span class="m">6</span>.vrt <span class="m">6</span><span class="n">/*.png</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<iframe src="http://blog.geomusings.com/assets/data/stack2013/frame.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<p>It seems a little odd to use tiles to make tiles, but I needed to add some additional data and styling to make the maps do what I needed to do. The downloaded tiles were just a stand-in for what would have been a standard raster data source. The range of useful resolution for a set of tiles is pretty narrow so you'll probably need to grab a few levels and, even then, you'll need to be careful how you use them. In most cases, using local raster/imagery is better but using tiles was fine for my use case and helped mitigate a byzantine data acquisition process. Here's how I set the ranges in ArcGIS (left) and TileMill (right):</p>
 
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/vrt_zoom2.png" /></p>
 
-<p>All of the same limitations I pointed out last year about posts having multiple tags and dilution across related tags still apply this year. If there is any insight into the mind share of the GIS community to be derived from this exercise, it is probably in the aggregate.</p>
+<p>Using this approach, I was able to successfully generate my maps using either of two technology mixes. I succeeded in using both TileMill and ArcGIS/Arc2Earth to generate my maps. I ended up doing most of the work in Arc2Earth due to the availability of command-line tools that helped me optimize performance.</p>
 
-<p>The exact StackExchange API URL that generated these results is: <a href="https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100">https://api.stackexchange.com/2.1/tags?order=desc&amp;sort=popular&amp;site=gis&amp;pagesize=100</a></p>
-
-<p>The results were generated on 11 September 2013 and subsequent results will vary from those shown here. The Python script used to process the results into CSV <a href="/assets/data/stack2013/handle_json.zip">can be found here</a>.</p>
+<p>Before attempting this method, it's important to make sure that you are not violating any terms of service, license agreements, or attribution requirements in doing so. I knew this wasn't an issue in my case, but such questions need to be answered before you start grabbing data.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite 4.1.0 Beta Preview Available]]></title>
-    <link href="http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available/"/>
-    <updated>2013-01-03T08:34:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/03/spatialite-4-dot-1-0-beta-available</id>
-    <content type="html"><![CDATA[<p>On the <a href="https://groups.google.com/forum/?fromgroups#!forum/spatialite-users">SpatiaLite Google Group</a> this morning, Sandro Furieri announced the availability of a beta preview of SpatiaLite 4.1.0. The primary focus of this preview is to get early comment on new capabilities supporting the storage, validation, and query of XML documents.</p>
+    <title type="html"><![CDATA[Using Virtual Rasters to Generate Contours in QGIS]]></title>
+    <link href="http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis/"/>
+    <updated>2014-04-17T13:39:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis</id>
+    <content type="html"><![CDATA[<p>Every now and again, I am asked to make maps. It's not my strongest suit, but it sometimes comes with the territory. My latest task, as mentioned in my previous post, involves building support for <a href="https://www.mapbox.com/developers/mbtiles/">MBTiles</a> databases into a mobile situational awareness tool. This is done so that the devices can have a persistent local basemap in the field. The need arose to ensure that the basemaps were high contrast to assist with visibility in bright sunlight. Something like this:</p>
 
-<p>More information about this update <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=XmlBlob+and+VirtualXPath">can be found here</a>. Says Sandro:</p>
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour0.png" /></p>
 
-<blockquote>
-The main goals of these recently introduced enhancements are:<br/>
-- storing XML Documents directly within the DBMS <br/>
-- supporting XML validation<br/>
-- supporting plain SQL queries on behalf of XML Documents <br/>
-  via canonical XPath expressions<br/>
-<br/>
-Implementing directly into the Spatial DBMS a common core of 
-XML-oriented features surely is an interesting and useful option,
-just considering that ISO- and INSPIRE-Metadata or SLD/SE Styles 
-are fully based on XML.
-</blockquote>
+<p>One of the requirements was to have topographic-map-like contours to indicate changes in elevation. Existing map services didn't provide what we needed so it was necessary to build a custom map, which meant generating contour lines. It had been years since I had last done that with Esri tools, but I didn't have any extension licenses available, so I turned to <a href="http://www.qgis.org/en/site/">QGIS</a> to get the job done this time.</p>
+
+<!--more-->
 
 
-<p>Although I find myself working more with <a href="http://geojson.org">GeoJSON</a> and <a href="http://developmentseed.org/blog/2011/feb/09/introducing-carto-css-map-styling-language/">CartoCSS</a> these days, I think support for XML is a good step for SpatiaLite. There are some very mature use cases based on XML, as Sandro points out. While <a href="http://www.opengeospatial.org/standards/sld">SLD</a> is not my favorite, this may keep it on my radar. Also, it would be interesting to see how this new capability would possibly affect the evolution of the <a href="http://www.opengeospatial.org/projects/groups/geopackageswg">OGC GeoPackage draft specification</a>.</p>
+<p>My area of interest was a portion of Virginia. Since I couldn't find any pre-generated contours for the state, I turned to elevation models. There are numerous places to get such data, but I <a href="http://geoserve.asp.radford.edu/dems/va_dems.htm">downloaded some DEMs from Radford University</a> since they are already carved up by county. They are perhaps a bit dated, but they sufficed for this particular testing round.</p>
+
+<p>It was easy to find <a href="http://boringnerdystuff.wordpress.com/2012/07/14/302/">guidance on how to generate contours in QGIS</a>. So I ran the process on a couple of adjacent counties and noticed that the edges didn't line up, which was not surprising. My first thought was that I would need to merge the DEMs but, luckily, I stumbled across the virtual raster tool in QGIS. This tool provides a nice UI for building a <a href="http://www.gdal.org/gdal_vrttut.html">GDAL virtual raster</a> from a series of separate rasters specified by the user. This can be a bit cumbersome to do manually and this GUI tool was a real time saver. It can be found in QGIS Dufour here:</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour1.png" /></p>
+
+<p>To make my life easier, I moved all of my DEMs into one folder so I could just point the tool at the folder. I filled in the name of the output file and took the defaults for everything else.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour2.png" /></p>
+
+<p>Notice that the dialog shows me the GDAL command that I am building with the UI. Advanced users can even edit it here. This is a really nice feature that can help you get comfortable with GDAL. I am not a GDAL expert, nor am I particularly adept with raster operations so I found this to be a huge help and I plan to use it more.</p>
+
+<p>The tool doesn't change any data; it merely writes a text file so it works very quickly. The resulting virtual raster was done in a few seconds.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour3.png" /></p>
+
+<p>With the data now "merged," I was able to continue with data generation. For my purposes, 10-meter contours were more than sufficient. I generated a shapefile, but any QGIS-supported format is valid as an output. It should be noted that the "Attribute name" choice is not checked by default. Check this if you want to attach the elevation value to each line. Also notice that QGIS is again giving us the relevant GDAL command as we build it. This is very powerful as it gives you the option to use QGIS to prototype GDAL operations and then script them outside of QGIS, if you desire.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour6.png" /></p>
+
+<p>This process took a little longer, thanks to Fauquier County, but still finished in about 90 seconds. The resulting contours were contiguous across counties, so my needs were met.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour8.png" /></p>
+
+<p>I'm now in the process of styling the map in <a href="https://www.mapbox.com/tilemill/">TileMill</a> so that I can generate the databases. It's good to occasionally take off my developer hat and put on that of a user. I've known for quite a while that QGIS stands toe-to-toe with any other desktop GIS software but this work got me to use some tools that I rarely ever touch. I was impressed with not only the speed, but also how smoothly the work flowed. My pedestrian laptop didn't engage in nearly the same level of huffing and puffing that it does when I have to use other software. That may be a hidden "win" in that users can extend the useful life of their hardware by using tools that don't tax it as much while producing the same results.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Put Planet Geospatial to Work for You]]></title>
-    <link href="http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you/"/>
-    <updated>2012-11-27T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/27/put-planet-geospatial-to-work-for-you</id>
-    <content type="html"><![CDATA[<p>I'm happy to see that <a href="http://www.spatiallyadjusted.com/2012/11/24/planet-geospatial-the-way-forward/" target="_blank">James has decided keep Planet Geospatial going</a>. It's been one of the more consistently valuable resources in the community since its inception and it's good that it will continue.</p>
+    <title type="html"><![CDATA[Data, Apps, and Maps]]></title>
+    <link href="http://blog.geomusings.com/2014/04/01/data/"/>
+    <updated>2014-04-01T15:14:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/04/01/data</id>
+    <content type="html"><![CDATA[<p>It's been a quiet month-and-a-half here on the blog, mostly owing to an abundance of project tasks. I recently started a short-term project to help one of my Federal customers extend data source support for an application they have been developing. This customer is technically a new one but the project team is made up of government developers that I have worked with on a few other projects so there is a great deal of familiarity.</p>
 
-<p>While I'm looking forward to seeing how <a href="http://twitter.com/cageyjames" target="_blank">James</a> evolves <a href="http://planetgs.com" target="_blank">Planet Geospatial</a>, there are ways to more efficiently extract value out of its current state right now. At its core, Planet Geospatial is an RSS feed. RSS can safely be called "venerable" nowadays, but it still does what it does very well.</p>
+<p>The application, which has been under development for some time, is written in .Net and make use of the open-source (MIT) <a href="http://greatmaps.codeplex.com">GMap.NET</a> mapping library. The application features a desktop version running in Windows and a mobile version running on Android tablets. The .Net back end works seamlessly on both through the use of <a href="http://xamarin.com">Xamarin</a>, although I have not had the chance to get my hands dirty with that yet due to limits on Xamarin licenses and available Android devices. To its credit, GMap.NET seems to work fairly well in both environments.</p>
 
-<p><img alt="" class="aligncenter size-full wp-image-3002" height="400" src="http://geobabble.files.wordpress.com/2012/11/postgis_evernote1.png" title="PostGIS items from Planet Geospatial in Evernote" width="640" /></p>
+<!--more-->
 
-<p>Two of my favorite tools for culling down the firehose that is Planet Geospatial are <a href="http://ifttt.com" target="_blank">IFTTT</a> (the title of this post is a riff on the IFTTT motto) and <a href="http://evernote.com/" target="_blank">Evernote</a>. If you're not familiar with IFTTT, you should be. It reminds me of a more-intuitive Yahoo Pipes and it allows you to mix channels, triggers, and actions to automate processes of your choosing. It's become by preferred method of synchronizing my blog with social media and for filtering data sources. It also drives the <a href="http://twitter.com/QGISInfo" target="_blank">Unofficial QGIS Info</a> Twitter account. <!--more--></p>
 
-<p>Evernote is becoming a key tool for me to store and access notes and other kinds of information. The fact that it runs on every device I own in addition to browsers makes it very useful for me as I move between customer locations.</p>
+<p>The project needed the ability to plug in custom base maps that would be accessible on the mobile devices which would not have internet connectivity, so I chose to use <a href="https://www.mapbox.com/developers/mbtiles/">MBTiles</a> as the provider format, given that it is widely supported and well-documented. This was my first time using the GMap.NET library and it was fairly easy to develop a new provider for it. <a href="https://github.com/geobabbler/MBTilesMapProvider">I have posted my provider code here</a>, though it may not work as a separate library due to some design choices in the core library.</p>
 
-<p>When James first posted that he was wondering what to do with Planet Geospatial, I shared with him an IFTTT recipe that inserts posts from Planet Geospatial about <a href="http://www.postgis.org" target="_blank">PostGIS</a> into an Evernote notebook. He kindly tweeted it.</p>
+<p>From there, I actually had to move on to making some data sets for the various upcoming application test runs. This enabled me to reconnect with some old friends: <a href="https://www.mapbox.com/tilemill/">TileMill</a>, <a href="http://www.arc2earth.com">Arc2Earth</a>, and <a href="http://market.weogeo.com">WeoGeo</a>. I used WeoGeo for the bulk of my data acquisition, sticking to open data sources such as OSM and TIGER. The areas that I needed to work with were fairly small and WeoGeo's feature of allowing me to upload KML to clip my data is really quite nice. If you still haven't checked out WeoGeo for data acquisition, you really should. The customization tools even make for-purchase data sets fairly affordable.</p>
 
-<p>{% tweet http://twitter.com/cageyjames/statuses/272025049526050816 %}</p>
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/weoorder.png" /></p>
 
-<p>I usually have three to four such filters running, depending upon topics that I'm watching. Currently, I'm grabbing posts about PostGIS, <a href="http://geojson.org" target="_blank">GeoJSON</a>, and <a href="http://mapbox.com/tilemill/docs/manual/carto/" target="_blank">CartoCSS</a>. These filters allow me to peruse the posts at my leisure without worrying about missing them. I can delete them from my notebook or save them as I see fit. For me, it's like having a DVR for Planet Geospatial.</p>
+<p>I did my initial prototyping in TileMill to generate data sets to test the map provider. Once I moved on to building the actual data sets, I moved over to Arc2Earth. The main driver for that decision was that, in addtion to data acquired from WeoGeo, I had some data in a few government formats to integrate as well. Through GDAL and OGR, I could have accomplished that in TileMill, but I was able cut out a lot of data manipulation with Arc2Earth. That is why we keep multiple tools on the workbench.</p>
 
-<p>Ultimately, Planet Geospatial is an information source. It just happens to be an information source that's based on a mature, open, well-documented, and widely adopted standard. As such, there's no need to wait for James to evolve it into something else. We can take it and transform it to meet our needs and then share it back. It's been a great community resource for a long time; it will be fun to see what the community can do with it.</p>
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/a2eexport2.png" /></p>
+
+<p>To help fusing multiple databases, I had to take the step of developing <a href="https://github.com/geobabbler/MBTilesMerge">a GUI tool to merge MBTiles</a> databases. <a href="https://github.com/mapbox/mbutil/blob/master/patch">MapBox has a perfectly fine utility</a> to do this but this particular shop has seen fit to block console access on our Windows machines so I had to create my own tool to accomplish this task.</p>
+
+<p>Every once in a while, it's good to get back in touch with data and mapping workflows. It keeps me honest as a developer, even though mapping is not my strong suit. I have found working with GMap.NET interesting but I'm not sure I'd choose to do so again. There are a few design choices that fall into the "not how I would have done it" category but, primarily, I haven't found any compelling reason to choose it over <a href="https://sharpmap.codeplex.com">SharpMap</a>, <a href="https://dotspatial.codeplex.com">DotSpatial</a>, or <a href="https://brutile.codeplex.com">BruTile</a>, which are open-source .Net libraries with which I am much more familiar.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
-    <link href="http://blog.geomusings.com/2012/11/26/spatialite-for-android-available/"/>
-    <updated>2012-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/26/spatialite-for-android-available</id>
-    <content type="html"><![CDATA[<p>On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.</p>
+    <title type="html"><![CDATA[A Little Deeper with Node and PostGIS]]></title>
+    <link href="http://blog.geomusings.com/2014/02/18/a-little-deeper-with-node-and-postgis/"/>
+    <updated>2014-02-18T13:44:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/18/a-little-deeper-with-node-and-postgis</id>
+    <content type="html"><![CDATA[<p>What does one do when presented with more snow days than expected? My friends in Colorado would probably do something outrageous like skiing, but I found it to be a great opportunity to catch up on some of my recreational coding. Specifically, I wanted to revisit the <a href="http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/">Node/PostGIS work I blogged about earlier</a>.</p>
 
-<p>I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.</p>
+<p>As fun as that project was, it was fairly limited in scope and I wanted to spread my wings a little more with Node. So I decided to build a more general-purpose wrapper around <a href="http://postgis.net">PostGIS</a>. Lately, I've become a bit obsessed with the idea that PostGIS may be the only GIS tool you really need in terms of data storage, management, and analytics. That's probably a topic for another post but exploring that concept was a perfect premise for my continued explorations with Node.</p>
 
-<p>The message is quoted below:</p>
+<p>I have been circling back to Node over the past few months to continue building my comfort level with it. I tend to eschew frameworks when i have learning something new because I want to get comfortable with the core before I start layering on abstraction. That was my approach with <a href="http://blog.geomusings.com/2013/04/25/simple-tile-viewer/">the tile viewer tool I built a while back</a>. For the recent post centered on Amazon RDS, I added Express into the mix, which has been a big help.</p>
 
-<blockquote>
-Hi List,
+<p>This time around, I wanted to dig a little deeper with the <a href="https://github.com/brianc/node-postgres">node-postgres</a> module and also make the application more modular. I wanted to build around a few core principles:</p>
 
-I'm really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
+<ol>
+<li>Keep it RESTful (or as close to it as I could)</li>
+<li>GeoJSON in/GeoJSON out (so....vector only for now)</li>
+<li>Let PostGIS do the heavy lifting</li>
+</ol>
 
-[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
 
-Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
+<!--more-->
 
-[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
 
-A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he'll surely appreciate ;-)
+<p><strong>Getting Started</strong></p>
 
-[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
+<p>This time around, I elected to use my local PostgreSQL/PostGIS instance rather than Amazon RDS. This was mainly so I could keep my development isolated on one machine. I already had the basic infrastructure in place from my last time around, so I was able to quickly dive into the meat of things. I decided to scope my initial effort at the following:</p>
 
-enjoy, Sandro
-</blockquote>
+<ol>
+<li>Return the contents of an entire table as GeoJSON, with the ability to choose between features (geometries and attributes) in a GeoJSON feature collection or just geometries in a GeoJSON geometry collection. This should support any table in the database.</li>
+<li>Return those records in a table that intersect a geometry passed in as a parameter. The input geometry would be in GeoJSON format.</li>
+<li>Return a JSON representation of a table's schema.</li>
+<li>Return a list of tables from the server. This is necessary in order to support the ability to query any available table.</li>
+<li>Implement some simple, but application-specific logic to demonstrate extensibility.</li>
+</ol>
 
+
+<p>With these goals in mind, I decided to first tackle the issue of extensibility. I wanted to make it as painless as possible and <a href="http://timstermatic.github.io/blog/2013/08/17/a-simple-mvc-framework-with-node-and-express/">the strategy described in this post</a> seemed to fit the bill. I just had to add the following code block to my server.js (straight from the post):</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet1.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// dynamically include routes (Controller)</span>
+</span><span class='line'><span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="s1">&#39;./controllers&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;.js&#39;</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>  <span class="nx">route</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./controllers/&#39;</span> <span class="o">+</span> <span class="nx">file</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">route</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>This will load any .js file in the controllers directory into the application. If they are written to the pattern expected by Express, new resource paths are exposed to the application. The post above describes a simple MVC implementation. Astute readers will note that my take is all "C" without "M" or "V." I plan to refactor that later but it it was easier for me to keep track of things on this pass with code in one place.</p>
+
+<p><strong>Getting Data</strong></p>
+
+<p>With modularity out of the way, it was time work on the basic structure for getting data from the database. In <a href="https://github.com/geobabbler/node-gis-server/blob/master/controllers/core.js">core.js</a>, I defined a route with a URL template like '/vector/:schema/:table/:geom'. This would translate into something like http://localhost/vector/public/parcels/features, which would fetch a GeoJSON feature collection containing the contents of the parcels table. To do that, I need to know the name of the spatial column in the table, which the following helps me retrieve:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet2.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">meta</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select * from geometry_columns where f_table_name = &#39;&quot;</span> <span class="o">+</span> <span class="nx">tablename</span> <span class="o">+</span> <span class="s2">&quot;&#39; and f_table_schema = &#39;&quot;</span> <span class="o">+</span> <span class="nx">schemaname</span> <span class="o">+</span> <span class="s2">&quot;&#39;;&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The next code block shows how I capture the name of the spatial column and structure the main query, depending on the choice of features or geometry:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet3.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">meta</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">query</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">coll</span><span class="p">;</span>
+</span><span class='line'><span class="nx">spatialcol</span> <span class="o">=</span> <span class="nx">row</span><span class="p">.</span><span class="nx">f_geometry_column</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">==</span> <span class="s2">&quot;features&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_transform(&quot;</span> <span class="o">+</span> <span class="nx">spatialcol</span> <span class="o">+</span> <span class="s2">&quot;,4326)) as geojson, * from &quot;</span> <span class="o">+</span> <span class="nx">fullname</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">coll</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">type</span> <span class="o">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">features</span> <span class="o">:</span> <span class="p">[]</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">==</span> <span class="s2">&quot;geometry&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_transform(&quot;</span> <span class="o">+</span> <span class="nx">spatialcol</span> <span class="o">+</span> <span class="s2">&quot;,4326)) as geojson from &quot;</span> <span class="o">+</span> <span class="nx">fullname</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">coll</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">type</span> <span class="o">:</span> <span class="s2">&quot;GeometryCollection&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">geometries</span> <span class="o">:</span> <span class="p">[]</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//&#39;meta&#39; code block continues</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>As can be seen above, the query will transform the output geometry to WGS84 and convert it to GeoJSON for me. So I'm sticking my third principle by leaning on PostGIS functions here. I plan to stick to GeoJSON's default spatial reference of WGS84 for now. To roll up the query results into the appropriate GeoJSON object and return it, I handled the 'row' and 'end' events.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet4.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//roll up the results</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">==</span> <span class="s2">&quot;features&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">coll</span><span class="p">.</span><span class="nx">features</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">getFeatureResult</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">spatialcol</span><span class="p">));</span> <span class="c1">//use helper function</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">==</span> <span class="s2">&quot;geometry&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">shape</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">coll</span><span class="p">.</span><span class="nx">geometries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">shape</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//send the results</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">coll</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I wrote a helper function to roll up GeoJSON features:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet5.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">exports</span><span class="p">.</span><span class="nx">getFeatureResult</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">spatialcol</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>    <span class="kd">var</span> <span class="nx">props</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;properties&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:4326&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="c1">//builds feature properties from database columns</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">k</span> <span class="k">in</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">k</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="kd">var</span> <span class="nx">nm</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="nx">k</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">((</span><span class="nx">nm</span> <span class="o">!=</span> <span class="s2">&quot;geojson&quot;</span><span class="p">)</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">nm</span> <span class="o">!=</span> <span class="nx">spatialcol</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">props</span><span class="p">[</span><span class="nx">nm</span><span class="p">]</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">type</span> <span class="o">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">crs</span> <span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">geometry</span> <span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span>
+</span><span class='line'>        <span class="nx">properties</span> <span class="o">:</span> <span class="nx">props</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>So that's basic data retrieval. How about that spatial intersect?</p>
+
+<p><strong>A Simple Spatial Query</strong></p>
+
+<p>One thing I failed to mention in the above section, is that all of that is exposed through an HTTP GET request. For this next function, I'm going to use a POST. I went back and forth on that but came down on the side of POST due to the potential for a user to send a very verbose input shape. The function is designed to accept JSON as the body of the request, which would be done in curl like this:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet6.bat </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>curl -X POST -d <span class="s2">&quot;{ \&quot;</span>type\<span class="s2">&quot;: \&quot;</span>Point\<span class="s2">&quot;, \&quot;</span>coordinates\<span class="s2">&quot;: [-98.35, 39.7] }&quot;</span> -H <span class="s2">&quot;Content-Type: application/json&quot;</span> http:<span class="n">//localhost:3000/vector/public/states_gen/features/intersect</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The above action returns the state of Kansas (I knew you were wondering). To make this happen, there are only three things that are different. First, the URL is defined a POST and, second, the code needs to capture the input shape. The first few lines are:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet7.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * retrieve all features that intersect the input GeoJSON geometry</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/vector/:schema/:table/:geom/intersect&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//console.log(JSON.stringify(req.body));</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">queryshape</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//continue with the rest of app.post</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I stringify the JSON since I have to insert it into my SQL. This brings me to the third difference here, the query. This time, I am using ST_INTERSECTS to filter down the response. So, depending on the choice of features or geometry, the query will be similar to:</p>
+
+<p><strong>"select st_asgeojson(st_transform(" + spatialcol + ",4326)) as geojson, * from " + fullname + " where ST_INTERSECTS(" + spatialcol + ", ST_SetSRID(ST_GeomFromGeoJSON('" + queryshape + "'),4326));"</strong></p>
+
+<p>The rest of the process is similar to the basic query above. With a well-exercised data access pattern in place, querying table schema and layer lists become trivial. Since GeoJSON doesn't cover these topics, I had to roll my own. I won't detail the output but the queries are below.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet8.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//SQL to retrieve schema</span>
+</span><span class='line'><span class="c1">//var sql = &quot;SELECT n.nspname as schemaname,c.relname as table_name,a.attname as column_name,format_type(a.atttypid, a.atttypmod) AS //type,col_description(a.attrelid, a.attnum) as comments&quot;;</span>
+</span><span class='line'><span class="c1">//sql = sql + &quot; FROM pg_class c INNER JOIN pg_namespace n ON c.relnamespace = n.oid LEFT JOIN pg_attribute a ON a.attrelid = c.oid&quot;;</span>
+</span><span class='line'><span class="c1">//sql = sql + &quot; WHERE a.attnum &gt; 0 and c.relname = &#39;&quot; + tablename + &quot;&#39; and n.nspname = &#39;&quot; + schemaname + &quot;&#39;;&quot;;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//SQL to retrieve layer list</span>
+</span><span class='line'><span class="c1">//sql = &quot;SELECT &#39;geometry&#39; AS geotype, * FROM geometry_columns UNION SELECT &#39;geography&#39; as geotype, * FROM geography_columns;&quot;;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>So this gives me everything I need for an all-purpose interface into PostGIS from Node. I could spend the rest of the year similarly wrapping the hundreds of spatial functions in PostGIS but the real power of extensibility is the ability to tailor an application for one's own needs, based upon one's detailed understanding of their own data and logic.</p>
+
+<p><strong>Adding Some Customization</strong></p>
+
+<p>To do this, I fell back to the data for <a href="http://leonardtown.somd.com">Leonardtown, Maryland</a> that have used in a <a href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/">couple</a> of previous <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/">posts</a>. I am simply going to expose the ability to query residential or commercial buildings from the data set. For this, all of the prep work is done at the top of the function by simply preparing a WHERE clause.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet9.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/leonardtown/buildings/:geom&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">geom</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span><span class='line'><span class="k">if</span> <span class="p">((</span><span class="nx">geom</span> <span class="o">!=</span> <span class="s2">&quot;features&quot;</span><span class="p">)</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">!=</span> <span class="s2">&quot;geometry&quot;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">404</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Resource &#39;&quot;</span> <span class="o">+</span> <span class="nx">geom</span> <span class="o">+</span> <span class="s2">&quot;&#39; not found&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">tablename</span> <span class="o">=</span> <span class="s2">&quot;leonardtown_bldgs&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">schemaname</span> <span class="o">=</span> <span class="s2">&quot;public&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">fullname</span> <span class="o">=</span> <span class="nx">schemaname</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="nx">tablename</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">spatialcol</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">proptype</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">type</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">whereclause</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">proptype</span> <span class="o">!=</span> <span class="s2">&quot;undefined&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">proptype</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;all&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">whereclause</span> <span class="o">=</span> <span class="s2">&quot; where structure_ = &#39;&quot;</span> <span class="o">+</span> <span class="nx">proptype</span> <span class="o">+</span> <span class="s2">&quot;&#39;;&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">coll</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="c1">//logic continues from here</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The primary difference here are that I am using a GET with a query string since I'm not concerned with data size and that I'm building a WHERE clause on a specific column name. What's not shown is that, farther down, I don't need to query the name of the spatial column so I can cut out that step. I can do this because I understand my own data so I can be more succinct that if I were writing a more generic function. Using this approach I can also write more complex custom logic in my database, call it from Node, and send the response. In other words, standard web application behavior.</p>
+
+<p>In order to expose this application-specific logic, I just needed expose it in a separate leonardtown.js file and drop it into the 'controllers' directory.</p>
+
+<p><strong>Wrapping Up</strong></p>
+
+<p>This post was bit longer than usual but there was lot of ground to cover. I feel like I'm getting more comfortable with the Node ecosystem though I'm still a bit wobbly. My next step is probably to dive a little deeper into the MVC side of things with something like <a href="http://sailsjs.org">Sails</a>. Having a familiar face like PostGIS on the back end is helping me as I figure out how to perform more meaningful tasks with Node and its related tools.</p>
+
+<p>If you want to check out the full code for this application, it is here: <a href="https://github.com/geobabbler/node-gis-server">https://github.com/geobabbler/node-gis-server</a></p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite 4.0 Released]]></title>
-    <link href="http://blog.geomusings.com/2012/11/26/spatialite-4-0-released/"/>
-    <updated>2012-11-26T00:00:00-05:00</updated>
-    <id>http://blog.geomusings.com/2012/11/26/spatialite-4-0-released</id>
-    <content type="html"><![CDATA[<p>It looks like it was a busy weekend for Sandro Furieri and the rest of the <a href="https://www.gaia-gis.it/fossil/libspatialite/index" target="_blank">SpatiaLite</a> team as version 4.0 was announced on Sunday. There are a number of changes, so it's best to <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=switching-to-4.0" target="_blank">catch up on them</a> before switching over.</p>
+    <title type="html"><![CDATA[Initial Thoughts On the DC DevSummit]]></title>
+    <link href="http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit/"/>
+    <updated>2014-02-13T17:19:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit</id>
+    <content type="html"><![CDATA[<p>This week, I attended the first-ever <a href="http://www.esri.com">Esri</a> <a href="http://www.esri.com/events/devsummit-dc">DC DevSummit</a> which followed the <a href="http://www.esri.com/events/federal">Federal GIS Conference</a> (please switch it back to "FedUC"). This event, intended and a smaller, Federally-focused, companion to the annual Palm Springs DevSummit, came together quickly but was very well-attended with about 300 attendees.</p>
 
-<div style="text-align: center;"><a href="http://www.manningltg.com/fixture_show.php?f_id=GCQ-164&amp;f_desc=Spatialite%20(Quartz%20Halogen)"><img alt="" height="300" src="http://www.manningltg.com/product_imgs/web/GCQ-164_1.jpg" title="Not this SpatiaLite" width="490" /></a><div style="text-align: center;font-size: 14px;">Not this SpatiaLite</div></div>
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/devsummit.jpg" /></p>
+
+<p>It was interesting to note that the most well-attended sessions of the day had to do with Javascript (every Javascript session had over 100 participants). As more and more organizations update their IT infrastructures, the acceleration away from plug-ins seems to be picking up pace. The most common refrain amongst attendees in that regard is that continued standardization on IE8 remains the biggest impediment to sunsetting things like Flex and Silverlight, but the logjam seems to be starting to break loose.</p>
+
+<!--more-->
 
 
-<p>I have a couple of Federal customers that are integrating SpatiaLite into their workflows so I'll need to take a day or so to assess impacts any impacts there. Looks like the perfect way to slide back into work after a long weekend.</p>
+<p>Despite the photo I posted, <a href="http://twitter.com/ajturner">Andrew Turner's</a> open-source session was fairly well-attended. It was good to see tools like <a href="https://github.com/Esri/koop">Koop</a> in action. It is clear that there is real effort going on within Esri to produce open-source tools and that the people working on them are genuinely committed to them. That said, it is obviously still early days and such efforts are clearly swimming upstream against the preponderance of corporate culture. This is an effort that will best be judged over the long haul.</p>
+
+<p>I also have to give a shout out to <a href="http://twitter.com/agup">Andy Gup</a>, whom I finally met at this conference. By chance, I sat through three of his sessions. He is one of the best technical presenters I have ever seen and Esri should require junior staff to sit through his sessions to see how it should be done.</p>
+
+<p>I found the DevSummit generally worthwhile and I was impressed with how well it came together given the short timeframe. Since I was encouraged to blog suggestions, here are a few:</p>
+
+<ol>
+<li><p>Make a DevSummit a permanent fixture as a follow-on to the Federal User Conference each year. The format of this year's Federal conference can be tweaked but stay mainly focused on user-centric use cases and some intro-level discussions of technologies. A DevSummit would mark a shift in to much more technical content with advanced discussions of APIs, security, techniques and best practices.</p></li>
+<li><p>Pull out the stops. As I indicated in item 1, ramp up the technical content, in comparison to that of the Federal conference, significantly. This year's event started down that path. I would keep the technical content of the Federal conference on the bunny slopes and shift to the black diamonds for the DevSummit.</p></li>
+<li><p>Expand to two days. It was a quick day and there were definitely sessions I would have liked to have gotten to. Additionally, it would be good to see some user content, maybe some lightning talks on the evening between the days. One of the biggest challenges working in the Federal space is the compartmentalization between and within agencies. With the DevSummit drawing interested people to one location, it would be good to get more opportunities to interact with other developers and exchange information.</p></li>
+<li><p><a href="http://www.gsa.gov/portal/category/102371?utm_source=OCM&amp;utm_medium=print-radio&amp;utm_term=HP_13_SpecialTopics_fedramp&amp;utm_campaign=shortcuts">FedRAMP</a> and <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> were non-existent this year. Jim Barry explained to me that these were areas where content simply wasn't ready to go in the short time given to prepare for the DevSummit. That's fair, and I certainly respect the decision to not provide content that could not be done well. These are, however, core issues for anyone doing development for the Federal Government. Next year's DC DevSummit really needs to have content for developers attempting to deploy to FedRAMP and achieve FISMA compliance with Esri tools.</p></li>
+</ol>
+
+
+<p>Those my quick hits. I'll probably have more after I have time to digest what I saw and dig out from the backlog resulting from two days out of the office. Kudos to <a href="http://twitter.com/jimbarry">Jim Barry</a> for his work pulling the DC DevSummit together.</p>
 ]]></content>
   </entry>
   
