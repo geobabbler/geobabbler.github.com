@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-06-20T11:51:25-04:00</updated>
+  <updated>2014-06-20T12:04:38-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Where Ya Been?]]></title>
+    <link href="http://blog.geomusings.com/2014/06/20/where-ya-been/"/>
+    <updated>2014-06-20T10:14:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/06/20/where-ya-been</id>
+    <content type="html"><![CDATA[<p>It's been rather quiet on the blog for a while. Sometimes the posts have to take a back seat to work and other things. This time of year tends to be busy anyway due to the end of the school year and its related activities, but this year has also included one move, construction of a house, and preparations for a second (final) move. In December we sold our house, which I had lived in for nearly 40 years, and moved into temporary quarters while the next house was being built. The sale of the old place was a pretty smooth experience as all of us, especially me, were ready for a change.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/sunrise_crop_small.jpg" /></p>
+
+<p>As a result, the experimentation and small projects which have driven the content of this blog since it started simply had to stop for a while. That's not to say that there has been no activity. I have posted over the last few months related to some mapping work and the "software exhaust" that has resulted from it. It's not really been possible, however, to sit down a create a well-structured discussion of those activies in the way that I would prefer, so I simply haven't.</p>
+
+<!--more-->
+
+
+<p>Because that work involved the use of <a href="https://www.mapbox.com/foundations/an-open-platform/#mbtiles">MBTiles</a>, it got me a little closer to some of the open-source tools produced by <a href="http://mapbox.com">MapBox</a> in a way that I haven't really needed to before. In addition to <a href="https://github.com/mapbox/mbutil">MBUtil</a> and <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I've been able to use some of their <a href="http://leafletjs.com/">Leaflet</a> Javascript plug-ins for use in data visualiztion. My overall observation is that I've been very impressed with the quality of the tools they are putting out in terms of performance, stability, and elegance. It's been a pleasant experience working with their tools and I've also learned a lot by digging into their source.</p>
+
+<p>It reminds me a lot of the experience I had a few years ago working with the GeoIQ tool set. That tool set resonated with me for the same reasons that the MapBox tool set does now; I feel like the authors of the tools think about problems and approach them in a manner similar to the way I do. As a result, I find the tools comfortable and not something I feel like I am fighting with. I'm not certain that this psychological aspect of software is given much attention but software is really a representation of the author's approach to problem-solving. For me, developing proficiency with a piece of software is establishing a connection with its author in a manner similar to that which is established with the author of a good book. It's one of the reasons I consider releasing open-source code to be such a brave thing.</p>
+
+<p>It's my hope that I'll find ways to keep working with the MapBox tool set more, but such considerations are always driven by project availability and customer demand. In the meantime, there's a move to complete, a new house to settle into, and a summer to enjoy.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Personal Geospatial Workflows, May 2014 Edition]]></title>
@@ -487,38 +509,6 @@
 <p>This post was bit longer than usual but there was lot of ground to cover. I feel like I'm getting more comfortable with the Node ecosystem though I'm still a bit wobbly. My next step is probably to dive a little deeper into the MVC side of things with something like <a href="http://sailsjs.org">Sails</a>. Having a familiar face like PostGIS on the back end is helping me as I figure out how to perform more meaningful tasks with Node and its related tools.</p>
 
 <p>If you want to check out the full code for this application, it is here: <a href="https://github.com/geobabbler/node-gis-server">https://github.com/geobabbler/node-gis-server</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Initial Thoughts On the DC DevSummit]]></title>
-    <link href="http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit/"/>
-    <updated>2014-02-13T17:19:00-05:00</updated>
-    <id>http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit</id>
-    <content type="html"><![CDATA[<p>This week, I attended the first-ever <a href="http://www.esri.com">Esri</a> <a href="http://www.esri.com/events/devsummit-dc">DC DevSummit</a> which followed the <a href="http://www.esri.com/events/federal">Federal GIS Conference</a> (please switch it back to "FedUC"). This event, intended and a smaller, Federally-focused, companion to the annual Palm Springs DevSummit, came together quickly but was very well-attended with about 300 attendees.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/devsummit.jpg" /></p>
-
-<p>It was interesting to note that the most well-attended sessions of the day had to do with Javascript (every Javascript session had over 100 participants). As more and more organizations update their IT infrastructures, the acceleration away from plug-ins seems to be picking up pace. The most common refrain amongst attendees in that regard is that continued standardization on IE8 remains the biggest impediment to sunsetting things like Flex and Silverlight, but the logjam seems to be starting to break loose.</p>
-
-<!--more-->
-
-
-<p>Despite the photo I posted, <a href="http://twitter.com/ajturner">Andrew Turner's</a> open-source session was fairly well-attended. It was good to see tools like <a href="https://github.com/Esri/koop">Koop</a> in action. It is clear that there is real effort going on within Esri to produce open-source tools and that the people working on them are genuinely committed to them. That said, it is obviously still early days and such efforts are clearly swimming upstream against the preponderance of corporate culture. This is an effort that will best be judged over the long haul.</p>
-
-<p>I also have to give a shout out to <a href="http://twitter.com/agup">Andy Gup</a>, whom I finally met at this conference. By chance, I sat through three of his sessions. He is one of the best technical presenters I have ever seen and Esri should require junior staff to sit through his sessions to see how it should be done.</p>
-
-<p>I found the DevSummit generally worthwhile and I was impressed with how well it came together given the short timeframe. Since I was encouraged to blog suggestions, here are a few:</p>
-
-<ol>
-<li><p>Make a DevSummit a permanent fixture as a follow-on to the Federal User Conference each year. The format of this year's Federal conference can be tweaked but stay mainly focused on user-centric use cases and some intro-level discussions of technologies. A DevSummit would mark a shift in to much more technical content with advanced discussions of APIs, security, techniques and best practices.</p></li>
-<li><p>Pull out the stops. As I indicated in item 1, ramp up the technical content, in comparison to that of the Federal conference, significantly. This year's event started down that path. I would keep the technical content of the Federal conference on the bunny slopes and shift to the black diamonds for the DevSummit.</p></li>
-<li><p>Expand to two days. It was a quick day and there were definitely sessions I would have liked to have gotten to. Additionally, it would be good to see some user content, maybe some lightning talks on the evening between the days. One of the biggest challenges working in the Federal space is the compartmentalization between and within agencies. With the DevSummit drawing interested people to one location, it would be good to get more opportunities to interact with other developers and exchange information.</p></li>
-<li><p><a href="http://www.gsa.gov/portal/category/102371?utm_source=OCM&amp;utm_medium=print-radio&amp;utm_term=HP_13_SpecialTopics_fedramp&amp;utm_campaign=shortcuts">FedRAMP</a> and <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> were non-existent this year. Jim Barry explained to me that these were areas where content simply wasn't ready to go in the short time given to prepare for the DevSummit. That's fair, and I certainly respect the decision to not provide content that could not be done well. These are, however, core issues for anyone doing development for the Federal Government. Next year's DC DevSummit really needs to have content for developers attempting to deploy to FedRAMP and achieve FISMA compliance with Esri tools.</p></li>
-</ol>
-
-
-<p>Those my quick hits. I'll probably have more after I have time to digest what I saw and dig out from the backlog resulting from two days out of the office. Kudos to <a href="http://twitter.com/jimbarry">Jim Barry</a> for his work pulling the DC DevSummit together.</p>
 ]]></content>
   </entry>
   

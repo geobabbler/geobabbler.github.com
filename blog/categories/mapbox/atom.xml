@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MapBox | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/mapbox/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-06-20T11:51:25-04:00</updated>
+  <updated>2014-06-20T12:04:38-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Where Ya Been?]]></title>
+    <link href="http://blog.geomusings.com/2014/06/20/where-ya-been/"/>
+    <updated>2014-06-20T10:14:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/06/20/where-ya-been</id>
+    <content type="html"><![CDATA[<p>It's been rather quiet on the blog for a while. Sometimes the posts have to take a back seat to work and other things. This time of year tends to be busy anyway due to the end of the school year and its related activities, but this year has also included one move, construction of a house, and preparations for a second (final) move. In December we sold our house, which I had lived in for nearly 40 years, and moved into temporary quarters while the next house was being built. The sale of the old place was a pretty smooth experience as all of us, especially me, were ready for a change.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/sunrise_crop_small.jpg" /></p>
+
+<p>As a result, the experimentation and small projects which have driven the content of this blog since it started simply had to stop for a while. That's not to say that there has been no activity. I have posted over the last few months related to some mapping work and the "software exhaust" that has resulted from it. It's not really been possible, however, to sit down a create a well-structured discussion of those activies in the way that I would prefer, so I simply haven't.</p>
+
+<!--more-->
+
+
+<p>Because that work involved the use of <a href="https://www.mapbox.com/foundations/an-open-platform/#mbtiles">MBTiles</a>, it got me a little closer to some of the open-source tools produced by <a href="http://mapbox.com">MapBox</a> in a way that I haven't really needed to before. In addition to <a href="https://github.com/mapbox/mbutil">MBUtil</a> and <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I've been able to use some of their <a href="http://leafletjs.com/">Leaflet</a> Javascript plug-ins for use in data visualiztion. My overall observation is that I've been very impressed with the quality of the tools they are putting out in terms of performance, stability, and elegance. It's been a pleasant experience working with their tools and I've also learned a lot by digging into their source.</p>
+
+<p>It reminds me a lot of the experience I had a few years ago working with the GeoIQ tool set. That tool set resonated with me for the same reasons that the MapBox tool set does now; I feel like the authors of the tools think about problems and approach them in a manner similar to the way I do. As a result, I find the tools comfortable and not something I feel like I am fighting with. I'm not certain that this psychological aspect of software is given much attention but software is really a representation of the author's approach to problem-solving. For me, developing proficiency with a piece of software is establishing a connection with its author in a manner similar to that which is established with the author of a good book. It's one of the reasons I consider releasing open-source code to be such a brave thing.</p>
+
+<p>It's my hope that I'll find ways to keep working with the MapBox tool set more, but such considerations are always driven by project availability and customer demand. In the meantime, there's a move to complete, a new house to settle into, and a summer to enjoy.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Data, Apps, and Maps]]></title>
@@ -107,23 +129,6 @@
 <p>I have resolved that I will take at least one of my kids, if not both, to the next FOSS4G event that I attend. The attitude of the open-source crowd is one that I want to rub off on them. Aside from the energy that is exuded from a gathering such as this, the open-source world is full of people who see a problem and just set out to solve it. I want my kids to be exposed to that kind of initiative and understand the power that can come from harnessing it, even if they never go into a technical field.</p>
 
 <p>My understanding is that FOSS4GNA came together very quickly. Given that, it was a very high-quality conference and the organizers should be commended. Early tongue-in-cheek commentary referred to it as the "<a href="http://opengeo.org/" target="_blank">OpenGeo </a>User Conference." I felt like there was good balance and, when I attended sessions given by OpenGeo staff, I didn't feel like I was beaten over the head with the OpenGeo brand. All-in-all, I found my day-and-a-half at FOSS4GNA to be very beneficial and I'm hoping it becomes an annual event. (<strong>Update</strong>: It looks like next year's FOSS4GNA <a href="https://twitter.com/#!/foss4gna/status/190517270928293888" target="_blank">will be in Minnesota</a>.)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[FCC Open-Sources MapBox Module for Drupal]]></title>
-    <link href="http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal/"/>
-    <updated>2012-03-20T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal</id>
-    <content type="html"><![CDATA[<p>See the FCC announcement <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">here</a>.</p>
-
-<p><a href="http://mapbox.com" target="_blank">MapBox</a> has been winning a lot of high-profile converts lately, such as <a href="http://mapbox.com/blog/foursquare-switches-mapbox-streets-openstreetmap/" target="_blank">Foursquare</a>. In my opinion, it's one of the more perfect web mapping solutions, commercial or open-source, to come along in a while. The combination of cartographic engine (<a href="http://mapnik.org/" target="_blank">Mapnik</a>), tile generation (<a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a>) and storage (<a href="http://mapbox.com/mbtiles-spec/" target="_blank">MBTiles</a>) make MapBox one of the most elegant ways to serve beautiful maps currently available. <!--more--></p>
-
-<p>The Federal Communications Commission (FCC) has been using MapBox to make a number of <a href="http://www.fcc.gov/maps" target="_blank">compelling maps</a> available to the public. Additonally, the FCC's site has been built on the open-source content management system <a href="http://drupal.org/" target="_blank">Drupal</a>. Today, the <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">FCC announced</a> that they are making the source code to their MapBox module for Drupal, SlashMap, <a href="http://drupal.org/project/slashmaps" target="_blank">available</a>. This should provide a straightforward way to integrate MapBox maps with a Drupal site.</p>
-
-<p>The FCC has been very active in using open-source tools for their work and it's great to see them giving back to the community in this manner. It's a phenomenon that I think we'll see a lot more of from all levels of government as understanding of and comfort with open-source models increases.</p>
-
-<p>So, if you are a Drupal user, you may want to check out SlashMaps as a way to integrate some very nice web maps. Kudos to <a href="http://twitter.com/byrne_tweets" target="_blank">Michael Byrne</a> and his team at the FCC for taking this step.</p>
 ]]></content>
   </entry>
   
