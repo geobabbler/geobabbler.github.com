@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-05-31T18:39:47-04:00</updated>
+  <updated>2014-06-20T11:51:25-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Where Ya Been?]]></title>
+    <link href="http://blog.geomusings.com/2014/06/20/where-ya-been/"/>
+    <updated>2014-06-20T10:14:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/06/20/where-ya-been</id>
+    <content type="html"><![CDATA[<p>It&#8217;s been rather quiet on the blog for a while. Sometimes the posts have to take a back seat to work and other things. This time of year tends to be busy anyway due to the end of the school year and its related activities, but this year has also included one move, construction of a house, and preparations for a second (final) move. In December we sold our house, which I had lived in for nearly 40 years, and moved into temporary quarters while the next house was being built. The sale of the old place was a pretty smooth experience as all of us, especially me, were ready for a change.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/sunrise_crop_small.jpg" /></p>
+
+<p>As a result, the experimentation and small projects which have driven the content of this blog since it started simply had to stop for a while. That&#8217;s not to say that there has been no activity. I have posted over the last few months related to some mapping work and the &#8220;software exhaust&#8221; that has resulted from it. It&#8217;s not really been possible, however, to sit down a create a well-structured discussion of those activies in the way that I would prefer, so I simply haven&#8217;t.</p>
+
+<!--more-->
+
+
+<p>Because that work involved the use of <a href="https://www.mapbox.com/foundations/an-open-platform/#mbtiles">MBTiles</a>, it got me a little closer to some of the open-source tools produced by <a href="http://mapbox.com">MapBox</a> in a way that I haven&#8217;t really needed to before. In addition to <a href="https://github.com/mapbox/mbutil">MBUtil</a> and <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I&#8217;ve been able to use some of their <a href="http://leafletjs.com/">Leaflet</a> Javascript plug-ins for use in data visualiztion. My overall observation is that I&#8217;ve been very impressed with the quality of the tools they are putting out in terms of performance, stability, and elegance. It&#8217;s been a pleasant experience working with their tools and I&#8217;ve also learned a lot by digging into their source.</p>
+
+<p>It reminds me a lot of the experience I had a few years ago working with the GeoIQ tool set. That tool set resonated with me for the same reasons that the MapBox tool set does now; I feel like the authors of the tools think about problems and approach them in a manner similar to the way I do. As a result, I find the tools comfortable and not something I feel like I am fighting with. I&#8217;m not certain that this psychological aspect of software is given much attention but software is really a representation of the author&#8217;s approach to problem-solving. For me, developing proficiency with a piece of software is establishing a connection with its author in a manner similar to that which is established with the author of a good book. It&#8217;s one of the reasons I consider releasing open-source code to be such a brave thing.</p>
+
+<p>It&#8217;s my hope that I&#8217;ll find ways to keep working with the MapBox tool set more, but such considerations are always driven by project availability and customer demand. In the meantime, there&#8217;s a move to complete, a new house to settle into, and a summer to enjoy.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GovWin Analyzes Federal Spending in the DC Area]]></title>
@@ -1193,31 +1215,6 @@ msallowfullscreen width="770" height="433"></iframe>
 <p>With modern client-side mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> and <a href="http://www.openlayers.org/">OpenLayers</a>, and with content generation tools like TileMill, it has become increasingly easy to make beautiful, interactive web maps that require no specialized back-end server to deliver geospatial content. With WeoGeo&#8217;s support, combined with the online editing capabilities of <a href="http://geojson.io/">geojson.io</a> from <a href="http://mapbox.com">MapBox</a>, the validation capability of <a href="http://geojsonlint.com/">GeoJSONLint</a> by <a href="http://twitter.com/JCSanford">Jason Sanford</a>, the <a href="https://help.github.com/articles/mapping-geojson-files-on-github">simple hosting capability of GitHub</a>, and the extended query API provided by <a href="http://gitspatial.com/">GitSpatial</a> (again by Jason Sanford), we are very close to having a complete GeoJSON-centric workflow.</p>
 
 <p>Even as government data sites come back online, there are still good reasons to head over to WeoGeo and check out what they have. The customization capabilities alone (shown in the video above) make it very easy to get data for just your area of interest without having to download a lot of extra, unneeded data. The addition of GeoJSON support, in my opinion, shortens the workflow needed to get from data to information.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Maryland Department of Planning Bundles Property Data with QGIS]]></title>
-    <link href="http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/"/>
-    <updated>2013-10-07T12:38:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis</id>
-    <content type="html"><![CDATA[<p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
-
-<!--more-->
-
-
-<p>From the MDP site, the bundled data includes:</p>
-
-<blockquote cite="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">The product DVD includes the State&#8217;s computerized property (tax) maps; the x,y linkages (point or polygon) to the Parcel, Computer Assisted Mass Appraisal (CAMA) and Sale datasets; Parcel, CAMA and Sale data, including Sale data via download from the Subscriber Website, from the Maryland State Department of Assessments and Taxation (SDAT); reference grids including a grid for the property (tax) maps, an ADC map book grid, a grid for the Maryland State Highway Administration (SHA) road, stream and feature maps and a grid for USGS 7.5&#8217; Topographical quad maps; and additional SHA files including a digital centerline roads file, data derived from SHA digital grid maps, an SHA major roads file and a county boundary file.<br/>
-<br/>
-Also included are land use/land cover data; congressional and legislative district boundary files; census geography and census demographic data; ZIP code boundary files; Priority Funding Area (PFA) designations; floodplain data, including DFIRM data for selected jurisdictions; protected lands boundaries; watershed data; generalized zoning designations; sewer service area boundaries; public water service area boundaries for selected jurisdictions; National Register of Historic Places (NRHP) Maryland coverage; residential Sales x,y point and summary files derived from SDAT Parcel and Sale data; large-scale, high resolution color digital-ortho imagery and a custom Quantum GIS project file (.qgs).</blockquote>
-
-
-<p>The MDP site indicates there is a <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/CstFnd.pdf">licensing fee</a> (PDF), which I assume is to cover the management of the data sets and the <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/LicFnd.pdf">license agreement</a>, while acknowledging the GPL license of QGIS itself, seems to place the actual FINDER extension itself outide of any open-source license. (I am not a lawyer so I&#8217;ll accept guidance on that interpretation.) That said, bundling QGIS with data that the statewide user community values and an application to help exploit it is a great way to get more users on board with QGIS.</p>
-
-<p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
-
-<p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
 ]]></content>
   </entry>
   
