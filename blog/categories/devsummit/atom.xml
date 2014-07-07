@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: DevSummit | geoMusings]]></title>
+  <title><![CDATA[Category: devsummit | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/devsummit/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-06-20T12:04:38-04:00</updated>
+  <updated>2014-07-07T14:48:22-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,34 +14,31 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Initial Thoughts On the DC DevSummit]]></title>
-    <link href="http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit/"/>
-    <updated>2014-02-13T17:19:00-05:00</updated>
-    <id>http://blog.geomusings.com/2014/02/13/initial-thoughts-on-the-dc-devsummit</id>
-    <content type="html"><![CDATA[<p>This week, I attended the first-ever <a href="http://www.esri.com">Esri</a> <a href="http://www.esri.com/events/devsummit-dc">DC DevSummit</a> which followed the <a href="http://www.esri.com/events/federal">Federal GIS Conference</a> (please switch it back to "FedUC"). This event, intended and a smaller, Federally-focused, companion to the annual Palm Springs DevSummit, came together quickly but was very well-attended with about 300 attendees.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/devsummit.jpg" /></p>
-
-<p>It was interesting to note that the most well-attended sessions of the day had to do with Javascript (every Javascript session had over 100 participants). As more and more organizations update their IT infrastructures, the acceleration away from plug-ins seems to be picking up pace. The most common refrain amongst attendees in that regard is that continued standardization on IE8 remains the biggest impediment to sunsetting things like Flex and Silverlight, but the logjam seems to be starting to break loose.</p>
+    <title type="html"><![CDATA[DC DevSummit In Works for 2014 Esri Federal GIS Conference]]></title>
+    <link href="http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/"/>
+    <updated>2013-12-27T13:15:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference</id>
+    <content type="html"><![CDATA[<p>I got word today that <a href="http://www.esri.com">Esri</a> is planning a one-day [Developer Summit] in conjunction with the <a href="http://www.esri.com/events/federal/">2014 Federal GIS Conference</a>. It appears that the DevSummit will happen on the Wednesday immediately following the Fed Conference (which runs on the Monday and Tuesday) and will be focused on the issues and challenges that are unique to developing applications with Esri technologies for the Federal Government. I spoke with <a href="http://www.linkedin.com/in/jdbarry">Jim Barry</a>, who told me the DevSummit has come together rather quickly and Esri hasn't had time to do its usual data gathering to prepare for such an event. As a result, they are canvassing the developer community for input on topics they should cover. Here are some things I suggested:</p>
 
 <!--more-->
 
 
-<p>Despite the photo I posted, <a href="http://twitter.com/ajturner">Andrew Turner's</a> open-source session was fairly well-attended. It was good to see tools like <a href="https://github.com/Esri/koop">Koop</a> in action. It is clear that there is real effort going on within Esri to produce open-source tools and that the people working on them are genuinely committed to them. That said, it is obviously still early days and such efforts are clearly swimming upstream against the preponderance of corporate culture. This is an effort that will best be judged over the long haul.</p>
-
-<p>I also have to give a shout out to <a href="http://twitter.com/agup">Andy Gup</a>, whom I finally met at this conference. By chance, I sat through three of his sessions. He is one of the best technical presenters I have ever seen and Esri should require junior staff to sit through his sessions to see how it should be done.</p>
-
-<p>I found the DevSummit generally worthwhile and I was impressed with how well it came together given the short timeframe. Since I was encouraged to blog suggestions, here are a few:</p>
-
-<ol>
-<li><p>Make a DevSummit a permanent fixture as a follow-on to the Federal User Conference each year. The format of this year's Federal conference can be tweaked but stay mainly focused on user-centric use cases and some intro-level discussions of technologies. A DevSummit would mark a shift in to much more technical content with advanced discussions of APIs, security, techniques and best practices.</p></li>
-<li><p>Pull out the stops. As I indicated in item 1, ramp up the technical content, in comparison to that of the Federal conference, significantly. This year's event started down that path. I would keep the technical content of the Federal conference on the bunny slopes and shift to the black diamonds for the DevSummit.</p></li>
-<li><p>Expand to two days. It was a quick day and there were definitely sessions I would have liked to have gotten to. Additionally, it would be good to see some user content, maybe some lightning talks on the evening between the days. One of the biggest challenges working in the Federal space is the compartmentalization between and within agencies. With the DevSummit drawing interested people to one location, it would be good to get more opportunities to interact with other developers and exchange information.</p></li>
-<li><p><a href="http://www.gsa.gov/portal/category/102371?utm_source=OCM&amp;utm_medium=print-radio&amp;utm_term=HP_13_SpecialTopics_fedramp&amp;utm_campaign=shortcuts">FedRAMP</a> and <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> were non-existent this year. Jim Barry explained to me that these were areas where content simply wasn't ready to go in the short time given to prepare for the DevSummit. That's fair, and I certainly respect the decision to not provide content that could not be done well. These are, however, core issues for anyone doing development for the Federal Government. Next year's DC DevSummit really needs to have content for developers attempting to deploy to FedRAMP and achieve FISMA compliance with Esri tools.</p></li>
-</ol>
+<ul>
+<li><p>Developing for <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> compliance - FISMA compliance has to be baked into an application from the beginning. It would be great to see some content on best practices and resources available to support this when developing with Esri tools and APIs. Esri's regional office in Vienna, Virginia has been doing a lot of work in this area but I'm not sure the information is widespread.</p></li>
+<li><p>Desktop development - I still see <em>a lot</em> of ArcGIS desktop development in the Federal arena. This ranges from traditional ArcObjects extensions to add-ins to work with the File Geodatabase API. I think content related to how to do continued desktop development and support in light of the current realities of highly constrained desktop environments would be invaluable. For example, how to construct and deploy applications that don't necessarily need to touch the registry and can be deployed without administrative rights. Also, some content on the future of Esri desktop products (like <a href="http://video.esri.com/watch/2533/unveiling-the-new-arcgis-professional-application-with-jim-mckinney-and-jack-dangermond">ArcGIS Professional</a>) and what it means for application developers would be useful.</p></li>
+</ul>
 
 
-<p>Those my quick hits. I'll probably have more after I have time to digest what I saw and dig out from the backlog resulting from two days out of the office. Kudos to <a href="http://twitter.com/jimbarry">Jim Barry</a> for his work pulling the DC DevSummit together.</p>
+<p><img src="http://blog.geomusings.com/images/posts/code.png" style="float:left;margin: 5px 25px 5px 0px;" /></p>
+
+<ul>
+<li><p>.Net - There's still a lot of .Net development going on in Federal spaces. Most of my Federal customers are still primarily using .Net and you can peruse Federal geospatial RFPs on any given day and see that it is widespread. I'm fairly comfortable with .Net, as are most of the government and contractor developers I work with but it would be good to have some .Net-focused content alongside the newer, sexier platforms.</p></li>
+<li><p><a href="http://www.arcgis.com/features/">ArcGIS Online for Organizations</a> - Whatever messaging Esri thinks they are doing is not working very well. I encounter a great many Federal users who simply don't understand what it can do for them, why they would consider it, how to budget for it, or whether they can really use it. My understanding is the main Federal GIS Conference will be talking about these issues a lot so I think the DevSummit should focus on the <a href="https://developers.arcgis.com/en/">tools and APIs</a> that are available so that developers can begin to address the ideas the main conference attendees will come back with.</p></li>
+<li><p>Data interoperability - I have spent a lot of time over the past year developing tools to support data modeling and configuration management efforts for some Federal users. Part of this work has involved developing tools to produce physical implementations of approved geospatial data models in a number of formats, though the formats that have been of primary interest with my customers have been the Esri File Geodatabase and <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>. The general workflows I have seen involve users working with Esri geodatabase formats in the office, while ingesting field-collected data in SpatiaLite format. All of this data needs to remain compliant with approved data models throughout the life cycle, regardless of format. <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">We've been tackling that</a> at <a href="http://www.esri.com">Zekiah</a> with good success. Given the support of SQLite/SpatiaLite in ArcGIS 10.2, I'd like to see some discussion of data conversion/interoperability approaches that developers can automate with Esri tools.</p></li>
+</ul>
+
+
+<p>Those are some topics I suggested to Jim off the top of my head. I'll probably think of more. Jim and his team at Esri are actively seeking this sort of input since time is short so I'd suggest <a href="http://www.linkedin.com/in/jdbarry">contacting him</a> with your thoughts. Given the short timeframe, I'd expect official information from Esri very soon.</p>
 ]]></content>
   </entry>
   

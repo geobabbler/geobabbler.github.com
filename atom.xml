@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-06-20T12:04:38-04:00</updated>
+  <updated>2014-07-07T14:44:06-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[CFPB Fellowship Seeking 2015 Candidates]]></title>
+    <link href="http://blog.geomusings.com/2014/07/07/cfpb-fellowship-seeking-2015-candidates/"/>
+    <updated>2014-07-07T13:48:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/07/07/cfpb-fellowship-seeking-2015-candidates</id>
+    <content type="html"><![CDATA[<p>It&#8217;s no secret that I am contractor who spends a lot of my time attempting to develop software for defense users. I&#8217;ve been doing this for a long time, though I have added other customers to my portfolio over the years. The process of development in this arena gets more frustrating by the day. Recently, for example, a group policy update was pushed that removed any browser other than Internet Explorer from our development machines and rolled Internet Explorer back to version 9. These are just the latest such setbacks to productivity and they represent every stereotype we&#8217;ve ever heard about Federal Government computing.</p>
+
+<p>Thankfully, there are countervailing examples which point to how things could be. One such example is the <a href="http://www.consumerfinance.gov/jobs/technology-innovation-fellows/">Technology and Innovation Fellowship at the Consumer Financial Protection Bureau (CFPB)</a>. This two-year fellowship program provides an opportunity to show how Federal software can be developed, with an <a href="https://github.com/cfpb/source-code-policy/blob/gh-pages/cfpb-source-code-policy.txt">open-source-first approach</a>, and also how software development can occur, via remote teams and distributed collaboration. These are not new concepts in the overall marketplace but are still fairly exotic in the Beltway region. Ultimately, the fellowship holds out the possibility of building technology that actually helps government work better and shows how modern tools and working arrangements be applied in the Federal Government.</p>
+
+<p>I was clued into this fellowship program via a tweet by <a href="https://twitter.com/byrne_tweets">Mike Byrne</a>, who has already helped show the way via the <a href="http://www.broadbandmap.gov/">National Broadband Map</a> at the FCC, and who is now at the CFPB. There are very few people I&#8217;ve met in the Federal Government who have a better vision for modernizing IT development and acquisition, coupled with the ability to get things done. If you&#8217;re of a technical bent and looking to work inside the Federal Government, this fellowship program may be something you want to check out.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Where Ya Been?]]></title>
@@ -1181,40 +1194,6 @@
 <p>The announcement of a Google Maps Engine connector for both <a href="https://github.com/googlemaps/mapsengine-arcgis-connector">ArcGIS</a> and <a href="https://github.com/googlemaps/mapsengine-qgis-connector">QGIS</a> is yet another example of the continued importance of the desktop in the GIS world. Simply put, the chances of a user choosing your platform increases if you can cut to the front of the line and present yourself in their desktop environment. <a href="http://blogs.esri.com/esri/arcgis/2013/10/22/googles-arcgis-toolbar-for-the-cloud/">Andrew Turner did a nice summary of many such integration efforts</a> involving ArcGIS Desktop, although the post fails to mention <a href="http://www.arc2earth.com">Arc2Earth</a>, which I consider the most comprehensive extension of its kind on the market. His discussion tracks with my personal experience in recent years. My most public activities have been <a href="https://code.google.com/p/ziggis/">zigGIS</a>, the <a href="http://blog.dc.esri.com/2010/11/22/toolbars-for-geocommons-and-geoiq/">GeoCommons toolbars</a> (thanks for the mention, Andrew), and the <a href="http://www.weogeo.com">WeoGeo</a> toolbar. I&#8217;ve also built a couple of others for organizations that wanted to get their data products in front of ArcGIS users easily and I am currently working on a live feed extension for a government user. The reality is that I&#8217;ve done more desktop development in the last three years than I had done in the preceding ten.</p>
 
 <p>Andrew&#8217;s point at the end of his post about Esri&#8217;s extensibility through various means is quite true. As much as developers love to complain about ArcGIS Desktop and ArcObjects (myself included), I have yet to find a data source that I couldn&#8217;t integrate using those tools. As I dig into the APIs behind QGIS, I am finding the same to be true there. Despite the tendency to downplay desktop GIS tools these days, I see them continuing to play a significant, if quiet, role in defining how we interact with maps and geospatial data across all platforms for the foreseeable future.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WeoGeo: Now With GeoJSON]]></title>
-    <link href="http://blog.geomusings.com/2013/10/17/weogeo-now-with-geojson/"/>
-    <updated>2013-10-17T05:42:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/10/17/weogeo-now-with-geojson</id>
-    <content type="html"><![CDATA[<p>It&#8217;s great news that the <a href="http://www.washingtonpost.com/politics/house-effort-to-end-fiscal-crisis-collapses-leaving-senate-to-forge-last-minute-solution/2013/10/16/1e8bb150-364d-11e3-be86-6aeaa439845b_story.html?hpid=z1">government shutdown is finally over</a>. Many of our colleagues across the geospatial industry can now report back to work, ending a another stressful period for them. During the shutdown, many stepped up to try and fill the gap left by shuttered government web sites that would normally distribute geospatial data.</p>
-
-<p>Among those who stepped into the breach are my friends at <a href="http://www.weogeo.com">WeoGeo</a>, who told me they saw a huge uptick in traffic as the community realized that government data sets such as TIGER and DRG are freely available in the <a href="http://market.weogeo.com/">WeoGeo Market</a>. One of the capabilities that has been quietly introduced into WeoGeo&#8217;s platform over the last few days is the ability to extract and download TIGER and OSM data directly in <a href="http://geojson.org">GeoJSON</a> format. The embedded video by WeoGeo walks through the customization and ordering process better than I can, but it&#8217;s great to have the ability to extract fine-tuned data sets directly in GeoJSON format for use in modern web-mapping tools.</p>
-
-<iframe src="http://fast.wistia.net/embed/iframe/vth8yo4cnz"
-allowtransparency="true" frameborder="0" scrolling="no"
-class="wistia_embed" name="wistia_embed" allowfullscreen
-mozallowfullscreen webkitallowfullscreen oallowfullscreen
-msallowfullscreen width="770" height="433"></iframe>
-
-
-<br/>
-
-
-<p>Static content has been making a comeback lately, and justifiably so. The truth is that most of the content we interact with on the web won&#8217;t change over time and complex content management systems (CMS) that dynamically generate HTML and such from databases on every call are really overkill. Sure, there are caching strategies and CDNs and such to hide some of the misery but you can&#8217;t beat the speed, simplicity, and scalability of static content.</p>
-
-<!--more-->
-
-
-<p>The same can really be said of maps on the web. Most maps are published to convey some information that has been validated for the point in time in which it was published. Most of the organizations I&#8217;ve worked with, government and commercial, have a release process to vet the contents of a map before it is published. In effect, such organizations are making their map content static. The truth is that, like a CMS, a complex map server probably isn&#8217;t necessary for most maps we interact with today on the web.</p>
-
-<p>In fact, I can still clearly recall use cases from just a few years where such architectures were not only overkill but counterproductive. We typically distributed analysis results via web-based interactive maps. The results were typically valid for point in time during which an area of interest was studied. We ended up developing versioning schemes to preserve analysis results from being altered by the next bulk data set update. Another tack was to set up a separate map service pointed at a directory of shapefiles. All of this was to get around the basic fact that geospatial data at the time was not web-ready. GeoJSON helps solve that problem.</p>
-
-<p>With modern client-side mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> and <a href="http://www.openlayers.org/">OpenLayers</a>, and with content generation tools like TileMill, it has become increasingly easy to make beautiful, interactive web maps that require no specialized back-end server to deliver geospatial content. With WeoGeo&#8217;s support, combined with the online editing capabilities of <a href="http://geojson.io/">geojson.io</a> from <a href="http://mapbox.com">MapBox</a>, the validation capability of <a href="http://geojsonlint.com/">GeoJSONLint</a> by <a href="http://twitter.com/JCSanford">Jason Sanford</a>, the <a href="https://help.github.com/articles/mapping-geojson-files-on-github">simple hosting capability of GitHub</a>, and the extended query API provided by <a href="http://gitspatial.com/">GitSpatial</a> (again by Jason Sanford), we are very close to having a complete GeoJSON-centric workflow.</p>
-
-<p>Even as government data sites come back online, there are still good reasons to head over to WeoGeo and check out what they have. The customization capabilities alone (shown in the video above) make it very easy to get data for just your area of interest without having to download a lot of extra, unneeded data. The addition of GeoJSON support, in my opinion, shortens the workflow needed to get from data to information.</p>
 ]]></content>
   </entry>
   

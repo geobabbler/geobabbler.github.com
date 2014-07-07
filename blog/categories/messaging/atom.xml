@@ -4,7 +4,7 @@
   <title><![CDATA[Category: messaging | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/messaging/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-06-20T12:04:38-04:00</updated>
+  <updated>2014-07-07T14:48:22-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -50,11 +50,10 @@
 
 <p>The first step was loading my county data, which I had in shapefile format. For that, I simply used <a href="http://www.qgis.org/">QGIS</a> and its SPIT plug-in. After that, I created the table that would hold my point data. Right now, it's just a point and an ID. The SQL is very simple:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">locations</span> <span class="p">(</span><span class="n">gid</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">);</span>
-</span><span class='line'><span class="k">SELECT</span> <span class="n">AddGeometryColumn</span> <span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">,</span><span class="s1">&#39;locations&#39;</span><span class="p">,</span><span class="s1">&#39;shape&#39;</span><span class="p">,</span><span class="mf">4326</span><span class="p">,</span><span class="s1">&#39;POINT&#39;</span><span class="p">,</span><span class="mf">2</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:postgres %}
+CREATE TABLE locations (gid SERIAL PRIMARY KEY);
+SELECT AddGeometryColumn ('public','locations','shape',4326,'POINT',2);
+{% endcodeblock %}</p>
 
 <p>This table is the one that does all the work. The initial trigger will be attached to it. The counties data set really just sits there waiting to be queried. I'll actually take the next three functions in the reverse of the order in which they will execute.</p>
 
@@ -62,91 +61,50 @@
 
 <p>PostgreSQL supports using Python for functions in a manner similar to the way SQL Server supports embedded procedures written against the <a href="http://en.wikipedia.org/wiki/Common_Language_Runtime">Common Language Runtime</a>. You simply need to make sure plpython support is installed with your instance of PostgreSQL. Here is the code for the simplified messaging function:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">emailme</span><span class="p">(</span><span class="n">txt</span> <span class="nb">text</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">RETURNS</span> <span class="nb">integer</span> <span class="k">AS</span>
-</span><span class='line'><span class="s">$BODY$</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">starts</span> <span class="n">here</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Import</span> <span class="n">smtplib</span> <span class="k">for</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">sending</span> <span class="n">function</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">smtplib</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">email</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">re</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Import</span> <span class="n">the</span> <span class="n">email</span> <span class="n">modules</span> <span class="n">we</span><span class="s">&#39;ll need&lt;/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">mailfunction</span><span class="p">(</span><span class="n">recip</span><span class="p">,</span><span class="n">msgtxt</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="n">msgtxt</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># me == the sender&#39;s email address</span>
-</span><span class='line'><span class="c"># you == the recipient&#39;s email address</span>
-</span><span class='line'><span class="n">msg</span><span class="p">[</span><span class="s">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Message from PostgreSQL&#39;</span>
-</span><span class='line'><span class="n">msg</span><span class="p">[</span><span class="s">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;contact@zekiah.com&#39;</span>
-</span><span class='line'><span class="c">#msg[&#39;To&#39;] = &#39;not used here&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Send the message via our own SMTP server, but don&#39;t include the</span>
-</span><span class='line'><span class="c"># envelope header.</span>
-</span><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s">&#39;localhost&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="s">&#39;contact@zekiah.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">recip</span><span class="p">],</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">mailfunction</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;1234567890@vtext.com&#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">))</span>
-</span><span class='line'><span class="n">t</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</span><span class='line'><span class="k">return</span> <span class="mi">0</span>
-</span><span class='line'><span class="s">$BODY$</span>
-</span><span class='line'>  <span class="k">LANGUAGE</span> <span class="n">plpythonu</span> <span class="k">VOLATILE</span>
-</span><span class='line'>  <span class="k">COST</span> <span class="mf">100</span><span class="p">;</span>
-</span><span class='line'><span class="k">ALTER</span> <span class="k">FUNCTION</span> <span class="n">emailme</span><span class="p">(</span><span class="nb">text</span><span class="p">)</span> <span class="k">OWNER</span> <span class="k">TO</span> <span class="n">postgres</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:postgres %}
+CREATE OR REPLACE FUNCTION emailme(txt text)
+  RETURNS integer AS
+$BODY$</p>
+
+<h1>python starts here</h1>
+
+<h1>Import smtplib for the actual sending function</h1>
+
+<p>import sys
+import smtplib
+import email
+import re</p>
+
+<h1>Import the email modules we'll need</h1>
+
+<p>from email.mime.text import MIMEText
+from threading import Thread</p>
+
+<p>def mailfunction(recip,msgtxt,*args):</p>
+
+<pre><code>msg = MIMEText(msgtxt)
+
+# me == the sender's email address
+# you == the recipient's email address
+msg['Subject'] = 'Message from PostgreSQL'
+msg['From'] = 'contact@zekiah.com'
+#msg['To'] = 'not used here'
+
+# Send the message via our own SMTP server, but don't include the
+# envelope header.
+s = smtplib.SMTP('localhost')
+s.sendmail('contact@zekiah.com', [recip], msg.as_string())
+s.quit()
+</code></pre>
+
+<p>t = Thread(target=mailfunction,args=('1234567890@vtext.com', txt))
+t.run()
+return 0
+$BODY$
+  LANGUAGE plpythonu VOLATILE
+  COST 100;
+ALTER FUNCTION emailme(text) OWNER TO postgres;
+{% endcodeblock %}</p>
 
 <p>As can be seen, the Python code is embedded in the body of the function. Early on, I was experiencing significant slowness when sending the messages. After some code refactoring, I realized it was the SMTP handshake that was causing the problem. The original version used an external server that required authentication. I installed a local open-source SMTP server and configured it to allow unauthenticated relay from the local server and the bottleneck went away.</p>
 
@@ -154,113 +112,68 @@
 
 <p>Next, I built the trigger function. This is a little different from other platforms I've worked on. In SQL Server, a trigger is basically a stored procedure that gets called when a table event happens. When authoring, you simply build the one procedure. In PostgreSQL, you have two distinct objects: a trigger and a trigger function. The trigger function does the heavy lifting and the trigger is what calls it. In my case, the trigger function is what performs the actual spatial query to determine if the new point geometry falls within my county. The code for that function is here:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">Function</span> <span class="n">checkcounty</span><span class="p">()</span> <span class="k">RETURNS</span> <span class="k">TRIGGER</span> <span class="k">AS</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="s">$BODY$</span>
-</span><span class='line'><span class="k">DECLARE</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">shp</span> <span class="n">geometry</span><span class="p">;</span>
-</span><span class='line'><span class="n">a_row</span> <span class="n">counties</span><span class="nb">%ROWTYPE</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">BEGIN</span>
-</span><span class='line'><span class="n">shp</span> <span class="o">=</span> <span class="n">new</span><span class="mf">.</span><span class="n">shape</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">counties</span> <span class="k">WHERE</span> <span class="n">ST_Contains</span><span class="p">(</span><span class="n">counties</span><span class="mf">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">shp</span><span class="p">)</span> <span class="k">INTO</span> <span class="n">a_row</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">IF</span> <span class="n">a_row</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">THEN</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">IF</span> <span class="n">a_row</span><span class="mf">.</span><span class="s-Name">&quot;COUNTY&quot;</span> <span class="o">=</span> <span class="s1">&#39;Saint Marys County&#39;</span> <span class="k">THEN</span>
-</span><span class='line'>    <span class="k">PERFORM</span> <span class="n">emailme</span><span class="p">(</span><span class="s1">&#39;New feature in St. Mary`s County&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-</span><span class='line'><span class="k">RETURN</span> <span class="n">new</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">END</span><span class="p">;</span>
-</span><span class='line'><span class="s">$BODY$</span>
-</span><span class='line'><span class="k">LANGUAGE</span> <span class="s1">&#39;plpgsql&#39;</span> <span class="k">VOLATILE</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:postgres %}
+CREATE OR REPLACE Function checkcounty() RETURNS TRIGGER AS</p>
+
+<p>$BODY$
+DECLARE</p>
+
+<p>shp geometry;
+a_row counties%ROWTYPE;</p>
+
+<p>BEGIN
+shp = new.shape;</p>
+
+<p>SELECT * FROM counties WHERE ST_Contains(counties.shape, shp) INTO a_row;</p>
+
+<p>IF a_row IS NOT NULL THEN</p>
+
+<pre><code>IF a_row."COUNTY" = 'Saint Marys County' THEN
+    PERFORM emailme('New feature in St. Mary`s County');
+END IF;
+</code></pre>
+
+<p>END IF;
+RETURN new;</p>
+
+<p>END;
+$BODY$
+LANGUAGE 'plpgsql' VOLATILE;
+{% endcodeblock %}</p>
 
 <p>Again, I'm just checking for one, hard-coded value. In my next iteration, I plan to make that configurable so that the trigger function will test for various user-specified conditions. Of course, the type of spatial relationship can also be configured.</p>
 
 <p>Lastly, the trigger itself. As can be seen, it's primary job is to call the trigger function when appropriate.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">locations_change</span>
-</span><span class='line'>  <span class="k">AFTER</span> <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">UPDATE</span>
-</span><span class='line'>  <span class="k">ON</span> <span class="n">locations</span>
-</span><span class='line'>  <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
-</span><span class='line'>  <span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">checkcounty</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:postgres %}
+CREATE TRIGGER locations_change
+  AFTER INSERT OR UPDATE
+  ON locations
+  FOR EACH ROW
+  EXECUTE PROCEDURE checkcounty();
+{% endcodeblock %}</p>
 
 <p>Once these were all in place, I used the following to test:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="c1">--TRUE</span>
-</span><span class='line'><span class="k">insert</span> <span class="k">into</span> <span class="n">locations</span>
-</span><span class='line'><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
-</span><span class='line'><span class="k">VALUES</span>
-</span><span class='line'><span class="p">(</span><span class="n">ST_PointFromText</span><span class="p">(</span><span class="s1">&#39;POINT(-76.662 38.348)&#39;</span><span class="p">,</span> <span class="mf">4326</span><span class="p">));</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;--</span><span class="k">FALSE</span>
-</span><span class='line'><span class="c1">--insert into locations</span>
-</span><span class='line'><span class="c1">--(shape)</span>
-</span><span class='line'><span class="c1">--VALUES</span>
-</span><span class='line'><span class="c1">--(ST_PointFromText(&#39;POINT(-76.622 37.895)&#39;, 4326));&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;--</span><span class="k">NULL</span>
-</span><span class='line'><span class="c1">--insert into locations</span>
-</span><span class='line'><span class="c1">--(shape)</span>
-</span><span class='line'><span class="c1">--VALUES</span>
-</span><span class='line'><span class="c1">--(ST_PointFromText(&#39;POINT(-74.482 37.734)&#39;, 4326));</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:postgres %}
+--TRUE
+insert into locations
+(shape)
+VALUES
+(ST_PointFromText('POINT(-76.662 38.348)', 4326));</p>
+
+<p>--FALSE
+--insert into locations
+--(shape)
+--VALUES
+--(ST_PointFromText('POINT(-76.622 37.895)', 4326));</p>
+
+<p>--NULL
+--insert into locations
+--(shape)
+--VALUES
+--(ST_PointFromText('POINT(-74.482 37.734)', 4326));
+{% endcodeblock %}</p>
 
 <p>These objects represent the basic skeleton of the notification capability I am building. In the future, I also want to support various types of messaging in addition to SMS and e-mail. I'm thinking of Twitter, publishing to RSS or Atom and other such options.</p>
 
