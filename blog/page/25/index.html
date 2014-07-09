@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Well, 9.3 is now shipping so the sun is setting on my time with the release candidate. One update from my first post: I posted the problem I was &hellip;">
+  <meta name="description" content="Now that ArcGIS 9.3 has been finalized, I have finally gotten around to testing zigGIS 2.0.1 with it. While the source code is available, I wanted to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/22/ziggis-and-arcgis-93/">zigGIS and ArcGIS 9.3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-22T00:00:00-04:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2008</time>
+        
+         | <a href="/2008/07/22/ziggis-and-arcgis-93/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Now that <a href="http://www.esri.com">ArcGIS 9.3</a> has been finalized, I have finally gotten around to testing <a href="http://www.obtusesoft.com">zigGIS</a> 2.0.1 with it. While the source code is available, I wanted to test the unmodified binary distro. I am happy to report that zigGIS appears to work fine with ArcGIS Desktop 9.3.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2008/07/ziggis_arcgis_93.png"><img alt="" class="alignnone size-medium wp-image-207" height="186" src="http://geobabble.files.wordpress.com/2008/07/ziggis_arcgis_93.png?w=300" width="300" /></a></p>
+
+<p>I guess the statement in the zigGIS About box regarding 9.2 is no longer accurate.  :D</p>
+
+<p>I ran some preliminary tests on the editing capability and they seem to work fine. I was able to create a feature in ArcGIS, connect to my <a href="http://postgis.refractions.net">PostGIS</a> database using <a href="http://www.gvsig.gva.es/index.php?id=gvsig&amp;L=2">gvSIG</a> and see the feature. Just for grins, I then deleted the feature in gvSIG and refreshed my ArcMap display to see it disappear.</p>
+
+<p>As you can see from the screen capture, I am using ArcEditor but that is because of other ArcGIS-related work that I do. zigGIS doesn&#8217;t care about the license tier you use and will work just fine with ArcView.</p>
+
+<p>ArcGIS Desktop 9.3 does have some improved mapping tools so those of you who have been using zigGIS as a lightweight means of access your PostGIS data from ArcMap can now look at what 9.3 has to offer.</p>
+
+<p><a href="http://twitter.com/zigGIS">Follow zigGIS on Twitter</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -552,50 +602,6 @@ United States PostgreSQL Association- <a href="http://www.postgresql.us">http://
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/05/20/ziggis-2-0-to-be-released-on-may-21st/">zigGIS 2.0 to Be Released on May 21st</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-20T00:00:00-04:00" pubdate data-updated="true">May 20<span>th</span>, 2008</time>
-        
-         | <a href="/2008/05/20/ziggis-2-0-to-be-released-on-may-21st/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today was the original target for releasing zigGIS 2.0. There is a flurry of activity at <a href="http://www.obtusesoft.com">Obtuse</a> to get the web site and the online store ready. May 21st is the definite release date as all of the loose ends are tying up nicely.</p>
-
-<p>A lot of work has been put into improving performance, especially with large <a href="http://postgis.refractions.net">PostGIS</a> data sets. Additionally, editing is now supported. The new version has a couple of workflow tools to support check-in and check-out of features from PostGIS but all editing is done with the native ArcMap tools. zigGIS has been designed to allow full editing capability with an ArcView license so anyone with a valid license for Desktop will be able to edit their PostGIS data.</p>
-
-<p>The original plans were to support all 9.x versions of ArcGIS Desktop but the devil has been in the details on that. The initial release will support 9.2 with earlier versions to come shortly thereafter. Testing against the 9.3 RC will occur shortly.</p>
-
-<p>It seems like forever since I first came across this bizarrely-named project but it&#8217;s been exciting to play a part in its growth.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/26/">&larr; Older</a>
@@ -644,15 +650,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/07/09/gearing-up-for-the-esri-uc/">Gearing Up For the Esri UC</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/07/07/cfpb-fellowship-seeking-2015-candidates/">CFPB Fellowship Seeking 2015 Candidates</a>
       </li>
     
       <li class="post">
         <a href="/2014/06/20/where-ya-been/">Where Ya Been?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/05/26/govwin-analyzes-federal-spending-in-the-dc-area/">GovWin Analyzes Federal Spending in the DC Area</a>
       </li>
     
   </ul>

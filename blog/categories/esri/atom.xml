@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Esri | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/esri/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-07-07T14:48:22-04:00</updated>
+  <updated>2014-07-09T16:52:57-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Gearing Up For the Esri UC]]></title>
+    <link href="http://blog.geomusings.com/2014/07/09/gearing-up-for-the-esri-uc/"/>
+    <updated>2014-07-09T16:05:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/07/09/gearing-up-for-the-esri-uc</id>
+    <content type="html"><![CDATA[<p>With a house move behind us and a lot of unpacking and other tasks ahead, I am nonetheless getting ready to head out to the <a href="http://www.esri.com/events/user-conference">Esri International User Conference</a> next week. This will be my first time attending since 2010 and is the first UC since then that has aligned with my schedule in a way that I can make it. Of course, the price is right this year as well ($0.00).</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/office_view.png" /></p>
+
+<p>The "big" UC has steadily dropped in significance for me over years as it has become much easier to get Esri-related information through various other channels; primarily through social media and local/regional events such as the <a href="http://www.esri.com/events/federal">FedUC</a> and local dev meetups. The last few trips to San Diego left me feeling that the content presented there is getting increasingly superficial compared to the other events. This year, however, I have been in the midst of building a house and moving so I have not had the time to attend the smaller events. As a result the UC makes sense. I am hoping the recent trend reverses itself.</p>
+
+<p>I still do some Esri-based consulting so it's important to stay current however I can. My government customers are starting to at least ask about ArcGIS Online, so I want to finally get my mind around it as best I can. The messaging around that platform has been so muddled that it's still difficult for me to articulate what productivity advantages, if any, it actually offers. My own experimentation with it has left me wanting. The fact that it has been <a href="http://www.executivegov.com/2014/06/agriculture-dept-grants-fisma-certification-to-esri-cloud-mapping-tech/">certified as FISMA compliant</a> will certainly raise its profile with some of my Federal customers, though that's typically only the first step in a very long process. I'm also curious about ArcGIS Pro.</p>
+
+<p>Unlike previous years, I won't be manning a booth (we sold ours a few years ago) or directly representing a customer so I'll actually have the luxury to attend sessions and meet up with people. There are some people who, unfortunately, I really only see face-to-face at such large magnet events so I'm looking forward to catching up with them, as well as meeting new people. I will, however, be popping into the paper session of one of my co-workers. (It would be awesome if the online agenda provided permalinks to individual sessions.)</p>
+
+<p>So, if you're going to be in at the UC next week and would like to meet up, feel free to ping me on Twitter (<a href="https://twitter.com/billdollins">@billdollins</a>), via e-mail (bill [at] geomusings [dot] com), or drop a comment below.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Esri Federal GIS Conference Features Immersion Summits]]></title>
@@ -47,7 +66,8 @@
 
 <p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
 
-<p>{% tweet http://twitter.com/brymcbride/status/365103999671738369 %}</p>
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/billdollins">@billdollins</a> <a href="https://twitter.com/FatherSandman">@FatherSandman</a> Score! Looks like we&#39;ve confirmed ArcGIS 10.2, QGIS 1.9.0, and SpatiaLite-GUI 1.7.1 are compatible.</p>&mdash; Bryan McBride (@brymcbride) <a href="https://twitter.com/brymcbride/statuses/365103999671738369">August 7, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
 
 <p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
 

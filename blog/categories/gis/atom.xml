@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-07-07T14:48:22-04:00</updated>
+  <updated>2014-07-09T16:52:57-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Gearing Up For the Esri UC]]></title>
+    <link href="http://blog.geomusings.com/2014/07/09/gearing-up-for-the-esri-uc/"/>
+    <updated>2014-07-09T16:05:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/07/09/gearing-up-for-the-esri-uc</id>
+    <content type="html"><![CDATA[<p>With a house move behind us and a lot of unpacking and other tasks ahead, I am nonetheless getting ready to head out to the <a href="http://www.esri.com/events/user-conference">Esri International User Conference</a> next week. This will be my first time attending since 2010 and is the first UC since then that has aligned with my schedule in a way that I can make it. Of course, the price is right this year as well ($0.00).</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/office_view.png" /></p>
+
+<p>The "big" UC has steadily dropped in significance for me over years as it has become much easier to get Esri-related information through various other channels; primarily through social media and local/regional events such as the <a href="http://www.esri.com/events/federal">FedUC</a> and local dev meetups. The last few trips to San Diego left me feeling that the content presented there is getting increasingly superficial compared to the other events. This year, however, I have been in the midst of building a house and moving so I have not had the time to attend the smaller events. As a result the UC makes sense. I am hoping the recent trend reverses itself.</p>
+
+<p>I still do some Esri-based consulting so it's important to stay current however I can. My government customers are starting to at least ask about ArcGIS Online, so I want to finally get my mind around it as best I can. The messaging around that platform has been so muddled that it's still difficult for me to articulate what productivity advantages, if any, it actually offers. My own experimentation with it has left me wanting. The fact that it has been <a href="http://www.executivegov.com/2014/06/agriculture-dept-grants-fisma-certification-to-esri-cloud-mapping-tech/">certified as FISMA compliant</a> will certainly raise its profile with some of my Federal customers, though that's typically only the first step in a very long process. I'm also curious about ArcGIS Pro.</p>
+
+<p>Unlike previous years, I won't be manning a booth (we sold ours a few years ago) or directly representing a customer so I'll actually have the luxury to attend sessions and meet up with people. There are some people who, unfortunately, I really only see face-to-face at such large magnet events so I'm looking forward to catching up with them, as well as meeting new people. I will, however, be popping into the paper session of one of my co-workers. (It would be awesome if the online agenda provided permalinks to individual sessions.)</p>
+
+<p>So, if you're going to be in at the UC next week and would like to meet up, feel free to ping me on Twitter (<a href="https://twitter.com/billdollins">@billdollins</a>), via e-mail (bill [at] geomusings [dot] com), or drop a comment below.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Where Ya Been?]]></title>
@@ -51,15 +70,15 @@
 
 <p>Downloading the tiles was easy, but for the VRT to work, each tile needed to be geo-referenced. It was fairly easy to modify the venerable <a href="http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/globalmaptiles.py">globalmaptiles.py</a> to include a routine to create world file parameters for a specified tile. With this, I was able to write out an affine transformation world file for each tile I downloaded. I rolled this whole process up into a <a href="https://github.com/geobabbler/tile-grab">Python script that's available here</a>. Please note that my goal was to create a VRT, so the script flattens out the tiling scheme so that all images are under the appropriate "Z" directory. (This particular server was an ArcGIS Server but the script doesn't care as long as you can provide a valide URL template.)</p>
 
-<p>{% codeblock lang:bat %}
-python tile_grab.py -b -158;21;-157;22 -d E:\tiles\oahu_img\a -i false -z 6 -u http://www.someserver.net/arcgis/rest/services/ImagerySvc/MapServer/tile/{z}/{y}/{x}.png
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>python tile_grab.py -b <span class="m">-158</span>;<span class="m">21</span>;<span class="m">-157</span>;<span class="m">22</span> -d E:\tiles\oahu_img\a -i false -z <span class="m">6</span> -u http:<span class="n">//www.someserver.net/arcgis/rest/services/ImagerySvc/MapServer/tile/{z}/{y}/{x}.png</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>With the tiles downloaded and geo-referenced, it was easy to use the gdalbuildvrt utility to generate the VRT, which can be used in QGIS, TileMill, and ArcGIS Desktop as you prefer.</p>
 
-<p>{% codeblock lang:bat %}
-gdalbuildvrt 6.vrt 6/*.png
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>gdalbuildvrt <span class="m">6</span>.vrt <span class="m">6</span><span class="n">/*.png</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>It seems a little odd to use tiles to make tiles, but I needed to add some additional data and styling to make the maps do what I needed to do. The downloaded tiles were just a stand-in for what would have been a standard raster data source. The range of useful resolution for a set of tiles is pretty narrow so you'll probably need to grab a few levels and, even then, you'll need to be careful how you use them. In most cases, using local raster/imagery is better but using tiles was fine for my use case and helped mitigate a byzantine data acquisition process. Here's how I set the ranges in ArcGIS (left) and TileMill (right):</p>
 
@@ -138,242 +157,6 @@ gdalbuildvrt 6.vrt 6/*.png
 <p>To help fusing multiple databases, I had to take the step of developing <a href="https://github.com/geobabbler/MBTilesMerge">a GUI tool to merge MBTiles</a> databases. <a href="https://github.com/mapbox/mbutil/blob/master/patch">MapBox has a perfectly fine utility</a> to do this but this particular shop has seen fit to block console access on our Windows machines so I had to create my own tool to accomplish this task.</p>
 
 <p>Every once in a while, it's good to get back in touch with data and mapping workflows. It keeps me honest as a developer, even though mapping is not my strong suit. I have found working with GMap.NET interesting but I'm not sure I'd choose to do so again. There are a few design choices that fall into the "not how I would have done it" category but, primarily, I haven't found any compelling reason to choose it over <a href="https://sharpmap.codeplex.com">SharpMap</a>, <a href="https://dotspatial.codeplex.com">DotSpatial</a>, or <a href="https://brutile.codeplex.com">BruTile</a>, which are open-source .Net libraries with which I am much more familiar.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Little Deeper with Node and PostGIS]]></title>
-    <link href="http://blog.geomusings.com/2014/02/18/a-little-deeper-with-node-and-postgis/"/>
-    <updated>2014-02-18T13:44:00-05:00</updated>
-    <id>http://blog.geomusings.com/2014/02/18/a-little-deeper-with-node-and-postgis</id>
-    <content type="html"><![CDATA[<p>What does one do when presented with more snow days than expected? My friends in Colorado would probably do something outrageous like skiing, but I found it to be a great opportunity to catch up on some of my recreational coding. Specifically, I wanted to revisit the <a href="http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/">Node/PostGIS work I blogged about earlier</a>.</p>
-
-<p>As fun as that project was, it was fairly limited in scope and I wanted to spread my wings a little more with Node. So I decided to build a more general-purpose wrapper around <a href="http://postgis.net">PostGIS</a>. Lately, I've become a bit obsessed with the idea that PostGIS may be the only GIS tool you really need in terms of data storage, management, and analytics. That's probably a topic for another post but exploring that concept was a perfect premise for my continued explorations with Node.</p>
-
-<p>I have been circling back to Node over the past few months to continue building my comfort level with it. I tend to eschew frameworks when i have learning something new because I want to get comfortable with the core before I start layering on abstraction. That was my approach with <a href="http://blog.geomusings.com/2013/04/25/simple-tile-viewer/">the tile viewer tool I built a while back</a>. For the recent post centered on Amazon RDS, I added Express into the mix, which has been a big help.</p>
-
-<p>This time around, I wanted to dig a little deeper with the <a href="https://github.com/brianc/node-postgres">node-postgres</a> module and also make the application more modular. I wanted to build around a few core principles:</p>
-
-<ol>
-<li>Keep it RESTful (or as close to it as I could)</li>
-<li>GeoJSON in/GeoJSON out (so....vector only for now)</li>
-<li>Let PostGIS do the heavy lifting</li>
-</ol>
-
-
-<!--more-->
-
-
-<p><strong>Getting Started</strong></p>
-
-<p>This time around, I elected to use my local PostgreSQL/PostGIS instance rather than Amazon RDS. This was mainly so I could keep my development isolated on one machine. I already had the basic infrastructure in place from my last time around, so I was able to quickly dive into the meat of things. I decided to scope my initial effort at the following:</p>
-
-<ol>
-<li>Return the contents of an entire table as GeoJSON, with the ability to choose between features (geometries and attributes) in a GeoJSON feature collection or just geometries in a GeoJSON geometry collection. This should support any table in the database.</li>
-<li>Return those records in a table that intersect a geometry passed in as a parameter. The input geometry would be in GeoJSON format.</li>
-<li>Return a JSON representation of a table's schema.</li>
-<li>Return a list of tables from the server. This is necessary in order to support the ability to query any available table.</li>
-<li>Implement some simple, but application-specific logic to demonstrate extensibility.</li>
-</ol>
-
-
-<p>With these goals in mind, I decided to first tackle the issue of extensibility. I wanted to make it as painless as possible and <a href="http://timstermatic.github.io/blog/2013/08/17/a-simple-mvc-framework-with-node-and-express/">the strategy described in this post</a> seemed to fit the bill. I just had to add the following code block to my server.js (straight from the post):</p>
-
-<p>{% codeblock snippet1.js %}
-// dynamically include routes (Controller)
-fs.readdirSync('./controllers').forEach(function (file) {
-  if(file.substr(-3) == '.js') {</p>
-
-<pre><code>  route = require('./controllers/' + file);
-  route.controller(app);
-</code></pre>
-
-<p>  }
-});
-{% endcodeblock %}</p>
-
-<p>This will load any .js file in the controllers directory into the application. If they are written to the pattern expected by Express, new resource paths are exposed to the application. The post above describes a simple MVC implementation. Astute readers will note that my take is all "C" without "M" or "V." I plan to refactor that later but it it was easier for me to keep track of things on this pass with code in one place.</p>
-
-<p><strong>Getting Data</strong></p>
-
-<p>With modularity out of the way, it was time work on the basic structure for getting data from the database. In <a href="https://github.com/geobabbler/node-gis-server/blob/master/controllers/core.js">core.js</a>, I defined a route with a URL template like '/vector/:schema/:table/:geom'. This would translate into something like http://localhost/vector/public/parcels/features, which would fetch a GeoJSON feature collection containing the contents of the parcels table. To do that, I need to know the name of the spatial column in the table, which the following helps me retrieve:</p>
-
-<p>{% codeblock snippet2.js %}
-var meta = client.query("select * from geometry_columns where f_table_name = '" + tablename + "' and f_table_schema = '" + schemaname + "';");
-{% endcodeblock %}</p>
-
-<p>The next code block shows how I capture the name of the spatial column and structure the main query, depending on the choice of features or geometry:</p>
-
-<p>{% codeblock snippet3.js %}
-meta.on('row', function (row) {</p>
-
-<pre><code>var query;
-var coll;
-spatialcol = row.f_geometry_column;
-if (geom == "features") {
-    query = client.query("select st_asgeojson(st_transform(" + spatialcol + ",4326)) as geojson, * from " + fullname + ";");
-    coll = {
-        type : "FeatureCollection",
-        features : []
-    };
-} else if (geom == "geometry") {
-    query = client.query("select st_asgeojson(st_transform(" + spatialcol + ",4326)) as geojson from " + fullname + ";");
-    coll = {
-        type : "GeometryCollection",
-        geometries : []
-    };
-}
-</code></pre>
-
-<p>//'meta' code block continues
-{% endcodeblock %}</p>
-
-<p>As can be seen above, the query will transform the output geometry to WGS84 and convert it to GeoJSON for me. So I'm sticking my third principle by leaning on PostGIS functions here. I plan to stick to GeoJSON's default spatial reference of WGS84 for now. To roll up the query results into the appropriate GeoJSON object and return it, I handled the 'row' and 'end' events.</p>
-
-<p>{% codeblock snippet4.js %}
-//roll up the results
-query.on('row', function (result) {</p>
-
-<pre><code>if (!result) {
-    return res.send('No data found');
-} else {
-    if (geom == "features") {
-        coll.features.push(geojson.getFeatureResult(result, spatialcol)); //use helper function
-    } else if (geom == "geometry") {
-        var shape = JSON.parse(result.geojson);
-        coll.geometries.push(shape);
-    }
-}
-</code></pre>
-
-<p>});</p>
-
-<p>//send the results
-query.on('end', function (err, result) {</p>
-
-<pre><code>res.setHeader('Content-Type', 'application/json');
-res.send(coll);
-</code></pre>
-
-<p>});
-{% endcodeblock %}</p>
-
-<p>I wrote a helper function to roll up GeoJSON features:</p>
-
-<p>{% codeblock snippet5.js %}
-exports.getFeatureResult = function(result, spatialcol) {</p>
-
-<pre><code>    var props = new Object;
-    var crsobj = {
-        "type" : "name",
-        "properties" : {
-            "name" : "urn:ogc:def:crs:EPSG:6.3:4326"
-        }
-    };
-    //builds feature properties from database columns
-    for (var k in result) {
-        if (result.hasOwnProperty(k)) {
-            var nm = "" + k;
-            if ((nm != "geojson") &amp;&amp; nm != spatialcol) {
-                props[nm] = result[k];
-            }
-        }
-    }
-
-    return {
-        type : "Feature",
-        crs : crsobj,
-        geometry : JSON.parse(result.geojson),
-        properties : props
-    };
-};
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>So that's basic data retrieval. How about that spatial intersect?</p>
-
-<p><strong>A Simple Spatial Query</strong></p>
-
-<p>One thing I failed to mention in the above section, is that all of that is exposed through an HTTP GET request. For this next function, I'm going to use a POST. I went back and forth on that but came down on the side of POST due to the potential for a user to send a very verbose input shape. The function is designed to accept JSON as the body of the request, which would be done in curl like this:</p>
-
-<p>{% codeblock snippet6.bat %}
-curl -X POST -d "{ \"type\": \"Point\", \"coordinates\": [-98.35, 39.7] }" -H "Content-Type: application/json" http://localhost:3000/vector/public/states_gen/features/intersect
-{% endcodeblock %}</p>
-
-<p>The above action returns the state of Kansas (I knew you were wondering). To make this happen, there are only three things that are different. First, the URL is defined a POST and, second, the code needs to capture the input shape. The first few lines are:</p>
-
-<p>{% codeblock snippet7.js %}</p>
-
-<pre><code>/**
- * retrieve all features that intersect the input GeoJSON geometry
- */
-app.post('/vector/:schema/:table/:geom/intersect', function (req, res, next) {
-    //console.log(JSON.stringify(req.body));
-    var queryshape = JSON.stringify(req.body);
-//continue with the rest of app.post
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>I stringify the JSON since I have to insert it into my SQL. This brings me to the third difference here, the query. This time, I am using ST_INTERSECTS to filter down the response. So, depending on the choice of features or geometry, the query will be similar to:</p>
-
-<p><strong>"select st_asgeojson(st_transform(" + spatialcol + ",4326)) as geojson, * from " + fullname + " where ST_INTERSECTS(" + spatialcol + ", ST_SetSRID(ST_GeomFromGeoJSON('" + queryshape + "'),4326));"</strong></p>
-
-<p>The rest of the process is similar to the basic query above. With a well-exercised data access pattern in place, querying table schema and layer lists become trivial. Since GeoJSON doesn't cover these topics, I had to roll my own. I won't detail the output but the queries are below.</p>
-
-<p>{% codeblock snippet8.js %}
-//SQL to retrieve schema
-//var sql = "SELECT n.nspname as schemaname,c.relname as table_name,a.attname as column_name,format_type(a.atttypid, a.atttypmod) AS //type,col_description(a.attrelid, a.attnum) as comments";
-//sql = sql + " FROM pg_class c INNER JOIN pg_namespace n ON c.relnamespace = n.oid LEFT JOIN pg_attribute a ON a.attrelid = c.oid";
-//sql = sql + " WHERE a.attnum > 0 and c.relname = '" + tablename + "' and n.nspname = '" + schemaname + "';";</p>
-
-<p>//SQL to retrieve layer list
-//sql = "SELECT 'geometry' AS geotype, * FROM geometry_columns UNION SELECT 'geography' as geotype, * FROM geography_columns;";
-{% endcodeblock %}</p>
-
-<p>So this gives me everything I need for an all-purpose interface into PostGIS from Node. I could spend the rest of the year similarly wrapping the hundreds of spatial functions in PostGIS but the real power of extensibility is the ability to tailor an application for one's own needs, based upon one's detailed understanding of their own data and logic.</p>
-
-<p><strong>Adding Some Customization</strong></p>
-
-<p>To do this, I fell back to the data for <a href="http://leonardtown.somd.com">Leonardtown, Maryland</a> that have used in a <a href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/">couple</a> of previous <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/">posts</a>. I am simply going to expose the ability to query residential or commercial buildings from the data set. For this, all of the prep work is done at the top of the function by simply preparing a WHERE clause.</p>
-
-<p>{% codeblock snippet9.js %}
-app.get('/leonardtown/buildings/:geom', function (req, res, next) {</p>
-
-<pre><code>var client = new pg.Client(app.conString);
-var geom = req.params.geom.toLowerCase();
-if ((geom != "features") &amp;&amp; (geom != "geometry")) {
-    res.status(404).send("Resource '" + geom + "' not found");
-    return;
-}
-var tablename = "leonardtown_bldgs";
-var schemaname = "public";
-var fullname = schemaname + "." + tablename;
-var spatialcol = "";
-var proptype = req.query.type;
-var whereclause = ";";
-if (typeof proptype != "undefined") {
-    if (proptype.toLowerCase() != "all") {
-        whereclause = " where structure_ = '" + proptype + "';";
-    }
-}
-var coll;
-var sql = "";
-//logic continues from here
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>The primary difference here are that I am using a GET with a query string since I'm not concerned with data size and that I'm building a WHERE clause on a specific column name. What's not shown is that, farther down, I don't need to query the name of the spatial column so I can cut out that step. I can do this because I understand my own data so I can be more succinct that if I were writing a more generic function. Using this approach I can also write more complex custom logic in my database, call it from Node, and send the response. In other words, standard web application behavior.</p>
-
-<p>In order to expose this application-specific logic, I just needed expose it in a separate leonardtown.js file and drop it into the 'controllers' directory.</p>
-
-<p><strong>Wrapping Up</strong></p>
-
-<p>This post was bit longer than usual but there was lot of ground to cover. I feel like I'm getting more comfortable with the Node ecosystem though I'm still a bit wobbly. My next step is probably to dive a little deeper into the MVC side of things with something like <a href="http://sailsjs.org">Sails</a>. Having a familiar face like PostGIS on the back end is helping me as I figure out how to perform more meaningful tasks with Node and its related tools.</p>
-
-<p>If you want to check out the full code for this application, it is here: <a href="https://github.com/geobabbler/node-gis-server">https://github.com/geobabbler/node-gis-server</a></p>
 ]]></content>
   </entry>
   
