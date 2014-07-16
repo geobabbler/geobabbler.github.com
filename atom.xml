@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-07-09T16:52:57-04:00</updated>
+  <updated>2014-07-16T13:42:57-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Esri UC So Far #EsriUC]]></title>
+    <link href="http://blog.geomusings.com/2014/07/16/the-esri-uc-so-far/"/>
+    <updated>2014-07-16T12:13:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/07/16/the-esri-uc-so-far</id>
+    <content type="html"><![CDATA[<p>So I&#8217;m halfway through the largest geospatial event of the year, attending it for the first time in four years, and I haven&#8217;t blogged yet. As always, it&#8217;s a busy week. Because this event draws people from all over the country (and world), my dance card fills up pretty quickly. And, by the way, there&#8217;s a conference going on.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/plenary_stage.jpg" /></p>
+
+<p>This is the first I&#8217;ve ever attended the Esri User Conference as just an attendee. If it were a video game, I&#8217;d be playing it on the easy level. I sat through the entire plenary for the first time in years. It was nice table setting for the rest of the week. As the father of a dancer, I have developed an eye for choreography and there is plenty of it up on the plenary stage. If I were to level one piece of constructive criticism toward the UC, it&#8217;s that I&#8217;d let speakers be themselves a little bit more. That said, the content was delivered smoothly, which really the larger point.</p>
+
+<!--more-->
+
+
+<p>The plenary features a lot of demos that are rehearsed to within an inch of their lives. Knowing that, I still found ArcGIS Pro to be interesting. The UI is well-designed to get out the user&#8217;s way and it&#8217;s native 64-bit architecture finally allows it to take advantage of system resources in a way that ArcMap never could. The UI is more modern, featuring the ribbon toolbar. Esri seems to have learned a lesson from Microsoft by not re-engineering the UI of a familiar product, but releasing a new product that users can transition to. That was smart. In Microsoft Office terms, the UI upates from the Office 97 feel of ArcMap to more of an Office 2012 feel. Tasks in ArcGIS simplify geoprocessing even more but also run the risk of hiding complexity too much. I hope we&#8217;re not training another generation of button-clickers.</p>
+
+<p>One of the more subtle announcements in the plenary was that ArcGIS Portal will be included with ArcGIS Server at 10.3. I suspect that&#8217;s the beginning of a gentle nudge of Server into ArcIMS-like oblivion but that&#8217;s just my speculation.</p>
+
+<p>The newly-released (not beta) ArcGIS Open Data extension (product?) was shown by <a href="http://twitter.com/ajturner">Andrew Turner</a>. It does a very nice job of putting an almost-GeoCommons-easy interface in front of ArcGIS Online to enable organziations to easily share their data. Andrew showed the implementations for the DC government and the State of Maryland. Maryland, in particular, is exceedingly happy with how quickly it has helped them start sharing data. By chance, I had dinner with some of the development team the night before and it&#8217;s a motivated team with a diverse skill set not rooted in traditional Esri thinking which, in my opinion, bodes well for what they are doing.</p>
+
+<p>Yesterday, I sat through a couple of sessions on the GeoEvent Processor (GEP), which has already been rebranded as the GeoEvent Extension for Server (or something like that). Those who have tracked my blog over the years know that I&#8217;ve done a lot of work with situational awareness systems. Within that field, I&#8217;ve concentrated a lot on feeds (streaming data sources) and track management so it&#8217;s something of a geeky passion for me. Esri&#8217;s previous, long-standing, and wholly awful product in this space was Tracking Server. I would gleefully dance around Tracking Server&#8217;s funeral pyre.</p>
+
+<p>GEP seems to be a better attempt at solving this problem. In its current incarnation, it simply doesn&#8217;t have the throughput my customers will need (it currently supports about 800 - 1000 messages per second). To the product team&#8217;s credit, they know this and are focusing on it. At 10.3, GEP will support &#8220;clustering&#8221; to increase throughtput. Clustering, however, was not explained during the session and could mean anything so I&#8217;ll wait and see. The management interfaces and APIs behind GEP are top-notch and enable some of the use cases I&#8217;ve supported in the past. Once the throughput challenges are solved, this could be a product to watch.</p>
+
+<p>You may have noticed a few parenthetical comments above when referring to product names. The reason for that is that Esri&#8217;s product naming has fallen off the cliff to become just confusing, unwieldy, and random. Couple that with the fact that product names change constantly, or are recycled endlessly (Explorer?), and it&#8217;s a complete mess. It&#8217;s always been difficult walking new users through the maze of Esri products and the current naming &#8220;convention&#8221; doesn&#8217;t help at all. Esri really needs to circle the wagons on this and simplify things.</p>
+
+<p>That sums up my week so far. I&#8217;ll try to check in again before I go.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gearing Up For the Esri UC]]></title>
@@ -1170,29 +1200,6 @@
 <p>This example is fairly simplistic but I have good friends that are using PostGIS, and nothing more, to perform analyses and produce results for decision makers while sitting in meetings. This type of turnaround is standard in other market segments and the geospatial industry should expect nothing less. It requires nothing more than a strong foundation in SQL, mastery of spatial processes, and detailed understanding of your own data.</p>
 
 <p>So I have come to realize that the mainstream GIS community has become very much like my professor&#8217;s theoretical cat; conditioned to take the long way to the end result when more direct paths are clearly available. What&#8217;s more, they have become conditioned to think of such approaches as normal. Geospatial analytical operations can be very complex and the approaches to performing them were, in the past, necessarily convoluted due to the lack of understanding of spatial data types and operations within mainstream platforms. Those barriers have been rapidly disappearing over the past decade or so, but the user community has been slow to let go of its comfort with familiar tools and convoluted approaches. As I stated above, organizational barriers to exit are real considerations, but the inherent efficiencies available in modern geospatial tools such as PostGIS make the transition worth the effort.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GIS Day After]]></title>
-    <link href="http://blog.geomusings.com/2013/11/19/gis-day-after/"/>
-    <updated>2013-11-19T09:13:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/11/19/gis-day-after</id>
-    <content type="html"><![CDATA[<p>It&#8217;s the morning of November 21st, but not for long. You open one eye. Just one; it&#8217;s best not to rush such things. Apparently, you finally came to rest in the ball pit you all made using the squishy globes from myriad conferences past. A cursory scan tells you the GIS lab is trashed. It starts to come back to you: the rousing game of &#8220;Pin the Certificate on the Khakis.&#8221; Yes, there are your pleated khakis on the wall with everyone&#8217;s training and GISP certificates stuck on or around them with pushpins. Someone won in what would have been a most painful way if the khakis had been on your body. The loin cloth fashioned from the old hard-copy topos (which you are still wearing). The fact that you let the intern talk you into finally opening a Twitter account and your glee at discovering you could attach photos to geocoded tweets with your BlackBerry.</p>
-
-<p>You look around the room at your coworkers strewn across the floor. There&#8217;s the ArcObjects guy still sporting his &#8220;war paint&#8221; from the plotter toner. There&#8217;s your lead analyst with a face tattoo of the town&#8217;s land-use drawn in marker and, she proudly insisted, accurately projected in state plane. Slowly, you are able to account for everyone on your GIS staff. Good, no one has gone missing&#8230;except the intern.</p>
-
-<p>The door opens and you turn to see the intern standing there in all of her college-kid resilience, letting in far too much sunlight for your comfort. You&#8217;re not sure it&#8217;s possible to hate anyone more in this moment.</p>
-
-<p>&#8220;Oh, good,&#8221; she says, &#8220;you&#8217;re awake. Are you going to do the hangout?&#8221;</p>
-
-<p>&#8220;Hangout?&#8221; you mumble.</p>
-
-<p>&#8220;Yeah, <a href="http://www.spatiallyadjusted.com/2013/11/18/postgis-day-special-hangout-this-week/">James Fee is doing a PostGIS Day hangout with a panel of experts on PostGIS</a>. I told you about this. I told you about <a href="http://postgis.net">PostGIS</a>. Don&#8217;t you remember? It starts in about an hour.&#8221;</p>
-
-<p>It does sound familiar. You give it some thought. What better way to shake off the cobwebs from the bacchanalia of the &#8220;BEST GIS DAY EVAR!!!&#8221; (so says the hand-lettered Sharpie on the lab&#8217;s wall) than a little geo-hair-of-the-dog? Maybe it&#8217;s time to finally pay attention to this open-source stuff. You look around to survey the damage one more time. Besides, ditching the Oracle license might just about pay for this.</p>
-
-<p>&#8220;Yeah,&#8221; you reply, &#8220;I&#8217;ll be there in five minutes. Close the door, please.&#8221;</p>
 ]]></content>
   </entry>
   
