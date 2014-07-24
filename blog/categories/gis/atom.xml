@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-07-16T13:42:57-04:00</updated>
+  <updated>2014-07-24T09:31:24-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Lock-In]]></title>
+    <link href="http://blog.geomusings.com/2014/07/24/lock-in/"/>
+    <updated>2014-07-24T09:13:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/07/24/lock-in</id>
+    <content type="html"><![CDATA[<p>I've been a consultant/programmer/integrator/other for over twenty years now. That's not quite long enough to say I've seen it all but long enough to notice a few patterns. Admittedly, I've spent the vast majority of that time working in the defense world so the patterns may be heavily skewed to that but I think not.</p>
+
+<p style="text-align:center;"> <img src="http://upload.wikimedia.org/wikipedia/commons/9/93/US_Navy_080904-N-9079D-037_Operations_Specialist_3rd_Class_Sarah_M._Hernandez_stands_the_global_command_and_control_systems-maritime_watch.jpg" /></p>
+
+<p>I've run across a number of well-entrenched government-developed systems, such as command-and-control systems, with user interfaces and experiences that many professional designers would consider abhorrent. Yet, I have watched smart, motivated men and women in uniform stand in front of working groups and committees dedicated to "improving" systems and workflows and advocate passionately for these seemingly clunky systems.</p>
+
+<p>Why? Because they know how to use these systems inside and out to meet their missions. User experience is ultimately about comfort and confidence. A user that is comfortable with a system will have a great experience with it regardless of its appearance. DOD tackles this reality through training. For all its faults, there is still no organization better at developing procedures and thoroughly training its people in them. It results in a passionate loyalty for the tools that help them do their jobs and places a very high hurdle in front of any tools that seek to replace current ones.</p>
+
+<!--more-->
+
+
+<p>This experience has given me a different view of the concept of "lock-in." Over my career, I have heard this term used in a pejorative sense, usually proceeded by the word "vendor." Although I have used the term myself, I usually hear it levelled by a vendor's competitors. It is typically meant to refer to practices a vendor uses to establish barriers to exit for its customers, making it harder for them to choose a competing technology. Such practices can include artificial bundling of unrelated tools, license trickery, half-truths in marketing, and many more; all of which do happen.</p>
+
+<p>Lock-in is a real thing. Lock-in can also be a responsible thing. The organizations I have worked with that make the most effective use of their technology choices are the ones that jump in with both feet and never look back. They develop workflows around their systems; they develop customizations and automation tools to streamline repetitive tasks and embed these in their technology platforms; they send their staff to beginning and advanced training from the vendor; and they document their custom tools well and train their staff on them as well. In short, they lock themselves in.</p>
+
+<p>This is the right and responsible thing to do. An organization, once it has selected a technology, has a responsibility to master it and use it as effectively as it can. If you start applying numbers to all the activities listed above, you will quickly see that it is an investment that far outstrips the original investment in the technology itself. In fact, the cost of the technology itself is often seen as marginal to the overall lifecycle cost, which makes arguments about removing licensing costs, for example, less effective than they would appear to be.</p>
+
+<p>This is true regardless of the provenance of the technology. The original technology has to start to become a hindrance before change is seriously considered, which I am seeing in a few cases these days. But, by and large, the very strong pattern I have seen is that the majority of lock-in originates with users. To fail to recognize that and continue to target the vendor is to miss the point and, ultimately, the target.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Esri UC So Far #EsriUC]]></title>
@@ -22,7 +48,7 @@
 
 <p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/plenary_stage.jpg" /></p>
 
-<p>This is the first I've ever attended the Esri User Conference as just an attendee. If it were a video game, I'd be playing it on the easy level. I sat through the entire plenary for the first time in years. It was nice table setting for the rest of the week. As the father of a dancer, I have developed an eye for choreography and there is plenty of it up on the plenary stage. If I were to level one piece of constructive criticism toward the UC, it's that I'd let speakers be themselves a little bit more. That said, the content was delivered smoothly, which really the larger point.</p>
+<p>This is the first I've ever attended the Esri User Conference as just an attendee. If it were a video game, I'd be playing it on the easy level. I sat through the entire plenary for the first time in years. It was nice table setting for the rest of the week. As the father of a dancer, I have developed an eye for choreography and there is plenty of it up on the plenary stage. If I were to level one piece of constructive criticism toward the UC, it's that I'd let speakers be themselves a little bit more. That said, the content was delivered smoothly, which is really the larger point.</p>
 
 <!--more-->
 
@@ -31,7 +57,7 @@
 
 <p>One of the more subtle announcements in the plenary was that ArcGIS Portal will be included with ArcGIS Server at 10.3. I suspect that's the beginning of a gentle nudge of Server into ArcIMS-like oblivion but that's just my speculation.</p>
 
-<p>The newly-released (not beta) ArcGIS Open Data extension (product?) was shown by <a href="http://twitter.com/ajturner">Andrew Turner</a>. It does a very nice job of putting an almost-GeoCommons-easy interface in front of ArcGIS Online to enable organziations to easily share their data. Andrew showed the implementations for the DC government and the State of Maryland. Maryland, in particular, is exceedingly happy with how quickly it has helped them start sharing data. By chance, I had dinner with some of the development team the night before and it's a motivated team with a diverse skill set not rooted in traditional Esri thinking which, in my opinion, bodes well for what they are doing.</p>
+<p>The newly-released (not beta) ArcGIS Open Data extension (product?) was shown by <a href="http://twitter.com/ajturner">Andrew Turner</a>. It does a very nice job of putting an almost-GeoCommons-easy interface in front of ArcGIS Online to enable organizations to easily share their data. Andrew showed the implementations for the DC government and the State of Maryland. Maryland, in particular, is exceedingly happy with how quickly it has helped them start sharing data. By chance, I had dinner with some of the development team the night before and it's a motivated team with a diverse skill set not rooted in traditional Esri thinking which, in my opinion, bodes well for what they are doing.</p>
 
 <p>Yesterday, I sat through a couple of sessions on the GeoEvent Processor (GEP), which has already been rebranded as the GeoEvent Extension for Server (or something like that). Those who have tracked my blog over the years know that I've done a lot of work with situational awareness systems. Within that field, I've concentrated a lot on feeds (streaming data sources) and track management so it's something of a geeky passion for me. Esri's previous, long-standing, and wholly awful product in this space was Tracking Server. I would gleefully dance around Tracking Server's funeral pyre.</p>
 
@@ -117,48 +143,6 @@
 <p>Using this approach, I was able to successfully generate my maps using either of two technology mixes. I succeeded in using both TileMill and ArcGIS/Arc2Earth to generate my maps. I ended up doing most of the work in Arc2Earth due to the availability of command-line tools that helped me optimize performance.</p>
 
 <p>Before attempting this method, it's important to make sure that you are not violating any terms of service, license agreements, or attribution requirements in doing so. I knew this wasn't an issue in my case, but such questions need to be answered before you start grabbing data.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using Virtual Rasters to Generate Contours in QGIS]]></title>
-    <link href="http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis/"/>
-    <updated>2014-04-17T13:39:00-04:00</updated>
-    <id>http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis</id>
-    <content type="html"><![CDATA[<p>Every now and again, I am asked to make maps. It's not my strongest suit, but it sometimes comes with the territory. My latest task, as mentioned in my previous post, involves building support for <a href="https://www.mapbox.com/developers/mbtiles/">MBTiles</a> databases into a mobile situational awareness tool. This is done so that the devices can have a persistent local basemap in the field. The need arose to ensure that the basemaps were high contrast to assist with visibility in bright sunlight. Something like this:</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour0.png" /></p>
-
-<p>One of the requirements was to have topographic-map-like contours to indicate changes in elevation. Existing map services didn't provide what we needed so it was necessary to build a custom map, which meant generating contour lines. It had been years since I had last done that with Esri tools, but I didn't have any extension licenses available, so I turned to <a href="http://www.qgis.org/en/site/">QGIS</a> to get the job done this time.</p>
-
-<!--more-->
-
-
-<p>My area of interest was a portion of Virginia. Since I couldn't find any pre-generated contours for the state, I turned to elevation models. There are numerous places to get such data, but I <a href="http://geoserve.asp.radford.edu/dems/va_dems.htm">downloaded some DEMs from Radford University</a> since they are already carved up by county. They are perhaps a bit dated, but they sufficed for this particular testing round.</p>
-
-<p>It was easy to find <a href="http://boringnerdystuff.wordpress.com/2012/07/14/302/">guidance on how to generate contours in QGIS</a>. So I ran the process on a couple of adjacent counties and noticed that the edges didn't line up, which was not surprising. My first thought was that I would need to merge the DEMs but, luckily, I stumbled across the virtual raster tool in QGIS. This tool provides a nice UI for building a <a href="http://www.gdal.org/gdal_vrttut.html">GDAL virtual raster</a> from a series of separate rasters specified by the user. This can be a bit cumbersome to do manually and this GUI tool was a real time saver. It can be found in QGIS Dufour here:</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour1.png" /></p>
-
-<p>To make my life easier, I moved all of my DEMs into one folder so I could just point the tool at the folder. I filled in the name of the output file and took the defaults for everything else.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour2.png" /></p>
-
-<p>Notice that the dialog shows me the GDAL command that I am building with the UI. Advanced users can even edit it here. This is a really nice feature that can help you get comfortable with GDAL. I am not a GDAL expert, nor am I particularly adept with raster operations so I found this to be a huge help and I plan to use it more.</p>
-
-<p>The tool doesn't change any data; it merely writes a text file so it works very quickly. The resulting virtual raster was done in a few seconds.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour3.png" /></p>
-
-<p>With the data now "merged," I was able to continue with data generation. For my purposes, 10-meter contours were more than sufficient. I generated a shapefile, but any QGIS-supported format is valid as an output. It should be noted that the "Attribute name" choice is not checked by default. Check this if you want to attach the elevation value to each line. Also notice that QGIS is again giving us the relevant GDAL command as we build it. This is very powerful as it gives you the option to use QGIS to prototype GDAL operations and then script them outside of QGIS, if you desire.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour6.png" /></p>
-
-<p>This process took a little longer, thanks to Fauquier County, but still finished in about 90 seconds. The resulting contours were contiguous across counties, so my needs were met.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour8.png" /></p>
-
-<p>I'm now in the process of styling the map in <a href="https://www.mapbox.com/tilemill/">TileMill</a> so that I can generate the databases. It's good to occasionally take off my developer hat and put on that of a user. I've known for quite a while that QGIS stands toe-to-toe with any other desktop GIS software but this work got me to use some tools that I rarely ever touch. I was impressed with not only the speed, but also how smoothly the work flowed. My pedestrian laptop didn't engage in nearly the same level of huffing and puffing that it does when I have to use other software. That may be a hidden "win" in that users can extend the useful life of their hardware by using tools that don't tax it as much while producing the same results.</p>
 ]]></content>
   </entry>
   
