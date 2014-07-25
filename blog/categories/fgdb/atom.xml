@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: FGDB | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/fgdb/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-07-24T09:31:24-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[File Geodatabase Schema Compare Tool]]></title>
+    <link href="http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool/"/>
+    <updated>2014-01-08T20:32:00-05:00</updated>
+    <id>http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool</id>
+    <content type="html"><![CDATA[<p>In my work supporting various aspects of geospatial data modeling, I've spent a lot of time delving into concepts around configuration management of such data models. We've been able to apply a core tool set to perform various functions such as version managment, profiling, version-to-version migration, and validation in conjunction with a system we call the platform independent model (PIM). I gave quick overview of the PIM <a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">in this post over on the Zekiah blog</a> and the complete series on it <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">can be found here</a>.</p>
+
+<p>I've recently spent a bit of time consolidating code after a recent data delivery and decided to post a utility that was an outgrowth of that effort: <a href="https://github.com/Zekiah/ArcGISCompare">a tool to compare schemas of two Esri file geodatabases and report differences</a>. This lent itself to general use because it does not require any connection to a PIM.</p>
+
+<p style="text-align:center;"><img src="https://github.com/Zekiah/ArcGISCompare/raw/master/screenshot.png" /></p>
+
+<!--more-->
+
+
+<p>The PIM deals mainly at the logical level with data models, but a full configuration management workflow must occasionally touch physical data sets. One use case we had to support, for which this tool was built, was the case where users in the field must compare separate data sets for eventual integration. Although these workflows start with a template data set, it is not unusal for changes to be made during collection, resulting in very similar but not identical schemas. This tool helps users identify such differences in order to make configuration management decisions based upon the actual state of the collected data.</p>
+
+<p>The tool is fairly straightforward: choose a template data set, choose an implementation data set, run the compare, and examine the results. It contains ArcObjects dependencies although we may migrate it to the file geodatabase API in order to eliminate those.</p>
+
+<p>We are also in the process of building a similar tool to work with SQLite/SpatiaLite data sets, which is the other format we commonly see used and will post that tool when it is complete. In the meantime, I hope you find this application useful.</p>
+
+<p>An installer (10.1) <a href="https://dl.dropboxusercontent.com/u/6749645/PIM/setup_ArcGISCompare.zip">can be found here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ToGeoJson and ToWKT for the Esri FGDB API]]></title>
+    <link href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/"/>
+    <updated>2012-08-24T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api</id>
+    <content type="html"><![CDATA[<p>In support of some of our ongoing <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">PIM</a> work, we've been integrating the <a href="http://www.esri.com" target="_blank">Esri</a> <a href="http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api" target="_blank">File Geodatabase (FGDB) API</a> into some tools. Without going into a level of detail that would hijack this post, one of the many functions performed by some of the tools is to validate physical spatial databases against established data models to analyze compliance and identify differences. These databases may be in Esri or non-Esri formats and we have traditionally handled Esri geodatabases through ArcObjects since it provides a relatively uniform interface across the various flavors of geodatabase.</p>
+
+<p><img alt="" style="text-align: center;" height="300" src="http://geobabble.files.wordpress.com/2012/08/fileapi2.png" title="FGDB API" width="287" /></p>
+
+<p>Of course, ArcObjects requires an ArcGIS license of some sort and we are finding out that this is not always available to users in the field under many situations so the FGDB API gets past that for file geodatabases, at least. <!--more--></p>
+
+<p>Since the PIM is really a configuration management system for spatial data models, the tools need to support a wide variety of scenarios, including data migration between platforms, versions, approved user-defined implementations, etc. in a manner that's compliant with the data model being managed. As a result, some ETL-like tools are built into the workflows, although ETL is not a primary focus of the PIM.</p>
+
+<p>Since the PIM tools are written in .NET, I built a couple of extension methods to assist with some of the workflows in the existing tools. They enable outbound support for GeoJSON and WKT. The GeoJSON methods work on RowCollection, Row, and ShapeBuffer objects to create FeatureCollection, Feature, and Geometry types respectively. In practice, they'd be used something like this example from a very simple ASP.NET MVC sample application:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">var</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;/App_Data/mvc_samples.gdb&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">Geodatabase</span> <span class="n">gdb</span> <span class="p">=</span> <span class="n">Geodatabase</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+</span><span class='line'><span class="n">Table</span> <span class="n">statesTable</span> <span class="p">=</span> <span class="n">gdb</span><span class="p">.</span><span class="n">OpenTable</span><span class="p">(</span><span class="s">&quot;\us_states&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">RowCollection</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">statesTable</span><span class="p">.</span><span class="n">Search</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="s">&quot;STATE_NAME LIKE &#39;M%&#39;&quot;</span><span class="p">,</span> <span class="n">RowInstance</span><span class="p">.</span><span class="n">Recycle</span><span class="p">);</span>
+</span><span class='line'><span class="kt">var</span> <span class="n">rval</span> <span class="p">=</span> <span class="n">rows</span><span class="p">.</span><span class="n">ToGeoJson</span><span class="p">();</span>
+</span><span class='line'><span class="n">gdb</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+</span><span class='line'><span class="n">Response</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">&quot;application/json&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Content</span><span class="p">(</span><span class="n">rval</span><span class="p">);</span>
+</span><span class='line'><span class="k">return</span> <span class="n">result</span> <span class="k">as</span> <span class="n">ActionResult</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
+
+<p>As I said, I developed these to support workflows in existing applications. If you're looking to just perform data conversion or ETL, you should just use <a href="http://www.gdal.org/ogr/" target="_blank">OGR</a> or <a href="http://www.safe.com/" target="_blank">FME</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

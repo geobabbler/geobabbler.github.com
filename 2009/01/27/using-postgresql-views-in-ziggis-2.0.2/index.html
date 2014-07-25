@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Using PostgreSQL Views in zigGIS 2.0.2 - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Octopress 2.0" />
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2009/01/27/using-postgresql-views-in-ziggis-2.0.2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/samples">Samples</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Using PostgreSQL Views in zigGIS 2.0.2</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-27T00:00:00-05:00" pubdate data-updated="true">Jan 27<span>th</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>When we mapped out the way ahead for zigGIS, we knew we wanted to lay the groundwork to add support for SQL Server 2008 and possibly other database platforms. The way zigGIS was originally constructed, it used the PostGIS geometry_columns table to discover available spatial tables. This has worked well but we came to realize that there are numerous workflows that can be employed to create spatial tables in PostGIS and many of these don&#8217;t necessarily register in the geometry_columns table. For example, you can use a standard CREATE TABLE to create a table that includes a geometry column. In this case, the table will not be registered but will still be a valid spatial table. The same can be said for views.<!--more--></p>
+
+<p>SQL Server 2008 doesn&#8217;t have any equivalent to the geometry_columns table and most likely won&#8217;t. When considering extending zigGIS to support SQL Server, we were basically left with two paths:</p>
+
+<ol>
+<li>Create tables analagous to the PostGIS geometry_columns and spatial_ref_sys tables (and possibly other supporting structures) inside a zigGIS schema or:</li>
+<li>Eliminate the need to have your data listed in geometry_columns and have zigGIS &#8220;discover&#8221; your spatial data by examining the schema information.</li>
+</ol>
+
+
+<p>Since our preference is always to keep zigGIS as light as possible, we went with the latter. This approach was implemented in version 2.0.2. While we haven&#8217;t extended to SQL Server yet, zigGIS does provide more flexibility for user to implement their own data workflow. For me, one of the biggest benefits is the ability to create a view in PostgreSQL and add it into ArcMap as a layer.</p>
+
+<p>For example, I have a spatial table called &#8220;states&#8221; which was imported from a shapefile of the US states. Additionally, I have a table called &#8220;us_states_pop&#8221; that contains population estimates from the US Census Bureau. Using the following SQL, I created a view that joined the two tables based upon the state abbreviation and displayed the 2007 and 2008 poplation estimates.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="n">s</span><span class="p">.</span><span class="n">gid</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">state_name</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">state_abbr</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">e20080701</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">e20070701</span>
+</span><span class='line'>   <span class="k">FROM</span> <span class="n">states</span> <span class="n">s</span>
+</span><span class='line'>   <span class="k">JOIN</span> <span class="n">us_states_pop</span> <span class="n">p</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">state_abbr</span><span class="p">::</span><span class="nb">text</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">abbr</span><span class="p">::</span><span class="nb">text</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I saved this view with the name &#8220;vwStatePop&#8221;. Your view must return a geometry column and an integer ID column (shape and gid in this case). Next, I started up ArcMap and selected my view like so:</p>
+
+<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png"><img alt="zigGIS 2.0.2 layer selector (click to enlarge)" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_pick_view.png" title="zig_pick_view" width="300" /></a><div style="text-align:center;font-size: 14px;">zigGIS 2.0.2 layer selector (click to enlarge)<br/><br/></div></div>
+
+
+<p>I simply selected the view in the dialog, then used the dropdowns to set the correct values for the ID column, geometry column and geometry type and then clicked &#8220;OK&#8221;. The view data then displayed in ArcMap as any other layer like so:</p>
+
+<div style="text-align: center;"><a href="http://geobabble.files.wordpress.com/2009/01/zig_view_map.png"><img alt="PostgreSQL/PostGIS spatial view displayed in ArcMap. (click to enlarge)" class="size-medium wp-image-465" height="187" src="http://geobabble.files.wordpress.com/2009/01/zig_view_map.png" title="zig_view_map" width="300" /></a><div style="text-align: center; font-size:14px">PostgreSQL/PostGIS spatial view displayed in ArcMap. (click to enlarge)<br/></div></div>
+
+
+<p>This was a fairly simple example but you can get pretty sophisticated with your views. I like the fact that I just need to create a standard PostgreSQL view in the same way that I always do and I can use it in ArcMap right away. The ability to use views in zigGIS is the enhancement I am most excited about in version 2.0.2.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-27T00:00:00-05:00" pubdate data-updated="true">Jan 27<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/arcgis-desktop/'>arcgis desktop</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/postgis/'>postgis</a>, <a class='category' href='/blog/categories/postgresql/'>postgresql</a>, <a class='category' href='/blog/categories/ziggis/'>ziggis</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2009/01/27/using-postgresql-views-in-ziggis-2.0.2/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2009/01/27/using-postgresql-views-in-ziggis-2.0.2/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/01/19/looking-ahead-to-the-2009-esri-federal-user-conference/" title="Previous Post: Looking Ahead to the 2009 ESRI Federal User Conference">&laquo; Looking Ahead to the 2009 ESRI Federal User Conference</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/02/20/esri-feduc-2009-one-mans-limited-perspective/" title="Next Post: ESRI FedUC 2009 - One Man's Limited Perspective">ESRI FedUC 2009 - One Man's Limited Perspective &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2600437314795269";
+/* geoMusings - GIS */
+google_ad_slot = "1381808721";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</section>
+<section>
+
+<a href="http://twitter.com/billdollins"><img src="/images/twitter.png" width="32" height="32" alt="View my Twitter profile"></a>&nbsp;
+
+
+<a href="http://www.linkedin.com/in/billdollins"><img src="/images/linkedin.png" width="32" height="32" alt="View LinkedIn profile of Bill Dollins"></a>&nbsp;
+
+
+<a href="https://plus.google.com/103048542132426664956?rel=author"><img src="/images/gplus.png" width="32" height="32"></a>&nbsp;
+
+
+<a href="http://www.facebook.com/pages/GeoMusings/304146182966988"><img src="/images/fb.png" width="32" height="32" alt="Follow my Facebook page"></a>&nbsp;
+
+
+<a href="https://github.com/geobabbler"><img src="/images/github32.png" width="32" height="32" alt="View my profile on GitHub"></a>&nbsp;
+
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/07/24/lock-in/">Lock-In</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/07/16/the-esri-uc-so-far/">The Esri UC So Far #EsriUC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/07/09/gearing-up-for-the-esri-uc/">Gearing Up For the Esri UC</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 3, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+<section>
+  <h1>Disclaimer</h1>
+  <p>The information in this weblog is provided "AS IS" with no warranties, and confers no rights.
+  <br/> <br/>
+  This weblog does not represent the thoughts, intentions, plans or strategies of my employer. It is solely my opinion and probably incorrect.
+  </p>
+</section>
+<section>
+<img src="/images/geomusings.png" width="64" height="64" alt="View my Twitter profile">
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  - <span class="credit">Theme by <a href="http://www.gehaxelt.in">Gehaxelt</a></span>
+  <span class="credit">and <a href="http://www.it-solutions-neef.de">IT Solutions Neef</a></span>
+  <!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="free web stats"
+href="http://statcounter.com/free-web-stats/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="free web stats"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37240509-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- End of Google Analytics -->
+<!-- MapStats -->
+<script
+type="text/javascript"
+src="http://54.214.24.130/api/visits/2"></script>
+<!-- End of MapStats -->
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.geomusings.com/2009/01/27/using-postgresql-views-in-ziggis-2.0.2/';
+        var disqus_url = 'http://blog.geomusings.com/2009/01/27/using-postgresql-views-in-ziggis-2.0.2/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

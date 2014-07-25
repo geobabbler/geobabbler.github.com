@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: EsriFedCon | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/esrifedcon/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-07-24T09:31:24-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ESRI Federal GIS Conference Wrap-up]]></title>
+    <link href="http://blog.geomusings.com/2012/02/25/esri-federal-gis-conference-wrap-up/"/>
+    <updated>2012-02-25T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/02/25/esri-federal-gis-conference-wrap-up</id>
+    <content type="html"><![CDATA[<p>After arriving a little late on Day 2 due to needing to push updates to an application we're building for an NGO, I was able to catch most of the session about deploying ArcGIS Server in the cloud. James was sitting in the front and has <a href="http://www.spatiallyadjusted.com/2012/02/23/the-business-case-for-arcgis-in-da-cloud/" target="_blank">already blogged that session</a> so I won't go into detail about it here. One thing that did jump out at me came during the Q&amp;A, when someone asked about certification and accreditation (C&amp;A) of AWS deployments.</p>
+
+<p><img alt="" class="alignnone" height="419" src="http://www.visitingdc.com/images/washington-dc-convention-center.jpg" title="Washington Convention Center" width="620" /></p>
+
+<p>If you work in the Federal space, you know that C&amp;A is a huge issue for the deployment of any information system, regardless of platform, for the Federal Government. Since hosted deployments essentially mean outsourcing your physical infrastructure, information security types have understandably proceeded with caution here. <!--more--></p>
+
+<p>To be quite frank, C&amp;A is an issue that ESRI has historically treated superficially at best. It has been viewed as something for integrators to work out despite the fact that there are <a href="https://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002" target="_blank">FISMA</a> implications at the platform level as well. I am happy to say that seems to have changed. As I mentioned toward the end of my <a href="http://blog.geomusings.com/2012/02/23/esrifedcon-day-one-users-will-be-happy/">previous post</a>, ESRI seems to possess a much more mature and holistic understanding of the issues that drive Federal IT acquisition. This was on display here as the ESRI staff running the session provided intelligent answers regarding levels of FISMA compliance as well as the existence/creation of baseline C&amp;A packages that can help jump start <a href="http://iase.disa.mil/diacap/" target="_blank">DIACAP</a> accreditation. Due to time constraints, they didn't get into a lot of detail but it was clear there is now a deeper understanding of C&amp;A issues within ESRI.</p>
+
+<p>I also attended the <a href="http://www.esri.com/events/fedcon/agenda/dev-geo.html">DevGeo</a> segment on ArcGIS Runtime. This technology, which is different than I had expected in many ways, seems to finally plug a gap that has existed in the ESRI platform since the sunsetting of MapObjects. There is once again an easily deployable way to embed ESRI mapping capability into an application. The reality is that there's still a huge demand for desktop applications out there. Over the last two years, I have personally seen increased demand for various desktop tools as the majority of the development community has moved to the web. The ArcGIS Runtime demo I saw during the session already demonstrates that it can plug a serious performance issue that one of my customers is currently having with an in-vehicle application.</p>
+
+<p>The quick hits that jumped out at me: easy deployment model, lack of COM dependencies, native 64-bit support on Linux and Windows while also retaining 32-bit support on Windows, Linux support, and the ability to safely deploy Runtime applications side-by-side with older versions of ArcGIS. These reasons alone move it ahead of ArcGIS Engine in my consideration of tools to use when developing ESRI-centric applications.</p>
+
+<p>I also attended the session on the <a href="http://www.hifldwg.org" target="_blank">HIFLD</a> working group. This was something of a 10-year retrospective on the group that included a series of lightning talks about current efforts across participating agencies. I was in the room for the first meeting back in 2002 and <a href="http://www.zekiah.com" target="_blank">my company</a> continues to support it to this day. Today, it's primarily noted for for coordinating requirements for <a href="http://www.youtube.com/watch?v=IEhjN2y-o54" target="_blank">HSIP</a> (video link). HSIP does have some issues, <a href="http://www.epcupdates.org/2011/09/nga-release-homeland-security.html" target="_blank">fairly accurately portrayed here</a>, but the support team is making a good-faith effort to move to a more collaborative model while also trying to balance the often-competing priorities of the various stakeholders. It's not been easy and progress has been incremental but it's been a quiet, if qualified, success story so far in terms of applying GIS to homeland security issues.</p>
+
+<p>After that session, I headed out to the social. By this, I don't mean the official social at the Air and Space Museum. While this was an ESRI conference, ESRI tools are not the only ones I use. Due to the fact that the Federal GIS Conference draws an increasing number of geospatial users from around the country, an informal gathering has taken place at <a href="http://www.lovethebeer.com/rfd.html" target="_blank">RFD</a> over the last few years. This gathering typically includes not only conference attendees but also people with other DC-area geospatial companies such as <a href="http://www.geoiq.com" target="_blank">GeoIQ</a>. Some people attend the ESRI event and drop by RFD later. What usually results is a good mix of discussion. I have come to realize that I value these types of gatherings as a way to reconnect with people I don't get to see often, meet new people, and generally recharge my batteries. This informal gathering gives me a chance to throw a lot of different things into my melting pot and let them stew for a bit. I have come to view it as being almost as valuable as the conference itself.</p>
+
+<p>I didn't attend the last day because two days out of the office leaves a lot to catch up on. I was happy to catch up with everyone (far too numerous to name here) and look forward to the chance to do so again in the near future. For those who had to travel to DC to attend, I wish you safe travels home.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Esrifedcon Day One Users Will Be Happy]]></title>
+    <link href="http://blog.geomusings.com/2012/02/23/esrifedcon-day-one-users-will-be-happy/"/>
+    <updated>2012-02-23T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/02/23/esrifedcon-day-one-users-will-be-happy</id>
+    <content type="html"><![CDATA[<p>I didn't catch the first half of the Esri Federal GIS Conference plenary but James did a <a href="http://www.spatiallyadjusted.com/2012/02/22/the-esri-federal-gis-conference-plenary/" target="_blank">good recap of it on his blog</a>. I did, however, catch the second half and the opening of the exhibit hall.</p>
+
+<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2012/02/feduc2.png"><img alt="" class="size-full wp-image-2499" height="359" src="http://geobabble.files.wordpress.com/2012/02/feduc2.png" title="feduc2" width="640" /></a><div style="text-align:center;font-size: 14px;">GIS letters from the road<br/><br/></div></div>
+
+
+<p>This year was a departure from previous years in that it wasn't a litany of the new things coming in each component of the Esri stack. The "GIS letters from the road" theme drew attention to problems that can be solved by leveraging the entire stack as a unit. It was a good twist that made it impossible to just drop in, hear about your favorite Esri product, and drop out. I have to give kudos to Esri's marketing team for taking it in this direction. <!--more--></p>
+
+<p>Overall, what I saw with 10.1 is that end users will be very happy. The whole user experience is smoother and just easier to use for end users. Some of what I saw was capability that has been around for quite some time but not presented to the user very well. Others, such as the drag-and-drop imagery handling is capability that eliminates work that technicians used to invest a lot of time into. Esri has really stepped up to automate a lot of bread-and-butter geoprocessing and include it in the core products as standard capability.</p>
+
+<p>Some of things I saw, such as the entire situational awareness demo, didn't show anything that I hadn't seen implemented by consultants and business partners in the past. In fact, the entire capability of the situational awareness demo was very close to something I built for an ops center in 2003. Additionally, niche capabilities such as drag-and-drop CSVs are things that would have once been left to business partners.</p>
+
+<p>So, what's different? Esri understands their customer better now; especially the Federal government. A world where an organization needs to take a balkanized approach to building the full capability they need, with a core stack from Esri and a bunch of add-on extensions from business partners, is a procurement nightmare for Federal organizations. The fact that such third-party tools sit outside of an ELA doesn't help. The end result is a less-than-satisfactory experience for users and perhaps a lot of unnecessary in-house development to avoid additional procurement. So, stuff all of this user-friendly capability into the core product and move on. I actually don't have much of a problem with that.</p>
+
+<p>All of this will be great for Esri and its end users. It might be less great for GIS technicians and certain kinds of business partners. With regard to analysts, all was not dark. Geoprocessing packages are a very powerful tool to encapsulate custom GIS analysis methods into standardized, repeatable processes that can be executed by end users. See that? End users again. If you're an experienced analyst who understands complex spatial modeling techniques, there's a bright future being the go-to person for such things. The technicians who did all the mundane data prep might want to start touching up their resumes, however.</p>
+
+<p>What I saw yesterday leads me to the same conclusion for both analysts and business partners: the ones who will thrive will be those who have a deep understanding of a vertical domain to which GIS can be applied. What I didn't see yesterday was a big push by Esri to get into the various verticals. This makes sense as is it would quickly spread them too thin. Business partners who made a living building generic add-on tools to plug gaps in ArcGIS probably have a limited time left. Business partners who really understand something like climate modeling, solar panel placement optimization, wildlife migration patterns, oil and gas exploration or a host of other vertical disciplines and understand how to apply GIS to them and build tools on top of the ArcGIS platform to support them will probably have nothing to worry about.</p>
+
+<p>The same goes for analysts. Current GIS analysts with deep experience will continue to be in demand. If, however, you are currently in college with the idea of being a "GIS Analyst", I strongly advise you to switch to another discipline and work toward becoming an analyst within that discipline who happens to know how use GIS as a tool.</p>
+
+<p>What about developers? Between all of the platforms on which ArcGIS is running and all of the tools needed in the various vertical domains, I think things will be wide open for quite some time. And, as the demos yesterday showed, there's a lot of value in being the person who can write the code that turns imagery preparation into a drag-and-drop process.</p>
+
+<p>What I saw yesterday was that Esri understands the value of the infrastructure they have put in place and that they also possess a mature, holistic understanding of their user base and are now happy to step on the gas pedal.</p>
+]]></content>
+  </entry>
+  
+</feed>

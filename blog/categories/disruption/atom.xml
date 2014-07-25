@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: disruption | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/disruption/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-07-24T09:31:24-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[GeoJSON on GitHub: Now What?]]></title>
+    <link href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/"/>
+    <updated>2013-06-18T16:04:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what</id>
+    <content type="html"><![CDATA[<p>So <a href="http://github.com">GitHub</a> <a href="https://github.com/blog/1528-there-s-a-map-for-that">announced</a> that you can now automatically view any <a href="http://geojson.org">GeoJSON</a> files that may be in a repository inside an interactive map driven by <a href="http://www.mapbox.com/">MapBox</a> technology. This simple enhancement to GitHub is probably one of the most significant developments in the geospatial industry in years. I'll explain a little later in this post. It's also important to view this new capability as a great, but limited, first step. I'll discuss that a little later as well.</p>
+
+<p>While it's cool to click on a link and just see a map, it doesn't take long to wonder about how you can use this capability beyond viewing data in GitHub. What follows are three ways to capitalize on GeoJSON in GitHub. Not all are directly related to the new mapping capability, and two have been possible for a long time. That said, the GitHub announcement may draw interest from users who have not previously considered either GitHub or GeoJSON, so I hope these approaches will be useful.</p>
+
+<h3>Embed the GitHub map.</h3>
+
+<p><del>If you click on a GeoJSON file and view the new map in GitHub, a quick view of the page source will show that this map is embedded in an IFRAME object.</del> GitHub provides a <a href="https://help.github.com/articles/mapping-geojson-files-on-github#embedding-your-map-elsewhere">simple embedding method</a> to display the GitHub map in any page. (Thanks to <a href="https://github.com/benbalter">Ben Balter</a> for this update.) It's a great way to quickly publish a data set while also providing access to download the raw data.</p>
+
+<p style="text-align:center;"><script src="https://embed.github.com/view/geojson/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson"></script></p>
+
+<!--more-->
+
+
+<h3>Stream the data into your own web map.</h3>
+
+<p>This is not a new capability; if you've had GeoJSON in a repo, you've always been able to do this. That said, if you're checking out GitHub or GeoJSON for the first time as a result of the new mapping capability, this is something you may want to try. I have had a page up for a while showing the <a href="http://blog.geomusings.com/assets/demos/mdq6/">county-by-bounty breakdown of Maryland's marriage equality question from the 2012 election</a> that uses this approach to load the data into a <a href="http://leafletjs.com/">Leaflet</a> map from GitHub and style it. (Incidentally, the tiles in the map are also hosted on GitHub.)</p>
+
+<h3>Stream the data into your desktop.</h3>
+
+<p>A third option is to stream the GeoJSON data directly into desktop GIS software such as QGIS for further analysis. In QGIS, simply need to add a vector, specifying "Protocol" and entering the URL to your GitHub-hosted GeoJSON file. Make sure you use the "raw" URL that looks something like this: https://raw.github.com/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson .</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/add_geojson_layer.png" /></p>
+
+<p>After a few seconds (or more depending on the file size), it should load into QGIS like this:</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/qgis_github_geojson.png" /></p>
+
+<p>Additionally, the <a href="https://github.com/RBURHUM/arcgis-ogr/">GDAL/OGR plug-in for ArcGIS</a> by <a href="http://www.amigocloud.com/homepage/index.html">AmigoCloud</a> provides a way to get GeoJSON into ArcMap, though you may need to download the data first.</p>
+
+<p>UPDATE: Dane Springmeyer pointed out that TileMill supports remote URLs as well.</p>
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/geomusingsblog">@geomusingsblog</a> <a href="https://twitter.com/billdollins">@billdollins</a> - very cool, had no idea QGIS supported remote urls. TileMill does also: <a href="http://t.co/o3wxv2VkEv">http://t.co/o3wxv2VkEv</a></p>&mdash; Dane Springmeyer (@springmeyer) <a href="https://twitter.com/springmeyer/statuses/347483526171594753">June 19, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>Those are three (or so) quick ways to capitalize on GeoJSON data in GitHub now. So what next?</p>
+
+<p>I stated earlier that I think the GitHub announcement was one of the most significant developments in years. I think it is best explained by <a href="http://feomike.github.io/post/thoughts-on-disruption.html">feoMike in his recent post</a>. As he points out, GitHub has made it easy to communicate spatial information in a way that is fully consistent with the web. Now that simple mapping is available to a large community of developers, it will be interesting to see where they take it. feoMike offered up a few early examples in his post. It's worth a read.</p>
+
+<p>The GitHub move is great for GeoJSON as a format. I've said in the past that the search for the next shapefile ends with GeoJSON. If the web is this generation's dominant computing platform (it is), then GeoJSON provides a simple, elegant solution for geographic data transport in a manner that the shapefile did for the desktop. Support by GitHub is one more example of the community voting with its code as to what it prefers.</p>
+
+<p>I also said it was a great first step, but limited. The mapping capability is understandably basic, though the documentation shows how you can customize styling somewhat. There is also a point at which the data seems to become too big to render (in either the map or in raw form). Bill Morris has identified this limit to be in the ballpark of 4.5MB, which can be easy to hit with GeoJSON.</p>
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/byrne_tweets">@byrne_tweets</a> <a href="https://twitter.com/BenBalter">@BenBalter</a> <a href="https://twitter.com/ericg">@ericg</a> <a href="https://twitter.com/ajturner">@ajturner</a> +1 for a solid number on max renderable filesize. 4.5MB is pushing it: <a href="https://t.co/cNTbA5Djqw">https://t.co/cNTbA5Djqw</a></p>&mdash; Bill Morris (@vtcraghead) <a href="https://twitter.com/vtcraghead/statuses/346825523521019904">June 18, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>So this means that enterprises won't be dumping terabytes of vectors to GeoJSON and loading them into GitHub. That's a good thing in my book. It is, however, an acceptable solution for small data sets and quick turn-around data sharing. As with all things, you have to go in with the right set of expectations.</p>
+
+<p>The thing I'm probably least worried about is how this affects <a href="http://www.esri.com">Esri</a>. Without any specific inside knowledge of Esri's plans, I suspect some form of official support for GeoJSON isn't far off. There are too many people inside Esri who get GeoJSON for it not to happen. If anything, the GitHub announcement may provide a bit of a push by providing a potentially rich source of data sets to consume. The real question is what form the support will take. In any event, Esri provides enough APIs to enable us to develop our own support for GeoJSON if we need it.</p>
+
+<p>The addition of GeoJSON mapping to GitHub is a very small change in the scheme of that platform, but such small changes can sometimes lead to big shifts. It has been possible for a long time to use GitHub to host geospatial data for applications. The main benefit of this latest change, in my opinion, is its potential to get people thinking about the platform in a different way. With such a visible (and visual) change on a platform targeted at developers, I hope that it will motivate that community to begin experimenting with how far it can be pushed. If a hosted platform with an already-baked-in workflow for change management and version control begins to be viewed as a viable home for spatial data, it has the potential to change how the geospatial community thinks about how it does business.</p>
+]]></content>
+  </entry>
+  
+</feed>

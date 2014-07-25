@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Speaking of the 84%... - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="HT to Sophia Parafina for the 84%. UPDATE: The NSIS script at utility batch file discussed here is now on github at https://github.com/geobabbler/ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Octopress 2.0" />
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2012/02/08/speaking-of-the-84/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/samples">Samples</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Speaking of the 84%...</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-08T00:00:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>HT to <a href="http://sproke.blogspot.com/2012/02/game-changer-open-source-mapping-in.html">Sophia Parafina for the 84%</a>.</p>
+
+<p><strong>UPDATE</strong>: The NSIS script at utility batch file discussed here is now on github at <a href="https://github.com/geobabbler/pgstandalone" target="_blank">https://github.com/geobabbler/pgstandalone</a>. I&#8217;ll post a readme in the next day or so.</p>
+
+<p>A few months ago, I asked the following question on Twitter and got this reply from Paul Ramsey:</p>
+
+<div class='embed tweet'><blockquote class="twitter-tweet" data-in-reply-to="136481537792294912"><p>@<a href="https://twitter.com/billdollins">billdollins</a> Possible yes, but might have to roll your own? You can get raw binaries in a zip file from download site&#8230;?</p>&mdash; Paul Ramsey (@pwramsey) <a href="https://twitter.com/pwramsey/status/136565522836897796" data-datetime="2011-11-15T22:05:32+00:00">November 15, 2011</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+
+<p>We are working with a Federal Government customer that had the interesting policy that users can install software as long as it makes no changes to the Windows registry. These users are currently running a mix of Windows 7 and XP. We are working with them to help manage one of their data models. In this case, it&#8217;s more about performing configuration management on the model/standard itself rather than physical databases with real data in them. It&#8217;s a topic we touched on over at the Zekiah blog <a href="http://www.zekiah.com/index.php?q=blog/2012/01/13/expanding-usefulness-geospatial-data-standards" target="_blank">here</a> and an approach we have used successfully for years to manage the <a href="http://www.sdsfie.org/" target="_blank">SDSFIE</a> data standard. <!--more--></p>
+
+<p>So we&#8217;ve applied the technique to another data standard for another Federal organization. In this case, we need to distribute tools to help data modelers work with the platform-independent logical model (PIM) on their own desktops. Typically, this has been centrally managed and accessible via an implementation in SQL Server. (Don&#8217;t get wrapped around the term &#8220;platform-independent.&#8221; We use it in a different context within this work.) Since we have to distribute to desktops, and SQL Server makes a slew of registry entries, and <a href="http://www.postgresql.org" target="_blank">PostgreSQL</a> has no licensing issues, we decided to go the PostgreSQL route.</p>
+
+<p>It turns out, this was pretty easy. After doing the work for our approach, I have subsequently found posts showing a similar approach (as always, it depends on the day and the search term), which was nice because they sort of validated what I had already done.</p>
+
+<p>Paul was on the right track with using the Windows binaries from the PostgreSQL site. Natively, PostgreSQL doesn&#8217;t need any registry entries, which makes sense given that it also runs on Linux and Unix. Registry entries are typically introduced by the one-click installers that do helpful things like setting PostgreSQL up as a service and a few other things that require registry entries on Windows. These are very useful things that I avail myself of when I use PostgreSQL on Windows. In this particular use case, those features were not helpful.</p>
+
+<p>One thing that you&#8217;ll notice when you use the one-click installer is that you&#8217;ll end up with a batch file called &#8220;pg_env.bat&#8221; in the install folder for your version. It looks something like this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="nv">@ECHO</span> <span class="n">OFF</span>
+</span><span class='line'><span class="n">REM</span> <span class="n">The</span> <span class="n">script</span> <span class="n">sets</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">helpful</span> <span class="k">for</span> <span class="n">PostgreSQL</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PATH</span><span class="p">=</span><span class="s2">&quot;C:\Program Files (x86)\PostgreSQL\8.4\bin&quot;</span><span class="err">;</span><span class="k">%</span><span class="n">PATH</span><span class="p">%</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATA</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PostgreSQL</span><span class="p">\</span><span class="n">8</span><span class="p">.</span><span class="n">4</span><span class="p">\</span><span class="n">data</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATABASE</span><span class="p">=</span><span class="n">postgres</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGUSER</span><span class="p">=</span><span class="n">postgres</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGPORT</span><span class="p">=</span><span class="n">5432</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGLOCALEDIR</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PostgreSQL</span><span class="p">\</span><span class="n">8</span><span class="p">.</span><span class="n">4</span><span class="p">\</span><span class="n">share</span><span class="p">\</span><span class="n">locale</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, I&#8217;m working with version 8.4 of PostgreSQL. That version is what has been blessed but I am also rolling up an implementation of this approach for 9.1 as we expect to get that approval soon.</p>
+
+<p>With this batch file and the unzipped binaries, we have everything we need to run PostgreSQL without running an installer that makes registry entries. Now all we need to do is tell each user to unzip the binaries, edit the batch file to point to the correct paths, open a command window and run the batch file&#8230;</p>
+
+<p>&#8230;Clearly, there was a little more work to do to make this operate smoothly.</p>
+
+<p>First, we wanted <a href="http://www.postgis.org/" target="_blank">PostGIS</a> in our build. As I mentioned before, the PIM represents a logical model that doesn&#8217;t store actual data, but we wanted it to know about PostGIS data types. Additionally, we wanted to distribute the PIM with PostgreSQL. In this case, we did a little bit of prep work using a standard install of PostgreSQL to add PostGIS (and its template database) and build/populate our PIM database.</p>
+
+<p>Once we had this done, we moved the data directory over to our &#8220;unzipped&#8221; instance of PostgreSQL. We tested by running our batch file from the command prompt and starting PosgreSQL the same way. In our case, we changed the listening port to 54325. We then attempted to connect via pgAdmin3 and had success:</p>
+
+<div style="text-align: center;"><img alt="" class="size-full wp-image-2471" height="274" src="http://geobabble.files.wordpress.com/2012/02/pgpost1.png" title="pgpost1" width="235" /><div style="text-align: center; font-size: 14px">Connection successful!<br /></div></div>
+
+
+<p>This is all well and good, but probably still a bit much to ask a user to do. So we built an installer. In this case, we used the <a href="http://nsis.sourceforge.net/Main_Page" target="_blank">Nullsoft Scriptable Install System</a> (NSIS) to build our own installer and ensure that no registry entries were made. So once we had our instance/data prepped the way we wanted it, we zipped it all back up for inclusion in the installer. The NSIS script for the installer is at the end of this post.</p>
+
+<p>For the installer to work, we also made use of the <a href="http://nsis.sourceforge.net/ZipDLL_plug-in">ZipDLL plug-in</a> for NSIS. The installer essentially prompts the user to specify the install location then unzips the PostgreSQL binaries/data, builds the driver batch file and places shortcuts on the user&#8217;s desktop. It&#8217;s really that simple. We have a utility (also a batch file) that builds the driver batch file as the installer runs. When it&#8217;s done, the installer cleans up the zip file and the utility. The resulting driver batch file looks like this (where the user specified &#8220;C:\Program Files (x86)\PGStandalone11&#8221; as the install location):</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">REM</span> <span class="n">This</span> <span class="n">file</span> <span class="n">was</span> <span class="n">automatically</span> <span class="n">generated</span>
+</span><span class='line'><span class="n">REM</span> <span class="n">This</span> <span class="n">script</span> <span class="n">sets</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">helpful</span> <span class="k">for</span> <span class="n">PostgreSQL</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PATH</span><span class="p">=</span><span class="s2">&quot;C:\Program Files (x86)\PGStandalone11\bin&quot;</span><span class="err">;</span><span class="k">%</span><span class="n">PATH</span><span class="p">%</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATA</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PGStandalone11</span><span class="p">\</span><span class="n">data</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGDATABASE</span><span class="p">=</span><span class="n">postgres</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGUSER</span><span class="p">=</span><span class="n">postgres</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGPORT</span><span class="p">=</span><span class="n">54325</span>
+</span><span class='line'><span class="nv">@SET</span> <span class="n">PGLOCALEDIR</span><span class="p">=</span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)\</span><span class="n">PGStandalone11</span><span class="p">\</span><span class="n">share</span><span class="p">\</span><span class="n">locale</span>
+</span><span class='line'><span class="n">CALL</span> <span class="s2">&quot;C:\Program Files (x86)\PGStandalone11\bin\postgres.exe&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We also drop two shortcuts on the desktop:</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2475" height="161" src="http://geobabble.files.wordpress.com/2012/02/pgpost2.png" title="pgpost2" width="316" /></p>
+
+<p>The shortcut labeled &#8220;Start PostGIS PIM&#8221; executes the batch file above. The shortcut labeled &#8220;Manage PostGIS PIM&#8221; starts pgAdmin3. I am currently trying to get pgAdmin3 to read the connection information from its settings.ini file instead of looking to the registry. If the user adds the connection on their own, it will write information to the HKCU hive of the registry. This may end up being acceptable but I probably still won&#8217;t let it go until I solve this problem.</p>
+
+<p>Once we get this completely finalized, I&#8217;ll make the script and the utilities available. Another reason that I love PostgreSQL is that things like this seem to end up being easier than you would think. That&#8217;s a sign of a well-built piece of software, in my opinion.</p>
+
+<p>And here&#8217;s the installer&#8217;s NSIS script:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>!define CO_DIR &quot;Zekiah Technologies&quot;
+</span><span class='line'>!define NAME &quot;Standalone PostgreSQL/PostGIS Install for Windows&quot;
+</span><span class='line'>!define SHORTNAME &quot;PGStandalone&quot;
+</span><span class='line'>!define UNINSTALLER &quot;uninstall.exe&quot;
+</span><span class='line'>
+</span><span class='line'>OutFile &quot;setup_${SHORTNAME}.exe&quot;
+</span><span class='line'>Name &quot;${NAME}&quot;
+</span><span class='line'>Caption &quot;${NAME} Setup&quot;
+</span><span class='line'>InstallDir &quot;$PROGRAMFILES\${SHORTNAME}&quot;
+</span><span class='line'>CompletedText &quot;Success.&quot;
+</span><span class='line'>XPStyle &quot;On&quot;
+</span><span class='line'>InstallColors /windows
+</span><span class='line'>
+</span><span class='line'>Page directory
+</span><span class='line'>Page instfiles
+</span><span class='line'>ShowInstDetails show
+</span><span class='line'>
+</span><span class='line'>Section &quot;Install&quot;
+</span><span class='line'>    SetOutPath $INSTDIR
+</span><span class='line'>
+</span><span class='line'>    ; Create uninstaller first, so user can clean up if we barf.
+</span><span class='line'>    WriteUninstaller &quot;$INSTDIR\${UNINSTALLER}&quot; ;this actually does nothing right now
+</span><span class='line'>
+</span><span class='line'>    ; Extract all the files.
+</span><span class='line'>    DetailPrint &quot;Extracting files...&quot;
+</span><span class='line'>  File pg.zip
+</span><span class='line'>  ZipDLL::extractall &quot;$INSTDIR\pg.zip&quot; &quot;$INSTDIR&quot;
+</span><span class='line'>  
+</span><span class='line'>  ;Write batch file using INSTDIR to set correct paths
+</span><span class='line'>    Call WriteBatchFile
+</span><span class='line'>    DetailPrint &quot;OK: Batch file written&quot;
+</span><span class='line'>
+</span><span class='line'>    Call OutputToTemp
+</span><span class='line'>    GetFullPathName /short $0 $INSTDIR
+</span><span class='line'>  Delete &quot;$INSTDIR\pg.zip&quot;
+</span><span class='line'>
+</span><span class='line'>    ; Add start menu shortcuts.
+</span><span class='line'>    DetailPrint &quot;Adding shortcuts...&quot;
+</span><span class='line'>    SetShellVarContext all
+</span><span class='line'>    CreateDirectory &quot;$SMPROGRAMS\${NAME}&quot;
+</span><span class='line'>    SetOutPath &quot;$SMPROGRAMS\${NAME}&quot;
+</span><span class='line'>    CreateShortCut &quot;Uninstall.lnk&quot; &quot;$INSTDIR\${UNINSTALLER}&quot;
+</span><span class='line'>  CreateShortCut &quot;$DESKTOP\Start PostGIS PIM.lnk&quot; &quot;$INSTDIR\pg_standalone.bat&quot; &quot;&quot;
+</span><span class='line'>  CreateShortCut &quot;$DESKTOP\Manage PostGIS PIM.lnk&quot; &quot;$INSTDIR\bin\pgAdmin3.exe&quot; &quot;&quot;
+</span><span class='line'>
+</span><span class='line'>    ; Success.
+</span><span class='line'>    DetailPrint &quot;All Done!&quot;
+</span><span class='line'>SectionEnd
+</span><span class='line'>
+</span><span class='line'>Function OutputToTemp
+</span><span class='line'>    ExpandEnvStrings $5 &quot;%TEMP%&quot;
+</span><span class='line'>    SetOutPath $5
+</span><span class='line'>FunctionEnd
+</span><span class='line'>
+</span><span class='line'>Function un.OutputToTemp
+</span><span class='line'>    ExpandEnvStrings $5 &quot;%TEMP%&quot;
+</span><span class='line'>    SetOutPath $5
+</span><span class='line'>FunctionEnd
+</span><span class='line'>
+</span><span class='line'>Function WriteBatchFile
+</span><span class='line'>    ; execute utility to create batch file to execute PostgreSQL
+</span><span class='line'>
+</span><span class='line'>    Call OutputToTemp
+</span><span class='line'>    File &quot;utils\make_pg_env.bat&quot;
+</span><span class='line'>    ExecWait &#39;&quot;$5\make_pg_env.bat&quot; &quot;$INSTDIR&quot;&#39;
+</span><span class='line'>FunctionEnd
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>UninstPage uninstConfirm
+</span><span class='line'>UninstPage instfiles
+</span><span class='line'>ShowUninstDetails hide
+</span><span class='line'>
+</span><span class='line'>Section &quot;Uninstall&quot;
+</span><span class='line'>    ; Remove all start menu shortcuts.
+</span><span class='line'>    DetailPrint &quot;Removing shortcuts...&quot;
+</span><span class='line'>    SetShellVarContext all
+</span><span class='line'>    Delete &quot;$SMPROGRAMS\${NAME}\*&quot;
+</span><span class='line'>    RmDir &quot;$SMPROGRAMS\${NAME}&quot;
+</span><span class='line'>
+</span><span class='line'>    DetailPrint &quot;Removing files...&quot;
+</span><span class='line'>
+</span><span class='line'>    Delete &quot;$INSTDIR\${UNINSTALLER}&quot;
+</span><span class='line'>    RmDir &quot;$INSTDIR&quot;
+</span><span class='line'>SectionEnd
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-08T00:00:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/nsis/'>NSIS</a>, <a class='category' href='/blog/categories/pim/'>PIM</a>, <a class='category' href='/blog/categories/windows/'>Windows</a>, <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/open-source/'>open source</a>, <a class='category' href='/blog/categories/postgis/'>postgis</a>, <a class='category' href='/blog/categories/postgresql/'>postgresql</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2012/02/08/speaking-of-the-84/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2012/02/08/speaking-of-the-84/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2012/02/03/dcmdva-area-geo-event-scene-getting-more-active/" title="Previous Post: DC/MD/VA Area Geo-Event Scene Getting More Active">&laquo; DC/MD/VA Area Geo-Event Scene Getting More Active</a>
+      
+      
+        <a class="basic-alignment right" href="/2012/02/21/esri-fed-conference/" title="Next Post: Esri Fed Conference">Esri Fed Conference &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2600437314795269";
+/* geoMusings - GIS */
+google_ad_slot = "1381808721";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</section>
+<section>
+
+<a href="http://twitter.com/billdollins"><img src="/images/twitter.png" width="32" height="32" alt="View my Twitter profile"></a>&nbsp;
+
+
+<a href="http://www.linkedin.com/in/billdollins"><img src="/images/linkedin.png" width="32" height="32" alt="View LinkedIn profile of Bill Dollins"></a>&nbsp;
+
+
+<a href="https://plus.google.com/103048542132426664956?rel=author"><img src="/images/gplus.png" width="32" height="32"></a>&nbsp;
+
+
+<a href="http://www.facebook.com/pages/GeoMusings/304146182966988"><img src="/images/fb.png" width="32" height="32" alt="Follow my Facebook page"></a>&nbsp;
+
+
+<a href="https://github.com/geobabbler"><img src="/images/github32.png" width="32" height="32" alt="View my profile on GitHub"></a>&nbsp;
+
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/07/24/lock-in/">Lock-In</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/07/16/the-esri-uc-so-far/">The Esri UC So Far #EsriUC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/07/09/gearing-up-for-the-esri-uc/">Gearing Up For the Esri UC</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 3, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+<section>
+  <h1>Disclaimer</h1>
+  <p>The information in this weblog is provided "AS IS" with no warranties, and confers no rights.
+  <br/> <br/>
+  This weblog does not represent the thoughts, intentions, plans or strategies of my employer. It is solely my opinion and probably incorrect.
+  </p>
+</section>
+<section>
+<img src="/images/geomusings.png" width="64" height="64" alt="View my Twitter profile">
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  - <span class="credit">Theme by <a href="http://www.gehaxelt.in">Gehaxelt</a></span>
+  <span class="credit">and <a href="http://www.it-solutions-neef.de">IT Solutions Neef</a></span>
+  <!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="free web stats"
+href="http://statcounter.com/free-web-stats/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="free web stats"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37240509-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- End of Google Analytics -->
+<!-- MapStats -->
+<script
+type="text/javascript"
+src="http://54.214.24.130/api/visits/2"></script>
+<!-- End of MapStats -->
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.geomusings.com/2012/02/08/speaking-of-the-84/';
+        var disqus_url = 'http://blog.geomusings.com/2012/02/08/speaking-of-the-84/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mapping | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/mapping/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-07-24T09:31:24-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using Virtual Rasters to Generate Contours in QGIS]]></title>
+    <link href="http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis/"/>
+    <updated>2014-04-17T13:39:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis</id>
+    <content type="html"><![CDATA[<p>Every now and again, I am asked to make maps. It's not my strongest suit, but it sometimes comes with the territory. My latest task, as mentioned in my previous post, involves building support for <a href="https://www.mapbox.com/developers/mbtiles/">MBTiles</a> databases into a mobile situational awareness tool. This is done so that the devices can have a persistent local basemap in the field. The need arose to ensure that the basemaps were high contrast to assist with visibility in bright sunlight. Something like this:</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour0.png" /></p>
+
+<p>One of the requirements was to have topographic-map-like contours to indicate changes in elevation. Existing map services didn't provide what we needed so it was necessary to build a custom map, which meant generating contour lines. It had been years since I had last done that with Esri tools, but I didn't have any extension licenses available, so I turned to <a href="http://www.qgis.org/en/site/">QGIS</a> to get the job done this time.</p>
+
+<!--more-->
+
+
+<p>My area of interest was a portion of Virginia. Since I couldn't find any pre-generated contours for the state, I turned to elevation models. There are numerous places to get such data, but I <a href="http://geoserve.asp.radford.edu/dems/va_dems.htm">downloaded some DEMs from Radford University</a> since they are already carved up by county. They are perhaps a bit dated, but they sufficed for this particular testing round.</p>
+
+<p>It was easy to find <a href="http://boringnerdystuff.wordpress.com/2012/07/14/302/">guidance on how to generate contours in QGIS</a>. So I ran the process on a couple of adjacent counties and noticed that the edges didn't line up, which was not surprising. My first thought was that I would need to merge the DEMs but, luckily, I stumbled across the virtual raster tool in QGIS. This tool provides a nice UI for building a <a href="http://www.gdal.org/gdal_vrttut.html">GDAL virtual raster</a> from a series of separate rasters specified by the user. This can be a bit cumbersome to do manually and this GUI tool was a real time saver. It can be found in QGIS Dufour here:</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour1.png" /></p>
+
+<p>To make my life easier, I moved all of my DEMs into one folder so I could just point the tool at the folder. I filled in the name of the output file and took the defaults for everything else.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour2.png" /></p>
+
+<p>Notice that the dialog shows me the GDAL command that I am building with the UI. Advanced users can even edit it here. This is a really nice feature that can help you get comfortable with GDAL. I am not a GDAL expert, nor am I particularly adept with raster operations so I found this to be a huge help and I plan to use it more.</p>
+
+<p>The tool doesn't change any data; it merely writes a text file so it works very quickly. The resulting virtual raster was done in a few seconds.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour3.png" /></p>
+
+<p>With the data now "merged," I was able to continue with data generation. For my purposes, 10-meter contours were more than sufficient. I generated a shapefile, but any QGIS-supported format is valid as an output. It should be noted that the "Attribute name" choice is not checked by default. Check this if you want to attach the elevation value to each line. Also notice that QGIS is again giving us the relevant GDAL command as we build it. This is very powerful as it gives you the option to use QGIS to prototype GDAL operations and then script them outside of QGIS, if you desire.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour6.png" /></p>
+
+<p>This process took a little longer, thanks to Fauquier County, but still finished in about 90 seconds. The resulting contours were contiguous across counties, so my needs were met.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour8.png" /></p>
+
+<p>I'm now in the process of styling the map in <a href="https://www.mapbox.com/tilemill/">TileMill</a> so that I can generate the databases. It's good to occasionally take off my developer hat and put on that of a user. I've known for quite a while that QGIS stands toe-to-toe with any other desktop GIS software but this work got me to use some tools that I rarely ever touch. I was impressed with not only the speed, but also how smoothly the work flowed. My pedestrian laptop didn't engage in nearly the same level of huffing and puffing that it does when I have to use other software. That may be a hidden "win" in that users can extend the useful life of their hardware by using tools that don't tax it as much while producing the same results.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mapping GISPs Again With Leaflet.markercluster]]></title>
+    <link href="http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster/"/>
+    <updated>2012-08-31T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/08/31/mapping-gisps-again-with-leaflet-markercluster</id>
+    <content type="html"><![CDATA[<p>So I've been playing with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> a lot lately. It's become my lightweight mapping library of choice. There's a lot it doesn't do so I keep <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> and others in the rotation as well but Leaflet is direct and to the point so I use it when I can.</p>
+
+<div style="text-align:center;"><a href="http://blog.geomusings.com/assets/demos/clustermap/"><img alt="" class="size-full wp-image-2848" height="291" src="http://geobabble.files.wordpress.com/2012/08/gisp_cluster.png" title="Cluster Map of US GISPs" width="640" /></a><div style="text-align:center;font-size: 14px;">Click the image to go to the live demo<br/><br/></div></div>
+
+
+<p>A while back, I stumbled onto the <a href="https://github.com/danzel/Leaflet.markercluster" target="_blank">Leaflet.markercluster</a> project on GitHub, which adds a clustering layer type. I wanted to try it so I revisited my old <a href="http://blog.geomusings.com/2011/02/02/mapping-gisp-and-pmp-certifications-with-geocommons-and-the-esri-silverlight-api/" target="_blank">GISP heat map demo</a> (Silverlight) and decided to rework it. I was happy to finally get a chance to strip out the plug-in, anyway.  <!--more--></p>
+
+<p>This time around, I chose not to bother with the PMP data because it was kind of a pain to process the last time. I downloaded the GISP data from the <a href="http://www.gisci.org/secure/members/directory/results.asp" target="_blank">GISCI site</a> and once again ran it through <a href="http://www.geocommons.com" target="_blank">GeoCommons</a> to geocode it. This time, there were noticeable anomalies, such as positional accuracy problems (Richmond, VA was 25 miles east of where it should have been) and surprising omissions such as a failure to match major cities like Jacksonville, Florida and Phoenix, Arizona. I corrected some of the more egregious problems by hand and dumped the rest. Luckily none of this got in the way of the real goal of testing the clustering library but, if you visit the <a href="http://demo.zekiah.com/clustermap" target="_blank">live demo</a>, any anomalies you may notice are most likely related to the data and not the library.</p>
+
+<p>Once geocoding was complete, I downloaded the CSV and processed it into the JSON structure expected by the marker cluster library. The library is still fairly new, and I am fairly new to using it so I had some problems if I deviated from the sample format. As a result, I stuck to that format and resolved to investigate it more. After that, it was very easy to wire up into a light application, with the clusters thrown on top of some tiles from <a href="http://www.mapbox.com" target="_blank">MapBox</a>. (Thanks to <a href="http://www.geosprocket.com/" target="_blank">Bill Morris</a> for showing me that base map.)</p>
+
+<p>I think I prefer this representation to a heat map as it conveys more information at a glance. I'm happy to have this library in my toolbox now and am looking forward to seeing it evolve. I recommend checking it out.</p>
+]]></content>
+  </entry>
+  
+</feed>

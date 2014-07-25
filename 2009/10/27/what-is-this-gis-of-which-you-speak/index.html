@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>What Is This "GIS" Of Which You Speak? - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="Don Meltz has kicked off the most recent round of discussion about the nature/state of ?GIS? (I put that in quotes since I am the one who declared it &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Octopress 2.0" />
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2009/10/27/what-is-this-gis-of-which-you-speak/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/samples">Samples</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">What Is This "GIS" of Which You Speak?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-27T00:00:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://donmeltz.com/blog/index.php/2009/10/25/gis-is-dead-long-live-gis/">Don Meltz</a> has kicked off the most recent round of discussion about the nature/state of ?GIS? (I put that in quotes since I am the one who declared it a myth). <a href="http://blogs.weogeo.com/jamesfee/2009/10/27/spatial-isn%E2%80%99t-special/">James</a> and <a href="http://blog.fortiusone.com/2009/10/27/the-once-and-future-map-the-destiny-of-gis/">Sean</a> also weighed with their thoughts on the subject. Like it or not, they are right. The technology that has for years been labeled as ?GIS? and segmented (somewhat artificially) from the rest of the IT industry is, with increasing speed, being integrated into the tapestry of mainstream IT. This trend is not only something that I think is irreversible and good, it is something that I have been actively working toward for my entire career.<!--more--></p>
+
+<p>The nature of spatial technologies is changing and, in the very near future, it will no longer be sufficient to merely be proficient with such technologies. As a software developer and a consultant, I recognize that it is important to first have expertise in software development tools, patterns and practices in addition to proficiency with spatial tools. It is key to have an understanding of how to appropriately integrate spatial data and methods into a system or application. This may not always mean having a big, pretty map front-and-center in the UI (if you need one at all). Spatial tools have always been great for eye candy but their true power lies in the analytical capability and this capability can add value independent of visualization on a map.</p>
+
+<p>The trend of spatial tools and methods blending into mainstream IT can be seen in the advent of the &#8220;neo&#8221; approach where slippy maps and the like have grown from web technologies (as opposed to ?web maps? being crammed into pages via ?GIS servers?). They will extend to include more spatial capabilities as the technology advances. Who among us really thought 10 years ago that javascript would be able to handle the things currently being accomplished with jQuery, ExtJS and the like. The same type of evolution in capability will continue and can already be seen in things like GeoExt and the ESRI Javascript API. (The trend exists in other segments as well but I use javascript libraries as an illustration.) Additionally the integration of spatial data and methods at the RDBMS level demonstrates what we all know to be true: spatial data is just another data type and should be treated as such.</p>
+
+<p>I have never really considered &#8220;desktop GIS&#8221; to be anything more than applications that allow you to make maps and perform spatial analysis. They are part graphics package and part statistics package and part &#8220;geography package&#8221;. To be sure, correct implementation of spatial methods takes a lot of skill. Correct spatial analysis takes a lot of potentially specialized skill. There are multiple kinds of spatial data that have unique properties and techniques. But it is important here to separate the person from the tool, much like engineers use CAD as a tool but it doesn?t define who they are.</p>
+
+<p>I don&#8217;t think desktop tools will go away in the near future because some spatial operations are too complex or cumbersome to be done &#8220;on the fly&#8221; at runtime. There are too many cases where data simply needs to be pre-processed and the results used in an application or presented to a user.</p>
+
+<p>But make no mistake that current trends in databases, APIs, servers and &#8220;clouds&#8221; (forgive my use of shorthand) will continue to the point where the &#8220;GIS&#8221; components of such systems will be indistinguishable from the rest. Spatial data will be used or presented in an integrated fashion (HTML 5 perhaps?) and users will grow as accustomed it as they have to all of the various effects enabled by AJAX. In short, the current concept of a &#8220;geo-stack&#8221; will simply give way to a stack that has spatial logic in there if you need it. That&#8217;s as it should be.</p>
+
+<p>So, in my opinion, it&#8217;s the technology that&#8217;s evolving, blending into the background and disappearing. This will have the natural effect of meaning that less &#8220;GIS Analysts&#8221; will be needed over time but that will happen mostly in areas where the need for them was rather light and necessitated only by artificial boundaries between spatial tools and the rest of the IT environment. Advancements in technology may automate some more advanced applications as well (witness what&#8217;s happening with feature extraction, for instance).</p>
+
+<p>Ultimately, the point made in other places holds true that proficiency with spatial analysis married with some specific domain knowledge will be key. Proficiency with spatial tools alone will not be compelling skill set. As for the tools themselves, it&#8217;ll be like they were never there.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-27T00:00:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gis/'>gis</a>, <a class='category' href='/blog/categories/soapbox/'>soapbox</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2009/10/27/what-is-this-gis-of-which-you-speak/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2009/10/27/what-is-this-gis-of-which-you-speak/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/10/06/twitter-shows-blitz/" title="Previous Post: Twitter Shows Blitz">&laquo; Twitter Shows Blitz</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/11/12/gvsig-1.9-released/" title="Next Post: gvSIG 1.9 Released">gvSIG 1.9 Released &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2600437314795269";
+/* geoMusings - GIS */
+google_ad_slot = "1381808721";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</section>
+<section>
+
+<a href="http://twitter.com/billdollins"><img src="/images/twitter.png" width="32" height="32" alt="View my Twitter profile"></a>&nbsp;
+
+
+<a href="http://www.linkedin.com/in/billdollins"><img src="/images/linkedin.png" width="32" height="32" alt="View LinkedIn profile of Bill Dollins"></a>&nbsp;
+
+
+<a href="https://plus.google.com/103048542132426664956?rel=author"><img src="/images/gplus.png" width="32" height="32"></a>&nbsp;
+
+
+<a href="http://www.facebook.com/pages/GeoMusings/304146182966988"><img src="/images/fb.png" width="32" height="32" alt="Follow my Facebook page"></a>&nbsp;
+
+
+<a href="https://github.com/geobabbler"><img src="/images/github32.png" width="32" height="32" alt="View my profile on GitHub"></a>&nbsp;
+
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/07/24/lock-in/">Lock-In</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/07/16/the-esri-uc-so-far/">The Esri UC So Far #EsriUC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/07/09/gearing-up-for-the-esri-uc/">Gearing Up For the Esri UC</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 3, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+<section>
+  <h1>Disclaimer</h1>
+  <p>The information in this weblog is provided "AS IS" with no warranties, and confers no rights.
+  <br/> <br/>
+  This weblog does not represent the thoughts, intentions, plans or strategies of my employer. It is solely my opinion and probably incorrect.
+  </p>
+</section>
+<section>
+<img src="/images/geomusings.png" width="64" height="64" alt="View my Twitter profile">
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Bill Dollins -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  - <span class="credit">Theme by <a href="http://www.gehaxelt.in">Gehaxelt</a></span>
+  <span class="credit">and <a href="http://www.it-solutions-neef.de">IT Solutions Neef</a></span>
+  <!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2901378; 
+var sc_invisible=1; 
+var sc_security="be706774"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="free web stats"
+href="http://statcounter.com/free-web-stats/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/2901378/0/be706774/1/"
+alt="free web stats"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37240509-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- End of Google Analytics -->
+<!-- MapStats -->
+<script
+type="text/javascript"
+src="http://54.214.24.130/api/visits/2"></script>
+<!-- End of MapStats -->
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.geomusings.com/2009/10/27/what-is-this-gis-of-which-you-speak/';
+        var disqus_url = 'http://blog.geomusings.com/2009/10/27/what-is-this-gis-of-which-you-speak/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
