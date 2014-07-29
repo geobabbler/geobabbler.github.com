@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-07-25T13:52:20-04:00</updated>
+  <updated>2014-07-29T09:44:38-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Slow Food]]></title>
+    <link href="http://blog.geomusings.com/2014/07/29/slow-food/"/>
+    <updated>2014-07-29T09:21:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/07/29/slow-food</id>
+    <content type="html"><![CDATA[<p>In 1985, I was a junior in high school and I got my first job at a local chain steakhouse. I ended up staying there for a few years and did everything, including management. This particular location happened to be the busiest store in the chain, which had a couple hundred locations at the time. Basically, we just unlocked the doors and people came in. We often had a line and managers from all over the country came to see how we did business.</p>
+
+<p style="text-align:center;"> <img src="http://s3-media3.fl.yelpcdn.com/bphoto/NhIU66uSYbsi9LPzBpSgwA/l.jpg" /></p>
+
+<p>Eventually, I transferred to another store that happened to be much slower. I expected this to be a something of a cakewalk compared to the store I had just left. Sometime during my first day, the long-time manager made a point to remind me to close the back dining room after lunch and turn the lights out. The dark room looked uninviting to me so I asked if we could leave the lights on. He replied that doing so would raise the electric bill and affect the store's profits. Over the next few weeks, I learned so many new techniques for managing food inventory, staffing levels, and equipment that I realized my initial impression was wrong. So I told the manager this. He was not surprised.</p>
+
+<p>He said to me: "It takes more skill to run a slow store than a busy one."</p>
+
+<!--more-->
+
+
+<p>He was absolutely right. At the first location, we would simply order enough food to fill the walk-ins and did enough prep every day to fill the racks. We quickly ramped our staffing up to max levels every day and just waited for the customers to roll in. There was a myriad of issues we simply never had to worry about because sales volume masked them.</p>
+
+<p>It's been many years since I've had to work in a restaurant but I have found this observation applicable throughout my career, during which I have worked primarily in the defense industry, designing and building various forms of geospatial tools and systems. Two weeks ago, I attended the Esri International User Conference. The Esri UC is full of opportunities to see more of these types of applications, from the Defense Showcase to the National Security Summit to many defense/intel/homeland security related paper sessions.</p>
+
+<p>I attended almost none of them.</p>
+
+<p>Over the past few years, I have developed the habit of attending sessions related to local governments, non-profits and other small organizations. These organizations tend to have budgets that are essentially rounding error in the defense world and I have become much more intrigued by the solutions they build to meet their missions with so few resources.</p>
+
+<p>Of course, I was at an Esri conference, so everyone I saw was an Esri user. It's no secret that Esri tools tend to be expensive and every dollar counts for small governments, so I am intrigued how these organizations arrive at the choice of Esri tools in light of so many other capable options. Too often, there is a misconception that these small governments simply choose Esri-based solutions out of a lack of understanding of alternatives. What I have discovered is, like the manager of the slow restaurant, some of the best business understanding and most cogent and well-reasoned justifications come from these small users.</p>
+
+<p>They seem to take a much more holistic approach to evaluating their solutions; including the availability of support from the technology provider as well as the existence of a robust third-party community that enables them to effectively compete for value-added services, customizations, and consulting. What I found interesting has been the most consistent attraction of local governments and small organizations to Esri-based solutions: the seamless integration of the entire ArcGIS platform. From mobile to desktop to web, they find that Esri tools make it easier to move through the product lifecycle. This exposes a very business-centric way of thinking that is larger than any individual technology or its licensing cost.</p>
+
+<p>As I indicated above, an Esri conference places a huge filter on the users whom you meet. As I attend less vendor-centric events in the months ahead, I'd like to continue this line of inquiry. While landing the giant white whales of large Federal agencies might be more satisfying for the short-term bottom line, it is important to remember that all levels of government are facing downward budget pressure. Learning the thought processes of organizations that have always had to tightly manage limited resources may be more valuable in the long run.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lock-In]]></title>
@@ -107,42 +139,6 @@
 <p>It reminds me a lot of the experience I had a few years ago working with the GeoIQ tool set. That tool set resonated with me for the same reasons that the MapBox tool set does now; I feel like the authors of the tools think about problems and approach them in a manner similar to the way I do. As a result, I find the tools comfortable and not something I feel like I am fighting with. I'm not certain that this psychological aspect of software is given much attention but software is really a representation of the author's approach to problem-solving. For me, developing proficiency with a piece of software is establishing a connection with its author in a manner similar to that which is established with the author of a good book. It's one of the reasons I consider releasing open-source code to be such a brave thing.</p>
 
 <p>It's my hope that I'll find ways to keep working with the MapBox tool set more, but such considerations are always driven by project availability and customer demand. In the meantime, there's a move to complete, a new house to settle into, and a summer to enjoy.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Personal Geospatial Workflows, May 2014 Edition]]></title>
-    <link href="http://blog.geomusings.com/2014/05/20/personal-geospatial-workflows/"/>
-    <updated>2014-05-20T08:21:00-04:00</updated>
-    <id>http://blog.geomusings.com/2014/05/20/personal-geospatial-workflows</id>
-    <content type="html"><![CDATA[<p>I have been spending the past few weeks dealing more with data and mapping than I have in quite a while. It's given me a chance to regain my footing with map-making, reconnect with some end-user tools like <a href="http://www.arc2earth.com">Arc2Earth</a>, and build a little more proficiency with things like <a href="http://www.gdal.org/">GDAL</a>, <a href="http://qgis.org">QGIS</a>, and <a href="https://www.mapbox.com/tilemill/">TileMill</a>. Of course, I've been able to sneak in some coding as I've identified gaps in my workflow.</p>
-
-<p>In a nutshell, I am building base maps for use on disconnected mobile devices. There are two styles of base maps; imagery (really more of an imagery/vector hybrid) and a high-contrast map for use on the outdoor devices and sourced only from vector data. In both cases, I am building MBTiles databases to support the requirement for disconnected operations and to provide consistency in data size and performance.</p>
-
-<p>For the imagery base maps, I was faced with following a data request process that may or may not have resulted in getting imagery in a timely fashion. Alternatively, I was presented with the option of using a tiled map service to get the imagery. Given that I was just making basemaps, this would have been acceptable but for the spotty speed and reliability of the network connection. The ideal solution would be to get only the tiles I need, store them locally, create a geo-referenced image from them, and build a virtual raster table (VRT) for each level.</p>
-
-<!--more-->
-
-
-<p>Downloading the tiles was easy, but for the VRT to work, each tile needed to be geo-referenced. It was fairly easy to modify the venerable <a href="http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/globalmaptiles.py">globalmaptiles.py</a> to include a routine to create world file parameters for a specified tile. With this, I was able to write out an affine transformation world file for each tile I downloaded. I rolled this whole process up into a <a href="https://github.com/geobabbler/tile-grab">Python script that's available here</a>. Please note that my goal was to create a VRT, so the script flattens out the tiling scheme so that all images are under the appropriate "Z" directory. (This particular server was an ArcGIS Server but the script doesn't care as long as you can provide a valide URL template.)</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bat'><span class='line'>python tile_grab.py -b <span class="m">-158</span>;<span class="m">21</span>;<span class="m">-157</span>;<span class="m">22</span> -d E:\tiles\oahu_img\a -i false -z <span class="m">6</span> -u http:<span class="n">//www.someserver.net/arcgis/rest/services/ImagerySvc/MapServer/tile/{z}/{y}/{x}.png</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>With the tiles downloaded and geo-referenced, it was easy to use the gdalbuildvrt utility to generate the VRT, which can be used in QGIS, TileMill, and ArcGIS Desktop as you prefer.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bat'><span class='line'>gdalbuildvrt <span class="m">6</span>.vrt <span class="m">6</span><span class="n">/*.png</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>It seems a little odd to use tiles to make tiles, but I needed to add some additional data and styling to make the maps do what I needed to do. The downloaded tiles were just a stand-in for what would have been a standard raster data source. The range of useful resolution for a set of tiles is pretty narrow so you'll probably need to grab a few levels and, even then, you'll need to be careful how you use them. In most cases, using local raster/imagery is better but using tiles was fine for my use case and helped mitigate a byzantine data acquisition process. Here's how I set the ranges in ArcGIS (left) and TileMill (right):</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/vrt_zoom2.png" /></p>
-
-<p>Using this approach, I was able to successfully generate my maps using either of two technology mixes. I succeeded in using both TileMill and ArcGIS/Arc2Earth to generate my maps. I ended up doing most of the work in Arc2Earth due to the availability of command-line tools that helped me optimize performance.</p>
-
-<p>Before attempting this method, it's important to make sure that you are not violating any terms of service, license agreements, or attribution requirements in doing so. I knew this wasn't an issue in my case, but such questions need to be answered before you start grabbing data.</p>
 ]]></content>
   </entry>
   
