@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ArcGIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcgis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-07-29T09:44:38-04:00</updated>
+  <updated>2014-07-30T16:20:18-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ArcWhat? I Just Want My Map.]]></title>
+    <link href="http://blog.geomusings.com/2014/07/30/arcwhat-i-just-want-my-map/"/>
+    <updated>2014-07-30T15:19:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/07/30/arcwhat-i-just-want-my-map</id>
+    <content type="html"><![CDATA[<h3>TL;DR:</h3>
+
+<p>What follows is probably my last post related to the Esri User Conference and is highly Esri-centric. Open-source readers may want to jump off here, or exercise a willing suspension of disbelief.</p>
+
+<hr />
+
+<p><a href="http://blog.geomusings.com/2014/07/16/the-esri-uc-so-far/">A couple of posts ago</a>, I did something that I generally try to avoid. I took <a href="http://www.esri.com">Esri</a> to task for its confusing product names without really offering any thoughts on how to make things better. I don't really like it when people do that to me so I'll try to correct that here. It bears noting that I was not the only person feeling this way at the UC. I was happy to see <a href="http://www.directionsmag.com/articles/making-sense-of-the-2014-esri-international-user-conference/410201">Adena's post over at Directions</a> touch on this and it also came up in a number of conversations I had while I was in San Diego.</p>
+
+<p>Here are some things that I think may help. They represent most of the stumbling blocks I typically encounter when doing consulting/integration with Esri-centric users, especially new ones.</p>
+
+<p style="text-align:center;"> <img src="http://upload.wikimedia.org/wikipedia/commons/9/93/Spaghetti.jpg" /> <br/>
+ <sub>"<a href="http://commons.wikimedia.org/wiki/File:Spaghetti.jpg#mediaviewer/File:Spaghetti.jpg">Spaghetti</a>". Licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0<p></p>">CC BY-SA 3.0</a> via <a href="http://blog.geomusings.com//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.<sub></p>
+
+<!--more-->
+
+
+<ol>
+<li><p>Retire the "Arc" prefix - It's confusing to have a relatively meaningless and seemingly random (to new users) prefix attached to everying. If you are moving to a platform concept, shouldn't that platform just bear your name? The company is Esri, the platform should be "Esri GIS" or something. Don't hide from your own product line. "Arc" is a verbal stumbling block. Try telling a user how to publish a map online and see how many times you say "Arc." Is it any wonder they get confused? It's like the old dog food commercial, except all they hear is "Blah blah Arc blah Arc blah blah Arc."</p></li>
+<li><p>Acknowledge four environments for the platform - Mobile, Desktop, Server, Online. Period. "Esri GIS Desktop" or "Esri GIS Server" for example. Clean up spurious products that just clutter the menu. The current Explorer? Esri GIS Mobile (resist the urge to tack on "for iOS"). The current Portal? Esri GIS Online (Online can offer a hosted or on-premise version). What's the distinction between Esri GIS Server and an on-premise instance of Esri GIS Online? I don't know. Those are your waters to unmuddy.</p></li>
+<li><p>One Desktop - Basic? Standard? Advanced? How about just Desktop? After 15 or so years of selling the three tiers, you should have enough data on the sales mix to set one normalized price for a fully-functional desktop product ane be done with it. I suspect that price would hover somewhere between the current prices of Basic and Standard, perhaps closer to Standard. Everybody pays one price, everybody gets the current Advanced product. If nothing else, that code base should have long since paid for itself. Then you'll be better positioned for the inevitable transition to Esri GIS Pro (which could really just be the next Esri GIS Desktop) that everyone sees coming. Need more? Buy extensions.</p></li>
+<li><p>Speaking of Extensions - You can have too much of a good thing. Roll some of them into core products (like Spatial Analyst). Doing so will assure users that a common set of tools will be available as they move between the environments (see item number 2). Furthermore, stop calling everything an "extension," which exacerbates the need for cumbersome qualifiers like "for Desktop" and "for Server." Choose a standard nomenclature for each environment and stick with it. Desktop can have "extensions" and server can have "adapters," for example. Then I know that a discussion about the Network Analyst Adapter is focused on Server.</p></li>
+<li><p>Stop changing product names - Take any of the suggestions above, or do something else entirely. But, whatever you do, leave it alone once you're done. At least for a couple of dot releases, anyway.</p></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Personal Geospatial Workflows, May 2014 Edition]]></title>
@@ -29,15 +61,15 @@
 
 <p>Downloading the tiles was easy, but for the VRT to work, each tile needed to be geo-referenced. It was fairly easy to modify the venerable <a href="http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/globalmaptiles.py">globalmaptiles.py</a> to include a routine to create world file parameters for a specified tile. With this, I was able to write out an affine transformation world file for each tile I downloaded. I rolled this whole process up into a <a href="https://github.com/geobabbler/tile-grab">Python script that's available here</a>. Please note that my goal was to create a VRT, so the script flattens out the tiling scheme so that all images are under the appropriate "Z" directory. (This particular server was an ArcGIS Server but the script doesn't care as long as you can provide a valide URL template.)</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bat'><span class='line'>python tile_grab.py -b <span class="m">-158</span>;<span class="m">21</span>;<span class="m">-157</span>;<span class="m">22</span> -d E:\tiles\oahu_img\a -i false -z <span class="m">6</span> -u http:<span class="n">//www.someserver.net/arcgis/rest/services/ImagerySvc/MapServer/tile/{z}/{y}/{x}.png</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bat %}
+python tile_grab.py -b -158;21;-157;22 -d E:\tiles\oahu_img\a -i false -z 6 -u http://www.someserver.net/arcgis/rest/services/ImagerySvc/MapServer/tile/{z}/{y}/{x}.png
+{% endcodeblock %}</p>
 
 <p>With the tiles downloaded and geo-referenced, it was easy to use the gdalbuildvrt utility to generate the VRT, which can be used in QGIS, TileMill, and ArcGIS Desktop as you prefer.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bat'><span class='line'>gdalbuildvrt <span class="m">6</span>.vrt <span class="m">6</span><span class="n">/*.png</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bat %}
+gdalbuildvrt 6.vrt 6/*.png
+{% endcodeblock %}</p>
 
 <p>It seems a little odd to use tiles to make tiles, but I needed to add some additional data and styling to make the maps do what I needed to do. The downloaded tiles were just a stand-in for what would have been a standard raster data source. The range of useful resolution for a set of tiles is pretty narrow so you'll probably need to grab a few levels and, even then, you'll need to be careful how you use them. In most cases, using local raster/imagery is better but using tiles was fine for my use case and helped mitigate a byzantine data acquisition process. Here's how I set the ranges in ArcGIS (left) and TileMill (right):</p>
 
@@ -56,7 +88,7 @@
     <id>http://blog.geomusings.com/2013/10/23/desktop-not-dead</id>
     <content type="html"><![CDATA[<p>In 2011, I gave a talk at the NCGIS conference about the continued dominance of the desktop in the world of GIS. In that talk, my main point was that, regardless of the ultimate destination of GIS data or maps (cloud, server, paper, PDF, etc.), most GIS data passes through a desktop GIS at some point. I don't have hard data to back up that claim but I think anyone who has worked in the industry for any length of time will agree that it feels right. If we loosely define "desktop GIS" to include not only GUI analytical tools like <a href="http://www.esri.com">ArcMap</a> or <a href="http://qgis.org">QGIS</a>, but also command-line tools such as <a href="http://www.gdal.org/">GDAL/OGR</a> and cartographic tools such as <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I think the statement is even more comfortable.</p>
 
-<p style="text-align:center;"><iframe width="560" height="420" src="http://www.youtube.com/embed/ljIQo1OHkTI?color=white&theme=light"></iframe></p>
+<p style="text-align:center;">{% youtube ljIQo1OHkTI %}</p>
 
 <p>Essentially, my claim was that desktop GIS is still the onramp for most of the data we interact with on the web. Over the past few years, geographically tagged live and temporally-sensitive data streams have increased in importance but I think most geospatial data still starts as traditional data sources (rasters, vectors, terrain, etc.) that pass through a desktop for analysis, processing, and styling before moving on to the web. Esri, for example, still features its desktop tools as prominent parts of its web publishing workflow and <a href="http://boundlessgeo.com/">Boundless</a> is working on a <a href="https://github.com/boundlessgeo/suite-qgis-plugin">similar path for QGIS</a>.</p>
 
@@ -85,8 +117,7 @@
 
 <p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/billdollins">@billdollins</a> <a href="https://twitter.com/FatherSandman">@FatherSandman</a> Score! Looks like we&#39;ve confirmed ArcGIS 10.2, QGIS 1.9.0, and SpatiaLite-GUI 1.7.1 are compatible.</p>&mdash; Bryan McBride (@brymcbride) <a href="https://twitter.com/brymcbride/statuses/365103999671738369">August 7, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/brymcbride/status/365103999671738369 %}</p>
 
 <p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
 
@@ -152,49 +183,9 @@
 
 <p>In a semi-related note, it looks like Marten Hogeweg of Esri is working on integrating GeoJSON support into Esri's portal server project, so users of that tool may want to hold on for that.</p>
 
-<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>So... looking at adding <a href="https://twitter.com/search?q=%23geojson&amp;src=hash">#geojson</a> to <a href="https://twitter.com/search?q=%23esri&amp;src=hash">#esri</a> <a href="https://twitter.com/search?q=%23opensource&amp;src=hash">#opensource</a> <a href="https://twitter.com/search?q=%23geoportal&amp;src=hash">#geoportal</a> server. What do I see... There&#39;s multiple flavors of it? <a href="https://twitter.com/search?q=%23whatsupwiththat&amp;src=hash">#whatsupwiththat</a></p>&mdash; Marten Hogeweg (@martenhogeweg) <a href="https://twitter.com/martenhogeweg/statuses/343190756271464448">June 8, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+<p>{% tweet http://twitter.com/martenhogeweg/status/343190756271464448 %}</p>
 
 <p>I'm looking forward to checking out Marten's work and am glad to see Esri taking greater notice of GeoJSON.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Checking out the GDAL/OGR Plugin for ArcGIS]]></title>
-    <link href="http://blog.geomusings.com/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis/"/>
-    <updated>2013-01-22T13:29:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis</id>
-    <content type="html"><![CDATA[<p>A while back, I <a href="http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis/">blogged</a> the availability of a <a href="http://www.gdal.org/">GDAL/OGR</a> <a href="https://github.com/RBURHUM/arcgis-ogr/">plug-in for ArcGIS</a> desktop by <a href="http://www.linkedin.com/profile/view?id=14926439&amp;locale=en_US">Ragi Burhum at AmigoCloud</a>. At the time, I was hoping to dig into it fairly quickly but that didn't happen and I'm finally getting to it. Anyone who has followed this blog for a while knows that I have had <a href="http://blog.geomusings.com/2006/12/17/postgis-and-arcgis-9.1/">more</a> than a <a href="http://blog.geomusings.com/2007/07/10/consuming-georss-in-arcmap-with-inmemoryworkspacefactory/">passing</a> <a href="http://blog.geomusings.com/2012/10/03/cutting-tiles-for-arcgis-server-using-tilemill/">interest</a> in <a href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">integrating</a> new <a href="http://blog.geomusings.com/2011/03/02/announcing-weogeo-tools-for-arcgis/">data</a> <a href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/">sources</a> <a href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/">with</a> <a href="http://blog.geomusings.com/2011/11/15/fgeojson/">ArcGIS</a> over the years. This comes from the fact that, as a technology geek, I am fascinated by all forms of technology and enjoy the process of integration and, as a consultant providing services to the Federal Government, most of my customers have standardized on Esri tools. Integrations such as GeoRSS, PostGIS, GeoCommons and GeoJSON have directly benefitted my customers for real-world applications so I continue look for ways to remove the barriers between them and the data they seek.</p>
-
-<div style="text-align:center;"><img src="http://images-mediawiki-sites.thefullwiki.org/07/3/6/0/1583563936968042.png" /></div>
-
-
-
-
-<!--more-->
-
-
-<p>The GDAL/OGR plug-in caught my attention because it purports to add support for any format supported by GDAL and OGR, similar to the way <a href="http://qgis.org">QGIS</a> leverages them for a wide variety of format support. To get going with it, I downloaded the source and built it in Visual Studio 2010. I only ran into a couple of minor issues. First, a had previously installed the Windows build of OGR on my machine using the <a href="http://www.gisinternals.com/sdk/PackageList.aspx?file=release-1600-gdal-1-9-2-mapserver-6-2-0.zip">distribution from GIS Internals</a>. The project as it came down from GitHub couldn't find the OGR and OSR bindings for C#, so I had to resolve that trivial issue. Next, the plug-in was built for use in ArcGIS 10.1 but I was using 10.0. Because some new interfaces were introduced, the <a href="https://github.com/RBURHUM/arcgis-ogr/blob/master/src/OGRPlugin/OGRPlugin/ogrplugin_utils.cs">current code</a> contains a declaration of  type ISpatialReferenceFactory4, which is a 10.1 interface. I needed to change that to ISpatialReferenceFactory3 to make it work with 10.0. That has been the only change I have needed to make so far to account for the version differences. I plan to add a compiler directive in my fork of the project to account for that and submit it back once I can test it.</p>
-
-<p>As I said before, I previously had installed GDAL/OGR so it was already on my machine and my GDAL_DATA environment variable was set. When I built the plug-in and attempted to use it in ArcMap, it threw an error when I tried adding a GeoJSON layer (also with SpatiaLite) that it could not find my gcs.csv file, which is in my GDAL_DATA location. With a little investigation, I found that the code was resetting that variable at runtime to point to the location of the plug-in binary. I copied the files there and it worked well from then on. I'll probably try to add a way to check for the existence of that variable before setting it. None of these issues were major and I think they were reasonable design choices up front so I am not concerned by them.</p>
-
-<p>At that point, I was able to quickly add GeoJSON and SpatiaLite layers to my data frame in ArcMap. This is pretty exciting to me since the ability to support a wide range of data types was a long-standing goal of zigGIS and I'm glad that Ragi has conquered that with this work.</p>
-
-<p>Because the layers are added using a plug-in workspace, they are full read-only citizens inside ArcGIS. For example, I was able to wire up a couple of models using ModelBuilder and execute clips (clipping a GeoJSON layer with a SpatiaLite layer) and buffers and simple tests. I'm really not a huge ModelBuilder user but I thought it would be a good way to test things out.</p>
-
-<div style="text-align:center;">
-<img src="http://blog.geomusings.com/images/posts/buffer.png" />
-<div style="text-align:center;font-size: 14px;">Model to test a simple buffer<br/><br/></div></div>
-
-
-<p>The model above produced a 50-foot buffer around Amtrak rail lines from NTAD 2012 in GeoJSON format. The resultant buffer was written to a file geodatabase. As you can see from the image below, it worked like a charm.</p>
-
-<div style="text-align:center;">
-<img src="http://blog.geomusings.com/images/posts/buffer_result_small.png" />
-<div style="text-align:center;font-size: 14px;">Results of the buffer model.<br/><br/></div></div>
-
-
-<p>I achieved similar success with a clip operation so I'm sufficiently confident in trying to package the plug-in up and put it in the hands of some of the analysts with whom I work. All-in-all, the plug-in is a nice piece of work. It's still not fully baked but it's a very solid start and deserves a closer look if you're looking to expand the reach of your ArcGIS investment.</p>
 ]]></content>
   </entry>
   

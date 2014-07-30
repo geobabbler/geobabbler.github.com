@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Hokie Nation has invited everyone to wear their school colors today as a show of solidarity. I will. You should, too. I work with a lot of VT grads. &hellip;">
+  <meta name="description" content="Well, it&#8217;s been a while since I&#8217;ve posted anything technical. Work has been a little crazy and I&#8217;m not willing to carve into time &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/04/24/moving-forward-on-a-couple-of-fronts/">Moving Forward on a Couple of Fronts</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-04-24T00:00:00-04:00" pubdate data-updated="true">Apr 24<span>th</span>, 2007</time>
+        
+         | <a href="/2007/04/24/moving-forward-on-a-couple-of-fronts/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Well, it&#8217;s been a while since I&#8217;ve posted anything technical. Work has been a little crazy and I&#8217;m not willing to carve into time with the family to keep other stuff moving. As a result a few things have been sitting for a while but I&#8217;ve been able to get around to two things.</p>
+
+<p>First, I&#8217;ve been playing with making a <a href="http://msdn2.microsoft.com/en-us/netframework/aa663324.aspx">WCF</a> web service that wraps spatial calls to <a href="http://postgis.refractions.net/">PostGIS</a>. The first thing I&#8217;m building is a call to do a coordinate transformation. Fairly simple stuff. This is actually my standard &#8220;getting my feet wet&#8221; task. I have written the same thing over the years in MapObjects, ArcObjects, ArcGIS Server, COM, Java, VB.NET, C#&#8230;you name it. Now, it&#8217;s my guinea pig for WCF.</p>
+
+<p>WCF changes the way web services are done in .NET. Given the larger focus on support SOA with .NET 3.0, the changes make sense. Overall, I think SOA in general will be easier in 3.0 but web services in particular are not as simple to implement as in 2.0. That&#8217;s an overall change for the better IMO but it takes some getting used to. I&#8217;ve pretty much got it working on the service side but my client code is still having trouble. Once I get it ironed out, I plan to post what I did and discuss some of the issues.</p>
+
+<p>Secondly, I&#8217;m picking back up with building ArcCatalog objects for <a href="http://code.google.com/p/ziggis">ZigGIS</a>. I&#8217;m trying to follow the model <a href="http://www.esri.com">ESRI</a> established with how to manage connections to ArcSDE in ArcCatalog. I&#8217;ve gotten far enough that I have a connection dialog that will write out a .zig file. The next step is to iterate the .zig files and list them as nodes in the ArcCatalog tree. More on that as I move along, also.</p>
+
+<p>So the purpose of this post is really more to stick my head out and say &#8220;I&#8217;m still here.&#8221; There, I&#8217;ve said it. More again soon&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -456,46 +502,6 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/02/16/ddj-article-on-mymap-javascript-api/">DDJ Article on MyMap Javascript API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-02-16T00:00:00-05:00" pubdate data-updated="true">Feb 16<span>th</span>, 2007</time>
-        
-         | <a href="/2007/02/16/ddj-article-on-mymap-javascript-api/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>An <a href="http://www.ddj.com/dept/webservices/197003355">article</a> in the latest Dr. Dobb&#8217;s caught my eye. It&#8217;s about MyMap; a javascript api that standardizes the calls between Google Maps, Yahoo Maps and Virtual Earth. I&#8217;m always drawn when mapping tools get press outside of the GIS world. MyMap is predicated on the idea that each mapping engine provides similar capabilities. There is a different .js file for each but the function calls are the same. Therefore, it makes it relatively easy to provide similar capabilities for your web app regardless of the back-end engine.</p>
-
-<p>I installed the <a href="ftp://66.77.27.238/sourcecode/ddj/2007/0703.zip">sample</a> from the DDJ resource center and it&#8217;s pretty straightforward. You may need to comment out the call to Google Maps because the API key won&#8217;t work for you. If you have your own, you can use that. Either way, the Yahoo and VE calls work fine and give good idea of how MyMap works. I&#8217;d recommend checking it out.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/35/">&larr; Older</a>
@@ -544,15 +550,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/07/30/arcwhat-i-just-want-my-map/">ArcWhat? I Just Want My Map.</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/07/29/slow-food/">Slow Food</a>
       </li>
     
       <li class="post">
         <a href="/2014/07/24/lock-in/">Lock-In</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/07/16/the-esri-uc-so-far/">The Esri UC So Far #EsriUC</a>
       </li>
     
   </ul>

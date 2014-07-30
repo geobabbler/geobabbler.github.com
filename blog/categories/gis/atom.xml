@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-07-29T09:44:38-04:00</updated>
+  <updated>2014-07-30T16:20:18-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ArcWhat? I Just Want My Map.]]></title>
+    <link href="http://blog.geomusings.com/2014/07/30/arcwhat-i-just-want-my-map/"/>
+    <updated>2014-07-30T15:19:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/07/30/arcwhat-i-just-want-my-map</id>
+    <content type="html"><![CDATA[<h3>TL;DR:</h3>
+
+<p>What follows is probably my last post related to the Esri User Conference and is highly Esri-centric. Open-source readers may want to jump off here, or exercise a willing suspension of disbelief.</p>
+
+<hr />
+
+<p><a href="http://blog.geomusings.com/2014/07/16/the-esri-uc-so-far/">A couple of posts ago</a>, I did something that I generally try to avoid. I took <a href="http://www.esri.com">Esri</a> to task for its confusing product names without really offering any thoughts on how to make things better. I don't really like it when people do that to me so I'll try to correct that here. It bears noting that I was not the only person feeling this way at the UC. I was happy to see <a href="http://www.directionsmag.com/articles/making-sense-of-the-2014-esri-international-user-conference/410201">Adena's post over at Directions</a> touch on this and it also came up in a number of conversations I had while I was in San Diego.</p>
+
+<p>Here are some things that I think may help. They represent most of the stumbling blocks I typically encounter when doing consulting/integration with Esri-centric users, especially new ones.</p>
+
+<p style="text-align:center;"> <img src="http://upload.wikimedia.org/wikipedia/commons/9/93/Spaghetti.jpg" /> <br/>
+ <sub>"<a href="http://commons.wikimedia.org/wiki/File:Spaghetti.jpg#mediaviewer/File:Spaghetti.jpg">Spaghetti</a>". Licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0<p></p>">CC BY-SA 3.0</a> via <a href="http://blog.geomusings.com//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.<sub></p>
+
+<!--more-->
+
+
+<ol>
+<li><p>Retire the "Arc" prefix - It's confusing to have a relatively meaningless and seemingly random (to new users) prefix attached to everying. If you are moving to a platform concept, shouldn't that platform just bear your name? The company is Esri, the platform should be "Esri GIS" or something. Don't hide from your own product line. "Arc" is a verbal stumbling block. Try telling a user how to publish a map online and see how many times you say "Arc." Is it any wonder they get confused? It's like the old dog food commercial, except all they hear is "Blah blah Arc blah Arc blah blah Arc."</p></li>
+<li><p>Acknowledge four environments for the platform - Mobile, Desktop, Server, Online. Period. "Esri GIS Desktop" or "Esri GIS Server" for example. Clean up spurious products that just clutter the menu. The current Explorer? Esri GIS Mobile (resist the urge to tack on "for iOS"). The current Portal? Esri GIS Online (Online can offer a hosted or on-premise version). What's the distinction between Esri GIS Server and an on-premise instance of Esri GIS Online? I don't know. Those are your waters to unmuddy.</p></li>
+<li><p>One Desktop - Basic? Standard? Advanced? How about just Desktop? After 15 or so years of selling the three tiers, you should have enough data on the sales mix to set one normalized price for a fully-functional desktop product ane be done with it. I suspect that price would hover somewhere between the current prices of Basic and Standard, perhaps closer to Standard. Everybody pays one price, everybody gets the current Advanced product. If nothing else, that code base should have long since paid for itself. Then you'll be better positioned for the inevitable transition to Esri GIS Pro (which could really just be the next Esri GIS Desktop) that everyone sees coming. Need more? Buy extensions.</p></li>
+<li><p>Speaking of Extensions - You can have too much of a good thing. Roll some of them into core products (like Spatial Analyst). Doing so will assure users that a common set of tools will be available as they move between the environments (see item number 2). Furthermore, stop calling everything an "extension," which exacerbates the need for cumbersome qualifiers like "for Desktop" and "for Server." Choose a standard nomenclature for each environment and stick with it. Desktop can have "extensions" and server can have "adapters," for example. Then I know that a discussion about the Network Analyst Adapter is focused on Server.</p></li>
+<li><p>Stop changing product names - Take any of the suggestions above, or do something else entirely. But, whatever you do, leave it alone once you're done. At least for a couple of dot releases, anyway.</p></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Slow Food]]></title>
@@ -117,28 +149,6 @@
 <p>Unlike previous years, I won't be manning a booth (we sold ours a few years ago) or directly representing a customer so I'll actually have the luxury to attend sessions and meet up with people. There are some people who, unfortunately, I really only see face-to-face at such large magnet events so I'm looking forward to catching up with them, as well as meeting new people. I will, however, be popping into the paper session of one of my co-workers. (It would be awesome if the online agenda provided permalinks to individual sessions.)</p>
 
 <p>So, if you're going to be in at the UC next week and would like to meet up, feel free to ping me on Twitter (<a href="https://twitter.com/billdollins">@billdollins</a>), via e-mail (bill [at] geomusings [dot] com), or drop a comment below.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Where Ya Been?]]></title>
-    <link href="http://blog.geomusings.com/2014/06/20/where-ya-been/"/>
-    <updated>2014-06-20T10:14:00-04:00</updated>
-    <id>http://blog.geomusings.com/2014/06/20/where-ya-been</id>
-    <content type="html"><![CDATA[<p>It's been rather quiet on the blog for a while. Sometimes the posts have to take a back seat to work and other things. This time of year tends to be busy anyway due to the end of the school year and its related activities, but this year has also included one move, construction of a house, and preparations for a second (final) move. In December we sold our house, which I had lived in for nearly 40 years, and moved into temporary quarters while the next house was being built. The sale of the old place was a pretty smooth experience as all of us, especially me, were ready for a change.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/sunrise_crop_small.jpg" /></p>
-
-<p>As a result, the experimentation and small projects which have driven the content of this blog since it started simply had to stop for a while. That's not to say that there has been no activity. I have posted over the last few months related to some mapping work and the "software exhaust" that has resulted from it. It's not really been possible, however, to sit down a create a well-structured discussion of those activies in the way that I would prefer, so I simply haven't.</p>
-
-<!--more-->
-
-
-<p>Because that work involved the use of <a href="https://www.mapbox.com/foundations/an-open-platform/#mbtiles">MBTiles</a>, it got me a little closer to some of the open-source tools produced by <a href="http://mapbox.com">MapBox</a> in a way that I haven't really needed to before. In addition to <a href="https://github.com/mapbox/mbutil">MBUtil</a> and <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I've been able to use some of their <a href="http://leafletjs.com/">Leaflet</a> Javascript plug-ins for use in data visualiztion. My overall observation is that I've been very impressed with the quality of the tools they are putting out in terms of performance, stability, and elegance. It's been a pleasant experience working with their tools and I've also learned a lot by digging into their source.</p>
-
-<p>It reminds me a lot of the experience I had a few years ago working with the GeoIQ tool set. That tool set resonated with me for the same reasons that the MapBox tool set does now; I feel like the authors of the tools think about problems and approach them in a manner similar to the way I do. As a result, I find the tools comfortable and not something I feel like I am fighting with. I'm not certain that this psychological aspect of software is given much attention but software is really a representation of the author's approach to problem-solving. For me, developing proficiency with a piece of software is establishing a connection with its author in a manner similar to that which is established with the author of a good book. It's one of the reasons I consider releasing open-source code to be such a brave thing.</p>
-
-<p>It's my hope that I'll find ways to keep working with the MapBox tool set more, but such considerations are always driven by project availability and customer demand. In the meantime, there's a move to complete, a new house to settle into, and a summer to enjoy.</p>
 ]]></content>
   </entry>
   
