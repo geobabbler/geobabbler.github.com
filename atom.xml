@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-07-30T16:15:29-04:00</updated>
+  <updated>2014-08-01T09:58:57-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JS.GEO 2014 Locked In Solid]]></title>
+    <link href="http://blog.geomusings.com/2014/07/31/js-dot-geo-2014-locked-in-solid/"/>
+    <updated>2014-07-31T16:32:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/07/31/js-dot-geo-2014-locked-in-solid</id>
+    <content type="html"><![CDATA[<p>A while back, <a href="http://blog.geomusings.com/2013/12/27/js-dot-geo-2014-announced/">I posted about about the 2014 edition of JS.GEO</a>. After that post, things got a little fluid, but I&#8217;m happy to finally be able to provide an update.</p>
+
+<p>According to JS.GEO Organizer <a href="http://twitter.com/cwhelm">Chris Helm</a>, the event is <a href="https://twitter.com/cwhelm/status/494919297144066048">&#8220;locked in solid.&#8221;</a></p>
+
+<p>The event has a <a href="http://jsgeo.com">web site</a>, a location, and a date. <a href="http://www.eventbrite.com/e/jsgeo-2014-tickets-12450450633">Tickets and sponsorships are available.</a> Agenda is to be announced and they are actively seeking speakers.</p>
+
+<p>The first event was one of those serendipitous things that turned out to be pretty awesome. It was personally very influential on me and changed the focus of a lot of what I was doing with geospatial and with programming. It&#8217;s probably the best single geospatial event I&#8217;ve attended in the last five years. The fact that FOSS4G will have already drawn a like-minded crowd to Portland should bode well for JS.GEO. My own attendance is still in question due to a number of factors but I highly recommend adding this to your schedule if you can.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ArcWhat? I Just Want My Map.]]></title>
@@ -37,7 +52,7 @@
 <ol>
 <li><p>Retire the &#8220;Arc&#8221; prefix - It&#8217;s confusing to have a relatively meaningless and seemingly random (to new users) prefix attached to everying. If you are moving to a platform concept, shouldn&#8217;t that platform just bear your name? The company is Esri, the platform should be &#8220;Esri GIS&#8221; or something. Don&#8217;t hide from your own product line. &#8220;Arc&#8221; is a verbal stumbling block. Try telling a user how to publish a map online and see how many times you say &#8220;Arc.&#8221; Is it any wonder they get confused? It&#8217;s like the old dog food commercial, except all they hear is &#8220;Blah blah Arc blah Arc blah blah Arc.&#8221;</p></li>
 <li><p>Acknowledge four environments for the platform - Mobile, Desktop, Server, Online. Period. &#8220;Esri GIS Desktop&#8221; or &#8220;Esri GIS Server&#8221; for example. Clean up spurious products that just clutter the menu. The current Explorer? Esri GIS Mobile (resist the urge to tack on &#8220;for iOS&#8221;). The current Portal? Esri GIS Online (Online can offer a hosted or on-premise version). What&#8217;s the distinction between Esri GIS Server and an on-premise instance of Esri GIS Online? I don&#8217;t know. Those are your waters to unmuddy.</p></li>
-<li><p>One Desktop - Basic? Standard? Advanced? How about just Desktop? After 15 or so years of selling the three tiers, you should have enough data on the sales mix to set one normalized price for a fully-functional desktop product ane be done with it. I suspect that price would hover somewhere between the current prices of Basic and Standard, perhaps closer to Standard. Everybody pays one price, everybody gets the current Advanced product. If nothing else, that code base should have long since paid for itself. Then you&#8217;ll be better positioned for the inevitable transition to Esri GIS Pro (which could really just be the next Esri GIS Desktop) that everyone sees coming. Need more? Buy extensions.</p></li>
+<li><p>One Desktop - Basic? Standard? Advanced? How about just Desktop? After 15 or so years of selling the three tiers, you should have enough data on the sales mix to set one normalized price for a fully-functional desktop product and be done with it. I suspect that price would hover somewhere between the current prices of Basic and Standard, perhaps closer to Standard. Everybody pays one price, everybody gets the current Advanced product. If nothing else, that code base should have long since paid for itself. Then you&#8217;ll be better positioned for the inevitable transition to Esri GIS Pro (which could really just be the next Esri GIS Desktop) that everyone sees coming. Need more? Buy extensions.</p></li>
 <li><p>Speaking of Extensions - You can have too much of a good thing. Roll some of them into core products (like Spatial Analyst). Doing so will assure users that a common set of tools will be available as they move between the environments (see item number 2). Furthermore, stop calling everything an &#8220;extension,&#8221; which exacerbates the need for cumbersome qualifiers like &#8220;for Desktop&#8221; and &#8220;for Server.&#8221; Choose a standard nomenclature for each environment and stick with it. Desktop can have &#8220;extensions&#8221; and server can have &#8220;adapters,&#8221; for example. Then I know that a discussion about the Network Analyst Adapter is focused on Server.</p></li>
 <li><p>Stop changing product names - Take any of the suggestions above, or do something else entirely. But, whatever you do, leave it alone once you&#8217;re done. At least for a couple of dot releases, anyway.</p></li>
 </ol>
@@ -838,35 +853,6 @@
 <p>When I took a look at the list above, I realized that I have been much more focused on data than I have in past years. I think I kept a development/integration flavor but the focus on data was quite noticeable in retrospect. Though I have been actively coding all year, I notice that I did not have as many code-focused posts, which is something of a departure from previous years. 2014 is already shaping up to be a busy year personally and professionally so it will be interesting to see where that leads me on this blog.</p>
 
 <p>Thanks again for your continued interest and I hope you have a fruitful 2014.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DC DevSummit In Works for 2014 Esri Federal GIS Conference]]></title>
-    <link href="http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference/"/>
-    <updated>2013-12-27T13:15:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/12/27/dc-devsummit-in-works-for-2014-esri-federal-gis-conference</id>
-    <content type="html"><![CDATA[<p>I got word today that <a href="http://www.esri.com">Esri</a> is planning a one-day [Developer Summit] in conjunction with the <a href="http://www.esri.com/events/federal/">2014 Federal GIS Conference</a>. It appears that the DevSummit will happen on the Wednesday immediately following the Fed Conference (which runs on the Monday and Tuesday) and will be focused on the issues and challenges that are unique to developing applications with Esri technologies for the Federal Government. I spoke with <a href="http://www.linkedin.com/in/jdbarry">Jim Barry</a>, who told me the DevSummit has come together rather quickly and Esri hasn&#8217;t had time to do its usual data gathering to prepare for such an event. As a result, they are canvassing the developer community for input on topics they should cover. Here are some things I suggested:</p>
-
-<!--more-->
-
-
-<ul>
-<li><p>Developing for <a href="http://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">FISMA</a> compliance - FISMA compliance has to be baked into an application from the beginning. It would be great to see some content on best practices and resources available to support this when developing with Esri tools and APIs. Esri&#8217;s regional office in Vienna, Virginia has been doing a lot of work in this area but I&#8217;m not sure the information is widespread.</p></li>
-<li><p>Desktop development - I still see <em>a lot</em> of ArcGIS desktop development in the Federal arena. This ranges from traditional ArcObjects extensions to add-ins to work with the File Geodatabase API. I think content related to how to do continued desktop development and support in light of the current realities of highly constrained desktop environments would be invaluable. For example, how to construct and deploy applications that don&#8217;t necessarily need to touch the registry and can be deployed without administrative rights. Also, some content on the future of Esri desktop products (like <a href="http://video.esri.com/watch/2533/unveiling-the-new-arcgis-professional-application-with-jim-mckinney-and-jack-dangermond">ArcGIS Professional</a>) and what it means for application developers would be useful.</p></li>
-</ul>
-
-
-<p><img src="http://blog.geomusings.com/images/posts/code.png" style="float:left;margin: 5px 25px 5px 0px;" /></p>
-
-<ul>
-<li><p>.Net - There&#8217;s still a lot of .Net development going on in Federal spaces. Most of my Federal customers are still primarily using .Net and you can peruse Federal geospatial RFPs on any given day and see that it is widespread. I&#8217;m fairly comfortable with .Net, as are most of the government and contractor developers I work with but it would be good to have some .Net-focused content alongside the newer, sexier platforms.</p></li>
-<li><p><a href="http://www.arcgis.com/features/">ArcGIS Online for Organizations</a> - Whatever messaging Esri thinks they are doing is not working very well. I encounter a great many Federal users who simply don&#8217;t understand what it can do for them, why they would consider it, how to budget for it, or whether they can really use it. My understanding is the main Federal GIS Conference will be talking about these issues a lot so I think the DevSummit should focus on the <a href="https://developers.arcgis.com/en/">tools and APIs</a> that are available so that developers can begin to address the ideas the main conference attendees will come back with.</p></li>
-<li><p>Data interoperability - I have spent a lot of time over the past year developing tools to support data modeling and configuration management efforts for some Federal users. Part of this work has involved developing tools to produce physical implementations of approved geospatial data models in a number of formats, though the formats that have been of primary interest with my customers have been the Esri File Geodatabase and <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>. The general workflows I have seen involve users working with Esri geodatabase formats in the office, while ingesting field-collected data in SpatiaLite format. All of this data needs to remain compliant with approved data models throughout the life cycle, regardless of format. <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">We&#8217;ve been tackling that</a> at <a href="http://www.esri.com">Zekiah</a> with good success. Given the support of SQLite/SpatiaLite in ArcGIS 10.2, I&#8217;d like to see some discussion of data conversion/interoperability approaches that developers can automate with Esri tools.</p></li>
-</ul>
-
-
-<p>Those are some topics I suggested to Jim off the top of my head. I&#8217;ll probably think of more. Jim and his team at Esri are actively seeking this sort of input since time is short so I&#8217;d suggest <a href="http://www.linkedin.com/in/jdbarry">contacting him</a> with your thoughts. Given the short timeframe, I&#8217;d expect official information from Esri very soon.</p>
 ]]></content>
   </entry>
   

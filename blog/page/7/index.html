@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I&#8217;ve had a couple of people ask me recently about the geospatial tools I use. Year-over-year, that answer changes but here&#8217;s how I answer &hellip;">
+  <meta name="description" content="Today is World Diabetes Day. It also happens to be GIS Day so I thought a map (not mine) of new diagnoses would be in order: Source: International &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/">A GIS Day Map for World Diabetes Day</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-14T00:00:00-05:00" pubdate data-updated="true">Nov 14<span>th</span>, 2012</time>
+        
+         | <a href="/2012/11/14/a-gis-day-map-for-world-diabetes-day/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today is World Diabetes Day. It also happens to be GIS Day so I thought a map (not mine) of new diagnoses would be in order:</p>
+
+<div style="text-align: center;"><a href="http://www.idf.org/diabetesatlas/5e/diabetes-in-the-young"><img alt="" height="80%" src="http://www.idf.org/sites/default/files/da5/Map%202.5%20New%20cases%20of%20type%201%20diabetes.jpg" title="New cases of Type 1 diabetes in children, 2011" width="80%" /></a><div style="text-align: center;font-size: 14px;">Source: International Diabetes Federation Diabetes Atlas, Fifth Edition (Click image to visit)</div></div>
+
+
+<br/>
+
+
+<p>To learn more about Type 1 Diabetes, <a href="http://www.jdrf.org/index.cfm?page_id=101982" target="_blank">please visit the JDRF</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -493,51 +539,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/08/14/create-a-weogeo-tilepack-from-arcgis-tiles/">Create a WeoGeo Tilepack From ArcGIS Tiles</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-14T00:00:00-04:00" pubdate data-updated="true">Aug 14<span>th</span>, 2012</time>
-        
-         | <a href="/2012/08/14/create-a-weogeo-tilepack-from-arcgis-tiles/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A couple of months ago, <a href="http://twitter.com/dandye" target="_blank">Dan Dye</a> at WeoGeo <a href="http://www.weogeo.com/blog/Create_WeoGeo_Tilepack_from_MBTiles_SQLite_database_with_mbutil.html" target="_blank">posted about work he had done</a> to facilitate creating <a href="http://www.weogeo.com" target="_blank">WeoGeo</a> tile packs from <a href="http://mapbox.com/developers/mbtiles/" target="_blank">MBTiles</a> databases. Recently, I had the need to do the same with <a href="http://www.esri.com" target="_blank">ArcGIS</a> tiles. As Dan explained, WeoGeo uses a ZYX structure in their tile packs. This matched up nicely with the Level/Row/Column structure <a href="http://blogs.esri.com/esri/arcgis/2010/08/20/checking-your-local-cache-folders/" target="_blank">used by ArcGIS</a>. WeoGeo supports either WGS84 (EPSG:4326) or Spherical Mercator (EPSG:3857) as spatial references for tile packs. In my case, I used the latter. My preferred way of creating tiles from ArcGIS products is to use <a href="http://www.arc2earth.com/" target="_blank">Arc2Earth</a>. While Arc2Earth does directly export to the WeoGeo structure, the tiles are watermarked with a WeoGeo logo, which was not needed in this case. Arc2Earth also exports to the ArcGIS structure, so a simple script to convert to the WeoGeo structure is all that was needed.</p>
-
-<p><img alt="Arc2Earth settings to create ArcGIS Tiles" class="aligncenter size-medium wp-image-2815" height="243" src="http://geobabble.files.wordpress.com/2012/08/a2e_ags.png?w=300" title="Arc2Earth settings to create ArcGIS Tiles" width="300" /></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/08/14/create-a-weogeo-tilepack-from-arcgis-tiles/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -586,15 +587,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/07/30/arcwhat-i-just-want-my-map/">ArcWhat? I Just Want My Map.</a>
       </li>
     
       <li class="post">
         <a href="/2014/07/29/slow-food/">Slow Food</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/07/24/lock-in/">Lock-In</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Over on Google+, Diego Guidi let me know that the SharpMap 1.0 Release Candidate has been released. There was a time when I worked with, and wrote &hellip;">
+  <meta name="description" content="When it&#8217;s really a desktop application. Over the past few weeks, I have been reading with conflicted agreement the posts of Brian Timoney and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/04/24/when-is-a-geoportal-not-a-geoportal/">When Is a GeoPortal Not a GeoPortal?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-24T13:40:00-04:00" pubdate data-updated="true">Apr 24<span>th</span>, 2013</time>
+        
+         | <a href="/2013/04/24/when-is-a-geoportal-not-a-geoportal/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When it&#8217;s really a desktop application.</p>
+
+<p>Over the past few weeks, I have been reading with conflicted agreement the posts of <a href="http://mapbrief.com/2013/02/21/the-waiting-is-the-hardest-part-why-map-portals-dont-work-part-v/">Brian Timoney</a> and <a href="http://geosprocket.blogspot.com/2013/04/toward-ideal-geoportal.html">Bill Morris</a> about the nature of geo-portals and what they should or should not be and do. I say that I am in conflicted agreement not because I take any issue with anything they have said. Their posts represent what should be considered best practices in terms of building web mapping applications. In Brian&#8217;s posts, the counter-examples he highlights represent some of the worst practices to be avoided.</p>
+
+<p style="text-align:center;"> <img src="/images/posts/arcmap_browser.png" /></p>
+
+<p>My conflict arises from the fact that, while I agree with the ideas that Brian and Bill put forward, I find myself working against them in my current work. In my <a href="http://www.spatiallyadjusted.com/2013/04/10/hangouts-with-james-fee-developer-i-hardly-knew-her/">hangout with James Fee</a> a couple of weeks ago, I mentioned that I am working again (albeit temporarily) in the world of Silverlight. I am supporting a very large, complex Silverlight application that, as one of many functions, includes a mapping module that runs counter to almost every best practice espoused by Brian and Bill. And I am adding to it.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/04/24/when-is-a-geoportal-not-a-geoportal/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -504,56 +553,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/01/14/js-dot-geo-day-one/">js.geo Day One</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-14T18:04:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2013</time>
-        
-         | <a href="/2013/01/14/js-dot-geo-day-one/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Yesterday, I attended the <a href="http://geojs.eventbrite.com/">JS.geo</a> conference at the Colorado University Denver campus. It looked like about 100 or so came out for the event. I was able to catch up with <a href="http://twitter.com/cwhelm">Chris Helm</a> and <a href="http://twitter.com/briantimoney">Brian Timoney</a> the night before and they told me the event took off faster than they had originally expected. I think this speaks to two things: 1) the level of interest in Javascript as a solution for geospatial applications and 2) the fast pace of innovation in the Javascript community that has a lot of people looking for ways to stay abreast of the latest developments.</p>
-
-<p>What follows is an overview based on some of the notes I took. I wasn&#8217;t always writing as I sometimes just stopped to listen and I&#8217;ll probably follow up with more details later.</p>
-
-<div style="text-align:center;"><img src="/images/posts/jsgeo13.png" /></div>
-
-
-<p>Data reduction was strong current running under the day. With the rise of newer libraries that enable more sophisticated capabilities in the browser, there is increased recognition of the need to reduce the amount of data passing over the wire. For geometry, <a href="https://github.com/mbostock/topojson">TopoJSON</a> is getting a lot of attention here. It delivers topologically correct data which reduces data by removing redundant geometry such coincident arcs between polygons and such. The output reminds me of an old <a href="http://www.gdal.org/ogr/drv_avcbin.html">ARC/INFO coverage</a> and is providing stunning results in reducing the size of geometries when compared to <a href="http://geojson.org">GeoJSON</a> or Esri JSON. <a href="http://twitter.com/andrewxhill">Andrew Hill</a> of <a href="http://vizzuality.com">Vizzuality</a> mentioned that <a href="http://cartodb.com">CartoDB</a> currently has support for TopoJSON in staging. He also discussed strategies they use to reduce the size of feature and attribute data. This &#8220;data cubing&#8221; strategy turns out to similar to approaches that are commonplace in the financial industry. This serves as a reminder to look around and see what others are doing to solve similar problems.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/01/14/js-dot-geo-day-one/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -602,15 +601,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/07/30/arcwhat-i-just-want-my-map/">ArcWhat? I Just Want My Map.</a>
       </li>
     
       <li class="post">
         <a href="/2014/07/29/slow-food/">Slow Food</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/07/24/lock-in/">Lock-In</a>
       </li>
     
   </ul>
