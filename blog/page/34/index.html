@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="This post updates this post and this one. One of our beloved 5 users ;-), James, pointed out recently that zigGIS still has issues with user-defined &hellip;">
+  <meta name="description" content="As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,117 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/05/09/creating-arcobjects-spatial-reference-objects-from-postgis-spatial-reference-definitions/">Creating ArcObjects Spatial Reference Objects From PostGIS Spatial Reference Definitions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-05-09T00:00:00-04:00" pubdate data-updated="true">May 9<span>th</span>, 2007</time>
+        
+         | <a href="/2007/05/09/creating-arcobjects-spatial-reference-objects-from-postgis-spatial-reference-definitions/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As discussed in my previous post, I&#8217;m trying to beef up the spatial reference support in zigGIS. I am doing this mainly to introduce support for user-defined spatial references. It pretty much boils down to querying the the appropriate SR from the PostGIS spatial_ref_sys table and applying the value of the srtext column to create a spatial reference in ArcObjects.</p>
+
+<p>This approach has a few advantages and disadvantages. First, the advantages. Although both PostGIS and ESRI implement the EPSG spatial reference codes, there is not a one-to-one match between the two. Therefore, you could get an SRID in PostGIS that&#8217;s not supported in ArcGIS. The approach described above should alleviate that, adding stability. Secondly, if you&#8217;ve created a user-defined spatial reference in PostGIS, you should be able to use it in ArcGIS.</p>
+
+<p>The disadvantages are relatively minor. First, all of the spatial references, even those created from standard EPSG SRs will appear to ArcGIS as custom spatial references, mainly because of the differing syntax of the SR string. Also, some unit definitions from PostGIS are not specifically recognized by ArcGIS. For instance &#8220;US survey feet&#8221; is shown as &#8220;unknown&#8221; in ArcGIS. This last one may be more than minor, depending on if it has any effect on distance calculations and the like but I haven&#8217;t gotten around to testing it yet.</p>
+
+<p>So, how about some code? Here&#8217;s a C# routine that I&#8217;m developing for zigGIS (don&#8217;t look, it&#8217;s not there yet). It&#8217;s based on a previous routine that Paolo and I developed. I should note that the Connection and AutoDataReader objects are zigGIS classes that inherit from ADO.NET classes. You should be able to replace them with standard OleDbConnection and DataReader objects and be fine.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>        <span class="k">static</span> <span class="k">public</span> <span class="n">ISpatialReference</span> <span class="nf">setEsriSpatiaReferenceFromSrText</span><span class="p">(</span><span class="kt">int</span> <span class="n">srid</span><span class="p">,</span> <span class="n">Connection</span> <span class="n">conn</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">ISpatialReference</span> <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
+</span><span class='line'>            <span class="kt">string</span> <span class="n">srText</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>            <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">try</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="c1">//Bill: query srtext associated with srid</span>
+</span><span class='line'>                <span class="n">AutoDataReader</span> <span class="n">dr</span> <span class="p">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">doQuery</span><span class="p">(</span><span class="s">&quot;select * from spatial_ref_sys where srid = &quot;</span> <span class="p">+</span> <span class="n">srid</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="n">dr</span><span class="p">.</span><span class="n">Read</span><span class="p">())</span>
+</span><span class='line'>                <span class="p">{</span>
+</span><span class='line'>                    <span class="n">srText</span> <span class="p">=</span> <span class="n">dr</span><span class="p">[</span><span class="s">&quot;srtext&quot;</span><span class="p">]</span> <span class="p">+</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>                    <span class="n">ISpatialReferenceFactory2</span> <span class="n">srf</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SpatialReferenceEnvironmentClass</span><span class="p">();</span>
+</span><span class='line'>                    <span class="k">if</span> <span class="p">(</span><span class="n">srText</span> <span class="p">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>                    <span class="p">{</span>
+</span><span class='line'>                        <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
+</span><span class='line'>                    <span class="p">}</span>
+</span><span class='line'>                    <span class="k">else</span>
+</span><span class='line'>                    <span class="p">{</span>
+</span><span class='line'>                        <span class="c1">//use srText to construct SR.</span>
+</span><span class='line'>                        <span class="n">srf</span><span class="p">.</span><span class="n">CreateESRISpatialReference</span><span class="p">(</span><span class="n">srText</span><span class="p">,</span> <span class="k">out</span> <span class="n">sr</span><span class="p">,</span> <span class="k">out</span> <span class="n">i</span><span class="p">);</span>
+</span><span class='line'>                    <span class="p">}</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>                <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="k">catch</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="c1">//PostGis srid is not implemented as an Esri Factory Code</span>
+</span><span class='line'>                <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnknownCoordinateSystemClass</span><span class="p">();</span>
+</span><span class='line'>                <span class="k">return</span> <span class="n">sr</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -453,56 +564,6 @@ University of Maryland Baltimore County (UMBC) &#8216;92</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/02/24/how-do-you-disable-this-dialog-in-arcmap/">How Do You Disable This Dialog in ArcMap?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-02-24T00:00:00-05:00" pubdate data-updated="true">Feb 24<span>th</span>, 2007</time>
-        
-         | <a href="/2007/02/24/how-do-you-disable-this-dialog-in-arcmap/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong><strong>UPDATE</strong></strong><em>Check the comments for the resolution to this. 9.2 offers a registry setting and, since I&#8217;m upgrading, I&#8217;ll make use of that. I got pretty far on my API hack though.</em></p>
-
-<p>My question is twofold: First: Can you stop this dialog from appearing in ArcMap 9.1? Second: If not, does 9.2 give you the option to turn this thing off?</p>
-
-<p><img alt="ArcMap Drawing Errors?Dialog" src="http://geobabble.files.wordpress.com/2007/02/arcmap_draw_error.JPG" /></p>
-
-<p>I have posted a similar query on the ESRI forums but I thought the blogosphere may be able to weigh in on this. This dialog was introduced at 9.1 as a &#8220;feature&#8221; but it&#8217;s not the most developer-friendly thing in the world. A little background:</p>
-
-<p>I have an application running as a Windows service that is receiving data and stuffing it into ArcSDE. I have another app that&#8217;s an ArcMap extension. It refreshed the map on a specified interval and shows the new data as it comes in. There is no syncronization between the two. As you would expect, there are occaionally collisions. The ArcSDE layer may be in load-only mode or something similar. I have a lot of exception-handling in place to trap all of those kinds of things.</p>
-
-<p>This dialog defies all of that. Despite my exception handling, it still pops up and it completely freaks out my users. I would like to turn it off. (I would really like to kill it.) I can&#8217;t find a registry setting or any other such option that allows me to do that so I&#8217;m stumped. Any help would be appreciated and I promise to sing your praises on this blog if you have the solution.</p>
-
-<p>For background: we are using 9.1 (for a number of reasons). We are starting the upgrade planning to go to 9.2. If 9.2 fixes this, then I&#8217;ll stop worrying about it. Any useful info would be very helpful. My next step is some slimy Windows API hack to suppress the damned thing.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/35/">&larr; Older</a>
@@ -551,15 +612,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/08/26/maryland-council-on-open-data/">Maryland Council on Open Data</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
       </li>
     
       <li class="post">
         <a href="/2014/07/30/arcwhat-i-just-want-my-map/">ArcWhat? I Just Want My Map.</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/07/29/slow-food/">Slow Food</a>
       </li>
     
   </ul>

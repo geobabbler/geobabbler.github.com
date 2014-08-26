@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GIS | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/gis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-08-01T09:58:57-04:00</updated>
+  <updated>2014-08-26T17:51:15-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Maryland Council on Open Data]]></title>
+    <link href="http://blog.geomusings.com/2014/08/26/maryland-council-on-open-data/"/>
+    <updated>2014-08-26T17:25:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/08/26/maryland-council-on-open-data</id>
+    <content type="html"><![CDATA[<p>Back in May, I had the honor of being appointed to the newly established Maryland Council on Open Data. The Council had its inaugural meeting in Baltimore yesterday and was heavily attended, including attendance by Governor Martin O'Malley. I'll discuss his remarks to the group later.</p>
+
+<p>As the first meeting of a new group, it went off largely as I expected. The agenda consisted primarily of an overview of the establishing legislation, a review of ethics requirements, demos of the existing open data portals, discussion of the history of open data in Maryland, and remarks from the Governor.</p>
+
+<p>I won't go into details about the make-up of the Council, but they can be found here <a href="http://msa.maryland.gov/msa/mdmanual/25ind/html/53opendata.html">http://msa.maryland.gov/msa/mdmanual/25ind/html/53opendata.html</a>. Nor will I do a deep dive into the legislation, but it can be found here: <a href="http://mgaleg.maryland.gov/2014RS/chapters_noln/Ch_69_sb0644T.pdf">http://mgaleg.maryland.gov/2014RS/chapters_noln/Ch_69_sb0644T.pdf</a> (PDF). I will instead focus on my take-aways from the meeting itself.</p>
+
+<!--more-->
+
+
+<p>First, the establishing legislation makes data in Maryland open by default, unless it falls under certain criteria (personally identifiable information, law enforcement sensitive, etc.). Second, it is in fact legislation. Previous open data initiatives (MSGIC Executive Committee and the Maryland Open Data Working Group), were established by executive order. As a result, they were vulnerable to reversal by subsequent administrations and they had no real effect on other branches of government. Because of the new legislation, the open data has greater durability and active, enthusiastic participation from the state legislature.</p>
+
+<p>So the new Council unifies the previous efforts and has top cover from the legislation. That can only be a good thing. The state currently has two open data portals: an <a href="http://data.imap.maryland.gov/">Esri Open Data portal</a> for geospatial data and a <a href="https://data.maryland.gov/">Socrata portal</a> for everything else. In practice, the lines between them may not be so distinct, but that's the stated role of each.</p>
+
+<p>It is clear that open data is important to the Governor. Since his days as the Mayor of Baltimore, he has been known as a data-driven executive. The "CityStat" concept in Baltimore evolved into "StateStat" when he moved to Annapolis. It is widely known that data and metrics back everything his administration does. Open data is the other side of the coin. It is the mechanism by which the supporting data and metrics of the state government are made public.</p>
+
+<p>In his remarks, the Governor highlighted Maryland's top ranking (shared by six states) in the <a href="http://www.datainnovation.org/2014/08/state-open-data-policies-and-portals/">Center for Data Innovation report of August 18, 2014</a> but then quickly addressed the remaining weaknesses identified. Specifically, he discussed:</p>
+
+<ul>
+<li>Reporting on spending data</li>
+<li>The need for a more complete picture of all data sets</li>
+<li>The need for better minimum metadata standards</li>
+<li>The need for a uniform standard for giving citizens access to public information</li>
+</ul>
+
+
+<p>These are all fairly easy to address on the surface. In the open discussion that followed, the theme that I took away was "culture." Maryland has the policy framework and a good start on a technical framework to more fully open its data. The hard work, as it always is, is transforming the culture. As the requirements for opening data begin to trickle down into the daily lives of the people handling information, I think a lot of workflows will change. I also suspect some of the standards chosen for achieving compliance with open data requirements will facilitate significant changes to technical architectures in individual departments. In short, the proverbial onion will part to get peeled.</p>
+
+<p>It's a lot of work and it won't happen quickly. I am excited for the opportunity to participate. I have worked in the private sector for my entire career (although in professional services to the government), so this is my first foray into anything resembling being on the public sector side of things. I expect I'll have a lot to learn.</p>
+
+<p>My interest in open data has been somewhat spurred by the infrastructure data contraction that occurred in the mid-2000s in reaction to domestic security concerns. I felt it was the wrong direction to go then and I don't think making data harder to acquire really helped anyone. I'm looking forward to seeing what we can do on the Council to achieve the benefits other states, like Arkansas, have achieved through opening data rather than closing it off.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JS.GEO 2014 Locked In Solid]]></title>
@@ -115,36 +153,6 @@
 <p>This is the right and responsible thing to do. An organization, once it has selected a technology, has a responsibility to master it and use it as effectively as it can. If you start applying numbers to all the activities listed above, you will quickly see that it is an investment that far outstrips the original investment in the technology itself. In fact, the cost of the technology itself is often seen as marginal to the overall lifecycle cost, which makes arguments about removing licensing costs, for example, less effective than they would appear to be.</p>
 
 <p>This is true regardless of the provenance of the technology. The original technology has to start to become a hindrance before change is seriously considered, which I am seeing in a few cases these days. But, by and large, the very strong pattern I have seen is that the majority of lock-in originates with users. To fail to recognize that and continue to target the vendor is to miss the point and, ultimately, the target.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The Esri UC So Far #EsriUC]]></title>
-    <link href="http://blog.geomusings.com/2014/07/16/the-esri-uc-so-far/"/>
-    <updated>2014-07-16T12:13:00-04:00</updated>
-    <id>http://blog.geomusings.com/2014/07/16/the-esri-uc-so-far</id>
-    <content type="html"><![CDATA[<p>So I'm halfway through the largest geospatial event of the year, attending it for the first time in four years, and I haven't blogged yet. As always, it's a busy week. Because this event draws people from all over the country (and world), my dance card fills up pretty quickly. And, by the way, there's a conference going on.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/plenary_stage.jpg" /></p>
-
-<p>This is the first I've ever attended the Esri User Conference as just an attendee. If it were a video game, I'd be playing it on the easy level. I sat through the entire plenary for the first time in years. It was nice table setting for the rest of the week. As the father of a dancer, I have developed an eye for choreography and there is plenty of it up on the plenary stage. If I were to level one piece of constructive criticism toward the UC, it's that I'd let speakers be themselves a little bit more. That said, the content was delivered smoothly, which is really the larger point.</p>
-
-<!--more-->
-
-
-<p>The plenary features a lot of demos that are rehearsed to within an inch of their lives. Knowing that, I still found ArcGIS Pro to be interesting. The UI is well-designed to get out the user's way and it's native 64-bit architecture finally allows it to take advantage of system resources in a way that ArcMap never could. The UI is more modern, featuring the ribbon toolbar. Esri seems to have learned a lesson from Microsoft by not re-engineering the UI of a familiar product, but releasing a new product that users can transition to. That was smart. In Microsoft Office terms, the UI upates from the Office 97 feel of ArcMap to more of an Office 2012 feel. Tasks in ArcGIS simplify geoprocessing even more but also run the risk of hiding complexity too much. I hope we're not training another generation of button-clickers.</p>
-
-<p>One of the more subtle announcements in the plenary was that ArcGIS Portal will be included with ArcGIS Server at 10.3. I suspect that's the beginning of a gentle nudge of Server into ArcIMS-like oblivion but that's just my speculation.</p>
-
-<p>The newly-released (not beta) ArcGIS Open Data extension (product?) was shown by <a href="http://twitter.com/ajturner">Andrew Turner</a>. It does a very nice job of putting an almost-GeoCommons-easy interface in front of ArcGIS Online to enable organizations to easily share their data. Andrew showed the implementations for the DC government and the State of Maryland. Maryland, in particular, is exceedingly happy with how quickly it has helped them start sharing data. By chance, I had dinner with some of the development team the night before and it's a motivated team with a diverse skill set not rooted in traditional Esri thinking which, in my opinion, bodes well for what they are doing.</p>
-
-<p>Yesterday, I sat through a couple of sessions on the GeoEvent Processor (GEP), which has already been rebranded as the GeoEvent Extension for Server (or something like that). Those who have tracked my blog over the years know that I've done a lot of work with situational awareness systems. Within that field, I've concentrated a lot on feeds (streaming data sources) and track management so it's something of a geeky passion for me. Esri's previous, long-standing, and wholly awful product in this space was Tracking Server. I would gleefully dance around Tracking Server's funeral pyre.</p>
-
-<p>GEP seems to be a better attempt at solving this problem. In its current incarnation, it simply doesn't have the throughput my customers will need (it currently supports about 800 - 1000 messages per second). To the product team's credit, they know this and are focusing on it. At 10.3, GEP will support "clustering" to increase throughtput. Clustering, however, was not explained during the session and could mean anything so I'll wait and see. The management interfaces and APIs behind GEP are top-notch and enable some of the use cases I've supported in the past. Once the throughput challenges are solved, this could be a product to watch.</p>
-
-<p>You may have noticed a few parenthetical comments above when referring to product names. The reason for that is that Esri's product naming has fallen off the cliff to become just confusing, unwieldy, and random. Couple that with the fact that product names change constantly, or are recycled endlessly (Explorer?), and it's a complete mess. It's always been difficult walking new users through the maze of Esri products and the current naming "convention" doesn't help at all. Esri really needs to circle the wagons on this and simplify things.</p>
-
-<p>That sums up my week so far. I'll try to check in again before I go.</p>
 ]]></content>
   </entry>
   
