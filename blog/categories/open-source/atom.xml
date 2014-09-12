@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open-source | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/open-source/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-08-26T17:51:15-04:00</updated>
+  <updated>2014-09-11T20:55:56-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -51,18 +51,28 @@
 
 <p>With these goals in mind, I decided to first tackle the issue of extensibility. I wanted to make it as painless as possible and <a href="http://timstermatic.github.io/blog/2013/08/17/a-simple-mvc-framework-with-node-and-express/">the strategy described in this post</a> seemed to fit the bill. I just had to add the following code block to my server.js (straight from the post):</p>
 
-<p>{% codeblock snippet1.js %}
-// dynamically include routes (Controller)
-fs.readdirSync('./controllers').forEach(function (file) {
-  if(file.substr(-3) == '.js') {</p>
-
-<pre><code>  route = require('./controllers/' + file);
-  route.controller(app);
-</code></pre>
-
-<p>  }
-});
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet1.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// dynamically include routes (Controller)</span>
+</span><span class='line'><span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="s1">&#39;./controllers&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;.js&#39;</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>  <span class="nx">route</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./controllers/&#39;</span> <span class="o">+</span> <span class="nx">file</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">route</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>This will load any .js file in the controllers directory into the application. If they are written to the pattern expected by Express, new resource paths are exposed to the application. The post above describes a simple MVC implementation. Astute readers will note that my take is all "C" without "M" or "V." I plan to refactor that later but it it was easier for me to keep track of things on this pass with code in one place.</p>
 
@@ -70,98 +80,175 @@ fs.readdirSync('./controllers').forEach(function (file) {
 
 <p>With modularity out of the way, it was time work on the basic structure for getting data from the database. In <a href="https://github.com/geobabbler/node-gis-server/blob/master/controllers/core.js">core.js</a>, I defined a route with a URL template like '/vector/:schema/:table/:geom'. This would translate into something like http://localhost/vector/public/parcels/features, which would fetch a GeoJSON feature collection containing the contents of the parcels table. To do that, I need to know the name of the spatial column in the table, which the following helps me retrieve:</p>
 
-<p>{% codeblock snippet2.js %}
-var meta = client.query("select * from geometry_columns where f_table_name = '" + tablename + "' and f_table_schema = '" + schemaname + "';");
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet2.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">meta</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select * from geometry_columns where f_table_name = &#39;&quot;</span> <span class="o">+</span> <span class="nx">tablename</span> <span class="o">+</span> <span class="s2">&quot;&#39; and f_table_schema = &#39;&quot;</span> <span class="o">+</span> <span class="nx">schemaname</span> <span class="o">+</span> <span class="s2">&quot;&#39;;&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The next code block shows how I capture the name of the spatial column and structure the main query, depending on the choice of features or geometry:</p>
 
-<p>{% codeblock snippet3.js %}
-meta.on('row', function (row) {</p>
-
-<pre><code>var query;
-var coll;
-spatialcol = row.f_geometry_column;
-if (geom == "features") {
-    query = client.query("select st_asgeojson(st_transform(" + spatialcol + ",4326)) as geojson, * from " + fullname + ";");
-    coll = {
-        type : "FeatureCollection",
-        features : []
-    };
-} else if (geom == "geometry") {
-    query = client.query("select st_asgeojson(st_transform(" + spatialcol + ",4326)) as geojson from " + fullname + ";");
-    coll = {
-        type : "GeometryCollection",
-        geometries : []
-    };
-}
-</code></pre>
-
-<p>//'meta' code block continues
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet3.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">meta</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">query</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">coll</span><span class="p">;</span>
+</span><span class='line'><span class="nx">spatialcol</span> <span class="o">=</span> <span class="nx">row</span><span class="p">.</span><span class="nx">f_geometry_column</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">==</span> <span class="s2">&quot;features&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_transform(&quot;</span> <span class="o">+</span> <span class="nx">spatialcol</span> <span class="o">+</span> <span class="s2">&quot;,4326)) as geojson, * from &quot;</span> <span class="o">+</span> <span class="nx">fullname</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">coll</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">type</span> <span class="o">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">features</span> <span class="o">:</span> <span class="p">[]</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">==</span> <span class="s2">&quot;geometry&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_transform(&quot;</span> <span class="o">+</span> <span class="nx">spatialcol</span> <span class="o">+</span> <span class="s2">&quot;,4326)) as geojson from &quot;</span> <span class="o">+</span> <span class="nx">fullname</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">coll</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">type</span> <span class="o">:</span> <span class="s2">&quot;GeometryCollection&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">geometries</span> <span class="o">:</span> <span class="p">[]</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//&#39;meta&#39; code block continues</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>As can be seen above, the query will transform the output geometry to WGS84 and convert it to GeoJSON for me. So I'm sticking my third principle by leaning on PostGIS functions here. I plan to stick to GeoJSON's default spatial reference of WGS84 for now. To roll up the query results into the appropriate GeoJSON object and return it, I handled the 'row' and 'end' events.</p>
 
-<p>{% codeblock snippet4.js %}
-//roll up the results
-query.on('row', function (result) {</p>
-
-<pre><code>if (!result) {
-    return res.send('No data found');
-} else {
-    if (geom == "features") {
-        coll.features.push(geojson.getFeatureResult(result, spatialcol)); //use helper function
-    } else if (geom == "geometry") {
-        var shape = JSON.parse(result.geojson);
-        coll.geometries.push(shape);
-    }
-}
-</code></pre>
-
-<p>});</p>
-
-<p>//send the results
-query.on('end', function (err, result) {</p>
-
-<pre><code>res.setHeader('Content-Type', 'application/json');
-res.send(coll);
-</code></pre>
-
-<p>});
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet4.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//roll up the results</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">==</span> <span class="s2">&quot;features&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">coll</span><span class="p">.</span><span class="nx">features</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">getFeatureResult</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">spatialcol</span><span class="p">));</span> <span class="c1">//use helper function</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">==</span> <span class="s2">&quot;geometry&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">shape</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">coll</span><span class="p">.</span><span class="nx">geometries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">shape</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//send the results</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">coll</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>I wrote a helper function to roll up GeoJSON features:</p>
 
-<p>{% codeblock snippet5.js %}
-exports.getFeatureResult = function(result, spatialcol) {</p>
-
-<pre><code>    var props = new Object;
-    var crsobj = {
-        "type" : "name",
-        "properties" : {
-            "name" : "urn:ogc:def:crs:EPSG:6.3:4326"
-        }
-    };
-    //builds feature properties from database columns
-    for (var k in result) {
-        if (result.hasOwnProperty(k)) {
-            var nm = "" + k;
-            if ((nm != "geojson") &amp;&amp; nm != spatialcol) {
-                props[nm] = result[k];
-            }
-        }
-    }
-
-    return {
-        type : "Feature",
-        crs : crsobj,
-        geometry : JSON.parse(result.geojson),
-        properties : props
-    };
-};
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet5.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">exports</span><span class="p">.</span><span class="nx">getFeatureResult</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">spatialcol</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>    <span class="kd">var</span> <span class="nx">props</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;properties&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:4326&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="c1">//builds feature properties from database columns</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">k</span> <span class="k">in</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">k</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="kd">var</span> <span class="nx">nm</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="nx">k</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">((</span><span class="nx">nm</span> <span class="o">!=</span> <span class="s2">&quot;geojson&quot;</span><span class="p">)</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">nm</span> <span class="o">!=</span> <span class="nx">spatialcol</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">props</span><span class="p">[</span><span class="nx">nm</span><span class="p">]</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">type</span> <span class="o">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">crs</span> <span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">geometry</span> <span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span>
+</span><span class='line'>        <span class="nx">properties</span> <span class="o">:</span> <span class="nx">props</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>So that's basic data retrieval. How about that spatial intersect?</p>
 
@@ -169,24 +256,39 @@ exports.getFeatureResult = function(result, spatialcol) {</p>
 
 <p>One thing I failed to mention in the above section, is that all of that is exposed through an HTTP GET request. For this next function, I'm going to use a POST. I went back and forth on that but came down on the side of POST due to the potential for a user to send a very verbose input shape. The function is designed to accept JSON as the body of the request, which would be done in curl like this:</p>
 
-<p>{% codeblock snippet6.bat %}
-curl -X POST -d "{ \"type\": \"Point\", \"coordinates\": [-98.35, 39.7] }" -H "Content-Type: application/json" http://localhost:3000/vector/public/states_gen/features/intersect
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet6.bat </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>curl -X POST -d <span class="s2">&quot;{ \&quot;</span>type\<span class="s2">&quot;: \&quot;</span>Point\<span class="s2">&quot;, \&quot;</span>coordinates\<span class="s2">&quot;: [-98.35, 39.7] }&quot;</span> -H <span class="s2">&quot;Content-Type: application/json&quot;</span> http:<span class="n">//localhost:3000/vector/public/states_gen/features/intersect</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The above action returns the state of Kansas (I knew you were wondering). To make this happen, there are only three things that are different. First, the URL is defined a POST and, second, the code needs to capture the input shape. The first few lines are:</p>
 
-<p>{% codeblock snippet7.js %}</p>
-
-<pre><code>/**
- * retrieve all features that intersect the input GeoJSON geometry
- */
-app.post('/vector/:schema/:table/:geom/intersect', function (req, res, next) {
-    //console.log(JSON.stringify(req.body));
-    var queryshape = JSON.stringify(req.body);
-//continue with the rest of app.post
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet7.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * retrieve all features that intersect the input GeoJSON geometry</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/vector/:schema/:table/:geom/intersect&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//console.log(JSON.stringify(req.body));</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">queryshape</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//continue with the rest of app.post</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>I stringify the JSON since I have to insert it into my SQL. This brings me to the third difference here, the query. This time, I am using ST_INTERSECTS to filter down the response. So, depending on the choice of features or geometry, the query will be similar to:</p>
 
@@ -194,15 +296,22 @@ app.post('/vector/:schema/:table/:geom/intersect', function (req, res, next) {
 
 <p>The rest of the process is similar to the basic query above. With a well-exercised data access pattern in place, querying table schema and layer lists become trivial. Since GeoJSON doesn't cover these topics, I had to roll my own. I won't detail the output but the queries are below.</p>
 
-<p>{% codeblock snippet8.js %}
-//SQL to retrieve schema
-//var sql = "SELECT n.nspname as schemaname,c.relname as table_name,a.attname as column_name,format_type(a.atttypid, a.atttypmod) AS //type,col_description(a.attrelid, a.attnum) as comments";
-//sql = sql + " FROM pg_class c INNER JOIN pg_namespace n ON c.relnamespace = n.oid LEFT JOIN pg_attribute a ON a.attrelid = c.oid";
-//sql = sql + " WHERE a.attnum > 0 and c.relname = '" + tablename + "' and n.nspname = '" + schemaname + "';";</p>
-
-<p>//SQL to retrieve layer list
-//sql = "SELECT 'geometry' AS geotype, * FROM geometry_columns UNION SELECT 'geography' as geotype, * FROM geography_columns;";
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet8.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//SQL to retrieve schema</span>
+</span><span class='line'><span class="c1">//var sql = &quot;SELECT n.nspname as schemaname,c.relname as table_name,a.attname as column_name,format_type(a.atttypid, a.atttypmod) AS //type,col_description(a.attrelid, a.attnum) as comments&quot;;</span>
+</span><span class='line'><span class="c1">//sql = sql + &quot; FROM pg_class c INNER JOIN pg_namespace n ON c.relnamespace = n.oid LEFT JOIN pg_attribute a ON a.attrelid = c.oid&quot;;</span>
+</span><span class='line'><span class="c1">//sql = sql + &quot; WHERE a.attnum &gt; 0 and c.relname = &#39;&quot; + tablename + &quot;&#39; and n.nspname = &#39;&quot; + schemaname + &quot;&#39;;&quot;;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//SQL to retrieve layer list</span>
+</span><span class='line'><span class="c1">//sql = &quot;SELECT &#39;geometry&#39; AS geotype, * FROM geometry_columns UNION SELECT &#39;geography&#39; as geotype, * FROM geography_columns;&quot;;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>So this gives me everything I need for an all-purpose interface into PostGIS from Node. I could spend the rest of the year similarly wrapping the hundreds of spatial functions in PostGIS but the real power of extensibility is the ability to tailor an application for one's own needs, based upon one's detailed understanding of their own data and logic.</p>
 
@@ -210,32 +319,58 @@ app.post('/vector/:schema/:table/:geom/intersect', function (req, res, next) {
 
 <p>To do this, I fell back to the data for <a href="http://leonardtown.somd.com">Leonardtown, Maryland</a> that have used in a <a href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/">couple</a> of previous <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/">posts</a>. I am simply going to expose the ability to query residential or commercial buildings from the data set. For this, all of the prep work is done at the top of the function by simply preparing a WHERE clause.</p>
 
-<p>{% codeblock snippet9.js %}
-app.get('/leonardtown/buildings/:geom', function (req, res, next) {</p>
-
-<pre><code>var client = new pg.Client(app.conString);
-var geom = req.params.geom.toLowerCase();
-if ((geom != "features") &amp;&amp; (geom != "geometry")) {
-    res.status(404).send("Resource '" + geom + "' not found");
-    return;
-}
-var tablename = "leonardtown_bldgs";
-var schemaname = "public";
-var fullname = schemaname + "." + tablename;
-var spatialcol = "";
-var proptype = req.query.type;
-var whereclause = ";";
-if (typeof proptype != "undefined") {
-    if (proptype.toLowerCase() != "all") {
-        whereclause = " where structure_ = '" + proptype + "';";
-    }
-}
-var coll;
-var sql = "";
-//logic continues from here
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>snippet9.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/leonardtown/buildings/:geom&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">geom</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span><span class='line'><span class="k">if</span> <span class="p">((</span><span class="nx">geom</span> <span class="o">!=</span> <span class="s2">&quot;features&quot;</span><span class="p">)</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="p">(</span><span class="nx">geom</span> <span class="o">!=</span> <span class="s2">&quot;geometry&quot;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">404</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Resource &#39;&quot;</span> <span class="o">+</span> <span class="nx">geom</span> <span class="o">+</span> <span class="s2">&quot;&#39; not found&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">tablename</span> <span class="o">=</span> <span class="s2">&quot;leonardtown_bldgs&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">schemaname</span> <span class="o">=</span> <span class="s2">&quot;public&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">fullname</span> <span class="o">=</span> <span class="nx">schemaname</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="nx">tablename</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">spatialcol</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">proptype</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">type</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">whereclause</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">proptype</span> <span class="o">!=</span> <span class="s2">&quot;undefined&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">proptype</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;all&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">whereclause</span> <span class="o">=</span> <span class="s2">&quot; where structure_ = &#39;&quot;</span> <span class="o">+</span> <span class="nx">proptype</span> <span class="o">+</span> <span class="s2">&quot;&#39;;&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">coll</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="c1">//logic continues from here</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The primary difference here are that I am using a GET with a query string since I'm not concerned with data size and that I'm building a WHERE clause on a specific column name. What's not shown is that, farther down, I don't need to query the name of the spatial column so I can cut out that step. I can do this because I understand my own data so I can be more succinct that if I were writing a more generic function. Using this approach I can also write more complex custom logic in my database, call it from Node, and send the response. In other words, standard web application behavior.</p>
 
@@ -309,118 +444,223 @@ var sql = "";
 
 <p>After building the package.json file and using that to install the Express, node-postgres, and their dependencies, I build a quick server script to act as the web interface for the application. This is where Express really excels in that it makes it easy to define resource paths in an application.</p>
 
-<p>{% codeblock server.js %}
-var express = require('express'),</p>
-
-<pre><code>geo = require('./routes/geo');
-</code></pre>
-
-<p>var app = express();</p>
-
-<p>app.get('/countries/:id/bbox', geo.bbox);
-app.get('/countries/:id/bbox/:srid', geo.bboxSrid);
-app.get('/countries/:id/polygon', geo.polygon);
-app.get('/countries/:id/polygon/:srid', geo.polygonSrid);</p>
-
-<p>app.listen(3000);
-console.log('Listening on port 3000...');
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>server.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">),</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">geo</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/geo&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/countries/:id/bbox&#39;</span><span class="p">,</span> <span class="nx">geo</span><span class="p">.</span><span class="nx">bbox</span><span class="p">);</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/countries/:id/bbox/:srid&#39;</span><span class="p">,</span> <span class="nx">geo</span><span class="p">.</span><span class="nx">bboxSrid</span><span class="p">);</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/countries/:id/polygon&#39;</span><span class="p">,</span> <span class="nx">geo</span><span class="p">.</span><span class="nx">polygon</span><span class="p">);</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/countries/:id/polygon/:srid&#39;</span><span class="p">,</span> <span class="nx">geo</span><span class="p">.</span><span class="nx">polygonSrid</span><span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Listening on port 3000...&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The four "app.get" statements above define calls to get either the bounding box or the actual polygon for a country. When the ":srid" parameter is not specified, the resulting feature is returned in the default spatial reference of WGS84. If a valid EPSG spatial reference code is supplied, then the resulting feature is transformed to that spatial reference. The ":id" parameter in all of the calls represents the ISO Alpha-3 code for a country. You will notice that the application listens on port 3000. More on that later.</p>
 
 <p>The next step is to define the route handlers. In this application, this where interaction with PostGIS will take place. Note that each of the exports correspond to the callback functions in the app.get statements above.</p>
 
-<p>{% codeblock geo.js %}
-var pg = require('pg');
-var conString = "postgres://username:password@hostname.rds.amazonaws.com:5432/database"; //TODO: point to RDS instance</p>
-
-<p>exports.bbox = function(req, res) {</p>
-
-<pre><code>var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:4326"}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(st_envelope(shape)) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      //build a GeoJSON feature and return it
-      res.send({type: "feature",crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "extent"}});
-    }
-  }); 
-</code></pre>
-
-<p>};</p>
-
-<p>exports.bboxSrid = function(req, res) {</p>
-
-<pre><code>var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:" + req.params.srid}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(st_envelope(st_transform(shape, " + req.params.srid + "))) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({type: "feature",crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "extent"}});
-    }
-  }); 
-</code></pre>
-
-<p>};</p>
-
-<p>exports.polygon = function(req, res) {</p>
-
-<pre><code>//TODO: Flesh this out. Logic will be similar to bounding box.
-var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:4326"}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(shape) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({type: "feature", crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "boundary"}});
-    }
-  }); };
-</code></pre>
-
-<p>exports.polygonSrid = function(req, res) {</p>
-
-<pre><code>var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:" + req.params.srid}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(st_transform(shape, " + req.params.srid + ")) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();   
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({type: "feature",crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "boundary"}});
-    }
-  }); };
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>geo.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">pg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pg&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">conString</span> <span class="o">=</span> <span class="s2">&quot;postgres://username:password@hostname.rds.amazonaws.com:5432/database&quot;</span><span class="p">;</span> <span class="c1">//TODO: point to RDS instance&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">exports</span><span class="p">.</span><span class="nx">bbox</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:4326&quot;</span><span class="p">}};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">idformat</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">idformat</span> <span class="o">=</span> <span class="nx">idformat</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_envelope(shape)) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="c1">//build a GeoJSON feature and return it</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span><span class="nx">crs</span><span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span> <span class="nx">geometry</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span> <span class="nx">properties</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;iso&quot;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;representation&quot;</span><span class="o">:</span> <span class="s2">&quot;extent&quot;</span><span class="p">}});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">};</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">exports</span><span class="p">.</span><span class="nx">bboxSrid</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span><span class="p">}};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">idformat</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">idformat</span> <span class="o">=</span> <span class="nx">idformat</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_envelope(st_transform(shape, &quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span> <span class="o">+</span> <span class="s2">&quot;))) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span><span class="nx">crs</span><span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span> <span class="nx">geometry</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span> <span class="nx">properties</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;iso&quot;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;representation&quot;</span><span class="o">:</span> <span class="s2">&quot;extent&quot;</span><span class="p">}});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">};</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">exports</span><span class="p">.</span><span class="nx">polygon</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="c1">//TODO: Flesh this out. Logic will be similar to bounding box.</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:4326&quot;</span><span class="p">}};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">idformat</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">idformat</span> <span class="o">=</span> <span class="nx">idformat</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(shape) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span> <span class="nx">crs</span><span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span> <span class="nx">geometry</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span> <span class="nx">properties</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;iso&quot;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;representation&quot;</span><span class="o">:</span> <span class="s2">&quot;boundary&quot;</span><span class="p">}});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span> <span class="p">};</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">exports</span><span class="p">.</span><span class="nx">polygonSrid</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pg</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="nx">conString</span><span class="p">);</span>
+</span><span class='line'><span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">crsobj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span><span class="p">}};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">idformat</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">idformat</span> <span class="o">=</span> <span class="nx">idformat</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select st_asgeojson(st_transform(shape, &quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">srid</span> <span class="o">+</span> <span class="s2">&quot;)) as geojson from ne_countries where iso_a3 = &quot;</span> <span class="o">+</span> <span class="nx">idformat</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="s2">&quot;no data&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">query</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">client</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No data found&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span><span class="nx">crs</span><span class="o">:</span> <span class="nx">crsobj</span><span class="p">,</span> <span class="nx">geometry</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">geojson</span><span class="p">),</span> <span class="nx">properties</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;iso&quot;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;representation&quot;</span><span class="o">:</span> <span class="s2">&quot;boundary&quot;</span><span class="p">}});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span> <span class="p">};</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The PostGIS spatial SQL for each function is shown in the "client.query" calls in the code above. This approach is very similar to constructing SQL calls in a number of other application environments. You will notice that a coordinate reference system object is constructed and attached to each valid response, which is structured as a <a href="http://geojson.org">GeoJSON</a> feature. The code currently assumes EPSG codes but that may be addressed in a future version.</p>
 
@@ -460,57 +700,106 @@ query.on('row', function(result) {
 
 <p><strong>Sample Response</strong></p>
 
-<p>{% codeblock irl_bbox.json %}
-{
-  "type": "feature",
-  "crs": {</p>
-
-<pre><code>"type": "name",
-"properties": {
-  "name": "urn:ogc:def:crs:EPSG:6.3:4326"
-}
-</code></pre>
-
-<p>  },
-  "geometry": {</p>
-
-<pre><code>"type": "Polygon",
-"coordinates": [
-  [
-    [
-      -10.4781794909999,
-      51.4457054710001
-    ],
-    [
-      -10.4781794909999,
-      55.386379299
-    ],
-    [
-      -5.99351966099994,
-      55.386379299
-    ],
-    [
-      -5.99351966099994,
-      51.4457054710001
-    ],
-    [
-      -10.4781794909999,
-      51.4457054710001
-    ]
-  ]
-]
-</code></pre>
-
-<p>  },
-  "properties": {</p>
-
-<pre><code>"iso": "irl",
-"representation": "extent"
-</code></pre>
-
-<p>  }
-}
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>irl_bbox.json </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;crs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;urn:ogc:def:crs:EPSG:6.3:4326&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>  <span class="p">[</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-10.4781794909999</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">51.4457054710001</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-10.4781794909999</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">55.386379299</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-5.99351966099994</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">55.386379299</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-5.99351966099994</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">51.4457054710001</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>      <span class="mf">-10.4781794909999</span><span class="p">,</span>
+</span><span class='line'>      <span class="mf">51.4457054710001</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'>  <span class="p">]</span>
+</span><span class='line'><span class="p">]</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="nt">&quot;iso&quot;</span><span class="p">:</span> <span class="s2">&quot;irl&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="nt">&quot;representation&quot;</span><span class="p">:</span> <span class="s2">&quot;extent&quot;</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   
