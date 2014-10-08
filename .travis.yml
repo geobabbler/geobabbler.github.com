@@ -8,6 +8,8 @@ rvm:
 before_install:
 - git config --global user.name "Travis CI"
 - git config --global user.email "travis@travis-ci.org"
+before_script:
+- export REPO_URL="https://$GH_TOKEN@github.com/$GH_REPO.git"
 script:
 - bundle exec rake generate
 after_script:
