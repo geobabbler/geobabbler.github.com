@@ -1,0 +1,39 @@
+---
+layout: post
+title: SpatiaLite for Android Available
+post_author: bdollins
+comments: true
+categories:
+- AGC
+- Android
+- database
+- DoD
+- gis
+- government
+- open source
+- SpatiaLite
+---
+
+On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.
+
+I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.
+
+The message is quoted below:
+
+<blockquote>
+Hi List,
+
+I'm really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
+
+[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
+
+Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
+
+[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
+
+A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he'll surely appreciate ;-)
+
+[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
+
+enjoy, Sandro
+</blockquote>

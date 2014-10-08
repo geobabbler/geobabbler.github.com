@@ -1,0 +1,26 @@
+---
+layout: post
+title: "GIS Day After"
+date: 2013-11-19 09:13
+comments: true
+categories: 
+- GIS Day
+- PostGIS
+- GIS
+- WTF
+---
+It's the morning of November 21st, but not for long. You open one eye. Just one; it's best not to rush such things. Apparently, you finally came to rest in the ball pit you all made using the squishy globes from myriad conferences past. A cursory scan tells you the GIS lab is trashed. It starts to come back to you: the rousing game of "Pin the Certificate on the Khakis." Yes, there are your pleated khakis on the wall with everyone's training and GISP certificates stuck on or around them with pushpins. Someone won in what would have been a most painful way if the khakis had been on your body. The loin cloth fashioned from the old hard-copy topos (which you are still wearing). The fact that you let the intern talk you into finally opening a Twitter account and your glee at discovering you could attach photos to geocoded tweets with your BlackBerry.
+
+You look around the room at your coworkers strewn across the floor. There's the ArcObjects guy still sporting his "war paint" from the plotter toner. There's your lead analyst with a face tattoo of the town's land-use drawn in marker and, she proudly insisted, accurately projected in state plane. Slowly, you are able to account for everyone on your GIS staff. Good, no one has gone missing...except the intern.
+
+The door opens and you turn to see the intern standing there in all of her college-kid resilience, letting in far too much sunlight for your comfort. You're not sure it's possible to hate anyone more in this moment.
+
+"Oh, good," she says, "you're awake. Are you going to do the hangout?"
+
+"Hangout?" you mumble.
+
+"Yeah, [James Fee is doing a PostGIS Day hangout with a panel of experts on PostGIS](http://www.spatiallyadjusted.com/2013/11/18/postgis-day-special-hangout-this-week/). I told you about this. I told you about [PostGIS](http://postgis.net). Don't you remember? It starts in about an hour."
+
+It does sound familiar. You give it some thought. What better way to shake off the cobwebs from the bacchanalia of the "BEST GIS DAY EVAR!!!" (so says the hand-lettered Sharpie on the lab's wall) than a little geo-hair-of-the-dog? Maybe it's time to finally pay attention to this open-source stuff. You look around to survey the damage one more time. Besides, ditching the Oracle license might just about pay for this.
+
+"Yeah," you reply, "I'll be there in five minutes. Close the door, please."

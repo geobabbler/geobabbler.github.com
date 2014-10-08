@@ -1,0 +1,187 @@
+---
+layout: blog
+title: Working with the GeoIQ Features API
+post_author: bdollins
+comments: true
+categories:
+- c#
+- code
+- esri
+- GeoCommons
+- GeoIQ
+- gis
+- JSON.Net
+- silverlight
+- software development
+---
+
+I find myself pointing people to GeoCommons for data more often these days. With over <a href="http://blog.geoiq.com/2011/02/28/50000-unique-datasets-on-geocommons-woot/">50,000 data sets</a>, there's a lot there. The people I work with seem to usually be able to find data of value there so I've been putting a little time into <a href="http://geobabble.wordpress.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">making it easier</a> to get data from GeoCommons. As I've mentioned before, many of them are long-standing ESRI users. While they are becoming more aware of alternate tools and data sources, it is still important for them to be able to get data into the ESRI environment where their custom tools reside.
+
+Given the content of my recent posts, it?s no secret that my recent project work has involved the ESRI Silverlight API so I decided extend it to more easily access data from GeoCommons.
+
+<a href="http://geobabble.files.wordpress.com/2011/04/dogs_and_cats.png"><img alt="" class="aligncenter size-full wp-image-1670" height="281" src="http://geobabble.files.wordpress.com/2011/04/dogs_and_cats.png" title="Dogs and cats living together" width="500" /></a>
+
+Recently, <a href="http://www.geoiq.com">GeoIQ</a> pubished an update to their RESTful API that includes a "<a href="http://developer.geoiq.com/api/rest-api/#Features-API">Features API</a>," which gives you a little more direct access to the features in a GeoIQ data set (GeoIQ is the platform upon which GeoCommons is built). Previously, if I needed to access data from GeoCommons in the ESRI Silverlight API, I would just access it as KML using the native <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client.Toolkit.DataSources~ESRI.ArcGIS.Client.Toolkit.DataSources.KmlLayer.html">KmlLayer class</a>. The GeoIQ Features API, however, offers more fine-grained control over how much data we return in the form of various query parameters. Currently, the API only returns JSON (GeoIQ's own syntax or GeoJSON) so it was time to do something different.
+
+<!--more-->
+
+<strong>Part 1: Handling the JSON</strong>
+
+I set out to develop a custom layer class, derived from the ESRI API's native <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.GraphicsLayer.html">GraphicsLayer</a> class. The bulk of the work was just parsing out the JSON to create the geometries and attach the attributes. If you've worked with the GraphicsLayer class before, this is fairly straightforward. I really just wanted to create a derived class that would take the various parameters of the GeoIQ API and do the heavy lifting behind the scenes.
+
+I have really come to like <a href="http://json.codeplex.com/">JSON.Net</a> by James Newton-King for handling JSON in my .Net code. It is open-source (MIT License) and I've grown comfortable with its LINQ to JSON features. Working with the native GeoIQ JSON, the code to build a list of graphic objects is pretty straightforward:
+
+{% codeblock lang:csharp %}
+       /// &lt;summary&gt;
+        /// Iterates array of JSON objects and builds ESRI Graphics
+        /// &lt;/summary&gt;
+        /// &lt;param name="featArray"&gt;Array of JSON strings parsed from the original
+        /// returned from GeoIQ&lt;/param&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        private void UnrollFeaturesEvent(JArray featArray)
+        {
+            var jEnum = featArray.AsJEnumerable();
+            foreach (JToken token in jEnum)
+            {
+                try
+                {
+                    string s = token.ToString();
+                    JObject feat = JObject.Parse(s);
+                    Graphic graphic = new Graphic();
+                    foreach (JProperty prop in feat.Properties())
+                    {
+                        var name = prop.Name;
+                        if (name.ToLower() == GEOM_TOKEN) //handle feature geometry
+                        {
+                            var geom = GeometryFromWKB.Parse((string)prop.Value); //get geometry from hex-encoded WKB
+                            geom.SpatialReference = new SpatialReference() { WKID = 4326 }; //GeoIQ returns geometries in WGS84
+                            if (_useMercator) //do we want to use web mercator?
+                            {
+                                //_wm is an instance of ESRI.ArcGIS.Client.Projection.WebMercator
+                                geom = _wm.FromGeographic(geom);
+                            }
+                            graphic.Geometry = geom;
+                        }
+                        else //we're dealing with an attribute
+                        {
+                            object val = prop.Value == null ? "" : prop.Value;
+                            graphic.Attributes.Add(prop.Name, val);
+                        }
+                    }
+                    if (this.AddGraphic != null)
+                        AddGraphic(graphic);
+                }
+                catch { }
+            }
+         }
+{% endcodeblock %}
+<em>Listing 1: Unrolling JSON Features from GeoCommons</em>
+
+You'll notice the call to GeometryFromWKB.Parse above. The GeoIQ JSON returns geometries as hex-encoded WKB. To handle this, I modified GeometryFromWKB class from <a href="http://sharpmap.codeplex.com">SharpMap</a> to return an ESRI Silverlight API geometry. Yes, this means I managed to fuse two of <a href="http://sharpgis.net/">Morten's</a> creations together here in some small way.  :)
+
+<strong>Part 2: Calling the Features API</strong>
+
+So now that we can handle the JSON coming back from GeoIQ, we need to request it. The GeoIQ Features API defines a number of parameters that can be submitted to refine the set of features that is returned. For this pass, I am only implementing lat, lon, radius, units, bbox, intersect and limit. I am also not handling the use of geometries other than points for buffering right now. I set up all of these parameters as dependency properties. That code is rather repetitive but here is an example of how I wrapped one of them:
+
+{% codeblock lang:csharp %}
+        // Using a DependencyProperty as the backing store for Limit.
+        public static readonly DependencyProperty LimitProperty =
+            DependencyProperty.Register("Limit", typeof(int), typeof(GeoCommonsGraphicsLayer), new PropertyMetadata(0));
+
+
+        public int Limit
+        {
+            get { return (int)GetValue(LimitProperty); }
+            set { SetValue(LimitProperty, value); }
+        }
+{% endcodeblock %}
+<em>Listing 2: Dependency property wrapping the "limit" parameter</em>
+
+The URI format for calling the Features API is describe in the GeoIQ documentation. From that document here is one example: <em>http://geocommons.com/datasets/22146/features.json?lat=38.8&amp;lon=-78.9&amp;radius=2&amp;intersect=full</em>
+
+From here, it?s just a matter of building a valid URI to call using the WebClient (or HttpWebRequest if you prefer) so I start with a template string something like this: <em>http://geocommons.com/datasets/{0}/features.json?</em>, where ?{0}? is a placeholder for the GeoCommons overlay ID. I then build out the query string parameters by rolling up any properties that have been set. Note: for query parameters that have a fixed set of values, I used enumerations that I extend with attributes using the technique described at <a href="http://stackoverflow.com/questions/424366/c-string-enums">http://stackoverflow.com/questions/424366/c-string-enums</a> so that I could get the valid parameter values while presenting more human-readable enumerations. This probably isn?t necessary, but I?ve grown fond of the approach. Here's an example:
+
+{% codeblock lang:csharp %}
+    public enum UnitsValues
+    {
+        [StringValue("km")]
+        Kilometers = 1,
+        [StringValue("m")]
+        Meters = 2,
+        [StringValue("ft")]
+        Feet = 3,
+        [StringValue("mi")]
+        Miles = 4,
+        [StringValue("degrees")]
+        Degrees = 5
+    }
+{% endcodeblock %}
+<em>Listing 3: Example of enumeration using StringValue attributes</em>
+
+Once we make the call, we handle the reponse like so:
+
+{% codeblock lang:csharp %}
+        void request_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                this.Graphics.Clear();
+                string json = e.Result;
+                var jsonHelper = new Zekiah.Helpers.GeoIqJson();
+                jsonHelper.AddGraphic += new AddGraphicHandler(jsonHelper_AddGraphic);
+                jsonHelper.GetFeatureGraphicsEvent(json, this.UseWebMercator);
+            }
+        }
+
+        void jsonHelper_AddGraphic(Graphic graphic)
+        {
+            this.Graphics.Add(graphic); //'this' is the current instance of GeoCommonsGraphicsLayer
+        }
+{% endcodeblock %}
+<em>Listing 4: Populating the layer with the ESRI graphic objects</em>
+
+The code back up in Listing 1 fires an event every time a graphic is created. This saved me at least one iteration through the list of graphics and sped up loading somewhat. It was most noticeable on large GeoCommons overlays.
+
+<strong>Part 3: Using the Custom Layer Class.</strong>
+
+Once all this is wired up, we can access GeoCommons data from in two ways:
+
+From XAML:
+
+{% codeblock lang:xml %}
+ &lt;esri:Map x:Name="Map" Background="White"&gt;
+    &lt;esri:ArcGISTiledMapServiceLayer ID="BaseLayer" 
+       Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" /&gt;
+    &lt;ztLayers:GeoCommonsGraphicsLayer ID="Pipelines" ProxyUrl="../ProxyHandler.ashx?" Limit="0" Radius="100" Units="Kilometers" OverlayID="68949" UseWebMercator="True" Visible="True" &gt;
+        &lt;ztLayers:GeoCommonsGraphicsLayer.Renderer&gt;
+           &lt;esri:SimpleRenderer&gt;
+                &lt;esri:SimpleLineSymbol Color="Black" Width="1" Style="Solid" /&gt;
+           &lt;/esri:SimpleRenderer&gt;
+        &lt;/ztLayers:GeoCommonsGraphicsLayer.Renderer&gt;
+        &lt;ztLayers:GeoCommonsGraphicsLayer.QueryPoint&gt;
+            &lt;esri:MapPoint X="-92.1" Y="34.5"&gt;
+                &lt;esri:MapPoint.SpatialReference&gt;
+                    &lt;esri:SpatialReference WKID="4326" /&gt;
+                &lt;/esri:MapPoint.SpatialReference&gt;
+            &lt;/esri:MapPoint&gt;
+        &lt;/ztLayers:GeoCommonsGraphicsLayer.QueryPoint&gt;
+    &lt;/ztLayers:GeoCommonsGraphicsLayer&gt;
+ &lt;/esri:Map&gt;
+{% endcodeblock %}
+<em>Listing 5: Adding a GeoCommons layer in XAML</em>
+
+Or in code:
+
+{% codeblock lang:csharp %}
+            GeoCommonsGraphicsLayer polygonLayer = new GeoCommonsGraphicsLayer();
+            polygonLayer.Renderer = new SimpleRenderer() { Symbol = GetPolygonSymbol() };
+            polygonLayer.ProxyUrl = "../ProxyHandler.ashx?";
+            polygonLayer.OverlayID = 68967;
+            polygonLayer.UseWebMercator = true; //I may refactor this to check the map's SRID
+            this.Map.Layers.Add(polygonLayer);
+{% endcodeblock %}
+<em>Listing 6: Adding a GeoCommons layer in code</em>
+
+These two examples access data provided to GeoCommons by the State of Arkansas as described by Learon Dalby <a href="http://www.gisuser.com/content/view/23022/222/">here</a>. In XAML, we are accessing the railroad lines that intersect a 100KM buffer around the supplied point. In the second, we are loading all of the state senate district boundaries.
+
+That's fairly high-level overview of the integration tasks that were needed to provide access to GeoCommons from the ESRI Silverlight API using the GeoIQ Features API. I'll post a sample project and code soon once I get things cleaned up a bit more. Stayed tuned...

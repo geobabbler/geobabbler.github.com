@@ -1,0 +1,142 @@
+---
+layout: blog
+title: DynamicLayer Auto-Refresh for ESRI Silverlight API
+post_author: bdollins
+comments: true
+categories:
+- arcgis server
+- behaviors
+- c#
+- esri
+- expression
+- gis
+- silverlight
+- software development
+---
+
+Despite <a href="http://techcrunch.com/2010/10/30/rip-silverlight-on-the-web/">recent news regarding Silverlight</a>, I expect some of my projects to continue using it for the near term. Others may be taking the same tack, so I thought I'd go ahead and offer this up.
+
+Several of the projects I support have the requirement to periodically refresh specific layers in order to track change or movement. These layers can range from weather to vehicle locations and such. I have typically accomplished this with a timer that refreshes the layer(s) on a specified interval. This can get rather cumbersome if you have different layers that require different refresh intervals.
+
+Working within <a href="http://www.silverlight.net/">Silverlight</a>, I have the option of using an existing layer class as a base class and extending it to include an automatic refresh capability. However, some classes, such as the <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.ArcGISDynamicMapServiceLayer.html">ArcGISDynamicMapServiceLayer</a>, are sealed and cannot be extended. Luckily, the <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=d197f51a-de07-4edf-9cba-1f1b4a22110d&amp;displaylang=en">Expression Blend SDK</a> enables me to get around this by attaching a custom behavior. <!--more-->
+
+The ArcGISDynamicMapServiceLayer descends from the <a href="http://help.arcgis.com/en/webapi/silverlight/apiref/ESRI.ArcGIS.Client~ESRI.ArcGIS.Client.DynamicLayer.html">DynamicLayer</a> inheritance hierarchy, which provides access to a <em>Refresh</em> method. So I developed the following behavior to attach to a DynamicLayer (or anything that derives from it). It makes use of a <a href="http://msdn.microsoft.com/en-us/library/system.windows.threading.dispatchertimer.aspx">DispatcherTimer</a> to refresh the layer to which it is attached. In this particular implementation, each layer gets its own timer. That met my requirement of having different refresh rates for different layers. It may be preferable in some instances to pass in a reference to a single timer to control all layers. In either case, you can simply attach the behavior only to those layers that you need to refresh. This can get you around iterating the map's <em>Layers</em> collection at each timer tick (or other such approaches).
+
+This is the code for the behavior itself. Scroll down for a snippet showing how to implement it.
+
+{% codeblock lang:csharp %}
+/*Copyright (c) 2010, Zekiah Technologies, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+Neither the name of the Zekiah Technologies, Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+
+using System;
+using System.Windows.Input;
+using System.Windows.Interactivity;
+using System.Windows.Threading;
+using ESRI.ArcGIS.Client;
+using ESRI.ArcGIS.Client.Geometry;
+using System.Windows;
+
+namespace Zekiah.ArcGIS.Behaviors
+{
+    /// &lt;summary&gt;
+    /// Adds automatic refresh to a DynamicLayer object (or any
+    /// class that inherits from DynamicLayer. 
+    /// &lt;/summary&gt;
+    public class AutoRefresh : Behavior&lt;DynamicLayer&gt;
+    {
+         private DispatcherTimer _tmr = null;
+
+        /// &lt;summary&gt;
+        /// Called after the behavior is attached to an AssociatedObject.
+        /// &lt;/summary&gt;
+        /// &lt;remarks&gt;Override this to hook up functionality to the AssociatedObject.&lt;/remarks&gt;
+        protected override void OnAttached()
+        {
+            base.OnAttached();
+            
+            initTimer();
+        }
+
+        public TimeSpan Interval
+        {
+            get
+            {
+                if (_tmr == null)
+                {
+                    initTimer();
+                }
+                return _tmr.Interval;
+            }
+            set
+            {
+                if (_tmr == null)
+                {
+                    initTimer();
+                }
+                _tmr.Interval = value;
+            }
+        }
+
+        public void Start()
+        {
+            if (_tmr == null)
+                initTimer();
+            if (!_tmr.IsEnabled)
+                _tmr.Start();
+        }
+
+        public void Stop()
+        {
+            if ((_tmr != null) &amp;&amp; (_tmr.IsEnabled))
+                _tmr.Stop();
+        }
+
+        /// &lt;summary&gt;
+        /// Called when the behavior is being detached from its AssociatedObject, 
+        /// but before it has actually occurred.
+        /// &lt;/summary&gt;
+        /// &lt;remarks&gt;Override this to unhook functionality from the AssociatedObject.&lt;/remarks&gt;
+        protected override void OnDetaching()
+        {
+            base.OnDetaching();
+            _tmr = null;
+        }
+
+        private void initTimer()
+        {
+            _tmr = new DispatcherTimer();
+            _tmr.Interval = new TimeSpan(0, 0, 30); //default thirty second interval
+            _tmr.Tick += new EventHandler(_tmr_Tick);
+        }
+
+        void _tmr_Tick(object sender, EventArgs e)
+        {
+            this.AssociatedObject.Refresh();
+        }
+
+     }
+}
+{% endcodeblock %}
+
+The following code shows how to attach the behavior. In this case, I just kept the default 30 second interval (more than enough for this weather layer). For layers of type ArcGISDynamicMapServiceLayer, it is necessary to set <em>DisableClientCaching</em> to true or you'll never see a refresh.
+
+{% codeblock lang:csharp %}
+            var lyr = new ESRI.ArcGIS.Client.ArcGISDynamicMapServiceLayer();
+            lyr.DisableClientCaching = true;
+            lyr.Url = "http://services.nationalmap.gov/ArcGIS/rest/services/NEXRAD_Weather/MapServer";
+
+            var autoRefresh = new Zekiah.ArcGIS.Behaviors.AutoRefresh();
+            var behaviors = System.Windows.Interactivity.Interaction.GetBehaviors(lyr);
+            behaviors.Add(autoRefresh);
+            autoRefresh.Start();
+            this.Map.Layers.Add(lyr);
+{% endcodeblock %}
+
+I've used this for both ArcGIS Server dynamic layers as well as WMS layers so far. I also have a version that attached to GraphicsLayer objects so that I can refresh GeoRSS layers. So far this technique has worked pretty well for me.

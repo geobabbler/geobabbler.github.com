@@ -1,0 +1,18 @@
+<section>
+{% if site.twitter_user %}
+<a href="http://twitter.com/{{ site.twitter_user }}"><img src="/images/twitter.png" width="32" height="32" alt="View my Twitter profile"></a>&nbsp;
+{% endif %}
+{% if site.linkedin_profile %}
+<a href="http://www.linkedin.com/in/{{ site.linkedin_profile }}"><img src="/images/linkedin.png" width="32" height="32" alt="View LinkedIn profile of {{ site.linkedin_proper }}"></a>&nbsp;
+{% endif %}
+{% if site.googleplus_user %}
+<a href="https://plus.google.com/{{ site.googleplus_user }}?rel=author"><img src="/images/gplus.png" width="32" height="32"></a>&nbsp;
+{% endif %}
+{% if site.facebook_page %}
+<a href="{{ site.facebook_page }}"><img src="/images/fb.png" width="32" height="32" alt="Follow my Facebook page"></a>&nbsp;
+{% endif %}
+{% if site.github_user %}
+<a href="https://github.com/{{site.github_user}}"><img src="/images/github32.png" width="32" height="32" alt="View my profile on GitHub"></a>&nbsp;
+{% endif %}
+</section>
+

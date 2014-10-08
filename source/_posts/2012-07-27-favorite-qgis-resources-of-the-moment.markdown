@@ -1,0 +1,32 @@
+---
+layout: blog
+title: Favorite QGIS Resources of the Moment
+post_author: bdollins
+comments: true
+categories:
+- Desktop
+- gis
+- IFTTT
+- open source
+- QGIS
+- twitter
+---
+
+I've been dabbling more with Quantum GIS (<a href="http://qgis.org" target="_blank">QGIS</a>) lately. I'm not doing anything particularly sophisticated but it's a great viewer for some data types (<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a>, <a href="http://geojson.org/" target="_blank">GeoJSON</a>) that aren't supported by my commercial desktop GIS so it's helping me validate outputs of some applications I'm writing.
+
+<img alt="" src="http://fossies.org/unix/misc/qgis-1.8.0.tar.gz:a/qgis-1.8.0/images/splash/splash.png" />
+
+While I'll never be a real cartographer, I am interested in doing a little more. Here are the resources that have been helping me the most lately...
+<!--more-->
+
+I'll start with three blogs:
+
+<a href="http://underdark.wordpress.com/" target="_blank">Anita Graser</a> (<a href="http://twitter.com/underdarkgis" target="_blank">@underdarkgis</a>)
+
+<a href="http://woostuff.wordpress.com/" target="_blank">Nathan Woodrow</a> (<a href="http://twitter.com/madmanwoo" target="_blank">@madmanwoo</a>)
+
+<a href="http://mapbox.com/blog/" target="_blank">The MapBox Blog</a> (<a href="http://twitter.com/mapbox" target="_blank">@mapbox</a>)
+
+The MapBox blog takes some explaining. It is primarily about how to be productive with MapBox, but some posts deal with using QGIS in your workflows. Those posts have some good information. All of these blogs have been helpful to me over the last couple of months.
+
+Outside of that, I set up a Google Alert for QGIS which feeds me all kinds of things: posts from other blogs, mailing entries, StackExchange questions, and so on. To make that easy, I ran the feed from that alert through <a href="http://ifttt.com/" target="_blank">ifttt.com</a> and have it posting to a Twitter account: (<a href="http://twitter.com/QGISInfo" target="_blank">@QGISInfo</a>). Feel free to check it out. Keep in mind that it's based on a Google search so odd results may creep in from time to time. I've been running the alert for a few weeks and it's been pretty clean. The Twitter feed is new and will be sparse until a few refresh cycles happen. Think of it as a poor man's "Planet QGIS." I hope you find it useful.

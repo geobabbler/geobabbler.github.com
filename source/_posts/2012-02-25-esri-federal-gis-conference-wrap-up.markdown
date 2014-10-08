@@ -1,0 +1,30 @@
+---
+layout: blog
+title: ESRI Federal GIS Conference Wrap-up
+post_author: bdollins
+comments: true
+categories:
+- esri
+- EsriFedCon
+- Federal GIS Conference
+- FedUC
+- gis
+---
+
+After arriving a little late on Day 2 due to needing to push updates to an application we're building for an NGO, I was able to catch most of the session about deploying ArcGIS Server in the cloud. James was sitting in the front and has <a href="http://www.spatiallyadjusted.com/2012/02/23/the-business-case-for-arcgis-in-da-cloud/" target="_blank">already blogged that session</a> so I won't go into detail about it here. One thing that did jump out at me came during the Q&amp;A, when someone asked about certification and accreditation (C&amp;A) of AWS deployments.
+
+<img alt="" class="alignnone" height="419" src="http://www.visitingdc.com/images/washington-dc-convention-center.jpg" title="Washington Convention Center" width="620" />
+
+If you work in the Federal space, you know that C&amp;A is a huge issue for the deployment of any information system, regardless of platform, for the Federal Government. Since hosted deployments essentially mean outsourcing your physical infrastructure, information security types have understandably proceeded with caution here. <!--more-->
+
+To be quite frank, C&amp;A is an issue that ESRI has historically treated superficially at best. It has been viewed as something for integrators to work out despite the fact that there are <a href="https://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002" target="_blank">FISMA</a> implications at the platform level as well. I am happy to say that seems to have changed. As I mentioned toward the end of my <a href="http://blog.geomusings.com/2012/02/23/esrifedcon-day-one-users-will-be-happy/">previous post</a>, ESRI seems to possess a much more mature and holistic understanding of the issues that drive Federal IT acquisition. This was on display here as the ESRI staff running the session provided intelligent answers regarding levels of FISMA compliance as well as the existence/creation of baseline C&amp;A packages that can help jump start <a href="http://iase.disa.mil/diacap/" target="_blank">DIACAP</a> accreditation. Due to time constraints, they didn't get into a lot of detail but it was clear there is now a deeper understanding of C&amp;A issues within ESRI.
+
+I also attended the <a href="http://www.esri.com/events/fedcon/agenda/dev-geo.html">DevGeo</a> segment on ArcGIS Runtime. This technology, which is different than I had expected in many ways, seems to finally plug a gap that has existed in the ESRI platform since the sunsetting of MapObjects. There is once again an easily deployable way to embed ESRI mapping capability into an application. The reality is that there's still a huge demand for desktop applications out there. Over the last two years, I have personally seen increased demand for various desktop tools as the majority of the development community has moved to the web. The ArcGIS Runtime demo I saw during the session already demonstrates that it can plug a serious performance issue that one of my customers is currently having with an in-vehicle application.
+
+The quick hits that jumped out at me: easy deployment model, lack of COM dependencies, native 64-bit support on Linux and Windows while also retaining 32-bit support on Windows, Linux support, and the ability to safely deploy Runtime applications side-by-side with older versions of ArcGIS. These reasons alone move it ahead of ArcGIS Engine in my consideration of tools to use when developing ESRI-centric applications.
+
+I also attended the session on the <a href="http://www.hifldwg.org" target="_blank">HIFLD</a> working group. This was something of a 10-year retrospective on the group that included a series of lightning talks about current efforts across participating agencies. I was in the room for the first meeting back in 2002 and <a href="http://www.zekiah.com" target="_blank">my company</a> continues to support it to this day. Today, it's primarily noted for for coordinating requirements for <a href="http://www.youtube.com/watch?v=IEhjN2y-o54" target="_blank">HSIP</a> (video link). HSIP does have some issues, <a href="http://www.epcupdates.org/2011/09/nga-release-homeland-security.html" target="_blank">fairly accurately portrayed here</a>, but the support team is making a good-faith effort to move to a more collaborative model while also trying to balance the often-competing priorities of the various stakeholders. It's not been easy and progress has been incremental but it's been a quiet, if qualified, success story so far in terms of applying GIS to homeland security issues.
+
+After that session, I headed out to the social. By this, I don't mean the official social at the Air and Space Museum. While this was an ESRI conference, ESRI tools are not the only ones I use. Due to the fact that the Federal GIS Conference draws an increasing number of geospatial users from around the country, an informal gathering has taken place at <a href="http://www.lovethebeer.com/rfd.html" target="_blank">RFD</a> over the last few years. This gathering typically includes not only conference attendees but also people with other DC-area geospatial companies such as <a href="http://www.geoiq.com" target="_blank">GeoIQ</a>. Some people attend the ESRI event and drop by RFD later. What usually results is a good mix of discussion. I have come to realize that I value these types of gatherings as a way to reconnect with people I don't get to see often, meet new people, and generally recharge my batteries. This informal gathering gives me a chance to throw a lot of different things into my melting pot and let them stew for a bit. I have come to view it as being almost as valuable as the conference itself.
+
+I didn't attend the last day because two days out of the office leaves a lot to catch up on. I was happy to catch up with everyone (far too numerous to name here) and look forward to the chance to do so again in the near future. For those who had to travel to DC to attend, I wish you safe travels home.

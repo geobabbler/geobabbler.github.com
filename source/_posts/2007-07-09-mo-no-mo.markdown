@@ -1,0 +1,26 @@
+---
+layout: blog
+title: MO No Mo'
+post_author: bdollins
+comments: true
+categories:
+- esri
+- gis
+- mapobjects
+- software development
+- visual basic
+---
+
+Okay, there's nothing terribly surprising about ESRI's announcement regarding <a href="http://www.esri.com/software/mapobjects/index.html">MapObjects</a> in this <a href="http://support.esri.com/index.cfm?fa=knowledgebase.techarticles.articleShow&amp;d=31074">technical article</a>. I would have been more surprised if they had announced that it <em>would</em> be supported or that there would be another version or something like that. In truth, I haven't touched MapObjects in years. It was dead to me even if it was still on life support at ESRI. But there was something about seeing it in print:
+<blockquote>MapObjects Windows 2.4 and MapObjects-Java 2.2 and 2.3 are not supported on the Windows Vista. ESRI is not certifying any new environments for MapObjects-Windows and there are no plans to support Vista with MapObjects-Java.</blockquote>
+It brought back a lot of memories. I began programming when I was 10. I wrote a <a href="http://en.wikipedia.org/wiki/Dungeons_and_dragons">D&amp;D</a> character generator in <a href="http://en.wikipedia.org/wiki/BASIC_programming_language">BASIC</a> on a <a href="http://en.wikipedia.org/wiki/Commodore_64">Commodore 64</a>. I guess that makes me an old geek. D&amp;D and computers might even be a double-down. ;-)? I've pretty much been doing some form of BASIC ever since (not so much VB.Net anymore, though, as I do most of my .Net in C#) along with a lot of other languages. I got interested in maps a few years later and discovered I could fuse maps and computers as I headed into the workforce.
+
+Early on, I was able to do some <a href="http://extranet.mapinfo.com/products/Overview.cfm?productid=1063">MapBasic</a> stuff but that didn't get too far. So I suffered through AML and Avenue for a while in order to feed the GIS development jones. Then along came MO.
+
+With MO, I was able to introduce an old friend (BASIC in the form of VB5 and later VB6) to a new friend (GIS, although it wasn't new to me by then). I was able to write real apps that fused mapping with databases and other cool tools. For one customer, I built a COM system that featured a core UI and provided a pluggable architecture and an API so others could write plug-ins. Then we converted a lot of stand-alone apps to work in the system. Sounds familiar huh?
+
+From a GIS standpoint, MO wasn't the most powerful game in town but it was <em>fun</em>! And, if you needed an algorithm or something that MO didn't support, you could just implement it yourself in the language of your choice. There are operations that I originally implemented in MO/VB6 that I have migrated and still use in C#/ArcObjects/Others. In case I didn't get the point across earlier, it was just plain fun.
+
+That was a while ago. GIS is still fun but I just don't use MO anymore (maybe that's the problem). ESRI's announcement is sort of like when you read that <a href="http://en.wikipedia.org/wiki/Capital_Centre">the arena where you went to all of your concerts in your youth got dynamited to make room for a shopping plaza</a>. So, much like I did that day, I'll pop a cold one, raise a glass and say "Thanks for the memories."
+
+<img alt="The better part of my hearing was left here." src="http://geobabble.files.wordpress.com/2007/07/cap_centre.png" />

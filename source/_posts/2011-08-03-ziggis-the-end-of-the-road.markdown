@@ -1,0 +1,43 @@
+---
+layout: blog
+title: zigGIS - The End of the Road
+post_author: bdollins
+comments: true
+categories:
+- arcgis desktop
+- EOL
+- gis
+- goodbye
+- postgis
+- postgresql
+- ziggis
+---
+
+<a href="http://twitter.com/xanadont">Abe Gillespie</a> made it official today on the zigGIS Google Group: development on <a href="http://pub.obtusesoft.com">zigGIS</a> will cease.  <!--more-->
+
+
+<blockquote>
+I've been meaning to make an announcement that zigGIS has officially reached its end-of-life since the next version of ArcGIS should support direct read / write interoperability with PostGIS (thereby rendering zigGIS moot).  I was delaying the announcement because I was hoping we could test PgMap and, if it was any good, suggest it as an alternative during the interim.  But we haven't been able to test it yet.
+
+In any case, PgMap is free, so why not give it a try?  I'm sure the list would appreciate any feedback you could give.
+</blockquote>
+
+This is obviously a something of a bittersweet, though expected, development for me. Although <a href="http://blog.geomusings.com/2010/09/28/me-and-ziggis/">I ceased my involvement with zigGIS</a> last year, I was still rooting for it. Abe had a lot of cool plans for it but the fact that <a href="http://www.esri.com">ArcGIS</a> will <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">natively support direct read/write to its supported spatial databases</a> really renders zigGIS unnecessary. Its primary value at this point would be support for earlier versions of ArcGIS but that's not really enough to justify so much time and effort.
+
+<img alt="zigGIS is no more" class="alignleft size-medium wp-image-3109" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg?w=200" />
+
+In terms of ArcGIS, this is a good development. Direct read/write is a capability that always needed to be there and now it will be. When I first got involved with zigGIS, <a href="http://postgis.refractions.net">PostGIS</a> wasn't supported at all so it made a lot of sense. At the time, I was stuck in a windowless room building a personnel system, so working on zigGIS in the evenings helped be stay connected to the geospatial world. It enabled me to work with Abe and <a href="https://twitter.com/capooti">Paolo Corti</a>; a fact that I will always treasure. Abe put a lot of sweat into zigGIS over its lifetime and I am honored to have helped him in some small way. zigGIS also brought me into contact with phenomenally supportive users, such as <a href="http://www.bostongis.com/blog/">Regina Obe</a> and <a href="http://thesteve0.wordpress.com/">Steven Citron-Pousty</a>, from both of whom I learned a great deal. 
+
+Some of the first posts on this blog were about zigGIS. It's hard to believe I've just written my last one.
+
+The PgMap product that Abe mentions can be found <a href="http://st-links.com/default.aspx">here</a>.
+
+<strong>UPDATE:</strong> Later in the same discussion on the zigGIS group, Abe responded to a question about opening the latest version of the code (version 2.x) this way:
+
+<blockquote>
+I'm planning on doing just that.  But I didn't want to
+announce anything yet because I have very little free time right now
+and don't know when I can get to it.
+</blockquote>
+
+The full discussion thread is here: <a href="http://groups.google.com/group/ziggis/browse_thread/thread/14ae8a351564de9e">http://groups.google.com/group/ziggis/browse_thread/thread/14ae8a351564de9e</a>

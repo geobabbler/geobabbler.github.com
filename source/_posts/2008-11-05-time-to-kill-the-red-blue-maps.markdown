@@ -1,0 +1,34 @@
+---
+layout: blog
+title: Time to Kill the Red-Blue Maps
+post_author: bdollins
+comments: true
+categories:
+- elections
+- maps
+- soapbox
+---
+
+Now that the election is behind us, I have a little time to ponder one of my hopes for the future in our little corner of the world. I would really like to see the concept of the binary red-blue election map put out to pasture.<!--more-->
+
+The whole concept went viral after the 2000 election as states were colored red or blue depending on who won each state. Since then, the media and our society has taken the idea of red states and blue states and run with it. We may have been on the road to polarization before then but I can't help but think that such a stark visual has helped cement it in people's minds.
+
+Last night, as I watched the election coverage on CNN (yes, I saw the hologram), Bill Bennett commented on how after the 2004 election, a county-by-county view showed a sea of red across the nation with small islands of blue (those were the university towns according to him). This clearly showed that the vast majority of the country was conservative, in his mind. As a "blue" resident of a "red county" in a "blue state", I wanted to throw something at the TV.
+
+Interestingly, later in the same CNN coverage, there was analysis of how Obama was running in Republican counties as compared to Kerry's 2004 performance. In almost all cases, Obama was outperforming Kerry. This discussion began to peel back the onion a little bit by showing that many "red" counties had a lot of "blue" voters.
+
+This strikes to the heart of problem with the binary maps: they mask the true makeup of our country and potentially contribute to polarization. When the media picks up the red/blue analogy and runs with it, it helps to cement the concept. To be fair, there have been attempts at <a href="http://www.princeton.edu/~rvdb/JAVA/election2004/">alternative visualizations</a>. This year, I followed the polling on <a href="http://www.electoral-vote.com">electoral-vote.com</a>, as I did in 2004. That site makes an attempt to show the gradient a little. There were also a few "shades of purple" type maps after the 2004 election. I think this type of visualization should be the norm rather than the exception.
+
+To that end, I offer up two views of my home state of Maryland after yesterday's election. I used SharpMap and the CNN county-by-county results to produce them. The first is the standard red/blue binary view which makes it look like Democrats are being outflanked (the gray county is currently tied):
+
+<a href="http://geobabble.files.wordpress.com/2008/11/md_red_blue.gif"><img alt="md_red_blue" class="alignnone size-thumbnail wp-image-355" height="54" src="http://geobabble.files.wordpress.com/2008/11/md_red_blue.gif?w=128" title="md_red_blue" width="128" /></a>
+
+The second uses purple gradients to attempt to show the mix of Republican vs. Democrat. I used standard RGB color values and applied the percentage vote for each candidate to weight R and B. G was left at zero. So, in a county where McCain got 58% to Obama's 42%, the RGB value would be (255 * .58, 0, 255 * .42) or 148,0,47. I did not weight the counties according to population. Also, the CNN data did not include votes for third-party candidates so there is no "green" component here.
+
+<a href="http://geobabble.files.wordpress.com/2008/11/md_vote_2008_gradient.png"><img alt="2008 Maryland Presidential Results in Gradient" class="alignnone size-thumbnail wp-image-350" height="57" src="http://geobabble.files.wordpress.com/2008/11/md_vote_2008_gradient.png?w=128" title="2008 Maryland Presidential Results in Gradient" width="128" /></a>
+
+There are a variety of ways to do this sort of thing that would be better than the binary red-blue maps we have come to know and loath.
+
+Update: BTW, Princeton is already up with result of the 2008 election: <a href="http://www.princeton.edu/~rvdb/JAVA/election2008/">http://www.princeton.edu/~rvdb/JAVA/election2008/</a> . They've been doing this kind of thing for years and have a great time-lapse view. I hope this becomes the prevalent way of looking at it.
+
+Disclaimer: I'm a programmer. I threw these maps together for the purposes of discussion but I'm sure there are numerous better ways to do this. If they ever publish a "Maps That Suck" book, several of my products will probably figure prominently.

@@ -1,0 +1,24 @@
+---
+layout: blog
+title: Looking Ahead to the 2009 ESRI Federal User Conference
+post_author: bdollins
+comments: true
+categories:
+- esri
+- Federal Government
+- FedUC
+- gis
+- Public Sector
+---
+
+It is time again for my annual plug for the <a href="http://www.esri.com/events/feduc/index.html">ESRI Federal User Conference (FedUC)</a>. Last year, I <a href="http://wordpress.com/tag/feduc/">blogged</a> as much as could. It's no secret that I thought last year's FedUC was the best they had done. It was the first one where I felt that there was more content than I could get to. It was a good mix of technology and real-world user implementations. Additionally, I had a lot of side meetings so it has become a good place to get some business done.<!--more-->
+
+I am being something of a homer when I push the FedUC because it happens in my back yard and I do want to see it continue. It is a shorter conference and those who are used to the more party-like atmosphere of San Diego will find this one much more focused and businesslike but I like that. 
+
+Federal employees get in for free but state and local staff from around the region should consider it as well. The technical information is relevant beyond the Federal sector and many of the paper sessions will provide insights into concepts that cross-pollinate well to other areas. For example, there is a session on managing transportation systems.
+
+Last year, I had the opportunity to attend the FedUC, the Dev Summit in Palm Springs and the IUC in San Diego and, as a result, I got to see the full narrative arc across the conferences. At the FedUC, 9.3 was about to enter beta and there was a lot of anticipation. At the Dev Summit, there was more technical detail about how many of the new features were implemented and could be used. By the time of the IUC, 9.3 was on the street and "real" and there was more of a focus on use cases and applications of the new features. It will be interesting to see what themes that are introduced at the FedUC this year.
+
+Ultimately, I'd like to see ESRI broaden the FedUC into more of a "public sector" focus to appeal to various levels of government. I think the "Federal" title may filter some who would get benefit from the information presented at the conference.
+
+Anyway, I'll be there. Hopefully I'll see some of you.

@@ -1,0 +1,33 @@
+---
+layout: blog
+title: GIS for Green Mountain Falls, CO - Step 1
+post_author: bdollins
+comments: true
+categories:
+- gis
+- open source
+---
+
+"The journey of a thousand miles begins with a single step." - Lao Tzu
+
+One of my colleagues did a presentation at GIS in the Rockies 2009 regarding a project we?ve been working for a couple of months, the development of a GIS solution for the town of <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=green+mountain+falls&amp;sll=37.0625,-95.677068&amp;sspn=33.847644,79.013672&amp;ie=UTF8&amp;ll=38.942187,-105.013332&amp;spn=0.064888,0.154324&amp;z=13&amp;iwloc=A">Green Mountain Falls, Colorado</a>. My colleague, Marshall Worthey, is also a resident and trustee of the town. Marshall is an ex-Army topo guy with a background in GIS. About a year ago, he told me about an upcoming project in which an Eagle Scout candidate was to collect the hiking trails around the town with a GPS. This was part of an effort he had undertaken to build a GIS capability that his town of 969 year-round residents could afford and maintain.<!--more-->
+
+Marshall had been working with data vendors and surrounding jurisdictions to get all of the data he needed for the various applications he envisioned. The question was how to do it simply and affordably. The concept was pretty straightforward; there would be public maps for recreation and tourism that would be made available via the town?s web site. The data sets for the maps would be made available for download as KML and, eventually, other formats. Other maps, supporting town functions such as emergency response and public works, would also be available to select town users.
+
+This seemed like an intriguing challenge. My company, <a href="http://www.zekiah.com">Zekiah Technologies</a>, is headquartered in the small town of <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=La+Plata,+MD&amp;sll=38.942187,-105.013332&amp;sspn=0.064888,0.154324&amp;ie=UTF8&amp;ll=38.535007,-76.970558&amp;spn=0.130518,0.308647&amp;z=12&amp;iwloc=A">La Plata, Maryland</a>. Green Mountain Falls makes La Plata look like a teeming metropolis. How to do ?GIS on a budget? for a town that has three full-time employees and for which IT consists of a couple of PCs? We took this on as a pro-bono effort to help out the town that now houses our Western office.
+
+At first blush, this looked like a perfect use case for the classic PostGIS/GeoServer/OpenLayers open-source GIS stack. The town?s requirements could easily be met by that stack with room to grow. I got pretty far down the road with a prototype. I spent most of the train ride to and from the <a href="http://geobabble.wordpress.com/2009/04/13/ziggis-tweet-and-greet/">zigGIS meetup</a> working on this effort. The graphic below depicts the full vision for the town. Not only do they want serve up maps and support town operations but they need to interoperate with authorities of surrounding jurisdictions and the state in times of emergency response.
+
+<a href="http://geobabble.files.wordpress.com/2009/09/gmf_gis.png"><img alt="gmf_gis" class="alignleft size-thumbnail wp-image-679" height="110" src="http://geobabble.files.wordpress.com/2009/09/gmf_gis.png?w=150" title="gmf_gis" width="150" /></a>
+
+One issue raised its head as a major roadblock: infrastructure. Green Mountain Falls has no IT that even approaches a server, nor does it have a place to house one. We explored reciprocal arrangements with larger jurisdictions to use existing servers but all had IT policy restrictions on what software they would allow. The town does not have the resources to host a server, administer it and provide reliable connectivity on its own. We realized we needed to start looking at alternative approaches.
+
+Enter <a href="http://www.fortiusone.com/">FortiusOne</a>. <a href="http://www.adamestrada.com">Adam Estrada</a>, another of my Zekiah coworkers, and I had met with <a href="http://highearthorbit.com/">Andrew Turner</a> a couple of times so Adam had the idea of floating this effort by him. We met with Andrew and <a href="http://www.maploser.com/">Kate Chapman</a> in a late July session of <a href="http://en.wiktionary.org/wiki/Transwiki:Geoglobaldomination">#geoglobaldomination</a> to discuss the concept. They immediately understood the issues and the potential value proposition for the town in having a reliable, no-infrastructure solution. We had commited to having the public trail maps online by GIS in the Rockies so we focused on that as the first phase.
+
+Andrew agreed to stand up a private instance of <a href="http://www.fortiusone.com/cloud">GeoIQ</a>, the technology that drives <a href="http://www.geocommons.com">GeoCommons</a>, to meet the need. We had been considering using Drupal to drive the site but Andrew suggested <a href="http://wordpress.org">Wordpress</a>. This made sense as it is essentially a CMS but would be much easier for the town staff to use for posting content. Maps would be served from the Green Mountain Falls instance of <a href="http://maker.geocommons.com/">Maker!</a> and embedded into Wordpress. All would be hosted through GeoIQ. Adam has already blogged about the implementation so I?ll let you <a href="http://www.adamestrada.com/2009/09/22/wordpress-as-a-cms/">read it there</a>. Kate is also planning to blog the specifics of FortiusOne?s efforts. Suffice it to say that Kate?s heavy lifting was instrumental. The site went live in time for Marshall?s presentation and can be found at <a href="http://blog.gmf.geoiq.com/">http://blog.gmf.geoiq.com/</a> until we redirect the town?s domain to it. The map is simple but interactive. A right-click gets you to a KML download. We have a ways to go until the full concept is implemented but the GeoIQ platform seems customizable enough to get us there. FortiusOne is also on board so we have confidence we can get there eventually. The hope is that this approach turns out to be something scalable and viable for towns the size of Green Mountain Falls across the country.
+
+I want to say thanks to Adam, Kate and Andrew for all of their hard work and commitment. It was definitely a team effort.
+
+Early outcome: 
+
+In dealing with Andrew Turner and GeoCommons, Marshall seems to have caught the open geodata bug. He is now excited about organizing an OpenStreetMap party to collect the town roads in order to be free of licensing restrictions on the town's current data set. He is also reviewing all of the town data holdings to see how open they can be.
