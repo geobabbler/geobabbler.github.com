@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="A little clarification is in order: SQL Server 2008 Books Online makes the following statement about SRIDs: &#8220;A SQL Server-supported SRID for &hellip;">
+  <meta name="description" content="So it&#8217;s been about a month since the release of the SQL Server 2008 November CTP. I&#8217;ve been dabbling with it and have made several posts &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,280 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/28/sql-server-2008-spatial-one-month-later/">SQL Server 2008 Spatial - One Month Later</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-28T00:00:00-05:00" pubdate data-updated="true">Dec 28<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/28/sql-server-2008-spatial-one-month-later/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So it&#8217;s been about a month since the release of the SQL Server 2008 November CTP. I&#8217;ve been dabbling with it and have made several posts about it. I still have a lot more digging to do with it but here are my impressions after a month:</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/12/28/sql-server-2008-spatial-one-month-later/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/21/2008-esri-federal-users-conference/">2008 ESRI Federal Users Conference</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-21T00:00:00-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+        
+         | <a href="/2007/12/21/2008-esri-federal-users-conference/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>James <a href="http://www.spatiallyadjusted.com/2007/12/03/2008-esri-developer-summit/">posted</a> a couple of weeks ago about he Dev Summit. That got me curious, is anyone planning on going to the <a href="http://www.esri.com/events/feduc/index.html">Federal User Conference</a> in DC? It&#8217;s kind of mini East Coast UC. My company does a lot of federal and defense work so I&#8217;ll be there. It seems to be attracting more people each year in general but especially those from local governments around the region that don&#8217;t have travel budgets for San Diego. Rather ironic since it was originally targeted at federal users.</p>
+
+<p>It&#8217;s actually something of an unusual year in that it looks like I&#8217;ll be at all of the big ESRI conferences this year (FedUC, BP/Dev, International UC).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/sql-server-2008-wkt-xy-switching-illustrated/">SQL Server 2008 WKT X/Y Switching Illustrated</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/18/sql-server-2008-wkt-xy-switching-illustrated/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>UPDATE:</strong> Microsoft has <a href="http://blogs.msdn.com/isaac/archive/2007/12/27/latitude-longitude-ordering.aspx">announced</a> that they will address this issue in an upcoming CTP. They plan to implement longitude-latitude ordering in WKB and WKT for both the geography and geometry types.</p>
+
+<p>In a response to my <a href="http://geobabble.wordpress.com/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/">previous post</a>, <a href="http://www.spatialdatalogic.com/cs/blogs/brian_flood/default.aspx">Brian Flood</a> mentioned the ongoing discussion about <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> and the &#8220;switching&#8221; of X and Y values in <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> strings depending upon which spatial data type, geometry or geography, is being used. The SQL snippet below boils the issue down to a simple example:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="k">g</span> <span class="n">geometry</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="k">g</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="k">g</span><span class="p">.</span><span class="n">STX</span> <span class="k">as</span> <span class="n">geomX</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">DECLARE</span> <span class="o">@</span><span class="n">h</span> <span class="n">geography</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="o">@</span><span class="n">h</span> <span class="o">=</span> <span class="n">geography</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(3 8)&#39;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">);</span>
+</span><span class='line'><span class="k">SELECT</span> <span class="o">@</span><span class="n">h</span><span class="p">.</span><span class="n">Lat</span> <span class="k">as</span> <span class="n">geogLat</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In both cases, the value returned is 3. As can be seen, the same WKT string is being used in both cases. The main difference is that one example queries the X value of a GEOMETRY object and the other queries the Lat (Latitude, or Y) value of a GEOGRAPHY object. So, depending on the data type, the same ordinal can be X or Y. You can check out the debate on this topic <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2431933&amp;SiteID=1">here</a>. It is a great discussion that covers a lot of ground and I highly recommend checking it out.</p>
+
+<p>For me, the issue is consistency. Regardless of the mindsets of professionals vs. non-professionals or the imprecision of the OGC spec, the bottom line is that the same call behaves differently for two related data types. Admittedly GEOGRAPHY and GEOMETRY do different things. GEOGRAPHY is for geodetic (spherical) data and GEOMETRY is for planar data. This fact, however, has no bearing on how WKT is parsed. The current situation is analagous to having a rounding function that by default rounds up for doubles and rounds down for singles.</p>
+
+<p>At this point, I would normally say pick a method and run with it for both data types but I do have a preference here. I think that WKT should be parsed as X,Y consistently in order to provide better interoperability with a wider variety of client software. The simple fact is that most products out there do X,Y. For instance, I am working with SharpMap and it generates WKT in X,Y order and assumes X,Y order when parsing. Other database platforms such as Oracle, PostGIS and MySQL do the same but it&#8217;s the client software that matters most in this case. I&#8217;m sure that others can chime in with more examples.</p>
+
+<p>I am intrigued by the use of a separate data type to handle geodetic data but the X,Y order of WKT has no bearing here. To my way of thinking, the best approach would be to commit to X,Y order for both GEOMETRY and GEOGRAPHY.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/msdn-article-on-mapping-with-wpf/">MSDN Article on Mapping With WPF</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/18/msdn-article-on-mapping-with-wpf/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I found <a href="http://msdn.microsoft.com/msdnmag/issues/07/12/Maps/default.aspx">this article</a> today about using <a href="http://www.microsoft.com/express/vb/default.aspx">VB9</a> and <a href="http://windowsclient.net/Default.aspx">WPF</a> to draw thematic maps. It&#8217;s a good walk-through of how to do it. The article admits that the coordinate transformation used is not terribly accurate but that can be rectified. This article is a good example of how to build a mapping application without any third-party components. The author converts Census boundary files to XML for this app. It shouldn&#8217;t be a stretch to use <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL 2008</a>, <a href="http://postgis.refractions.net">PostGIS</a> or some other database that can emit GML and has an OLEDB provider as a data source.</p>
+
+<p>I&#8217;ve been using WPF with <a href="http://codeplex.com/SharpMap">SharpMap</a> on a project <a href="http://geobabble.wordpress.com/2007/08/14/sharpmap-and-wpf/">for a while</a> but my mapping code is about 5% of the overall project and I haven&#8217;t had a chance to extract what I&#8217;ve done into something digestable to provide an example. I had to fit into the rendering paradigm of a previously developed GUI so it deviates from how it&#8217;s shaping up in SharpMap 2.0.</p>
+
+<p>So, if you&#8217;re looking for an example of how to render spatial data in WPF, this is a good one.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/">Inserting SQL 2008 Geometry With a SqlCommand</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-18T00:00:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2007</time>
+        
+         | <a href="/2007/12/18/inserting-sql-2008-geometry-with-a-sqlcommand/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Update (7/1/2011):</strong> I wrote this post early in the SQL 2008 CTP. I no longer use the method described here. If you found this post via StackOverflow or some other Q&amp;A site, I highly recommend this post by Vish as a more efficient way of doing things: <a href="http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/">http://viswaug.wordpress.com/2008/09/29/inserting-spatial-data-in-sql-server-2008/</a></p>
+
+<p>I&#8217;m in the process of using <a href="http://codeplex.com/SharpMap">SharpMap</a> to write a utility to load spatial data into my <a href="http://www.microsoft.com/sql/2008/technologies/spatial.mspx">SQL Server 2008</a> instance. A couple of the SharpMap data providers have a static method to load data from a shapefile (really any other SharpMap data provider, but I digress). The method creates a table and uses an ADO.Net command object (<a href="http://msdn2.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx">SqlCommand</a> in this case) load individual records into the table. I started using the existing <a href="http://www.codeplex.com/SharpMap/SourceControl/FileView.aspx?itemId=30508&amp;changeSetId=28971">MsSql provider</a> as a template, which load the geometry&#8217;s WKB into an image column.</p>
+
+<p>The problem with SQL 2008 comes in when you add a parameter to the command. You must specify the data type of the parameter by passing it a <a href="http://msdn2.microsoft.com/en-us/library/system.data.sqldbtype.aspx">SqlDbType</a> enumeration. Currently, there is no enumeration that corresponds to geometry (or geography for that matter). My first attempt was to leave the parameter defined as the type SqlDbType.VarBinary and set the value as such:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">VarBinary</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsBinary</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case, feature.Geometry is of type SharpMap.Geometries.Geometry and AsBinary returns the <a href="http://dev.mysql.com/doc/refman/5.0/en/gis-wkb-format.html">WKB</a> representation of the shape. This code failed when attempting to execute the command, throwing an exception indicating that the table column (type geometry) was not a valid binary data type.</p>
+
+<p>So I next tried defining the data type of the parameter as SqlDbType.Udt (user-defined type) and setting the UdtTypeName property to &#8220;geometry&#8221;. This failed also.</p>
+
+<p>On a whim (I wish I could say it was something more scientific than a desire to leave no stone unturned), I then tried working with text and set it up this way:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//define parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;@shape&quot;</span><span class="p">,</span> <span class="n">SqlDbType</span><span class="p">.</span><span class="n">NVarChar</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//code in between omitted</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">//set value of parameter</span>
+</span><span class='line'><span class="n">command</span><span class="p">.</span><span class="n">Parameters</span><span class="p">[</span><span class="s">&quot;@shape&quot;</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">Geometry</span><span class="p">.</span><span class="n">AsText</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case, AsText returns the <a href="http://en.wikipedia.org/wiki/Well-known_text">WKT</a> representation of the shape. This worked! I have not dug into the details of why it worked but it seems the underlying spatial objects in SQL 2008 have some built-in default behaviours that coerce WKT. I am now loading data via a WinForms app with the aid of SharpMap. So, if you&#8217;re trying to update geometry from within your code, the above example is what worked for me.</p>
+
+<p>I&#8217;ll probably post the code to the data loader a little bit later after I incorporate SRID and geometry type constraints and the like.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -303,237 +577,6 @@ Here&#8217;s the link: <a href="http://www.msnbc.msn.com/id/21979301/">http://ww
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/26/spatial-references-in-sql-server-2008-part-2/">Spatial References in SQL Server 2008, Part 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/26/spatial-references-in-sql-server-2008-part-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>With some guidance from <a href="http://geotips.blogspot.com/">Paul Ramsey</a>, I implemented a check constraint on my sample table to allow only a single SRID in a table. As Paul indicated in <a href="http://geobabble.wordpress.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/#comment-3803">his comment on my previous post</a>, <a href="http://postgis.refractions.net">PostGIS</a> does this for you. SQL 2008 doesn&#8217;t yet but I hope it does. The syntax for my table was:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">--only allow WGS84</span>
-</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">SpatialTable</span>
-</span><span class='line'>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">enforce_srid_geometry</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4326</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>After doing that, the following SQL will properly fail:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">UPDATE</span> <span class="n">SpatialTable</span>
-</span><span class='line'>  <span class="k">SET</span> <span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4127</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Thanks to Paul for chiming in!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/">Spatial References in SQL Server 2008 November CTP</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;ve been playing with the <a href="http://www.microsoft.com/sql/2008/default.mspx">SQL 2008 November CTP</a> since it was released last week and have been generally impressed but as I have delved into its handling fo spatial references, I have noted some areas of concern. Keeping in mind that it&#8217;s a CTP, I&#8217;m hoping that some aspects may be addressed before release.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/20/sharpmap-and-sql-server-2008-spatial/">SharpMap and SQL Server 2008 Spatial</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-20T00:00:00-05:00" pubdate data-updated="true">Nov 20<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/20/sharpmap-and-sql-server-2008-spatial/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I downloaded the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">November CTP</a> yesterday and couldn&#8217;t resist. Today I wrote a <a href="http://www.codeplex.com/SharpMap">SharpMap</a> data provider for it. The black rectangle below represents a sample data set I created. It&#8217;s not as pretty as the Mexico data I used with <a href="http://www.sqlite.org/">SQLite</a> but it&#8217;s beautiful to me. It&#8217;s being displayed in the DemoWinForm app that comes with SharpMap 0.9. I am still working in 0.9 because a project I am on is using it. I&#8217;ll migrate to 2.0 a little later.</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.png" title="sharpmap_sql2008.png"><img alt="sharpmap_sql2008.png" src="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.thumbnail.png" /></a></p>
-
-<p>Anyway, <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">I previously sung the praises of SharpMap and its ease of extensibility</a>. The turn-around time needed to write a provider speaks well of SQL 2008 to this point. All of the native SharpMap functions for handling WKB are working fine with the output from SQL 2008. This tells me that Microsoft is doing a good job of implementing OGC specifications.</p>
-
-<p>I am compiling my first impressions about SQL 2008 Spatial and will post them later. Most of them are favorable. It&#8217;s the first public beta of sorts and there are still some things missing (coordinate tranformations for instance) that I hope will come later but it makes a good first impression. Outside of the spatial capability, the platform in general seems stable. It&#8217;s almost production-ready as is.</p>
-
-<p>I will post the code to the provider later. There&#8217;s one piece unrelated to data handling that I need to clean up and then I&#8217;ll most likely post it over on the SharpMap site and see if they&#8217;ll take it. After that, I guess I&#8217;ll build a data loader&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/19/sql-server-2008-november-ctp-released/">SQL Server 2008 November CTP Released</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-19T00:00:00-05:00" pubdate data-updated="true">Nov 19<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/19/sql-server-2008-november-ctp-released/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It&#8217;s downloading as I write. Here&#8217;s the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">link</a>. Now the rest of us can try the spatial support!</p>
-
-<p>This is something that&#8217;s been long overdue from Microsoft. It&#8217;s time to lock myself in the basement. :)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/11/15/navteq-mapreporter/">Navteq MapReporter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-15T00:00:00-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2007</time>
-        
-         | <a href="/2007/11/15/navteq-mapreporter/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was attending a working group meeting yesterday and learned of Navteq&#8217;s <a href="http://mapreporter.com">MapReporter</a> site. It is a system they have implemented to allow users to report data errors to Navteq. The interface seems very intuitive. It even does a good job of picking locations from partial addresses. The image below shows that map interface:</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.png" title="Navteq MapReporter map interface"><img alt="Navteq MapReporter map interface" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.thumbnail.png" /></a></p>
-
-<p>Once in, there is a standard form so that you can report the nature of the data error. Here is a screen shot (the address in the map above is not the same one I used in the form, which is why it&#8217;s blurred here):</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.png" title="Navteq MapReporter entry from"><img alt="Navteq MapReporter entry from" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.thumbnail.png" /></a></p>
-
-<p>I was able to pretty quickly report an error. One nice feature is that the system gives you a tracking number so you can check the status of your issue. You can submit a report as a guest or you can create an account. I have not created an account yet to see what that does for you because the page that allows you to create an account (supplying your personal info) does not use SSL (although the login page for those who have accounts does). They may want to fix that. Otherwise, it seems like a nice tool and a good way to keep the database up to date.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/31/">&larr; Older</a>
@@ -582,15 +625,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2014/07/24/lock-in/">Lock-In</a>
+        <a href="/2014/09/11/personal-thoughts-on-the-appgeo-announcement/">Personal Thoughts On the AppGeo Announcement</a>
       </li>
     
       <li class="post">
-        <a href="/2014/07/16/the-esri-uc-so-far/">The Esri UC So Far #EsriUC</a>
+        <a href="/2014/08/26/maryland-council-on-open-data/">Maryland Council on Open Data</a>
       </li>
     
       <li class="post">
-        <a href="/2014/07/09/gearing-up-for-the-esri-uc/">Gearing Up For the Esri UC</a>
+        <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
       </li>
     
   </ul>

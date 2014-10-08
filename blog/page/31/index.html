@@ -9,8 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I decided to go for the honest approach&#8230; Maybe I&#8217;ll just use this as a template from now on. :)
-">
+  <meta name="description" content="With some guidance from Paul Ramsey, I implemented a check constraint on my sample table to allow only a single SRID in a table. As Paul indicated in &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +67,237 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/26/spatial-references-in-sql-server-2008-part-2/">Spatial References in SQL Server 2008, Part 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/26/spatial-references-in-sql-server-2008-part-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>With some guidance from <a href="http://geotips.blogspot.com/">Paul Ramsey</a>, I implemented a check constraint on my sample table to allow only a single SRID in a table. As Paul indicated in <a href="http://geobabble.wordpress.com/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/#comment-3803">his comment on my previous post</a>, <a href="http://postgis.refractions.net">PostGIS</a> does this for you. SQL 2008 doesn&#8217;t yet but I hope it does. The syntax for my table was:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">--only allow WGS84</span>
+</span><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">SpatialTable</span>
+</span><span class='line'>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">enforce_srid_geometry</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4326</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After doing that, the following SQL will properly fail:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">UPDATE</span> <span class="n">SpatialTable</span>
+</span><span class='line'>  <span class="k">SET</span> <span class="n">GeomCol1</span><span class="p">.</span><span class="n">STSrid</span> <span class="o">=</span> <span class="mi">4127</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thanks to Paul for chiming in!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/">Spatial References in SQL Server 2008 November CTP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-26T00:00:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been playing with the <a href="http://www.microsoft.com/sql/2008/default.mspx">SQL 2008 November CTP</a> since it was released last week and have been generally impressed but as I have delved into its handling fo spatial references, I have noted some areas of concern. Keeping in mind that it&#8217;s a CTP, I&#8217;m hoping that some aspects may be addressed before release.</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/11/26/spatial-references-in-sql-server-2008-november-ctp/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/20/sharpmap-and-sql-server-2008-spatial/">SharpMap and SQL Server 2008 Spatial</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-20T00:00:00-05:00" pubdate data-updated="true">Nov 20<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/20/sharpmap-and-sql-server-2008-spatial/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I downloaded the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">November CTP</a> yesterday and couldn&#8217;t resist. Today I wrote a <a href="http://www.codeplex.com/SharpMap">SharpMap</a> data provider for it. The black rectangle below represents a sample data set I created. It&#8217;s not as pretty as the Mexico data I used with <a href="http://www.sqlite.org/">SQLite</a> but it&#8217;s beautiful to me. It&#8217;s being displayed in the DemoWinForm app that comes with SharpMap 0.9. I am still working in 0.9 because a project I am on is using it. I&#8217;ll migrate to 2.0 a little later.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.png" title="sharpmap_sql2008.png"><img alt="sharpmap_sql2008.png" src="http://geobabble.files.wordpress.com/2007/11/sharpmap_sql2008.thumbnail.png" /></a></p>
+
+<p>Anyway, <a href="http://geobabble.wordpress.com/2007/07/31/extending-sharpmap-with-sqlite/">I previously sung the praises of SharpMap and its ease of extensibility</a>. The turn-around time needed to write a provider speaks well of SQL 2008 to this point. All of the native SharpMap functions for handling WKB are working fine with the output from SQL 2008. This tells me that Microsoft is doing a good job of implementing OGC specifications.</p>
+
+<p>I am compiling my first impressions about SQL 2008 Spatial and will post them later. Most of them are favorable. It&#8217;s the first public beta of sorts and there are still some things missing (coordinate tranformations for instance) that I hope will come later but it makes a good first impression. Outside of the spatial capability, the platform in general seems stable. It&#8217;s almost production-ready as is.</p>
+
+<p>I will post the code to the provider later. There&#8217;s one piece unrelated to data handling that I need to clean up and then I&#8217;ll most likely post it over on the SharpMap site and see if they&#8217;ll take it. After that, I guess I&#8217;ll build a data loader&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/19/sql-server-2008-november-ctp-released/">SQL Server 2008 November CTP Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-19T00:00:00-05:00" pubdate data-updated="true">Nov 19<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/19/sql-server-2008-november-ctp-released/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s downloading as I write. Here&#8217;s the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3BF4C5CA-B905-4EBC-8901-1D4C1D1DA884&amp;displaylang=en">link</a>. Now the rest of us can try the spatial support!</p>
+
+<p>This is something that&#8217;s been long overdue from Microsoft. It&#8217;s time to lock myself in the basement. :)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/15/navteq-mapreporter/">Navteq MapReporter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-15T00:00:00-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2007</time>
+        
+         | <a href="/2007/11/15/navteq-mapreporter/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was attending a working group meeting yesterday and learned of Navteq&#8217;s <a href="http://mapreporter.com">MapReporter</a> site. It is a system they have implemented to allow users to report data errors to Navteq. The interface seems very intuitive. It even does a good job of picking locations from partial addresses. The image below shows that map interface:</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.png" title="Navteq MapReporter map interface"><img alt="Navteq MapReporter map interface" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter1.thumbnail.png" /></a></p>
+
+<p>Once in, there is a standard form so that you can report the nature of the data error. Here is a screen shot (the address in the map above is not the same one I used in the form, which is why it&#8217;s blurred here):</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.png" title="Navteq MapReporter entry from"><img alt="Navteq MapReporter entry from" src="http://geobabble.files.wordpress.com/2007/11/navteq_mapreporter2.thumbnail.png" /></a></p>
+
+<p>I was able to pretty quickly report an error. One nice feature is that the system gives you a tracking number so you can check the status of your issue. You can submit a report as a guest or you can create an account. I have not created an account yet to see what that does for you because the page that allows you to create an account (supplying your personal info) does not use SSL (although the login page for those who have accounts does). They may want to fix that. Otherwise, it seems like a nice tool and a good way to keep the database up to date.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -289,233 +519,6 @@ In all likelihood, future versions of the Google Earth COM API will be fully bac
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/09/26/exporting-arcobjects-feature-class-to-pgsql/">Exporting ArcObjects Feature Class to PGSQL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-09-26T00:00:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2007</time>
-        
-         | <a href="/2007/09/26/exporting-arcobjects-feature-class-to-pgsql/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The same project that has me working with WPF has me busy on a few fronts. I&#8217;ve been spending the last few days writing a tool to export data out of an <a href="http://support.esri.com/index.cfm?fa=knowledgebase.gisDictionary.search&amp;searchTerm=ArcObjects">ArcObjects</a> feature class and dump it to a pgsql .sql file. <a href="http://www.esri.com/products.html">ArcGIS</a> acts as a serviceable generic data accessor to many vector data types and ArcCatalog provides a decent UI for the user community I&#8217;m targeting (also, they already have it). As a result, I&#8217;ve been developing an ArcCatalog command that exports a selected feature class.</p>
-
-<p>As the title of this post suggests, I didn&#8217;t have a lot of time in which to accomplish this task.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/09/26/exporting-arcobjects-feature-class-to-pgsql/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/09/12/the-death-of-esri/">The Death of ESRI&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-09-12T00:00:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2007</time>
-        
-         | <a href="/2007/09/12/the-death-of-esri/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&#8230;has (most likely) been greatly exaggerated.</p>
-
-<p>I have no specific inside information but I do a lot of DoD work and I&#8217;m not seeing any massive shift away from ESRI. Sure, there&#8217;s been a few instances of Google Earth appliances and individual projects using open-source tools but there&#8217;s been no <a href="http://ubikcan.wordpress.com/2007/09/12/esri-cancels-its-books-loss-of-military-contracts-to-blaim/">dramatic sea-change that would drive ESRI to shutter its (unrelated) publishing business</a>. The whole thing seems a little shaky to me.</p>
-
-<p>Just my 2 cents.</p>
-
-<p><img alt="ESRI is alive and kicking?" src="http://geobabble.files.wordpress.com/2007/09/simple_minds.jpg" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/09/11/statcounter-recent-visitor-map/">StatCounter Recent Visitor Map</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-09-11T00:00:00-04:00" pubdate data-updated="true">Sep 11<span>th</span>, 2007</time>
-        
-         | <a href="/2007/09/11/statcounter-recent-visitor-map/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This probably old news but I&#8217;m pretty impressed by it. I&#8217;m referring to the recent visitor map on <a href="http://www.statcounter.com">StatCounter.com</a>. We do a lot of web development <a href="http://www.zekiah.com">where I work</a> (both GIS and not) and I like to keep an eye on tools that may be useful in that area. StatCounter provides a free service that keeps track of who&#8217;s visiting a site. It can track IP, referring links, etc. It&#8217;s pretty standard stuff but their reporting tools are nice so I thought I&#8217;d check it out.</p>
-
-<p>Anyway, one feature they have that I didn&#8217;t know about when I signed up is a &#8220;recent visitor map&#8221; that places push-pins on Google Maps to identify where your visitors are coming from. Clearly it&#8217;s using some form of GeoIP and it&#8217;s not exact (no, I can&#8217;t find your house with it unless you live at your ISP). I instrumented my blog and it shows a good spread from all over the world. StatCounter has a javascript version and a version based on a <a href="http://en.wikipedia.org/wiki/Web_bug">web bug</a>. Both can be mapped but the javascript version gives you more information, including things like referring links. My blog is hosted on <a href="http://wordpress.com">Wordpress.com</a> which doesn&#8217;t allow me to embed script tags in posts or widgets (ahem) but I instrumented another site with the javascript version and it works well. A screen capture of the map is below:</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/09/statcounter_geomusings.png" title="What? People don?t read my blog in Antarctica?"><img alt="What? People don?t read my blog in Antarctica?" src="http://geobabble.files.wordpress.com/2007/09/statcounter_geomusings.thumbnail.png" /></a></p>
-
-<p>If you click on a push-pin you access information such as IP address, ISP, city/state/country, time spent on the page, OS, browser, referring page, etc. This has the potential to be a good, low-key business intelligence tool. You can see where your visitors are coming from and, with the javascript version, how they&#8217;re getting there. On the other web site, I have discovered that a lot of traffic is driven there via some of my ArcScripts posts, with a lesser degree coming from my blog. The biggest referrer tends to be Google and you can actually see the full query string so you can see the search terms.</p>
-
-<p>As for the web bug version I set up on my blog, I&#8217;ve been able to figure out that a couple of big system integrators (who act as their own ISP) are interested in SharpMap.</p>
-
-<p>I find this tool to be an ideal application of the push-pin mapping concept.</p>
-
-<p><strong>Update:</strong> Here&#8217;s another example showing some of the specific interest generated by the &#8221;<a href="http://geobabble.wordpress.com/2007/09/12/the-death-of-esri/">Death of ESRI</a>&#8221; post (the IP address and host name have been blurred to protect the innocent):</p>
-
-<p><a href="http://geobabble.files.wordpress.com/2007/09/esri_statcounter1.png" title="Another StatCounter example?"><img alt="Another StatCounter example?" src="http://geobabble.files.wordpress.com/2007/09/esri_statcounter1.thumbnail.png" /></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/08/23/is-sharpmap-viable/">Is SharpMap Viable?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-08-23T00:00:00-04:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2007</time>
-        
-         | <a href="/2007/08/23/is-sharpmap-viable/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It seems there&#8217;s been a little more buzz about <a href="http://www.codeplex.com/SharpMap">SharpMap</a> lately and some <a href="http://www.spatiallyadjusted.com/2007/08/21/how-popular-is-sharpmap/">folks have been doing some fact-checking with James offline</a>. He deftly spun the question of &#8220;viability&#8221; into &#8220;popularity&#8221; by citing <a href="http://www.codeplex.com">CodePlex</a> statistics. Can&#8217;t say I blame him. The question of viability when it comes to open-source, especially smaller projects, can be tough to quantify. Say what you want about <a href="http://www.esri.com">ESRI</a>&#8217;s licensing, tech support and whatever else; this much you can count on: they have genuine motives (profit, competiton) to keep their product line moving forward. The motives behind open-source can be a little more nebulous and they run the gamut.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/08/23/is-sharpmap-viable/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2007/08/15/ddj-on-the-return-of-the-desktop/">DDJ on &#8220;the Return of the Desktop&#8221;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-08-15T00:00:00-04:00" pubdate data-updated="true">Aug 15<span>th</span>, 2007</time>
-        
-         | <a href="/2007/08/15/ddj-on-the-return-of-the-desktop/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Okay, I swear I&#8217;m not on the DDJ payroll, but <a href="http://www.ddj.com/web-development/201202675">this article</a> caught my eye immediately. <a href="http://www.swaine.com/">Michael Swaine</a> has been on a roll lately but I think this one just drips with significance for the GIS community.</p>
-
-<p>Over the past 10 years, as everyone has run screaming from the desktop, I&#8217;ve been a little mystified as to why it was considered a good thing to reduce a <a href="http://www.computerpoweruser.com/Editorial/article.asp?article=articles/archive/c0612/28c12/28c12.asp&amp;guid=">CPU more powerful than everything NASA had in 1969</a> to a mere vehicle for a browser. The browser-based model reduced our computers to really cool-looking equivalents of a <a href="http://en.wikipedia.org/wiki/VT220">VT220</a> so it&#8217;s nice to see that the market is starting to gain back a little sanity.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2007/08/15/ddj-on-the-return-of-the-desktop/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/32/">&larr; Older</a>
@@ -564,15 +567,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2014/07/24/lock-in/">Lock-In</a>
+        <a href="/2014/09/11/personal-thoughts-on-the-appgeo-announcement/">Personal Thoughts On the AppGeo Announcement</a>
       </li>
     
       <li class="post">
-        <a href="/2014/07/16/the-esri-uc-so-far/">The Esri UC So Far #EsriUC</a>
+        <a href="/2014/08/26/maryland-council-on-open-data/">Maryland Council on Open Data</a>
       </li>
     
       <li class="post">
-        <a href="/2014/07/09/gearing-up-for-the-esri-uc/">Gearing Up For the Esri UC</a>
+        <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="I went to the meetup last night. I had already spent part of the day with James and fantomplanet. In addition, I got to meet Dave Bouwman, Chris &hellip;">
+  <meta name="description" content="Abe Gillespie had the quote of the day in his latest post about zigGIS. In describing the development approach (disclaimer: I have been known to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,246 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/03/28/quote-of-the-day/">Quote of the Day&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-28T00:00:00-04:00" pubdate data-updated="true">Mar 28<span>th</span>, 2008</time>
+        
+         | <a href="/2008/03/28/quote-of-the-day/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Abe Gillespie had the quote of the day in his latest <a href="http://abegillespie.blogspot.com/2008/03/ziggis-update.html">post</a> about <a href="http://code.google.com/p/ziggis">zigGIS</a>.</p>
+
+<p>In describing the development approach (disclaimer: I have been known to dabble in the zigGIS code from time to time although it&#8217;s been the Abe show recently), Abe described it as &#8220;software 2.0&#8221; which, in his words, &#8220;doesn&#8217;t mean much, but mostly we&#8217;re not responsible to deadlines.&#8221;</p>
+
+<p>That alone was worth firing up the aggregator today. :)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/03/25/feduc-plenary-4753/">FedUC Plenary - 47.53</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-25T00:00:00-04:00" pubdate data-updated="true">Mar 25<span>th</span>, 2008</time>
+        
+         | <a href="/2008/03/25/feduc-plenary-4753/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For those of you keeping track at home, the reference to <a href="http://www.openlayers.org/">OpenLayers</a> in <a href="http://www.esri.com/news/podcasts/audio/speaker/feduc08_dangermond.mp3">Jack Dangermond&#8217;s FedUC plenary talk</a> comes at approximately 47:53.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/03/21/dev-summit-ahhhh-the-apis-and-security/">Dev Summit - Ahhhh, the APIs (and Security)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-21T00:00:00-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2008</time>
+        
+         | <a href="/2008/03/21/dev-summit-ahhhh-the-apis-and-security/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>ArcGIS 9.3 looks really good all the way around. ESRI seems to have really put a lot of work into making this a quality release. Basically, it&#8217;s all about consolidating the vision of 9.2 while also improving the execution of that vision. To be sure, there are some new capabilities (PostgreSQL support, Javascript API, REST API, etc.) but there has been a huge effort on shoring up the quality of the product. The ESRI developers themselves seem really excited as well. It seems as if they can&#8217;t wait for the beta to get in our collective hands. But, this being the Dev Summit, the real star of the show was the APIs.</p>
+
+<p>I didn&#8217;t attend anything on the Java ADF or the Flex API. Neither of those are things I&#8217;ll be using anytime soon so I didn&#8217;t check them out but <a href="http://fantomplanet.wordpress.com/">Fantom Planet</a> did attend the Flex API session and seemed duly impressed. So, if you want details on that, you should probably nag him.  ;)</p>
+
+<p>I sat in on a session about the .Net Web ADF. I&#8217;ve already read <a href="http://blog.davebouwman.net/2008/03/20/ArcGISServerNETADFSession.aspx">Dave&#8217;s post</a> on the same session and his notes read almost exactly like the ones I have in my notebook so, rather than retype my notes (which would essentially duplicate Dave&#8217;s post), I&#8217;ll refer you there. BTW, congrats Dave!</p>
+
+<p>The .Net Web ADF definitely seems to have a lot of improvements. The things I&#8217;m most excited about are a) all of the web controls being scriptable, b) the client-side JavaScript now being exposed, documented and supported, c) the re-engineering to use ASP.NET AJAX and d) resource-level tiling. ESRI put a lot of focus on reducing the number of server round-trips and reducing the need to execute the full page life-cycle. This will speed things up a lot. All of the items I just listed will have direct, immediate benefits on our Server projects. Oh yeah, using JSON to serialize their objects is cool as well. Additionally, the ADF is designed to use .Net 3.5 but you can toggle back to 2.0 if you need to. I see SilverLight in my future.</p>
+
+<p>I&#8217;ve already talked a little about the REST API. I think that one is going to be huge. It really expands the scope of potential clients for ArcGIS Server services to just about anything. As I said, they even hit services from Ruby and Python during the session. &#8220;Everything is a URL&#8221; was the big take-away from that session. So, pretty much anything that can call a URL and understand the response can be a client. A lot of my clients have standardized on SOAP web services (didn&#8217;t get to anything about the SOAP API but I&#8217;ll catch up on that during the beta) but I plan on leveraging the REST API as much as I can outside of those areas.</p>
+
+<p>The JavaScript API looks pretty good too. Using this, developers will be able to integrate ArcGIS Server services into Virtual Earth and Google Maps and other mashups. <a href="http://mandown.co.nz/events/day-1-building-mashups-using-the-arcgis-javascript-api-s-at-the-esri-developer-summit-2008/">Mandown</a> has an good summary of the session. Most of my customers will not be able to take advantage of ESRI hosting the API but that shouldn&#8217;t be a huge issue. However, it (along with the SOAP and REST APIs) fit in well with the mobile code policies we have to adhere to.</p>
+
+<p>When I went to the FedUC, Jack articulated a vision of ArcGIS providing advanced GIS analysis to whatever client you wanted to use. The Dev Summit really brought that home in a way that you could see it. The various APIs give lots of options that should fit into any environment.</p>
+
+<p>Lastly, I attended the session on securing .Net web applications. The security model is essentially an extension of what we did at 9.2 but a whole lot easier to administer. They generally follow the ASP.NET model (OS security, Forms, custom provider). That&#8217;ll make it easier to to get systems accredited. However, with regard to AGS web services, they&#8217;ve made one significant change for the better (IMHO). Security for web services is now managed by the SOM rather than being defined in the web.config. This has one huge advantage in that security is now applied consistently to web services regardless of which API you are using to access the services. This means that whether you use the Java ADF, .NET ADF, REST API, JavaScript API, SOAP API or whatever, web service security will be the same. I&#8217;ll need to educate some of the security types I deal with on the SOM (and they&#8217;ll want to red-team it, I&#8217;m sure) but I think it&#8217;ll end up being an easy sell.</p>
+
+<p>So, this&#8217;ll be an exciting release for developers. I think it could be as significant as when we were all introduced to ArcObjects at 8.0. Now, I&#8217;ve just got to get into the office and set up the beta&#8230;.</p>
+
+<p>UPDATE: <a href="http://www.spatiallyadjusted.com/2008/03/21/reflection-on-the-2008-esri-developer-summit/">James raises a good point</a> about the demos. They do make it look like you can do really cool stuff with just a little bit of code. It&#8217;s important to remember that calling the service from the API is just one part. You&#8217;ll still need to implement your complex logic in the service. Also, more sophisticated behaviors on the client will require more code there. It&#8217;s important not to get caught up in the sales hype. 9.3 will offer some powerful options but it&#8217;s important to keep the total level of effort in mind. The new APIs give you more options for developing your applications, but they don&#8217;t obviate the need to actually write the code.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/03/18/postgresql-support-in-arcgis/">PostgreSQL Support in ArcGIS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-18T00:00:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2008</time>
+        
+         | <a href="/2008/03/18/postgresql-support-in-arcgis/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just sat through a session titled &#8220;Working With the Geodatabase Effectively Using SQL.&#8221; It was heavily focused on ST_GEOMETRY. That&#8217;s pretty much what they want us to use. Interestingly, though, there won&#8217;t be ST_GEOMETRY in SQL Server 2008. They&#8217;ve added it to PostgreSQL (more on that later) but not SQL Server. Seems a little strange to me.</p>
+
+<p>There was a brief discussion of what PostgreSQL support will look like. There are no big surprises, just a little more detail. As I said, ESRI is implementing ST_GEOMETRY and also fully supporting the PostGIS spatial type. ST_GEOMETRY will be the default spatial type for ArcGIS but you will be able to use the PostGIS type via configuration keyword. The differences are:</p>
+
+<ol>
+<li><p>ST_GEOMETRY types and functions will reside in the &#8220;sde&#8221; schema (I guess that&#8217;s more efficient than call it the &#8220;arcgis_server_enterprise_basic&#8221; schema). PostGIS types and functions will reside in the public schema by default as is currently the case.</p></li>
+<li><p>The ST_GEOMETRY implementation will be consistent with those on Oracle, DB2 and Informix so, if you&#8217;re developing an app that is cross-platform (RDBMS-wise), you <em>may</em> want to use ST_GEOMETRY. It was said that the PostGIS spatial type only resides on PostgreSQL (we&#8217;ll dodge the obvious OGC-compliance piece which makes that statement somewhat shaky).</p></li>
+<li><p>The ST_GEOMETRY data type supports parametric geometry such as arcs and circles and the like whereas the PostGIS type does not. (Can you believe I&#8217;ve never looked into that? If that&#8217;s not correct, please feel free to correct me.) Of course, the REST API doesn&#8217;t support those and converts them to simple geometry&#8230;</p></li>
+<li><p>The ST_GEOMETRY spatial data is stored in ESRI&#8217;s compressed shape format which is sent directly to clients without translation. PostGIS stores in WKB format, which ArcGIS must first convert to compressed shape before sending so there will be something of a performance hit. Interpret that however you want, I&#8217;m just reporting.</p></li>
+</ol>
+
+
+<p>ST_GEOMETRY will use the PostGIS GIST spatial indexing framework but will implement an RTREE strategy through its own set of geometry operators. Additionally, ST_GEOMETRY columns can be defined within a CREATE TABLE statement compared to the use of the AddGeometryColumn function in PostGIS. Regardless of the spatial type used, tables created through SQL will still need to be registered with the geodatabase through the &#8220;sdelayer -o register&#8221; process in order to be used in ArcGIS. I&#8217;ve done this before with Oracle Spatial as a means to let Oracle do all of the heavy lifting. I would imagine the same strategy could be used on PostgreSQL if you want PostGIS to do all of the management of the data.</p>
+
+<p>As I said, there&#8217;s nothing earth-shattering there. It&#8217;s pretty much what I expected but now there are more details.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/03/18/dev-summit-rest-api-session/">Dev Summit REST API Session</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-18T00:00:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2008</time>
+        
+         | <a href="/2008/03/18/dev-summit-rest-api-session/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just sat through the first REST API session at the Dev Summit. They had it in a pretty big room and it was packed. There is a lot of interest in it here. Generally, you can walk up to just about any random person and they&#8217;ll say they want to learn more about the REST API. The other web APIs (JavaScript, SOAP, etc.) are also generating a lot of interest.</p>
+
+<p>To sum up the REST API in one word: impressive. ESRI is definitely on the right track here. I think this API could end up overshadowing the others over time. After sitting through the session, I have my doubts about whether the API holds up to the strictest definition of REST but I came away unconcerned by that. The simplicity and the power of this API cannot be understated.</p>
+
+<p>All resources (requests, layers, services, etc.) are represented as URLs. This provides the ability to very simply call powerful geoprocessing and analysis services running in ArcGIS Server. The API also supports a myraid of output formats. They demonstrated using Google Earth, Google Maps and Virtual Earth as clients. Also shown was the use of Python and Ruby scripts to call AGS services through the REST API as well as Yahoo Pipes. The output formats specifically discussed were HTML (default), (geo)JSON, KML/KMZ, image, layer (for use by ArcMap clients), NMF (for AGX), Google Maps and Virtual Earth. There&#8217;s enough there to pretty much do what you need.</p>
+
+<p>Before anyone asks, no they did not specifically mention OpenLayers nor was it shown but there were numerous examples of GeoJSON output. Based on what I saw, I think it would trivial to integrate with OpenLayers.</p>
+
+<p>The REST API makes diligent use of caching in order to optimize performance. One aspect I was interested in was security. During the plenary, it was mentioned that AGS security can be managed using industry standards such as LDAP and others. While this is not specific to the REST API, it is worth noting that, once security settings are defined, they automatically apply across all of AGS&#8217;s supported web interfaces. This will be a huge thing for many of my customers. In addition, security is role-based and can be applied to folders or individual services.</p>
+
+<p>From a developer standpoint, 9.3 could end up being the most important release of ArcGIS in a long time. The JavaScript, SOAP and REST APIs will open up development to a lot of new developers. I think that these APIs will be critical to achieving the goal for ArcGIS articulated at the FedUC for AGS to be the geospatial analysis engine that can feed the visualization client of your choice.</p>
+
+<p>A couple of other minor notes: AGS 9.3 introduces a geometry service that&#8217;s not bound to any specific data but exposes geometric opertations to clients. Currently, the REST API only supports simple geometries so parametric types such as arcs and circles are converted to densified lines or polygons.</p>
+
+<p>This was an impressive session. It looks like ESRI is putting a lot of effort into getting the REST API as right as they can this first time out. This session made me eager to get home and get the 9.3 beta running.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -287,226 +527,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/20/more-from-the-feduc-plenary/">More From the FedUC Plenary</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2008</time>
-        
-         | <a href="/2008/02/20/more-from-the-feduc-plenary/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img alt="feduc2008.png" src="http://geobabble.files.wordpress.com/2008/02/feduc2008.png" /></p>
-
-<p>I want to focus a little more on some of the demos and also how ESRI is positioning the ArcGIS platform to support the &#8220;GeoWeb&#8221; implementation pattern. Jack identified four &#8220;implementation patterns&#8221; that defin typical GIS architectures. The first three are pretty standard: single user desktop, multi-user server, and &#8220;federated&#8221; (an ESB-type implementation). The last one is what he called the &#8220;GeoWeb&#8221;. That was depicted as a set of services (data, analysis and otherwise) that can be used by various types of clients included, desktop, web, globes, mobile and pretty much anything else. This is perhaps most effectively visualized as a &#8220;mashup&#8221; type of situation. This seems to intersect nicely with the realm of &#8220;neogeography&#8221; in concept.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/02/20/more-from-the-feduc-plenary/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/20/arcgis-9.4-mentioned-at-feduc/">ArcGIS 9.4 Mentioned at FedUC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2008</time>
-        
-         | <a href="/2008/02/20/arcgis-9.4-mentioned-at-feduc/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is my first time posting from my Moto Q so forgive any typos.</p>
-
-<p>I just sat through the FedUC opening talk by Jack. There was a lot of talk about 9.3, as would be expected. There was also a lot of talk about positioning AGS support the GeoWeb, including a compelling demo of an AGS-based drive-time analysis in AGX, GE, VE and GMaps. More on that later.</p>
-
-<p>Jack also mentioned some of the work being done to extend the geodatabase at 9.4. Not a whole lot was said about 9.4 (intentionally) except a little about beefed up 3D support in the geodatabase but he did mention the end of the year as a release target.</p>
-
-<p>That&#8217;s the first concrete thing I had heard about a 9.x release beyond 9.3.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/18/esri-2008-fed-uc-vibe/">ESRI 2008 Fed UC Vibe</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-18T00:00:00-05:00" pubdate data-updated="true">Feb 18<span>th</span>, 2008</time>
-        
-         | <a href="/2008/02/18/esri-2008-fed-uc-vibe/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>At the risk of sounding like an ESRI shill&#8230;</p>
-
-<p>The <a href="http://www.esri.com/events/feduc/index.html">FedUC</a> starts on Wednesday and this year it seems to have a different feel to it. It feels like it&#8217;s definitely picked up some momentum over previous years. The sessions seem to be a little meatier and the atmosphere feels more purposeful and businesslike now.</p>
-
-<p>I have been a proponent of the FedUC since it has started. First of all, I do a lot of work with ESRI products for the Federal government and the idea of having a major event (i.e. not a user group meeting) on the East Coast has been rather compelling. I&#8217;ve blogged a lot about the development I do but my company is small and I wear a lot of hats, including project manager, marketing, etc. ESRI&#8217;s federal team in Vienna, VA has put a lot of effort over the past few years into beefing up the FedUC, and it feels like that work is paying off this year.</p>
-
-<p>I&#8217;ve had numerous meeting requests this year. In addition, there are a number of sessions I want to see as well as exhibits by some companies that I have been wanting to see. From a business standpoint, there&#8217;s a lot of return on it this year (for me anyway). For those west of the Mississippi, you can probably get a lot of the same benefits in San Diego but those in the East (particularly those doing federal work) may want to give the FedUC a closer look. This will be the first year that I will probably spend each day there from beginning to end.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/13/a-one-touch-almost-data-loader-with-fwtools-and-postgis/">A One-Touch (Almost) Data Loader With FWTools and PostGIS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2008</time>
-        
-         | <a href="/2008/02/13/a-one-touch-almost-data-loader-with-fwtools-and-postgis/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So my <a href="http://postgis.refractions.net/">PostGIS</a>/<a href="http://www.codeplex.com/SharpMap">SharpMap</a>/<a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF </a>project is ready to go out the door. Literally. The servers are being loaded onto pallets and shipped to their respective destinations. Great! Time for a cold one! Well&#8230;&#8230;maybe not. There&#8217;s one little problem: there&#8217;s no data on the servers yet.</p>
-
-<p>We had to coordinate with a large national government agency to get the data we needed. That part of the process experienced a little &#8220;slippage&#8221;. As a result, the last part of the task changed from loading data onto the servers to developing a data loading tool that could be run from a DVD with minimal involvement from humans. (Those pesky humans.) Just another Monday.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/02/13/a-one-touch-almost-data-loader-with-fwtools-and-postgis/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/02/01/sql-server-2008-and-2005-side-by-side/">SQL Server 2008 and 2005 Side-By-Side</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-01T00:00:00-05:00" pubdate data-updated="true">Feb 1<span>st</span>, 2008</time>
-        
-         | <a href="/2008/02/01/sql-server-2008-and-2005-side-by-side/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Installing the the SQL Server 2008 November CTP side-by-side with SQL Server 2005 is very straightforward. On the previous build of my machine, I had them both running just fine. After my system crash, I began setting things up again. Because I had been working with 2008 before the crash, I installed that first and then got around to 2005 later.</p>
-
-<p>It should have been obvious to me before I did that but installing them in that order seems to break a lot of stuff in 2008. Kinda makes sense. I was a little flustered at having to rebuild in the first place and perhaps rushing things a bit but here it is for the record: If you are installing both of them on a new box, put on 2005 first.</p>
-
-<p>Generally the database engine worked well. Most of the issues I had came up in the management studio. After installing 2005, many of the dialogs and property pages in the Katmai management studio would no longer display. Attempting to invoke them usually resulted in a &#8220;class not registered&#8221; exception.</p>
-
-<p>In order to fix that, I had to remove and then re-install 2008. Before doing that, I detached my databases and then re-attached them after I was done. Everything works fine now.</p>
-
-<p>This probably says more about me than it does SQL Server ;) but I thought I&#8217;d share.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/29/">&larr; Older</a>
@@ -555,15 +575,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2014/07/24/lock-in/">Lock-In</a>
+        <a href="/2014/09/11/personal-thoughts-on-the-appgeo-announcement/">Personal Thoughts On the AppGeo Announcement</a>
       </li>
     
       <li class="post">
-        <a href="/2014/07/16/the-esri-uc-so-far/">The Esri UC So Far #EsriUC</a>
+        <a href="/2014/08/26/maryland-council-on-open-data/">Maryland Council on Open Data</a>
       </li>
     
       <li class="post">
-        <a href="/2014/07/09/gearing-up-for-the-esri-uc/">Gearing Up For the Esri UC</a>
+        <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
       </li>
     
   </ul>

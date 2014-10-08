@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="In case you missed it, ESRI as posted the ArcGIS 9.4 holistic testing schedule. The schedule currently runs through the end of April 2009 but doesn&# &hellip;">
+  <meta name="description" content="My blogging has been slower this time around because I&#8217;ve been doing a lot of booth duty. This is my thrid conference this year and some of our &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,224 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/06/sql-server-sig-at-the-uc/">SQL Server SIG at the UC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-06T00:00:00-04:00" pubdate data-updated="true">Aug 6<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/06/sql-server-sig-at-the-uc/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My blogging has been slower this time around because I&#8217;ve been doing a lot of booth duty. This is my thrid conference this year and some of our other staff are getting to go to the sessions. I did, however, go to the SQL Server SIG a little while ago.</p>
+
+<p>Ed Katibah had a few tricks up his sleeve. First off, he dropped the news that, as of 11:00am, SQL Server 2008 is now in RTM. Very soon, the final version will be in our hands. That&#8217;s great news to everyone who has been working with the CTPs and RCs.</p>
+
+<p>Ed had few other nuggets. He described the stress-testing that SQL 2008 has undergone. In short, there has been about 375,000 hours of stress testing run against SQL 2008 so we should be able to expect it to be solid. Additionally, Microsoft has already been running on SQL 2008 for &#8220;a few months.&#8221; To me, this is all great news that makes me feel even more confident about the product (which already had my confidence). When I first installed the November CTP, I felt that much of the platform was already production-ready but more testing and use can&#8217;t have hurt.</p>
+
+<p>Ed went on to describe the two spatial types and reationale for doing that. That discussion is well documented and I fall in the &#8220;it&#8217;s a good thing category&#8221; mainly because of previous work with applications that had over-the-horizon requirements.</p>
+
+<p>Ed gave props to Paul Ramsey during his talk when explaining the XY switching debate. It was great to see that kind of respect on display.</p>
+
+<p>Some nuts and bolts: SQL 2008 limits spatial objects to about 250 million vertices. This greatly exceeds Ed&#8217;s largest test case, which is a high-res vector data set of the world&#8217;s oceans. Polygons are limited to about 65,000 holes. I think those limits leave a lot of wiggle room. He also discussed the significance of coordinate ordering for the geography data type. Basically, it&#8217;s counter-clockwise for outer rings and clockwise for inner rings. This is consistent with implementations in Informix, DB2 and Oracle (those are what he mentioned). He did mention that this was an industry consensus but there was no official specification on this matter. Ed also mentioned it may be a topic of future discussion for OGC.</p>
+
+<p>Ed also demonstrated the spatial results window in the SQL management Studio. This is a really nice tool that lets you visualize the results of your spatial SQL inside the management studio. As a developer, that will be a huge help because I won&#8217;t have to do a test run to see if I got the query right. Ed just saved me a bunch of time!</p>
+
+<p>Ed went on to announce a companion CodePlex site for SQL Server 2008 spatial tools: <a href="http://www.codeplex.com/sqlspatialtools">www.codeplex.com/SqlSpatialTools</a>. There are already some tools that Isaac has posted but Ed said that other tools will include shapefile and KML converters. The site will also be open to contribs from the community. All of the tools currently there were developed using the <a href="http://blogs.msdn.com/isaac/archive/2008/05/30/our-upcoming-builder-api.aspx">Builder API</a> and full source code is available so they serve has great examples of working with the Builder API.</p>
+
+<p>All in all, it was a great talk. Ed&#8217;s one of the nicest guys ever and he is having a lot of fun with ArcSDE on SQL Server 2008.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/06/a-good-postgis-overview/">A Good PostGIS Overview&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-06T00:00:00-04:00" pubdate data-updated="true">Aug 6<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/06/a-good-postgis-overview/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Steven Citron-Pousty gave a talk on PostGIS and has helpfully posted his slides <a href="http://www.slideshare.net/scitronpousty/using-post-gis-to-add-some-spatial-flavor-to-your-application">here</a>. It&#8217;s a good introductory overview and provides some good examples of basic spatial SQL in PostGIS.</p>
+
+<p>With ArcGIS Server now supporting PostgreSQL as a back end RDBMS and also supporting the use of PostGIS geometries, a lot of new users may be migrating to the PostgreSQL platform. This presentation is a good overview for anyone picking it up for the first time. Thanks, @TheSteve0!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/05/ziggis-source-code-and-schwag-available/">zigGIS Source Code and Schwag Available</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-05T00:00:00-04:00" pubdate data-updated="true">Aug 5<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/05/ziggis-source-code-and-schwag-available/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://abegillespie.blogspot.com">Abe</a> has announced that the source code for zigGIS is now available (governed by the zigGIS EULA). It can be found at <a href="http://www.obtusesoft.com/source.aspx">http://www.obtusesoft.com/source.aspx</a>.</p>
+
+<p>Additionally, there is now zigGIS apparel available at <a href="http://www.cafepress.com/obtusesoft">http://www.cafepress.com/obtusesoft</a> (just because it&#8217;s fun&#8230;and a little geeky).</p>
+
+<p>No, there is not an option to have the source code printed on a shirt.</p>
+
+<p>Enjoy both&#8230;.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/01/bravo-zulu/">Bravo Zulu&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-01T00:00:00-04:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
+        
+         | <a href="/2008/08/01/bravo-zulu/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Before I step on the plane to San Diego, I want to make sure I extend a hearty BZ to <a href="http://fantomplanet.wordpress.com/">Fantomplanet</a> for putting in all the work to arrange the UC Geoblogger Meetup out there. He&#8217;s had a lot going on and this was one more thing he probably didn&#8217;t need so: Thanks! I&#8217;ll see you there.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/01/arcsde-geocoding-services-deprecated-at-93/">ArcSDE Geocoding Services Deprecated at 9.3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-01T00:00:00-04:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
+        
+         | <a href="/2008/08/01/arcsde-geocoding-services-deprecated-at-93/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This isn&#8217;t a huge surprise but <a href="http://support.esri.com/index.cfm?fa=knowledgebase.documentation.viewDoc&amp;PID=66&amp;MetaID=1430">this announcement</a> made it official a couple of days ago.</p>
+
+<p>Basically, you&#8217;ll need to use ArcGIS Server&#8217;s server-side geocoding because the next release of ArcSDE won&#8217;t include it. The PDF attached to the announcement gives more detail. I know we had moved away from ArcSDE geocoding some time ago because it didn&#8217;t hold up to the load we were putting on it. We used Oracle Spatial instead.</p>
+
+<p>But, if you&#8217;ve got any apps that are still using ArcSDE for geocoding, now&#8217;s the time the transition.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -310,303 +528,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/06/25/arcgis-9-3-is-shipping/">ArcGIS 9.3 Is Shipping</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-25T00:00:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2008</time>
-        
-         | <a href="/2008/06/25/arcgis-9-3-is-shipping/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>According to this <a href="http://www.gisuser.com/content/view/14986/">press release</a>, ArcGIS 9.3 started shipping today. ESRI has pretty much stuck to the aggressive schedule that they announced at the Dev Summit.</p>
-
-<p>My experiences thus far with the beta and the release candidate have been pretty positive so it&#8217;ll be good to get the final product.</p>
-
-<p>Who&#8217;s starting the pool on the when the first service pack will be out?  ;)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/06/25/agx-build-480-is-corny/">AGX Build 480 Is Corny</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-25T00:00:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2008</time>
-        
-         | <a href="/2008/06/25/agx-build-480-is-corny/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Or maybe it&#8217;s just this post.</p>
-
-<p>It&#8217;s always fun in tools such as ArcGIS Explorer and Google Earth to browse around your local area and check out the familiar sites, especially when there is an update. In my case, that means browsing around Southern Maryland. The imagery in build 480 for my area was apparently captured in the fall since corn mazes can be see pretty clearly. Here are the approximate coordinates of a couple:</p>
-
-<p>-76.698488, 38.323529
--76.720778, 38.411094</p>
-
-<p>The second is of particular interest. I took my daughter to that one in Pre-K. I know this because the owners helpfully carved the words &#8220;Forrest Hall Farm 2005&#8221; into the field. This is all the more interesting since the copyright statement at the corner of the screen would lead you to believe you are looking at 2007 imagery.</p>
-
-<p>This kind of like looking for the errors in movies.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/06/16/dms-to-decimal-degrees-function-for-postgresql/">DMS to Decimal Degrees Function for PostgreSQL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-16T00:00:00-04:00" pubdate data-updated="true">Jun 16<span>th</span>, 2008</time>
-        
-         | <a href="/2008/06/16/dms-to-decimal-degrees-function-for-postgresql/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><!--zekiah -->
-
-
-<p>For another project, I had to work with a PostgreSQL table that was storing locations in Degrees/Minutes/Seconds. We had to create an event layer in ArcGIS so they had to be converted to decimal degrees. The server was not using PostGIS and I really had no control over the configuration (although the admins would let us create views or functions to facilitate what we needed). So I wrote a function to accomplish the conversion and allow us to create a view. It was pretty simple (and others may have more elegant approaches) but I figured I&#8217;d post it to save someone else some work in the future. Here&#8217;s the code:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">dms2dd</span><span class="p">(</span>
-</span><span class='line'>       <span class="n">D</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">M</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">S</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">HEMI</span> <span class="nb">character</span> <span class="k">varying</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
-</span><span class='line'>   <span class="p">)</span> <span class="k">RETURNS</span> <span class="nb">double precision</span> <span class="k">AS</span> <span class="s">$$</span>
-</span><span class='line'>   <span class="k">DECLARE</span>
-</span><span class='line'>      <span class="n">ret</span> <span class="nb">double precision</span><span class="p">;</span>
-</span><span class='line'>      <span class="n">dir</span> <span class="nb">integer</span><span class="p">;</span>
-</span><span class='line'>   <span class="k">BEGIN</span>
-</span><span class='line'>      <span class="n">dir</span> <span class="o">:=</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">--init to 1 for default positive return</span>
-</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">--init to zero.</span>
-</span><span class='line'>      <span class="c1">--ONLY S or W will trip this. Any other letter or NULL will result in positive return value</span>
-</span><span class='line'>      <span class="k">IF</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span> <span class="k">OR</span> <span class="n">UPPER</span><span class="p">(</span><span class="n">HEMI</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;W&#39;</span> <span class="k">THEN</span>
-</span><span class='line'>  <span class="n">dir</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">1</span><span class="p">;</span> <span class="c1">--then southern or western hemisphere</span>
-</span><span class='line'>      <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-</span><span class='line'>      <span class="c1">--SOME data has negative values in minutes and seconds as well as degrees. Use ABS to standardize all three.</span>
-</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="p">(</span><span class="n">ABS</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">D</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">M</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">ABS</span><span class="p">((</span><span class="k">CAST</span><span class="p">(</span><span class="n">S</span> <span class="k">as</span> <span class="nb">double precision</span><span class="p">))</span><span class="o">/</span><span class="mf">60</span><span class="p">)))</span><span class="o">/</span><span class="mf">60</span><span class="p">)));</span>
-</span><span class='line'>      <span class="n">ret</span> <span class="o">:=</span> <span class="n">ret</span> <span class="o">*</span> <span class="n">dir</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">RETURN</span> <span class="n">ret</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">END</span><span class="p">;</span>
-</span><span class='line'>  <span class="s">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The function doesn&#8217;t care whether it&#8217;s latitude or longitude. You&#8217;ll also notice that it&#8217;s not doing any bounds checking. That&#8217;s because our table had a constraint limiting the degree values of latitude and longitude to between -90/90 and -180/180 respectively. There&#8217;s still a little room for error on the aggregated value, though. Our table had D, M, S and the hemisphere indicator stored in separate columns. The numeric values were stored as integers.</p>
-
-<p>The usage for my table was:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='postgres'><span class='line'><span class="k">SELECT</span> <span class="n">dms2dd</span><span class="p">(</span><span class="n">lat_d</span><span class="p">,</span><span class="n">lat_m</span><span class="p">,</span><span class="n">lat_s</span><span class="p">,</span><span class="n">lat_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">latitude</span><span class="p">,</span>
-</span><span class='line'> <span class="n">lat_d</span><span class="p">,</span> <span class="n">lat_m</span><span class="p">,</span> <span class="n">lat_s</span><span class="p">,</span> <span class="n">lat_hemi</span><span class="p">,</span>
-</span><span class='line'>  <span class="n">dms2dd</span><span class="p">(</span><span class="n">lon_d</span><span class="p">,</span><span class="n">lon_m</span><span class="p">,</span><span class="n">lon_s</span><span class="p">,</span><span class="n">lon_hemi</span><span class="p">)</span> <span class="k">as</span> <span class="n">longitude</span><span class="p">,</span>
-</span><span class='line'>   <span class="n">lon_d</span><span class="p">,</span> <span class="n">lon_m</span><span class="p">,</span> <span class="n">lon_s</span> <span class="k">as</span> <span class="n">latitude</span> <span class="k">from</span> <span class="n">dms_coords</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Enjoy.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/06/04/oregon-postgresql-conference/">Oregon PostgreSQL Conference</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-04T00:00:00-04:00" pubdate data-updated="true">Jun 4<span>th</span>, 2008</time>
-        
-         | <a href="/2008/06/04/oregon-postgresql-conference/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This came through my inbox. I thought it may be of interest to PostgreSQL/PostGIS/ArcGIS 9.3 users in the Pacific Northwest.</p>
-
-<blockquote>
-Request for proposals: PDXPUG PgDay, due by June 20,2008
-
-PDXPUG PgDay will be on July 20, 2008.  This is a one-day conference happening the day before OSCON at the Oregon Convention Center.
-
-We are inviting anyone who has something interesting to share about PostgreSQL to send us a proposal!
-
-We&#8217;d like to have at one 1.5 hour tutorial and up to five 45-minute talks.
-
-We welcome talks in any of the following areas:
-
-* Case studies involving interesting and innovative uses of PostgreSQL from an application developer, PostgreSQL developer or administrative user perspective
-* Converting from other databases to PostgreSQL
-* How-to accomplish database administration tasks (partitioning, backups, replication, writing stored procedures)
-* Practical advice on configuration, monitoring and database management
-
-We will notify submitters of their acceptance by June 25, 2008.
-
-Thank you and we look forward to seeing you at PDXPUG PgDay!
-
--selena
-&#8211;
-Selena Deckelmann
-United States PostgreSQL Association- <a href="http://www.postgresql.us">http://www.postgresql.us</a></blockquote>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/06/02/using-arcsde-93-with-postgresql-part-2/">Using ArcSDE 9.3 With PostgreSQL, Part 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-02T00:00:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2008</time>
-        
-         | <a href="/2008/06/02/using-arcsde-93-with-postgresql-part-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In my <a href="http://geobabble.wordpress.com/2008/05/28/using-arcsde-93-with-postgresql-part-1/">previous post</a>, I discussed some approaches to configuring <a href="http://www.postgresql.org">PostgreSQL</a> databases and accessing the data in them with <a href="http://www.esri.com/software/arcgis/arcsde/index.html">ArcSDE</a> 9.3. For this post, I will describe some of my ongoing experiences with getting data into ArcSDE 9.3.</p>
-
-<p>There are two main ways that I am investigating of loading/making available your spatial data in ArcSDE 9.3 for PostgreSQL. The first is the traditional method of importing a feature class via ArcCatalog. (You can also create data in this manner but I haven&#8217;t played with that yet.) The second is to register an existing <a href="http://postgis.refractions.net">PostGIS</a> table as a layer using the &#8221;<a href="http://edndoc.esri.com/arcsde/9.0/admin_cmd_refs/sdelayer.htm">sdelayer</a> -o register&#8221; command-line tool. I will discuss this latter option first.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/06/02/using-arcsde-93-with-postgresql-part-2/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/26/">&larr; Older</a>
@@ -655,15 +576,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2014/07/24/lock-in/">Lock-In</a>
+        <a href="/2014/09/11/personal-thoughts-on-the-appgeo-announcement/">Personal Thoughts On the AppGeo Announcement</a>
       </li>
     
       <li class="post">
-        <a href="/2014/07/16/the-esri-uc-so-far/">The Esri UC So Far #EsriUC</a>
+        <a href="/2014/08/26/maryland-council-on-open-data/">Maryland Council on Open Data</a>
       </li>
     
       <li class="post">
-        <a href="/2014/07/09/gearing-up-for-the-esri-uc/">Gearing Up For the Esri UC</a>
+        <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
       </li>
     
   </ul>
