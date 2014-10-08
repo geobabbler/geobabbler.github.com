@@ -3,7 +3,8 @@ layout: post
 published: true
 title: This is a test
 comments: true
-categories: misc
+categories: 
+- misc
 ---
 
 ## This is a test
