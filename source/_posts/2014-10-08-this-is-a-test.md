@@ -4,7 +4,7 @@ published: true
 title: This is a test
 comments: true
 categories: 
-- misc
+- misce
 ---
 
 ## This is a test
