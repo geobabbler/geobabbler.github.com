@@ -1,0 +1,33 @@
+---
+layout: blog
+title: f=geojson
+post_author: bdollins
+comments: true
+categories:
+- arcgis server
+- esri
+- geojson
+- gis
+---
+
+On November 11, 2011, I gave a lightning talk at the <a href="http://www.meetup.com/DevMeetUpNortheast/events/37184672/">ESRI Dev Meetup in Silver Spring, MD</a>. My talk was titled "If I Were Jack For a Day." Despite the infinite comedic potential of that title, it was a tongue-in-cheek look at some items on my wish list for the <a href="http://en.wikipedia.org/wiki/ArcGIS">ArcGIS</a> platform. 
+
+An increasing portion of my consulting work deals with helping users integrate their established ArcGIS infrastructures with other spatial technologies. So my talk was a semi-selfish look at things that would make my life as a consultant and integrator easier.
+
+<a href="http://twitter.com/geeknixta">Nick Furness</a> will post the slides but they aren't designed to stand on their own so I thought I'd address them here to provide context. I'll take them one or two per post in no particular order. With that, first up on the docket:
+
+<img alt="" class="aligncenter size-full wp-image-2245" height="360" src="http://geobabble.files.wordpress.com/2011/11/fgeojson.png" title="f=geojson" width="480" />
+
+<!--more-->
+
+I'd love to see <a href="http://geojson.org/">GeoJSON</a> support, where appropriate, in the <a href="http://help.arcgis.com/en/arcgisserver/10.0/apis/rest/index.html">ArcGIS Server REST API</a> (or the <a href="http://www.esri.com/industries/landing-pages/geoservices/geoservices.html">GeoServices REST Specification</a> or <a href="http://www.esri.com/news/arcnews/summer11articles/a-note-about-names.html">whatever it's called</a>). I say "where appropriate" because the scope of the REST API is wide-ranging and only potentially meshes up with GeoJSON in a few areas. (Yes, I voted for this on the <a href="http://ideas.arcgis.com/ideaView?id=0873000000088U9AAI">ArcGIS Ideas</a> site.) One such example is querying a feature layer. Take this query for instance:
+
+<a href="http://services.arcgisonline.com/ArcGIS/rest/services/Demographics/USA_1990-2000_Population_Change/MapServer/4/query?where=Name%3D%27Maryland%27&amp;f=json">http://services.arcgisonline.com/ArcGIS/rest/services/Demographics/USA_1990-2000_Population_Change/MapServer/4/query?where=Name%3D%27Maryland%27&amp;f=json</a>
+
+I envision the option to specify "f=geojson" and have the result returned as a GeoJSON FeatureCollection. Why? Because it would make it much easier to integrate outputs from ArcGIS Server into applications or APIs that support GeoJSON. At least that's my parochial view of the world. This could be added side-by-side with the current JSON capability so as not to break existing clients. 
+
+Frankly, I'd like to see GeoJSON support on the consumption side all up and down the stack. It would be nice if ArcMap could be pointed at a URL that emits GeoJSON and load it into a map as a fully functional layer. Of course, it would be nice if ArcGIS supported direct access to a number of other spatial data sources but that was the topic of another slide which I'll get to in another post.
+
+Now I realize that GeoJSON hasn't been "formally" adopted as a standard but, then again, neither has the shapefile. In terms of adoption, the market has spoken with support across a number of platforms and an increasing number of APIs. In my opinion, GeoJSON has quickly become one of the more widely accepted de facto standards in our industry. (Don't take my word for it, <a href="http://www.google.com/search?q=geojson">ask Google</a>.)
+
+This doesn't offer up too many business drivers for ESRI to do such a thing, aside from greater flexibility and utility for ArcGIS Server as a data source, but as I said before, this is my semi-selfish look at things. GeoJSON support in ArcGIS Server would make my life easier and I'm sure I'm not alone.

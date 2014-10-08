@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Data, Apps, and Maps"
+date: 2014-04-01 15:14
+comments: true
+categories: 
+- GIS
+- .Net
+- Gmap.NET
+- Arc2Earth
+- WeoGeo
+- TileMill
+- MBTiles
+- MapBox
+- programming
+---
+It's been a quiet month-and-a-half here on the blog, mostly owing to an abundance of project tasks. I recently started a short-term project to help one of my Federal customers extend data source support for an application they have been developing. This customer is technically a new one but the project team is made up of government developers that I have worked with on a few other projects so there is a great deal of familiarity.
+
+The application, which has been under development for some time, is written in .Net and make use of the open-source (MIT) [GMap.NET](http://greatmaps.codeplex.com) mapping library. The application features a desktop version running in Windows and a mobile version running on Android tablets. The .Net back end works seamlessly on both through the use of [Xamarin](http://xamarin.com), although I have not had the chance to get my hands dirty with that yet due to limits on Xamarin licenses and available Android devices. To its credit, GMap.NET seems to work fairly well in both environments.
+
+<!--more-->
+
+The project needed the ability to plug in custom base maps that would be accessible on the mobile devices which would not have internet connectivity, so I chose to use [MBTiles](https://www.mapbox.com/developers/mbtiles/) as the provider format, given that it is widely supported and well-documented. This was my first time using the GMap.NET library and it was fairly easy to develop a new provider for it. [I have posted my provider code here](https://github.com/geobabbler/MBTilesMapProvider), though it may not work as a separate library due to some design choices in the core library.
+
+From there, I actually had to move on to making some data sets for the various upcoming application test runs. This enabled me to reconnect with some old friends: [TileMill](https://www.mapbox.com/tilemill/), [Arc2Earth](http://www.arc2earth.com), and [WeoGeo](http://market.weogeo.com). I used WeoGeo for the bulk of my data acquisition, sticking to open data sources such as OSM and TIGER. The areas that I needed to work with were fairly small and WeoGeo's feature of allowing me to upload KML to clip my data is really quite nice. If you still haven't checked out WeoGeo for data acquisition, you really should. The customization tools even make for-purchase data sets fairly affordable.
+
+-> <img src="/images/posts/weoorder.png" /> <-
+
+I did my initial prototyping in TileMill to generate data sets to test the map provider. Once I moved on to building the actual data sets, I moved over to Arc2Earth. The main driver for that decision was that, in addtion to data acquired from WeoGeo, I had some data in a few government formats to integrate as well. Through GDAL and OGR, I could have accomplished that in TileMill, but I was able cut out a lot of data manipulation with Arc2Earth. That is why we keep multiple tools on the workbench.
+
+-> <img src="/images/posts/a2eexport2.png" /> <-
+
+To help fusing multiple databases, I had to take the step of developing [a GUI tool to merge MBTiles](https://github.com/geobabbler/MBTilesMerge) databases. [MapBox has a perfectly fine utility](https://github.com/mapbox/mbutil/blob/master/patch) to do this but this particular shop has seen fit to block console access on our Windows machines so I had to create my own tool to accomplish this task.
+
+Every once in a while, it's good to get back in touch with data and mapping workflows. It keeps me honest as a developer, even though mapping is not my strong suit. I have found working with GMap.NET interesting but I'm not sure I'd choose to do so again. There are a few design choices that fall into the "not how I would have done it" category but, primarily, I haven't found any compelling reason to choose it over [SharpMap](https://sharpmap.codeplex.com), [DotSpatial](https://dotspatial.codeplex.com), or [BruTile](https://brutile.codeplex.com), which are open-source .Net libraries with which I am much more familiar.

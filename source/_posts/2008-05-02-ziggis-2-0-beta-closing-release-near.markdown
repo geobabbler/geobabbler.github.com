@@ -1,0 +1,17 @@
+---
+layout: blog
+title: zigGIS 2.0 Beta Closing, Release Near
+post_author: bdollins
+comments: true
+categories:
+- esri
+- gis
+- postgis
+- ziggis
+---
+
+The <a href="http://twitter.com/zigGIS">zigGIS 2.0</a> beta is wrapping up this week. We got some good feedback and Abe was able to fix a few bugs. We'll begin focusing on getting the release out. We are shooting for May 20th but that may slip because there's a lot to do.
+
+<a href="http://postgis.refractions.net">PostGIS</a> editing is working pretty well now and, in general, it's much more solid. zigGIS will work with ArcGIS 9.0 through 9.2. I need to test it against the 9.3 beta but that'll have to wait a few days. Also, the full capability will work with <a href="http://www.esri.com/software/arcgis/arcview/about/features.html">ArcView</a> (or any other license tier of ArcGIS), so direct read/edit of PostGIS will be open to anyone with ArcGIS.
+
+Also, the <a href="http://obtusesoft.com">Obtuse</a> web site will be standing up so there will be more information.

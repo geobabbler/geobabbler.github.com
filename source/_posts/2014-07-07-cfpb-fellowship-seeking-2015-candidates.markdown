@@ -1,0 +1,12 @@
+---
+layout: post
+title: "CFPB Fellowship Seeking 2015 Candidates"
+date: 2014-07-07 13:48
+comments: true
+categories: 
+---
+It's no secret that I am contractor who spends a lot of my time attempting to develop software for defense users. I've been doing this for a long time, though I have added other customers to my portfolio over the years. The process of development in this arena gets more frustrating by the day. Recently, for example, a group policy update was pushed that removed any browser other than Internet Explorer from our development machines and rolled Internet Explorer back to version 9. These are just the latest such setbacks to productivity and they represent every stereotype we've ever heard about Federal Government computing.
+
+Thankfully, there are countervailing examples which point to how things could be. One such example is the [Technology and Innovation Fellowship at the Consumer Financial Protection Bureau (CFPB)](http://www.consumerfinance.gov/jobs/technology-innovation-fellows/). This two-year fellowship program provides an opportunity to show how Federal software can be developed, with an [open-source-first approach](https://github.com/cfpb/source-code-policy/blob/gh-pages/cfpb-source-code-policy.txt), and also how software development can occur, via remote teams and distributed collaboration. These are not new concepts in the overall marketplace but are still fairly exotic in the Beltway region. Ultimately, the fellowship holds out the possibility of building technology that actually helps government work better and shows how modern tools and working arrangements be applied in the Federal Government.
+
+I was clued into this fellowship program via a tweet by [Mike Byrne](https://twitter.com/byrne_tweets), who has already helped show the way via the [National Broadband Map](http://www.broadbandmap.gov/) at the FCC, and who is now at the CFPB. There are very few people I've met in the Federal Government who have a better vision for modernizing IT development and acquisition, coupled with the ability to get things done. If you're of a technical bent and looking to work inside the Federal Government, this fellowship program may be something you want to check out.

@@ -1,0 +1,48 @@
+---
+layout: blog
+title: GeoIQ & Esri
+post_author: bdollins
+comments: true
+categories:
+- big boy pants
+- ESRI
+- GeoIQ
+- gis
+- Real World
+---
+
+Okay, everybody calm the hell down. Anyone who thinks that the <a href="http://blog.geoiq.com/2012/07/10/building-from-the-inside/" target="_blank">Esri acquisition of GeoIQ</a> is strange hasn't been paying attention to two things: 1) the direction that Esri says they want to go and 2) what the GeoIQ platform really is. I would be very surprised if GeoIQ becomes the 2012 version of <a href="http://www.thefreelibrary.com/ESRI+Acquires+Atlas+GIS+and+Atlas+SDK+--+Claritas+and+ESRI+Announce...-a018336428" target="_blank">Atlas GIS</a>. This acquisition/merger makes more sense than may be initially apparent.
+
+{% youtube _eyFiClAzq8 %}
+
+It's no secret that I've worked with <a href="http://www.esri.com" target="_blank">Esri</a> tools for a long time and my recent work with the <a href="http://www.geoiq.com" target="_blank">GeoIQ</a> platform has been well-documented on this blog, including work integrating the two platforms at the API level. Based on what I've seen from both companies, here are thoughts on why I think this move makes a lot of sense:  <!--more-->
+
+<strong>First, why it makes sense for Esri...</strong>
+
+GeoIQ/<a href="http://www.geocommons.com" target="_blank">GeoCommons</a> is, and has been for a long time, what <a href="http://www.arcgis.com/home/" target="_blank">ArcGIS Online</a> (AGOL) should be and still isn't. It was built from the beginning as a hosted platform without any encumbrances of an existing technology/code base. It is stable, staying online throughout many recent incidents, in a way that AGOL can't claim. The back-end data storage architecture, developed on a "NoSQL" platform and designed by GeoIQ, is already much more scalable than anything coming from a geodatabase legacy.
+
+Esri made their mark in client/server (there's an oldie) GIS and have not been able to successfully move past it to this day. You can move ArcGIS to Amazon if you want but it's still client/server. If you pull back and think about it, the least logical thing you can do when trying to build a SaaS is to try and port an architecture that was designed for desktops and servers. GeoIQ, on the other hand, never designed for those platforms. Their SaaS was built to be a hosted system, accessible via an API. That approach has enabled them to expand from data storage to cartographics/visualization to analytics smoothly and consistently.
+
+The API is key here. The GeoIQ platform is exposed via a "RESTish" <a href="http://developer.geoiq.com/api/rest-api/" target="_blank">HTTP+JSON API</a>. If you examine the API documentation with an eye toward bridging to the Esri <a href="http://www.esri.com/news/releases/10_3qtr/geoservices-rest.html" target="_blank">GeoServices REST Specification</a> (which I have), it doesn't take long to get from GeoIQ's overlays, maps and analytics to Esri's map services, feature services and server extensions. Resource hierarchies are a little different and, of course, JSON syntax is different but none of those are insurmountable hurdles. In fact, it would be no more difficult to make GeoIQ emit Esri JSON than it would be to make the Esri REST API emit <a href="http://www.geojson.org" target="_blank">GeoJSON</a>.
+
+Based on my previous analyses, I don't think putting a GeoServices REST implementation on top of GeoIQ would be the most technically challenging thing in the world. And given the existence of the <a href="http://www.opengeospatial.org/projects/groups/gservrestswg" target="_blank">OGC GeoService REST SWG</a>, doing so may eventually get you in line for standards compliance. (I'll leave the rest of you to debate the value of that.) But, aside from potential standards compliance, the biggest reason to do so would be to enable all of the existing Esri client tools that already know how to interact with the Esri REST API to be able to talk to the GeoIQ platform.
+
+So let's summarize: In a hosted world, the back-end implementation doesn't really matter much because client tools talk through an API. If I'm using HTTP to communicate, I don't care if it's COM or Java or Ruby or whatever on the back end. That's why APIs are valuable and those built to use standards like HTTP are even more so. GeoIQ has an in-place, highly-scalable, spatial storage/visualization/analytics platform that's exposed through an HTTP interface. Bolt on another interface, and you have ArcGIS Online. There's some work involved but not nearly as much as building the platform from scratch.
+
+So, if Esri is smart, the GeoIQ platform becomes ArcGIS Online. They'd need to work on improving the tools to pass data between the hosted platform and the client/server platform, and maybe tighter integration with the desktop tools to ease publishing. It would probably be good to beef up symbology in GeoIQ as this is one thing that Esri currently does better, more easily, than GeoIQ. Also the analytical tools in place with GeoIQ are already win over AGOL.
+
+<strong>Why it makes sense for GeoIQ...</strong>
+
+So I've done a good bit of work with the GeoIQ platform and APIs. Probably not enough to call myself an expert but enough to feel comfortable. I've worked on a couple of successful implementations, including the <a href="http://blog.geoiq.com/2012/04/27/visualizing-our-changing-climate-with-climascope/" target="_blank">ClimaScope portal recently mentioned on the GeoIQ blog</a> and am currently in the middle of another one. I have found the platform to be impressive, with the potential for a great amount of productivity.
+
+A couple of years ago, I had the good fortune to attend the FortiusOne holiday party (they weren't yet called GeoIQ). One thing that struck me about that evening was the dedication and passion that every single employee seemed to have for what they were doing. Everyone was committed to building the best tools they possibly could. I got the sense that if someone were tasked with building a CSV exporter, they would make sure it was the best CSV exporter anyone had ever seen. I came away from that experience a believer.
+
+Over the ensuing time working with the GeoIQ platform, I have noticed small anomalies here and there: documentation that's not quite up to date, small bugs, longer response times, etc. These types of issues are not uncommon but are somewhat out of character for an organization with a high level of dedication and enthusiasm.
+
+That said, my role as a business owner has given me an interest in things such as acquisition drivers. What I have come to realize is that the small issues I was observing are not uncommon for a small company that has achieved a certain level of growth but has plateaued. In other words, growing pains. The reasons small companies plateau are varied but getting past a plateau can be difficult and may require additional resources that are difficult to muster internally. This can lead small companies to seek acquisition.
+
+GeoIQ has always been very dedicated to how their technology is applied. They have a noticeable footprint in the DoD world and have had high-profile implementations such as the World Bank, World Wildlife Fund and others on the NGO side of things. Not coincidentally, these are areas in which Esri is active. In short, there has probably always been more in common between Esri and GeoIQ than met the eye. GeoIQ now has access to the resources of a larger company than help mitigate their growing pains and help them more effectively focus on the application areas they care about.
+
+In my opinion, this acquisition not only makes sense, it is somewhat classic. In hindsight, it could even be called obvious. I could go on about this but I won't.
+
+Many in our industry, myself included, took a vicarious enjoyment in the David-versus-Goliath interplay between GeoIQ and Esri but now it's time for us to get back to work. I think all of the principals involved in this transaction deserve credit for keeping open minds and being able to look past all of that to recognize the potential common benefits of joining forces. I sincerely hope GeoIQ doesn't become the next Atlas GIS and I suspect it won't.
