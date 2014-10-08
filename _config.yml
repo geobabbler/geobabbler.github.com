@@ -104,3 +104,31 @@ facebook_page: http://www.facebook.com/pages/GeoMusings/304146182966988
 linkedin_share: true
 linkedin_profile: billdollins
 linkedin_proper: Bill Dollins
+
+#prose.io settings 
+prose:
+  rooturl: "source"
+  metadata:
+    "source/_posts":
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          value: "Title"
+      - name: "comments"
+        field:
+          label: "Allow comments"
+          element: "checkbox"
+          value: true
+      - name: "categories"
+        field:
+          element: "text"
+          value: "misc"
+      - name: "published"
+        field:
+          label: "Published"
+          element: "checkbox"
+          value: true

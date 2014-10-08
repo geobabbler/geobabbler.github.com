@@ -1,0 +1,18 @@
+---
+branches:
+  only:
+  - source
+language: ruby
+rvm:
+- 1.9.3
+before_script:
+- export REPO_URL="https://$GH_TOKEN@github.com/$GH_REPO.git"
+- rake setup_github_pages[$REPO_URL]
+script:
+- rake generate
+after_script:
+- rake deploy
+env:
+  global:
+  - GH_REPO="geobabbler/geobabbler.github.com"
+  - secure: "g+NB5TQwx3xZmHv3bbHDUNMHr0vZEYMRCAqwDjJJaA3GViLi8dk+IK3U2bL2hMWh4OdrZAXhdSWT7tuLCIhRyDTM513dbFlL87jwL5W7PydT2kcbaV9hAkR+Sr1fbuF61GhrBTdFgsX6WYrqNFmrMnxF4zt2dZuG03Mt3lj9R9w="
