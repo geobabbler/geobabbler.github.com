@@ -4,7 +4,7 @@
   <title><![CDATA[Category: BruTile | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/brutile/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-08T23:10:54-04:00</updated>
+  <updated>2014-10-08T23:24:50-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -41,27 +41,17 @@
 
 <p>Beyond the request, you can fine-tune the tile schema by using information from the data set metadata to set the tile extent and remove unused scale levels. For spherical mercator tiles, for example, I defined custom tile source, tile schema and request classes that defined these additional pieces of information. The result was the ability to very easily create a TileLayer for use by the MapsUI control:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">//_dataSet is deserialized from JSON and contains the data set metadata&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="c1">//Create schema based on data set format, min and max scaled and tile extent&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span>        <span class="kt">var</span> <span class="n">weoSchema</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WeoGeoSchema</span><span class="p">(</span><span class="n">_dataSet</span><span class="p">.</span><span class="n">TileFileFormat</span><span class="p">,</span> <span class="n">_dataSet</span><span class="p">.</span><span class="n">Scales</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="n">_dataSet</span><span class="p">.</span><span class="n">Scales</span><span class="p">[</span><span class="n">_ds</span><span class="p">.</span><span class="n">Scales</span><span class="p">.</span><span class="n">Count</span> <span class="p">-</span> <span class="m">1</span><span class="p">],</span> <span class="k">new</span> <span class="n">BruTile</span><span class="p">.</span><span class="n">Extent</span><span class="p">(</span><span class="n">_dataSet</span><span class="p">.</span><span class="n">Boundaries</span><span class="p">.</span><span class="n">Tiles</span><span class="p">.</span><span class="n">West</span><span class="p">,</span> <span class="n">_dataSet</span><span class="p">.</span><span class="n">Boundaries</span><span class="p">.</span><span class="n">Tiles</span><span class="p">.</span><span class="n">South</span><span class="p">,</span> <span class="n">_dataSet</span><span class="p">.</span><span class="n">Boundaries</span><span class="p">.</span><span class="n">Tiles</span><span class="p">.</span><span class="n">East</span><span class="p">,</span> <span class="n">_dataSet</span><span class="p">.</span><span class="n">Boundaries</span><span class="p">.</span><span class="n">Tiles</span><span class="p">.</span><span class="n">North</span><span class="p">));</span>
-</span><span class='line'>        <span class="kt">var</span> <span class="n">weosource</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WeoGeoTileSource</span><span class="p">(</span><span class="k">new</span> <span class="n">WeoGeoRequest</span><span class="p">(</span><span class="s">&quot;http://weodata.weogeo.com&quot;</span><span class="p">,</span> <span class="n">_dataSet</span><span class="p">.</span><span class="n">Token</span><span class="p">,</span> <span class="n">_dataSet</span><span class="p">.</span><span class="n">Scales</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="n">_dataSet</span><span class="p">.</span><span class="n">Scales</span><span class="p">[</span><span class="n">_dataSet</span><span class="p">.</span><span class="n">Scales</span><span class="p">.</span><span class="n">Count</span> <span class="p">-</span> <span class="m">1</span><span class="p">],</span> <span class="n">_dataSet</span><span class="p">.</span><span class="n">TileFileFormat</span><span class="p">),</span> <span class="n">weoSchema</span><span class="p">);</span>
-</span><span class='line'>        <span class="kt">var</span> <span class="n">tl</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TileLayer</span><span class="p">(</span><span class="n">weosource</span><span class="p">);</span> <span class="c1">//the layer to be added to the map control</span>
-</span><span class='line'><span class="p">&lt;/</span><span class="n">code</span><span class="p">&gt;&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:csharp %}
+//_dataSet is deserialized from JSON and contains the data set metadata</p>
+
+<p>//Create schema based on data set format, min and max scaled and tile extent</p>
+
+<pre><code>        var weoSchema = new WeoGeoSchema(_dataSet.TileFileFormat, _dataSet.Scales[0], _dataSet.Scales[_ds.Scales.Count - 1], new BruTile.Extent(_dataSet.Boundaries.Tiles.West, _dataSet.Boundaries.Tiles.South, _dataSet.Boundaries.Tiles.East, _dataSet.Boundaries.Tiles.North));
+        var weosource = new WeoGeoTileSource(new WeoGeoRequest("http://weodata.weogeo.com", _dataSet.Token, _dataSet.Scales[0], _dataSet.Scales[_dataSet.Scales.Count - 1], _dataSet.TileFileFormat), weoSchema);
+        var tl = new TileLayer(weosource); //the layer to be added to the map control
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>Using BruTile, this aspect of adding support for ordering went very quickly and smoothly. I like that they have native WPF UI components as I generally avoid using WinForms anymore when doing Windows desktop development. There's a lot of good work between BruTile and MapsUI and I'll be using these tools more in the future.</p>
 ]]></content>
