@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: data | geoMusings]]></title>
+  <title><![CDATA[Category: Data | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/data/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-09T09:30:07-04:00</updated>
+  <updated>2014-10-09T09:57:12-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,60 +14,32 @@
 
   
   <entry>
-    <title type="html"><![CDATA[File Geodatabase Schema Compare Tool]]></title>
-    <link href="http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool/"/>
-    <updated>2014-01-08T20:32:00-05:00</updated>
-    <id>http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool</id>
-    <content type="html"><![CDATA[<p>In my work supporting various aspects of geospatial data modeling, I've spent a lot of time delving into concepts around configuration management of such data models. We've been able to apply a core tool set to perform various functions such as version managment, profiling, version-to-version migration, and validation in conjunction with a system we call the platform independent model (PIM). I gave quick overview of the PIM <a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">in this post over on the Zekiah blog</a> and the complete series on it <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">can be found here</a>.</p>
+    <title type="html"><![CDATA[DevOps for Geospatial Data]]></title>
+    <link href="http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data/"/>
+    <updated>2013-07-28T10:54:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/07/28/devops-for-geospatial-data</id>
+    <content type="html"><![CDATA[<p>There has been a bit of buzz the past couple of weeks over the <a href="https://github.com/blog/1541-geojson-rendering-improvements">ability of GitHub to render GeoJSON and TopoJSON files</a> automatically using  and embedded <a href="http://leafletjs.com/">Leaflet</a> map and <a href="http://www.mapbox.com/">MapBox</a> technology. This buzz is quite justified as it presents an easy way to simply publish and visualize vector data sets. In the weeks since the initial announcement, the community has begun exploring the limits of GitHub's capability. Probably the two biggest limiting factors are individual file size limits and API rate limits. Some, including myself, are exploring strategies for maximizing the ability to store, disseminate, and visualize data within these confines. For the near term, <a href="https://github.com/">GitHub</a> will probably not be the place to store terabytes of data or act as the CDN for a high-volume mapping application. That is perfectly fine and there is still a great deal of value to be found within GitHub's current generous constraints.</p>
 
-<p>I've recently spent a bit of time consolidating code after a recent data delivery and decided to post a utility that was an outgrowth of that effort: <a href="https://github.com/Zekiah/ArcGISCompare">a tool to compare schemas of two Esri file geodatabases and report differences</a>. This lent itself to general use because it does not require any connection to a PIM.</p>
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geodata-git.png" /></p>
 
-<p style="text-align:center;"><img src="https://github.com/Zekiah/ArcGISCompare/raw/master/screenshot.png" /></p>
-
-<!--more-->
-
-
-<p>The PIM deals mainly at the logical level with data models, but a full configuration management workflow must occasionally touch physical data sets. One use case we had to support, for which this tool was built, was the case where users in the field must compare separate data sets for eventual integration. Although these workflows start with a template data set, it is not unusal for changes to be made during collection, resulting in very similar but not identical schemas. This tool helps users identify such differences in order to make configuration management decisions based upon the actual state of the collected data.</p>
-
-<p>The tool is fairly straightforward: choose a template data set, choose an implementation data set, run the compare, and examine the results. It contains ArcObjects dependencies although we may migrate it to the file geodatabase API in order to eliminate those.</p>
-
-<p>We are also in the process of building a similar tool to work with SQLite/SpatiaLite data sets, which is the other format we commonly see used and will post that tool when it is complete. In the meantime, I hope you find this application useful.</p>
-
-<p>An installer (10.1) <a href="https://dl.dropboxusercontent.com/u/6749645/PIM/setup_ArcGISCompare.zip">can be found here</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WeoGeo: Now With GeoJSON]]></title>
-    <link href="http://blog.geomusings.com/2013/10/17/weogeo-now-with-geojson/"/>
-    <updated>2013-10-17T05:42:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/10/17/weogeo-now-with-geojson</id>
-    <content type="html"><![CDATA[<p>It's great news that the <a href="http://www.washingtonpost.com/politics/house-effort-to-end-fiscal-crisis-collapses-leaving-senate-to-forge-last-minute-solution/2013/10/16/1e8bb150-364d-11e3-be86-6aeaa439845b_story.html?hpid=z1">government shutdown is finally over</a>. Many of our colleagues across the geospatial industry can now report back to work, ending a another stressful period for them. During the shutdown, many stepped up to try and fill the gap left by shuttered government web sites that would normally distribute geospatial data.</p>
-
-<p>Among those who stepped into the breach are my friends at <a href="http://www.weogeo.com">WeoGeo</a>, who told me they saw a huge uptick in traffic as the community realized that government data sets such as TIGER and DRG are freely available in the <a href="http://market.weogeo.com/">WeoGeo Market</a>. One of the capabilities that has been quietly introduced into WeoGeo's platform over the last few days is the ability to extract and download TIGER and OSM data directly in <a href="http://geojson.org">GeoJSON</a> format. The embedded video by WeoGeo walks through the customization and ordering process better than I can, but it's great to have the ability to extract fine-tuned data sets directly in GeoJSON format for use in modern web-mapping tools.</p>
-
-<iframe src="http://fast.wistia.net/embed/iframe/vth8yo4cnz"
-allowtransparency="true" frameborder="0" scrolling="no"
-class="wistia_embed" name="wistia_embed" allowfullscreen
-mozallowfullscreen webkitallowfullscreen oallowfullscreen
-msallowfullscreen width="770" height="433"></iframe>
-
-
-<br/>
-
-
-<p>Static content has been making a comeback lately, and justifiably so. The truth is that most of the content we interact with on the web won't change over time and complex content management systems (CMS) that dynamically generate HTML and such from databases on every call are really overkill. Sure, there are caching strategies and CDNs and such to hide some of the misery but you can't beat the speed, simplicity, and scalability of static content.</p>
+<p>One aspect of GitHub (really, its underlying <a href="http://git-scm.com/">git</a> engine) that is of great interest to me is the ability to perform version control and configuration management on data itself. With GitHub, that currently takes the form of text-based formats such as JSON but it's a start. In my experience supporting various customers over the years, configuration management of data has been a common gap in information operations. The most common, and inadequate, approach to this problem has been through the use of metadata. Almost two decades of viewing out-of-date, incomplete, and inaccurate metadata has given the lie to this approach. Metadata represents a separate maintenance workflow for which many organizations simply do not dedicate resources. Data-set-level metadata is also inadequate for volatile data sets in which individual records are updated frequently.</p>
 
 <!--more-->
 
 
-<p>The same can really be said of maps on the web. Most maps are published to convey some information that has been validated for the point in time in which it was published. Most of the organizations I've worked with, government and commercial, have a release process to vet the contents of a map before it is published. In effect, such organizations are making their map content static. The truth is that, like a CMS, a complex map server probably isn't necessary for most maps we interact with today on the web.</p>
+<p>I have worked with many organizations that had excellent DevOps processes for managing and deploying application code that simply had no corresponding processes for the data that the code was utilizing. We are long past time for addressing the importance of configuration management for data itself.</p>
 
-<p>In fact, I can still clearly recall use cases from just a few years where such architectures were not only overkill but counterproductive. We typically distributed analysis results via web-based interactive maps. The results were typically valid for point in time during which an area of interest was studied. We ended up developing versioning schemes to preserve analysis results from being altered by the next bulk data set update. Another tack was to set up a separate map service pointed at a directory of shapefiles. All of this was to get around the basic fact that geospatial data at the time was not web-ready. GeoJSON helps solve that problem.</p>
+<p>That is not to say there have not been approaches to addressing this issue. Since version 8.0, <a href="http://www.esri.com">Esri</a> has had a means of <a href="http://www.esri.com/software/arcgis/geodatabase/multi-user-functionality">versioning enterprise geodatabases</a> that are stored in an RDBMS. This approach does have the ability to track feature-level changes and manages their inclusion in the master version of the data set. Quite frankly, I've never loved the Esri approach to versioning. I think it gives too much responsibility to middleware when it should be the database's sole responsibility to keep itself intact. Also, I have always felt the workflow is a bit too proscribed and takes too much business process decision ability from the data owner. That said, it has been the only real game in town for a long time so I have implemented it many times.</p>
 
-<p>With modern client-side mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> and <a href="http://www.openlayers.org/">OpenLayers</a>, and with content generation tools like TileMill, it has become increasingly easy to make beautiful, interactive web maps that require no specialized back-end server to deliver geospatial content. With WeoGeo's support, combined with the online editing capabilities of <a href="http://geojson.io/">geojson.io</a> from <a href="http://mapbox.com">MapBox</a>, the validation capability of <a href="http://geojsonlint.com/">GeoJSONLint</a> by <a href="http://twitter.com/JCSanford">Jason Sanford</a>, the <a href="https://help.github.com/articles/mapping-geojson-files-on-github">simple hosting capability of GitHub</a>, and the extended query API provided by <a href="http://gitspatial.com/">GitSpatial</a> (again by Jason Sanford), we are very close to having a complete GeoJSON-centric workflow.</p>
+<p><a href="http://www.openstreetmap.org/">OpenStreetMap</a> (OSM) has also been a success story for tracking feature-level version history. Its approach has successfully managed millions of edits to a worldwide database so its utility is certainly proven. Organizations that need to maintain their own data behind their firewalls cannot really make use of OSM itself but the OSM approach is solid.</p>
 
-<p>Even as government data sites come back online, there are still good reasons to head over to WeoGeo and check out what they have. The customization capabilities alone (shown in the video above) make it very easy to get data for just your area of interest without having to download a lot of extra, unneeded data. The addition of GeoJSON support, in my opinion, shortens the workflow needed to get from data to information.</p>
+<p><a href="http://www.zekiah.com">At my own company</a>, we have been working with customers to implement <a href="http://blog.geomusings.com/2012/03/27/configuration-management-for-geospatial-data-models/">configuration management of data models</a> (logical and physical) but we are not really addressing CM of the data managed by those models. Even so, working at the model/schema level has still helped our customers improve their data management workflows by being able to identify versions of data models supported by deployed applications and helping to migrate between versions as needed.</p>
+
+<p>The recent move by GitHub to support visualization of spatial data files actually introduces no new capability in terms of configuration management of data files. Users have always had the ability to store and manage JSON, text, XML and other formats in GitHub and git. My hope is that the visualization capability, and the inevitable exploration it will generate, will shine more light on the issue of data configuration management. In my opinion, this is the most powerful aspect the platform brings.</p>
+
+<p>I'm also encouraged by <a href="http://opengeo.org/">OpenGeo's</a> <a href="https://github.com/opengeo/GeoGit">GeoGit</a> initiative. I have not personally experimented with it yet so I will not speculate on the specifics of its implementation, but I am happy to see OpenGeo recognizing the need for a more open approach to feature-level version control. Since, however, it will be open-source, my hope is that proprietary GIS vendors, or their supporting integrators, will eventually support it as well.</p>
+
+<p>Ultimately, I am happy to see both GitHub and OpenGeo addressing this issue. Although their approaches are different, they offer, in addition to the Esri approach, choices for organizations in terms of workflow. Many data managers, whether for legal, strategic, or other reasons, recognize the importance of maintaining version history of geospatial data records. It is important for everything from parcel mapping to critical infrastructure protection and many other use cases. Historically, there have been very few tools available to address this problem effectively but I am hoping that is starting to change.</p>
 ]]></content>
   </entry>
   

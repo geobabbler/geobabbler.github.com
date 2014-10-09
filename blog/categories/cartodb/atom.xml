@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CartoDB | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/cartodb/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-09T09:30:07-04:00</updated>
+  <updated>2014-10-09T09:57:12-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -54,99 +54,53 @@
 
 <p>If you pull that apart, you'll see a relatively straightforward use of a PostGIS spatial operator in there:</p>
 
-<h2><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="k">SELECT</span> <span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="n">leonardtown_bldgs</span><span class="p">,</span><span class="n">floodway</span> <span class="k">WHERE</span> <span class="n">ST_Intersects</span><span class="p">(</span><span class="n">floodway</span><span class="p">.</span><span class="n">the_geom</span><span class="p">,</span><span class="n">leonardtown_bldgs</span><span class="p">.</span><span class="n">the_geom</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<h2>{% codeblock lang:sql %}</h2>
+
+<h2>SELECT leonardtown_bldgs.* FROM leonardtown_bldgs,floodway WHERE ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)</h2>
+
+<p>{% endcodeblock %}</p>
 
 <p>The Javascript function that executes the query is here:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">getFloodBldgs</span><span class="p">(){</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">bldgLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">L</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">();</span>
-</span><span class='line'>    <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;featureparse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">color</span><span class="o">:</span>  <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">fill</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;#FFFFB2&#39;</span><span class="p">,</span> <span class="nx">fillOpacity</span><span class="o">:</span> <span class="mf">0.9</span> <span class="p">});</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Address:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Property Type:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">structure_</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">properties</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span><span class="p">){</span>
-</span><span class='line'>            <span class="nx">label</span> <span class="o">+=</span> <span class="s2">&quot;&amp;amp;lt;b&amp;amp;gt;Square Footage:&amp;amp;lt;/b&amp;amp;gt;: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">shape_area</span> <span class="o">+</span> <span class="s2">&quot;&amp;amp;lt;br/&amp;amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="p">{</span>
-</span><span class='line'>        <span class="nx">e</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span>
-</span><span class='line'>        <span class="s2">&quot;http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20&quot;</span> <span class="o">+</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="s2">&quot;ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;amp;format=geojson&amp;amp;callback=?&quot;</span><span class="p">,</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>        <span class="kd">function</span><span class="p">(</span><span class="nx">geojson</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">geojson</span><span class="p">.</span><span class="nx">features</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">bldgLayer</span><span class="p">.</span><span class="nx">addGeoJSON</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">})</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">bldgLayer</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:js %}</p>
+
+<pre><code>function getFloodBldgs(){
+    var bldgLayer = new L.GeoJSON();
+    bldgLayer.on('featureparse', function(e) {
+      e.layer.setStyle({ color:  '#FFFFB2', weight: 1, fill: true, fillColor: '#FFFFB2', fillOpacity: 0.9 });
+      var label = "";
+      if (e.properties &amp;amp;&amp;amp; e.properties.address){
+            label += "&amp;lt;b&amp;gt;Address:&amp;lt;/b&amp;gt;: " + e.properties.address + "&amp;lt;br/&amp;gt;";
+      }
+      if (e.properties &amp;amp;&amp;amp; e.properties.structure_){
+            label += "&amp;lt;b&amp;gt;Property Type:&amp;lt;/b&amp;gt;: " + e.properties.structure_ + "&amp;lt;br/&amp;gt;";
+      }
+      if (e.properties &amp;amp;&amp;amp; e.properties.shape_area){
+            label += "&amp;lt;b&amp;gt;Square Footage:&amp;lt;/b&amp;gt;: " + e.properties.shape_area + "&amp;lt;br/&amp;gt;";
+      }
+      if (label != "")
+      {
+        e.layer.bindPopup(label);
+      }
+    });
+
+    $.getJSON(
+        "http://geomusings.cartodb.com/api/v2/sql?q=SELECT%20leonardtown_bldgs.*%20FROM%20leonardtown_bldgs,floodway%20WHERE%20" + 
+</code></pre>
+
+<p>"ST_Intersects(floodway.the_geom,leonardtown_bldgs.the_geom)&amp;format=geojson&amp;callback=?",</p>
+
+<pre><code>        function(geojson) {
+        $.each(geojson.features, function(i, feature) {
+          bldgLayer.addGeoJSON(feature);
+        })
+    });
+
+    map.addLayer(bldgLayer);
+}
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>The CartoDB documentation has greatly improved since my last post, including some <a href="http://developers.cartodb.com/examples.html" target="_blank">good developer examples</a>. A little bit of comfort with PostGIS-esque spatial SQL goes a long way with CartoDB. It's good to see how the platform is evolving.</p>
 ]]></content>

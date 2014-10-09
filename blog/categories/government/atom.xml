@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Government | geoMusings]]></title>
+  <title><![CDATA[Category: government | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/government/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-09T09:30:07-04:00</updated>
+  <updated>2014-10-09T09:57:12-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,45 +14,122 @@
 
   
   <entry>
-    <title type="html"><![CDATA[GovWin Analyzes Federal Spending in the DC Area]]></title>
-    <link href="http://blog.geomusings.com/2014/05/26/govwin-analyzes-federal-spending-in-the-dc-area/"/>
-    <updated>2014-05-26T15:16:00-04:00</updated>
-    <id>http://blog.geomusings.com/2014/05/26/govwin-analyzes-federal-spending-in-the-dc-area</id>
-    <content type="html"><![CDATA[<p><a href="http://www.deltek.com/products/govwin">GovWin</a>, the procurement research service of <a href="http://www.deltek.com/">DelTek, Inc</a>. recently released a report titled <a href="http://more.deltek.com/LP=4108">"Federal Prime Spending in DC, MD, and VA"</a> (PDF, registration required) which analyzed federal spending patterns in those areas. The report included the top 20 counties, by total spending from FY10 to FY14. With permission from the GovWin research team, I made a simple interactive map of the data.</p>
+    <title type="html"><![CDATA[Maryland Council on Open Data]]></title>
+    <link href="http://blog.geomusings.com/2014/08/26/maryland-council-on-open-data/"/>
+    <updated>2014-08-26T17:25:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/08/26/maryland-council-on-open-data</id>
+    <content type="html"><![CDATA[<p>Back in May, I had the honor of being appointed to the newly established Maryland Council on Open Data. The Council had its inaugural meeting in Baltimore yesterday and was heavily attended, including attendance by Governor Martin O'Malley. I'll discuss his remarks to the group later.</p>
 
-<iframe src="http://blog.geomusings.com/assets/demos/govwin/map.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 672px;height: 350px;border: 1px solid #DEDEDE"></iframe>
+<p>As the first meeting of a new group, it went off largely as I expected. The agenda consisted primarily of an overview of the establishing legislation, a review of ethics requirements, demos of the existing open data portals, discussion of the history of open data in Maryland, and remarks from the Governor.</p>
 
-
-
+<p>I won't go into details about the make-up of the Council, but they can be found here <a href="http://msa.maryland.gov/msa/mdmanual/25ind/html/53opendata.html">http://msa.maryland.gov/msa/mdmanual/25ind/html/53opendata.html</a>. Nor will I do a deep dive into the legislation, but it can be found here: <a href="http://mgaleg.maryland.gov/2014RS/chapters_noln/Ch_69_sb0644T.pdf">http://mgaleg.maryland.gov/2014RS/chapters_noln/Ch_69_sb0644T.pdf</a> (PDF). I will instead focus on my take-aways from the meeting itself.</p>
 
 <!--more-->
 
 
-<p>The jurisdictions highlighted here are not particularly surprising, though the exclusion of Charles County, Maryland and King George County, Virginia caught my eye. Perhaps the inclusion of the Hampton Roads, Virginia rather than limiting the study to the usual Beltway region caused them to drop out. Those counties are home to Navy bases that provide a significant amount of jobs but the presence of a single base is clearly not enough to boost a county in comparison to those with a more diveresified presence of federal spending.</p>
+<p>First, the establishing legislation makes data in Maryland open by default, unless it falls under certain criteria (personally identifiable information, law enforcement sensitive, etc.). Second, it is in fact legislation. Previous open data initiatives (MSGIC Executive Committee and the Maryland Open Data Working Group), were established by executive order. As a result, they were vulnerable to reversal by subsequent administrations and they had no real effect on other branches of government. Because of the new legislation, the open data has greater durability and active, enthusiastic participation from the state legislature.</p>
 
-<p>In some ways, the data follows the adage that all maps really just show population. In this case, the spending patterns generally follow the "dumbbell" (the Baltimore and Capital beltways connected by I-95), extended to include the I-66 corridor. The jurisdictions in this area feature large populations, significant presence of Federal agencies, and numerous offices of supporting contractors. The same holds true for the Hampton Roads area. The only real exception to this pattern is St. Mary's County, Maryland. Still largely rural, it benefits from the presence, in addition to a Naval Air Station, of the headquarters of Naval Air Systems Command; giving a boost from a significant amount of procurement related to Naval air power.</p>
+<p>So the new Council unifies the previous efforts and has top cover from the legislation. That can only be a good thing. The state currently has two open data portals: an <a href="http://data.imap.maryland.gov/">Esri Open Data portal</a> for geospatial data and a <a href="https://data.maryland.gov/">Socrata portal</a> for everything else. In practice, the lines between them may not be so distinct, but that's the stated role of each.</p>
 
-<p>When charting out the year-by-year data, the general trend of decreasing government spending becomes apparent. This may not be a bad thing, as it is causing some local jurisdictions to look at strategies for diversifying away from heavy reliance on federal spending, especially from a single source.</p>
+<p>It is clear that open data is important to the Governor. Since his days as the Mayor of Baltimore, he has been known as a data-driven executive. The "CityStat" concept in Baltimore evolved into "StateStat" when he moved to Annapolis. It is widely known that data and metrics back everything his administration does. Open data is the other side of the coin. It is the mechanism by which the supporting data and metrics of the state government are made public.</p>
 
-<h2>Top 20 Counties Ordered by Total Procurement <br/></h2>
+<p>In his remarks, the Governor highlighted Maryland's top ranking (shared by six states) in the <a href="http://www.datainnovation.org/2014/08/state-open-data-policies-and-portals/">Center for Data Innovation report of August 18, 2014</a> but then quickly addressed the remaining weaknesses identified. Specifically, he discussed:</p>
 
-<iframe src="http://blog.geomusings.com/assets/demos/govwin/chart.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 672px;height: 510px;border: 1px solid #DEDEDE"></iframe>
-
-
-<p>What I found interesting was when I added the American Community Survey data for 2012 into the mix. By calculating the per capita procurement spending using the 2012 population estimate, the ordering of the jurisdictions changed noticeably. The most dramatic was Mannassas City, VA which is last in total procurement spending but fourth in per capita spending. Similarly, St. Mary's County, Maryland jumps from 13th to 5th when looking at per-capita spending. Conversely, Baltimore County, Maryland drops to 19th despite being 6th in total spending.</p>
-
-<h2>Top 20 Counties Ordered by Per Capita Procurement <br/></h2>
-
-<iframe src="http://blog.geomusings.com/assets/demos/govwin/percapita.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 672px;height: 510px;border: 1px solid #DEDEDE"></iframe>
+<ul>
+<li>Reporting on spending data</li>
+<li>The need for a more complete picture of all data sets</li>
+<li>The need for better minimum metadata standards</li>
+<li>The need for a uniform standard for giving citizens access to public information</li>
+</ul>
 
 
-<p>There's probably a bit more analysis that could be done in terms of per-capita spending and household or individual income. Since 'spending' is fully burdened, including all costs and not limited to only direct labor (salary) and fringe (benefits), such an analysis would need to include a reasonable assumption to factor out other indirect costs in order to arrive at a meaningful comparison. That factor would certainly have a geographic component since many overhead costs vary widely by location.</p>
+<p>These are all fairly easy to address on the surface. In the open discussion that followed, the theme that I took away was "culture." Maryland has the policy framework and a good start on a technical framework to more fully open its data. The hard work, as it always is, is transforming the culture. As the requirements for opening data begin to trickle down into the daily lives of the people handling information, I think a lot of workflows will change. I also suspect some of the standards chosen for achieving compliance with open data requirements will facilitate significant changes to technical architectures in individual departments. In short, the proverbial onion will part to get peeled.</p>
 
-<p>I found this report interesting because it starts to quantify the impact of contracting revenue on jurisdictions. This can be a bit nebulous in comparison to assessing the impact of payroll for government employees but is an important part of the overall picture. Understanding this picture can help jurisdictions that are currently heaviliy reliant on federal spending begin to plan how diversify themselves in the face of downward pressure on the federal budget.</p>
+<p>It's a lot of work and it won't happen quickly. I am excited for the opportunity to participate. I have worked in the private sector for my entire career (although in professional services to the government), so this is my first foray into anything resembling being on the public sector side of things. I expect I'll have a lot to learn.</p>
 
-<hr />
+<p>My interest in open data has been somewhat spurred by the infrastructure data contraction that occurred in the mid-2000s in reaction to domestic security concerns. I felt it was the wrong direction to go then and I don't think making data harder to acquire really helped anyone. I'm looking forward to seeing what we can do on the Council to achieve the benefits other states, like Arkansas, have achieved through opening data rather than closing it off.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpatiaLite for Android Available]]></title>
+    <link href="http://blog.geomusings.com/2012/11/26/spatialite-for-android-available/"/>
+    <updated>2012-11-26T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/11/26/spatialite-for-android-available</id>
+    <content type="html"><![CDATA[<p>On what seems to be turning into <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> Monday, Sandro Furieri also announced on the <a href="https://groups.google.com/group/spatialite-users?pli=1" target="_blank">SpatiaLite Google Group</a> the availability of a stable version of SpatiaLite for Android.</p>
 
-<p>For those that are curious, the procurement data was manually captured from the GovWin report and joined to the county data using <a href="http://postgis.net">PostGIS</a>. It was then exported as a static <a href="http://geojson.org">GeoJSON</a> file for mapping using <a href="http://leafletjs.com">Leaflet</a>. Income and population data came from the US Census Bureau's <a href="http://www.census.gov/acs/www/">American Community Survey</a> for 2012. The charts are built using <a href="http://d3js.org">D3</a>. All data, spatial and otherwise, is served as static content without the use of a map server of any kind.</p>
+<p>I am happy to see that this version was developed and contributed back by the <a href="http://www.agc.army.mil/" target="_blank">US Army Geospatial Center</a>. The fact that they contributed back to the project under a standard open-source license is a nice step from a DoD organization.</p>
+
+<p>The message is quoted below:</p>
+
+<blockquote>
+Hi List,
+
+I'm really proud to announce you all that finally a rock solid stable and really easy-to-be-deployed binary porting of SpatiaLite for the Android platform is now available for download [1].
+
+[1] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=splite-android</a>
+
+Many thanks to the U.S. Army Geospatial Center [2] who very generously contributed this highly appreciated and really useful resource under a genuine free software license (LGPLv3).
+
+[2] <a href="http://www.agc.army.mil/" target="_blank">http://www.agc.army.mil/</a>
+
+A detailed tutorial [3] explaining how-to deploy and use SpatiaLite on Android platforms has been kindly contributed by Andrea Antonello, who spent many long hours during the last week while performing a thorough testing of SpatiaLite-Android, then deciding to publicly share his experiences with the SpatiaLite community. Feel absolutely free to pay a beer to Andrea; he'll surely appreciate ;-)
+
+[3] <a href="https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial" target="_blank">https://www.gaia-gis.it/fossil/libspatialite/wiki?name=spatialite-android-tutorial</a>
+
+enjoy, Sandro
+</blockquote>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Wilson Center to Discuss FCC National Broadband Map]]></title>
+    <link href="http://blog.geomusings.com/2012/10/09/wilson-center-to-discuss-fcc-national-broadband-map/"/>
+    <updated>2012-10-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/10/09/wilson-center-to-discuss-fcc-national-broadband-map</id>
+    <content type="html"><![CDATA[<p>One of the most compelling recent success stories for open-source geospatial tools in the Federal Government has been the <a href="http://www.fcc.gov/" target="_blank">Federal Communications Commission</a> (FCC) <a href="http://broadbandmap.gov/" target="_blank">National Broadband Map</a> initiative. It has been a very visible example of the stability, scalability, flexibility, and power of open-source geospatial tools.</p>
+
+<p>The Woodrow Wilson Center will be hosting <a href="http://www.wilsoncenter.org/event/the-national-broadband-map-case-study-open-innovation-for-national-policy" target="_blank">a case study of National Broadband Map</a> on October 15th, 2012. The event's page also includes a link to the full paper (PDF), authored by <a href="http://www.linkedin.com/profile/view?id=113470334" target="_blank">Zachary Bastian</a> of the Wilson Center and <a href="http://www.linkedin.com/profile/view?id=10690378" target="_blank">Michael Byrne</a> of the FCC.</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2933" height="285" src="http://geobabble.files.wordpress.com/2012/10/nbm.png" title="nbm" width="640" /></p>
+
+<p>The full paper, in my opinion, is recommended reading for anyone working with geospatial technologies in the government space. While the Broadband Map has rightfully garnered significant attention based upon its success, especially in terms of performance and scalability, the paper does a good job of reminding us that the map is not an end goal in itself, but a step toward the larger policy goal of expanding broadband access. The paper does an excellent job of illustrating how top-level policy goals were broken down into actionable parts that resulted in a concrete product such as the Broadband Map. In so doing, it walks us through the introduction and fostering of an open culture within the FCC that resulted not only in the Broadband Map but also in the development of open APIs and the availability of FCC tools as open-source projects themselves.</p>
+
+<p>In its conclusions, the paper also makes compelling observations about the power of focused policy goals to drive the use of technology standing in stark contrast to generic overarching technical policies, such as the National Spatial Data Infrastructure (NSDI) which are disconnected from specific policy goals and achieve little traction.</p>
+
+<p>If you are interested not only in geospatial technologies, but also the link between policy and technology implementation, and the cultural change that can be brought about by open-source technologies, you should consider attending the event at the Wilson Center on the 15th. While not a universal blueprint, the National Broadband Map makes a compelling case study.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FCC Open-Sources MapBox Module for Drupal]]></title>
+    <link href="http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal/"/>
+    <updated>2012-03-20T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/03/20/fcc-open-sources-mapbox-module-for-drupal</id>
+    <content type="html"><![CDATA[<p>See the FCC announcement <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">here</a>.</p>
+
+<p><a href="http://mapbox.com" target="_blank">MapBox</a> has been winning a lot of high-profile converts lately, such as <a href="http://mapbox.com/blog/foursquare-switches-mapbox-streets-openstreetmap/" target="_blank">Foursquare</a>. In my opinion, it's one of the more perfect web mapping solutions, commercial or open-source, to come along in a while. The combination of cartographic engine (<a href="http://mapnik.org/" target="_blank">Mapnik</a>), tile generation (<a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a>) and storage (<a href="http://mapbox.com/mbtiles-spec/" target="_blank">MBTiles</a>) make MapBox one of the most elegant ways to serve beautiful maps currently available. <!--more--></p>
+
+<p>The Federal Communications Commission (FCC) has been using MapBox to make a number of <a href="http://www.fcc.gov/maps" target="_blank">compelling maps</a> available to the public. Additonally, the FCC's site has been built on the open-source content management system <a href="http://drupal.org/" target="_blank">Drupal</a>. Today, the <a href="http://www.fcc.gov/blog/opening-hood%E2%80%94and-code%E2%80%94-behind-fccgovmaps" target="_blank">FCC announced</a> that they are making the source code to their MapBox module for Drupal, SlashMap, <a href="http://drupal.org/project/slashmaps" target="_blank">available</a>. This should provide a straightforward way to integrate MapBox maps with a Drupal site.</p>
+
+<p>The FCC has been very active in using open-source tools for their work and it's great to see them giving back to the community in this manner. It's a phenomenon that I think we'll see a lot more of from all levels of government as understanding of and comfort with open-source models increases.</p>
+
+<p>So, if you are a Drupal user, you may want to check out SlashMaps as a way to integrate some very nice web maps. Kudos to <a href="http://twitter.com/byrne_tweets" target="_blank">Michael Byrne</a> and his team at the FCC for taking this step.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FCC Broadband Map Featured by CBS]]></title>
+    <link href="http://blog.geomusings.com/2011/10/28/fcc-broadband-map-featured-by-cbs/"/>
+    <updated>2011-10-28T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/10/28/fcc-broadband-map-featured-by-cbs</id>
+    <content type="html"><![CDATA[<p><a href="http://twitter.com/Byrne_Tweets">Michael Byrne</a> of the Federal Communications Commission (FCC) gave a really good talk at FOSS4G, telling the story of the FCC <a href="http://www.broadbandmap.gov">National Broadband Map</a> application, which is built on open-source geospatial tools. In addition to being open-source, it's a modern web system that makes diligent use of caching and other techniques to achieve great performance. I do a lot of work in the Federal space and, in my opinion, it's one of best public-facing Federal web tools deployed in recent memory.</p>
+
+<div style="text-align:center;"><a href="http://geobabble.files.wordpress.com/2011/10/fccmap2.png"><img alt="" height="368" src="http://geobabble.files.wordpress.com/2011/10/fccmap2.png" title="FCC National Broadband Map" width="590" /></a><div style="text-align:center;font-size: 14px;">FCC National Broadband Map<br/><br/></div></div>
+
+
+<p>CBS News, <a href="http://www.cbsnews.com/8301-501465_162-20127020-501465/fcc-approves-$4.5-billion-for-broadband-in-era-of-steve-jobs/">in discussing a new $4.5 billion broadband fund by the FCC</a>, features a nice screenshot of the system. It's nice to see good work and innovation get recognized. Michael and his team should be proud.</p>
 ]]></content>
   </entry>
   
