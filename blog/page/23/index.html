@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="Update: &#8220;The GIS Forum&#8221; mentioned here is no longer online. If you haven&#8217;t seen Allan Laframboise&#8217;s excellent presentation &hellip;">
+  <meta name="description" content="Alessandro announced on SpatiaLite group today that QGIS 1.1 will include a data provider for SpatiaLite, the spatial extender for SQLite. It&#8217;s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,50 +66,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/29/gis-people-on-twitter/">GIS People on Twitter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-29T00:00:00-04:00" pubdate data-updated="true">Mar 29<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/29/gis-people-on-twitter/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>Update: &#8220;The GIS Forum&#8221; mentioned here is no longer online.</strong></p>
-
-<p>If you haven&#8217;t seen Allan Laframboise&#8217;s excellent presentation from the DevSummit on the <a href="http://www.slideshare.net/aGISGuy/geoweb-community-development-how-web-20-are-you">GeoWeb Community</a>, I highly encourage you to check it out. It includes some poll results with very surprising data about the use of social media (or lack thereof) by GIS developers.</p>
-
-<p>One of the resources that he mentions near the end is <a href="http://www.thegisforum.com">the GIS Forum</a>, which has been covered by others. I wanted to take the opportunity to highlight, in the spirit of Allan&#8217;s presentation, the growing list of GIS folks on Twitter that is being compiled on the GIS Forum. It can be found <a href="http://www.thegisforum.com/wikis/socialmedia/twitter-names.aspx">here</a>.</p>
-
-<p>I personally find <a href="http://twitter.com">Twitter</a> to be an invaluable resource. I also find the GIS Forum to be a nice complement to it as a means to support more detailed discussions that may spin off from Twitter interaction. If you&#8217;re just getting started on Twitter (or doing your homework that Allan assigned), I suggest checking out the list to build your community quickly.</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -482,6 +438,52 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/01/ziggis-2-0-2-getting-closer/">zigGIS 2.0.2 Getting Closer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-01T00:00:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2009</time>
+        
+         | <a href="/2009/01/01/ziggis-2-0-2-getting-closer/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://abegillespie.blogspot.com">Abe</a> announced via <a href="http://twitter.com/zigGIS">Twitter</a> today that <a href="http://pub.obtusesoft.com/">zigGIS</a> 2.0.2 will be available in about a month. This a small but significant release becuase zigGIS will now support the generic PostGIS &#8220;GEOMETRY&#8221; type. Because ArcGIS expects homogenous feaure classes, zigGIS will ask the user to choose a geometry type for the the specified GEOMETRY-typed column. So, if your table has mixed geometry types, you will need to specify one (like polygon for example) and zigGIS will present only records of that type to ArcGIS.</p>
+
+<p>Secondly, zigGIS will no longer expect your primary key to be called &#8220;gid&#8221;. This should reduce the instances where tables need to be modified for use with zigGIS.</p>
+
+<p>In previous releases, a few enterprising users had figured out how to get zigGIS to see views as layers by manually hacking them into the geometry_columns table. This was one way to get around the &#8220;gid&#8221; and GEOMETRY limitations. In 2.0.2, views will be fully supported so that no such hacking will be necessary.</p>
+
+<p>Abe, Paolo and I had a chat session a while back about the zigGIS roadmap and this represents the first step down that road. More information will be forthcoming as we flesh out the details of further changes.</p>
+
+<p><img alt="" class="alignleft" height="270" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" title="zigGIS" width="270" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/24/">&larr; Older</a>
@@ -530,15 +532,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2014/10/08/testing/">testing</a>
-      </li>
-    
-      <li class="post">
         <a href="/2014/09/11/personal-thoughts-on-the-appgeo-announcement/">Personal Thoughts On the AppGeo Announcement</a>
       </li>
     
       <li class="post">
         <a href="/2014/08/26/maryland-council-on-open-data/">Maryland Council on Open Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
       </li>
     
   </ul>

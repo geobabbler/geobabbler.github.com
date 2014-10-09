@@ -4,7 +4,7 @@
   <title><![CDATA[Category: WKT | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/wkt/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-09T09:57:12-04:00</updated>
+  <updated>2014-10-09T10:03:43-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -28,17 +28,25 @@
 
 <p>Since the PIM tools are written in .NET, I built a couple of extension methods to assist with some of the workflows in the existing tools. They enable outbound support for GeoJSON and WKT. The GeoJSON methods work on RowCollection, Row, and ShapeBuffer objects to create FeatureCollection, Feature, and Geometry types respectively. In practice, they'd be used something like this example from a very simple ASP.NET MVC sample application:</p>
 
-<p>{% codeblock lang:csharp %}
-var path = Server.MapPath("/App_Data/mvc_samples.gdb");
-Geodatabase gdb = Geodatabase.Open(path);
-Table statesTable = gdb.OpenTable("\us_states");
-RowCollection rows = statesTable.Search("*", "STATE_NAME LIKE 'M%'", RowInstance.Recycle);
-var rval = rows.ToGeoJson();
-gdb.Close();
-Response.ContentType = "application/json";
-object result = this.Content(rval);
-return result as ActionResult;
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">var</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;/App_Data/mvc_samples.gdb&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">Geodatabase</span> <span class="n">gdb</span> <span class="p">=</span> <span class="n">Geodatabase</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+</span><span class='line'><span class="n">Table</span> <span class="n">statesTable</span> <span class="p">=</span> <span class="n">gdb</span><span class="p">.</span><span class="n">OpenTable</span><span class="p">(</span><span class="s">&quot;\us_states&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">RowCollection</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">statesTable</span><span class="p">.</span><span class="n">Search</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="s">&quot;STATE_NAME LIKE &#39;M%&#39;&quot;</span><span class="p">,</span> <span class="n">RowInstance</span><span class="p">.</span><span class="n">Recycle</span><span class="p">);</span>
+</span><span class='line'><span class="kt">var</span> <span class="n">rval</span> <span class="p">=</span> <span class="n">rows</span><span class="p">.</span><span class="n">ToGeoJson</span><span class="p">();</span>
+</span><span class='line'><span class="n">gdb</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+</span><span class='line'><span class="n">Response</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">&quot;application/json&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Content</span><span class="p">(</span><span class="n">rval</span><span class="p">);</span>
+</span><span class='line'><span class="k">return</span> <span class="n">result</span> <span class="k">as</span> <span class="n">ActionResult</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The WKT method only works on ShapeBuffer objects to export geometries. The code for the extension methods themselves can be found on <a href="https://github.com/geobabbler/FgdbExtensions" target="_blank">GitHub here</a>. It includes a five-minutes-or-less MVC sample from which the above code was lifted. I know I'll be doing some cleanup on the GeoJSON in the near future and I'll probably add support for EWKT to smooth our interactions with <a href="http://postgis.refractions.net/" target="_blank">PostGIS</a> and <a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> and may also add support for WKB.</p>
 

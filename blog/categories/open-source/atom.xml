@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: open-source | geoMusings]]></title>
+  <title><![CDATA[Category: open source | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/open-source/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-09T09:57:12-04:00</updated>
+  <updated>2014-10-09T10:07:08-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,540 +14,136 @@
 
   
   <entry>
-    <title type="html"><![CDATA[A Little Deeper with Node and PostGIS]]></title>
-    <link href="http://blog.geomusings.com/2014/02/18/a-little-deeper-with-node-and-postgis/"/>
-    <updated>2014-02-18T13:44:00-05:00</updated>
-    <id>http://blog.geomusings.com/2014/02/18/a-little-deeper-with-node-and-postgis</id>
-    <content type="html"><![CDATA[<p>What does one do when presented with more snow days than expected? My friends in Colorado would probably do something outrageous like skiing, but I found it to be a great opportunity to catch up on some of my recreational coding. Specifically, I wanted to revisit the <a href="http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/">Node/PostGIS work I blogged about earlier</a>.</p>
+    <title type="html"><![CDATA[Personal Thoughts On the AppGeo Announcement]]></title>
+    <link href="http://blog.geomusings.com/2014/09/11/personal-thoughts-on-the-appgeo-announcement/"/>
+    <updated>2014-09-11T20:06:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/09/11/personal-thoughts-on-the-appgeo-announcement</id>
+    <content type="html"><![CDATA[<p>I read with great interest <a href="http://www.appgeo.com/blog/breaking-up-is-hard-to-do/">today's announcement that AppGeo is no longer an Esri Business Partner</a>. I find the announcement significant for a number of reasons, which I will explore shortly. I have always respected <a href="http://www.appgeo.com/">AppGeo's</a> work. As a small business that does geospatial consulting, they have foregone the "grow at all costs" approach that is seen all too often in the consulting world. They generally stuck to what they do well and branched out conservatively in ways that tie logically back to their core business.</p>
 
-<p>As fun as that project was, it was fairly limited in scope and I wanted to spread my wings a little more with Node. So I decided to build a more general-purpose wrapper around <a href="http://postgis.net">PostGIS</a>. Lately, I've become a bit obsessed with the idea that PostGIS may be the only GIS tool you really need in terms of data storage, management, and analytics. That's probably a topic for another post but exploring that concept was a perfect premise for my continued explorations with Node.</p>
+<p>I first met the President of AppGeo, Rich Grady, at an early <a href="https://www.hifldwg.org/">HIFLD</a> meeting many years ago. (It may have even been before the group was called "HIFLD.") The work they were doing then was very relevant to critical infrastructure protection efforts and, had some of their concepts for sharing data between state, local, and Federal agencies been adopted, we'd probably be better off today. I have always considered Rich one of the good guys in the geospatial industry and the company he has built reflects his integrity.</p>
 
-<p>I have been circling back to Node over the past few months to continue building my comfort level with it. I tend to eschew frameworks when i have learning something new because I want to get comfortable with the core before I start layering on abstraction. That was my approach with <a href="http://blog.geomusings.com/2013/04/25/simple-tile-viewer/">the tile viewer tool I built a while back</a>. For the recent post centered on Amazon RDS, I added Express into the mix, which has been a big help.</p>
+<p>Over the years, our companies haven't quite found the right vehicle to work together and we sometimes even compete against each other. That's the nature of the consulting business. You will often compete against friends and still be able to have dinner together later.</p>
 
-<p>This time around, I wanted to dig a little deeper with the <a href="https://github.com/brianc/node-postgres">node-postgres</a> module and also make the application more modular. I wanted to build around a few core principles:</p>
-
-<ol>
-<li>Keep it RESTful (or as close to it as I could)</li>
-<li>GeoJSON in/GeoJSON out (so....vector only for now)</li>
-<li>Let PostGIS do the heavy lifting</li>
-</ol>
-
+<p>So I was happy for Rich and AppGeo when I read their announcement. As I said above, I found it significant in a few ways...</p>
 
 <!--more-->
 
 
-<p><strong>Getting Started</strong></p>
+<h2>Professionalism</h2>
 
-<p>This time around, I elected to use my local PostgreSQL/PostGIS instance rather than Amazon RDS. This was mainly so I could keep my development isolated on one machine. I already had the basic infrastructure in place from my last time around, so I was able to quickly dive into the meat of things. I decided to scope my initial effort at the following:</p>
+<p>The announcement was a textbook example of the professionalism with which such matters should be handled. AppGeo did not burn down the house in announcing they were no longer a business partner. There were no declarations that "Esri sucks" or any other such unnecessary hyperbole. They discussed real, significant differences that had evolved over time with Esri that lead to an agreement that their business interests had diverged to the point that a Business Partner status no longer made sense. While Esri initiated the final break, AppGeo handled it well, stated their case professionally, and gave no ground. Well done. This announcement should be required reading for the various factions and camps in our industry.</p>
 
-<ol>
-<li>Return the contents of an entire table as GeoJSON, with the ability to choose between features (geometries and attributes) in a GeoJSON feature collection or just geometries in a GeoJSON geometry collection. This should support any table in the database.</li>
-<li>Return those records in a table that intersect a geometry passed in as a parameter. The input geometry would be in GeoJSON format.</li>
-<li>Return a JSON representation of a table's schema.</li>
-<li>Return a list of tables from the server. This is necessary in order to support the ability to query any available table.</li>
-<li>Implement some simple, but application-specific logic to demonstrate extensibility.</li>
-</ol>
+<h2>A Sign of Maturity</h2>
 
+<p>I found the announcement significant because I see it as evidence that AppGeo, as a geospatial business, has evolved to a point of maturity that most businesses never reach. They have built a diverse portfolio and realize they can go it alone without the safety net of Redlands under them. I will note that my company is an Esri Business Partner so I guess we haven't gotten there yet. I have worked as a consultant for my entire career and I believe to my bones that my primary job is to recommend the most appropriate solution to my customers. That is quite often an Esri solution for a lot of valid reasons, but not always. Right now, I am working on a project for a Federal agency based entirely on open-source geospatial tools. Often, a hybrid solution is really the best fit. The point is that, as a consultant, my job is to first gather data, analyze it, and determine the best solution. My job is not to walk in with a pre-conceived notion. If you call yourself a consultant and never look outside the Esri stable of tools (or whomever your preferred vendor may be), then you are not a consultant but a salesman. Just own it.</p>
 
-<p>With these goals in mind, I decided to first tackle the issue of extensibility. I wanted to make it as painless as possible and <a href="http://timstermatic.github.io/blog/2013/08/17/a-simple-mvc-framework-with-node-and-express/">the strategy described in this post</a> seemed to fit the bill. I just had to add the following code block to my server.js (straight from the post):</p>
+<p>AppGeo recognizes this and has built a consulting practice that can proceed forward with less influence from large vendors. I commend them for that.</p>
 
-<p>{% codeblock snippet1.js %}
-// dynamically include routes (Controller)
-fs.readdirSync('./controllers').forEach(function (file) {
-  if(file.substr(-3) == '.js') {</p>
+<h2>Maturity of Open-Source Geospatial</h2>
 
-<pre><code>  route = require('./controllers/' + file);
-  route.controller(app);
-</code></pre>
+<p>This next observation is statistically spurious as it is based only on this particular case, but I see this announcement as a sign of the increased maturity of the open-source geospatial segment. AppGeo is still a fairly small business, and many small consulting shops tend to be very conservative in their business moves. The fact that they are willing to decouple themselves from Esri indicates that they are not only confident in their capabilities with a diverse tool set, but that they are also confident in the stability and reliability of the tools in terms of being able to stake their business on them. Those of us who work with open-source geospatial tools are not surprised by this but it is important to note that AppGeo is as deeply proficient with the Esri tool suite as any company I've seen. I am not privy to their internal decision-making process but, at some point, a comparison must have yielded the conclusion that open-source tools (and Google) were sufficient to stand on equal footing in their capability portfolio. When a once-marquee partner like AppGeo reaches that conclusion, I find it significant.</p>
 
-<p>  }
-});
-{% endcodeblock %}</p>
+<p>Those represent some of my thoughts after reading the announcement. I recognized a lot in it but I can't say I've had all of the experiences they describe. I can't say that I've ever received any poor treatment from Esri as a Business Partner. I have heard enough stories from others that I don't doubt that it happens but I have never personally experienced it. Esri has always been exceedingly professional with me and my company. I don't feel like I've ever felt undue pressure to push their products to the front of the line but I recognize that my experience may be atypical.</p>
 
-<p>This will load any .js file in the controllers directory into the application. If they are written to the pattern expected by Express, new resource paths are exposed to the application. The post above describes a simple MVC implementation. Astute readers will note that my take is all "C" without "M" or "V." I plan to refactor that later but it it was easier for me to keep track of things on this pass with code in one place.</p>
-
-<p><strong>Getting Data</strong></p>
-
-<p>With modularity out of the way, it was time work on the basic structure for getting data from the database. In <a href="https://github.com/geobabbler/node-gis-server/blob/master/controllers/core.js">core.js</a>, I defined a route with a URL template like '/vector/:schema/:table/:geom'. This would translate into something like http://localhost/vector/public/parcels/features, which would fetch a GeoJSON feature collection containing the contents of the parcels table. To do that, I need to know the name of the spatial column in the table, which the following helps me retrieve:</p>
-
-<p>{% codeblock snippet2.js %}
-var meta = client.query("select * from geometry_columns where f_table_name = '" + tablename + "' and f_table_schema = '" + schemaname + "';");
-{% endcodeblock %}</p>
-
-<p>The next code block shows how I capture the name of the spatial column and structure the main query, depending on the choice of features or geometry:</p>
-
-<p>{% codeblock snippet3.js %}
-meta.on('row', function (row) {</p>
-
-<pre><code>var query;
-var coll;
-spatialcol = row.f_geometry_column;
-if (geom == "features") {
-    query = client.query("select st_asgeojson(st_transform(" + spatialcol + ",4326)) as geojson, * from " + fullname + ";");
-    coll = {
-        type : "FeatureCollection",
-        features : []
-    };
-} else if (geom == "geometry") {
-    query = client.query("select st_asgeojson(st_transform(" + spatialcol + ",4326)) as geojson from " + fullname + ";");
-    coll = {
-        type : "GeometryCollection",
-        geometries : []
-    };
-}
-</code></pre>
-
-<p>//'meta' code block continues
-{% endcodeblock %}</p>
-
-<p>As can be seen above, the query will transform the output geometry to WGS84 and convert it to GeoJSON for me. So I'm sticking my third principle by leaning on PostGIS functions here. I plan to stick to GeoJSON's default spatial reference of WGS84 for now. To roll up the query results into the appropriate GeoJSON object and return it, I handled the 'row' and 'end' events.</p>
-
-<p>{% codeblock snippet4.js %}
-//roll up the results
-query.on('row', function (result) {</p>
-
-<pre><code>if (!result) {
-    return res.send('No data found');
-} else {
-    if (geom == "features") {
-        coll.features.push(geojson.getFeatureResult(result, spatialcol)); //use helper function
-    } else if (geom == "geometry") {
-        var shape = JSON.parse(result.geojson);
-        coll.geometries.push(shape);
-    }
-}
-</code></pre>
-
-<p>});</p>
-
-<p>//send the results
-query.on('end', function (err, result) {</p>
-
-<pre><code>res.setHeader('Content-Type', 'application/json');
-res.send(coll);
-</code></pre>
-
-<p>});
-{% endcodeblock %}</p>
-
-<p>I wrote a helper function to roll up GeoJSON features:</p>
-
-<p>{% codeblock snippet5.js %}
-exports.getFeatureResult = function(result, spatialcol) {</p>
-
-<pre><code>    var props = new Object;
-    var crsobj = {
-        "type" : "name",
-        "properties" : {
-            "name" : "urn:ogc:def:crs:EPSG:6.3:4326"
-        }
-    };
-    //builds feature properties from database columns
-    for (var k in result) {
-        if (result.hasOwnProperty(k)) {
-            var nm = "" + k;
-            if ((nm != "geojson") &amp;&amp; nm != spatialcol) {
-                props[nm] = result[k];
-            }
-        }
-    }
-
-    return {
-        type : "Feature",
-        crs : crsobj,
-        geometry : JSON.parse(result.geojson),
-        properties : props
-    };
-};
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>So that's basic data retrieval. How about that spatial intersect?</p>
-
-<p><strong>A Simple Spatial Query</strong></p>
-
-<p>One thing I failed to mention in the above section, is that all of that is exposed through an HTTP GET request. For this next function, I'm going to use a POST. I went back and forth on that but came down on the side of POST due to the potential for a user to send a very verbose input shape. The function is designed to accept JSON as the body of the request, which would be done in curl like this:</p>
-
-<p>{% codeblock snippet6.bat %}
-curl -X POST -d "{ \"type\": \"Point\", \"coordinates\": [-98.35, 39.7] }" -H "Content-Type: application/json" http://localhost:3000/vector/public/states_gen/features/intersect
-{% endcodeblock %}</p>
-
-<p>The above action returns the state of Kansas (I knew you were wondering). To make this happen, there are only three things that are different. First, the URL is defined a POST and, second, the code needs to capture the input shape. The first few lines are:</p>
-
-<p>{% codeblock snippet7.js %}</p>
-
-<pre><code>/**
- * retrieve all features that intersect the input GeoJSON geometry
- */
-app.post('/vector/:schema/:table/:geom/intersect', function (req, res, next) {
-    //console.log(JSON.stringify(req.body));
-    var queryshape = JSON.stringify(req.body);
-//continue with the rest of app.post
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>I stringify the JSON since I have to insert it into my SQL. This brings me to the third difference here, the query. This time, I am using ST_INTERSECTS to filter down the response. So, depending on the choice of features or geometry, the query will be similar to:</p>
-
-<p><strong>"select st_asgeojson(st_transform(" + spatialcol + ",4326)) as geojson, * from " + fullname + " where ST_INTERSECTS(" + spatialcol + ", ST_SetSRID(ST_GeomFromGeoJSON('" + queryshape + "'),4326));"</strong></p>
-
-<p>The rest of the process is similar to the basic query above. With a well-exercised data access pattern in place, querying table schema and layer lists become trivial. Since GeoJSON doesn't cover these topics, I had to roll my own. I won't detail the output but the queries are below.</p>
-
-<p>{% codeblock snippet8.js %}
-//SQL to retrieve schema
-//var sql = "SELECT n.nspname as schemaname,c.relname as table_name,a.attname as column_name,format_type(a.atttypid, a.atttypmod) AS //type,col_description(a.attrelid, a.attnum) as comments";
-//sql = sql + " FROM pg_class c INNER JOIN pg_namespace n ON c.relnamespace = n.oid LEFT JOIN pg_attribute a ON a.attrelid = c.oid";
-//sql = sql + " WHERE a.attnum > 0 and c.relname = '" + tablename + "' and n.nspname = '" + schemaname + "';";</p>
-
-<p>//SQL to retrieve layer list
-//sql = "SELECT 'geometry' AS geotype, * FROM geometry_columns UNION SELECT 'geography' as geotype, * FROM geography_columns;";
-{% endcodeblock %}</p>
-
-<p>So this gives me everything I need for an all-purpose interface into PostGIS from Node. I could spend the rest of the year similarly wrapping the hundreds of spatial functions in PostGIS but the real power of extensibility is the ability to tailor an application for one's own needs, based upon one's detailed understanding of their own data and logic.</p>
-
-<p><strong>Adding Some Customization</strong></p>
-
-<p>To do this, I fell back to the data for <a href="http://leonardtown.somd.com">Leonardtown, Maryland</a> that have used in a <a href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/">couple</a> of previous <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/">posts</a>. I am simply going to expose the ability to query residential or commercial buildings from the data set. For this, all of the prep work is done at the top of the function by simply preparing a WHERE clause.</p>
-
-<p>{% codeblock snippet9.js %}
-app.get('/leonardtown/buildings/:geom', function (req, res, next) {</p>
-
-<pre><code>var client = new pg.Client(app.conString);
-var geom = req.params.geom.toLowerCase();
-if ((geom != "features") &amp;&amp; (geom != "geometry")) {
-    res.status(404).send("Resource '" + geom + "' not found");
-    return;
-}
-var tablename = "leonardtown_bldgs";
-var schemaname = "public";
-var fullname = schemaname + "." + tablename;
-var spatialcol = "";
-var proptype = req.query.type;
-var whereclause = ";";
-if (typeof proptype != "undefined") {
-    if (proptype.toLowerCase() != "all") {
-        whereclause = " where structure_ = '" + proptype + "';";
-    }
-}
-var coll;
-var sql = "";
-//logic continues from here
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>The primary difference here are that I am using a GET with a query string since I'm not concerned with data size and that I'm building a WHERE clause on a specific column name. What's not shown is that, farther down, I don't need to query the name of the spatial column so I can cut out that step. I can do this because I understand my own data so I can be more succinct that if I were writing a more generic function. Using this approach I can also write more complex custom logic in my database, call it from Node, and send the response. In other words, standard web application behavior.</p>
-
-<p>In order to expose this application-specific logic, I just needed expose it in a separate leonardtown.js file and drop it into the 'controllers' directory.</p>
-
-<p><strong>Wrapping Up</strong></p>
-
-<p>This post was bit longer than usual but there was lot of ground to cover. I feel like I'm getting more comfortable with the Node ecosystem though I'm still a bit wobbly. My next step is probably to dive a little deeper into the MVC side of things with something like <a href="http://sailsjs.org">Sails</a>. Having a familiar face like PostGIS on the back end is helping me as I figure out how to perform more meaningful tasks with Node and its related tools.</p>
-
-<p>If you want to check out the full code for this application, it is here: <a href="https://github.com/geobabbler/node-gis-server">https://github.com/geobabbler/node-gis-server</a></p>
+<p>In many ways, I expect all vendors to be partisan about their products, be it Esri or Microsoft or Oracle or Boundless or whomever. I would be suspicious if they weren't. Perhaps, because of that expectation, I've developed a bit of a filter for it but it doesn't bother me. My job as a consultant is to stand between my customers and the vendors and use my experience to sort through the market blather, find the real data, help my customers make an informed decision, and then help them implement. I have always felt that proficiency with a broad set of technologies makes me a better consultant, even for my strictly-Esri customers. AppGeo clearly understands this better than most and I commend them on reaching this significant and positive milestone.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Building a Simple Geodata Service with Node, PostGIS, and Amazon]]></title>
-    <link href="http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/"/>
-    <updated>2013-12-11T15:18:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds</id>
-    <content type="html"><![CDATA[<p><strong>tl;dr</strong></p>
+    <title type="html"><![CDATA[Consider the 'Alternative']]></title>
+    <link href="http://blog.geomusings.com/2013/11/27/consider-the-alternative/"/>
+    <updated>2013-11-27T13:01:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/11/27/consider-the-alternative</id>
+    <content type="html"><![CDATA[<p>When I was in college, I had a psychology professor who posited that you could train a cat (a dodgy proposition at best) to take a circuitous route to its food bowl by only rewarding that behavior. He was clearly a behaviorist and was convinced that you could completely condition the instinct to go straight to the food bowl out of the cat. To my knowledge, this professor did not own a cat and never attempted to test his assertion.</p>
 
-<p>This post describes the construction of a simple, lightweight geospatial data service using Node.JS, PostGIS and Amazon RDS. It is somewhat lengthy and includes a number of code snippets. The post is primarily targeted at users who may be interested in alternative strategies for publishing geospatial data but may not be familiar with the tools discussed here. This effort is ongoing and follow-up posts can be expected.</p>
+<p>I was reminded of this after reading my friend Atanas Entchev's <a href="http://blog.entchev.com/2013/11/22/some-post-postgis-day-thoughts.aspx">post in reaction</a> to the <a href="http://postgis.net">PostGIS</a> Day <a href="http://www.spatiallyadjusted.com/2013/11/21/todays-hangout-postgis-day-extravaganza-panel/">hangout panel discussion</a>. In his post, <a href="http://twiiter.com/atanas">Atanas</a> describes difficulty in convincing customers to consider open-source geospatial tools. These customers and prospects are comfortable with their proprietary tools and associated workflows and are reluctant to consider switching. I have encountered this attitude many times myself so I take no issue with the observation. Barriers to exit are real considerations, regardless of the new technology being considered. Organizations align themselves around their tools to achieve maximum efficiency with them. I discussed these issues at a talk I gave last year to the <a href="https://njgin.state.nj.us/OIT_NJGF/index.jsp">New Jersey Geospatial Forum</a> about how organizations can extend their existing geospatial technology investments with open-source technologies. These issues are very real for any organization with a mature, extended investment in a particular technology stack.</p>
 
-<p><strong>Rationale</strong></p>
+<p>Atanas went on to liken the attitude to that with which some people view alternative medicine and I can see his point. Traditional GIS has set itself apart from the rest of the technology world for so long that users are generally conditioned to believe that GIS workflows should involve a series of <a href="http://en.wikipedia.org/wiki/Rube_Goldberg">Rube Goldberg</a> machinations involving file-based data sets, some proprietary scripting, and possibly some application-level business logic to relate and/or join data as necessary. This has taken various forms over the years but diagrams of those workflows tend to look the same.</p>
 
-<p>I'm always looking for opportunities to experiment with new tools and the announcement of PostgreSQL/PostGIS support on Amazon RDS piqued my curiosity. Over the past six months, I have run into the repeated need on a couple of projects to be able to get the bounding box of various polygon features in order to drive dynamic mapping displays. Additionally, the required spatial references of these projects have varied beyond WGS84 and Web Mercator.</p>
-
-<p>With that, the seeds of a geodata service were born. I decided to build one that would, via a simple HTTP call, return the bounding box of a polygon or the polygon itself, in the spatial reference of my choice as a single GeoJSON feature.</p>
-
-<p>I knew I wanted to use PostGIS hosted on Amazon RDS to store my data. Here are the rest of the building blocks for this particular application:</p>
-
-<ol>
-<li><a href="http://nodejs.org">Node.js</a></li>
-<li>Express web application framework for Node</li>
-<li>PG module for accessing PostgreSQL with Node</li>
-<li>Natural Earth 1:10M country boundaries</li>
-</ol>
-
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/geo_model.png" /></p>
 
 <!--more-->
 
 
-<p><strong>Setting up PostGIS on Amazon RDS</strong></p>
+<p>Standing in contrast to such things, PostGIS looks alien, or "alternative." In truth, it is not "alternative" but rather "standard." As an example, here is <a href="http://blog.geomusings.com/assets/demos/nbi/">a map I produced a few weeks ago</a> showing the average ages of bridges by county. (I am not a cartographer.) It is a simple aggregation of the <a href="http://www.fhwa.dot.gov/bridge/nbi.cfm">National Bridge Inventory</a>, which consists of tens of thousands of records by county (3100-ish records). All of the data processing was done in PostgreSQL/PostGIS using nothing more exotic than SQL aggregate functions and some joins. None of the operations took longer than 6 seconds on my very pedestrian laptop. When I was done, I used QGIS to play with visualization and then dump out the static GeoJSON for use in Leaflet.</p>
 
-<p>Setting up the PostgreSQL instance on RDS was very easy. I simply <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreatePorstgreSQLInstance.html">followed the instructions here</a> for doing it in the AWS Management Console. I also got a lot of use out of <a href="http://www.databasesoup.com/2013/11/first-look-at-postgresql-rds-on-amazon.html">this post by Josh Berkus</a>. Don't forget to also set up your security group to govern access to your database instance <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithSecurityGroups.html">as described here</a>. I prefer to grant access to specific IP addresses.</p>
+<p>For my many friends who are regular users of PostGIS, this is nothing exotic. For some of my friends who regularly use commercial tools, this is interesting but not earth-shattering. But for a large portion of my friends who are comfortable with traditional tools and workflows, the time-to-market for this effort (35 minutes from the time I downloaded the NBI to the time I pushed the map to GitHub) has them taking notice. This entire workflow involved SQL extended with OGC-compliant spatial objects. (Side note: I have been hard on OGC's web efforts but the Simple Features Specification has been a quiet workhorse across the geospatial industry for over a decade. It's a good example of the benefit that well-designed standards can provide.) The map is being served from static content over simple HTTP with some client-side Javascript handling visualization. No heavy APIs or middleware involved or needed. The QGIS part was really necessitated by own cartographic limitations, but I could have fully generated the GeoJSON from SQL as well.</p>
 
-<p>Now that the Amazon configuration is done, your RDS instance essentially behaves the same as if you had set it up on a server in your server room. You can now access the instance using all of the standard PostgreSQL tools with which you are familiar. This is good because we need to do at least one more thing before we load our spatial data: we have to enable the PostGIS extension. I find that it is easiest to accomplish this at the command line:</p>
+<p>This example is fairly simplistic but I have good friends that are using PostGIS, and nothing more, to perform analyses and produce results for decision makers while sitting in meetings. This type of turnaround is standard in other market segments and the geospatial industry should expect nothing less. It requires nothing more than a strong foundation in SQL, mastery of spatial processes, and detailed understanding of your own data.</p>
 
-<p><em>psql -U {username} -h {really long amazon instance host name} {database name}</em></p>
-
-<p>Once you've connected, issue the command to enable PostGIS in your database:</p>
-
-<p><em>CREATE EXTENSION postgis;</em></p>
-
-<p>You may also want to enable topology while you're here:</p>
-
-<p><em>CREATE EXTENSION postgis_topology;</em></p>
-
-<p>This should complete your setup. Now you are ready to load data.</p>
-
-<p><strong>Loading Spatial Data</strong></p>
-
-<p>As I mentioned above, we are now dealing with a standard PostgreSQL server that happens to be running on Amazon RDS. You can use whatever workflow you prefer to load your spatial data.</p>
-
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/pgadmin_rds.png" /></p>
-
-<p>I downloaded the <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/">Natural Earth 1:10M country polygons</a> for this effort. Once downloaded, I used the DB Manager extension to <a href="http://qgis.org">QGIS</a> to import the data to PostgreSQL. I also did a test import with <a href="http://www.gdal.org/ogr/">OGR</a>. Both worked fine so it's really a matter of preference.</p>
-
-<p><strong>Building the Application</strong></p>
-
-<p>I chose to use Node.js because it is very lightweight and ideal for building targeted web applications. I decided to use the <a href="http://expressjs.com/">Express web framework for Node</a>, mainly because it makes things very easy. To access PostgreSQL, I used the <a href="https://github.com/brianc/node-postgres">node-postgres module</a>. I was planning to deploy the application in an Ubuntu instance on Amazon EC2, so I chose to do the development on Ubuntu. Theoretically, that shouldn't matter with Node but the node-postgres module builds a native library when it is installed so it was a factor here.</p>
-
-<p>After building the package.json file and using that to install the Express, node-postgres, and their dependencies, I build a quick server script to act as the web interface for the application. This is where Express really excels in that it makes it easy to define resource paths in an application.</p>
-
-<p>{% codeblock server.js %}
-var express = require('express'),</p>
-
-<pre><code>geo = require('./routes/geo');
-</code></pre>
-
-<p>var app = express();</p>
-
-<p>app.get('/countries/:id/bbox', geo.bbox);
-app.get('/countries/:id/bbox/:srid', geo.bboxSrid);
-app.get('/countries/:id/polygon', geo.polygon);
-app.get('/countries/:id/polygon/:srid', geo.polygonSrid);</p>
-
-<p>app.listen(3000);
-console.log('Listening on port 3000...');
-{% endcodeblock %}</p>
-
-<p>The four "app.get" statements above define calls to get either the bounding box or the actual polygon for a country. When the ":srid" parameter is not specified, the resulting feature is returned in the default spatial reference of WGS84. If a valid EPSG spatial reference code is supplied, then the resulting feature is transformed to that spatial reference. The ":id" parameter in all of the calls represents the ISO Alpha-3 code for a country. You will notice that the application listens on port 3000. More on that later.</p>
-
-<p>The next step is to define the route handlers. In this application, this where interaction with PostGIS will take place. Note that each of the exports correspond to the callback functions in the app.get statements above.</p>
-
-<p>{% codeblock geo.js %}
-var pg = require('pg');
-var conString = "postgres://username:password@hostname.rds.amazonaws.com:5432/database"; //TODO: point to RDS instance</p>
-
-<p>exports.bbox = function(req, res) {</p>
-
-<pre><code>var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:4326"}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(st_envelope(shape)) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      //build a GeoJSON feature and return it
-      res.send({type: "feature",crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "extent"}});
-    }
-  }); 
-</code></pre>
-
-<p>};</p>
-
-<p>exports.bboxSrid = function(req, res) {</p>
-
-<pre><code>var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:" + req.params.srid}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(st_envelope(st_transform(shape, " + req.params.srid + "))) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({type: "feature",crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "extent"}});
-    }
-  }); 
-</code></pre>
-
-<p>};</p>
-
-<p>exports.polygon = function(req, res) {</p>
-
-<pre><code>//TODO: Flesh this out. Logic will be similar to bounding box.
-var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:4326"}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(shape) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({type: "feature", crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "boundary"}});
-    }
-  }); };
-</code></pre>
-
-<p>exports.polygonSrid = function(req, res) {</p>
-
-<pre><code>var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:" + req.params.srid}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(st_transform(shape, " + req.params.srid + ")) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();   
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({type: "feature",crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "boundary"}});
-    }
-  }); };
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>The PostGIS spatial SQL for each function is shown in the "client.query" calls in the code above. This approach is very similar to constructing SQL calls in a number of other application environments. You will notice that a coordinate reference system object is constructed and attached to each valid response, which is structured as a <a href="http://geojson.org">GeoJSON</a> feature. The code currently assumes EPSG codes but that may be addressed in a future version.</p>
-
-<p>The above modules do most of the heavy lifting. The full code for this sample <a href="https://github.com/geobabbler/geo-service">is available here</a>.</p>
-
-<p>To test the application, simply issue the following command in a terminal:</p>
-
-<p><em>node server.js</em> (this assumes you are running from the same directory in which server.js resides. The file extension is optional.</p>
-
-<p>Your web application is now listening on port 3000. In a browser, visit the following URL:</p>
-
-<p><em>http://localhost:3000/countries/irl/bbox</em></p>
-
-<p>This should return a GeoJSON feature representing the bounding box of Ireland in WGS84. You can then test the other three calls with appropriate parameters. To get the bounding box in Web Mercator, go to:</p>
-
-<p><em>http://localhost:3000/countries/irl/bbox/3785</em></p>
-
-<p><strong>Deploying the Application</strong></p>
-
-<p>The application should now be ready to deploy. In my case, I created an Ubuntu EC2 instance (free tier). Using SSH, I made sure Node and git were installed on the machine. Additionally, I installed <a href="https://github.com/nodejitsu/forever">Forever</a> which allows a Node application to run continuously (similar to a service on Windows). This can also be done using an upstart script but I chose Forever. I may switch to using <a href="http://devo.ps/blog/2013/06/26/goodbye-node-forever-hello-pm2.html">PM2</a> at some point.</p>
-
-<p>Now, it's simply matter of installing the application code to the instance via git, wget, or the method of your choice. Once installed, be sure to go to the folder containing the code and issue the "npm install" command. This will read the package.json install Express, node-postgres, and other dependencies. Since some native code is built in the process, you may need to issue the command under sudo.</p>
-
-<p>I mentioned above that the application listens on port 3000. The Ubuntu instance, by default, will not allow the application to listen on port 80. This can be mitigated in a number of ways but I issued the following command to redirect traffic from 80 to 3000. Since this instance is single-use, this approach is sufficient.</p>
-
-<p><em>sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000</em></p>
-
-<p>Once you are ready to go, you'll want to start the application with the following command:</p>
-
-<p><em>forever start server</em> (again assuming you are executing from the directory containing server.js)</p>
-
-<p>A couple of Amazon notes: 1) You may want to assign an elastic IP to your instance for a persistent IP address and 2) you'll want you remember to configure your RDS security group to allow access from your instance's IP address.</p>
-
-<p><strong>Conclusion</strong></p>
-
-<p>If everything has gone correctly, you should be able to execute the above URLs (using your instance IP address) and get a response like the following, which you should be able to load directly into QGIS or another GeoJSON-literate client. Altogether, I was able to assemble this in one evening. This small collection of open-source tools, combined with the Amazon infrastructure, seems to provide a straightforward path to a hosted geodata service. This example is intentionally simple but PostGIS provides a robust collection of functions that can be exploited in a similar manner, leading to more advanced processing or analysis. I will continue my experimentation but am encouraged by what I have seen so far.</p>
-
-<p><strong>Sample Response</strong></p>
-
-<p>{% codeblock irl_bbox.json %}
-{
-  "type": "feature",
-  "crs": {</p>
-
-<pre><code>"type": "name",
-"properties": {
-  "name": "urn:ogc:def:crs:EPSG:6.3:4326"
-}
-</code></pre>
-
-<p>  },
-  "geometry": {</p>
-
-<pre><code>"type": "Polygon",
-"coordinates": [
-  [
-    [
-      -10.4781794909999,
-      51.4457054710001
-    ],
-    [
-      -10.4781794909999,
-      55.386379299
-    ],
-    [
-      -5.99351966099994,
-      55.386379299
-    ],
-    [
-      -5.99351966099994,
-      51.4457054710001
-    ],
-    [
-      -10.4781794909999,
-      51.4457054710001
-    ]
-  ]
-]
-</code></pre>
-
-<p>  },
-  "properties": {</p>
-
-<pre><code>"iso": "irl",
-"representation": "extent"
-</code></pre>
-
-<p>  }
-}
-{% endcodeblock %}</p>
+<p>So I have come to realize that the mainstream GIS community has become very much like my professor's theoretical cat; conditioned to take the long way to the end result when more direct paths are clearly available. What's more, they have become conditioned to think of such approaches as normal. Geospatial analytical operations can be very complex and the approaches to performing them were, in the past, necessarily convoluted due to the lack of understanding of spatial data types and operations within mainstream platforms. Those barriers have been rapidly disappearing over the past decade or so, but the user community has been slow to let go of its comfort with familiar tools and convoluted approaches. As I stated above, organizational barriers to exit are real considerations, but the inherent efficiencies available in modern geospatial tools such as PostGIS make the transition worth the effort.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[The Best Thing I Saw at TUGIS 2013]]></title>
-    <link href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/"/>
-    <updated>2013-03-20T12:17:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013</id>
-    <content type="html"><![CDATA[<p>I spent the day yesterday at <a href="http://www.towson.edu/">Towson University</a> attending the <a href="http://www.towson.edu/tugis/">TUGIS 2013</a> conference. The new one-day format was a firehose that showcased the diversity of geospatial work occurring across the State of Maryland. The keynote by <a href="http://www.linkedin.com/profile/view?id=44978536">Learon Dalby</a> was well-received and the content of the conference was generally substantive. While the day was a sprint, there was one workshop that really caught my attention more so than I would have thought from its title.</p>
-
-<p>The photo below shows 40 participants of an "Introduction to Free and Open Source GIS Software" workshop getting hands-on experience with <a href="http://www.qgis.org">QGIS</a> and <a href="http://www.postgis.org">PostGIS</a> by working through prepared but realistic scenarios. These scenarios included doing multi-user editing and performing spatial analysis to assess the effects of a potential toxic release over a small town.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/tugis2013_workshop.jpg" /></p>
-
-<p>The workshop was put together by <a href="http://faculty.salisbury.edu/~ajlembo/">Dr. Arthur Lembo</a> of <a href="http://www.salisbury.edu/">Salisbury University</a> and conducted by him and a team of his students, who not only led portions of the workshop but were also stationed around the room to provide guidance to participants. The scenarios were prepared in printed workbooks that the participants were free to take with them, along with information about how to download the tools. All-in-all, I thought the workshop was very well-designed and presented a thorough overview of the capabilities of these two tools.</p>
+    <title type="html"><![CDATA[Maryland Department of Planning Bundles Property Data with QGIS]]></title>
+    <link href="http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/"/>
+    <updated>2013-10-07T12:38:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis</id>
+    <content type="html"><![CDATA[<p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
 
 <!--more-->
 
 
-<p>To be sure, the workshop was not all unicorns and rainbows. There were typical glitches such as file system and database permission issues that required on-the-fly adjustments, which Dr. Lembo and his students handled well. Some participants were clearly stumped at points while others were making good headway with the examples.</p>
+<p>From the MDP site, the bundled data includes:</p>
 
-<p>Many of the participants probably remain committed <a href="http://www.esri.com">ArcGIS</a> users after the workshop while others may very well dig in and more thoroughly explore QGIS and PostGIS, but that's really beside the point. Regardless of what the individual participants decide to do with the information from the workshop, all left with hands-on exposure to the tools that was presented in a manner that was free of hyperbole, FUD, or market-speak. They now have more first-hand information with which to make their own educated decisions as to how they want to proceed with their geospatial technology choices; and that, in my opinion, may have been the most valuable outcome of the workshop.</p>
+<blockquote cite="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">The product DVD includes the State's computerized property (tax) maps; the x,y linkages (point or polygon) to the Parcel, Computer Assisted Mass Appraisal (CAMA) and Sale datasets; Parcel, CAMA and Sale data, including Sale data via download from the Subscriber Website, from the Maryland State Department of Assessments and Taxation (SDAT); reference grids including a grid for the property (tax) maps, an ADC map book grid, a grid for the Maryland State Highway Administration (SHA) road, stream and feature maps and a grid for USGS 7.5' Topographical quad maps; and additional SHA files including a digital centerline roads file, data derived from SHA digital grid maps, an SHA major roads file and a county boundary file.<br/>
+<br/>
+Also included are land use/land cover data; congressional and legislative district boundary files; census geography and census demographic data; ZIP code boundary files; Priority Funding Area (PFA) designations; floodplain data, including DFIRM data for selected jurisdictions; protected lands boundaries; watershed data; generalized zoning designations; sewer service area boundaries; public water service area boundaries for selected jurisdictions; National Register of Historic Places (NRHP) Maryland coverage; residential Sales x,y point and summary files derived from SDAT Parcel and Sale data; large-scale, high resolution color digital-ortho imagery and a custom Quantum GIS project file (.qgs).</blockquote>
+
+
+<p>The MDP site indicates there is a <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/CstFnd.pdf">licensing fee</a> (PDF), which I assume is to cover the management of the data sets and the <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/LicFnd.pdf">license agreement</a>, while acknowledging the GPL license of QGIS itself, seems to place the actual FINDER extension itself outide of any open-source license. (I am not a lawyer so I'll accept guidance on that interpretation.) That said, bundling QGIS with data that the statewide user community values and an application to help exploit it is a great way to get more users on board with QGIS.</p>
+
+<p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
+
+<p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Off to TUGIS]]></title>
-    <link href="http://blog.geomusings.com/2013/03/18/off-to-tugis/"/>
-    <updated>2013-03-18T12:40:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/03/18/off-to-tugis</id>
-    <content type="html"><![CDATA[<p>Tomorrow, I'll be heading up to the <a href="http://www.towson.edu/tugis/">Towson University GIS (TUGIS) conference</a> with 500 or so of my closest Maryland geo-friends. It has been restructured into a one-day event and the program seems to be very content-rich as a result. I am particularly happy to see more open-source content this year. There's an intro session featuring <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.postgis.org">PostGIS</a>, <a href="http://qgis.org">QGIS</a>, and <a href="http://geoserver.org">GeoServer</a> presented by <a href="http://www.salisbury.edu/">Salisbury State University</a>. Salisbury was once known as a bastion of <a href="http://www.manifold.net/">Manifold</a> so they've got a long history of thinking outside the Arc. Additionally, there is a session (by Towson University) discussing the use of <a href="http://www.gdal.org">GDAL</a>, <a href="http://www.gdal.org/ogr/">OGR</a>, and <a href="https://github.com/sgillies/shapely">Shapely</a> in the development of a spatial service.</p>
+    <title type="html"><![CDATA[SpatiaLite and ArcGIS 10.2]]></title>
+    <link href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/"/>
+    <updated>2013-08-07T12:35:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2</id>
+    <content type="html"><![CDATA[<p>With the release of ArcGIS 10.2, <a href="http://www.esri.com">Esri</a> quietly added support for <a href="https://sqlite.org/">SQLite</a> as a geodatabase container. This is big news as the community has been looking for such support for some time. An open-source RDBMS originally designed for embedded systems, SQLite has a very small footprint and is <a href="https://www.sqlite.org/mostdeployed.html">arguably the most widely deployed RDBMS</a> in the world. (Thanks, in part, to the fact that it is embedded into Adobe Reader and other commonly used software.) Over the years numerous strategies for storing spatial data in SQLite have been developed, ranging from simply storing <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT or WKB</a> geometries in a column up to full extensions like <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>, which adds OGC-compliant data types and methods. SQLite is also the engine that drives the popular <a href="http://www.mapbox.com/developers/mbtiles/">MBTiles</a> implementation used by <a href="http://www.mapbox.com/tilemill/">TileMill</a> and <a href="http://www.mapbox.com">MapBox</a>.</p>
 
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/mdflag.png" alt="Brian Timoney's favorite state flag" title="Brian Timoney's favorite state flag" /></p>
+<!--more-->
 
-<p>One thing I like about regional GIS conferences like this is that they tend to focus more on solutions to real-world problems instead of the latest technological bells and whistles. I spend so much of my time with my head in Federal requirements that it's nice do a reset and get different perspectives on how geospatial technologies are used. I am particularly interested to hear the keynote from <a href="http://twitter.com/learondalby">Learon Dalby</a> of <a href="http://www.sanborn.com/">Sanborn</a> and formerly of the <a href="http://www.gis.state.ar.us/">Arkansas GIO office</a>. I had the pleasure of working with Learon and the AGIO team on a project a couple of years ago and am impressed with what they accomplished.</p>
 
-<p>I appreciate the new format of TUGIS as a one-day event is much easier to fit into the schedule. I'm looking forward to it.</p>
+<p><a href="http://resources.arcgis.com/en/help/main/10.2/index.html#//019v0000001w000000">According to the documentation</a>, ArcGIS supports the use of either Esri's ST_GEOMETRY or SpatiaLite data types for geometry storage. This is consistent with Esri's approach on other RDBMS platforms such as <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.oracle.com">Oracle</a>. While SpatiaLite has been supported by platforms such as <a href="http://qgis.org/">QGIS</a>, I can't say I've seen a huge demand for data in SpatiaLite format. I have been using it for a while in some of <a href="http://www.zekiah.com">my company's</a> data modeling work as we have a Federal customer that has a documented requirement for generation of physical models in SpatiaLite, among other platforms. We have also taken the step of supporting SQLite as a container for our <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">platform independent model (PIM) approach</a> for configuration management of logical geospatial data models.</p>
+
+<p>Esri's new support of SpatiaLite, combined with my existing customer requirements, obviously sparked my interest so I was curious to kick the tires. Unfortunately, I also had the situation that my development environment for the PIM tools, due to current customer constraints, must remain at ArcGIS 10.1 for both the desktop software and the underlying ArcObjects libraries. I have not been able to carve out the time to build a 10.2 VM.</p>
+
+<p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
+
+<p>{% tweet http://twitter.com/brymcbride/status/365103999671738369 %}</p>
+
+<p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
+
+<ol>
+<li>A SpatiaLite database created in ArcGIS 10.2 can be accessed and viewed in QGIS 1.9.0 and SpatiaLite GUI 1.7.1</li>
+<li>A SpatiaLite database created in QGIS 1.9.0 can be accessed in ArcGIS 10.2</li>
+</ol>
+
+
+<p>Obviously, some more rigorous tests need to be performed but the initial results are promising. I'm curious to explore the boundaries, in ArcGIS terms, between a SQLite geodatabase and a file geodatabase. It remains to be seen whether this will put a dent in the use of file geodatabases. If it happens at all, I think it will take time since SQLite is not on the radar of the vast majority of ArcGIS users. I would hope, at a minimum, it puts a final stake through the heart of the personal geodatabase. It could also drive explicit accreditation of SQLite/SpatiaLite tools on government systems, which would be nice.</p>
+
+<p>I'm happy, and somewhat pleasantly surprised, to see Esri take this step and provide another open option for data exchange.</p>
+
+<p>Now, about GeoJSON...</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Open-Source GIS Bootcamp at Salisbury University]]></title>
+    <link href="http://blog.geomusings.com/2013/05/23/open-source-gis-bootcamp-at-salisbury-university/"/>
+    <updated>2013-05-23T05:33:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/05/23/open-source-gis-bootcamp-at-salisbury-university</id>
+    <content type="html"><![CDATA[<p><a href="http://www.linkedin.com/groupItem?view=&amp;srchtype=discussedNews&amp;gid=3300945&amp;item=242507385&amp;type=member&amp;trk=eml-anet_dig-b-pop_ttl-hdp&amp;ut=12tcrQvogVeRM1">Thanks to LinkedIn</a>, I saw that Dr. Art Lembo of Salisbury (Maryland) University is leading an "Open Source/Enterprise GIS Summer Bootcamp" at the university from June 3 - 7, 2013. All of the salient details, including contact information, <a href="http://www.esrgc.org/bootcamp/SUBootCamp.pdf">can be found here</a> (PDF).</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/river.jpg" /></p>
+
+<p>Having seen Dr. Lembo and his team in action <a href="http://blog.geomusings.com/2013/03/20/the-best-thing-i-saw-at-tugis-2013/">for an afternoon at TUGIS</a>, I think this will be a good way for those who have been wanting to take the leap with open-source GIS tools to get some hands-on experience with core tools like <a href="http://qgis.org/">QGIS</a> and <a href="http://postgis.net/">PostGIS</a>. It's also a great time of year to be on Maryland's Eastern Shore. The LinkedIn discussion says there are still spaces available but the date is coming up soon so you'll want to move quickly if you're interested.</p>
 ]]></content>
   </entry>
   
