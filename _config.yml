@@ -2,14 +2,13 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://geobabbler.github.com
-blog_url: http://blog.geomusings.com
+url: http://blog.geomusings.com
 title: geoMusings
 subtitle: geospatial technologies and practices
 author: Bill Dollins
 publisher: Mangrove Corporation, LLC
 simple_search: http://google.com/search
-description:
+description: personal blog
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -105,31 +104,3 @@ facebook_page: http://www.facebook.com/pages/GeoMusings/304146182966988
 linkedin_share: true
 linkedin_profile: billdollins
 linkedin_proper: Bill Dollins
-
-#prose.io settings 
-prose:
-  rooturl: "source"
-  metadata:
-    "source/_posts":
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "post"
-      - name: "title"
-        field:
-          element: "text"
-          value: "Title"
-      - name: "comments"
-        field:
-          label: "Allow comments"
-          element: "checkbox"
-          value: true
-      - name: "categories"
-        field:
-          element: "text"
-          value: "misc"
-      - name: "published"
-        field:
-          label: "Published"
-          element: "checkbox"
-          value: true
