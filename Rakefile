@@ -21,7 +21,6 @@ blog_index_dir  = 'source'    # directory for your blog's index page (if you put
 deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
 posts_dir       = "_posts"    # directory for blog files
-drafts_dir		= "_drafts"	  # directory for draft posts
 themes_dir      = ".themes"   # directory for blog files
 new_post_ext    = "markdown"  # default new post file extension when using the new_post task
 new_page_ext    = "markdown"  # default new page file extension when using the new_page task
@@ -108,32 +107,6 @@ task :new_post, :title do |t, args|
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     post.puts "comments: true"
     post.puts "categories: "
-    post.puts "---"
-  end
-end
-
-# usage rake new_draft[my-new-draft] or rake new_draft['my new draft'] or rake new_draft (defaults to "new-draft")
-desc "Begin a new draft in #{source_dir}/#{drafts_dir}"
-task :new_draft, :title do |t, args|
-  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
-  mkdir_p "#{source_dir}/#{drafts_dir}"
-  args.with_defaults(:title => 'new-draft')
-  title = args.title
-  filename = "#{source_dir}/#{drafts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
-  if File.exist?(filename)
-    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
-  end
-  puts "Creating new draft: #{filename}"
-  open(filename, 'w') do |post|
-    post.puts "---"
-    post.puts "layout: post"
-    post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
-    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
-    post.puts "comments: true"
-    post.puts "published: false"
-    post.puts "categories: "
-    post.puts "- "
-    post.puts " "
     post.puts "---"
   end
 end
@@ -277,11 +250,11 @@ multitask :push do
   cd "#{deploy_dir}" do
     system "git add ."
     system "git add -u"
-    puts "\n## Commiting: Site updated at #{Time.now.utc}\n\n[ci skip]"
+    puts "\n## Commiting: Site updated at #{Time.now.utc}"
     message = "Site updated at #{Time.now.utc}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing generated #{deploy_dir} website"
-    system "git push origin #{deploy_branch} --force --quiet"
+    system "git push origin #{deploy_branch} --force"
     puts "\n## Github Pages deploy complete"
   end
 end
@@ -327,10 +300,10 @@ task :setup_github_pages, :repo do |t, args|
     repo_url = args.repo
   else
     puts "Enter the read/write url for your repository" 
-    puts "(For example, 'git@github.com:your_username/your_username.github.com' or 'https://github.com/your_username/your_username.github.com')"
+    puts "(For example, 'git@github.com:your_username/your_username.github.com)"
     repo_url = get_stdin("Repository url: ")
   end
-  user = repo_url.match(/[\/:]([^\/]+)\/[^\/]+$/)[1]
+  user = repo_url.match(/:([^\/]+)/)[1]
   branch = (repo_url.match(/\/[\w-]+.github.com/).nil?) ? 'gh-pages' : 'master'
   project = (branch == 'gh-pages') ? repo_url.match(/\/([^\.]+)/)[1] : ''
   unless `git remote -v`.match(/origin.+?octopress.git/).nil?
@@ -340,7 +313,7 @@ task :setup_github_pages, :repo do |t, args|
       # If this is a user/organization pages repository, add the correct origin remote
       # and checkout the source branch for committing changes to the blog source.
       system "git remote add origin #{repo_url}"
-      puts "Added remote as origin"
+      puts "Added remote #{repo_url} as origin"
       system "git config branch.master.remote origin"
       puts "Set origin as default remote"
       system "git branch -m master source"
@@ -364,7 +337,7 @@ task :setup_github_pages, :repo do |t, args|
     system "git init"
     system "echo 'My Octopress Page is coming soon &hellip;' > index.html"
     system "git add ."
-    system "git commit -m \"Octopress init\n\n[ci skip]\""
+    system "git commit -m \"Octopress init\""
     system "git branch -m gh-pages" unless branch == 'master'
     system "git remote add origin #{repo_url}"
     rakefile = IO.read(__FILE__)
