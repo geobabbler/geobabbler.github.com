@@ -9,11 +9,11 @@ before_install:
 - git config --global user.email "travis@travis-ci.org"
 before_script:
 - export REPO_URL="https://$GH_TOKEN@github.com/$GH_REPO.git"
-- rake setup_github_pages[$REPO_URL]
+- bundle exec rake setup_github_pages[$REPO_URL]
 script:
-- rake generate
+- bundle exec rake generate
 after_script:
-- rake deploy
+- bundle exec rake deploy
 env:
   global:
   - GH_REPO="geobabbler/geobabbler.github.com"
