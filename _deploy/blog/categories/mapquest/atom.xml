@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: MapQuest | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/mapquest/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-10-08T22:12:58-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[AGIO Puts the Data First]]></title>
+    <link href="http://blog.geomusings.com/2011/03/24/agio-puts-the-data-first/"/>
+    <updated>2011-03-24T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/03/24/agio-puts-the-data-first</id>
+    <content type="html"><![CDATA[<p>I read <a href="http://www.gisuser.com/content/view/23022/222/">Learon Dalby's latest GISuser.com expert column</a> (disclosure: I am a contributor there also) with great interest since it addresses an issue with which I have worked closely over the years: availability of GIS data in a time of crisis. Over the years, the proliferation of "operating pictures" (you're not in style unless you have your own <a href="http://www.mitre.org/work/tech_papers/tech_papers_07/07_0093/">UDOP</a>) and other systems has obscured the fact that the data is really what matters. Certain segments of the community, especially those more focused on man-made disasters rather than the natural variety, have gotten very good at putting multiple layers of technology, services, security, policy, etc. between GIS data and the people who need it. <!--more--></p>
+
+<p>The problem with with all of this is that these systems tend to be very fragile under stress (exactly the kinds of stress that one can expect during an actual crisis). To mitigate that, we add scalability, complexity and cost to build out large, highly-available systems to serve out a small amount of data.</p>
+
+<div style="text-align:center;"><img alt="" height="278" src="http://geobabble.files.wordpress.com/2011/03/buffet.png" title="Is it this easy to get to your GIS data?" width="416" /><div style="text-align:center;font-size: 14px;">Is it this easy to get to your GIS data?<br/><br/></div></div>
+
+
+<p>As Learon and Arkansas demonstrate, there is another approach and it is simply making GIS data as open and <em>directly</em> available as possible. This isn't always sexy (Shapefiles via FTP?!?!) but can be effective. Additionally, it touches upon <a href="http://geobabble.wordpress.com/2010/09/16/be-the-crowd/">an issue I raised last year</a>. Some of the best GIS data in existence is that which is created and maintained at the local government level (one might even call it "authoritative"), but that data is not always available. Arkansas is very realistic when they say that people most likely won't look to their GIS servers first and so they try to push that data to the places people will go to look (<a href="http://maps.google.com">Google</a>, <a href="http://www.bing.com/maps/">Bing</a>, <a href="http://geocommons.com/search?model=&amp;query=AGIO">GeoCommons</a>, <a href="http://www.esri.com">Esri</a>, <a href="http://www.mapquest.com/">MapQuest</a>) in formats that are the most universally accessible (shapefiles, KML, ATOM).</p>
+
+<p>This is a low-level, and somewhat low-tech, form of data sharing and interoperability but, in a time of extended economic stress, Arkansas' GIS data is available and up-to-date. They have made the hurdles to get that data as low as possible and, in so doing, have raised the bar higher when judging data openness and availability.</p>
+
+<p>Put that in your COP and view it.</p>
+]]></content>
+  </entry>
+  
+</feed>

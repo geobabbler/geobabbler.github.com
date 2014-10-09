@@ -1,0 +1,200 @@
+
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+		<link rel="counties" type="application/json" href="data/govwin20.geojson">
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+		<![endif]-->
+		<link href="screen.css" rel="stylesheet" type="text/css" />
+		<link href="screen2.css" rel="stylesheet" type="text/css" />
+<style>
+
+			.title {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 36px;
+			}
+			body {
+				font-family: 'PT Serif', serif;
+				font-size: 12px;
+			}
+		.info {
+			padding: 6px 8px;
+			font-family: 'Open Sans', sans-serif;
+			font-size: 11px;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 3px;
+		}
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}	
+iframe {
+  width: 960px;
+  height: 500px;
+  border: 1px solid #DEDEDE;
+}	
+
+</style>
+
+		<div id="map" style="height:100%;width:100%;background-color: '#FFFFFF';"></div>
+		<script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<!--<script src="scripts/md_county_q6_2012.js"></script>-->
+		<script>
+		var mqurl = 'http://blog.geomusings.com/assets/demos/mdq6/data/tiles/NaturalEarth/md/{z}/{x}/{y}.png'; //'http://a0.acetate.geoiq.com/tiles/acetate-bg/{z}/{x}/{y}.png'; // 'http://{s}.mqcdn.com/naip/{z}/{x}/{y}.png';
+		//var mqSubdomains = new Array("a0","a1","a2","a3");
+		var mqattribution = 'Procurement Data &copy 2014 Deltek, Inc., Population and income via American Community Survey'; //'Tiles Courtesy GeoIQ. Licensed under a Creative Commons Attribution 3.0 License.';
+		var acetate = new L.TileLayer(mqurl, {minZoom: 7, maxZoom: 9, attribution: mqattribution}); //, subdomains: mqSubdomains});
+
+		function getColor(d) {
+			return d > 56 ? '#084594' :
+				d > 47  ? '#2171B5' :
+				d > 41  ? '#4292C6' :
+				d > 36  ? '#6BAED6' :
+				d > 31   ? '#9ECAE1' :
+				d > 21   ? '#C6DBEF' :
+				d > 5   ? '#EFF3FF' :
+                     '#C0C0C0';
+		}
+		
+		function style(feature) {
+			return {
+				fillColor: '#084594',
+				weight: 0.5,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.85
+			};
+		}
+		
+		function highlightFeature(e) {
+			var layer = e.target;
+			//var props = layer.valueOf();
+			//alert(props);
+			/*layer.setStyle({
+				weight: 5,
+				color: '#666',
+				dashArray: '',
+				fillOpacity: 0.7
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+			}*/
+			info.update(layer.feat.properties);
+		}
+		
+		//var geojson;
+
+		
+		function resetHighlight(e) {
+			//geojson.resetStyle(e.target);
+			info.update();
+		}
+		
+		function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+		}
+		
+		var map = L.map('map').setView([38.3914, -75.0697], 7); //
+		map.addLayer(acetate);
+		map._layersMinZoom=7;
+		map._layersMaxZoom=9;
+		//alert(q6data);
+		function onEachFeature(feature, layer) {
+			Object.defineProperty(layer, "feat", {
+				value: feature,
+				writable: true,
+				enumerable: true,
+				configurable: true
+			});
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+
+		$.getJSON($('link[rel="counties"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			onEachFeature: onEachFeature
+			});
+		geojson.addTo(map);
+		});
+		
+ 
+		//geojson.addTo(map);
+		//);
+		
+		
+		//geojson = L.geoJson(q6data, {
+		//	style: style,
+		//	onEachFeature: onEachFeature
+		//}).addTo(map);
+		
+		var info = L.control();
+
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+
+		// method that we will use to update the control based on feature properties passed
+		info.update = function (props) {
+		   if (props){
+			var spend = props.total / props.population;
+			var spend2012 = (props.fy12 / props.population) / props.median_income * 100;
+			}
+			this._div.innerHTML = '<h4>Procurement Data</h4>' +  (props ?
+				'<b>' + props.county + ', ' + props.state + '</b><br /><b>FY10:</b> ' + props.fy10.formatMoney(2, '.', ',', '$') + '</b><br /><b>FY11:</b> ' + props.fy11.formatMoney(2, '.', ',', '$') + '<br/><b>FY12:</b> ' + props.fy12.formatMoney(2, '.', ',', '$') + '<br/><b>FY13:</b> ' + props.fy13.formatMoney(2, '.', ',', '$') + '<br/><b>FY14:</b> ' + props.fy14.formatMoney(2, '.', ',', '$') + '<br/><b>Total:</b> ' + props.total.formatMoney(2, '.', ',', '$') + '<br/><b>Population (2012 est.):</b> ' + props.population.formatMoney(0, '.', ',', '') + '<br/><b>Median Household Income (2012 est.):</b> ' + props.median_income.formatMoney(2, '.', ',', '$') + '<br/><b>Per Capita Procurement (Total):</b> ' + spend.formatMoney(2, '.', ',', '$') + '<br/><br/><sub>FY14 data as of 18 April 2014</sub>'
+				: 'Hover over a county');
+		};
+
+		info.addTo(map);
+		
+		var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [5, 21, 36, 41, 47, 56],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+Number.prototype.formatMoney = function(c, d, t, g){
+var n = this, 
+    c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    d = d == undefined ? "." : d, 
+    t = t == undefined ? "," : t, 
+    s = n < 0 ? "-" : "", 
+    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return g + s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+
+//legend.addTo(map);
+		</script>

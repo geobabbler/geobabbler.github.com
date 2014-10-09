@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: QGIS | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/qgis/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-10-08T22:12:58-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Personal Geospatial Workflows, May 2014 Edition]]></title>
+    <link href="http://blog.geomusings.com/2014/05/20/personal-geospatial-workflows/"/>
+    <updated>2014-05-20T08:21:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/05/20/personal-geospatial-workflows</id>
+    <content type="html"><![CDATA[<p>I have been spending the past few weeks dealing more with data and mapping than I have in quite a while. It's given me a chance to regain my footing with map-making, reconnect with some end-user tools like <a href="http://www.arc2earth.com">Arc2Earth</a>, and build a little more proficiency with things like <a href="http://www.gdal.org/">GDAL</a>, <a href="http://qgis.org">QGIS</a>, and <a href="https://www.mapbox.com/tilemill/">TileMill</a>. Of course, I've been able to sneak in some coding as I've identified gaps in my workflow.</p>
+
+<p>In a nutshell, I am building base maps for use on disconnected mobile devices. There are two styles of base maps; imagery (really more of an imagery/vector hybrid) and a high-contrast map for use on the outdoor devices and sourced only from vector data. In both cases, I am building MBTiles databases to support the requirement for disconnected operations and to provide consistency in data size and performance.</p>
+
+<p>For the imagery base maps, I was faced with following a data request process that may or may not have resulted in getting imagery in a timely fashion. Alternatively, I was presented with the option of using a tiled map service to get the imagery. Given that I was just making basemaps, this would have been acceptable but for the spotty speed and reliability of the network connection. The ideal solution would be to get only the tiles I need, store them locally, create a geo-referenced image from them, and build a virtual raster table (VRT) for each level.</p>
+
+<!--more-->
+
+
+<p>Downloading the tiles was easy, but for the VRT to work, each tile needed to be geo-referenced. It was fairly easy to modify the venerable <a href="http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/globalmaptiles.py">globalmaptiles.py</a> to include a routine to create world file parameters for a specified tile. With this, I was able to write out an affine transformation world file for each tile I downloaded. I rolled this whole process up into a <a href="https://github.com/geobabbler/tile-grab">Python script that's available here</a>. Please note that my goal was to create a VRT, so the script flattens out the tiling scheme so that all images are under the appropriate "Z" directory. (This particular server was an ArcGIS Server but the script doesn't care as long as you can provide a valide URL template.)</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>python tile_grab.py -b <span class="m">-158</span>;<span class="m">21</span>;<span class="m">-157</span>;<span class="m">22</span> -d E:\tiles\oahu_img\a -i false -z <span class="m">6</span> -u http:<span class="n">//www.someserver.net/arcgis/rest/services/ImagerySvc/MapServer/tile/{z}/{y}/{x}.png</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>With the tiles downloaded and geo-referenced, it was easy to use the gdalbuildvrt utility to generate the VRT, which can be used in QGIS, TileMill, and ArcGIS Desktop as you prefer.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>gdalbuildvrt <span class="m">6</span>.vrt <span class="m">6</span><span class="n">/*.png</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>It seems a little odd to use tiles to make tiles, but I needed to add some additional data and styling to make the maps do what I needed to do. The downloaded tiles were just a stand-in for what would have been a standard raster data source. The range of useful resolution for a set of tiles is pretty narrow so you'll probably need to grab a few levels and, even then, you'll need to be careful how you use them. In most cases, using local raster/imagery is better but using tiles was fine for my use case and helped mitigate a byzantine data acquisition process. Here's how I set the ranges in ArcGIS (left) and TileMill (right):</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/vrt_zoom2.png" /></p>
+
+<p>Using this approach, I was able to successfully generate my maps using either of two technology mixes. I succeeded in using both TileMill and ArcGIS/Arc2Earth to generate my maps. I ended up doing most of the work in Arc2Earth due to the availability of command-line tools that helped me optimize performance.</p>
+
+<p>Before attempting this method, it's important to make sure that you are not violating any terms of service, license agreements, or attribution requirements in doing so. I knew this wasn't an issue in my case, but such questions need to be answered before you start grabbing data.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Virtual Rasters to Generate Contours in QGIS]]></title>
+    <link href="http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis/"/>
+    <updated>2014-04-17T13:39:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/04/17/using-virtual-rasters-to-generate-contours-in-qgis</id>
+    <content type="html"><![CDATA[<p>Every now and again, I am asked to make maps. It's not my strongest suit, but it sometimes comes with the territory. My latest task, as mentioned in my previous post, involves building support for <a href="https://www.mapbox.com/developers/mbtiles/">MBTiles</a> databases into a mobile situational awareness tool. This is done so that the devices can have a persistent local basemap in the field. The need arose to ensure that the basemaps were high contrast to assist with visibility in bright sunlight. Something like this:</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour0.png" /></p>
+
+<p>One of the requirements was to have topographic-map-like contours to indicate changes in elevation. Existing map services didn't provide what we needed so it was necessary to build a custom map, which meant generating contour lines. It had been years since I had last done that with Esri tools, but I didn't have any extension licenses available, so I turned to <a href="http://www.qgis.org/en/site/">QGIS</a> to get the job done this time.</p>
+
+<!--more-->
+
+
+<p>My area of interest was a portion of Virginia. Since I couldn't find any pre-generated contours for the state, I turned to elevation models. There are numerous places to get such data, but I <a href="http://geoserve.asp.radford.edu/dems/va_dems.htm">downloaded some DEMs from Radford University</a> since they are already carved up by county. They are perhaps a bit dated, but they sufficed for this particular testing round.</p>
+
+<p>It was easy to find <a href="http://boringnerdystuff.wordpress.com/2012/07/14/302/">guidance on how to generate contours in QGIS</a>. So I ran the process on a couple of adjacent counties and noticed that the edges didn't line up, which was not surprising. My first thought was that I would need to merge the DEMs but, luckily, I stumbled across the virtual raster tool in QGIS. This tool provides a nice UI for building a <a href="http://www.gdal.org/gdal_vrttut.html">GDAL virtual raster</a> from a series of separate rasters specified by the user. This can be a bit cumbersome to do manually and this GUI tool was a real time saver. It can be found in QGIS Dufour here:</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour1.png" /></p>
+
+<p>To make my life easier, I moved all of my DEMs into one folder so I could just point the tool at the folder. I filled in the name of the output file and took the defaults for everything else.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour2.png" /></p>
+
+<p>Notice that the dialog shows me the GDAL command that I am building with the UI. Advanced users can even edit it here. This is a really nice feature that can help you get comfortable with GDAL. I am not a GDAL expert, nor am I particularly adept with raster operations so I found this to be a huge help and I plan to use it more.</p>
+
+<p>The tool doesn't change any data; it merely writes a text file so it works very quickly. The resulting virtual raster was done in a few seconds.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour3.png" /></p>
+
+<p>With the data now "merged," I was able to continue with data generation. For my purposes, 10-meter contours were more than sufficient. I generated a shapefile, but any QGIS-supported format is valid as an output. It should be noted that the "Attribute name" choice is not checked by default. Check this if you want to attach the elevation value to each line. Also notice that QGIS is again giving us the relevant GDAL command as we build it. This is very powerful as it gives you the option to use QGIS to prototype GDAL operations and then script them outside of QGIS, if you desire.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour6.png" /></p>
+
+<p>This process took a little longer, thanks to Fauquier County, but still finished in about 90 seconds. The resulting contours were contiguous across counties, so my needs were met.</p>
+
+<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/qgis_contour8.png" /></p>
+
+<p>I'm now in the process of styling the map in <a href="https://www.mapbox.com/tilemill/">TileMill</a> so that I can generate the databases. It's good to occasionally take off my developer hat and put on that of a user. I've known for quite a while that QGIS stands toe-to-toe with any other desktop GIS software but this work got me to use some tools that I rarely ever touch. I was impressed with not only the speed, but also how smoothly the work flowed. My pedestrian laptop didn't engage in nearly the same level of huffing and puffing that it does when I have to use other software. That may be a hidden "win" in that users can extend the useful life of their hardware by using tools that don't tax it as much while producing the same results.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Desktop Not Dead]]></title>
+    <link href="http://blog.geomusings.com/2013/10/23/desktop-not-dead/"/>
+    <updated>2013-10-23T09:42:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/23/desktop-not-dead</id>
+    <content type="html"><![CDATA[<p>In 2011, I gave a talk at the NCGIS conference about the continued dominance of the desktop in the world of GIS. In that talk, my main point was that, regardless of the ultimate destination of GIS data or maps (cloud, server, paper, PDF, etc.), most GIS data passes through a desktop GIS at some point. I don't have hard data to back up that claim but I think anyone who has worked in the industry for any length of time will agree that it feels right. If we loosely define "desktop GIS" to include not only GUI analytical tools like <a href="http://www.esri.com">ArcMap</a> or <a href="http://qgis.org">QGIS</a>, but also command-line tools such as <a href="http://www.gdal.org/">GDAL/OGR</a> and cartographic tools such as <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I think the statement is even more comfortable.</p>
+
+<p style="text-align:center;"><iframe width="560" height="420" src="http://www.youtube.com/embed/ljIQo1OHkTI?color=white&theme=light"></iframe></p>
+
+<p>Essentially, my claim was that desktop GIS is still the onramp for most of the data we interact with on the web. Over the past few years, geographically tagged live and temporally-sensitive data streams have increased in importance but I think most geospatial data still starts as traditional data sources (rasters, vectors, terrain, etc.) that pass through a desktop for analysis, processing, and styling before moving on to the web. Esri, for example, still features its desktop tools as prominent parts of its web publishing workflow and <a href="http://boundlessgeo.com/">Boundless</a> is working on a <a href="https://github.com/boundlessgeo/suite-qgis-plugin">similar path for QGIS</a>.</p>
+
+<!--more-->
+
+
+<p>The announcement of a Google Maps Engine connector for both <a href="https://github.com/googlemaps/mapsengine-arcgis-connector">ArcGIS</a> and <a href="https://github.com/googlemaps/mapsengine-qgis-connector">QGIS</a> is yet another example of the continued importance of the desktop in the GIS world. Simply put, the chances of a user choosing your platform increases if you can cut to the front of the line and present yourself in their desktop environment. <a href="http://blogs.esri.com/esri/arcgis/2013/10/22/googles-arcgis-toolbar-for-the-cloud/">Andrew Turner did a nice summary of many such integration efforts</a> involving ArcGIS Desktop, although the post fails to mention <a href="http://www.arc2earth.com">Arc2Earth</a>, which I consider the most comprehensive extension of its kind on the market. His discussion tracks with my personal experience in recent years. My most public activities have been <a href="https://code.google.com/p/ziggis/">zigGIS</a>, the <a href="http://blog.dc.esri.com/2010/11/22/toolbars-for-geocommons-and-geoiq/">GeoCommons toolbars</a> (thanks for the mention, Andrew), and the <a href="http://www.weogeo.com">WeoGeo</a> toolbar. I've also built a couple of others for organizations that wanted to get their data products in front of ArcGIS users easily and I am currently working on a live feed extension for a government user. The reality is that I've done more desktop development in the last three years than I had done in the preceding ten.</p>
+
+<p>Andrew's point at the end of his post about Esri's extensibility through various means is quite true. As much as developers love to complain about ArcGIS Desktop and ArcObjects (myself included), I have yet to find a data source that I couldn't integrate using those tools. As I dig into the APIs behind QGIS, I am finding the same to be true there. Despite the tendency to downplay desktop GIS tools these days, I see them continuing to play a significant, if quiet, role in defining how we interact with maps and geospatial data across all platforms for the foreseeable future.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Maryland Department of Planning Bundles Property Data with QGIS]]></title>
+    <link href="http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/"/>
+    <updated>2013-10-07T12:38:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis</id>
+    <content type="html"><![CDATA[<p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
+
+<!--more-->
+
+
+<p>From the MDP site, the bundled data includes:</p>
+
+<blockquote cite="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">The product DVD includes the State's computerized property (tax) maps; the x,y linkages (point or polygon) to the Parcel, Computer Assisted Mass Appraisal (CAMA) and Sale datasets; Parcel, CAMA and Sale data, including Sale data via download from the Subscriber Website, from the Maryland State Department of Assessments and Taxation (SDAT); reference grids including a grid for the property (tax) maps, an ADC map book grid, a grid for the Maryland State Highway Administration (SHA) road, stream and feature maps and a grid for USGS 7.5' Topographical quad maps; and additional SHA files including a digital centerline roads file, data derived from SHA digital grid maps, an SHA major roads file and a county boundary file.<br/>
+<br/>
+Also included are land use/land cover data; congressional and legislative district boundary files; census geography and census demographic data; ZIP code boundary files; Priority Funding Area (PFA) designations; floodplain data, including DFIRM data for selected jurisdictions; protected lands boundaries; watershed data; generalized zoning designations; sewer service area boundaries; public water service area boundaries for selected jurisdictions; National Register of Historic Places (NRHP) Maryland coverage; residential Sales x,y point and summary files derived from SDAT Parcel and Sale data; large-scale, high resolution color digital-ortho imagery and a custom Quantum GIS project file (.qgs).</blockquote>
+
+
+<p>The MDP site indicates there is a <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/CstFnd.pdf">licensing fee</a> (PDF), which I assume is to cover the management of the data sets and the <a href="http://www.mdp.state.md.us/pdf/OurProducts/PropertyMapProducts/Finder/LicFnd.pdf">license agreement</a>, while acknowledging the GPL license of QGIS itself, seems to place the actual FINDER extension itself outide of any open-source license. (I am not a lawyer so I'll accept guidance on that interpretation.) That said, bundling QGIS with data that the statewide user community values and an application to help exploit it is a great way to get more users on board with QGIS.</p>
+
+<p>To that end, users that choose to take advantage of FINDER Quantum will want to keep in mind that great <a href="http://www.esrgc.org/training/">QGIS-related resources</a> are available via <a href="http://www.salisbury.edu/geography/">Salisbury State University</a> and that training is also available from <a href="http://www.linkedin.com/profile/view?id=14036437">Randal Hale</a> of <a href="http://www.northrivergeographic.com/introduction-to-quantum-gis">North River Geographics</a>. Once you have this powerful application installed, you can start to tap into a <a href="http://boundlessgeo.com/solutions/solutions-software/quantum-gis/">deep pool</a> of <a href="http://www.osgeo.org/search_profile">resources</a> to build your expertise.</p>
+
+<p>So kudos to MDP for bundling their data with a powerful mapping, visualization, and analysis tool in QGIS. I hope that, in the near future, MDP considers making the FINDER application itself open-source but this is a great first step.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GeoJSON on GitHub: Now What?]]></title>
+    <link href="http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/"/>
+    <updated>2013-06-18T16:04:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what</id>
+    <content type="html"><![CDATA[<p>So <a href="http://github.com">GitHub</a> <a href="https://github.com/blog/1528-there-s-a-map-for-that">announced</a> that you can now automatically view any <a href="http://geojson.org">GeoJSON</a> files that may be in a repository inside an interactive map driven by <a href="http://www.mapbox.com/">MapBox</a> technology. This simple enhancement to GitHub is probably one of the most significant developments in the geospatial industry in years. I'll explain a little later in this post. It's also important to view this new capability as a great, but limited, first step. I'll discuss that a little later as well.</p>
+
+<p>While it's cool to click on a link and just see a map, it doesn't take long to wonder about how you can use this capability beyond viewing data in GitHub. What follows are three ways to capitalize on GeoJSON in GitHub. Not all are directly related to the new mapping capability, and two have been possible for a long time. That said, the GitHub announcement may draw interest from users who have not previously considered either GitHub or GeoJSON, so I hope these approaches will be useful.</p>
+
+<h3>Embed the GitHub map.</h3>
+
+<p><del>If you click on a GeoJSON file and view the new map in GitHub, a quick view of the page source will show that this map is embedded in an IFRAME object.</del> GitHub provides a <a href="https://help.github.com/articles/mapping-geojson-files-on-github#embedding-your-map-elsewhere">simple embedding method</a> to display the GitHub map in any page. (Thanks to <a href="https://github.com/benbalter">Ben Balter</a> for this update.) It's a great way to quickly publish a data set while also providing access to download the raw data.</p>
+
+<p style="text-align:center;"><script src="https://embed.github.com/view/geojson/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson"></script></p>
+
+<!--more-->
+
+
+<h3>Stream the data into your own web map.</h3>
+
+<p>This is not a new capability; if you've had GeoJSON in a repo, you've always been able to do this. That said, if you're checking out GitHub or GeoJSON for the first time as a result of the new mapping capability, this is something you may want to try. I have had a page up for a while showing the <a href="http://blog.geomusings.com/assets/demos/mdq6/">county-by-bounty breakdown of Maryland's marriage equality question from the 2012 election</a> that uses this approach to load the data into a <a href="http://leafletjs.com/">Leaflet</a> map from GitHub and style it. (Incidentally, the tiles in the map are also hosted on GitHub.)</p>
+
+<h3>Stream the data into your desktop.</h3>
+
+<p>A third option is to stream the GeoJSON data directly into desktop GIS software such as QGIS for further analysis. In QGIS, simply need to add a vector, specifying "Protocol" and entering the URL to your GitHub-hosted GeoJSON file. Make sure you use the "raw" URL that looks something like this: https://raw.github.com/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson .</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/add_geojson_layer.png" /></p>
+
+<p>After a few seconds (or more depending on the file size), it should load into QGIS like this:</p>
+
+<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/qgis_github_geojson.png" /></p>
+
+<p>Additionally, the <a href="https://github.com/RBURHUM/arcgis-ogr/">GDAL/OGR plug-in for ArcGIS</a> by <a href="http://www.amigocloud.com/homepage/index.html">AmigoCloud</a> provides a way to get GeoJSON into ArcMap, though you may need to download the data first.</p>
+
+<p>UPDATE: Dane Springmeyer pointed out that TileMill supports remote URLs as well.</p>
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/geomusingsblog">@geomusingsblog</a> <a href="https://twitter.com/billdollins">@billdollins</a> - very cool, had no idea QGIS supported remote urls. TileMill does also: <a href="http://t.co/o3wxv2VkEv">http://t.co/o3wxv2VkEv</a></p>&mdash; Dane Springmeyer (@springmeyer) <a href="https://twitter.com/springmeyer/statuses/347483526171594753">June 19, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>Those are three (or so) quick ways to capitalize on GeoJSON data in GitHub now. So what next?</p>
+
+<p>I stated earlier that I think the GitHub announcement was one of the most significant developments in years. I think it is best explained by <a href="http://feomike.github.io/post/thoughts-on-disruption.html">feoMike in his recent post</a>. As he points out, GitHub has made it easy to communicate spatial information in a way that is fully consistent with the web. Now that simple mapping is available to a large community of developers, it will be interesting to see where they take it. feoMike offered up a few early examples in his post. It's worth a read.</p>
+
+<p>The GitHub move is great for GeoJSON as a format. I've said in the past that the search for the next shapefile ends with GeoJSON. If the web is this generation's dominant computing platform (it is), then GeoJSON provides a simple, elegant solution for geographic data transport in a manner that the shapefile did for the desktop. Support by GitHub is one more example of the community voting with its code as to what it prefers.</p>
+
+<p>I also said it was a great first step, but limited. The mapping capability is understandably basic, though the documentation shows how you can customize styling somewhat. There is also a point at which the data seems to become too big to render (in either the map or in raw form). Bill Morris has identified this limit to be in the ballpark of 4.5MB, which can be easy to hit with GeoJSON.</p>
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/byrne_tweets">@byrne_tweets</a> <a href="https://twitter.com/BenBalter">@BenBalter</a> <a href="https://twitter.com/ericg">@ericg</a> <a href="https://twitter.com/ajturner">@ajturner</a> +1 for a solid number on max renderable filesize. 4.5MB is pushing it: <a href="https://t.co/cNTbA5Djqw">https://t.co/cNTbA5Djqw</a></p>&mdash; Bill Morris (@vtcraghead) <a href="https://twitter.com/vtcraghead/statuses/346825523521019904">June 18, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>So this means that enterprises won't be dumping terabytes of vectors to GeoJSON and loading them into GitHub. That's a good thing in my book. It is, however, an acceptable solution for small data sets and quick turn-around data sharing. As with all things, you have to go in with the right set of expectations.</p>
+
+<p>The thing I'm probably least worried about is how this affects <a href="http://www.esri.com">Esri</a>. Without any specific inside knowledge of Esri's plans, I suspect some form of official support for GeoJSON isn't far off. There are too many people inside Esri who get GeoJSON for it not to happen. If anything, the GitHub announcement may provide a bit of a push by providing a potentially rich source of data sets to consume. The real question is what form the support will take. In any event, Esri provides enough APIs to enable us to develop our own support for GeoJSON if we need it.</p>
+
+<p>The addition of GeoJSON mapping to GitHub is a very small change in the scheme of that platform, but such small changes can sometimes lead to big shifts. It has been possible for a long time to use GitHub to host geospatial data for applications. The main benefit of this latest change, in my opinion, is its potential to get people thinking about the platform in a different way. With such a visible (and visual) change on a platform targeted at developers, I hope that it will motivate that community to begin experimenting with how far it can be pushed. If a hosted platform with an already-baked-in workflow for change management and version control begins to be viewed as a viable home for spatial data, it has the potential to change how the geospatial community thinks about how it does business.</p>
+]]></content>
+  </entry>
+  
+</feed>

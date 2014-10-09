@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: skills | geoMusings]]></title>
+  <link href="http://blog.geomusings.com/blog/categories/skills/atom.xml" rel="self"/>
+  <link href="http://blog.geomusings.com/"/>
+  <updated>2014-10-08T22:12:58-04:00</updated>
+  <id>http://blog.geomusings.com/</id>
+  <author>
+    <name><![CDATA[Bill Dollins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A #LazyWeb Compendium of Python Resources for Beginners]]></title>
+    <link href="http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners/"/>
+    <updated>2013-03-17T15:19:00-04:00</updated>
+    <id>http://blog.geomusings.com/2013/03/17/a-lazyweb-compendium-of-python-resources-for-beginners</id>
+    <content type="html"><![CDATA[<p>A friend who is in the midst of a career change and moving into the GIS world asked me for some pointers to resources for getting started with Python. I threw the question out to Twitter (with a similar variation also posted to Google+):</p>
+
+<p><div class='embed tweet'><blockquote class="twitter-tweet"><p>Can anyone recommend any good online Python training sources for beginners? Asking for a friend in the midst of a career change.</p>&mdash; Bill Dollins (@billdollins) <a href="https://twitter.com/billdollins/status/313263420923338753">March 17, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+
+<p>I got a couple of requests to summarize any information I received, which seemed reasonable. I got quite a few responses and here are some links:</p>
+
+<!--more-->
+
+
+<p><a href="http://learnpythonthehardway.org/">Learn Python the Hard Way</a> - This one got the most mentions<br/>
+<a href="http://inventwithpython.com/">Invent With Python</a><br/>
+<a href="http://www.greenteapress.com/">Green Tea Press</a><br/>
+<a href="http://newcoder.io/">New Coder</a><br/>
+<a href="http://www.codecademy.com/tracks/python">Codecademy</a><br/>
+<a href="https://www.khanacademy.org/science/computer-science">Khan Academy</a><br/>
+<a href="http://www.diveintopython.net/">Dive Into Python</a> - Note: I heard positive and negative on this one.<br/>
+<a href="http://www.realpython.com/e-book/">Real Python</a><br/>
+<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/index.htm">MIT Introduction to Computer Science and Programming</a><br/>
+<a href="https://www.udacity.com/course/cs101">Udacity</a></p>
+
+<p>I can't claim to have checked out all of them, but I consider the recommendations to have come from trusted sources. So, if you're <a href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/">looking to expand your GIS expertise by adding some Python knowledge</a>, these may be a good place to start. Not all of them are free-of-charge since that wasn't one of my friend's requirements.</p>
+
+<p>Additionally, Dan Dye informs me that the PyBulls Python interest group at the University of South Florida will take up this question and post a document with a list of resources on GitHub. Be sure to keep an eye on <a href="https://github.com/pybulls/">https://github.com/pybulls/</a> . Thank you!</p>
+
+<p>Many thanks to <a href="http://twitter.com/hugoestr">Hugo Estrada</a>, <a href="http://twitter.com/DonMeltz">Don Meltz</a>, <a href="http://twitter.com/IndyGIS">Aaron Burgess</a>, <a href="http://twitter.com/JCSanford">Jason Sanford</a>, <a href="http://twitter.com/dandye">Dan Dye</a>, <a href="http://twitter.com/swfoundry">Christopher Moore</a>, <a href="http://twitter.com/scw">Shaun Walbridge</a>, <a href="http://twitter.com/jmwdesign">Jason Wheatley</a>, <a href="https://plus.google.com/u/0/102903916051293271489/posts">Wes Herche</a>, and <a href="https://plus.google.com/u/0/110136604428694315510/posts">Jorge Sanz</a>.</p>
+
+<p>If you have any other good online resources for getting started with Python, feel free to leave them in the comments.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Yes, You Need to Code]]></title>
+    <link href="http://blog.geomusings.com/2013/01/30/yes-you-need-to-code/"/>
+    <updated>2013-01-30T14:26:00-05:00</updated>
+    <id>http://blog.geomusings.com/2013/01/30/yes-you-need-to-code</id>
+    <content type="html"><![CDATA[<p>Over the past year, I've been involved in searching for GIS analysts a number of times. As a result, I've noticed a few patterns:</p>
+
+<ol>
+<li>There are a lot of analysts out there looking for jobs. Every time I run an ad, I get at least 100 resumes from people of various levels of experience and education.</li>
+<li>The vast majority of those that I call to pre-screen have not done any meaningful coding of any kind. This includes Python, which has been shipping with ArcGIS for several versions now.</li>
+<li>Of those that do have some coding experience, many do not show it on their resumes. I find this particularly interesting as I can't imagine why a person would choose not to list all relevant skills or experience.</li>
+</ol>
+
+
+<p>I am very publicly on the record that I think some form of coding skill is essential for any GIS analyst entering the workforce today. My reasoning here is fairly straightforward.</p>
+
+<ol>
+<li>The "IS" in "GIS" stands for "information system." This means "computers." Actually, according to one of my professors in the late '80s, an information system doesn't technically have to involve computers but this is 2013 and even brewing a cup of coffee involves a computer.</li>
+<li>The "G" in "GIS" stands for "geography." (Don't worry, the revelations will keep coming.) Geography is intensely mathematical. I suppose, in the interest of accuracy, I should state that some segments of geography are less mathematical than others but I think it's safe to say that the elements of the science that are addressed by GIS involve a lot of math. Take, for instance, coordinate reference systems. That one small but important part of geography can separate the wheat from the chaff quickly.</li>
+<li>Computers use code to do math.</li>
+</ol>
+
+
+<p>Modern GIS software is complicated and comes with a lot of capability by default. Just look at the default UI for ArcMap or QGIS and you'll see a lot of tools at your fingertips. In other words, there are a lot of buttons to push. This is fine but I'd wager that these software tools expose less than 10% of their full capability through their default interfaces.</p>
+
+<!--more-->
+
+
+<p>The reason for that is that there are simply too many use cases in geography to design into a piece of software by default. That is why these tools, and most other GIS software, ship with APIs. ("Ship" is a loose concept with open-source but please grant me license.) These APIs expose the full capability of the software so that users may customize it to their needs. That means coding. For both <a href="http://www.esri.com">ArcGIS</a> and <a href="http://qgis.org">QGIS</a>, that can mean Python but there are lots of other choices as well.</p>
+
+<div style="text-align:center;">
+<img src="http://blog.geomusings.com/images/posts/globalmaptiles.png" />
+</div>
+
+
+<br/><br/>
+
+
+<p>If you choose to get by with just using the GUI tools, you are doing yourself two disservices:</p>
+
+<ol>
+<li>You are placing yourself at the mercy of others who can code to get around to building the customizations you need.</li>
+<li>You are allowing your skills to erode by not using a significant amount of capability.</li>
+</ol>
+
+
+<p>So you need to code to some extent. You need to in order to automate complicated tasks you do regularly, or read in data that's in some oddball format, or use some capability of your GIS-du-jour that isn't exposed out of the box, or to make that web map sing, or for any of a number of other reasons. Luckily, you have a wealth of information at your fingertips. It is called open-source geospatial software. I can already hear the protests: You learned on ArcGIS in school. You are comfortable with ArcGIS and you like it. Fine, keep using it.</p>
+
+<p>But while you're using ArcGIS, also check out the source code for open-source libraries like <a href="https://github.com/sgillies/shapely">Shapely</a> or <a href="http://trac.osgeo.org/geos/">GEOS</a> or <a href="http://www.gdal.org/">GDAL</a> or other commonly used (even under the hood of ArcGIS) tools. You learned the math in school. You toughed out these concepts and you understand them. Now look at the compiled knowledge of a lot of smart programmers to see how the concepts are concretely implemented in code. The process will, at a minimum, make you a better ArcGIS user because you'll understand what's going on under the hood. The truth is, even if ArcGIS isn't directly using one of those open-source libraries, it's probably using an ESRI-developed implementation of a standard algorithm. It's similar enough that you'll be able to understand the behavior and that will help you better bind your own customizations to their closed-source API.</p>
+
+<p>I say this because it worked for me. I am a programmer by training and passion. I heard the phrase "GIS" once, in passing, during a lecture in college. Yet, my first job was in the GIS field. Needless to say, I had a lot of learning to do. Most of it came at the hands of some very patient geographers. The first tools I was exposed to were the proprietary tools of MapInfo and ESRI (with a smattering of Intergraph). I was able to soak in what the geographers were telling me and bang against those APIs to build some useful tools but the light bulb really came on for me when I began reading the source code of open-source projects. There, laid out before me, was what the software was <em>really</em> doing.</p>
+
+<p>Today, I work with a mixture of open-source and proprietary tools but the majority of my paying work is still in the Esri realm. My exposure to open-source has, however, made me better with it because it has deepened my understanding.</p>
+
+<p>Not everyone can be a professional software developer as it takes a certain mindset to do it all of the time. But, in the GIS market of 2013, everyone needs to have some understanding of some kind of coding, whether <a href="http://python.org/">Python</a> or <a href="http://www.r-project.org/">R</a> or <a href="http://d3js.org/">Javascript</a> or something else.</p>
+
+<p>One other side note: Over the past year, I have also advertised for software developers with results that are opposite of what I see with analysts. There are very few applicants and many that I see have been out of work for a while, have no GIS background and spent a lot of years working with older tools. These are "blue bird" applicants hoping to catch on. In short, there is a gulf between the high demand for GIS-literate programmers and the miniscule supply. Having the ability to code, and showing it on your resume, can be what separates you from the pack of 100 other analysts applying for the same position.</p>
+
+<p>So, yes, you need to code.</p>
+]]></content>
+  </entry>
+  
+</feed>

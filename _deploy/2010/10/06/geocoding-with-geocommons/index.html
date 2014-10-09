@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Geocoding with GeoCommons - geoMusings</title>
+  <meta name="author" content="Bill Dollins">
+
+  
+  <meta name="description" content="One of the new features included in the latest release of GeoCommons is geocoding. Previous releases have provided the ability to upload non-spatial &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.geomusings.com/2010/10/06/geocoding-with-geocommons/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="geoMusings" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">geoMusings</a></h1>
+  
+    <h2>geospatial technologies and practices</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.geomusings.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/samples/">Samples</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Geocoding With GeoCommons</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-06T00:00:00-04:00" pubdate data-updated="true">Oct 6<span>th</span>, 2010</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>One of the new features included in the latest release of <a href="http://www.geocommons.com">GeoCommons</a> is geocoding. Previous releases have provided the ability to upload non-spatial data (such as CSV files) and walk through a wizard-like interface to join that data with existing spatial data sets already in GeoCommons. This latest release brings the <a href="http://geocommons.com/help/FortiusOne_Geocoder">FortiusOne Geocoder</a> to bear to give you the ability to upload data containing US addresses and generate point locations. In my opinion, this is a very powerful addition to GeoCommons. <!--more--></p>
+
+<p>So, I decided to give it a spin. Since GeoCommons is open to the public, I decided to use some data that I wouldn&#8217;t mind making available. I went to the Wawa web site and made a CSV of the <a href="http://www.wawa.com">Wawa</a> stores in my county (there are only five). These are locations that are well-known to me so they suited my purposes. It&#8217;s a truism that even the best geocoders generally yield the &#8220;mailbox location&#8221; of the addresses fed into them. This becomes fairly obvious is in rural areas such as where I live.</p>
+
+<p>So, here&#8217;s the CSV I started with:</p>
+
+<p>city,zip,store,address,state
+&#8220;Lexington Park&#8221;,&#8221;20653&#8221;,&#8221;579&#8221;,&#8221;21265 Great Mills Road&#8221;,&#8221;MD&#8221;
+&#8220;Mechanicsville&#8221;,&#8221;20659&#8221;,&#8221;583&#8221;,&#8221;27605 Three Notch Road&#8221;,&#8221;MD&#8221;
+&#8220;Lexington Park&#8221;,&#8221;20653&#8221;,&#8221;587&#8221;,&#8221;22530 Three Notch Road&#8221;,&#8221;MD&#8221;
+&#8220;Charlotte Hall&#8221;,&#8221;20622&#8221;,&#8221;588&#8221;,&#8221;30320 Three Notch Road&#8221;,&#8221;MD&#8221;
+&#8220;California&#8221;,&#8221;20619&#8221;,&#8221;592&#8221;,&#8221;23141 Three Notch Road&#8221;,&#8221;MD&#8221;</p>
+
+<p>After I logged into GeoCommons, I went through the upload process like so:</p>
+
+<p>First, I clicked &#8220;Upload Files&#8221; and navigated to my CSV.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/10/gc1.png"><img alt="" class="aligncenter size-full wp-image-1251" src="http://geobabble.files.wordpress.com/2010/10/gc1.png" title="GeoCommons uploader" /></a></p>
+
+<p>Once it was uploaded, I clicked &#8220;Next&#8221; to start processing.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/10/gc2.png"><img alt="" class="aligncenter size-full wp-image-1252" src="http://geobabble.files.wordpress.com/2010/10/gc2.png" title="File confirmation" /></a></p>
+
+<p>After I clicked through an intermediary screen, I was brought here, where I chose the &#8220;Geocode&#8221; option.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/10/gc3.png"><img alt="" class="aligncenter size-full wp-image-1253" height="237" src="http://geobabble.files.wordpress.com/2010/10/gc3.png" title="Geolocation options" width="500" /></a></p>
+
+<p>GeoCommons recognized my address columns so I just chose &#8220;Continue.&#8221; Otherwise, I could have customized the processing.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/10/gc4.png"><img alt="" class="aligncenter size-full wp-image-1254" src="http://geobabble.files.wordpress.com/2010/10/gc4.png" title="Confirm columns or customize" /></a></p>
+
+<p>Then, it worked for a while (maybe a minute) and then showed me the geocoding results. You will see two new columns added to the data, those are explained in the <a href="http://geocommons.com/help/FortiusOne_Geocoder">GeoCommons API docs</a>.</p>
+
+<p><a href="http://geobabble.files.wordpress.com/2010/10/gc5.png"><img alt="" class="aligncenter size-full wp-image-1255" height="222" src="http://geobabble.files.wordpress.com/2010/10/gc5.png" title="Geocoding results" width="500" /></a></p>
+
+<p>After this, I edited the metadata and my data set was geocoded. Here is a link to the resulting KML: <a href="http://geocommons.com/overlays/66341.kml">http://geocommons.com/overlays/66341.kml</a></p>
+
+<p>And the results? As I said, living in a rural area can play games with geocoders. We have farms with very large road frontage as well as houses set as much as a half-mile back from the road. It&#8217;s very hard to get an exact location. I don&#8217;t have screen shots (because I don&#8217;t want to risk running afoul of anyone&#8217;s license), but I will say that in each case, GeoCommons was an exact match <em>or closer</em> to the corresponding result in <a href="http://maps.google.com">Google Maps</a>.</p>
+
+<p>I will need to run more tests with more diverse data, but these results were encouraging with data that I know well. Additionally, the FortiusOne geocoder is open-source software. This means that I can set it up (with supporting data) inside the environment of a customer who may not want to make their data public and potentially achieve similar results.</p>
+
+<p>I will definitely be playing with this more but it made a good first impression, especially given the simplicity of the process.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Dollins</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-06T00:00:00-04:00" pubdate data-updated="true">Oct 6<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/geocommons/'>GeoCommons</a>, <a class='category' href='/blog/categories/geocoding/'>geocoding</a>, <a class='category' href='/blog/categories/gis/'>gis</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.geomusings.com/2010/10/06/geocoding-with-geocommons/" data-via="billdollins" data-counturl="http://blog.geomusings.com/2010/10/06/geocoding-with-geocommons/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/10/04/gvsig-case-studies-available/" title="Previous Post: gvSIG Case Studies Available">&laquo; gvSIG Case Studies Available</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/10/08/measurestring-for-silverlight/" title="Next Post: MeasureString for Silverlight">MeasureString for Silverlight &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2600437314795269";
+/* geoMusings - GIS */
+google_ad_slot = "1381808721";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</section>
+<section>
+
+<a href="http://twitter.com/billdollins"><img src="/images/twitter.png" width="32" height="32" alt="View my Twitter profile"></a>&nbsp;
+
+
+<a href="http://www.linkedin.com/in/billdollins"><img src="/images/linkedin.png" width="32" height="32" alt="View LinkedIn profile of Bill Dollins"></a>&nbsp;
+
+
+<a href="https://plus.google.com/103048542132426664956?rel=author"><img src="/images/gplus.png" width="32" height="32"></a>&nbsp;
+
+
+<a href="http://www.facebook.com/pages/GeoMusings/304146182966988"><img src="/images/fb.png" width="32" height="32" alt="Follow my Facebook page"></a>&nbsp;
+
+
+<a href="https://github.com/geobabbler"><img src="/images/github32.png" width="32" height="32" alt="View my profile on GitHub"></a>&nbsp;
+
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/10/08/testing/">testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/09/11/personal-thoughts-on-the-appgeo-announcement/">Personal Thoughts On the AppGeo Announcement</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/08/26/maryland-council-on-open-data/">Maryland Council on Open Data</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("billdollins", 3, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/billdollins" class="twitter-follow-button" data-show-count="false">Follow @billdollins</a>
+  
+</section>
+
+<section>
+  <h1>Disclaimer</h1>
+  <p>The information in this weblog is provided "AS IS" with no warranties, and confers no rights.
+  <br/> <br/>
+  This weblog does not represent the thoughts, intentions, plans or strategies of my employer. It is solely my opinion and probably incorrect.
+  </p>
+</section>
+<section>
+<img src="/images/geomusings.png" width="64" height="64" alt="View my Twitter profile">
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2006 - 2014 - Mangrove Corporation, LLC -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'geomusings';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.geomusings.com/2010/10/06/geocoding-with-geocommons/';
+        var disqus_url = 'http://blog.geomusings.com/2010/10/06/geocoding-with-geocommons/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
