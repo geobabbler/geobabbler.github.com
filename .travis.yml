@@ -13,7 +13,7 @@ before_script:
 script:
 - bundle exec rake generate
 after_script:
-- bundle exec rake deploy
+- bundle exec rake deploy --trace
 env:
   global:
   - GH_REPO="geobabbler/geobabbler.github.com"
