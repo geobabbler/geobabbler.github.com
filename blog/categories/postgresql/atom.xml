@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: PostgreSQL | geoMusings]]></title>
+  <title><![CDATA[Category: postgresql | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/postgresql/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-10T08:36:20-04:00</updated>
+  <updated>2014-10-10T09:17:36-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,267 +14,275 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Building a Simple Geodata Service with Node, PostGIS, and Amazon]]></title>
-    <link href="http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds/"/>
-    <updated>2013-12-11T15:18:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/12/11/building-a-simple-geodata-service-with-node-and-amazon-rds</id>
-    <content type="html"><![CDATA[<p><strong>tl;dr</strong></p>
+    <title type="html"><![CDATA[Planet PostGIS Online]]></title>
+    <link href="http://blog.geomusings.com/2012/07/07/planet-postgis-online/"/>
+    <updated>2012-07-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/07/07/planet-postgis-online</id>
+    <content type="html"><![CDATA[<p><a href="http://planet.postgis.net/">Planet PostGIS</a>, an aggregation of <a href="http://postgis.refractions.net/">PostGIS</a>-related blog content is now online. As the name suggests, it is built using the same technology as <a href="http://www.spatiallyadjusted.com">James Fee's</a> <a href="http://planetgs.com">Planet Geospatial</a> but is focused on content related to PostGIS.</p>
 
-<p>This post describes the construction of a simple, lightweight geospatial data service using Node.JS, PostGIS and Amazon RDS. It is somewhat lengthy and includes a number of code snippets. The post is primarily targeted at users who may be interested in alternative strategies for publishing geospatial data but may not be familiar with the tools discussed here. This effort is ongoing and follow-up posts can be expected.</p>
+<p>If you are working with PostGIS, whether as part of an open-source stack or in conjunction with proprietary tools such as ArcGIS, you may want to check out Planet PostGIS.</p>
 
-<p><strong>Rationale</strong></p>
+<p>Thanks to <a href="http://www.linkedin.com/pub/regina-obe/7/5/200">Regina Obe</a> and everyone involved in setting this up.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Breaking Radio Silence]]></title>
+    <link href="http://blog.geomusings.com/2012/06/07/breaking-radio-silence/"/>
+    <updated>2012-06-07T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/07/breaking-radio-silence</id>
+    <content type="html"><![CDATA[<p>Things have been kind of quiet on the blog lately due to things being busy at work. I call that a good problem to have. Since the beginning of the year, I've written a a lot of proposals for a mixture of potential customers. Interestingly, I'm seeing a lot more call for "GIS Analyst" work. One trend I've noticed, at least in the Federal sector, is that the time between proposal due dates and award announcements seems to be lengthening. That may be an indication of the ongoing flux in funding and organizations try to figure out how to fund their requirements. It will be interesting to see how it shakes out. Of course, it's good that the opportunities are there in the first place.</p>
 
-<p>I'm always looking for opportunities to experiment with new tools and the announcement of PostgreSQL/PostGIS support on Amazon RDS piqued my curiosity. Over the past six months, I have run into the repeated need on a couple of projects to be able to get the bounding box of various polygon features in order to drive dynamic mapping displays. Additionally, the required spatial references of these projects have varied beyond WGS84 and Web Mercator.</p>
+<p><a href="http://geobabble.files.wordpress.com/2012/06/microphone.jpg"><img alt="" class="aligncenter size-full wp-image-2664" height="413" src="http://geobabble.files.wordpress.com/2012/06/microphone.jpg" title="microphone" width="413" /></a></p>
 
-<p>With that, the seeds of a geodata service were born. I decided to build one that would, via a simple HTTP call, return the bounding box of a polygon or the polygon itself, in the spatial reference of my choice as a single GeoJSON feature.</p>
+<p>One the technical side of things, I've been involved in a smattering of things that's made it hard to roll up one good post. I'm pretty heavily involved in the PIM efforts that my colleague, Barry Schimpf, <a href="http://www.zekiah.com/index.php?q=blog/topics/pim" target="_blank">has been blogging about</a> over on the <a href="http://www.zekiah.com" target="_blank">Zekiah</a> blog. <!--more--> Historically, the PIM data structures have been housed in Microsoft SQL Server, but we've been working on porting it to other platforms to provide options to end users. We've done an initial port to <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> but we've been spending most of our time on a <a href="http://www.sqlite.org/" target="_blank">SQLite</a>/<a href="http://www.gaia-gis.it/gaia-sins/" target="_blank">SpatiaLite</a> version. This has taken two forms. First is the port of the PIM structure itself to SQLite to make it easier to provide some of the PIM services such as profiling, version-to-version migrations, dataset generation, and validation in remote, field-based settings. Second is the generation/validation of physical implementations in SpatiaLite. This is being done for a customer who is expecting to do field data collection using SpatiaLite and these services will be helpful in enhancing data quality at the point of collection. Additionally, the SpatiaLite aspect of this work has had me living within <a href="http://qgis.org/" target="_blank">QGIS</a> lately.</p>
 
-<p>I knew I wanted to use PostGIS hosted on Amazon RDS to store my data. Here are the rest of the building blocks for this particular application:</p>
+<p>Another thing I've been experimenting with is the use of <a href="http://nodejs.org/" target="_blank">Node.js</a> for real-time data processing. Our long-standing work in the situational awareness realm has had us working with real-time data feeds for a long time. I'm interested in the possibility of using Node to tackle some of the feed collection tasks. I've used an event-driven approach for such tasks in the past so that aspect of Node is quite familiar to me but the use of Javascript, its ease of deployment and potential scalability are intriguing to me. I'm coming late to the party with Node, primarily due to my rustiness with Javascript, but I'm liking what I'm seeing so far.</p>
 
-<ol>
-<li><a href="http://nodejs.org">Node.js</a></li>
-<li>Express web application framework for Node</li>
-<li>PG module for accessing PostgreSQL with Node</li>
-<li>Natural Earth 1:10M country boundaries</li>
-</ol>
+<p>Beyond those major things, I've had the opportunity to start working with <a href="http://postgis.org/" target="_blank">PostGIS</a> 2.0 and play more with <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet</a> and <a href="http://mapbox.com/" target="_blank">MapBox</a>. On the development side of things, these efforts have had be jumping back and forth a lot between C#, Javascript and a little bit of Python, as well as between Windows and Linux, depending on the task.</p>
 
+<p>You'll notice that I didn't mention any <a href="http://www.esri.com" target="_blank">Esri</a> tools. That's primarily because recent demand from my customers has led me to a different tool set. I expect that to level out somewhat in the near future since many of the outstanding proposals I mentioned have a strong Esri flavor. As always, having a broad toolbox can be an asset in consulting. I'll be skipping San Diego again this year. I'm finding that Esri's Federal Conference in DC is of such increasing quality each year that it fulfills my needs for Esri-related information. That's really okay with me because I'd rather spend as much of the summer with my family as possible. So it's not so much a down-vote of Esri as my taking advantage of options that fit into my life better.</p>
 
-<!--more-->
+<p>I hope to be able blog in more detail about some of these efforts as I get farther along with them. Times like this make it exciting to work in the geospatial field. There's a lot of churn in the market right now with regard to tools and technologies. I'm not sure I can perceive any meaningful gap between the capabilities of open-source and proprietary geospatial tools anymore. As a result, there are a lot of options to choose from for building robust systems and applications. It looks to be a fun summer.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FOSS4G North America]]></title>
+    <link href="http://blog.geomusings.com/2012/04/12/foss4g-north-america/"/>
+    <updated>2012-04-12T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/04/12/foss4g-north-america</id>
+    <content type="html"><![CDATA[<p>It's rather fitting that the second plenary talk on Wednesday had to do with "firehose" applications since the <a href="http://foss4g-na.org/" target="_blank">FOSS4G North America</a> (FOSS4GNA) conference was something of a firehose in itself. Despite the fact that the event was smaller than the worldwide event in Denver back in October, I came away with the same "full brain" feeling.</p>
 
+<p><img alt="It feels like I never leave this place." src="http://www.visitingdc.com/images/washington-dc-convention-center.jpg" /></p>
 
-<p><strong>Setting up PostGIS on Amazon RDS</strong></p>
+<p>Of course, given the recent production release of <a href="http://blog.opengeo.org/2012/04/03/postgis-2-0-released/" target="_blank">PostGIS 2.0</a>, that was kind of the big story for this event. I attended a number of <a href="http://postgis.org/" target="_blank">PostGIS</a>/<a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>-related sessions and came away with lots of new information. I especially enjoyed <a href="http://twitter.com/pwramsey" target="_blank">Paul Ramsey's</a> "what's new" talk on Wednesday. One thing I enjoy about his talks (here and in Denver) is that he's not afraid to throw sample SQL up on the screen. It's one thing to hear about a new feature but it's another thing entirely to see a concrete example. Some may find the idea of raw SQL in a presentation abhorrent but it worked for me. <!--more--></p>
 
-<p>Setting up the PostgreSQL instance on RDS was very easy. I simply <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreatePorstgreSQLInstance.html">followed the instructions here</a> for doing it in the AWS Management Console. I also got a lot of use out of <a href="http://www.databasesoup.com/2013/11/first-look-at-postgresql-rds-on-amazon.html">this post by Josh Berkus</a>. Don't forget to also set up your security group to govern access to your database instance <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithSecurityGroups.html">as described here</a>. I prefer to grant access to specific IP addresses.</p>
+<p>I've already started playing with PostGIS 2.0 but haven't gotten terribly far so these sessions helped a lot. It's already been pretty well vetted by the community during it's various pre-release stages so it seems remarkably stable. With the addition of topology and raster analysis in addition to 3D/4D indexing and new vector functions, PostGIS probably handles the majority of what most users would need for GIS analysis at the database level. I'm excited to dig deeper.</p>
 
-<p>Now that the Amazon configuration is done, your RDS instance essentially behaves the same as if you had set it up on a server in your server room. You can now access the instance using all of the standard PostgreSQL tools with which you are familiar. This is good because we need to do at least one more thing before we load our spatial data: we have to enable the PostGIS extension. I find that it is easiest to accomplish this at the command line:</p>
+<p>I also attended a few web-mapping themed talks. If there is one word that consistently and repeatedly passed the lips of most of the presenters, it was "<a href="http://geojson.org/" target="_blank">GeoJSON</a>." I've <a href="http://blog.geomusings.com/?s=geojson" target="_blank">blogged about GeoJSON</a> in the past but it really is the oil that makes the modern geo-web run smoothly. The rate of adoption it is receiving rivals only one other <em>de facto</em> standard that I can recall: you may remember something called the shapefile. The fact is that anyone who's been hunting through their file system looking for the "next shapefile" has been looking in the wrong place. It lives behind that nice map in your browser. The shapefile took off because it solved a problem for what was the frontier of GIS in the 1990s; the transition from heavy workstations to desktop mapping. GeoJSON solves the problem of delivering vector spatial data for today's frontier; the transition from the desktop GIS to web mapping. It's that simple. We don't need another file format to solve an old problem that already has a solution.</p>
 
-<p><em>psql -U {username} -h {really long amazon instance host name} {database name}</em></p>
+<p>Of course, there was a lot more. I got introduced to <a href="http://cartodb.com/" target="_blank">CartoDB</a> in Denver, have <a href="http://blog.geomusings.com/2011/10/13/cartodb-leaflet-easy/" target="_blank">experimented with it</a> since then and was able to get an update on its 1.0 release at one of the sessions. It remains a compelling option for spatial data hosting and <a href="http://vizzuality.com/" target="_blank">Vizzuality</a> are actively engaging with the open-source communities that build the tools they use. On the cartography side of things, <a href="http://stamen.com/" target="_blank">Stamen</a> continues to show how beautiful maps can be made with open-source tools. Similarly, <a href="http://mapbox.com/" target="_blank">MapBox</a> showed how they efficiently deliver high-quality maps on the web. For my money, the unsung hero of what MapBox is doing is <a href="http://mapbox.com/mbtiles-spec/utfgrid/" target="_blank">UTFGrid</a>. I hadn't delved into it deeply until I saw the announcement that <a href="http://www.openlayers.org/" target="_blank">OpenLayers</a> now supports it. UTFGrid is breathtakingly elegant in its approach to delivering richer content with tiles. I expect that, in a few years, UTFGrid will be a standard part under the hood of any web mapping experience, like tiles and slippy maps are today.</p>
 
-<p>Once you've connected, issue the command to enable PostGIS in your database:</p>
+<p>The only consistent criticism I heard was that most of the sessions were "too technical." I can see some validity to this, given that the event was held in Washington, DC and many higher-level government or policy types who may have been seeking to conceptually understand open-source geospatial may have been put off. Commercial vendors have addressed this problem with the establishment of "executive tracks" at their events. That said, if that's the biggest criticism that can be leveled, then FOSS4GNA was a rousing success in my book.</p>
 
-<p><em>CREATE EXTENSION postgis;</em></p>
+<p>I have resolved that I will take at least one of my kids, if not both, to the next FOSS4G event that I attend. The attitude of the open-source crowd is one that I want to rub off on them. Aside from the energy that is exuded from a gathering such as this, the open-source world is full of people who see a problem and just set out to solve it. I want my kids to be exposed to that kind of initiative and understand the power that can come from harnessing it, even if they never go into a technical field.</p>
 
-<p>You may also want to enable topology while you're here:</p>
+<p>My understanding is that FOSS4GNA came together very quickly. Given that, it was a very high-quality conference and the organizers should be commended. Early tongue-in-cheek commentary referred to it as the "<a href="http://opengeo.org/" target="_blank">OpenGeo </a>User Conference." I felt like there was good balance and, when I attended sessions given by OpenGeo staff, I didn't feel like I was beaten over the head with the OpenGeo brand. All-in-all, I found my day-and-a-half at FOSS4GNA to be very beneficial and I'm hoping it becomes an annual event. (<strong>Update</strong>: It looks like next year's FOSS4GNA <a href="https://twitter.com/#!/foss4gna/status/190517270928293888" target="_blank">will be in Minnesota</a>.)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Speaking of the 84%...]]></title>
+    <link href="http://blog.geomusings.com/2012/02/08/speaking-of-the-84/"/>
+    <updated>2012-02-08T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2012/02/08/speaking-of-the-84</id>
+    <content type="html"><![CDATA[<p>HT to <a href="http://sproke.blogspot.com/2012/02/game-changer-open-source-mapping-in.html">Sophia Parafina for the 84%</a>.</p>
 
-<p><em>CREATE EXTENSION postgis_topology;</em></p>
+<p><strong>UPDATE</strong>: The NSIS script at utility batch file discussed here is now on github at <a href="https://github.com/geobabbler/pgstandalone" target="_blank">https://github.com/geobabbler/pgstandalone</a>. I'll post a readme in the next day or so.</p>
 
-<p>This should complete your setup. Now you are ready to load data.</p>
+<p>A few months ago, I asked the following question on Twitter and got this reply from Paul Ramsey:</p>
 
-<p><strong>Loading Spatial Data</strong></p>
+<p>{% tweet http://twitter.com/pwramsey/status/136565522836897796 %}</p>
 
-<p>As I mentioned above, we are now dealing with a standard PostgreSQL server that happens to be running on Amazon RDS. You can use whatever workflow you prefer to load your spatial data.</p>
+<p>We are working with a Federal Government customer that had the interesting policy that users can install software as long as it makes no changes to the Windows registry. These users are currently running a mix of Windows 7 and XP. We are working with them to help manage one of their data models. In this case, it's more about performing configuration management on the model/standard itself rather than physical databases with real data in them. It's a topic we touched on over at the Zekiah blog <a href="http://www.zekiah.com/index.php?q=blog/2012/01/13/expanding-usefulness-geospatial-data-standards" target="_blank">here</a> and an approach we have used successfully for years to manage the <a href="http://www.sdsfie.org/" target="_blank">SDSFIE</a> data standard. <!--more--></p>
 
-<p style="text-align:center;"><img src="http://blog.geomusings.com/images/posts/pgadmin_rds.png" /></p>
+<p>So we've applied the technique to another data standard for another Federal organization. In this case, we need to distribute tools to help data modelers work with the platform-independent logical model (PIM) on their own desktops. Typically, this has been centrally managed and accessible via an implementation in SQL Server. (Don't get wrapped around the term "platform-independent." We use it in a different context within this work.) Since we have to distribute to desktops, and SQL Server makes a slew of registry entries, and <a href="http://www.postgresql.org" target="_blank">PostgreSQL</a> has no licensing issues, we decided to go the PostgreSQL route.</p>
 
-<p>I downloaded the <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/">Natural Earth 1:10M country polygons</a> for this effort. Once downloaded, I used the DB Manager extension to <a href="http://qgis.org">QGIS</a> to import the data to PostgreSQL. I also did a test import with <a href="http://www.gdal.org/ogr/">OGR</a>. Both worked fine so it's really a matter of preference.</p>
+<p>It turns out, this was pretty easy. After doing the work for our approach, I have subsequently found posts showing a similar approach (as always, it depends on the day and the search term), which was nice because they sort of validated what I had already done.</p>
 
-<p><strong>Building the Application</strong></p>
+<p>Paul was on the right track with using the Windows binaries from the PostgreSQL site. Natively, PostgreSQL doesn't need any registry entries, which makes sense given that it also runs on Linux and Unix. Registry entries are typically introduced by the one-click installers that do helpful things like setting PostgreSQL up as a service and a few other things that require registry entries on Windows. These are very useful things that I avail myself of when I use PostgreSQL on Windows. In this particular use case, those features were not helpful.</p>
 
-<p>I chose to use Node.js because it is very lightweight and ideal for building targeted web applications. I decided to use the <a href="http://expressjs.com/">Express web framework for Node</a>, mainly because it makes things very easy. To access PostgreSQL, I used the <a href="https://github.com/brianc/node-postgres">node-postgres module</a>. I was planning to deploy the application in an Ubuntu instance on Amazon EC2, so I chose to do the development on Ubuntu. Theoretically, that shouldn't matter with Node but the node-postgres module builds a native library when it is installed so it was a factor here.</p>
+<p>One thing that you'll notice when you use the one-click installer is that you'll end up with a batch file called "pg_env.bat" in the install folder for your version. It looks something like this:</p>
 
-<p>After building the package.json file and using that to install the Express, node-postgres, and their dependencies, I build a quick server script to act as the web interface for the application. This is where Express really excels in that it makes it easy to define resource paths in an application.</p>
+<p>{% codeblock lang:powershell %}
+@ECHO OFF
+REM The script sets environment variables helpful for PostgreSQL</p>
 
-<p>{% codeblock server.js %}
-var express = require('express'),</p>
-
-<pre><code>geo = require('./routes/geo');
-</code></pre>
-
-<p>var app = express();</p>
-
-<p>app.get('/countries/:id/bbox', geo.bbox);
-app.get('/countries/:id/bbox/:srid', geo.bboxSrid);
-app.get('/countries/:id/polygon', geo.polygon);
-app.get('/countries/:id/polygon/:srid', geo.polygonSrid);</p>
-
-<p>app.listen(3000);
-console.log('Listening on port 3000...');
+<p>@SET PATH="C:\Program Files (x86)\PostgreSQL\8.4\bin";%PATH%
+@SET PGDATA=C:\Program Files (x86)\PostgreSQL\8.4\data
+@SET PGDATABASE=postgres
+@SET PGUSER=postgres
+@SET PGPORT=5432
+@SET PGLOCALEDIR=C:\Program Files (x86)\PostgreSQL\8.4\share\locale
 {% endcodeblock %}</p>
 
-<p>The four "app.get" statements above define calls to get either the bounding box or the actual polygon for a country. When the ":srid" parameter is not specified, the resulting feature is returned in the default spatial reference of WGS84. If a valid EPSG spatial reference code is supplied, then the resulting feature is transformed to that spatial reference. The ":id" parameter in all of the calls represents the ISO Alpha-3 code for a country. You will notice that the application listens on port 3000. More on that later.</p>
+<p>As you can see, I'm working with version 8.4 of PostgreSQL. That version is what has been blessed but I am also rolling up an implementation of this approach for 9.1 as we expect to get that approval soon.</p>
 
-<p>The next step is to define the route handlers. In this application, this where interaction with PostGIS will take place. Note that each of the exports correspond to the callback functions in the app.get statements above.</p>
+<p>With this batch file and the unzipped binaries, we have everything we need to run PostgreSQL without running an installer that makes registry entries. Now all we need to do is tell each user to unzip the binaries, edit the batch file to point to the correct paths, open a command window and run the batch file...</p>
 
-<p>{% codeblock geo.js %}
-var pg = require('pg');
-var conString = "postgres://username:password@hostname.rds.amazonaws.com:5432/database"; //TODO: point to RDS instance</p>
+<p>...Clearly, there was a little more work to do to make this operate smoothly.</p>
 
-<p>exports.bbox = function(req, res) {</p>
+<p>First, we wanted <a href="http://www.postgis.org/" target="_blank">PostGIS</a> in our build. As I mentioned before, the PIM represents a logical model that doesn't store actual data, but we wanted it to know about PostGIS data types. Additionally, we wanted to distribute the PIM with PostgreSQL. In this case, we did a little bit of prep work using a standard install of PostgreSQL to add PostGIS (and its template database) and build/populate our PIM database.</p>
 
-<pre><code>var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:4326"}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(st_envelope(shape)) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      //build a GeoJSON feature and return it
-      res.send({type: "feature",crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "extent"}});
-    }
-  }); 
-</code></pre>
+<p>Once we had this done, we moved the data directory over to our "unzipped" instance of PostgreSQL. We tested by running our batch file from the command prompt and starting PosgreSQL the same way. In our case, we changed the listening port to 54325. We then attempted to connect via pgAdmin3 and had success:</p>
 
-<p>};</p>
+<div style="text-align: center;"><img alt="" class="size-full wp-image-2471" height="274" src="http://geobabble.files.wordpress.com/2012/02/pgpost1.png" title="pgpost1" width="235" /><div style="text-align: center; font-size: 14px">Connection successful!<br /></div></div>
 
-<p>exports.bboxSrid = function(req, res) {</p>
 
-<pre><code>var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:" + req.params.srid}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(st_envelope(st_transform(shape, " + req.params.srid + "))) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({type: "feature",crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "extent"}});
-    }
-  }); 
-</code></pre>
+<p>This is all well and good, but probably still a bit much to ask a user to do. So we built an installer. In this case, we used the <a href="http://nsis.sourceforge.net/Main_Page" target="_blank">Nullsoft Scriptable Install System</a> (NSIS) to build our own installer and ensure that no registry entries were made. So once we had our instance/data prepped the way we wanted it, we zipped it all back up for inclusion in the installer. The NSIS script for the installer is at the end of this post.</p>
 
-<p>};</p>
+<p>For the installer to work, we also made use of the <a href="http://nsis.sourceforge.net/ZipDLL_plug-in">ZipDLL plug-in</a> for NSIS. The installer essentially prompts the user to specify the install location then unzips the PostgreSQL binaries/data, builds the driver batch file and places shortcuts on the user's desktop. It's really that simple. We have a utility (also a batch file) that builds the driver batch file as the installer runs. When it's done, the installer cleans up the zip file and the utility. The resulting driver batch file looks like this (where the user specified "C:\Program Files (x86)\PGStandalone11" as the install location):</p>
 
-<p>exports.polygon = function(req, res) {</p>
-
-<pre><code>//TODO: Flesh this out. Logic will be similar to bounding box.
-var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:4326"}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(shape) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({type: "feature", crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "boundary"}});
-    }
-  }); };
-</code></pre>
-
-<p>exports.polygonSrid = function(req, res) {</p>
-
-<pre><code>var client = new pg.Client(conString);
-client.connect();
-var crsobj = {"type": "name","properties": {"name": "urn:ogc:def:crs:EPSG:6.3:" + req.params.srid}};
-var idformat = "'" + req.params.id + "'";
-idformat = idformat.toUpperCase();  
-var query = client.query("select st_asgeojson(st_transform(shape, " + req.params.srid + ")) as geojson from ne_countries where iso_a3 = " + idformat + ";"); 
-var retval = "no data";
-query.on('row', function(result) {
-    client.end();   
-    if (!result) {
-      return res.send('No data found');
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({type: "feature",crs: crsobj, geometry: JSON.parse(result.geojson), properties:{"iso": req.params.id, "representation": "boundary"}});
-    }
-  }); };
-</code></pre>
-
-<p>{% endcodeblock %}</p>
-
-<p>The PostGIS spatial SQL for each function is shown in the "client.query" calls in the code above. This approach is very similar to constructing SQL calls in a number of other application environments. You will notice that a coordinate reference system object is constructed and attached to each valid response, which is structured as a <a href="http://geojson.org">GeoJSON</a> feature. The code currently assumes EPSG codes but that may be addressed in a future version.</p>
-
-<p>The above modules do most of the heavy lifting. The full code for this sample <a href="https://github.com/geobabbler/geo-service">is available here</a>.</p>
-
-<p>To test the application, simply issue the following command in a terminal:</p>
-
-<p><em>node server.js</em> (this assumes you are running from the same directory in which server.js resides. The file extension is optional.</p>
-
-<p>Your web application is now listening on port 3000. In a browser, visit the following URL:</p>
-
-<p><em>http://localhost:3000/countries/irl/bbox</em></p>
-
-<p>This should return a GeoJSON feature representing the bounding box of Ireland in WGS84. You can then test the other three calls with appropriate parameters. To get the bounding box in Web Mercator, go to:</p>
-
-<p><em>http://localhost:3000/countries/irl/bbox/3785</em></p>
-
-<p><strong>Deploying the Application</strong></p>
-
-<p>The application should now be ready to deploy. In my case, I created an Ubuntu EC2 instance (free tier). Using SSH, I made sure Node and git were installed on the machine. Additionally, I installed <a href="https://github.com/nodejitsu/forever">Forever</a> which allows a Node application to run continuously (similar to a service on Windows). This can also be done using an upstart script but I chose Forever. I may switch to using <a href="http://devo.ps/blog/2013/06/26/goodbye-node-forever-hello-pm2.html">PM2</a> at some point.</p>
-
-<p>Now, it's simply matter of installing the application code to the instance via git, wget, or the method of your choice. Once installed, be sure to go to the folder containing the code and issue the "npm install" command. This will read the package.json install Express, node-postgres, and other dependencies. Since some native code is built in the process, you may need to issue the command under sudo.</p>
-
-<p>I mentioned above that the application listens on port 3000. The Ubuntu instance, by default, will not allow the application to listen on port 80. This can be mitigated in a number of ways but I issued the following command to redirect traffic from 80 to 3000. Since this instance is single-use, this approach is sufficient.</p>
-
-<p><em>sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000</em></p>
-
-<p>Once you are ready to go, you'll want to start the application with the following command:</p>
-
-<p><em>forever start server</em> (again assuming you are executing from the directory containing server.js)</p>
-
-<p>A couple of Amazon notes: 1) You may want to assign an elastic IP to your instance for a persistent IP address and 2) you'll want you remember to configure your RDS security group to allow access from your instance's IP address.</p>
-
-<p><strong>Conclusion</strong></p>
-
-<p>If everything has gone correctly, you should be able to execute the above URLs (using your instance IP address) and get a response like the following, which you should be able to load directly into QGIS or another GeoJSON-literate client. Altogether, I was able to assemble this in one evening. This small collection of open-source tools, combined with the Amazon infrastructure, seems to provide a straightforward path to a hosted geodata service. This example is intentionally simple but PostGIS provides a robust collection of functions that can be exploited in a similar manner, leading to more advanced processing or analysis. I will continue my experimentation but am encouraged by what I have seen so far.</p>
-
-<p><strong>Sample Response</strong></p>
-
-<p>{% codeblock irl_bbox.json %}
-{
-  "type": "feature",
-  "crs": {</p>
-
-<pre><code>"type": "name",
-"properties": {
-  "name": "urn:ogc:def:crs:EPSG:6.3:4326"
-}
-</code></pre>
-
-<p>  },
-  "geometry": {</p>
-
-<pre><code>"type": "Polygon",
-"coordinates": [
-  [
-    [
-      -10.4781794909999,
-      51.4457054710001
-    ],
-    [
-      -10.4781794909999,
-      55.386379299
-    ],
-    [
-      -5.99351966099994,
-      55.386379299
-    ],
-    [
-      -5.99351966099994,
-      51.4457054710001
-    ],
-    [
-      -10.4781794909999,
-      51.4457054710001
-    ]
-  ]
-]
-</code></pre>
-
-<p>  },
-  "properties": {</p>
-
-<pre><code>"iso": "irl",
-"representation": "extent"
-</code></pre>
-
-<p>  }
-}
+<p>{% codeblock lang:powershell %}
+REM This file was automatically generated
+REM This script sets environment variables helpful for PostgreSQL
+@SET PATH="C:\Program Files (x86)\PGStandalone11\bin";%PATH%
+@SET PGDATA=C:\Program Files (x86)\PGStandalone11\data
+@SET PGDATABASE=postgres
+@SET PGUSER=postgres
+@SET PGPORT=54325
+@SET PGLOCALEDIR=C:\Program Files (x86)\PGStandalone11\share\locale
+CALL "C:\Program Files (x86)\PGStandalone11\bin\postgres.exe"
 {% endcodeblock %}</p>
+
+<p>We also drop two shortcuts on the desktop:</p>
+
+<p><img alt="" class="aligncenter size-full wp-image-2475" height="161" src="http://geobabble.files.wordpress.com/2012/02/pgpost2.png" title="pgpost2" width="316" /></p>
+
+<p>The shortcut labeled "Start PostGIS PIM" executes the batch file above. The shortcut labeled "Manage PostGIS PIM" starts pgAdmin3. I am currently trying to get pgAdmin3 to read the connection information from its settings.ini file instead of looking to the registry. If the user adds the connection on their own, it will write information to the HKCU hive of the registry. This may end up being acceptable but I probably still won't let it go until I solve this problem.</p>
+
+<p>Once we get this completely finalized, I'll make the script and the utilities available. Another reason that I love PostgreSQL is that things like this seem to end up being easier than you would think. That's a sign of a well-built piece of software, in my opinion.</p>
+
+<p>And here's the installer's NSIS script:</p>
+
+<p>{% codeblock lang:text %}
+!define CO_DIR "Zekiah Technologies"
+!define NAME "Standalone PostgreSQL/PostGIS Install for Windows"
+!define SHORTNAME "PGStandalone"
+!define UNINSTALLER "uninstall.exe"</p>
+
+<p>OutFile "setup_${SHORTNAME}.exe"
+Name "${NAME}"
+Caption "${NAME} Setup"
+InstallDir "$PROGRAMFILES\${SHORTNAME}"
+CompletedText "Success."
+XPStyle "On"
+InstallColors /windows</p>
+
+<p>Page directory
+Page instfiles
+ShowInstDetails show</p>
+
+<p>Section "Install"</p>
+
+<pre><code>SetOutPath $INSTDIR
+
+; Create uninstaller first, so user can clean up if we barf.
+WriteUninstaller "$INSTDIR\${UNINSTALLER}" ;this actually does nothing right now
+
+; Extract all the files.
+DetailPrint "Extracting files..."
+File pg.zip
+ZipDLL::extractall "$INSTDIR\pg.zip" "$INSTDIR"
+
+;Write batch file using INSTDIR to set correct paths
+Call WriteBatchFile
+DetailPrint "OK: Batch file written"
+
+Call OutputToTemp
+GetFullPathName /short $0 $INSTDIR
+Delete "$INSTDIR\pg.zip"
+
+; Add start menu shortcuts.
+DetailPrint "Adding shortcuts..."
+SetShellVarContext all
+CreateDirectory "$SMPROGRAMS\${NAME}"
+SetOutPath "$SMPROGRAMS\${NAME}"
+CreateShortCut "Uninstall.lnk" "$INSTDIR\${UNINSTALLER}"
+CreateShortCut "$DESKTOP\Start PostGIS PIM.lnk" "$INSTDIR\pg_standalone.bat" ""
+CreateShortCut "$DESKTOP\Manage PostGIS PIM.lnk" "$INSTDIR\bin\pgAdmin3.exe" ""
+
+; Success.
+DetailPrint "All Done!"
+</code></pre>
+
+<p>SectionEnd</p>
+
+<p>Function OutputToTemp</p>
+
+<pre><code>ExpandEnvStrings $5 "%TEMP%"
+SetOutPath $5
+</code></pre>
+
+<p>FunctionEnd</p>
+
+<p>Function un.OutputToTemp</p>
+
+<pre><code>ExpandEnvStrings $5 "%TEMP%"
+SetOutPath $5
+</code></pre>
+
+<p>FunctionEnd</p>
+
+<p>Function WriteBatchFile</p>
+
+<pre><code>; execute utility to create batch file to execute PostgreSQL
+
+Call OutputToTemp
+File "utils\make_pg_env.bat"
+ExecWait '"$5\make_pg_env.bat" "$INSTDIR"'
+</code></pre>
+
+<p>FunctionEnd</p>
+
+<p>UninstPage uninstConfirm
+UninstPage instfiles
+ShowUninstDetails hide</p>
+
+<p>Section "Uninstall"</p>
+
+<pre><code>; Remove all start menu shortcuts.
+DetailPrint "Removing shortcuts..."
+SetShellVarContext all
+Delete "$SMPROGRAMS\${NAME}\*"
+RmDir "$SMPROGRAMS\${NAME}"
+
+DetailPrint "Removing files..."
+
+Delete "$INSTDIR\${UNINSTALLER}"
+RmDir "$INSTDIR"
+</code></pre>
+
+<p>SectionEnd
+{% endcodeblock %}</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[zigGIS - The End of the Road]]></title>
+    <link href="http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road/"/>
+    <updated>2011-08-03T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road</id>
+    <content type="html"><![CDATA[<p><a href="http://twitter.com/xanadont">Abe Gillespie</a> made it official today on the zigGIS Google Group: development on <a href="http://pub.obtusesoft.com">zigGIS</a> will cease.  <!--more--></p>
+
+<blockquote>
+I've been meaning to make an announcement that zigGIS has officially reached its end-of-life since the next version of ArcGIS should support direct read / write interoperability with PostGIS (thereby rendering zigGIS moot).  I was delaying the announcement because I was hoping we could test PgMap and, if it was any good, suggest it as an alternative during the interim.  But we haven't been able to test it yet.
+
+In any case, PgMap is free, so why not give it a try?  I'm sure the list would appreciate any feedback you could give.
+</blockquote>
+
+
+<p>This is obviously a something of a bittersweet, though expected, development for me. Although <a href="http://blog.geomusings.com/2010/09/28/me-and-ziggis/">I ceased my involvement with zigGIS</a> last year, I was still rooting for it. Abe had a lot of cool plans for it but the fact that <a href="http://www.esri.com">ArcGIS</a> will <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">natively support direct read/write to its supported spatial databases</a> really renders zigGIS unnecessary. Its primary value at this point would be support for earlier versions of ArcGIS but that's not really enough to justify so much time and effort.</p>
+
+<p><img alt="zigGIS is no more" class="alignleft size-medium wp-image-3109" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg?w=200" /></p>
+
+<p>In terms of ArcGIS, this is a good development. Direct read/write is a capability that always needed to be there and now it will be. When I first got involved with zigGIS, <a href="http://postgis.refractions.net">PostGIS</a> wasn't supported at all so it made a lot of sense. At the time, I was stuck in a windowless room building a personnel system, so working on zigGIS in the evenings helped be stay connected to the geospatial world. It enabled me to work with Abe and <a href="https://twitter.com/capooti">Paolo Corti</a>; a fact that I will always treasure. Abe put a lot of sweat into zigGIS over its lifetime and I am honored to have helped him in some small way. zigGIS also brought me into contact with phenomenally supportive users, such as <a href="http://www.bostongis.com/blog/">Regina Obe</a> and <a href="http://thesteve0.wordpress.com/">Steven Citron-Pousty</a>, from both of whom I learned a great deal.</p>
+
+<p>Some of the first posts on this blog were about zigGIS. It's hard to believe I've just written my last one.</p>
+
+<p>The PgMap product that Abe mentions can be found <a href="http://st-links.com/default.aspx">here</a>.</p>
+
+<p><strong>UPDATE:</strong> Later in the same discussion on the zigGIS group, Abe responded to a question about opening the latest version of the code (version 2.x) this way:</p>
+
+<blockquote>
+I'm planning on doing just that.  But I didn't want to
+announce anything yet because I have very little free time right now
+and don't know when I can get to it.
+</blockquote>
+
+
+<p>The full discussion thread is here: <a href="http://groups.google.com/group/ziggis/browse_thread/thread/14ae8a351564de9e">http://groups.google.com/group/ziggis/browse_thread/thread/14ae8a351564de9e</a></p>
 ]]></content>
   </entry>
   

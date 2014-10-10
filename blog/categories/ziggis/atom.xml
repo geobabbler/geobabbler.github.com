@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: zigGIS | geoMusings]]></title>
+  <title><![CDATA[Category: ziggis | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/ziggis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-10T08:36:20-04:00</updated>
+  <updated>2014-10-10T09:17:36-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,62 +14,156 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Checking out the GDAL/OGR Plugin for ArcGIS]]></title>
-    <link href="http://blog.geomusings.com/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis/"/>
-    <updated>2013-01-22T13:29:00-05:00</updated>
-    <id>http://blog.geomusings.com/2013/01/22/checking-out-the-gdal-slash-ogr-plugin-for-arcgis</id>
-    <content type="html"><![CDATA[<p>A while back, I <a href="http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis/">blogged</a> the availability of a <a href="http://www.gdal.org/">GDAL/OGR</a> <a href="https://github.com/RBURHUM/arcgis-ogr/">plug-in for ArcGIS</a> desktop by <a href="http://www.linkedin.com/profile/view?id=14926439&amp;locale=en_US">Ragi Burhum at AmigoCloud</a>. At the time, I was hoping to dig into it fairly quickly but that didn't happen and I'm finally getting to it. Anyone who has followed this blog for a while knows that I have had <a href="http://blog.geomusings.com/2006/12/17/postgis-and-arcgis-9.1/">more</a> than a <a href="http://blog.geomusings.com/2007/07/10/consuming-georss-in-arcmap-with-inmemoryworkspacefactory/">passing</a> <a href="http://blog.geomusings.com/2012/10/03/cutting-tiles-for-arcgis-server-using-tilemill/">interest</a> in <a href="http://blog.geomusings.com/2010/06/02/importing-data-from-geocommons-into-arcmap/">integrating</a> new <a href="http://blog.geomusings.com/2011/03/02/announcing-weogeo-tools-for-arcgis/">data</a> <a href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/">sources</a> <a href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/">with</a> <a href="http://blog.geomusings.com/2011/11/15/fgeojson/">ArcGIS</a> over the years. This comes from the fact that, as a technology geek, I am fascinated by all forms of technology and enjoy the process of integration and, as a consultant providing services to the Federal Government, most of my customers have standardized on Esri tools. Integrations such as GeoRSS, PostGIS, GeoCommons and GeoJSON have directly benefitted my customers for real-world applications so I continue look for ways to remove the barriers between them and the data they seek.</p>
+    <title type="html"><![CDATA[So, Which Is It?]]></title>
+    <link href="http://blog.geomusings.com/2011/08/17/so-which-is-it/"/>
+    <updated>2011-08-17T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/17/so-which-is-it</id>
+    <content type="html"><![CDATA[<p><strong>Update:</strong> I pulled this link out of the comment thread below to emphasize it. It seems to answer this question for now: <a href="http://forums.arcgis.com/threads/35676-Edit-spatial-data-with-quot-ArcGIS-for-Desktop-10.1-quot-in-non-SDE-RDBMS-systems">http://forums.arcgis.com/threads/35676-Edit-spatial-data-with-quot-ArcGIS-for-Desktop-10.1-quot-in-non-SDE-RDBMS-systems</a></p>
 
-<div style="text-align:center;"><img src="http://images-mediawiki-sites.thefullwiki.org/07/3/6/0/1583563936968042.png" /></div>
+<p>Since my <a href="http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road/">previous</a> <a href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/">posts</a> about <a href="http://st-links.com/default.aspx">PgMap</a> and the shuttering of <a href="http://www.obtusesoft.com/">zigGIS</a>, the nature of the planned support for connecting directly to spatial databases from ArcGIS 10.1 has gotten somewhat muddier.</p>
 
+<p>{% youtube zU9lv_WqK6k %}</p>
 
-
+<p>One of the first indications of direct support was <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">this statement from the ESRI UC Q&amp;A</a>.</p>
 
 <!--more-->
 
 
-<p>The GDAL/OGR plug-in caught my attention because it purports to add support for any format supported by GDAL and OGR, similar to the way <a href="http://qgis.org">QGIS</a> leverages them for a wide variety of format support. To get going with it, I downloaded the source and built it in Visual Studio 2010. I only ran into a couple of minor issues. First, a had previously installed the Windows build of OGR on my machine using the <a href="http://www.gisinternals.com/sdk/PackageList.aspx?file=release-1600-gdal-1-9-2-mapserver-6-2-0.zip">distribution from GIS Internals</a>. The project as it came down from GitHub couldn't find the OGR and OSR bindings for C#, so I had to resolve that trivial issue. Next, the plug-in was built for use in ArcGIS 10.1 but I was using 10.0. Because some new interfaces were introduced, the <a href="https://github.com/RBURHUM/arcgis-ogr/blob/master/src/OGRPlugin/OGRPlugin/ogrplugin_utils.cs">current code</a> contains a declaration of  type ISpatialReferenceFactory4, which is a 10.1 interface. I needed to change that to ISpatialReferenceFactory3 to make it work with 10.0. That has been the only change I have needed to make so far to account for the version differences. I plan to add a compiler directive in my fork of the project to account for that and submit it back once I can test it.</p>
+<p>This statement, of course, doesn't specifically say anything about editing. I followed up with some people at <a href="http://www.esri.com">ESRI</a> (who shall remain nameless) who said the intent was to support editing of spatial databases in the same manner as current simple feature editing. So there we have it, read/edit from ArcMap without the need of ArcSDE.</p>
 
-<p>As I said before, I previously had installed GDAL/OGR so it was already on my machine and my GDAL_DATA environment variable was set. When I built the plug-in and attempted to use it in ArcMap, it threw an error when I tried adding a GeoJSON layer (also with SpatiaLite) that it could not find my gcs.csv file, which is in my GDAL_DATA location. With a little investigation, I found that the code was resetting that variable at runtime to point to the location of the plug-in binary. I copied the files there and it worked well from then on. I'll probably try to add a way to check for the existence of that variable before setting it. None of these issues were major and I think they were reasonable design choices up front so I am not concerned by them.</p>
+<p>Or not...</p>
 
-<p>At that point, I was able to quickly add GeoJSON and SpatiaLite layers to my data frame in ArcMap. This is pretty exciting to me since the ability to support a wide range of data types was a long-standing goal of zigGIS and I'm glad that Ragi has conquered that with this work.</p>
+<p>Subsequently, I have gotten a direct message on Twitter (from someone outside ESRI) indicating that editing will be supported only through the Spatial Data Server (SDS) and will require an SDS license. That seems to be bolstered by this <a href="http://proceedings.esri.com/library/userconf/proc11/uc/tw-pdfs/tw_1472.pdf">PDF from the ESRI UC</a>.</p>
 
-<p>Because the layers are added using a plug-in workspace, they are full read-only citizens inside ArcGIS. For example, I was able to wire up a couple of models using ModelBuilder and execute clips (clipping a GeoJSON layer with a SpatiaLite layer) and buffers and simple tests. I'm really not a huge ModelBuilder user but I thought it would be a good way to test things out.</p>
+<p>So, at this point, I'll confess to being a little confused. There's a lot of new technology and capability being introduced at 10.1. (Hmmmm, maybe it should be 11.0?) So, given that it's all still in beta, I'll chalk it up to general churn associated with an impending release.</p>
 
-<div style="text-align:center;">
-<img src="http://blog.geomusings.com/images/posts/buffer.png" />
-<div style="text-align:center;font-size: 14px;">Model to test a simple buffer<br/><br/></div></div>
-
-
-<p>The model above produced a 50-foot buffer around Amtrak rail lines from NTAD 2012 in GeoJSON format. The resultant buffer was written to a file geodatabase. As you can see from the image below, it worked like a charm.</p>
-
-<div style="text-align:center;">
-<img src="http://blog.geomusings.com/images/posts/buffer_result_small.png" />
-<div style="text-align:center;font-size: 14px;">Results of the buffer model.<br/><br/></div></div>
-
-
-<p>I achieved similar success with a clip operation so I'm sufficiently confident in trying to package the plug-in up and put it in the hands of some of the analysts with whom I work. All-in-all, the plug-in is a nice piece of work. It's still not fully baked but it's a very solid start and deserves a closer look if you're looking to expand the reach of your ArcGIS investment.</p>
+<p>Regardless of what the exact story is, I'm not sure it'll affect any decisions related to zigGIS. If ArcMap isn't supported, PgMap is still a compelling alternative for ArcGIS Desktop users. But perhaps someone from ESRI can help clear this up so the community can know what to expect.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Still Jonesing for zigGIS? Try this OGR Plug-In for ArcGIS.]]></title>
-    <link href="http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis/"/>
-    <updated>2012-09-18T00:00:00-04:00</updated>
-    <id>http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis</id>
-    <content type="html"><![CDATA[<p>So I've actually noticed a surprising uptick in traffic related to <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> lately? We also had someone asking about <a href="http://www.st-links.com/Pages/default.aspx" target="_blank">ST-Links</a> on the zigGIS mailing list last week. Clearly, there's still a level of interest out there for the problem that zigGIS was designed for.</p>
+    <title type="html"><![CDATA[Taking A Look At PgMap]]></title>
+    <link href="http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap/"/>
+    <updated>2011-08-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/09/taking-a-look-at-pgmap</id>
+    <content type="html"><![CDATA[<p>When I blogged about <a href="http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road/">the official end of zigGIS</a> last week, I included a mention of <a href="http://st-links.com/default.aspx">PgMap</a>, a free extension to <a href="http://www.esri.com">ArcMap</a> for direct read/edit of <a href="http://postgis.refractions.net">PostGIS</a> data. Judging from outbound links, there seems to be a good bit of interest in it so I decided to take a look.</p>
 
-<p><a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank"><img alt="ArcGIS and SpatiaLite" height="65%" src="https://a248.e.akamai.net/camo.github.com/c1c86347c63522cb0f5f449b7b9df4209923c3ed/687474703a2f2f692e696d6775722e636f6d2f53767a6a702e706e67" width="65%" /></a></p>
+<p>To recap, Abe decided to pull the plug on zigGIS due to the fact that <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">ESRI will support direct read/edit of spatial databases</a> (as simple features) in 10.1. In my opinion, this is a good development. With native support coming, there was no need to continue with zigGIS. That support, however, will only exist in ArcGIS 10.1. Users of older versions will need to find alternatives. Based on our experience with zigGIS (as well as download data I've seen for the <a href="http://www.zekiah.com/index.php?q=weogeo">WeoGeo toolbar</a>), there are a lot of people (especially outside the US) still using ArcGIS 9.x so demand for an alternative will probably be high for some time.   <!--more--></p>
 
-<div style="font-size: 70%;"><strong>ArcGIS reading SpatiaLite natively, thanks to OGR and Ragi Burhum</strong></div>
+<p>A quick glance shows me that there are a lot of similarities between PgMap and zigGIS. This is not surprising as there are really only so many ways to approach the task of connecting directly to PostGIS from ArcMap. That said, there are some key differences that are very attractive. They are:</p>
+
+<ol>
+    <li>Support for ArcGIS 10</li>
+    <li>Support for PostgreSQL 9.x</li>
+    <li>Support for PostGIS 1.5</li>
+    <li>Availability of a companion product, QMap, for connecting to SQL Server 2008</li>
+</ol>
 
 
-<br />
+<p>These differences represent capabilities that were frequently requested by zigGIS users but that we simply hadn't gotten to so it's good to see that PgMap has been able to support them. While PgMap is free of charge, it does require a license key. Without the license key, the documentation says that you will only have access to the first 1000 rows of your data. I was only ever able to access the first 100 rows so I suspect there may be a typo in either the docs or the code.</p>
+
+<p>Using ArcGIS 10.0 (ArcEditor), I gave it a very quick run-through. The capability I found is impressive. PgMap allows you to manage connections to PostGIS databases, add PostGIS tables as feature classes and set definition queries for those layers. It appears that PgMap reads the geometry_columns table to list layers. I will need to investigate further to see if it supports views or spatial tables that have not been registered in the geometry_columns table.</p>
+
+<p>There is one key difference between zigGIS and PgMap that I did not mention above and which is quite powerful. PgMap supports the export of ArcGIS feature classes directly to PostGIS (and vice versa). It also appears to support appending to existing PostGIS tables but I have not tested that yet. I used PgMap to export a feature class from a file geodatabase to my PostGIS database and it went flawlessly.</p>
+
+<div style="text-align:center;"><img alt="" height="507" src="http://geobabble.files.wordpress.com/2011/08/pgmap_export.png" title="Using PgMap to export data to PostGIS" width="531" /><div style="text-align:center;font-size: 14px;">PgMap export dialog<br/><br/></div></div>
 
 
-<p>Along those lines, <a href="http://twitter.com/rburhum" target="_blank">Ragi Burhum</a> posted an <a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank">OGR Workspace plug-in for ArcGIS</a> up on GitHub. Using OGR is really the magic ticket and the project is available under a BSD license (which Ragi explains very well). The only word to the wise is that pre-built binaries and installers aren't available yet so you Windows/<a href="http://www.esri.com" target="_blank">ArcGIS</a> users will need to get your hands dirty.</p>
+<p>The resulting PostGIS table was displayed perfectly in QGIS, with all of the attributes coming over well. I have not delved in yet to to see what assumptions PgMap makes in terms of data type conversions between the geodatabase and PostgreSQL.</p>
 
-<p>I haven't used it yet but I plan to within the next week or so. Stay tuned for a follow up post.</p>
+<div style="text-align:center;"><img alt="" height="315" src="http://geobabble.files.wordpress.com/2011/08/pgmap_qgis.png" title="QGIS displaying PostGIS data imported with PgMap" width="590" /><div style="text-align:center;font-size: 14px;">O Canada!<br/><br/></div></div>
+
+
+<p>PgMap also integrates seamlessly with the ArcMap editor toolbar for editing. During my investigations, I noticed that layers are loaded into in-memory workspaces so they are natively supported for editing. Edits are then posted back to PostGIS when saved. This is similar to the approach that zigGIS used and is also similar to the behavior of other tools as well. When I get my license, I will need to test with larger data sets. zigGIS originally used in-memory workspaces but we noticed performance problems when loading large data sets so we switched to scratch workspaces. There are numerous ways to mitigate this but, until I can access full data sets, I can't really test it.</p>
+
+<p>Editing worked well. I was even able to use PgMap to do further testing on my <a href="http://blog.geomusings.com/2011/08/01/triggered-notifications-using-postgis/">notification system</a>.</p>
+
+<p>All in all, I think PgMap is an impressive tool that should be able to support the needs of ArcGIS 9.x and 10.0 users going forward. It's good to know that a tool is out there to continue meeting that demand.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[zigGIS - The End of the Road]]></title>
+    <link href="http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road/"/>
+    <updated>2011-08-03T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2011/08/03/ziggis-the-end-of-the-road</id>
+    <content type="html"><![CDATA[<p><a href="http://twitter.com/xanadont">Abe Gillespie</a> made it official today on the zigGIS Google Group: development on <a href="http://pub.obtusesoft.com">zigGIS</a> will cease.  <!--more--></p>
+
+<blockquote>
+I've been meaning to make an announcement that zigGIS has officially reached its end-of-life since the next version of ArcGIS should support direct read / write interoperability with PostGIS (thereby rendering zigGIS moot).  I was delaying the announcement because I was hoping we could test PgMap and, if it was any good, suggest it as an alternative during the interim.  But we haven't been able to test it yet.
+
+In any case, PgMap is free, so why not give it a try?  I'm sure the list would appreciate any feedback you could give.
+</blockquote>
+
+
+<p>This is obviously a something of a bittersweet, though expected, development for me. Although <a href="http://blog.geomusings.com/2010/09/28/me-and-ziggis/">I ceased my involvement with zigGIS</a> last year, I was still rooting for it. Abe had a lot of cool plans for it but the fact that <a href="http://www.esri.com">ArcGIS</a> will <a href="http://events.esri.com/uc/QandA/index.cfm?fuseaction=Answer&amp;ConferenceID=DD02CFE7-1422-2418-7F271831F47A7A31&amp;QuestionID=3949">natively support direct read/write to its supported spatial databases</a> really renders zigGIS unnecessary. Its primary value at this point would be support for earlier versions of ArcGIS but that's not really enough to justify so much time and effort.</p>
+
+<p><img alt="zigGIS is no more" class="alignleft size-medium wp-image-3109" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg?w=200" /></p>
+
+<p>In terms of ArcGIS, this is a good development. Direct read/write is a capability that always needed to be there and now it will be. When I first got involved with zigGIS, <a href="http://postgis.refractions.net">PostGIS</a> wasn't supported at all so it made a lot of sense. At the time, I was stuck in a windowless room building a personnel system, so working on zigGIS in the evenings helped be stay connected to the geospatial world. It enabled me to work with Abe and <a href="https://twitter.com/capooti">Paolo Corti</a>; a fact that I will always treasure. Abe put a lot of sweat into zigGIS over its lifetime and I am honored to have helped him in some small way. zigGIS also brought me into contact with phenomenally supportive users, such as <a href="http://www.bostongis.com/blog/">Regina Obe</a> and <a href="http://thesteve0.wordpress.com/">Steven Citron-Pousty</a>, from both of whom I learned a great deal.</p>
+
+<p>Some of the first posts on this blog were about zigGIS. It's hard to believe I've just written my last one.</p>
+
+<p>The PgMap product that Abe mentions can be found <a href="http://st-links.com/default.aspx">here</a>.</p>
+
+<p><strong>UPDATE:</strong> Later in the same discussion on the zigGIS group, Abe responded to a question about opening the latest version of the code (version 2.x) this way:</p>
+
+<blockquote>
+I'm planning on doing just that.  But I didn't want to
+announce anything yet because I have very little free time right now
+and don't know when I can get to it.
+</blockquote>
+
+
+<p>The full discussion thread is here: <a href="http://groups.google.com/group/ziggis/browse_thread/thread/14ae8a351564de9e">http://groups.google.com/group/ziggis/browse_thread/thread/14ae8a351564de9e</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Where Has The Time Gone?]]></title>
+    <link href="http://blog.geomusings.com/2010/12/01/where-has-the-time-gone/"/>
+    <updated>2010-12-01T00:00:00-05:00</updated>
+    <id>http://blog.geomusings.com/2010/12/01/where-has-the-time-gone</id>
+    <content type="html"><![CDATA[<p>It's been four years to the day since I started this blog. This was not my first attempt at blogging but I wasn't happy with my first one so it's been lost to the recycle bin of history. It was (and still is) intended to be an outlet for my observations and experiences arising from my work. Sometimes, that means I post code and other times it means I post rants.</p>
+
+<p>My <a href="http://geobabble.wordpress.com/2006/12/01/irasterlayer-export-gotcha-in-92/">first post</a> was regarding a bug with raster layers in ArcGIS 9.2. That project evolved to include the use of <a href="http://sharpmap.codeplex.com/">SharpMap</a> and <a href="http://postgis.refractions.net/">PostGIS</a>, which led me to get involved with <a href="http://www.obtusesoft.com">zigGIS</a>. From there, I got more involved with open-source GIS while also staying current with the various permutations of <a href="http://www.esri.com">Esri</a> technology (I can now say I was working with it when it was "EE ESS ARE EYE").</p>
+
+<p><img alt="Now I just need a cake." src="http://www.latestgifts.co.uk/img/Candles/birthday-candle-number-4-four-large.jpg" /></p>
+
+<p>Today, I'm still working with a lot of Esri tools (especially since I still do a lot of work for the government) but I still maintain a mix of open-source tools and, more recently, have begun working with various cloud platforms (see recent posts on <a href="http://www.weogeo.com">WeoGeo</a>, <a href="http://www.geocommons.com">GeoCommons </a>and <a href="http://www.arc2earth.com">Arc2Earth</a>).</p>
+
+<p>So, whereas I was probably spending over 80% of my time working with ESRI tools when I started, I'd say that number is closer to 50% now. I would not, however, read much into that other than my own personal decisions. I feel the broader perspective of working with a variety of tools makes me a better <a href="http://www.zekiah.com">consultant</a>, regardless of which platform my customer has chosen.</p>
+
+<p>Over the past four years, I have gotten to know a lot of very smart people as a direct result of this blog so it's definitely been a positive experience for me.</p>
+
+<p>To all who have stopped by over that time, please accept my sincerest thanks.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Me and zigGIS]]></title>
+    <link href="http://blog.geomusings.com/2010/09/28/me-and-ziggis/"/>
+    <updated>2010-09-28T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/09/28/me-and-ziggis</id>
+    <content type="html"><![CDATA[<p>If you?ve been to the <a href="http://pub.obtusesoft.com">Obtuse Software</a> site recently, you may or may not have noticed a change to the ?<a href="http://pub.obtusesoft.com/who.aspx">Who We Are</a>? page. It now lists only <a href="http://abegillespie.blogspot.com">Abe Gillespie</a> and <a href="http://www.paolocorti.net/">Paolo Corti</a>. Prior to my trip to Colorado to talk about zigGIS at <a href="http://www.gisintherockies.org/GISITR2010/Home/Default.aspx">GIS in the Rockies</a>, I informed Abe and Paolo that I would be stepping back from any ?official? involvement in Obtuse.</p>
+
+<p>This does not mean that I am stepping back from involvement in zigGIS. I plan to continue to support zigGIS as it returns to open-source but, in truth, I haven?t done much with zigGIS day-to-day in a long time. As part of the <a href="http://abegillespie.blogspot.com/2010/04/prodigal-extension.html">return of zigGIS to open-source at version 3.0</a>, Abe has been working on a plan to give the community multiple paths to support the project, including sponsorship and technical support plans. I'm sure he'll have the details out soon so I'll leave it at that (since it's not my story to tell). So, as Obtuse transitions to more of a supporting role for the zigGIS 3.0 open-source project, I felt that this was a good time to step away and become part of the community. <!--more--></p>
+
+<p>But enough about me, this post is called ?Me and zigGIS? so I?ll address some of the key needs for zigGIS 3.0, as I see them. Abe is planning a complete rewrite in order to make zigGIS better. A certain amount of that will have to stay on his plate (with help from Paolo) but it?s a large effort. To that end, help is needed. <a href="http://abegillespie.blogspot.com/2010/06/on-to-30.html">Abe published the roadmap</a> a while back so you can take a look and see what needs to be done. zigGIS 3.0 will happen faster and better with the help of additional developers, testers, end-users, etc.</p>
+
+<p><img alt="null" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" /></p>
+
+<p>Developers are the most obvious. If you have C# and/or ArcObjects experience and want to get involved in an open-source project, zigGIS can use the help. Testing has always been a big issue with zigGIS as it has lots of moving parts. Between <a href="http://www.esri.com">ArcMap</a>, .Net, <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.postgis.com">PostGIS</a>, there are a lot of pieces which drive testing of zigGIS. Each new release of any of these can necessitate compatibility testing, the results of which can drive changes to the code. One of the great things about open-source is that those kinds of things can happen more fluidly. Recognizing, however, that not every user of zigGIS is a developer, it?s good to know who may want to take a compiled executable and put it through its paces or who may want to test an installer.</p>
+
+<p>Another big thing on the roadmap is internationalization. A lot of the users of zigGIS (maybe even most of them) are from outside the United States. Supporting languages other than English would be a good thing to do. That?s something that wouldn't necessarily require any coding skill at all but would be a huge help.</p>
+
+<p>As an aside, when zigGIS 2.0 was released, we <a href="http://code.google.com/p/ziggis/">left zigGIS 1.x (licensed under the GPL) available</a>. It is read-only and lacks many of the features that have been added to 2.x but the downloads have continued so I know there is an appetite for an open-source tool that does what zigGIS does. So I hope that some of those people who have continued to use 1.x can help build 3.0.</p>
+
+<p>So why help? Why zigGIS? I?ll address these questions in more detail in future posts. Before I ever got involved with the project, <a href="http://geobabble.wordpress.com/2006/12/17/postgis-and-arcgis-91/">I blogged about it</a>. The use case was a little clearer back then as ArcGIS simply did not support PostgreSQL/PostGIS as a back end. That changed at 9.3 and, although it may have muddied the waters somewhat for zigGIS, it provided a good option for ArcGIS users. So zigGIS had to find its niche.</p>
+
+<p>Over the last couple of years, I have been putting some thought into that and I think that it can provide a nice way to augment workflow in an ArcGIS environment, allowing an organization to maximize the value of its ArcView licenses. Additionally, zigGIS is a nice option for an organization that is growing into its GIS capability. Such an organization may use ArcMap and may be ready to begin managing its spatial data centrally but may not quite be ready to make down-range decisions regarding web-mapping, online GIS and the like. zigGIS can provide a nice stepping stone to help a shop get more organized while also giving it more time to decide its next steps, allowing it to make longer-range decisions about technology and resources on its own schedule. I?ll be exploring these use cases in more detail in future posts.</p>
+
+<p>So, while I?ve stepped away from Obtuse, I don?t plan to step away from zigGIS. As I continue on with my consulting, it is a technology that has key place in my toolbox. I?m glad it will be returning to open-source and I am looking forward to seeing how it evolves. I have greatly enjoyed my association with Abe and Paolo thus far and look forward to it continuing in a new and different form.</p>
 ]]></content>
   </entry>
   

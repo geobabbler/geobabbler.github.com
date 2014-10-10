@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ArcGIS | geoMusings]]></title>
+  <title><![CDATA[Category: arcgis | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/arcgis/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-10T08:36:20-04:00</updated>
+  <updated>2014-10-10T09:17:36-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -14,178 +14,78 @@
 
   
   <entry>
-    <title type="html"><![CDATA[ArcWhat? I Just Want My Map.]]></title>
-    <link href="http://blog.geomusings.com/2014/07/30/arcwhat-i-just-want-my-map/"/>
-    <updated>2014-07-30T15:19:00-04:00</updated>
-    <id>http://blog.geomusings.com/2014/07/30/arcwhat-i-just-want-my-map</id>
-    <content type="html"><![CDATA[<h3>TL;DR:</h3>
+    <title type="html"><![CDATA[Still Jonesing for zigGIS? Try this OGR Plug-In for ArcGIS.]]></title>
+    <link href="http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis/"/>
+    <updated>2012-09-18T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/09/18/still-jonesing-for-ziggis-try-this-ogr-plug-in-for-arcgis</id>
+    <content type="html"><![CDATA[<p>So I've actually noticed a surprising uptick in traffic related to <a href="https://code.google.com/p/ziggis/" target="_blank">zigGIS</a> lately? We also had someone asking about <a href="http://www.st-links.com/Pages/default.aspx" target="_blank">ST-Links</a> on the zigGIS mailing list last week. Clearly, there's still a level of interest out there for the problem that zigGIS was designed for.</p>
 
-<p>What follows is probably my last post related to the Esri User Conference and is highly Esri-centric. Open-source readers may want to jump off here, or exercise a willing suspension of disbelief.</p>
+<p><a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank"><img alt="ArcGIS and SpatiaLite" height="65%" src="https://a248.e.akamai.net/camo.github.com/c1c86347c63522cb0f5f449b7b9df4209923c3ed/687474703a2f2f692e696d6775722e636f6d2f53767a6a702e706e67" width="65%" /></a></p>
 
-<hr />
-
-<p><a href="http://blog.geomusings.com/2014/07/16/the-esri-uc-so-far/">A couple of posts ago</a>, I did something that I generally try to avoid. I took <a href="http://www.esri.com">Esri</a> to task for its confusing product names without really offering any thoughts on how to make things better. I don't really like it when people do that to me so I'll try to correct that here. It bears noting that I was not the only person feeling this way at the UC. I was happy to see <a href="http://www.directionsmag.com/articles/making-sense-of-the-2014-esri-international-user-conference/410201">Adena's post over at Directions</a> touch on this and it also came up in a number of conversations I had while I was in San Diego.</p>
-
-<p>Here are some things that I think may help. They represent most of the stumbling blocks I typically encounter when doing consulting/integration with Esri-centric users, especially new ones.</p>
-
-<p style="text-align:center;"> <img src="http://upload.wikimedia.org/wikipedia/commons/9/93/Spaghetti.jpg" /> <br/>
- <sub>"<a href="http://commons.wikimedia.org/wiki/File:Spaghetti.jpg#mediaviewer/File:Spaghetti.jpg">Spaghetti</a>". Licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0<p></p>">CC BY-SA 3.0</a> via <a href="http://blog.geomusings.com//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.<sub></p>
-
-<!--more-->
+<div style="font-size: 70%;"><strong>ArcGIS reading SpatiaLite natively, thanks to OGR and Ragi Burhum</strong></div>
 
 
-<ol>
-<li><p>Retire the "Arc" prefix - It's confusing to have a relatively meaningless and seemingly random (to new users) prefix attached to everying. If you are moving to a platform concept, shouldn't that platform just bear your name? The company is Esri, the platform should be "Esri GIS" or something. Don't hide from your own product line. "Arc" is a verbal stumbling block. Try telling a user how to publish a map online and see how many times you say "Arc." Is it any wonder they get confused? It's like the old dog food commercial, except all they hear is "Blah blah Arc blah Arc blah blah Arc."</p></li>
-<li><p>Acknowledge four environments for the platform - Mobile, Desktop, Server, Online. Period. "Esri GIS Desktop" or "Esri GIS Server" for example. Clean up spurious products that just clutter the menu. The current Explorer? Esri GIS Mobile (resist the urge to tack on "for iOS"). The current Portal? Esri GIS Online (Online can offer a hosted or on-premise version). What's the distinction between Esri GIS Server and an on-premise instance of Esri GIS Online? I don't know. Those are your waters to unmuddy.</p></li>
-<li><p>One Desktop - Basic? Standard? Advanced? How about just Desktop? After 15 or so years of selling the three tiers, you should have enough data on the sales mix to set one normalized price for a fully-functional desktop product and be done with it. I suspect that price would hover somewhere between the current prices of Basic and Standard, perhaps closer to Standard. Everybody pays one price, everybody gets the current Advanced product. If nothing else, that code base should have long since paid for itself. Then you'll be better positioned for the inevitable transition to Esri GIS Pro (which could really just be the next Esri GIS Desktop) that everyone sees coming. Need more? Buy extensions.</p></li>
-<li><p>Speaking of Extensions - You can have too much of a good thing. Roll some of them into core products (like Spatial Analyst). Doing so will assure users that a common set of tools will be available as they move between the environments (see item number 2). Furthermore, stop calling everything an "extension," which exacerbates the need for cumbersome qualifiers like "for Desktop" and "for Server." Choose a standard nomenclature for each environment and stick with it. Desktop can have "extensions" and server can have "adapters," for example. Then I know that a discussion about the Network Analyst Adapter is focused on Server.</p></li>
-<li><p>Stop changing product names - Take any of the suggestions above, or do something else entirely. But, whatever you do, leave it alone once you're done. At least for a couple of dot releases, anyway.</p></li>
-</ol>
+<br />
 
+
+<p>Along those lines, <a href="http://twitter.com/rburhum" target="_blank">Ragi Burhum</a> posted an <a href="https://github.com/RBURHUM/arcgis-ogr/" target="_blank">OGR Workspace plug-in for ArcGIS</a> up on GitHub. Using OGR is really the magic ticket and the project is available under a BSD license (which Ragi explains very well). The only word to the wise is that pre-built binaries and installers aren't available yet so you Windows/<a href="http://www.esri.com" target="_blank">ArcGIS</a> users will need to get your hands dirty.</p>
+
+<p>I haven't used it yet but I plan to within the next week or so. Stay tuned for a follow up post.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Personal Geospatial Workflows, May 2014 Edition]]></title>
-    <link href="http://blog.geomusings.com/2014/05/20/personal-geospatial-workflows/"/>
-    <updated>2014-05-20T08:21:00-04:00</updated>
-    <id>http://blog.geomusings.com/2014/05/20/personal-geospatial-workflows</id>
-    <content type="html"><![CDATA[<p>I have been spending the past few weeks dealing more with data and mapping than I have in quite a while. It's given me a chance to regain my footing with map-making, reconnect with some end-user tools like <a href="http://www.arc2earth.com">Arc2Earth</a>, and build a little more proficiency with things like <a href="http://www.gdal.org/">GDAL</a>, <a href="http://qgis.org">QGIS</a>, and <a href="https://www.mapbox.com/tilemill/">TileMill</a>. Of course, I've been able to sneak in some coding as I've identified gaps in my workflow.</p>
+    <title type="html"><![CDATA[Prince George's County, Maryland Posts 3-D Planning Model Videos]]></title>
+    <link href="http://blog.geomusings.com/2012/06/21/prince-georges-county-maryland-posts-3-d-planning-model-videos/"/>
+    <updated>2012-06-21T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2012/06/21/prince-georges-county-maryland-posts-3-d-planning-model-videos</id>
+    <content type="html"><![CDATA[<p>A few days ago, <a href="http://twitter.com/#!/MichaelShean" target="_blank">Michael Shean</a> of the <a href="http://www.mncppc.org/Commission_Home.html" target="_blank">Maryland-National Capital Parks and Planning Commission</a> (M-NCPPC) announced the availability of videos of 3-D terrain models created to support Planning Board activities in <a href="http://maps.google.com/maps?hl=en&amp;cp=26&amp;gs_id=7&amp;xhr=t&amp;bav=on.2,or.r_gc.r_pw.r_qf.,cf.osb&amp;biw=1280&amp;bih=638&amp;ion=1&amp;q=prince+george's+county&amp;um=1&amp;ie=UTF-8&amp;hq=&amp;hnear=0x89b64bcdfea9f6a7:0x68f24b5f98fbb7fc,Prince+George's,+MD&amp;gl=us&amp;sa=X&amp;ei=1FzjT_H1Iq-t0AHasqikAw&amp;sqi=2&amp;ved=0CJABELYD" target="_blank">Prince George's County, Maryland</a>. The videos have been made available via Google+ here: <a href="https://plus.google.com/105701421300090504528/posts" target="_blank">https://plus.google.com/105701421300090504528/posts</a>.</p>
 
-<p>In a nutshell, I am building base maps for use on disconnected mobile devices. There are two styles of base maps; imagery (really more of an imagery/vector hybrid) and a high-contrast map for use on the outdoor devices and sourced only from vector data. In both cases, I am building MBTiles databases to support the requirement for disconnected operations and to provide consistency in data size and performance.</p>
-
-<p>For the imagery base maps, I was faced with following a data request process that may or may not have resulted in getting imagery in a timely fashion. Alternatively, I was presented with the option of using a tiled map service to get the imagery. Given that I was just making basemaps, this would have been acceptable but for the spotty speed and reliability of the network connection. The ideal solution would be to get only the tiles I need, store them locally, create a geo-referenced image from them, and build a virtual raster table (VRT) for each level.</p>
+<p><a href="http://geobabble.files.wordpress.com/2012/06/pgcounty.png"><img alt="" class="aligncenter size-medium wp-image-2703" height="187" src="http://geobabble.files.wordpress.com/2012/06/pgcounty.png?w=300" title="pgcounty" width="300" /></a></p>
 
 <!--more-->
 
 
-<p>Downloading the tiles was easy, but for the VRT to work, each tile needed to be geo-referenced. It was fairly easy to modify the venerable <a href="http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/globalmaptiles.py">globalmaptiles.py</a> to include a routine to create world file parameters for a specified tile. With this, I was able to write out an affine transformation world file for each tile I downloaded. I rolled this whole process up into a <a href="https://github.com/geobabbler/tile-grab">Python script that's available here</a>. Please note that my goal was to create a VRT, so the script flattens out the tiling scheme so that all images are under the appropriate "Z" directory. (This particular server was an ArcGIS Server but the script doesn't care as long as you can provide a valide URL template.)</p>
+<p>I followed up to inquire how the models were created. M-NCPPC analyst Chris Rotondo gave me the following information:</p>
 
-<p>{% codeblock lang:bat %}
-python tile_grab.py -b -158;21;-157;22 -d E:\tiles\oahu_img\a -i false -z 6 -u http://www.someserver.net/arcgis/rest/services/ImagerySvc/MapServer/tile/{z}/{y}/{x}.png
-{% endcodeblock %}</p>
+<blockquote>"We build our 3D models in Google SketchUp, using measurements from the site plan images submitted by the developers. Their architectural elevation images are also the source for our model textures. The building model is then loaded into Google Earth Pro, where we complete the scene by adding simple models of adjacent 3D buildings (based on our LiDAR data) and landscaping. We use the video capture tool within Google Earth Pro to record a video showing all perspectives of the potential development, and the same video that is presented to the Prince George?s County Planning Board is the one available on our Google Plus website. We have also worked with ESRI ArcScene 10 to create more complex terrain models and perform 3D viewshed analysis."</blockquote>
 
-<p>With the tiles downloaded and geo-referenced, it was easy to use the gdalbuildvrt utility to generate the VRT, which can be used in QGIS, TileMill, and ArcGIS Desktop as you prefer.</p>
 
-<p>{% codeblock lang:bat %}
-gdalbuildvrt 6.vrt 6/*.png
-{% endcodeblock %}</p>
+<p>The use of <a href="http://www.google.com/earth/index.html" target="_blank">Google</a> (and/or <a href="http://sketchup.google.com/" target="_blank">Trimble</a>) and <a href="http://www.esri.com" target="_blank">Esri</a> tools in combination is a theme I see popping up more often in all levels of government. Many shops have long-standing Esri-based workflows but the power of Google for information dissemination and visualization is proving compelling. M-NCPPC does a good job here of making use of both to create good visualizations in support of their core mission. Additionally, I really like the use of a social media channel for dissemination and I'd love to learn more about what drove the decision to use <a href="http://plus.google.com" target="_blank">Google+</a> as opposed to some other channel. (I have no issues with Google+, but am curious what drivers affected the choice.)</p>
 
-<p>It seems a little odd to use tiles to make tiles, but I needed to add some additional data and styling to make the maps do what I needed to do. The downloaded tiles were just a stand-in for what would have been a standard raster data source. The range of useful resolution for a set of tiles is pretty narrow so you'll probably need to grab a few levels and, even then, you'll need to be careful how you use them. In most cases, using local raster/imagery is better but using tiles was fine for my use case and helped mitigate a byzantine data acquisition process. Here's how I set the ranges in ArcGIS (left) and TileMill (right):</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/vrt_zoom2.png" /></p>
-
-<p>Using this approach, I was able to successfully generate my maps using either of two technology mixes. I succeeded in using both TileMill and ArcGIS/Arc2Earth to generate my maps. I ended up doing most of the work in Arc2Earth due to the availability of command-line tools that helped me optimize performance.</p>
-
-<p>Before attempting this method, it's important to make sure that you are not violating any terms of service, license agreements, or attribution requirements in doing so. I knew this wasn't an issue in my case, but such questions need to be answered before you start grabbing data.</p>
+<p>This is a great example of the kind work many local governments are doing every day with traditional as well as not-so-traditional geospatial tools. Kudos to the Planning Department GIS staff at M-NCPPC.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Desktop Not Dead]]></title>
-    <link href="http://blog.geomusings.com/2013/10/23/desktop-not-dead/"/>
-    <updated>2013-10-23T09:42:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/10/23/desktop-not-dead</id>
-    <content type="html"><![CDATA[<p>In 2011, I gave a talk at the NCGIS conference about the continued dominance of the desktop in the world of GIS. In that talk, my main point was that, regardless of the ultimate destination of GIS data or maps (cloud, server, paper, PDF, etc.), most GIS data passes through a desktop GIS at some point. I don't have hard data to back up that claim but I think anyone who has worked in the industry for any length of time will agree that it feels right. If we loosely define "desktop GIS" to include not only GUI analytical tools like <a href="http://www.esri.com">ArcMap</a> or <a href="http://qgis.org">QGIS</a>, but also command-line tools such as <a href="http://www.gdal.org/">GDAL/OGR</a> and cartographic tools such as <a href="https://www.mapbox.com/tilemill/">TileMill</a>, I think the statement is even more comfortable.</p>
+    <title type="html"><![CDATA[ArcGIS 10.0 and 10.1 Deprecation Plan Released]]></title>
+    <link href="http://blog.geomusings.com/2010/08/19/arcgis-100-and-101-deprecation-plan-released/"/>
+    <updated>2010-08-19T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2010/08/19/arcgis-100-and-101-deprecation-plan-released</id>
+    <content type="html"><![CDATA[<p><a href="http://twitter.com/mikehogan">Mike Hogan</a> tweeted that the Esri deprecation plan for ArcGIS 10.0 and 10.1 is now available. It can be found <a href="http://downloads2.esri.com/support/TechArticles/ArcGIS_10_and__101_Deprecation_Plan.pdf">here</a>. Much of what it contains is not new as Esri has been pretty good about getting information related to 10.x out. Some of the more interesting things (to me) include (comments in parens are mine):</p>
 
-<p style="text-align:center;">{% youtube ljIQo1OHkTI %}</p>
+<blockquote>
 
-<p>Essentially, my claim was that desktop GIS is still the onramp for most of the data we interact with on the web. Over the past few years, geographically tagged live and temporally-sensitive data streams have increased in importance but I think most geospatial data still starts as traditional data sources (rasters, vectors, terrain, etc.) that pass through a desktop for analysis, processing, and styling before moving on to the web. Esri, for example, still features its desktop tools as prominent parts of its web publishing workflow and <a href="http://boundlessgeo.com/">Boundless</a> is working on a <a href="https://github.com/boundlessgeo/suite-qgis-plugin">similar path for QGIS</a>.</p>
+ArcGIS Server 10.0 is the last release with support for 32-bit operating systems. The next release of ArcGIS Server (10.1) will run natively as a 64-bit application, requiring 64-bit operating systems. (I heard about the native 64-bit move at the Esri UC but I didn't know that included dropping 32-bit. It's not a big deal for me but I can imagine it'll be an impact for many.)
 
-<!--more-->
+ArcGIS Server 10.0 is the last release supporting publishing non-optimized map documents (MXD files). The next major release will only support publishing optimized maps (MSDs) as that is the best practice for map publishing. (There you have it, no more serving from MXDs after 10.0.)
+
+ArcGIS Server 10.1 will be the last planned release for the ArcGIS Server Web ADFs (Application Developer Framework) for both Microsoft .NET and Java. (We had a small "wake" in San Diego for the ADFs. I won't shed a tear when it's "official.")
+
+ArcGIS Server 10.1 will no longer support local connections (DCOM connections) from Web ADF applications. ArcGIS Server 10.1 will be a web services (REST and SOAP) server only. (This is actually pretty major and the document details the impacts. <strong>If you have any ADF code doing editing and such, read this!</strong>)
+</blockquote>
 
 
-<p>The announcement of a Google Maps Engine connector for both <a href="https://github.com/googlemaps/mapsengine-arcgis-connector">ArcGIS</a> and <a href="https://github.com/googlemaps/mapsengine-qgis-connector">QGIS</a> is yet another example of the continued importance of the desktop in the GIS world. Simply put, the chances of a user choosing your platform increases if you can cut to the front of the line and present yourself in their desktop environment. <a href="http://blogs.esri.com/esri/arcgis/2013/10/22/googles-arcgis-toolbar-for-the-cloud/">Andrew Turner did a nice summary of many such integration efforts</a> involving ArcGIS Desktop, although the post fails to mention <a href="http://www.arc2earth.com">Arc2Earth</a>, which I consider the most comprehensive extension of its kind on the market. His discussion tracks with my personal experience in recent years. My most public activities have been <a href="https://code.google.com/p/ziggis/">zigGIS</a>, the <a href="http://blog.dc.esri.com/2010/11/22/toolbars-for-geocommons-and-geoiq/">GeoCommons toolbars</a> (thanks for the mention, Andrew), and the <a href="http://www.weogeo.com">WeoGeo</a> toolbar. I've also built a couple of others for organizations that wanted to get their data products in front of ArcGIS users easily and I am currently working on a live feed extension for a government user. The reality is that I've done more desktop development in the last three years than I had done in the preceding ten.</p>
-
-<p>Andrew's point at the end of his post about Esri's extensibility through various means is quite true. As much as developers love to complain about ArcGIS Desktop and ArcObjects (myself included), I have yet to find a data source that I couldn't integrate using those tools. As I dig into the APIs behind QGIS, I am finding the same to be true there. Despite the tendency to downplay desktop GIS tools these days, I see them continuing to play a significant, if quiet, role in defining how we interact with maps and geospatial data across all platforms for the foreseeable future.</p>
+<p>There's a lot of good information in the document, especially pertaining to ArcGIS Server so it's definitely worth a read.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[SpatiaLite and ArcGIS 10.2]]></title>
-    <link href="http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2/"/>
-    <updated>2013-08-07T12:35:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/08/07/spatialite-and-arcgis-10-dot-2</id>
-    <content type="html"><![CDATA[<p>With the release of ArcGIS 10.2, <a href="http://www.esri.com">Esri</a> quietly added support for <a href="https://sqlite.org/">SQLite</a> as a geodatabase container. This is big news as the community has been looking for such support for some time. An open-source RDBMS originally designed for embedded systems, SQLite has a very small footprint and is <a href="https://www.sqlite.org/mostdeployed.html">arguably the most widely deployed RDBMS</a> in the world. (Thanks, in part, to the fact that it is embedded into Adobe Reader and other commonly used software.) Over the years numerous strategies for storing spatial data in SQLite have been developed, ranging from simply storing <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT or WKB</a> geometries in a column up to full extensions like <a href="http://www.gaia-gis.it/gaia-sins/">SpatiaLite</a>, which adds OGC-compliant data types and methods. SQLite is also the engine that drives the popular <a href="http://www.mapbox.com/developers/mbtiles/">MBTiles</a> implementation used by <a href="http://www.mapbox.com/tilemill/">TileMill</a> and <a href="http://www.mapbox.com">MapBox</a>.</p>
-
-<!--more-->
-
-
-<p><a href="http://resources.arcgis.com/en/help/main/10.2/index.html#//019v0000001w000000">According to the documentation</a>, ArcGIS supports the use of either Esri's ST_GEOMETRY or SpatiaLite data types for geometry storage. This is consistent with Esri's approach on other RDBMS platforms such as <a href="http://www.postgresql.org">PostgreSQL</a> and <a href="http://www.oracle.com">Oracle</a>. While SpatiaLite has been supported by platforms such as <a href="http://qgis.org/">QGIS</a>, I can't say I've seen a huge demand for data in SpatiaLite format. I have been using it for a while in some of <a href="http://www.zekiah.com">my company's</a> data modeling work as we have a Federal customer that has a documented requirement for generation of physical models in SpatiaLite, among other platforms. We have also taken the step of supporting SQLite as a container for our <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">platform independent model (PIM) approach</a> for configuration management of logical geospatial data models.</p>
-
-<p>Esri's new support of SpatiaLite, combined with my existing customer requirements, obviously sparked my interest so I was curious to kick the tires. Unfortunately, I also had the situation that my development environment for the PIM tools, due to current customer constraints, must remain at ArcGIS 10.1 for both the desktop software and the underlying ArcObjects libraries. I have not been able to carve out the time to build a 10.2 VM.</p>
-
-<p>Luckily, others were also interested in the new SpatiaLite support so <a href="http://twitter.com/brymcbride">Bryan McBride</a>, "<a href="http://twitter.com/fathersandman">Father Sandman</a>," and I were able to crowdsource some very cursory compatibility tests via Twitter. The full tweet stream can be accessed by clicking the date in the tweet below.</p>
-
-<p>{% tweet http://twitter.com/brymcbride/status/365103999671738369 %}</p>
-
-<p>So, using Father Sandman's existing 10.2 install, we were able to verify the following:</p>
-
-<ol>
-<li>A SpatiaLite database created in ArcGIS 10.2 can be accessed and viewed in QGIS 1.9.0 and SpatiaLite GUI 1.7.1</li>
-<li>A SpatiaLite database created in QGIS 1.9.0 can be accessed in ArcGIS 10.2</li>
-</ol>
-
-
-<p>Obviously, some more rigorous tests need to be performed but the initial results are promising. I'm curious to explore the boundaries, in ArcGIS terms, between a SQLite geodatabase and a file geodatabase. It remains to be seen whether this will put a dent in the use of file geodatabases. If it happens at all, I think it will take time since SQLite is not on the radar of the vast majority of ArcGIS users. I would hope, at a minimum, it puts a final stake through the heart of the personal geodatabase. It could also drive explicit accreditation of SQLite/SpatiaLite tools on government systems, which would be nice.</p>
-
-<p>I'm happy, and somewhat pleasantly surprised, to see Esri take this step and provide another open option for data exchange.</p>
-
-<p>Now, about GeoJSON...</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GeoJSON from ArcGIS Server]]></title>
-    <link href="http://blog.geomusings.com/2013/06/10/geojson-from-arcgis-server/"/>
-    <updated>2013-06-10T09:54:00-04:00</updated>
-    <id>http://blog.geomusings.com/2013/06/10/geojson-from-arcgis-server</id>
-    <content type="html"><![CDATA[<p>A while back, I posted about <a href="http://blog.geomusings.com/2011/11/15/fgeojson/">my desire to see GeoJSON supported as an output format from ArcGIS Server</a>. I found myself needing that capability so I recently completed, <a href="https://github.com/geobabbler/AGSOpenFormats">and posted to GitHub</a>, a first cut at a server object extension (SOE) for ArcGIS Server 10.1 that enables output of <a href="http://geojson.org/">GeoJSON</a> via an HTTP GET.</p>
-
-<p>Using the SOE is fairly straightforward. If you download the code and build it (ensuring you have installed the ArcObjects SDK for .Net), you can simply move the project outputs to your target machine and use the ArcGIS Server manager to install the SOE. Once you log into the manager application, click "Site" at the top of the page and then "Extensions" on the left. Click "Add Extension" and browse to the .soe file. You should end up seeing something like this:</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/geojsonserver1.png" /></p>
-
-<!--more-->
-
-
-<p>After, that you can go back to "Services," choose a map service, select "Capabilities," and you should see "Open Data Formats" as a choice to select. At that point, you should be ready to go.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/geojsonserver2.png" /></p>
-
-<p>That's all meat-and-potatoes configuration workflow that <a href="http://www.esri.com">Esri</a> has made very easy at 10.1. Once you've been through all of that, you should be able to go to your map service properties using a URL like this:</p>
-
-<p>http://localhost/arcgis/rest/services/SampleWorldCities/MapServer</p>
-
-<p>...and you should see be able to scroll to the bottom and see "GeoJSONServer" (which will change in a future version) as a supported extension.</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/geojsonserver4.png" /></p>
-
-<p>Following that link should take you to a page that shows "GeoJSON" as a supported operation. From there, you should be taken to a page that allows you to enter in a layer number (required) or a query (optional). The layer number is the layer's ordinal shown in the map service properties above. The query parameter can be a SQL WHERE clause that is valid for the layer in question (leaving off the word "WHERE"). This is consistent with how definition queries are handled elsewhere in the Esri REST API. At this point, GET and POST do the same thing though that may change in the future. You can use this form (which is generated by default) to test the SOE and get examples of valid URLs. For example, this URL returns GeoJSON for the continent of Asia from my sample map service:</p>
-
-<p>http://localhost/arcgis/rest/services/SampleWorldCities/MapServer/exts/GeoJSONServer/GeoJSON?query=CONTINENT%3D%27Asia%27&amp;layer=1&amp;f=json</p>
-
-<p>In the process of developing the SOE, I tested the outputs using <a href="http://geojsonlint.com/">geojsonlint.com</a> and the <a href="http://openlayers.org/dev/examples/vector-formats.html">OpenLayers vector format example</a> page (see the following screen shot).</p>
-
-<p style="text-align:center;"> <img src="http://blog.geomusings.com/images/posts/geojsonserver5.png" /></p>
-
-<p>A few nuts and bolts:</p>
-
-<ol>
-<li>I refactored my previous <a href="http://blog.geomusings.com/2012/08/24/togeojson-and-towkt-for-the-esri-fgdb-api/">extension methods for the File Geodatabase API</a> to work with ArcObjects for this SOE. The code is functional but I'd call the conversion about 75% complete. A close examination by an experienced ArcObjects developer may lead to some head-scratching as there are some artifacts from the FGDB API oriented code that I'll be cleaning up over the next couple of weeks.</li>
-<li>The SOE is currently output-only and only supports attribute queries. I plan to work on the ability to pass in a GeoJSON geometry to do a spatial filter as well but my GeoJSON code currently only persists Esri geometries to GeoJSON but does not yet de-persist. For the sake of consistency, I don't want to mix JSON syntax, so I want to add in de-persistence before implementing spatial filters.</li>
-<li>The SOE always transforms geometries to WGS84 for GeoJSON output. The GeoJSON spec doesn't specifically require this; it was just my call.</li>
-<li>The SOE has been tested with ArcGIS Server 10.1 only. I don't know if the current code will present any issues with previous versions but I really have no plans to go back and test them. The actual GeoJSON generation shouldn't be much of an issue but I can't speak for the SOE interface itself. Forks are welcome.</li>
-</ol>
-
-
-<p>As can be seen, the code is still under active development but it works in its current configuration. It's actually performed pretty well on a very modest Amazon instance so I'm somewhat encouraged. I'll post some issues to GitHub as a nominal road map.</p>
-
-<p>In a semi-related note, it looks like Marten Hogeweg of Esri is working on integrating GeoJSON support into Esri's portal server project, so users of that tool may want to hold on for that.</p>
-
-<p>{% tweet http://twitter.com/martenhogeweg/status/343190756271464448 %}</p>
-
-<p>I'm looking forward to checking out Marten's work and am glad to see Esri taking greater notice of GeoJSON.</p>
+    <title type="html"><![CDATA[ArcGIS 9.3.1 SP1]]></title>
+    <link href="http://blog.geomusings.com/2009/09/09/arcgis-931-sp1/"/>
+    <updated>2009-09-09T00:00:00-04:00</updated>
+    <id>http://blog.geomusings.com/2009/09/09/arcgis-931-sp1</id>
+    <content type="html"><![CDATA[<p>So the <a href="http://support.esri.com/index.cfm?fa=knowledgebase.documentation.viewDoc&amp;PID=17&amp;MetaID=1555">upcoming release</a> of ArcGIS 9.3.1 SP1 <a href="http://downloads2.esri.com/support/documentation/ao_/9.3.1_SP1_Announcement9_1.pdf">addresses a lot of issues</a>. I am somewhat curious why it's not being called 9.3.2. Calling it a service pack seems to be mixing metaphors. Hopefully, ESRI will reconsider before it hits the street.</p>
 ]]></content>
   </entry>
   
