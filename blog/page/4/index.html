@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="It&#8217;s been a pretty good week for us at Zekiah. We announced two new contract wins and I&#8217;m pleased to say that we&#8217;re not done yet. &hellip;">
+  <meta name="description" content="This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the Maryland Department of Planning (MDP), alerting me to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -57,8 +57,6 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/samples">Samples</a></li>
-  <li><a href="/about">About</a></li>
 </ul>
 
 </nav>
@@ -66,6 +64,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/">Maryland Department of Planning Bundles Property Data With QGIS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-07T12:38:00-04:00" pubdate data-updated="true">Oct 7<span>th</span>, 2013</time>
+        
+         | <a href="/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This past week, I got an e-mail from Jim Cannistra, Director of Data Planning Services and the <a href="http://www.mdp.state.md.us/home.shtml">Maryland Department of Planning</a> (MDP), alerting me to a new product available from MDP called <a href="http://www.mdp.state.md.us/OurProducts/PropertyMapProducts/FINDERProduct.shtml">FINDER Quantum</a>. This product bundles Maryland property data and related products with <a href="http://qgis.org">QGIS</a> software to provide users with a fully-functional, free-standing system for interacting with the data. It is designed to replace an older, custom software product, capitalizing on an industry-standard open-source system.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/10/07/maryland-department-of-planning-bundles-property-data-with-qgis/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -510,65 +551,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/05/30/ogc-abandons-the-web/">OGC Abandons the Web</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-30T10:52:00-04:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
-        
-         | <a href="/2013/05/30/ogc-abandons-the-web/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Those are my words, not theirs.</p>
-
-<p>It came to light today that <a href="http://www.opengeospatial.org/">OGC</a> has decided to <a href="http://lists.osgeo.org/pipermail/discuss/2013-May/011789.html">withdraw the GeoServices REST Specification</a>, also known as the &#8220;ESRI REST API,&#8221; as a proposed standard. I will not take up the relative merits of the specification or the implications of OGC potentially adopting an industry-developed specification that has so much implied workflow embedded in it. With this decision, three facts remain unaltered:</p>
-
-<ol>
-<li>The ESRI REST API will continue forward as a widely-used de facto standard in the form of ArcGIS Server installs and other emulations, such as that in <a href="http://www.arc2earth.com/">Arc2Earth</a>.</li>
-<li>GeoJSON will continue forward as a widely-used de facto standard in the form of numerous open-source implementations.</li>
-<li>OGC still has no JSON syntax.</li>
-</ol>
-
-
-<p>Yes, twelve years after the <a href="https://en.wikipedia.org/wiki/JSON#History">birth of JSON</a>, five years after the <a href="http://webhelp.esri.com/arcgisserver/9.3/java/index.htm#whats_new_93.htm">release of the ESRI REST API and its embedded JSON syntax</a>, and five years after the <a href="http://geojson.org/geojson-spec.html">release of GeoJSON 1.0</a>, OGC is still has no entry in the JSON space. Between Esri and GeoJSON, the utility of JSON in web mapping applications has been roundly proven. In the ESRI arena, find me anyone who willingly uses the SOAP API these days while the adoption of support for GeoJSON across the open-source GIS world speaks volumes. The industry has voted with its feet and its code as to what it prefers.</p>
-
-<p>There&#8217;s probably a lively discussion to be had about where JSON should fit into OGC&#8217;s priorities. What is clear, however, is that Javascript and JSON are driving the web at large and the web-mapping space in the geospatial market. With no official stance of any kind in this area, it becomes increasingly difficult to take OGC seriously in matters of the modern web.</p>
-
-<p>Howard Butler had a great point a while back when discussing the potential adoption of the GeoServices REST Specification:</p>
-
-<div class='embed tweet'><blockquote class="twitter-tweet"><p><a href="https://twitter.com/JeffHarrison">@JeffHarrison</a> I think it would be great for OGC to ratify GeoServices. It would cement their irrelevance to current and future developers.</p>&mdash; Howard Butler (@howardbutler) <a href="https://twitter.com/howardbutler/statuses/331405667837542401">May 6, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-
-
-<p>The irony here is that the withdrawal of the specification accomplishes the same thing. I won&#8217;t go so far as to say OGC has no clue or doesn&#8217;t care but, in the perception-is-reality department, they look pretty out-of-touch these days. Is this a problem with process? Maybe. Is it a problem with message? Definitely. The message I&#8217;ve gotten from this whole episode is that we can keep doing what we&#8217;ve been doing with our web mapping applications because OGC has nothing for us.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -617,15 +599,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/10/10/ask-the-right-questions/">Ask the Right Questions</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/09/11/personal-thoughts-on-the-appgeo-announcement/">Personal Thoughts On the AppGeo Announcement</a>
       </li>
     
       <li class="post">
         <a href="/2014/08/26/maryland-council-on-open-data/">Maryland Council on Open Data</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
       </li>
     
   </ul>
@@ -666,7 +648,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   </div>
   <footer role="contentinfo"><p>
   Copyright &copy; 2014 - Bill Dollins -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  - <span class="credit">Theme by <a href="http://www.gehaxelt.in">Gehaxelt</a></span>
+  <span class="credit">and <a href="http://www.it-solutions-neef.de">IT Solutions Neef</a></span>
 </p>
 
 </footer>

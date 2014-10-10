@@ -4,7 +4,7 @@
   <title><![CDATA[geoMusings]]></title>
   <link href="http://blog.geomusings.com/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-09T10:03:43-04:00</updated>
+  <updated>2014-10-10T07:56:51-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ask the Right Questions]]></title>
+    <link href="http://blog.geomusings.com/2014/10/10/ask-the-right-questions/"/>
+    <updated>2014-10-10T07:42:00-04:00</updated>
+    <id>http://blog.geomusings.com/2014/10/10/ask-the-right-questions</id>
+    <content type="html"><![CDATA[<p>If you&#8217;re about to embark on a requirements drill or needs assessment focused on &#8220;web GIS,&#8221; it is important to be sure to answer one question as you proceed: Do you actually need any specialized mapping server at all?</p>
+
+<p>If &#8220;none&#8221; isn&#8217;t one of the choices in your analysis of alternatives, then you are doing it wrong in 2014 and you may be doing a disservice to your users. The state of current technology makes it perfectly feasible to publish interactive mapping products as static content, using nothing more than your current web server. Given the complexity of today&#8217;s IT environments, including requirements for FISMA compliance on Federal systems, it is irresponsible not to consider this option before recommending yet another specialized server product (or hosted cloud solution) for your user&#8217;s IT architecture.</p>
+
+<!--more-->
+
+
+<p>As I embark on another <a href="http://leafletjs.com/">Leaflet</a>/HTML/<a href="http://geojson.org/">GeoJSON</a>/<a href="http://d3js.org/">D3</a> implementation for a user, I can think of about ten projects that I&#8217;ve done over the last dozen or so years that I would love to revisit with this technology mix. These projects shared some characteristics with my current project which made me go down this route this time around.</p>
+
+<ol>
+<li>Product-based workflow - These projects have typically been centered around the delivery of value-added analytical product. Often, the products are only valid for the version of the source data used at the time. Changes to the underlying source data would warrant a re-validation of the analytical product. In other words, &#8220;configuration management.&#8221;</li>
+<li>Frequent, but not constant, product updates - Analytical products are typically generated on a schedule that has an interval that is measured in at least a few days, but usually more. Referring back to item 1, this is usually because the source data isn&#8217;t updated frequently enough to warrant constant attention to the product.</li>
+<li>Version history - Products often need to be retained for a long period of time, even when superseded. In many of the shops I&#8217;ve supported, the previous product serves as the starting point for the next version, so maintaining the history is important to understand the context of the current version of a product.</li>
+</ol>
+
+
+<p>A dozen years ago, if you wanted to generate some sort of web-based interactive mapping product, you needed to have some sort of map server technology living in your stack somewhere. Over time, those map servers became tied to database servers, either directly or through middleware, and there may have been some wonderfully cumbersome APIs involved to achieve some level of customization. Such technologies are simply not necessary in all cases anymore.</p>
+
+<p>There are still use cases where such technologies are still necessary or useful, particularly if data changes rapidly or if there is a need to expose some sort of advanced geospatial operation directly over the web. (This should be an exceedingly rare requirement.) But it is important to distinguish between &#8220;web GIS&#8221; and geospatial workflows that result in relatively static mapping products. If an honest assessment reveals the latter, then it is perfect feasible to build a system that involves no mapping server software at all, yet still results in rich interactive maps on the web. This alternative must be considered today when assessing the need for web mapping in an organization.</p>
+
+<p>Advantages to going this way if you can include, among others:</p>
+
+<ol>
+<li>Simplicity - Because mapping content is served only from the web server, there is no need to install, patch, or otherwise manage any specialized geospatial software attach to the public-facing infrastructure.</li>
+<li>Security - This is related to the item above. The lack of such specialized software means the lack of a need to secure such specialized software. In the days of FISMA, this is a pretty compelling argument. The ability to remove potential threat vectors and rely on more broadly understood and well-exercised security practices and tools aids in system security and accreditation. All of the specialized geospatial software can live completely disconnected from the public-facing systems, leaving IT security staff to focus only on those systems that are absolutely necessary for interaction with external users.</li>
+<li>Version control - I have seen many organizations that make use of some very convoluted database versioning approaches in order to preserve product history. Static content, if it is a viable option, solves this problem as well. Geospatial outputs, along with the value-added analysis and assessment that adds context and richness can simply be configured inside git or TFS or SVN or whatever an organization&#8217;s preferred document management approach may be. In other words, standard tools can be used for the job without muddying the waters with some need to make the process unnecessarily spatial.</li>
+</ol>
+
+
+<p>Of course, <a href="http://blog.geomusings.com/assets/demos/govwin/">interactive maps backed with static content</a> such as GeoJSON and local basemap tiles are nothing new, but that is exactly the point. They are not new and they need to be considered equally alongside heavier, traditional &#8220;enterprise&#8221; tools during alternatives evaluation. There are stable, proven, open-source technologies available to enable not only the serving of such products, but also the supporting production workflows. Many organizations are starting to look at revamping their IT architectures, whether for FISMA compliance or data center reduction or any of a number of myriad reasons, and are thinking of how best to fit in complex, cumbersome, specialized map server software and make it secure and scalable. If you or your user finds yourself in this situation, you would do well to stop and consider the possibility that, depending on how you do business, you simply may not need to.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Personal Thoughts On the AppGeo Announcement]]></title>
@@ -846,30 +884,6 @@
 <p>For example, check out the Natural Resources Immersion Summit led by my friend <a href="http://twitter.com/jsteffenson">John Steffenson</a>. The agenda features speakers from USDA, USGS, the US Forest Service, the EPA, the Fish and Wildlife Service, and Department of Interior, representing over 100 years of higher education dedicated to natural resources management. The session also has slots for several demos of systems deployed in natual resources domain.</p>
 
 <p>The session&#8217;s content seems to be designed take a holistic view, including fiscal, logistical, technical, and demographic challenges among others. This type of deep focus is an intriguing change to event&#8217;s focus. While nautral resources is not my usual domain, I do like to drop into other sessions as I find that uses cases from other domains can give me ideas to bring back to my work. I think this new format could maximize the use of the compact schedule of the Federal GIS Conference and begin to give the event its own identity.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[File Geodatabase Schema Compare Tool]]></title>
-    <link href="http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool/"/>
-    <updated>2014-01-08T20:32:00-05:00</updated>
-    <id>http://blog.geomusings.com/2014/01/08/file-geodatabase-compare-tool</id>
-    <content type="html"><![CDATA[<p>In my work supporting various aspects of geospatial data modeling, I&#8217;ve spent a lot of time delving into concepts around configuration management of such data models. We&#8217;ve been able to apply a core tool set to perform various functions such as version managment, profiling, version-to-version migration, and validation in conjunction with a system we call the platform independent model (PIM). I gave quick overview of the PIM <a href="http://www.zekiah.com/index.php?q=blog/2014/01/02/generating-physical-schemas-pim">in this post over on the Zekiah blog</a> and the complete series on it <a href="http://www.zekiah.com/index.php?q=blog/topics/pim">can be found here</a>.</p>
-
-<p>I&#8217;ve recently spent a bit of time consolidating code after a recent data delivery and decided to post a utility that was an outgrowth of that effort: <a href="https://github.com/Zekiah/ArcGISCompare">a tool to compare schemas of two Esri file geodatabases and report differences</a>. This lent itself to general use because it does not require any connection to a PIM.</p>
-
-<p style="text-align:center;"><img src="https://github.com/Zekiah/ArcGISCompare/raw/master/screenshot.png" /></p>
-
-<!--more-->
-
-
-<p>The PIM deals mainly at the logical level with data models, but a full configuration management workflow must occasionally touch physical data sets. One use case we had to support, for which this tool was built, was the case where users in the field must compare separate data sets for eventual integration. Although these workflows start with a template data set, it is not unusal for changes to be made during collection, resulting in very similar but not identical schemas. This tool helps users identify such differences in order to make configuration management decisions based upon the actual state of the collected data.</p>
-
-<p>The tool is fairly straightforward: choose a template data set, choose an implementation data set, run the compare, and examine the results. It contains ArcObjects dependencies although we may migrate it to the file geodatabase API in order to eliminate those.</p>
-
-<p>We are also in the process of building a similar tool to work with SQLite/SpatiaLite data sets, which is the other format we commonly see used and will post that tool when it is complete. In the meantime, I hope you find this application useful.</p>
-
-<p>An installer (10.1) <a href="https://dl.dropboxusercontent.com/u/6749645/PIM/setup_ArcGISCompare.zip">can be found here</a>.</p>
 ]]></content>
   </entry>
   

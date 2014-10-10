@@ -9,7 +9,7 @@
   <meta name="author" content="Bill Dollins">
 
   
-  <meta name="description" content="It has been quite a while since I last blogged. The holidays are always a busy time of year with family a friends and work has been somewhat busy as &hellip;">
+  <meta name="description" content="Abe announced via Twitter today that zigGIS 2.0.2 will be available in about a month. This a small but significant release becuase zigGIS will now &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -57,8 +57,6 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/samples">Samples</a></li>
-  <li><a href="/about">About</a></li>
 </ul>
 
 </nav>
@@ -66,6 +64,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/01/ziggis-2-0-2-getting-closer/">zigGIS 2.0.2 Getting Closer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-01T00:00:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2009</time>
+        
+         | <a href="/2009/01/01/ziggis-2-0-2-getting-closer/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://abegillespie.blogspot.com">Abe</a> announced via <a href="http://twitter.com/zigGIS">Twitter</a> today that <a href="http://pub.obtusesoft.com/">zigGIS</a> 2.0.2 will be available in about a month. This a small but significant release becuase zigGIS will now support the generic PostGIS &#8220;GEOMETRY&#8221; type. Because ArcGIS expects homogenous feaure classes, zigGIS will ask the user to choose a geometry type for the the specified GEOMETRY-typed column. So, if your table has mixed geometry types, you will need to specify one (like polygon for example) and zigGIS will present only records of that type to ArcGIS.</p>
+
+<p>Secondly, zigGIS will no longer expect your primary key to be called &#8220;gid&#8221;. This should reduce the instances where tables need to be modified for use with zigGIS.</p>
+
+<p>In previous releases, a few enterprising users had figured out how to get zigGIS to see views as layers by manually hacking them into the geometry_columns table. This was one way to get around the &#8220;gid&#8221; and GEOMETRY limitations. In 2.0.2, views will be fully supported so that no such hacking will be necessary.</p>
+
+<p>Abe, Paolo and I had a chat session a while back about the zigGIS roadmap and this represents the first step down that road. More information will be forthcoming as we flesh out the details of further changes.</p>
+
+<p><img alt="" class="alignleft" height="270" src="http://geobabble.files.wordpress.com/2007/08/ziggis_logo.jpg" title="zigGIS" width="270" /></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -457,47 +501,6 @@ Here at MapWindow GIS (<a href="http://www.mapwindow.org">www.mapwindow.org</a>)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/08/12/esri-uc-summary/">ESRI UC Summary</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-12T00:00:00-04:00" pubdate data-updated="true">Aug 12<span>th</span>, 2008</time>
-        
-         | <a href="/2008/08/12/esri-uc-summary/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I spent last week in San Diego at the ESRI International User Conference. It was a bit different for me since I was working <a href="http://www.zekiah.com">Zekiah&#8217;s</a> booth most of the time. I did, however, make it out to a SIG and a couple of technical workshops. Additionally, some of our technical staff were there and had feedback on the sessions. What follows is a very high-level summary of my week.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2008/08/12/esri-uc-summary/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/25/">&larr; Older</a>
@@ -546,15 +549,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/10/10/ask-the-right-questions/">Ask the Right Questions</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/09/11/personal-thoughts-on-the-appgeo-announcement/">Personal Thoughts On the AppGeo Announcement</a>
       </li>
     
       <li class="post">
         <a href="/2014/08/26/maryland-council-on-open-data/">Maryland Council on Open Data</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/07/31/js-dot-geo-2014-locked-in-solid/">JS.GEO 2014 Locked In Solid</a>
       </li>
     
   </ul>
@@ -595,7 +598,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   </div>
   <footer role="contentinfo"><p>
   Copyright &copy; 2014 - Bill Dollins -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  - <span class="credit">Theme by <a href="http://www.gehaxelt.in">Gehaxelt</a></span>
+  <span class="credit">and <a href="http://www.it-solutions-neef.de">IT Solutions Neef</a></span>
 </p>
 
 </footer>
