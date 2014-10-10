@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web mapping | geoMusings]]></title>
   <link href="http://blog.geomusings.com/blog/categories/web-mapping/atom.xml" rel="self"/>
   <link href="http://blog.geomusings.com/"/>
-  <updated>2014-10-10T09:14:25-04:00</updated>
+  <updated>2014-10-10T15:02:00-04:00</updated>
   <id>http://blog.geomusings.com/</id>
   <author>
     <name><![CDATA[Bill Dollins]]></name>
@@ -36,7 +36,7 @@
 
 <p>A dozen years ago, if you wanted to generate some sort of web-based interactive mapping product, you needed to have some sort of map server technology living in your stack somewhere. Over time, those map servers became tied to database servers, either directly or through middleware, and there may have been some wonderfully cumbersome APIs involved to achieve some level of customization. Such technologies are simply not necessary in all cases anymore.</p>
 
-<p>There are still use cases where such technologies are still necessary or useful, particularly if data changes rapidly or if there is a need to expose some sort of advanced geospatial operation directly over the web. (This should be an exceedingly rare requirement.) But it is important to distinguish between "web GIS" and geospatial workflows that result in relatively static mapping products. If an honest assessment reveals the latter, then it is perfect feasible to build a system that involves no mapping server software at all, yet still results in rich interactive maps on the web. This alternative must be considered today when assessing the need for web mapping in an organization.</p>
+<p>There are still use cases where such technologies are still necessary or useful, particularly if data changes rapidly or if there is a need to expose some sort of advanced geospatial operation directly over the web. (This should be an exceedingly rare requirement.) But it is important to distinguish between "web GIS" and geospatial workflows that result in relatively static mapping products. If an honest assessment reveals the latter, then it is perfectly feasible to build a system that involves no mapping server software at all, yet still results in rich interactive maps on the web. This alternative must be considered today when assessing the need for web mapping in an organization.</p>
 
 <p>Advantages to going this way if you can include, among others:</p>
 
