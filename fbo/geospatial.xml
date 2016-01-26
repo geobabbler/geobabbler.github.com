@@ -10,9 +10,9 @@
             <link>http://example.com</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 25 Jan 2016 09:45:06 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Jan 2016 09:45:05 GMT</lastBuildDate>
         <atom:link href="http://example.com/geospatial.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 25 Jan 2016 09:45:06 GMT</pubDate>
+        <pubDate>Tue, 26 Jan 2016 09:45:05 GMT</pubDate>
         <copyright><![CDATA[2016 Bill Dollins]]></copyright>
         <language><![CDATA[en]]></language>
         <managingEditor><![CDATA[Bill Dollins]]></managingEditor>
@@ -1700,6 +1700,22 @@ Firms responding to this announcement by 14 January 2016, 2:00 p.m. Hawaii Stand
             <link>https://www.fbo.gov/notices/457febfbd66c61187a49254a66e5a83e</link>
             <guid isPermaLink="true">https://www.fbo.gov/notices/457febfbd66c61187a49254a66e5a83e</guid>
             <pubDate>Fri, 22 Jan 2016 05:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[SRCSGT - GEOINT]]></title>
+            <description><![CDATA[Other Defense Agencies - Requirement:
+<p>SOCOM needs the capability to locally manage &amp; disseminate its foundation, map, and imagery (geospatial) data throughout the SOCOM AOR. SOCOM needs to provide current/relevant/updated/near real-time geospatial data (vector, raster, and elevation) to SOCOM geospatial customers within a two hour timeframe (upon notification) on multiple deployable external data drives (SD card, thumb drive, external hard drive) and domains (SIPR, NIPR). Data to be disseminated needs to be selectable via a Graphical User Interface using a "rubber-band" style selection tool and a Map of the region of the world involved. Once selected, the size of the potential data to be transferred to the external drive will be displayed so that a decision can be made to transfer the data or redraw the area to be transferred, or if there are multiple layers, determine which layers are not necessary, prior to transfer being initiated. The solution needs to be capable of managing and disseminating large volumes of geospatial data &lt;&lt;definition of large volume?&gt;&gt; over the network to include bandwidth-disadvantaged users operating on SOF Deployable Network - Medium/Light (SDN-M/L). Access to the data needs to be obtained using map/imagery data software and /or web browser.</p>
+<p>Solution needs to be Open Geospatial Consortium (OGC) interoperable with map &amp; imagery displaying software and provide Keyhole Markup Language (KML) services. The solution must allow for seamless integration and usage with GOTS/COTS exploitation and visualization software and tools. These must include FalconView, RemoteView, SOCET GXP, ArcGIS, ENVI, Google Earth, Palantir, ERDAS and the Global Command and Control System (GCCS). Additionally, the solution must allow for user defined outputs to all DoD standard geospatial formats, to include, NITF, GEOTIFF, MRSID, PNG, JPEG2000, JPG, ERDAS.IMG, and others.<br />The solution must provide the ability to generate custom deployable drives containing data and web services (KML and OGC) for disconnected users. SOF users and analysts often operate in austere locations with limited or non-existent connectivity. Upon CIF deployment analysts must have the ability to conduct planning and analysis en-route to operational location without communication infrastructure. Having a self-contained, deployable drive that can provide OGC and KML services to disconnected, mobile, and multiple users is paramount. Data managers must be able to create a drive which is usable by COTS/GOTS tools that are KML and OGC compliant.</p>
+<p>The solution must have the ability to provide real-time updating of existing data layers without disrupting live services. It must allow the on-site data manager to seamlessly upload, patch, and update foundation base layers without disconnecting access to web services or requiring the data source to be modified and/or replaced. The solution must allow on-site analysts to maintain the data and serve as the data manager with limited excessive effort. The solution should provide a reduced data management option that simplifies maintenance/updates and still maintains optimum performance.</p>
+<p>Justification:</p>
+<p>Currently, SOCOM doesn't have this capability resident at the Enterprise level. Each TSOC and component are researching and attempting to fund solutions independently, with at least one organization that currently funds this capability themselves to meet their mission requirements. The current Enterprise mapping arch is insufficient to meet the current and future needs of the enterprise. During the GEOINT WG in April 2014 at SOCOM, all of the TSOCs and Components present echoed their desire to gain a similar capability.</p>
+<p>As of today, the SOCOM organizations do not have a capability that meets their enterprise and disconnected requirement to provide GEOINT data and visualization services to tactical SOF operations.</p>
+<p>Who requires service/system?<br />TSOCs, SOCOM Components, a SOCOM Enterprise need</p>
+<p>Estimated Number of People Affected?<br />Significant</p>
+<p>Which network will the service or system be applied? <br />SIPR/NIPR</p>]]></description>
+            <link>https://www.fbo.gov/spg/ODA/USSOCOM/SOAL-KB/NIT012516_GEOINT/listing.html</link>
+            <guid isPermaLink="true">https://www.fbo.gov/spg/ODA/USSOCOM/SOAL-KB/NIT012516_GEOINT/listing.html</guid>
+            <pubDate>Mon, 25 Jan 2016 05:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
