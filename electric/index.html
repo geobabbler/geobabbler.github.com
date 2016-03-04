@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+		<title>How Far Can I Travel In My Electric Vehicle?</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+		<meta name="description" content="A map depicting county-by-county results for Maryland Question 6" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+		<link rel="tesla" type="application/json" href="data/EV_tesla_s_85d.geojson">
+		<link rel="kia" type="application/json" href="data/EV_kia_soul.geojson">
+		<link rel="fiat" type="application/json" href="data/EV_fiat_500e.geojson">
+		<link rel="mercedes" type="application/json" href="data/EV_mercedes_b_class.geojson">
+		<link rel="nissan" type="application/json" href="data/EV_nissan_leaf.geojson">
+		<link rel="vw" type="application/json" href="data/EV_vw_egolf.geojson">
+		<link rel="chevy" type="application/json" href="data/EV_chevy_spark.geojson">
+		<link rel="bmw" type="application/json" href="data/EV_bmw_i3.geojson">
+		<link rel="ford" type="application/json" href="data/EV_ford_focus.geojson">
+		<link rel="smart" type="application/json" href="data/EV_smart_electric_drive.geojson">
+		<link rel="fuels" type="application/json" href="data/alt_fuels_elec_lite.geojson">
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+		<![endif]-->
+		<link href="screen.css" rel="stylesheet" type="text/css" />
+		<link href="screen2.css" rel="stylesheet" type="text/css" />
+		<!--
+		<link href="legend.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-1.6.4.min.js"></script>
+        <title>How did Maryland counties vote on Question 6?</title>
+		<style>
+			h2 {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 36px;
+			}
+			body {
+				font-family: 'PT Serif', serif;
+				font-size: 12px;
+			}
+		</style>-->
+		<style>
+			.title {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 36px;
+				color: white;
+			}
+			body {
+				font-family: 'PT Serif', serif;
+				font-size: 12px;
+				color: white;
+			}
+			
+			a:link {color: silver;}
+			a:visited {color: silver;}
+			a:hover {color: silver;}
+			a:focus {color: silver;}
+			a:active {color: silver;}
+			
+	
+		</style>
+	</head>
+    <body style="background-color: black;">
+	<span class="title">How Far Can I Travel In My Electric Vehicle?</span>
+		<div id="map" style="height:425px;width:100%;background-color: '#FFFFFF';"></div>
+		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<!--<script src="scripts/md_county_q6_2012.js"></script>-->
+		<script>
+		var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+			attribution: '&copy; <a style="color: black;" href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a style="color: black;" href="http://cartodb.com/attributions">CartoDB</a>'
+			});
+			
+		function fuelStyle(feature) {
+		 	return {
+    			radius: 8,
+    			fillColor: "#ff7800",
+    			color: "#000",
+    			weight: 1,
+    			opacity: 1,
+    			fillOpacity: 0.8
+			};
+		}
+
+		function style(feature) {
+			return {
+				fillColor: "#c0c0c0",
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.35
+			};
+		}	
+
+		var map = L.map('map', {
+  			scrollWheelZoom: false,
+  			center: [41.25, -96],
+  			zoom: 5
+		});
+		
+		map.addLayer(layer);
+		
+		var tesla = new L.LayerGroup();
+		var kia = new L.LayerGroup();
+		var fiat = new L.LayerGroup();
+		var mercedes = new L.LayerGroup();
+		var nissan = new L.LayerGroup();
+		var vw = new L.LayerGroup();
+		var chevy = new L.LayerGroup();
+		var bmw = new L.LayerGroup();
+		var ford = new L.LayerGroup();
+		var smart = new L.LayerGroup();
+		
+		$.getJSON($('link[rel="tesla"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style
+			});
+		geojson.addTo(tesla);
+		});
+		
+		$.getJSON($('link[rel="kia"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			});
+		geojson.addTo(kia);
+		});
+		
+		$.getJSON($('link[rel="fiat"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			});
+		geojson.addTo(fiat);
+		});
+		
+		$.getJSON($('link[rel="mercedes"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			});
+		geojson.addTo(mercedes);
+		});
+ 
+		$.getJSON($('link[rel="nissan"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			});
+		geojson.addTo(nissan);
+		});
+
+		$.getJSON($('link[rel="vw"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			});
+		geojson.addTo(vw);
+		});
+
+		$.getJSON($('link[rel="chevy"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			});
+		geojson.addTo(chevy);
+		});
+
+		$.getJSON($('link[rel="bmw"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			});
+		geojson.addTo(bmw);
+		});
+
+		$.getJSON($('link[rel="ford"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			});
+		geojson.addTo(ford);
+		});
+
+		$.getJSON($('link[rel="smart"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			style: style,
+			});
+		geojson.addTo(smart);
+		});
+
+		$.getJSON($('link[rel="fuels"]').attr("href"), function(data) {
+			var geojson = L.geoJson(data, {
+			   pointToLayer: function(feature, latlon) {
+        // L.circleMarker() draws a circle with fixed radius in pixels. 
+        // To draw a circle overlay with a radius in meters, use L.circle()
+        		return L.circleMarker(latlon,  {
+    					radius: 3,
+    					fillColor: "silver",
+    					color: "#000",
+    					weight: 1,
+    					opacity: 1,
+    					fillOpacity: 0.8
+					});
+    			}
+			});
+			geojson.addTo(map);
+		});
+
+		
+		var baseLayers = {
+//			"Grayscale": grayscale,
+			"Background": layer
+		};
+
+		var overlays = {
+			"Tesla Model S 85D (240 mi)": tesla,
+			"Kia Soul (93 mi)": kia,
+			"Fiat 500e (87 mi)": fiat,
+			"Mercedes B-Class (87 mi)": mercedes,
+			"Nissan Leaf (84 mi)": nissan,
+			"Volkswagen e-Golf (83 mi)": vw,
+			"Chevy Spark (84 mi)": chevy,
+			"BMW i3 (81 mi)": bmw,
+			"Ford Focus Electric (76 mi)": ford,
+			"Smart Electric Drive (68 mi)": smart
+		};
+		var legend = L.control.layers(baseLayers, overlays, {collapsed: false}); //.addTo(map);
+		legend.addTo(map);
+
+		</script>
+		<br/>
+&nbsp;Using <a href="https://hifld-dhs-gii.opendata.arcgis.com/datasets/13c68a8ccb4645b587e1b9d854c7f7cd_0">electric vehicle charging station locations</a> from <a href="https://hifld-dhs-gii.opendata.arcgis.com/">HIFLD Open</a>, buffers were created with the reported ranges from the article <a href="http://www.cheatsheet.com/automobiles/top-10-electric-vehicles-with-the-longest-driving-range.html/">10 Electric Vehicles With the Best Range in 2015</a> 
+to generate contours for each vehicle. The buffers depict how much of the United States a driver could traverse in each vehicle while remaining in range of a charging station.
+<br/>
+<br/>
+To display the contour for a vehicle, simply check the box next to the vehicle name in the legend. 
+<br/>
+<br/>
+&nbsp;a <a href="http://blog.geomusings.com">geomusings</a> map
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8441719; 
+var sc_invisible=1; 
+var sc_security="2fc819f5"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost +
+"statcounter.com/counter/counter.js'></"+"script>");</script>
+<noscript><div class="statcounter"><a title="hits counter"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/8441719/0/2fc819f5/1/"
+alt="hits counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+    </body>
+</html>
