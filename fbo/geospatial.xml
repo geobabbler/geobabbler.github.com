@@ -10,9 +10,9 @@
             <link>http://example.com</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 02 Jun 2016 08:45:12 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 04 Jun 2016 08:45:06 GMT</lastBuildDate>
         <atom:link href="http://example.com/geospatial.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 02 Jun 2016 08:45:12 GMT</pubDate>
+        <pubDate>Sat, 04 Jun 2016 08:45:06 GMT</pubDate>
         <copyright><![CDATA[2016 Bill Dollins]]></copyright>
         <language><![CDATA[en]]></language>
         <managingEditor><![CDATA[Bill Dollins]]></managingEditor>
@@ -3003,6 +3003,76 @@ Contractors should plan accordingly when personally delivering proposals to the 
             <link>https://www.fbo.gov/notices/361294f677e1b0d7199a6bab4f533ae2</link>
             <guid isPermaLink="true">https://www.fbo.gov/notices/361294f677e1b0d7199a6bab4f533ae2</guid>
             <pubDate>Thu, 26 May 2016 04:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[SRCSGT - D--Software Development and Maintenance.]]></title>
+            <description><![CDATA[Department of the Interior - Software Development and Maintenance. This sources sought notice is for informational purposes only and shall not be considered a solicitation, obligation, or commitment by the Government.  This notice is for market research.  The requirement is to develop, maintain, supplement, and monitor software products related to and supporting the Advanced National Seismic System (ANSS). The following narrative describes the services and qualification the USGS is seeking.
+
+GENERAL REQUIREMENTS
+The contractor shall furnish all facilities, labor, and materials to provide goods/services in accordance with the terms and conditions and the specifications set forth herein:
+
+INTRODUCTION
+The U.S. Geological Survey, USGS Advanced National Seismic System (ANSS) is designed to organize, modernize, and standardize operations of seismic networks in the United States to improve the Nation's ability to respond effectively to damaging earthquakes, volcanoes, and tsunamis. This national seismic network of thousands of seismic stations makes it possible to 1) provide emergency response personnel with real-time earthquake information, 2) provide engineers with information about building and site response, and 3) provide scientists with high-quality data to understand earthquake processes and solid earth structure and dynamics. The contractor shall provide services to support software products that are used by the USGS ANSS in the delivery and processing of earthquake information.
+
+TASKS
+The contractor shall support the software products used by the USGS ANSS on an as-needed basis when notified by the Contract Technical Liaison. Support may include training and assisting members of the ANSS to install, configure, and operate the products listed below; troubleshooting, correcting problems or errors; adding features or enhancements; and updating products. The products to be supported and/or enhanced include, but are not limited to:
+
+ANSS Quake Monitoring System (AQMS) processes waveform data from seismic networks in real-time to compute earthquake locations, magnitudes, mechanisms, ShakeMaps, and finite-fault solutions. It provides the capability of rapid review for duty seismologists, routine post-processing of earthquakes by analysts, notification of significant events and system status, and near-real-time product archiving. The USGS requires the contractor to maintain, modify, enhance, document, and distribute software; reduce operational costs by modifying AQMS to use open-source database software and Linux operating systems; manage the SVN software repository; manage configuration and operation of AQMS software, installation of software updates, and administration of database; manage preparation, maintenance, and loading of current and historic station metadata, parametric and waveform data into AQMS database; and support its use at ANSS regional networks.
+
+Earthworm is a seismic waveform acquisition, processing, and earthquake reporting system used at over a dozen ANSS regional seismic networks. It is an essential component of AQMS. The USGS requires the contractor to maintain and enhance software, create software distributions, and support its use at ANSS regional networks. Locations include Pasadena, CA, Seattle, WA, Salt Lake City, UT, Palisades, NY, and Menlo Park, CA, among others.
+
+SeisNetWatch (SNW) allows seismic network operators to monitor the state of health of seismic stations. The USGS requires the contractor to maintain and enhance software, including developing data agents for new seismic equipment, developing methods to automatically configure SNW from AQMS metadata, creating software distributions, providing software support to USGS-supported seismic network operators and the Puerto Rico Seismic Network, developing methods to monitor up-time of individual seismic stations in the ANSS, to meaningfully report the up-time of analog and triggered seismic stations, and to aggregate individual station up-time performance into summary reports for a monitoring network.
+
+CISN Display is a GIS mapping application for emergency management agencies that receives and displays earthquake information distributed via the Internet by the ANSS. The USGS requires the contractor to maintain and enhance software and data servers, creating software distributions, and providing user support and management tools.
+
+Earthquake Information Distribution System (EIDS) is messaging software used to distribute and synchronize summary earthquake products among USGS data centers and ANSS regional seismic networks to CISN Display. The USGS requires the contractor to maintain and enhance software, including creating software distributions, providing support for data providers, accommodating PDL requirements, modify software as necessary to use QuakeML for data transport or StationXML for notification and update information on station changes
+
+QuakeWatchCapOut converts earthquake messages distributed through EIDS and PDL into the Common Alerting Protocol (CAP) format and forwards CAP messages to the Disaster Management Interoperability Services (DMIS) server and as a USGS RSS feed. Support is needed to implement updates of the CAP protocol. 
+
+ShakeAlertToCAP converts earthquake early warning messages from the ShakeAlert system into the CAP format  for distribution over various emergency alert systems, including FEMA's IPAWS-OPEN.  Support will be needed to continue to enhance and maintain this software to provide information on expected shaking intensity as the ShakeAlert system evolves.
+
+geoJSON2ew is  a software module that converts geoJSON format to the Earthworm tracebuf format.  It is used in the ShakeAlert earthquake early warning system to import GPS datastreams for use in the ShakeAlert system.  The USGS requires the contractor to maintain and enhance this module as needed to support the incorporation of GPS data within the ShakeAlert system.
+
+CESMD Virtual Data Center (VDC) hosts a database of global strong-motion waveform data and derived products for use by the engineering community that is accessible via the web. The VDC is a cooperative effort between the California Geological Survey and the USGS. The USGS requires the contractor to develop tools to efficiently retrieve strong motion data from non-US seismic networks and incorporate those data into the CESMD.
+
+OpenSHM is structural health monitoring software that process recorded data by the seismic arrays installed in structures in real time to track changes in the dynamic characteristics of the structure and detect damage as it occurs, and issue warning messages.
+
+SWARM (Seismic Wave Analysis and Real-time Monitor) is a Java program to analyze seismic waveforms in real-time that can display helicorders, frequency spectra, and spectrograms for visualizing seismic waveforms quickly and effectively.
+
+Winston is a Java program that replaces the Earthworm wave_server5. It uses an SQL database, automatically compresses data, eliminates wave tanks, has no size limitations or limits on stored duration, and handles out of order tracebufs seamlessly.
+
+SHAPE is a tool for easily building Dataless Standard for the Exchange of Earthquake Data (SEED) volumes.
+
+PRISM is a Java application for processing and analyzing strong-motion records to generate COSMOS Vl, V2, and V3 data products for the Center for Engineering Strong Motion Data.
+
+XMAX is a Java application for performing waveform data quality control (QC).  The tool consists of a user interface (GUI) and associated software to visualize waveforms, filter data and remove instrument response, and display spectra.
+
+DELIVERABLES
+
+Contract Products: The Technical Liaison will inspect all services delivered to the Government under this contract to determine that (1) the materials and products are complete and (2) that the documentation is adequate.  If the services are deemed unacceptable, the Technical Liaison will provide information detailing the shortcomings. Contractor will be given two weeks from the date of the Technical Liaison's memorandum to correct all shortcomings. Corrections shall be at no cost to the Government. All software developed under this contract will become the property of the U. S. Government. Contractor understands that all software developed, improved or in any way worked on by the Contractor will be made available as open source to the user community. Exceptions under this contract are CISN Display and EIDS which consists of propriety software and USGS funded enhancements. The Technical Liaison and Contractor will together establish reasonable estimated dates for completion of tasks. In any case, Contractor shall show reasonable and steady progress in meeting milestones as described in this work statement and as more particularly described in the written quarterly reports.  The Technical Liaison will document instances of unacceptable work or unreasonably slow progress, which may, at the option of the Government, be grounds for contract cancellation.
+
+Written Reports: Contractor shall document work through frequent emails to the Technical Liaison. These reports shall discuss work addressed; progress made, problems encountered, and works remaining. The required work will be updated and specific deadlines restated by the Technical Liaison, as necessary. All software shall be documented at AQMS and Earthworm software repositories and websites. Invoices for services shall document the hours spent on each task.
+
+The USGS intends to award this as an ID/IQ Labor Hour Contract, with a base year and four option periods.
+ 
+The purpose of this notice is to determine interest and capability of potential sources.  The NAICS is 541511, Custom Computer Programing Services $27.5M.
+
+Contractors must be currently registered in the System for Award Management (SAM) database.  This is not a request for quotation or a solicitation for offers.
+
+Interested parties will submit an email detailing their capabilities and experience with these services.  Sufficient information must be provided to demonstrate the ability to complete the services.
+
+This is not a request for quotation or an announcement of a solicitation.  Responses will be used for market research only. 
+
+Responses are due no later than 06/28/2016 1300 EDT. Response may be submitted to Stewart Evans by email at sevans@usgs.gov.
+
+Place of performance is:
+
+Contractor¿s Facility
+
+POC: Stewart Evans (916) 278-9334 or sevans@usgs.gov]]></description>
+            <link>https://www.fbo.gov/spg/DOI/USGS/USGS/G16PS00516/listing.html</link>
+            <guid isPermaLink="true">https://www.fbo.gov/spg/DOI/USGS/USGS/G16PS00516/listing.html</guid>
+            <pubDate>Fri, 03 Jun 2016 04:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
