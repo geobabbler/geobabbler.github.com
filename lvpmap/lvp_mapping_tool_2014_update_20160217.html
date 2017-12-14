@@ -1,0 +1,242 @@
+<HTML>
+<head>
+
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+
+
+<!-- <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' /> -->
+</head>
+
+<body>
+
+
+<!--legend -->
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:15px;
+  width:20%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+
+
+<!-- LEGEND -->
+<div id='legend' style='display:none;'>
+  <strong>Percent Hispanic</strong>
+  <nav class='legend clearfix'>
+    <span style='background:rgba(240,240,240,0.5);'></span>
+    <span style='background:rgba(189,189,189,0.5);'></span>
+    <span style='background:rgba(115,115,115,0.5);'></span>
+    <span style='background: rgba(37,37,37,0.5);'></span>
+    <span style='background: rgba(0,0,0,0.5);'></span>
+    <label>0 - 20%</label>
+    <label>20 - 40%</label>
+    <label>40 - 60%</label>
+    <label>60 - 80%</label>
+    <label>80 - 100%</label>
+    <small>Source: <a href="http://www.census.gov">US Census</a></small>
+    <br>  
+    <strong>Hispanic Representation</strong>
+    <br>    
+    <span style='background:rgba(251,128,114,0.6);'></span><small> Majority Hispanic, Non-Hispanic Representation</small><br>
+    <span style='background:rgba(141,211,199,0.6);'></span><small> Majority Hispanic, Hispanic Representation</small><br>
+    <span style='background:rgba(141,160,203,0.6);'></span><small> Minority Hispanic, Hispanic Representation</small><br> 
+    <span style= 'background-image: linear-gradient(to left top,transparent 50%,rgba(180,180,180,0.4) 50%,rgba(180,180,180,0.4) 66%,transparent 66%);background-size: 4px 10px;'></span><small>, No Data Available</small> <br>
+    <span style='background:rgba(71,71,71,1); border-radius:90px 90px 90px; width: 15px'></span><small> Congressional Endorsements</small><br>
+    <a href="http://www.bluelabs.com/" target="_blank"><img src="https://media.licdn.com/media/p/3/005/00b/2f2/151565f.png" style = "float:right;width:50%; height:50px"></a>
+    <a href="http://www.latinovictory.us/" target="_blank"><img src="http://www.latinovictory.us/wp-content/uploads/2014/01/LOGO.png" style = "float:right; width:40%; height:40pm"></a>
+</div>
+        
+        
+<div id='map'></div>    
+
+
+<script type="text/javascript">
+  L.mapbox.accessToken = 'pk.eyJ1IjoiYmx1ZWxhYnMiLCJhIjoiOVp6cnNQMCJ9.94boS6rLdn-UFdkyixdTGA';
+  var map = L.mapbox.map('map').setView([38.8922,-90.0348], 5);
+
+  //Initialize map
+  L.mapbox.tileLayer('bluelabs.lakmg8n8').addTo(map);
+
+  //Legend
+  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+
+  //set all layers are variables and create endorsement layers
+  var cd_demo = L.mapbox.tileLayer('bluelabs.0iiv19n8'); //('bluelabs.a9543637'),
+      county_demo = L.mapbox.tileLayer('bluelabs.7h94l24z'); //('bluelabs.6afd6744'),
+      slu_demo = L.mapbox.tileLayer('bluelabs.dl3kkim6'); //('bluelabs.0e6e6045'),
+      sll_demo = L.mapbox.tileLayer('bluelabs.2k0z2wbc'); //('bluelabs.1622a09b')
+      cd_electeds = L.mapbox.tileLayer('bluelabs.f1128e13'),
+      county_electeds = L.mapbox.tileLayer('bluelabs.7f773eaa'),
+      slu_electeds = L.mapbox.tileLayer('bluelabs.5254c2bd'),
+      sll_electeds = L.mapbox.tileLayer('bluelabs.721a0bc2')
+      endorsements = [
+        //CA-44
+        {
+          "type": "Feature",
+          "geometry": {
+          "type": "Point",
+          "coordinates": [-118.239,33.8476]
+          },
+          "properties": {
+            "title": "Endorsement: Nanette Barragan",
+            "description": "CA Congressional District 44",
+            "marker-color": "#0035a2",
+            "marker-size": "medium"
+          }
+        },
+        //CA24
+        {
+          "type": "Feature",
+          "geometry": {
+          "type": "Point",
+          "coordinates": [-120.1,35.0426]
+          },
+          "properties": {
+            "title": "Endorsement: Salud Carbajal",
+            "description": "CA Congressional District 24",
+            "marker-color": "#0035a2",
+            "marker-size": "medium"
+          }
+        },
+        //FL9
+        {
+          "type": "Feature",
+          "geometry": {
+          "type": "Point",
+          "coordinates": [-81.1954,28.1169]
+          },
+          "properties": {
+            "title": "Endorsement: Darren Soto ",
+            "description": "FL Congressional District 9",
+            "marker-color": "#0035a2",
+            "marker-size": "medium"
+          }
+        },
+        //TX23
+        {
+          "type": "Feature",
+          "geometry": {
+          "type": "Point",
+          "coordinates": [-102.349,30.7571]
+          },
+          "properties": {
+            "title": "Endorsement: Pete Gallego",
+            "description": "TX Congressional District 23",
+            "marker-color": "#0035a2",
+            "marker-size": "medium"
+          }
+        }, 
+        //CA SENATE
+        {
+          "type": "Feature",
+          "geometry": {
+          "type": "Point",
+          "coordinates": [-118.7462,36.500]
+          },
+          "properties": {
+            "title": "Endorsement: Linda Sanchez",
+            "description": "CA Senate",
+            "marker-color": "#6799ff",
+            "marker-size": "large"
+          }
+        }, 
+        //NV SENATE
+        {
+          "type": "Feature",
+          "geometry": {
+          "type": "Point",
+          "coordinates": [-117.1219,38.4199]
+          },
+          "properties": {
+            "title": "Endorsement: Catherine Cortez Masto",
+            "description": "CA Senate",
+            "marker-color": "#6799ff",
+            "marker-size": "large"
+          }
+        }
+      ];
+
+
+  //Addition display variable needed for geojson format
+  var endorsements_display = L.mapbox.featureLayer().setGeoJSON(endorsements);
+
+  //Create layer groups so that demos and electeds (and endorsements) can be turned on with a single toggle
+  var cd = L.layerGroup([cd_demo, 
+                        cd_electeds, 
+                        endorsements_display
+                        ]);
+  var county = L.layerGroup([county_demo, county_electeds]);
+  var slu = L.layerGroup([slu_demo, slu_electeds]);
+  var sll = L.layerGroup([sll_demo, sll_electeds]);
+
+
+//Create names for the varable groups to display in the toggler (I think?)
+  var demographics = {
+    "Congresssional District Demographics": cd_demo, 
+    "County Demographics": county_demo, 
+    "Upper State Leg District Demographics": slu_demo, 
+    "Lower State Leg District Demographics": sll_demo
+};    
+
+  var baseMaps = {
+    "Congressional Districts": cd,
+    "Counties": county,
+    "Upper State Legislative Districts": slu,
+    "Lower State Legislative Districts": sll
+};
+
+
+//Create Layers Toggle control layers mechanism
+L.control.layers({
+  "Congressional Districts": cd.addTo(map),
+  "Upper State Legislative Districts": slu,
+  "Lower State Legislative Districts": sll,
+  "Counties": county,
+  }, null, {position:'bottomleft', collapsed:false}).addTo(map);
+
+//Create variables for the label layers
+  var cd_labels = L.mapbox.tileLayer('bluelabs.lo09ej13');
+  //var cd_stories = L.mapbox.tileLayer('bluelabs.lo09ej13')
+  var county_labels = L.mapbox.tileLayer('bluelabs.le33gbf6');
+  var slu_labels = L.mapbox.tileLayer('bluelabs.lo09ej13');
+  var sll_labels = L.mapbox.tileLayer('bluelabs.lo09ej13');
+
+//And add those varaibles to the map, and set their display order
+  addLayer(cd_labels, L.mapbox.gridLayer('bluelabs.n1aici39'),'cd_labels', 1);
+  //addLayer(cd_stories, L.mapbox.gridLayer('bluelabs.701cerk9'), 'cd_stories', 2);
+  addLayer(slu_labels, L.mapbox.gridLayer('bluelabs.n1b4pem7'),'slu_labels', 2);
+  addLayer(sll_labels, L.mapbox.gridLayer('bluelabs.mk2j4298'),'sll_labels', 3);
+  addLayer(county_labels, L.mapbox.gridLayer('bluelabs.mk8813o0'),'county_labels', 4);
+
+//Layer toggle
+  function addLayer(layer, gridlayer, name, zIndex) {
+    layer
+        .setZIndex(zIndex)
+        .addTo(map);
+    gridlayer
+        .addTo(map);
+    // add the gridControl to the active gridlayer
+    var gridControl = L.mapbox.gridControl(gridlayer, {follow: false}).addTo(map);
+    
+    var item = document.createElement('li');
+    var link = document.createElement('a');
+      
+  }
+
+</script>
+
+</body>    
+
+</HTML>
