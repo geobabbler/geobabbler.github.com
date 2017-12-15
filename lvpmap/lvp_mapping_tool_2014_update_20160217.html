@@ -52,8 +52,8 @@ body { margin:0; padding:0; }
     <span style='background:rgba(251,128,114,0.6);'></span><small> Majority Hispanic, Non-Hispanic Representation</small><br>
     <span style='background:rgba(141,211,199,0.6);'></span><small> Majority Hispanic, Hispanic Representation</small><br>
     <span style='background:rgba(141,160,203,0.6);'></span><small> Minority Hispanic, Hispanic Representation</small><br> 
-    <span style= 'background-image: linear-gradient(to left top,transparent 50%,rgba(180,180,180,0.4) 50%,rgba(180,180,180,0.4) 66%,transparent 66%);background-size: 4px 10px;'></span><small>, No Data Available</small> <br>
-    <span style='background:rgba(71,71,71,1); border-radius:90px 90px 90px; width: 15px'></span><small> Congressional Endorsements</small><br>
+    <!-- <span style= 'background-image: linear-gradient(to left top,transparent 50%,rgba(180,180,180,0.4) 50%,rgba(180,180,180,0.4) 66%,transparent 66%);background-size: 4px 10px;'></span><small>, No Data Available</small> <br>
+    <span style='background:rgba(71,71,71,1); border-radius:90px 90px 90px; width: 15px'></span><small> Congressional Endorsements</small><br> -->
     <a href="http://www.bluelabs.com/" target="_blank"><img src="https://media.licdn.com/media/p/3/005/00b/2f2/151565f.png" style = "float:right;width:50%; height:50px"></a>
     <a href="http://www.latinovictory.us/" target="_blank"><img src="http://www.latinovictory.us/wp-content/uploads/2014/01/LOGO.png" style = "float:right; width:40%; height:40pm"></a>
 </div>
@@ -89,7 +89,7 @@ body { margin:0; padding:0; }
       var slu_gridControl = L.mapbox.gridControl(slu_grid, {follow: false}).addTo(map);
       var sll_gridControl = L.mapbox.gridControl(sll_grid, {follow: false}).addTo(map);
       var county_gridControl = L.mapbox.gridControl(county_grid, {follow: false}).addTo(map);
-      endorsements = [
+      /*endorsements = [
         //CA-44
         {
           "type": "Feature",
@@ -174,16 +174,16 @@ body { margin:0; padding:0; }
             "marker-size": "large"
           }
         }
-      ];
+      ];*/
 
 
   //Addition display variable needed for geojson format
-  var endorsements_display = L.mapbox.featureLayer().setGeoJSON(endorsements);
+  //var endorsements_display = L.mapbox.featureLayer().setGeoJSON(endorsements);
 
   //Create layer groups so that demos and electeds (and endorsements) can be turned on with a single toggle
   var cd = L.layerGroup([cd_demo, 
                         cd_electeds, 
-                        endorsements_display,
+                        //endorsements_display,
                         cd_grid
                         ]);
   var county = L.layerGroup([county_demo, county_electeds, county_grid]);
