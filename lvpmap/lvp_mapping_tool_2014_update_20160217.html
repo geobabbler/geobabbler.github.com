@@ -78,13 +78,17 @@ body { margin:0; padding:0; }
       slu_demo = L.mapbox.tileLayer('bluelabs.dl3kkim6'), //('bluelabs.0e6e6045'),
       sll_demo = L.mapbox.tileLayer('bluelabs.2k0z2wbc'), //('bluelabs.1622a09b')
       cd_electeds = L.mapbox.tileLayer('bluelabs.5arhcbdf'), //('bluelabs.f1128e13'),
-      county_electeds = L.mapbox.tileLayer('bluelabs.7f773eaa'),
+      county_electeds = L.mapbox.tileLayer('bluelabs.045q4vzc'), //('bluelabs.7f773eaa'),
       slu_electeds = L.mapbox.tileLayer('bluelabs.7o8rvptm'), //('bluelabs.5254c2bd'),
-      sll_electeds = L.mapbox.tileLayer('bluelabs.721a0bc2'),
+      sll_electeds = L.mapbox.tileLayer('bluelabs.cgqfdlig'), //('bluelabs.721a0bc2'),
       cd_grid = L.mapbox.gridLayer('bluelabs.5arhcbdf'),
-      slu_grid = L.mapbox.gridLayer('bluelabs.7o8rvptm')
+      slu_grid = L.mapbox.gridLayer('bluelabs.7o8rvptm'),
+      sll_grid = L.mapbox.gridLayer('bluelabs.cgqfdlig'),
+      county_grid = L.mapbox.gridLayer('bluelabs.045q4vzc')
       var cd_gridControl = L.mapbox.gridControl(cd_grid, {follow: false}).addTo(map);
       var slu_gridControl = L.mapbox.gridControl(slu_grid, {follow: false}).addTo(map);
+      var sll_gridControl = L.mapbox.gridControl(sll_grid, {follow: false}).addTo(map);
+      var county_gridControl = L.mapbox.gridControl(county_grid, {follow: false}).addTo(map);
       endorsements = [
         //CA-44
         {
@@ -182,9 +186,9 @@ body { margin:0; padding:0; }
                         endorsements_display,
                         cd_grid
                         ]);
-  var county = L.layerGroup([county_demo, county_electeds]);
+  var county = L.layerGroup([county_demo, county_electeds, county_grid]);
   var slu = L.layerGroup([slu_demo, slu_electeds, slu_grid]);
-  var sll = L.layerGroup([sll_demo, sll_electeds]);
+  var sll = L.layerGroup([sll_demo, sll_electeds, sll_grid]);
 
 
 //Create names for the varable groups to display in the toggler (I think?)
@@ -212,18 +216,18 @@ L.control.layers({
   }, null, {position:'bottomleft', collapsed:false}).addTo(map);
 
 //Create variables for the label layers
-  var cd_labels = L.mapbox.tileLayer('bluelabs.cd_labels_2');//('bluelabs.lo09ej13');
+  //var cd_labels = L.mapbox.tileLayer('bluelabs.cd_labels_2');//('bluelabs.lo09ej13');
   //var cd_stories = L.mapbox.tileLayer('bluelabs.lo09ej13')
-  var county_labels = L.mapbox.tileLayer('bluelabs.le33gbf6');
-  var slu_labels = L.mapbox.tileLayer('bluelabs.cd_labels_2'); //('bluelabs.lo09ej13');
-  var sll_labels = L.mapbox.tileLayer('bluelabs.cd_labels_2');//('bluelabs.lo09ej13');
+  //var county_labels = L.mapbox.tileLayer('bluelabs.le33gbf6');
+  //var slu_labels = L.mapbox.tileLayer('bluelabs.cd_labels_2'); //('bluelabs.lo09ej13');
+  //var sll_labels = L.mapbox.tileLayer('bluelabs.cd_labels_2');//('bluelabs.lo09ej13');
 
 //And add those varaibles to the map, and set their display order
   //addLayer(cd_labels, L.mapbox.gridLayer('bluelabs.5arhcbdf'),'cd_labels', 1);
   //addLayer(cd_stories, L.mapbox.gridLayer('bluelabs.701cerk9'), 'cd_stories', 2);
   //addLayer(slu_labels, L.mapbox.gridLayer('bluelabs.7o8rvptm'),'slu_labels', 2);
-  addLayer(sll_labels, L.mapbox.gridLayer('bluelabs.mk2j4298'),'sll_labels', 3);
-  addLayer(county_labels, L.mapbox.gridLayer('bluelabs.mk8813o0'),'county_labels', 4);
+  //addLayer(sll_labels, L.mapbox.gridLayer('bluelabs.mk2j4298'),'sll_labels', 3);
+  //addLayer(county_labels, L.mapbox.gridLayer('bluelabs.mk8813o0'),'county_labels', 4);
 
 //Layer toggle
   function addLayer(layer, gridlayer, name, zIndex) {
