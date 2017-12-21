@@ -64,27 +64,37 @@ body { margin:0; padding:0; }
 
 <script type="text/javascript">
   L.mapbox.accessToken = 'pk.eyJ1IjoiYmx1ZWxhYnMiLCJhIjoiOVp6cnNQMCJ9.94boS6rLdn-UFdkyixdTGA';
-  var map = L.mapbox.map('map').setView([38.8922,-90.0348], 5);
-
+  var map = L.mapbox.map('map').setView([38.8922,-90.0348], 5); //.on('overlayadd', function(e){alert('overlayremove')});
+  
   //Initialize map
   L.mapbox.tileLayer('bluelabs.lakmg8n8').addTo(map);
 
   //Legend
   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
+  //Map IDs
+  var cd_demo_id = 'bluelabs.8cbxp8e9',
+      county_demo_id = 'bluelabs.cstyi6d3',
+      slu_demo_id = 'bluelabs.71ao1vu0',
+      sll_demo_id = 'bluelabs.8zd859bf',
+      cd_eo_id = 'bluelabs.5arhcbdf',
+      county_eo_id = 'bluelabs.045q4vzc',
+      slu_eo_id = 'bluelabs.7o8rvptm',
+      sll_eo_id = 'bluelabs.cgqfdlig';
+
   //set all layers are variables and create endorsement layers
-  var cd_demo = L.mapbox.tileLayer('bluelabs.8cbxp8e9'),
-      county_demo = L.mapbox.tileLayer('bluelabs.cstyi6d3'),
-      slu_demo = L.mapbox.tileLayer('bluelabs.71ao1vu0'),
-      sll_demo = L.mapbox.tileLayer('bluelabs.8zd859bf'),
-      cd_electeds = L.mapbox.tileLayer('bluelabs.5arhcbdf'),
-      county_electeds = L.mapbox.tileLayer('bluelabs.045q4vzc'),
-      slu_electeds = L.mapbox.tileLayer('bluelabs.7o8rvptm'),
-      sll_electeds = L.mapbox.tileLayer('bluelabs.cgqfdlig'),
-      cd_grid = L.mapbox.gridLayer('bluelabs.5arhcbdf'),
-      slu_grid = L.mapbox.gridLayer('bluelabs.7o8rvptm'),
-      sll_grid = L.mapbox.gridLayer('bluelabs.cgqfdlig'),
-      county_grid = L.mapbox.gridLayer('bluelabs.045q4vzc')
+  var cd_demo = L.mapbox.tileLayer(cd_demo_id),
+      county_demo = L.mapbox.tileLayer(county_demo_id),
+      slu_demo = L.mapbox.tileLayer(slu_demo_id),
+      sll_demo = L.mapbox.tileLayer(sll_demo_id),
+      cd_electeds = L.mapbox.tileLayer(cd_eo_id, {id: cd_eo_id}),
+      county_electeds = L.mapbox.tileLayer(county_eo_id, {id: county_eo_id}),
+      slu_electeds = L.mapbox.tileLayer(slu_eo_id, {id: slu_eo_id}),
+      sll_electeds = L.mapbox.tileLayer(sll_eo_id, {id: sll_eo_id}),
+      cd_grid = L.mapbox.gridLayer(cd_eo_id),
+      slu_grid = L.mapbox.gridLayer(slu_eo_id),
+      sll_grid = L.mapbox.gridLayer(sll_eo_id),
+      county_grid = L.mapbox.gridLayer(county_eo_id)
       var cd_gridControl = L.mapbox.gridControl(cd_grid, {follow: false}).addTo(map);
       var slu_gridControl = L.mapbox.gridControl(slu_grid, {follow: false}).addTo(map);
       var sll_gridControl = L.mapbox.gridControl(sll_grid, {follow: false}).addTo(map);
@@ -190,7 +200,6 @@ body { margin:0; padding:0; }
   var slu = L.layerGroup([slu_demo, slu_electeds, slu_grid]);
   var sll = L.layerGroup([sll_demo, sll_electeds, sll_grid]);
 
-
 //Create names for the varable groups to display in the toggler (I think?)
   var demographics = {
     "Congresssional District Demographics": cd_demo, 
@@ -215,35 +224,29 @@ L.control.layers({
   "Counties": county,
   }, null, {position:'bottomleft', collapsed:false}).addTo(map);
 
-//Create variables for the label layers
-  //var cd_labels = L.mapbox.tileLayer('bluelabs.cd_labels_2');//('bluelabs.lo09ej13');
-  //var cd_stories = L.mapbox.tileLayer('bluelabs.lo09ej13')
-  //var county_labels = L.mapbox.tileLayer('bluelabs.le33gbf6');
-  //var slu_labels = L.mapbox.tileLayer('bluelabs.cd_labels_2'); //('bluelabs.lo09ej13');
-  //var sll_labels = L.mapbox.tileLayer('bluelabs.cd_labels_2');//('bluelabs.lo09ej13');
-
-//And add those varaibles to the map, and set their display order
-  //addLayer(cd_labels, L.mapbox.gridLayer('bluelabs.5arhcbdf'),'cd_labels', 1);
-  //addLayer(cd_stories, L.mapbox.gridLayer('bluelabs.701cerk9'), 'cd_stories', 2);
-  //addLayer(slu_labels, L.mapbox.gridLayer('bluelabs.7o8rvptm'),'slu_labels', 2);
-  //addLayer(sll_labels, L.mapbox.gridLayer('bluelabs.mk2j4298'),'sll_labels', 3);
-  //addLayer(county_labels, L.mapbox.gridLayer('bluelabs.mk8813o0'),'county_labels', 4);
-
-//Layer toggle
-  function addLayer(layer, gridlayer, name, zIndex) {
-    layer
-        .setZIndex(zIndex)
-        .addTo(map);
-    gridlayer
-        .addTo(map);
-    // add the gridControl to the active gridlayer
-    var gridControl = L.mapbox.gridControl(gridlayer, {follow: false}).addTo(map);
-    
-    var item = document.createElement('li');
-    var link = document.createElement('a');
-      
-  }
-
+//clear out any tooltips that are displaying when layer is switched
+  map.on('layerremove', function(e){
+    if (e.layer) {
+      if(e.layer.options){
+        if (e.layer.options.id){
+          switch(e.layer.options.id){
+            case cd_eo_id:
+              cd_gridControl.hide();
+              break;
+            case sll_eo_id:
+              sll_gridControl.hide();
+              break;
+            case slu_eo_id:
+              slu_gridControl.hide();
+              break;
+            case county_eo_id:
+              county_gridControl.hide();
+              break;
+          }
+        }
+      }
+    }
+  });
 </script>
 
 </body>    
